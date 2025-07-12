@@ -2,6 +2,27 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [1.2.0-rc.2] - 2025-07-12
+
+### Enhanced
+- **APM Repository Integration**: Complete automation of release deployment
+  - Automatic pushing to APM repository (https://github.com/omayhemo/APM)
+  - GitHub release creation with distribution packages
+  - Pre-release flagging for RC/beta/alpha versions
+  - Error handling and fallback options
+
+### Fixed
+- Release script compatibility with missing README files
+- Filename consistency (ap-mapping vs ap-method) throughout system
+- Version update automation across all components
+- Distribution build verification and error handling
+
+### Improved
+- **Release Workflow**: End-to-end automation from dev to production
+  - Single command deployment to APM repository
+  - Comprehensive error recovery and manual fallbacks
+  - Release notes generation with installation instructions
+
 ## [1.2.0-rc.1] - 2025-07-12
 
 ### Added

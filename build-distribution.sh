@@ -10,7 +10,7 @@ set -e
 if [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="1.0.0"
+    VERSION="1.2.0-rc.2"
 fi
 DIST_NAME="ap-mapping-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
