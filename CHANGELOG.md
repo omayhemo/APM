@@ -2,6 +2,30 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [1.2.0-rc.1] - 2025-07-12
+
+### Added
+- **Release Candidate Process**: Comprehensive release automation workflow
+  - Automated version management across all system files
+  - Distribution building and testing capabilities
+  - GitHub release preparation with CLI integration
+  - Quality assurance checkpoints for RC validation
+
+### Enhanced
+- **Command Structure**: Improved command organization and processing
+  - Moved command definitions to `.claude/commands/` for better structure
+  - Enhanced release workflow with automated validation steps
+  - Improved git workflow integration for releases
+
+### Fixed
+- Command file organization and accessibility
+- Version consistency across distribution components
+
+### Quality Assurance
+- Pre-release testing framework for distribution validation
+- Automated integrity checking for release packages
+- Enhanced documentation for release process
+
 ## [1.1.0-alpha.2] - 2025-01-10
 
 ### Added
