@@ -46,12 +46,12 @@ update_version() {
     rm build-distribution.sh.bak
     
     # Update README.md URLs
-    sed -i.bak "s/ap-method-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-method-v$version.tar.gz/g" README.md
-    rm README.md.bak
+    sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" README.md
+    rm README.md.bak 2>/dev/null || true
     
     # Update installer README
-    sed -i.bak "s/ap-method-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-method-v$version.tar.gz/g" installer/README.md
-    rm installer/README.md.bak
+    sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" installer/README.md
+    rm installer/README.md.bak 2>/dev/null || true
     
     echo -e "${GREEN}✓ Version updated in all files${NC}"
 }
@@ -101,7 +101,7 @@ _None in this release_
 ### New Installation
 
 \`\`\`bash
-curl -L https://github.com/omayhemo/APM/releases/download/v$version/ap-method-v$version.tar.gz | tar -xz
+curl -L https://github.com/omayhemo/APM/releases/download/v$version/ap-mapping-v$version.tar.gz | tar -xz
 ./installer/install.sh
 \`\`\`
 
@@ -129,9 +129,9 @@ build_distribution() {
     ./build-distribution.sh
     
     # Verify build
-    if [ -f "dist/ap-method-v$VERSION.tar.gz" ]; then
+    if [ -f "dist/ap-mapping-v$VERSION.tar.gz" ]; then
         echo -e "${GREEN}✓ Distribution built successfully${NC}"
-        ls -la dist/ap-method-v$VERSION.tar.gz
+        ls -la dist/ap-mapping-v$VERSION.tar.gz
     else
         echo -e "${RED}Error: Distribution build failed${NC}"
         exit 1
@@ -157,40 +157,102 @@ create_git_tag() {
     echo -e "${GREEN}✓ Git tag created: v$version${NC}"
 }
 
-# Show next steps
-show_next_steps() {
+# Push to APM repository
+push_to_apm_repo() {
+    local version=$1
+    local release_type=$2
+    
+    echo -e "${BLUE}Pushing to APM repository...${NC}"
+    
+    # Check if APM remote exists
+    if ! git remote get-url apm > /dev/null 2>&1; then
+        echo -e "${YELLOW}Adding APM remote...${NC}"
+        git remote add apm https://github.com/omayhemo/APM.git
+    fi
+    
+    # Push commits and tags to APM repo
+    echo "Pushing commits to APM repo..."
+    git push apm main
+    
+    echo "Pushing tag to APM repo..."
+    git push apm v$version
+    
+    echo -e "${GREEN}✓ Pushed to APM repository${NC}"
+}
+
+# Create GitHub release on APM repo
+create_github_release() {
+    local version=$1
+    local release_type=$2
+    
+    echo -e "${BLUE}Creating GitHub release on APM repo...${NC}"
+    
+    # Check if gh CLI is available
+    if ! command -v gh &> /dev/null; then
+        echo -e "${YELLOW}GitHub CLI not found. Manual release creation required.${NC}"
+        show_manual_release_steps "$version" "$release_type"
+        return
+    fi
+    
+    # Determine if this is a pre-release
+    local prerelease_flag=""
+    if [[ "$version" =~ -[a-zA-Z] ]]; then
+        prerelease_flag="--prerelease"
+    fi
+    
+    # Create release with distribution package
+    echo "Creating GitHub release..."
+    gh release create "v$version" \
+        --repo omayhemo/APM \
+        --title "AP Mapping v$version" \
+        --notes-file RELEASE_NOTES.md \
+        $prerelease_flag \
+        "dist/ap-mapping-v$version.tar.gz"
+    
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✓ GitHub release created successfully${NC}"
+        echo "Release URL: https://github.com/omayhemo/APM/releases/tag/v$version"
+    else
+        echo -e "${RED}Error creating GitHub release${NC}"
+        show_manual_release_steps "$version" "$release_type"
+    fi
+}
+
+# Show manual release steps if automated release fails
+show_manual_release_steps() {
+    local version=$1
+    local release_type=$2
+    
+    echo ""
+    echo -e "${YELLOW}Manual release creation required:${NC}"
+    echo ""
+    echo "1. Go to: https://github.com/omayhemo/APM/releases"
+    echo "2. Click 'Draft a new release'"
+    echo "3. Select tag: v$version"
+    echo "4. Upload: dist/ap-mapping-v$version.tar.gz"
+    echo "5. Copy contents from RELEASE_NOTES.md"
+    if [[ "$version" =~ -[a-zA-Z] ]]; then
+        echo "6. ✓ Mark as pre-release"
+    fi
+    echo ""
+}
+
+# Show completion message
+show_completion() {
     local version=$1
     
     echo ""
-    echo -e "${GREEN}Release preparation complete!${NC}"
+    echo -e "${GREEN}🎉 Release v$version completed successfully!${NC}"
     echo ""
-    echo -e "${YELLOW}Next steps:${NC}"
+    echo -e "${YELLOW}Post-release verification:${NC}"
+    echo "- Test download: https://github.com/omayhemo/APM/releases/tag/v$version"
+    echo "- Test installation: tar -xzf ap-mapping-v$version.tar.gz && ./installer/install.sh"
+    echo "- Test update: agents/scripts/ap-manager.sh update"
     echo ""
-    echo "1. Edit RELEASE_NOTES.md with actual release information"
-    echo ""
-    echo "2. Push to GitHub:"
-    echo "   git push origin main"
-    echo "   git push origin v$version"
-    echo ""
-    echo "3. Create GitHub release:"
-    echo ""
-    echo "   Using GitHub CLI:"
-    echo "   gh release create v$version \\"
-    echo "     --title \"AP Mapping v$version\" \\"
-    echo "     --notes-file RELEASE_NOTES.md \\"
-    echo "     dist/ap-method-v$version.tar.gz"
-    echo ""
-    echo "   Or manually:"
-    echo "   - Go to https://github.com/omayhemo/APM/releases"
-    echo "   - Click 'Draft a new release'"
-    echo "   - Select tag: v$version"
-    echo "   - Upload: dist/ap-method-v$version.tar.gz"
-    echo "   - Paste contents of RELEASE_NOTES.md"
-    echo ""
-    echo "4. Verify the release:"
-    echo "   - Test download from GitHub"
-    echo "   - Test ap-manager.sh update"
-    echo "   - Monitor for issues"
+    echo "Don't forget to:"
+    echo "- Update any documentation that references the version"
+    echo "- Announce the release to users"
+    echo "- Monitor for any issues"
 }
 
 # Main execution
@@ -228,7 +290,9 @@ main() {
     generate_release_notes "$VERSION"
     build_distribution
     create_git_tag "$VERSION"
-    show_next_steps "$VERSION"
+    push_to_apm_repo "$VERSION" "$RELEASE_TYPE"
+    create_github_release "$VERSION" "$RELEASE_TYPE"
+    show_completion "$VERSION"
 }
 
 # Run main function

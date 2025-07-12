@@ -18,42 +18,35 @@ Create a new release of the AP Mapping following the documented release process.
 
 When you run this command, I will:
 
-1. **Validate Version Format**
+1. **Validate Version Format & Git Status**
    - Ensure semantic versioning (MAJOR.MINOR.PATCH)
    - Handle pre-release suffixes if specified
+   - Check for clean working directory
 
 2. **Update Version References**
-   - Update VERSION in `build-distribution.sh`
-   - Update download URLs in `README.md`
-   - Update version in `installer/README.md`
+   - Update VERSION files throughout the system
+   - Update download URLs in README.md files
+   - Update installer documentation
 
-3. **Create/Update CHANGELOG**
-   - Prompt for release highlights
-   - Collect new features, bug fixes, improvements
-   - Generate CHANGELOG entry
+3. **Build Distribution Package**
+   - Run `build-distribution.sh` with new version
+   - Verify distribution package creation
+   - Update archive filename with new version
 
-4. **Build Distribution**
-   - Run `build-distribution.sh`
-   - Verify build output in `dist/`
+4. **Commit & Tag Release**
+   - Commit all version changes
+   - Create annotated git tag
+   - Generate release notes template
 
-5. **Test Distribution**
-   - Create test installation
-   - Verify installer works
-   - Test update path (if applicable)
+5. **Push to APM Repository**
+   - Push commits and tags to APM repo (https://github.com/omayhemo/APM)
+   - Create GitHub release with distribution package
+   - Verify release deployment
 
-6. **Prepare Git Release**
-   - Commit all changes
-   - Create annotated tag
-   - Generate release notes
-
-7. **Create GitHub Release**
-   - Provide GitHub CLI command
-   - Include release notes template
-   - List manual steps for web UI
-
-8. **Post-Release Checklist**
-   - Verification steps
-   - Update monitoring reminders
+6. **Post-Release Verification**
+   - Confirm release is accessible
+   - Validate download links
+   - Test update path if applicable
 
 ## Options
 
@@ -65,12 +58,31 @@ When you run this command, I will:
 ## Requirements
 
 - Clean git working directory
-- GitHub CLI installed (for automated release)
+- GitHub CLI installed (for automated APM repo release)
+- APM repository access (https://github.com/omayhemo/APM)
 - Previous version tagged properly (for update testing)
+
+## Implementation
+
+When this command is executed, I will:
+
+1. **Parse Arguments**: Extract version and release type from command arguments
+2. **Execute Release Script**: Run `.claude/scripts/release.sh` with the specified version and options
+3. **Monitor Progress**: Track each step of the automated release process
+4. **Report Results**: Provide final status and verification links
+
+The release script will handle:
+- Version validation and updates throughout the system
+- Distribution building with `build-distribution.sh`
+- Git tagging and commits with detailed release notes
+- Automated push to APM repository (https://github.com/omayhemo/APM)
+- GitHub release creation with distribution package
+- Post-release verification steps and testing guidance
 
 ## Notes
 
+- Automatically pushes to APM repository for distribution
+- Creates GitHub release with distribution package
+- Handles both stable and pre-release versions
 - Always test the update path before releasing
-- Breaking changes require migration guide
-- Release notes should be user-friendly
-- Don't forget to push both commits and tags
+- Breaking changes require migration guide in RELEASE_NOTES.md
