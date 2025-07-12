@@ -45,13 +45,19 @@ update_version() {
     sed -i.bak "s/VERSION=\".*\"/VERSION=\"$version\"/" build-distribution.sh
     rm build-distribution.sh.bak
     
-    # Update README.md URLs
-    sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" README.md
-    rm README.md.bak 2>/dev/null || true
+    # Update README.md URLs (if file exists)
+    if [ -f "README.md" ]; then
+        sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" README.md
+        rm README.md.bak 2>/dev/null || true
+        echo "  - Updated README.md download URLs"
+    fi
     
     # Update installer README
-    sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" installer/README.md
-    rm installer/README.md.bak 2>/dev/null || true
+    if [ -f "installer/README.md" ]; then
+        sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" installer/README.md
+        rm installer/README.md.bak 2>/dev/null || true
+        echo "  - Updated installer/README.md download URLs"
+    fi
     
     echo -e "${GREEN}✓ Version updated in all files${NC}"
 }
