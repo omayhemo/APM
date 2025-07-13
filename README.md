@@ -4,18 +4,18 @@ A project-agnostic framework for orchestrating AI agents in software development
 
 ## Quick Start
 
-**Latest Release:** v1.2.0-rc.2
+**Latest Release:** v1.2.0
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v1.2.0-rc.2/apm-v1.2.0-rc.2.tar.gz && tar -xzf apm-v1.2.0-rc.2.tar.gz && cd apm-v1.2.0-rc.2 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v1.2.0-rc.2/apm-v1.2.0-rc.2.tar.gz -o apm-v1.2.0-rc.2.tar.gz && tar -xzf apm-v1.2.0-rc.2.tar.gz && cd apm-v1.2.0-rc.2 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz -o apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -30,11 +30,13 @@ Agentic Persona Mapping provides specialized AI agent personas for software deve
 
 ## Key Features
 
-### ✅ **What's New in v1.2.0-rc.2**
-- **Fixed Audio System**: TTS and notification sounds now work correctly
-- **Improved Installer**: Automatic cleanup and simplified package name  
-- **Enhanced Branding**: Updated to "Agentic Persona Mapping" throughout
-- **Better Documentation**: Comprehensive installation and usage guides
+### ✅ **What's New in v1.2.0**
+- **🔧 Fixed Audio Notifications**: Resolved critical path calculation bugs in all installer hooks
+- **🎨 Updated Branding**: Complete rebrand to "Agentic Persona Mapping" throughout system
+- **📦 New Distribution Format**: Simplified `apm-v1.2.0.tar.gz` package naming
+- **⚙️ Improved Installer Defaults**: Fixed `-d` flag to properly enable stop/subagent_stop audio hooks
+- **🔇 Streamlined Installation**: Removed test voice messages for cleaner setup experience
+- **📚 Enhanced Documentation**: Updated guides and improved user experience
 
 ### 🎯 **Core Capabilities**
 - **Voice Integration**: Each persona has unique voice characteristics
@@ -134,7 +136,7 @@ agentic-persona-mapping/
 
 - **Documentation**: Comprehensive guides included with installation
 - **Issues**: GitHub Issues for bug reports and feature requests
-- **Version**: v1.2.0-rc.2 (Release Candidate)
+- **Version**: v1.2.0 (Stable Release)
 
 ## License
 
