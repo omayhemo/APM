@@ -41,6 +41,9 @@ update_version() {
     local version=$1
     echo -e "${BLUE}Updating version to $version...${NC}"
     
+    # Update VERSION file
+    echo "$version" > VERSION
+    
     # Update build-distribution.sh
     sed -i.bak "s/VERSION=\".*\"/VERSION=\"$version\"/" build-distribution.sh
     rm build-distribution.sh.bak
