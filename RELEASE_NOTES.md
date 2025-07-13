@@ -37,7 +37,7 @@ _None in this release_
 ### New Installation
 
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/ap-mapping-v1.2.0.tar.gz | tar -xz
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz | tar -xz
 ./installer/install.sh
 ```
 
