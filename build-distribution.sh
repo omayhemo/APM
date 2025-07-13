@@ -12,7 +12,7 @@ if [ -f "VERSION" ]; then
 else
     VERSION="1.2.0-rc.2"
 fi
-DIST_NAME="ap-mapping-v$VERSION"
+DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
 
 echo "=========================================="
@@ -36,35 +36,37 @@ mkdir -p "$DIST_DIR"
 
 # Copy agents directory
 echo "Copying agents directory..."
-cp -r agents "$DIST_DIR/"
+# Copy agents to .apm directory in distribution
+mkdir -p "$DIST_DIR/.apm"
+cp -r agents "$DIST_DIR/.apm/"
 
 # Clean up files that shouldn't be distributed
 echo "Cleaning up distribution..."
 
 # Count files before cleanup
-LOG_COUNT=$(find "$DIST_DIR/agents" -name "*.log" -type f | wc -l)
-TEMP_COUNT=$(find "$DIST_DIR/agents" \( -name "*~" -o -name "*.tmp" \) -type f | wc -l)
-DS_COUNT=$(find "$DIST_DIR/agents" -name ".DS_Store" -type f | wc -l)
+LOG_COUNT=$(find "$DIST_DIR/.apm/agents" -name "*.log" -type f | wc -l)
+TEMP_COUNT=$(find "$DIST_DIR/.apm/agents" \( -name "*~" -o -name "*.tmp" \) -type f | wc -l)
+DS_COUNT=$(find "$DIST_DIR/.apm/agents" -name ".DS_Store" -type f | wc -l)
 
 # Remove all log files
-find "$DIST_DIR/agents" -name "*.log" -type f -delete
+find "$DIST_DIR/.apm/agents" -name "*.log" -type f -delete
 [ "$LOG_COUNT" -gt 0 ] && echo "  - Removed $LOG_COUNT log files"
 
 # Remove any .DS_Store files (macOS)
-find "$DIST_DIR/agents" -name ".DS_Store" -type f -delete
+find "$DIST_DIR/.apm/agents" -name ".DS_Store" -type f -delete
 [ "$DS_COUNT" -gt 0 ] && echo "  - Removed $DS_COUNT .DS_Store files"
 
 # Remove any temporary files
-find "$DIST_DIR/agents" -name "*~" -type f -delete
-find "$DIST_DIR/agents" -name "*.tmp" -type f -delete
+find "$DIST_DIR/.apm/agents" -name "*~" -type f -delete
+find "$DIST_DIR/.apm/agents" -name "*.tmp" -type f -delete
 [ "$TEMP_COUNT" -gt 0 ] && echo "  - Removed $TEMP_COUNT temporary files"
 
 # Note: Hook scripts are now in installer/templates/hooks as Python files
 # The old agents/hooks directory has been removed
 
 # Remove any git files that might have been copied
-find "$DIST_DIR/agents" -name ".gitignore" -type f -delete
-find "$DIST_DIR/agents" -name ".git" -type d -exec rm -rf {} + 2>/dev/null || true
+find "$DIST_DIR/.apm/agents" -name ".gitignore" -type f -delete
+find "$DIST_DIR/.apm/agents" -name ".git" -type d -exec rm -rf {} + 2>/dev/null || true
 
 # Create VERSION file
 echo "$VERSION" > "$DIST_DIR/VERSION"

@@ -5,7 +5,8 @@
 # Get the script directory
 VOICE_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AP_ROOT="$(dirname "$VOICE_SCRIPT_DIR")"
-PROJECT_ROOT="$(dirname "$AP_ROOT")"
+APM_ROOT="$(dirname "$AP_ROOT")"
+PROJECT_ROOT="$(dirname "$APM_ROOT")"
 
 # TTS Manager location
 TTS_MANAGER="$AP_ROOT/scripts/tts-manager.sh"

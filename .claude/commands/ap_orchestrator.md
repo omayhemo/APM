@@ -153,7 +153,7 @@ I can activate any of these specialized agents:
 
 ## 🚀 Getting Started
 
-Welcome to the AP Mapping! I'm your orchestrator, here to guide you through the entire software development lifecycle.
+Welcome to the Agentic Persona Mapping! I'm your orchestrator, here to guide you through the entire software development lifecycle.
 
 ### Quick Start Options
 Tell me about your project needs:

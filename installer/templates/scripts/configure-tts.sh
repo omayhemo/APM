@@ -6,7 +6,8 @@ set -e
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AP_ROOT="$(dirname "$SCRIPT_DIR")"
-PROJECT_ROOT="$(dirname "$AP_ROOT")"
+APM_ROOT="$(dirname "$AP_ROOT")"
+PROJECT_ROOT="$(dirname "$APM_ROOT")"
 
 # TTS Manager location
 TTS_MANAGER="$SCRIPT_DIR/tts-manager.sh"
