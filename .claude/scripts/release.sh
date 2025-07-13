@@ -181,7 +181,7 @@ push_to_apm_repo() {
     
     # Push commits and tags to APM repo
     echo "Pushing commits to APM repo..."
-    git push apm main
+    git push apm master:main
     
     echo "Pushing tag to APM repo..."
     git push apm v$version
