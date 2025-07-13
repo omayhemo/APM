@@ -47,14 +47,14 @@ update_version() {
     
     # Update README.md URLs (if file exists)
     if [ -f "README.md" ]; then
-        sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" README.md
+        sed -i.bak "s/apm-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/apm-v$version.tar.gz/g" README.md
         rm README.md.bak 2>/dev/null || true
         echo "  - Updated README.md download URLs"
     fi
     
     # Update installer README
     if [ -f "installer/README.md" ]; then
-        sed -i.bak "s/ap-mapping-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/ap-mapping-v$version.tar.gz/g" installer/README.md
+        sed -i.bak "s/apm-v[0-9.]*\(-[a-zA-Z.0-9]*\)?\\.tar\\.gz/apm-v$version.tar.gz/g" installer/README.md
         rm installer/README.md.bak 2>/dev/null || true
         echo "  - Updated installer/README.md download URLs"
     fi
@@ -107,7 +107,7 @@ _None in this release_
 ### New Installation
 
 \`\`\`bash
-curl -L https://github.com/omayhemo/APM/releases/download/v$version/ap-mapping-v$version.tar.gz | tar -xz
+curl -L https://github.com/omayhemo/APM/releases/download/v$version/apm-v$version.tar.gz | tar -xz
 ./installer/install.sh
 \`\`\`
 
@@ -135,9 +135,9 @@ build_distribution() {
     ./build-distribution.sh
     
     # Verify build
-    if [ -f "dist/ap-mapping-v$VERSION.tar.gz" ]; then
+    if [ -f "dist/apm-v$VERSION.tar.gz" ]; then
         echo -e "${GREEN}✓ Distribution built successfully${NC}"
-        ls -la dist/ap-mapping-v$VERSION.tar.gz
+        ls -la dist/apm-v$VERSION.tar.gz
     else
         echo -e "${RED}Error: Distribution build failed${NC}"
         exit 1
@@ -213,7 +213,7 @@ create_github_release() {
         --title "AP Mapping v$version" \
         --notes-file RELEASE_NOTES.md \
         $prerelease_flag \
-        "dist/ap-mapping-v$version.tar.gz"
+        "dist/apm-v$version.tar.gz"
     
     if [ $? -eq 0 ]; then
         echo -e "${GREEN}✓ GitHub release created successfully${NC}"
@@ -235,7 +235,7 @@ show_manual_release_steps() {
     echo "1. Go to: https://github.com/omayhemo/APM/releases"
     echo "2. Click 'Draft a new release'"
     echo "3. Select tag: v$version"
-    echo "4. Upload: dist/ap-mapping-v$version.tar.gz"
+    echo "4. Upload: dist/apm-v$version.tar.gz"
     echo "5. Copy contents from RELEASE_NOTES.md"
     if [[ "$version" =~ -[a-zA-Z] ]]; then
         echo "6. ✓ Mark as pre-release"
@@ -252,7 +252,7 @@ show_completion() {
     echo ""
     echo -e "${YELLOW}Post-release verification:${NC}"
     echo "- Test download: https://github.com/omayhemo/APM/releases/tag/v$version"
-    echo "- Test installation: tar -xzf ap-mapping-v$version.tar.gz && ./installer/install.sh"
+    echo "- Test installation: tar -xzf apm-v$version.tar.gz && ./installer/install.sh"
     echo "- Test update: agents/scripts/ap-manager.sh update"
     echo ""
     echo "Don't forget to:"
