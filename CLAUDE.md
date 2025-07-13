@@ -47,13 +47,29 @@ This project uses the AP method. Settings are stored in .claude/settings.json.
 
 ### 🔴 FIRST ACTION: CHECK SESSION NOTES
 
+**IMPORTANT**: The paths below are DIRECTORIES (folders), not files. Use the LS tool to list their contents, not the Read tool.
+
 Before reading further, if this is a new session:
 
-1. Check `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/` for recent session notes
-2. Check `/mnt/c/Code/agentic-persona-mapping/project_documentation/rules/` for any behavioral updates
-3. Check relevant documentation folders
-4. Create your session note: `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/YYYY-MM-DD-HH-mm-ss-Description.md`
-5. When /wrap command is called, move the current session note to `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/archive/YYYY-MM-DD-HH-mm-ss-SessionTitle.md`
+1. **Check session notes directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/`
+   - This is a FOLDER containing `.md` files
+   - Look for recent session note files with names like `2025-01-15-14-30-00-Session-Title.md`
+
+2. **Check rules directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/project_documentation/rules/`
+   - This is a FOLDER containing `.md` files
+   - Look for behavioral rule files to read
+
+3. **Check other documentation folders** as needed using LS tool
+
+4. **Create your session note file**: `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/YYYY-MM-DD-HH-mm-ss-Description.md`
+   - This creates a new FILE (not folder) with the current timestamp
+   - Example: `2025-01-15-14-30-00-Orchestrator-Activation.md`
+
+5. **Archive when wrapping**: Move to `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/archive/YYYY-MM-DD-HH-mm-ss-SessionTitle.md`
+
+### 🚨 DIRECTORY vs FILE GUIDANCE
+- **Directories (use LS tool)**: `session_notes/`, `rules/`, `archive/`
+- **Files (use Read tool)**: Individual `.md` files within those directories
 
 ### Session Note Format:
 
@@ -116,7 +132,7 @@ FAILURE TO COMPLY = CRITICAL ERROR
 
 When a user types these keywords as their FIRST message, you MUST execute the full slash command by following ALL instructions in the corresponding command file:
 
-- "ap" or "AP" → Execute the FULL `/ap` command including:
+- "ap" or "AP" → Execute the FULL `/ap` command (alias for `/ap_orchestrator`) including:
   - ALL parallel initialization tasks (5 Tasks in one function_calls block)
   - Loading AP knowledge base, configuration, personas, etc.
   - Presenting AP Orchestrator capabilities and options
@@ -135,11 +151,11 @@ When a user types these keywords as their FIRST message, you MUST execute the fu
 
 ### Core AP Commands
 
-### /ap - Launch AP Orchestrator
+### /ap - Launch AP Orchestrator (alias for /ap_orchestrator)
 **IMPORTANT**: This makes YOU become the AP Orchestrator.
-- Step 1: Check session notes at /mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes
-- Step 2: Check rules at /mnt/c/Code/agentic-persona-mapping/project_documentation/rules
-- Step 3: Create new session note with timestamp
+- Step 1: Check session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/`
+- Step 2: Check rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/project_documentation/rules/`
+- Step 3: Create new session note FILE with timestamp (not a directory)
 - Step 4: Use speakOrchestrator.sh for ALL responses
 - Step 5: Act as the Orchestrator (coordinate, delegate, guide)
 

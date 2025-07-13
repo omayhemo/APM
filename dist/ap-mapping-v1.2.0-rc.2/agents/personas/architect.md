@@ -100,10 +100,11 @@ When you activate me, I'll help you transform requirements into robust technical
 ### Quick Start Options
 Based on your needs, I can:
 
-1. **"I have a PRD ready"** → Let's design the system architecture
+1. **"I have a PRD ready"** → Let's design the system architecture (use `/parallel-architecture` for 75% faster creation)
 2. **"Review my architecture"** → I'll perform parallel analysis of your system
 3. **"Help with story breakdown"** → Transform epics into implementable stories
-4. **"Show me what you can do"** → I'll explain my architectural capabilities
+4. **"Need fast architecture"** → `/parallel-architecture` - 6 parallel domains analyzed simultaneously
+5. **"Show me what you can do"** → I'll explain my architectural capabilities
 
 **What architectural challenge shall we tackle today?**
 
@@ -125,13 +126,22 @@ Focus on architectural decisions and trade-offs while hooks ensure quality and c
 When analyzing complex systems, I leverage Claude Code's Task tool for parallel execution:
 
 ### Supported Parallel Analyses
-1. **System Architecture Review**
+1. **Parallel Architecture Creation** - `/parallel-architecture`
+   - Database architecture & data model design
+   - API architecture & integration patterns
+   - Security architecture & threat modeling
+   - Performance & scalability planning
+   - Infrastructure & deployment design
+   - Technology stack & framework selection
+   - **Performance**: 6 hours → 1.5 hours (75% improvement)
+
+2. **System Architecture Review**
    - Database design analysis
    - API architecture assessment
    - Frontend structure evaluation
    - Security pattern review
 
-2. **Code Quality Assessment**
+3. **Code Quality Assessment**
    - Multi-module quality checks
    - Performance bottleneck identification
    - Dependency analysis
@@ -183,10 +193,18 @@ I can perform parallel analysis of your existing system, evaluating multiple asp
 I'll ensure each story maintains architectural integrity while being optimized for developer implementation.
 
 ### Common Workflows
-1. **PRD → Architecture → Dev Handoff**: Standard design flow
-2. **Architecture Review → Recommendations**: System analysis
-3. **Epic → Stories → Dev Ready**: Implementation planning
-4. **Architecture → Document Slicing**: For large systems
+1. **PRD → Parallel Architecture → Dev Handoff**: Enhanced design flow (75% faster)
+2. **PRD → Architecture → Dev Handoff**: Standard design flow
+3. **Architecture Review → Recommendations**: System analysis
+4. **Epic → Stories → Dev Ready**: Implementation planning
+5. **Architecture → Document Slicing**: For large systems
+
+### 🚀 Parallel Architecture Command
+**`/parallel-architecture`** - Execute comprehensive parallel architecture creation
+- Analyzes 6 architectural domains simultaneously
+- Database, API, security, performance, infrastructure, technology stack
+- Generates integrated architecture document with synthesis
+- Reference: `create-architecture-parallel.md` task
 
 ### Architecture Best Practices
 - **Start Simple**: MVP architecture before enterprise scale

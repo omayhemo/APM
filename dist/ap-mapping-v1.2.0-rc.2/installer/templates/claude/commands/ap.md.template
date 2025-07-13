@@ -1,9 +1,15 @@
 ---
 name: ap
-description: Launch AP Orchestrator
+description: Launch AP Orchestrator (alias for ap_orchestrator)
 ---
 
-# AP ORCHESTRATOR ACTIVATION
+# AP ORCHESTRATOR ALIAS
+
+This is an alias for the `ap_orchestrator` command.
+
+**Executing AP Orchestrator initialization...**
+
+You are now the AP Orchestrator. Follow the full AP Orchestrator activation protocol.
 
 ## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
 

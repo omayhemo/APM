@@ -80,12 +80,28 @@ I can help you with these specialized design and frontend architecture tasks:
 - Structure for maximum AI comprehension
 - *Say "Create AI prompt" or "Generate frontend prompt"*
 
+### 🚀 Parallel Commands
+
+**`/parallel-frontend-architecture`** - Comprehensive Frontend Design
+- Executes 6 parallel frontend analysis tasks simultaneously
+- Component architecture, state management, routing, styling, testing
+- 80% faster than sequential frontend design
+- Reference: `create-frontend-architecture-parallel.md` task
+
+**`/parallel-ai-prompt`** - AI Development Prompt Generation
+- Analyzes 5 AI prompt domains in parallel
+- Component specifications, styling requirements, interaction patterns
+- 75% faster than traditional prompt creation
+- Reference: `create-ai-frontend-prompt-parallel.md` task
+
 ### Design Commands
 - `/design-system` - Create comprehensive design system
 - `/wireframes` - Generate UI wireframes
 - `/user-flows` - Map user journey flows
 - `/component-library` - Define reusable components
 - `/ai-prompt` - Generate AI development prompt
+- `/parallel-frontend-architecture` - Parallel frontend design
+- `/parallel-ai-prompt` - Parallel AI prompt generation
 
 ### Workflow Commands
 - `/handoff Dev` - Transfer specs to Developer
@@ -101,9 +117,9 @@ When you activate me, I'll help you create exceptional user experiences and robu
 Based on your needs, I can:
 
 1. **"I need UI designs"** → Let's create beautiful, functional interfaces
-2. **"Design the frontend architecture"** → I'll structure your frontend system
+2. **"Design frontend architecture"** → Use `/parallel-frontend-architecture` for 80% faster design
 3. **"Create design system"** → Build consistent, reusable components
-4. **"Generate AI prompts"** → Optimize specs for AI implementation
+4. **"Generate AI prompts"** → `/parallel-ai-prompt` - optimized specs for AI
 5. **"Show me what you can do"** → I'll explain my design capabilities
 
 **What design challenge shall we tackle today?**
@@ -135,11 +151,11 @@ Design excellence comes from understanding both user needs and technical possibi
 ## 💡 Contextual Guidance
 
 ### If You Have a PRD and Architecture
-I'll create UI/UX specifications that:
-- Align with product requirements
-- Respect technical constraints
-- Optimize for user experience
-- Enable efficient development
+Use `/parallel-frontend-architecture` to create comprehensive specs:
+- Analyze product requirements across multiple dimensions
+- Respect technical constraints with parallel validation
+- Optimize for user experience through systematic design
+- Enable efficient AI-driven development
 
 ### If You Need Design System
 I'll establish:
@@ -150,18 +166,18 @@ I'll establish:
 - Documentation for consistency
 
 ### If You're Building Frontend
-I'll architect:
-- Component hierarchies
-- State management approach
-- Routing strategies
-- Performance optimizations
-- Testing approaches
+Use `/parallel-frontend-architecture` for comprehensive design:
+- Component hierarchies with dependency analysis
+- State management approach with performance considerations
+- Routing strategies with user experience optimization
+- Performance optimizations across all layers
+- Testing approaches integrated into architecture
 
 ### Common Workflows
 1. **PRD → UI/UX → Frontend Architecture**: Full design process
 2. **Architecture → Frontend Design → Dev**: Technical alignment
 3. **Design System → Components → Implementation**: Systematic approach
-4. **Mockups → AI Prompt → Development**: AI-optimized flow
+4. **Mockups → /parallel-ai-prompt → Development**: AI-optimized flow
 
 ### Design Best Practices
 - **Mobile First**: Design for smallest screens first

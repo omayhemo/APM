@@ -537,7 +537,10 @@ echo "---------------------------------"
 
 ensure_dir "$CLAUDE_COMMANDS_DIR"
 
-# Create ap.md command
+# Create ap_orchestrator.md command (primary)
+replace_variables "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" "$CLAUDE_COMMANDS_DIR/ap_orchestrator.md"
+
+# Create ap.md command (alias)
 replace_variables "$INSTALLER_DIR/templates/claude/commands/ap.md.template" "$CLAUDE_COMMANDS_DIR/ap.md"
 
 # Create handoff.md command
@@ -862,13 +865,7 @@ case "$TTS_PROVIDER" in
                     echo "✓ TTS provider set to Piper"
                 fi
                 
-                # Offer to test audio
-                if [ "$USE_DEFAULTS" != true ] && [ "$WAV_PLAYER" != "none" ]; then
-                    echo ""
-                    printf "${YELLOW}Would you like to test audio playback? (Y/n): ${NC}"
-                    read -n 1 -r
-                    echo
-                    if [[ ! $REPLY =~ ^[Nn]$ ]]; then
+                # Skip audio test - removed per configuration
                         echo "Playing test message..."
                         # Different players need different parameters for raw audio
                         case "$WAV_PLAYER" in
@@ -902,20 +899,6 @@ case "$TTS_PROVIDER" in
                                 ;;
                         esac
                         
-                        if [ $? -eq 0 ]; then
-                            echo "✓ Audio playback successful!"
-                        else
-                            echo -e "${YELLOW}⚠ Audio playback failed.${NC}"
-                            echo "This might be due to:"
-                            echo "- WSL2: PulseAudio not running (try: pulseaudio --start)"
-                            echo "- Missing audio configuration"
-                            echo "- No audio output device"
-                            echo ""
-                            echo "You can test audio later with:"
-                            echo "  $AP_ROOT/scripts/tts-manager.sh test"
-                        fi
-                    fi
-                fi
             else
                 echo "⚠ Piper installation encountered issues."
                 echo "You can manually install it later."
@@ -976,10 +959,24 @@ configure_hook() {
     echo "1) No notification"
     echo "2) Audible notification sound"
     echo -e "${NC}"
-    printf "${YELLOW}Select option (1-2) [1]: ${NC}"
-    
-    read hook_option
-    hook_option="${hook_option:-1}"
+    if [ "$USE_DEFAULTS" = true ]; then
+        # Set default values based on hook type
+        case "$hook_name" in
+            "stop"|"subagent_stop")
+                hook_option="2"  # Default to audible notification
+                echo "Using default: 2 (Audible notification sound)"
+                ;;
+            *)
+                hook_option="1"  # Default to no notification for others
+                echo "Using default: 1 (No notification)"
+                ;;
+        esac
+    else
+        printf "${YELLOW}Select option (1-2) [1]: ${NC}"
+        
+        read hook_option
+        hook_option="${hook_option:-1}"
+    fi
     
     # Set variables based on selection
     eval "${hook_var_prefix}_ENABLED=false"
@@ -1144,13 +1141,13 @@ else
     echo "  - Python wrapper scripts"
     echo "  - Requirements management"
     echo ""
-    printf "${YELLOW}Would you like to set up Python support for hooks and scripts? (y/N): ${NC}"
+    printf "${YELLOW}Would you like to set up Python support for hooks and scripts? (Y/n): ${NC}"
     read -n 1 -r
     echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        SETUP_PYTHON=true
-    else
+    if [[ $REPLY =~ ^[Nn]$ ]]; then
         SETUP_PYTHON=false
+    else
+        SETUP_PYTHON=true
     fi
 fi
 

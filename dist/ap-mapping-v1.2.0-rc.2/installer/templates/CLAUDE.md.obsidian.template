@@ -18,11 +18,9 @@ When ANY /ap command is used:
 
 ## ❌ COMMON MISTAKES TO AVOID
 
-- DO NOT use the Task tool to "launch" agents
 - DO NOT respond without using voice scripts
 - DO NOT skip session note creation
 - DO NOT proceed without checking existing notes first
-- DO NOT treat /ap commands as delegations
 
 ## ✅ CORRECT BEHAVIOR EXAMPLE
 
@@ -47,19 +45,37 @@ This project uses the AP method. Settings are stored in .claude/settings.json.
 
 ### 🔴 FIRST ACTION: CHECK OBSIDIAN MCP
 
+**IMPORTANT**: The paths below reference OBSIDIAN FOLDERS, not individual files. Use Obsidian MCP list-files or fallback to LS tool.
+
 Before reading further, if this is a new session:
 
-1. Check `{{SESSION_NOTES_PATH}}/` for recent session notes
-2. Check `{{RULES_PATH}}/` for any behavioral updates
-3. Check relevant documentation folders
-4. Create your session note: `{{SESSION_NOTES_PATH}}/YYYY-MM-DD-HH-mm-ss-Description.md`
-5. When /wrap command is called, move the current session note to `{{ARCHIVE_PATH}}/YYYY-MM-DD-HH-mm-ss-SessionTitle.md`
+1. **Check session notes in Obsidian**: `{{SESSION_NOTES_PATH}}/`
+   - This is an OBSIDIAN FOLDER containing `.md` files
+   - Look for recent session note files with names like `2025-01-15-14-30-00-Session-Title.md`
+   - Use Obsidian MCP list-files tool or fallback to LS tool
+
+2. **Check rules in Obsidian**: `{{RULES_PATH}}/`
+   - This is an OBSIDIAN FOLDER containing `.md` files
+   - Look for behavioral rule files to read
+   - Use Obsidian MCP list-files tool or fallback to LS tool
+
+3. **Check other documentation folders** as needed
+
+4. **Create your session note file**: `{{SESSION_NOTES_PATH}}/YYYY-MM-DD-HH-mm-ss-Description.md`
+   - This creates a new FILE (not folder) with the current timestamp
+   - Example: `2025-01-15-14-30-00-Orchestrator-Activation.md`
+
+5. **Archive when wrapping**: Move to `{{ARCHIVE_PATH}}/YYYY-MM-DD-HH-mm-ss-SessionTitle.md`
 
 ### Path Formatting Rules:
 
 - Folder paths MUST have trailing slash: `"Sessions/"` not `"Sessions"`
 - Root level: `"."` not `""`
 - Use proper linking: `[[Other-Document]]`
+
+### 🚨 DIRECTORY vs FILE GUIDANCE
+- **Obsidian Folders (use MCP list-files or LS tool)**: `Sessions/`, `Rules/`, `Archive/`
+- **Files (use MCP read-file or Read tool)**: Individual `.md` files within those folders
 
 ### 🟡 IMPORTANT: Fallback Session Notes
 
@@ -70,7 +86,7 @@ If Obsidian MCP is unavailable (connection issues, not installed, etc.):
 
 When Obsidian is unavailable:
 1. Write session notes to `{{FALLBACK_SESSION_NOTES_PATH}}/YYYY-MM-DD-HH-mm-ss-Description.md`
-2. Check both Obsidian and fallback locations when starting sessions
+2. Check both Obsidian and fallback locations when starting sessions (use LS tool for fallback)
 3. Sync fallback notes to Obsidian when connection is restored
 
 ## Audio Notifications
@@ -111,7 +127,7 @@ FAILURE TO COMPLY = CRITICAL ERROR
 
 When a user types these keywords as their FIRST message, you MUST execute the full slash command by following ALL instructions in the corresponding command file:
 
-- "ap" or "AP" → Execute the FULL `/ap` command including:
+- "ap" or "AP" → Execute the FULL `/ap_orchestrator` command including:
   - ALL parallel initialization tasks (5 Tasks in one function_calls block)
   - Loading AP knowledge base, configuration, personas, etc.
   - Presenting AP Orchestrator capabilities and options
@@ -130,11 +146,11 @@ When a user types these keywords as their FIRST message, you MUST execute the fu
 
 ### Core AP Commands
 
-### /ap - Launch AP Orchestrator
+### /ap_orchestrator - Launch AP Orchestrator
 **IMPORTANT**: This makes YOU become the AP Orchestrator.
-- Step 1: Check session notes at {{SESSION_NOTES_PATH}}
-- Step 2: Check rules at {{RULES_PATH}}
-- Step 3: Create new session note with timestamp
+- Step 1: Check session notes folder using Obsidian MCP list-files or LS tool: `{{SESSION_NOTES_PATH}}/`
+- Step 2: Check rules folder using Obsidian MCP list-files or LS tool: `{{RULES_PATH}}/`
+- Step 3: Create new session note FILE with timestamp (not a directory)
 - Step 4: Use speakOrchestrator.sh for ALL responses
 - Step 5: Act as the Orchestrator (coordinate, delegate, guide)
 

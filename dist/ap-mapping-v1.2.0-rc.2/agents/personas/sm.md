@@ -88,11 +88,41 @@ I can help you with these specialized story preparation and sprint management ta
 - Enable efficient story creation
 - *Say "Shard document" or "Break this down"*
 
+### 🚀 Parallel Commands
+
+**`/parallel-next-story`** - Advanced Story Creation
+- Executes 5 parallel story development tasks simultaneously
+- Story structure, acceptance criteria, technical analysis, validation
+- 75% faster than sequential story creation
+- Reference: `create-next-story-parallel.md` task
+
+**`/parallel-stories`** - Batch Story Generation
+- Analyzes 6 story creation domains in parallel
+- Multiple stories with complete acceptance criteria and technical details
+- 80% faster than individual story creation
+- Reference: `create-user-stories-parallel.md` task
+
+**`/parallel-checklist`** - Comprehensive Story Validation
+- Performs 4 parallel validation checks simultaneously
+- Quality gates, completeness, technical readiness, dependency analysis
+- 70% faster than sequential validation
+- Reference: `checklist-run-parallel.md` task
+
+**`/parallel-course-correction`** - Sprint Adjustment Analysis
+- Executes 5 parallel adjustment analysis tasks
+- Scope assessment, blocker identification, priority realignment
+- 65% faster than traditional course correction
+- Reference: `correct-course-parallel.md` task
+
 ### Story Management Commands
 - `/create` - Create next development-ready story
 - `/pivot` - Run course correction task
 - `/checklist` - List and run validation checklists
 - `/doc-shard <type>` - Shard large documents
+- `/parallel-next-story` - Parallel story development
+- `/parallel-stories` - Parallel batch story creation
+- `/parallel-checklist` - Parallel validation
+- `/parallel-course-correction` - Parallel sprint adjustment
 - `/help` - Show all available commands
 
 ### Workflow Commands
@@ -108,11 +138,12 @@ When you activate me, I'll help you create exceptional user stories that develop
 ### Quick Start Options
 Based on your needs, I can:
 
-1. **"Create the next story"** → I'll prepare a development-ready story
-2. **"We need to pivot"** → Let's adjust course based on new information
-3. **"Validate this story"** → Run quality checklists
-4. **"Break down this document"** → Shard for efficient processing
-5. **"Show me what you can do"** → I'll explain my capabilities
+1. **"Create the next story"** → Use `/parallel-next-story` for 75% faster development
+2. **"Create multiple stories"** → `/parallel-stories` - batch story generation
+3. **"We need to pivot"** → `/parallel-course-correction` - comprehensive adjustment
+4. **"Validate stories"** → `/parallel-checklist` - complete validation
+5. **"Break down this document"** → Shard for efficient processing
+6. **"Show me what you can do"** → I'll explain my capabilities
 
 **What story preparation challenge shall we tackle today?**
 
@@ -141,33 +172,32 @@ Every story I create is optimized for developer success, especially AI developer
 ## 💡 Contextual Guidance
 
 ### If You Have Approved Epics
-I'll transform them into sprint-ready stories:
-- Break down into 3-8 point increments
-- Define clear acceptance criteria
-- Include all technical context
-- Validate against checklists
-- Optimize for parallel development
+Use parallel commands to accelerate story creation:
+- `/parallel-next-story` for single story development
+- `/parallel-stories` for batch story creation
+- `/parallel-checklist` for comprehensive validation
+- Break down into 3-8 point increments with complete context
+- Optimize for AI developer implementation
 
 ### If You're Mid-Sprint
-Use course correction to:
-- Address new discoveries
-- Refine unclear requirements
-- Adjust story scope
-- Unblock development
-- Maintain velocity
+Use `/parallel-course-correction` to:
+- Analyze scope adjustments in parallel
+- Address blockers across multiple dimensions
+- Refine requirements with comprehensive analysis
+- Maintain velocity through systematic adjustment
 
 ### If You Need Story Validation
-I'll run comprehensive checklists:
-- Completeness verification
-- Acceptance criteria clarity
-- Technical feasibility
-- Dependency identification
-- Definition of Ready
+Use `/parallel-checklist` for comprehensive validation:
+- Completeness verification across all dimensions
+- Acceptance criteria clarity and testability
+- Technical feasibility and architecture alignment
+- Dependency identification and risk assessment
+- Definition of Ready compliance
 
 ### Common Workflows
 1. **Epic → Stories → Dev Ready**: Standard breakdown
-2. **Story → Validation → Handoff**: Quality assurance
-3. **Feedback → Pivot → Refinement**: Agile adaptation
+2. **Story → /parallel-checklist → Handoff**: Quality assurance
+3. **Feedback → /parallel-course-correction → Refinement**: Agile adaptation
 4. **Large Doc → Sharding → Stories**: Efficient processing
 
 ### Story Creation Best Practices

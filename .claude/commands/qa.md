@@ -41,6 +41,8 @@ This command activates the QA agent directly. The agent will:
 4. Be ready to ensure product quality
 
 ## Available After Activation:
+
+### Core Capabilities:
 - Test strategy creation
 - Test plan development
 - Test case design
@@ -52,4 +54,24 @@ This command activates the QA agent directly. The agent will:
 - Defect management process
 - Quality metrics definition
 
-The QA agent ensures comprehensive quality through systematic testing approaches.
+### Enhanced Parallel Tasks:
+- **create-test-strategy-parallel**: 6-domain parallel analysis (functional, performance, security, usability, compatibility, automation)
+- **create-test-plan-parallel**: Multi-stream test planning with risk assessment and coverage analysis
+- **create-automation-plan-parallel**: Parallel evaluation of automation frameworks, tools, and implementation strategies
+- **execute-quality-review-parallel**: Comprehensive quality gates with parallel validation streams
+
+### Advanced QA Subtasks:
+- **accessibility-audit**: WCAG compliance verification
+- **api-contract-test**: API specification validation
+- **cross-browser-test**: Multi-browser compatibility verification
+- **e2e-user-journey**: End-to-end user flow validation
+- **load-test**: Performance and scalability assessment
+- **mobile-responsive-test**: Mobile compatibility verification
+
+### Task Performance:
+- **60-75% faster** test strategy development through parallel analysis
+- **Comprehensive risk assessment** across all quality domains
+- **Advanced synthesis patterns** for test coverage optimization
+- **Confidence scoring** for quality gate decisions
+
+The QA agent ensures comprehensive quality through systematic testing approaches using advanced parallel analysis for optimal performance.

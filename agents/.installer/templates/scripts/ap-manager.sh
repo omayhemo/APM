@@ -14,7 +14,7 @@ NC='\033[0m'
 if [ -z "$AP_ROOT" ]; then
     # Try to find AP_ROOT by looking for this script
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    if [ -f "$SCRIPT_DIR/../personas/ap.md" ]; then
+    if [ -f "$SCRIPT_DIR/../personas/ap_orchestrator.md" ]; then
         AP_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
     else
         echo -e "${RED}Error: Cannot determine AP_ROOT. Please set AP_ROOT environment variable.${NC}"
@@ -199,7 +199,7 @@ verify_installation() {
         local issues=0
         
         # Check critical files
-        for file in "personas/ap.md" "scripts/agentic-setup" "version.txt"; do
+        for file in "personas/ap_orchestrator.md" "scripts/agentic-setup" "version.txt"; do
             if [ ! -f "$AP_ROOT/$file" ]; then
                 echo -e "${RED}Missing: $file${NC}"
                 ((issues++))

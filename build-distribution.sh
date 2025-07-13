@@ -21,9 +21,13 @@ echo "=========================================="
 echo ""
 
 # Clean previous builds
+echo "Cleaning previous builds..."
 if [ -d "dist" ]; then
-    echo "Cleaning previous builds..."
-    rm -rf dist
+    # Remove contents of dist directory but keep the directory itself
+    rm -rf dist/*
+else
+    # Create dist directory if it doesn't exist
+    mkdir -p dist
 fi
 
 # Create distribution directory

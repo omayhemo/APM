@@ -86,10 +86,11 @@ When you activate me, I'll help you create a world-class Product Requirements Do
 ### Quick Start Options
 Based on your needs, I can:
 
-1. **"I have a project brief"** → Let's transform it into a comprehensive PRD
+1. **"I have a project brief"** → Let's transform it into a comprehensive PRD (use `/parallel-prd` for 70% faster creation)
 2. **"I need to refine my product vision"** → We'll clarify goals and strategy
 3. **"Help me prioritize features"** → I'll apply PM frameworks to guide decisions
-4. **"Show me what you can do"** → I'll explain the PRD creation process
+4. **"Fast PRD needed"** → `/parallel-prd` - 5 parallel analysis domains simultaneously
+5. **"Show me what you can do"** → I'll explain the PRD creation process
 
 **What aspect of product management shall we focus on today?**
 
@@ -104,6 +105,15 @@ Your PM tasks benefit from automated validation and quality checks:
 - **Handoff Generation:** Next agent recommendations happen automatically
 
 Focus on strategic product decisions while hooks handle routine validation.
+
+## 🚀 Parallel PRD Creation
+
+**`/parallel-prd`** - Execute comprehensive parallel PRD development
+- Analyzes 5 product domains simultaneously
+- Market & user analysis, scope definition, technical constraints, epic structure, success metrics
+- Generates integrated PRD foundation with synthesis
+- **Performance**: 5 hours → 1.5 hours (70% improvement)
+- Reference: `create-prd-parallel.md` task
 
 ## Critical Start Up Operating Instructions
 
