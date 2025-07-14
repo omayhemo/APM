@@ -293,31 +293,41 @@ replace_variables() {
     # Copy input to temp file
     cp "$input_file" "$temp_file"
     
-    # Replace all variables
-    sed -i "s|{{PROJECT_NAME}}|$PROJECT_NAME|g" "$temp_file"
-    sed -i "s|{{PROJECT_ROOT}}|$PROJECT_ROOT|g" "$temp_file"
-    sed -i "s|{{AP_ROOT}}|$AP_ROOT|g" "$temp_file"
-    sed -i "s|{{PROJECT_DOCS}}|$PROJECT_DOCS|g" "$temp_file"
-    sed -i "s|{{CLAUDE_DIR}}|$CLAUDE_DIR|g" "$temp_file"
-    sed -i "s|{{CLAUDE_COMMANDS_DIR}}|$CLAUDE_COMMANDS_DIR|g" "$temp_file"
-    sed -i "s|{{NOTES_TYPE}}|$NOTES_TYPE|g" "$temp_file"
-    sed -i "s|{{SESSION_NOTES_PATH}}|$SESSION_NOTES_PATH|g" "$temp_file"
-    sed -i "s|{{RULES_PATH}}|$RULES_PATH|g" "$temp_file"
-    sed -i "s|{{ARCHIVE_PATH}}|$ARCHIVE_PATH|g" "$temp_file"
-    sed -i "s|{{FALLBACK_SESSION_NOTES_PATH}}|$FALLBACK_SESSION_NOTES_PATH|g" "$temp_file"
-    sed -i "s|{{FALLBACK_RULES_PATH}}|$FALLBACK_RULES_PATH|g" "$temp_file"
-    sed -i "s|{{FALLBACK_ARCHIVE_PATH}}|$FALLBACK_ARCHIVE_PATH|g" "$temp_file"
-    sed -i "s|{{SPEAK_ORCHESTRATOR}}|$SPEAK_ORCHESTRATOR|g" "$temp_file"
-    sed -i "s|{{SPEAK_DEVELOPER}}|$SPEAK_DEVELOPER|g" "$temp_file"
-    sed -i "s|{{SPEAK_ARCHITECT}}|$SPEAK_ARCHITECT|g" "$temp_file"
-    sed -i "s|{{SPEAK_ANALYST}}|$SPEAK_ANALYST|g" "$temp_file"
-    sed -i "s|{{SPEAK_QA}}|$SPEAK_QA|g" "$temp_file"
-    sed -i "s|{{SPEAK_PM}}|$SPEAK_PM|g" "$temp_file"
-    sed -i "s|{{SPEAK_PO}}|$SPEAK_PO|g" "$temp_file"
-    sed -i "s|{{SPEAK_SM}}|$SPEAK_SM|g" "$temp_file"
-    sed -i "s|{{SPEAK_DESIGN_ARCHITECT}}|$SPEAK_DESIGN_ARCHITECT|g" "$temp_file"
-    sed -i "s|{{APM_ROOT}}|$APM_ROOT|g" "$temp_file"
-    sed -i "s|{{PLANNING_ROOT}}|$PLANNING_ROOT|g" "$temp_file"
+    # Determine sed syntax based on OS
+    local sed_inplace=""
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS requires empty string for backup extension
+        sed_inplace="-i ''"
+    else
+        # Linux/other systems
+        sed_inplace="-i"
+    fi
+    
+    # Replace all variables using OS-appropriate sed syntax
+    sed $sed_inplace "s|{{PROJECT_NAME}}|$PROJECT_NAME|g" "$temp_file"
+    sed $sed_inplace "s|{{PROJECT_ROOT}}|$PROJECT_ROOT|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_ROOT}}|$AP_ROOT|g" "$temp_file"
+    sed $sed_inplace "s|{{PROJECT_DOCS}}|$PROJECT_DOCS|g" "$temp_file"
+    sed $sed_inplace "s|{{CLAUDE_DIR}}|$CLAUDE_DIR|g" "$temp_file"
+    sed $sed_inplace "s|{{CLAUDE_COMMANDS_DIR}}|$CLAUDE_COMMANDS_DIR|g" "$temp_file"
+    sed $sed_inplace "s|{{NOTES_TYPE}}|$NOTES_TYPE|g" "$temp_file"
+    sed $sed_inplace "s|{{SESSION_NOTES_PATH}}|$SESSION_NOTES_PATH|g" "$temp_file"
+    sed $sed_inplace "s|{{RULES_PATH}}|$RULES_PATH|g" "$temp_file"
+    sed $sed_inplace "s|{{ARCHIVE_PATH}}|$ARCHIVE_PATH|g" "$temp_file"
+    sed $sed_inplace "s|{{FALLBACK_SESSION_NOTES_PATH}}|$FALLBACK_SESSION_NOTES_PATH|g" "$temp_file"
+    sed $sed_inplace "s|{{FALLBACK_RULES_PATH}}|$FALLBACK_RULES_PATH|g" "$temp_file"
+    sed $sed_inplace "s|{{FALLBACK_ARCHIVE_PATH}}|$FALLBACK_ARCHIVE_PATH|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_ORCHESTRATOR}}|$SPEAK_ORCHESTRATOR|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_DEVELOPER}}|$SPEAK_DEVELOPER|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_ARCHITECT}}|$SPEAK_ARCHITECT|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_ANALYST}}|$SPEAK_ANALYST|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_QA}}|$SPEAK_QA|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_PM}}|$SPEAK_PM|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_PO}}|$SPEAK_PO|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_SM}}|$SPEAK_SM|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_DESIGN_ARCHITECT}}|$SPEAK_DESIGN_ARCHITECT|g" "$temp_file"
+    sed $sed_inplace "s|{{APM_ROOT}}|$APM_ROOT|g" "$temp_file"
+    sed $sed_inplace "s|{{PLANNING_ROOT}}|$PLANNING_ROOT|g" "$temp_file"
     
     # Move the processed file to the output location
     mv "$temp_file" "$output_file"

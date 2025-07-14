@@ -289,9 +289,12 @@ uninstall_ap_method() {
     
     # Update .gitignore
     if [ -f "$project_root/.gitignore" ]; then
-        # Remove AP Mapping entries
-        sed -i '/# AP Mapping/,/^$/d' "$project_root/.gitignore" 2>/dev/null || \
-        sed -i '' '/# AP Mapping/,/^$/d' "$project_root/.gitignore" 2>/dev/null || true
+        # Remove AP Mapping entries (cross-platform sed)
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            sed -i '' '/# AP Mapping/,/^$/d' "$project_root/.gitignore" 2>/dev/null || true
+        else
+            sed -i '/# AP Mapping/,/^$/d' "$project_root/.gitignore" 2>/dev/null || true
+        fi
         echo "- Updated .gitignore"
     fi
     
