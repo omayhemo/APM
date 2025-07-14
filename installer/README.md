@@ -1,6 +1,6 @@
 #  Agentic Persona Mapping Framework
 
-Version: 1.2.0
+Version: 1.2.1
 
 ## What is Agentic Persona Mapping?
 
@@ -12,12 +12,12 @@ The Agentic Persona Mapping is a project-agnostic approach to orchestrating AI a
 
 **For Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh
 ```
 
 **For macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz -o apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz -o apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh
 ```
 
 ### Installation Options
@@ -28,28 +28,28 @@ Add nothing - the installer will prompt for all configuration options
 **Option 2: Install with Defaults (Skip prompts)**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh --defaults
+wget https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh --defaults
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz -o apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh --defaults
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz -o apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh --defaults
 ```
 
 **Option 3: Install to Specific Directory**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh /path/to/your/project
+wget https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh /path/to/your/project
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz -o apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh /path/to/your/project
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz -o apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh /path/to/your/project
 ```
 
 **Option 4: Install with Piper TTS Voice Support**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh --with-tts
+wget https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh --with-tts
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.0/apm-v1.2.0.tar.gz -o apm-v1.2.0.tar.gz && tar -xzf apm-v1.2.0.tar.gz && cd apm-v1.2.0 && ./installer/install.sh --with-tts
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz -o apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh --with-tts
 ```
 
 ## Key Features
@@ -71,7 +71,7 @@ The installation creates the following structure in your project:
 
 ```
 your-project/
-├── .apm/                        # Hidden APM framework (v1.2.0)
+├── .apm/                        # Hidden APM framework (v1.2.1)
 │   └── agents/                  # Core APM system
 │       ├── personas/            # 9 specialized agent definitions
 │       ├── tasks/               # 23+ reusable task templates
@@ -147,7 +147,7 @@ The installer will:
 - `/wrap` - Archive session notes and create summary
 - `/session-note-setup` - Initialize session notes structure
 
-### Parallel Execution Commands (v1.2.0)
+### Parallel Execution Commands (v1.2.1)
 - `/groom` - **PO Only**: 18 parallel backlog analysis tasks (80% time reduction)
 - `/parallel-review` - **Developer Only**: 9 simultaneous code analysis tasks
 - `/parallel-test` - **QA Only**: 6 concurrent testing workflows
@@ -769,7 +769,7 @@ All parallel commands execute multiple analysis tasks simultaneously using Claud
 For issues or questions:
 - GitHub: https://github.com/omayhemo/APM
 - Documentation: See .apm/agents/README.md
-- Version: v1.2.0 - Production ready!
+- Version: v1.2.1 - Production ready!
 
 ## License
 

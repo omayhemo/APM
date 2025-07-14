@@ -28,22 +28,28 @@ When you run this command, I will:
    - Update download URLs in README.md files
    - Update installer documentation
 
-3. **Build Distribution Package**
+3. **Update All the Documentation**
+   - Update CHANGELOG.md with new version
+   - Update RELEASE_NOTES.md with release notes template
+   - Ensure all documentation reflects the new version
+   - Update releavant readme files with new version information
+    
+4. **Build Distribution Package**
    - Run `build-distribution.sh` with new version
    - Verify distribution package creation
    - Update archive filename with new version
 
-4. **Commit & Tag Release**
+5. **Commit & Tag Release**
    - Commit all version changes
    - Create annotated git tag
    - Generate release notes template
 
-5. **Push to APM Repository**
+6. **Push to APM Repository**
    - Push commits and tags to APM repo (https://github.com/omayhemo/APM)
    - Create GitHub release with distribution package
    - Verify release deployment
 
-6. **Post-Release Verification**
+7. **Post-Release Verification**
    - Confirm release is accessible
    - Validate download links
    - Test update path if applicable
