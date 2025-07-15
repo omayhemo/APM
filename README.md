@@ -4,18 +4,18 @@ A project-agnostic framework for orchestrating AI agents in software development
 
 ## Quick Start
 
-**Latest Release:** v1.2.1
+**Latest Release:** v1.2.3
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v1.2.3/apm-v1.2.3.tar.gz && tar -xzf apm-v1.2.3.tar.gz && cd apm-v1.2.3 && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz -o apm-v1.2.1.tar.gz && tar -xzf apm-v1.2.1.tar.gz && cd apm-v1.2.1 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.3/apm-v1.2.3.tar.gz -o apm-v1.2.3.tar.gz && tar -xzf apm-v1.2.3.tar.gz && cd apm-v1.2.3 && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -30,7 +30,7 @@ Agentic Persona Mapping provides specialized AI agent personas for software deve
 
 ## Key Features
 
-### ✅ **What's New in v1.2.1**
+### ✅ **What's New in v1.2.3**
 - **🍎 macOS Compatibility**: Fixed critical installer crash on macOS caused by BSD sed syntax differences
 - **🔧 Cross-Platform Support**: Added automatic OS detection for proper sed command usage
 - **✅ Installation Success**: Resolves "invalid command code f" error that prevented macOS installation

@@ -10,7 +10,7 @@ set -e
 if [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="1.2.2"
+    VERSION="1.2.3"
 fi
 DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
@@ -115,11 +115,49 @@ cd ../..
 # Copy README to dist directory for easy access
 cp "$DIST_DIR/README.md" "dist/README.md"
 
+# Validate distribution package
+echo ""
+echo "Validating distribution package..."
+
+# Check critical directories exist
+VALIDATION_FAILED=false
+
+if [ ! -d "$DIST_DIR/.apm/agents" ]; then
+    echo "❌ ERROR: .apm/agents directory missing from distribution"
+    VALIDATION_FAILED=true
+fi
+
+if [ ! -d "$DIST_DIR/installer" ]; then
+    echo "❌ ERROR: installer directory missing from distribution"
+    VALIDATION_FAILED=true
+fi
+
+if [ ! -f "$DIST_DIR/.apm/agents/personas/ap_orchestrator.md" ]; then
+    echo "❌ ERROR: Core persona files missing from distribution"
+    VALIDATION_FAILED=true
+fi
+
+if [ ! -f "$DIST_DIR/installer/templates/hooks/subagent_stop.py" ]; then
+    echo "❌ ERROR: Enhanced hook files missing from distribution"
+    VALIDATION_FAILED=true
+fi
+
+if [ "$VALIDATION_FAILED" = true ]; then
+    echo ""
+    echo "❌ DISTRIBUTION VALIDATION FAILED"
+    echo "Critical components are missing from the distribution package."
+    echo "Build cannot continue until these issues are resolved."
+    exit 1
+fi
+
+echo "✅ Distribution validation passed"
+
 # Calculate file size
 FILE_SIZE=$(ls -lh "dist/$DIST_NAME.tar.gz" | awk '{print $5}')
 
 # Count files in distribution
 FILE_COUNT=$(find "$DIST_DIR" -type f | wc -l)
+AGENT_FILE_COUNT=$(find "$DIST_DIR/.apm/agents" -type f | wc -l)
 
 echo ""
 echo "=========================================="
@@ -129,7 +167,8 @@ echo ""
 echo "Distribution Details:"
 echo "- Package: dist/$DIST_NAME.tar.gz"
 echo "- Size: $FILE_SIZE"
-echo "- Files: $FILE_COUNT"
+echo "- Total Files: $FILE_COUNT"
+echo "- Agent Files: $AGENT_FILE_COUNT"
 echo ""
 echo "Installation Instructions:"
 echo "1. Extract: tar -xzf $DIST_NAME.tar.gz"
