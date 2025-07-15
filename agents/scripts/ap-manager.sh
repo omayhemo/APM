@@ -133,6 +133,9 @@ perform_update() {
     
     # Create backup
     echo -e "${BLUE}Creating backup...${NC}"
+    echo "Debug: AP_ROOT=$AP_ROOT"
+    echo "Debug: BACKUP_DIR=$BACKUP_DIR"
+    echo "Debug: PWD=$(pwd)"
     create_backup "pre-update-$new_version"
     
     # Extract new version
@@ -196,10 +199,36 @@ create_backup() {
     local backup_path="$BACKUP_DIR/$backup_name.tar.gz"
     
     echo "Creating backup: $backup_path"
-    tar -czf "$backup_path" -C "$AP_ROOT/.." "$(basename "$AP_ROOT")" 2>/dev/null
+    
+    # Ensure AP_ROOT exists before backup
+    if [ ! -d "$AP_ROOT" ]; then
+        echo "Warning: AP_ROOT directory ($AP_ROOT) does not exist, creating minimal backup structure"
+        mkdir -p "$AP_ROOT"
+        echo "backup-placeholder" > "$AP_ROOT/.backup-placeholder"
+    fi
+    
+    # Create backup with error handling
+    local parent_dir="$(dirname "$AP_ROOT")"
+    local agents_dir="$(basename "$AP_ROOT")"
+    
+    if tar -czf "$backup_path" -C "$parent_dir" "$agents_dir" 2>/dev/null; then
+        echo "Backup created successfully: $backup_path"
+    else
+        echo "Warning: Failed to create backup at $backup_path"
+        echo "Attempting alternative backup method..."
+        # Try direct copy as fallback
+        local fallback_backup="$BACKUP_DIR/$backup_name"
+        mkdir -p "$fallback_backup"
+        if cp -r "$AP_ROOT" "$fallback_backup/" 2>/dev/null; then
+            echo "Fallback backup created at: $fallback_backup"
+        else
+            echo "Error: Could not create backup. Continuing with update..."
+        fi
+    fi
     
     # Keep only last 5 backups
     ls -t "$BACKUP_DIR"/*.tar.gz 2>/dev/null | tail -n +6 | xargs -r rm
+    ls -t "$BACKUP_DIR"/backup-* 2>/dev/null | tail -n +6 | xargs -r rm -rf
 }
 
 # Verify installation
