@@ -1,6 +1,6 @@
-# AP Mapping v1.2.1
+# AP Mapping v1.2.2
 
-Released: 2025-07-14
+Released: 2025-07-15
 
 ## 🎉 Highlights
 
@@ -37,7 +37,7 @@ _None in this release_
 ### New Installation
 
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.1/apm-v1.2.1.tar.gz | tar -xz
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.2/apm-v1.2.2.tar.gz | tar -xz
 ./installer/install.sh
 ```
 
