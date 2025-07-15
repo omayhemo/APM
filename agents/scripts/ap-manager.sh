@@ -82,7 +82,13 @@ check_for_updates() {
     
     # Extract version and download URL
     local latest_version=$(echo "$release_info" | grep '"tag_name"' | cut -d'"' -f4 | sed 's/^v//')
-    local download_url=$(echo "$release_info" | grep '"browser_download_url"' | grep '.tar.gz' | cut -d'"' -f4)
+    local download_url=$(echo "$release_info" | grep '"browser_download_url"' | grep '.tar.gz' | cut -d'"' -f4 | head -1)
+    
+    # If no browser_download_url, construct the URL manually
+    if [ -z "$download_url" ]; then
+        local tag_name=$(echo "$release_info" | grep '"tag_name"' | cut -d'"' -f4)
+        download_url="https://github.com/$REPO_OWNER/$REPO_NAME/releases/download/$tag_name/apm-v$latest_version.tar.gz"
+    fi
     
     if [ -z "$latest_version" ]; then
         echo -e "${RED}Error: Could not determine latest version${NC}"
