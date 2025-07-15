@@ -39,9 +39,9 @@ echo -e "${BLUE}Downloading fixed ap-manager.sh...${NC}"
 TEMP_FILE=$(mktemp)
 
 if command -v curl >/dev/null 2>&1; then
-    curl -L -o "$TEMP_FILE" "https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/agents/scripts/ap-manager.sh"
+    curl -L -o "$TEMP_FILE" "https://raw.githubusercontent.com/omayhemo/APM/master/agents/scripts/ap-manager.sh"
 elif command -v wget >/dev/null 2>&1; then
-    wget -O "$TEMP_FILE" "https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/agents/scripts/ap-manager.sh"
+    wget -O "$TEMP_FILE" "https://raw.githubusercontent.com/omayhemo/APM/master/agents/scripts/ap-manager.sh"
 else
     echo -e "${RED}Error: Neither curl nor wget found${NC}"
     exit 1
