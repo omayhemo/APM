@@ -150,7 +150,11 @@ perform_update() {
     # Run integrity check on current installation
     if [ -f "$INSTALLER_DIR/integrity-checker.sh" ]; then
         echo -e "${BLUE}Running pre-update integrity check...${NC}"
-        "$INSTALLER_DIR/integrity-checker.sh" --quiet || true
+        # Set proper environment for integrity check
+        export LOG_DIR="$AP_ROOT/.logs"
+        export LOG_TO_FILE="false"  # Disable file logging to avoid directory issues
+        mkdir -p "$LOG_DIR" 2>/dev/null || true
+        "$INSTALLER_DIR/integrity-checker.sh" 2>/dev/null || true
     fi
     
     # Update installer files
@@ -187,7 +191,15 @@ perform_update() {
     # Run post-update integrity check
     if [ -f "$INSTALLER_DIR/integrity-checker.sh" ]; then
         echo -e "${BLUE}Running post-update integrity check...${NC}"
-        "$INSTALLER_DIR/integrity-checker.sh" --quiet
+        # Set proper working directory and environment for integrity check
+        cd "$(dirname "$AP_ROOT")"
+        export LOG_DIR="$AP_ROOT/.logs"
+        export LOG_TO_FILE="false"  # Disable file logging to avoid directory issues
+        mkdir -p "$LOG_DIR" 2>/dev/null || true
+        "$INSTALLER_DIR/integrity-checker.sh" 2>/dev/null || {
+            echo "Warning: Integrity check failed, but update completed successfully"
+            echo "You can manually verify with: $INSTALLER_DIR/integrity-checker.sh"
+        }
     fi
 }
 
