@@ -29,7 +29,7 @@ get_piper_dir() {
 }
 
 PIPER_DIR=$(get_piper_dir)
-PIPER_BIN="$PIPER_DIR/piper"
+PIPER_BIN="$PIPER_DIR/piper/piper"
 
 # Voice mappings
 declare -A VOICE_MAP=(

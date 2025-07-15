@@ -84,8 +84,17 @@ speak() {
     local options="$3"
     
     local tts_cmd=$(detect_system_tts)
+    
+    # If no working TTS, fall back to notification sound + text display
     if [ -z "$tts_cmd" ]; then
-        return 1
+        echo "🔊 $persona: $message"
+        # Try to play notification sound as audio feedback
+        local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+        local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+        if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+            mpg123 -q "$sound_file" 2>/dev/null || true
+        fi
+        return 0
     fi
     
     local voice=$(get_system_voice "$persona" "$tts_cmd")
@@ -100,31 +109,78 @@ speak() {
             fi
             ;;
         espeak)
-            # espeak command
+            # espeak command - try but fall back to notification on error
             if [ -n "$voice" ]; then
-                espeak -v "$voice" "$message" 2>/dev/null
+                espeak -v "$voice" "$message" 2>/dev/null || {
+                    echo "🔊 $persona: $message"
+                    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                    local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+                    if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                        mpg123 -q "$sound_file" 2>/dev/null || true
+                    fi
+                }
             else
-                espeak "$message" 2>/dev/null
+                espeak "$message" 2>/dev/null || {
+                    echo "🔊 $persona: $message"
+                    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                    local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+                    if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                        mpg123 -q "$sound_file" 2>/dev/null || true
+                    fi
+                }
             fi
             ;;
         espeak-ng)
-            # espeak-ng command
+            # espeak-ng command - try but fall back to notification on error
             if [ -n "$voice" ]; then
-                espeak-ng -v "$voice" "$message" 2>/dev/null
+                espeak-ng -v "$voice" "$message" 2>/dev/null || {
+                    echo "🔊 $persona: $message"
+                    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                    local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+                    if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                        mpg123 -q "$sound_file" 2>/dev/null || true
+                    fi
+                }
             else
-                espeak-ng "$message" 2>/dev/null
+                espeak-ng "$message" 2>/dev/null || {
+                    echo "🔊 $persona: $message"
+                    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                    local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+                    if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                        mpg123 -q "$sound_file" 2>/dev/null || true
+                    fi
+                }
             fi
             ;;
         festival)
             # festival command
-            echo "$message" | festival --tts 2>/dev/null
+            echo "$message" | festival --tts 2>/dev/null || {
+                echo "🔊 $persona: $message"
+                local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+                if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                    mpg123 -q "$sound_file" 2>/dev/null || true
+                fi
+            }
             ;;
         spd-say)
             # speech-dispatcher
-            spd-say "$message" 2>/dev/null
+            spd-say "$message" 2>/dev/null || {
+                echo "🔊 $persona: $message"
+                local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+                local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+                if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                    mpg123 -q "$sound_file" 2>/dev/null || true
+                fi
+            }
             ;;
         *)
-            return 1
+            echo "🔊 $persona: $message"
+            local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+            local sound_file="$(dirname "$(dirname "$script_dir")")/sounds/notification.mp3"
+            if [ -f "$sound_file" ] && command -v mpg123 >/dev/null 2>&1; then
+                mpg123 -q "$sound_file" 2>/dev/null || true
+            fi
             ;;
     esac
 }
