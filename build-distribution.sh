@@ -10,7 +10,7 @@ set -e
 if [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="1.2.3"
+    VERSION="1.2.4"
 fi
 DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
