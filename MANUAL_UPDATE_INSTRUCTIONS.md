@@ -5,13 +5,13 @@ If your `ap-manager.sh update` is failing with backup creation errors, use one o
 ## Quick Fix (Recommended - Just patches the backup function)
 
 ```bash
-curl -L https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/quick-fix-backup.sh | bash
+curl -L https://raw.githubusercontent.com/omayhemo/APM/master/quick-fix-backup.sh | bash
 ```
 
 ## Full Update to v1.2.7 (If quick fix doesn't work)
 
 ```bash
-curl -L https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/manual-update-to-1.2.7.sh | bash
+curl -L https://raw.githubusercontent.com/omayhemo/APM/master/manual-update-to-1.2.7.sh | bash
 ```
 
 ## Manual Steps
