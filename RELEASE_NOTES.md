@@ -4,22 +4,25 @@ Released: 2025-07-15
 
 ## 🎉 Highlights
 
-<!-- Brief summary of major changes in this release -->
+Enhanced hook logging system that provides meaningful session data instead of useless "unknown, 0 seconds, None" logs.
 
 ## ✨ New Features
 
-<!-- List new features with descriptions -->
-- **Feature Name**: Description
+- **Intelligent Hook Logging**: Hooks now parse transcript files to extract real session data
+- **Session Analytics**: Extract tools used, user requests, and task descriptions from sessions
+- **Duration Tracking**: Calculate actual session duration from transcript timestamps
 
 ## 🐛 Bug Fixes
 
-<!-- List bug fixes -->
-- Fixed issue where...
+- Fixed hook logging showing useless "unknown" reasons and 0-second durations
+- Enhanced subagent logging to show actual task descriptions instead of "No description"
+- Fixed hooks not extracting meaningful data from Claude sessions
 
 ## 🔧 Improvements
 
-<!-- List improvements -->
-- Enhanced performance of...
+- **Enhanced stop.py hook**: Now parses transcripts to show real session data, tools used, and user requests
+- **Enhanced subagent_stop.py hook**: Extracts actual task descriptions and shows meaningful completion info
+- **Better debugging**: Logs now provide actionable information for session analysis
 
 ## 📚 Documentation
 
