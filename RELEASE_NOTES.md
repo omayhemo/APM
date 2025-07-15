@@ -1,43 +1,43 @@
-# AP Mapping v1.2.6
+# AP Mapping v1.2.7
 
 Released: 2025-07-15
 
 ## 🎉 Highlights
 
-<!-- Brief summary of major changes in this release -->
+Fixed critical backup creation failure that was preventing successful updates from installed locations.
 
 ## ✨ New Features
 
-<!-- List new features with descriptions -->
-- **Feature Name**: Description
+_None in this release_
 
 ## 🐛 Bug Fixes
 
-<!-- List bug fixes -->
-- Fixed issue where...
+- **ap-manager.sh Update Process**: Fixed backup creation failure during update process
+  - Added robust error handling for tar backup creation
+  - Implemented fallback backup method using direct copy
+  - Added debug output for troubleshooting directory paths
+  - Ensured AP_ROOT directory exists before backup attempts
+  - Enhanced cleanup to handle both tar.gz and directory backups
 
 ## 🔧 Improvements
 
-<!-- List improvements -->
-- Enhanced performance of...
+- Enhanced update reliability with better backup error handling
+- Improved diagnostic output for troubleshooting update failures
 
 ## 📚 Documentation
 
-<!-- Documentation updates -->
-- Updated guide for...
+_None in this release_
 
 ## 💔 Breaking Changes
 
 _None in this release_
-
-<!-- OR list breaking changes with migration paths -->
 
 ## 📦 Installation
 
 ### New Installation
 
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.6/apm-v1.2.6.tar.gz | tar -xz
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.7/apm-v1.2.7.tar.gz | tar -xz
 ./installer/install.sh
 ```
 
