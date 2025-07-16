@@ -1,3 +1,37 @@
+# AP Mapping v1.2.10
+
+Released: 2025-07-16
+
+## 🎉 Highlights
+
+Fixed critical TTS system failures and installer file overwrite issues that were impacting user experience.
+
+### ✅ TTS System Fully Restored
+- **Fixed critical TTS system failures** that were causing fallback to bell sounds
+- **Restored complete voice functionality** across all 9 specialized personas
+- **Verified audio pipeline** working correctly in WSL2 environments
+
+### 🛡️ Installer User File Protection
+- **Prevents overwriting user README.md files** during installation
+- **Safer installation process** that respects existing project files
+- **Improved user experience** with protected project directory
+
+## 🔧 Technical Fixes
+
+### TTS System Restoration
+- **Fixed PROJECT_ROOT path calculation** in tts-manager.sh (was going up extra directory)
+- **Corrected PIPER_BIN path** to include proper piper/piper binary location
+- **Resolved variable expansion issues** in piper.sh configuration parsing
+- **Complete testing verification** of audio pipeline functionality
+
+### Installer Improvements
+- **Modified build-distribution.sh** to place README.md in .apm/ directory instead of root
+- **Updated installer cleanup logic** with backward compatibility
+- **Added user file protection** during extraction and installation
+- **Tested installer safety** with existing user projects
+
+---
+
 # AP Mapping v1.2.7
 
 Released: 2025-07-15

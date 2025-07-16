@@ -2,6 +2,25 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [1.2.10] - 2025-07-16
+
+### Fixed
+- **TTS System**: Fixed critical bugs causing fallback to bell sounds instead of voice output
+  - Corrected PROJECT_ROOT path calculation in tts-manager.sh
+  - Fixed PIPER_BIN path to include correct piper/piper binary location
+  - Resolved variable expansion issues in piper.sh configuration
+  - Verified complete TTS functionality across all personas in WSL2 environment
+
+- **Installer**: Fixed installer overwriting user README.md files
+  - Modified build-distribution.sh to place README.md in .apm/ directory instead of root
+  - Updated installer cleanup logic for new README location
+  - Added user file protection during installation process
+
+### Technical Details
+- **TTS System**: Fixed tts-manager.sh PROJECT_ROOT path, piper.sh binary path, and variable expansion
+- **Installer**: Moved distribution README.md to .apm/README.md to prevent user file overwrites
+- **Verification**: Complete testing of both TTS audio pipeline and installer file protection
+
 ## [1.2.0-rc.2] - 2025-07-12
 
 ### Enhanced
