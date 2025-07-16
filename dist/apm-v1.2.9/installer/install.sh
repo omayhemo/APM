@@ -1417,10 +1417,11 @@ if [ -f "$PROJECT_ROOT/VERSION" ]; then
     echo "- Removed VERSION file"
 fi
 
-# Remove the distribution README if it exists (not the installer README)
+# Note: Distribution README is now placed in .apm directory to avoid overwriting user README
+# Legacy cleanup for old installations that placed README in root
 if [ -f "$PROJECT_ROOT/README.md" ] && grep -q "AP Mapping - Agentic Persona Mapping Framework" "$PROJECT_ROOT/README.md" 2>/dev/null; then
     rm -f "$PROJECT_ROOT/README.md"
-    echo "- Removed distribution README"
+    echo "- Removed legacy distribution README from root"
 fi
 
 # Remove the installer directory after preserving it

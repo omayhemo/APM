@@ -20,7 +20,7 @@ get_piper_dir() {
         local dir=$(jq -r '.env.TTS_PIPER_INSTALL_PATH // ""' "$SETTINGS_FILE" 2>/dev/null)
         if [ -n "$dir" ] && [ "$dir" != "null" ]; then
             # Expand variables - replace ${PROJECT_ROOT} with actual value
-            dir=$(echo "$dir" | sed "s|\${PROJECT_ROOT}|$PROJECT_ROOT|g")
+            dir=$(echo "$dir" | sed "s|\\\${PROJECT_ROOT}|$PROJECT_ROOT|g")
             echo "$dir"
             return
         fi

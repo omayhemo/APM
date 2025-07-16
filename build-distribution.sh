@@ -75,9 +75,9 @@ echo "$VERSION" > "$DIST_DIR/VERSION"
 echo "Copying installer directory..."
 cp -r installer "$DIST_DIR/"
 
-# Copy README from installer directory
-echo "Copying distribution README..."
-cp installer/README.md "$DIST_DIR/README.md"
+# Copy README from installer directory to .apm to avoid overwriting user README
+echo "Copying distribution README to .apm directory..."
+cp installer/README.md "$DIST_DIR/.apm/README.md"
 
 # Create LICENSE file
 echo "Creating LICENSE file..."
@@ -113,7 +113,7 @@ tar -czf "../$DIST_NAME.tar.gz" .
 cd ../..
 
 # Copy README to dist directory for easy access
-cp "$DIST_DIR/README.md" "dist/README.md"
+cp "$DIST_DIR/.apm/README.md" "dist/README.md"
 
 # Validate distribution package
 echo ""
