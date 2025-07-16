@@ -9,7 +9,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AP_ROOT="$(dirname "$SCRIPT_DIR")"
 APM_ROOT="$(dirname "$AP_ROOT")"
-PROJECT_ROOT="$(dirname "$APM_ROOT")"
+PROJECT_ROOT="$APM_ROOT"
 
 # Load settings
 SETTINGS_FILE="$PROJECT_ROOT/.claude/settings.json"
