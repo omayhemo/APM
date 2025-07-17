@@ -326,6 +326,21 @@ replace_variables() {
     sed $sed_inplace "s|{{SPEAK_PO}}|$SPEAK_PO|g" "$temp_file"
     sed $sed_inplace "s|{{SPEAK_SM}}|$SPEAK_SM|g" "$temp_file"
     sed $sed_inplace "s|{{SPEAK_DESIGN_ARCHITECT}}|$SPEAK_DESIGN_ARCHITECT|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_CONFIG_FILE}}|$AP_CONFIG_FILE|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_KB_FILE}}|$AP_KB_FILE|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_CHECKLISTS}}|$AP_CHECKLISTS|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_DATA}}|$AP_DATA|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_PERSONAS}}|$AP_PERSONAS|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_TASKS}}|$AP_TASKS|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_TEMPLATES}}|$AP_TEMPLATES|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_DOCS}}|$AP_DOCS|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_VOICE}}|$AP_VOICE|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_PYTHON}}|$AP_PYTHON|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_MONITORING}}|$AP_MONITORING|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_SCRIPTS}}|$AP_SCRIPTS|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_SUBTASKS}}|$AP_SUBTASKS|g" "$temp_file"
+    sed $sed_inplace "s|{{AP_DOCUMENTATION}}|$AP_DOCUMENTATION|g" "$temp_file"
+    sed $sed_inplace "s|{{SPEAK_AGENT}}|$SPEAK_AGENT|g" "$temp_file"
     sed $sed_inplace "s|{{APM_ROOT}}|$APM_ROOT|g" "$temp_file"
     sed $sed_inplace "s|{{PLANNING_ROOT}}|$PLANNING_ROOT|g" "$temp_file"
     
@@ -333,18 +348,47 @@ replace_variables() {
     mv "$temp_file" "$output_file"
 }
 
-echo ""
-echo "Step 1: Copying Agents Directory"
-echo "-------------------------------"
+# Function to generate agents directory from templates
+generate_agents_from_templates() {
+    echo "Processing template files..."
+    
+    # Find all template files and process them
+    find "$INSTALLER_DIR/templates/agents" -name "*.template" -type f | while read template_file; do
+        # Calculate relative path from templates/agents
+        rel_path="${template_file#$INSTALLER_DIR/templates/agents/}"
+        
+        # Remove .template extension
+        rel_path="${rel_path%.template}"
+        
+        # Create output file path
+        output_file="$AP_ROOT/$rel_path"
+        
+        # Create output directory
+        mkdir -p "$(dirname "$output_file")"
+        
+        # Process template through replace_variables
+        replace_variables "$template_file" "$output_file"
+        
+        echo "  Generated: $rel_path"
+    done
+    
+    echo "✅ Generated agents directory from templates"
+}
 
-# Copy agents directory to APM structure
+echo ""
+echo "Step 1: Generating Agents Directory from Templates"
+echo "------------------------------------------------"
+
+# Generate agents directory from templates
 if [ "$SKIP_COPY" != "true" ]; then
-    if [ -d "$DIST_DIR/.apm/agents" ]; then
-        echo "Copying agents directory to: $AP_ROOT"
+    if [ -d "$INSTALLER_DIR/templates/agents" ]; then
+        echo "Generating agents directory from templates to: $AP_ROOT"
         ensure_dir "$APM_ROOT"
-        cp -r "$DIST_DIR/.apm/agents" "$APM_ROOT/"
+        
+        # Generate agents directory structure from templates
+        generate_agents_from_templates
     else
-        echo "Error: .apm/agents directory not found in distribution"
+        echo "Error: templates/agents directory not found in installer"
         exit 1
     fi
 else
@@ -510,15 +554,32 @@ ensure_dir "$RULES_PATH"
 ensure_dir "$ARCHIVE_PATH"
 
 # Set voice script paths
-SPEAK_ORCHESTRATOR="\${AP_ROOT}/voice/speakOrchestrator.sh"
-SPEAK_DEVELOPER="\${AP_ROOT}/voice/speakDeveloper.sh"
-SPEAK_ARCHITECT="\${AP_ROOT}/voice/speakArchitect.sh"
-SPEAK_ANALYST="\${AP_ROOT}/voice/speakAnalyst.sh"
-SPEAK_QA="\${AP_ROOT}/voice/speakQA.sh"
-SPEAK_PM="\${AP_ROOT}/voice/speakPM.sh"
-SPEAK_PO="\${AP_ROOT}/voice/speakPO.sh"
-SPEAK_SM="\${AP_ROOT}/voice/speakSM.sh"
-SPEAK_DESIGN_ARCHITECT="\${AP_ROOT}/voice/speakDesignArchitect.sh"
+SPEAK_ORCHESTRATOR="$AP_ROOT/voice/speakOrchestrator.sh"
+SPEAK_DEVELOPER="$AP_ROOT/voice/speakDeveloper.sh"
+SPEAK_ARCHITECT="$AP_ROOT/voice/speakArchitect.sh"
+SPEAK_ANALYST="$AP_ROOT/voice/speakAnalyst.sh"
+SPEAK_QA="$AP_ROOT/voice/speakQA.sh"
+SPEAK_PM="$AP_ROOT/voice/speakPM.sh"
+SPEAK_PO="$AP_ROOT/voice/speakPO.sh"
+SPEAK_SM="$AP_ROOT/voice/speakSM.sh"
+SPEAK_DESIGN_ARCHITECT="$AP_ROOT/voice/speakDesignArchitect.sh"
+
+# AP Orchestrator IDE configuration paths
+AP_CONFIG_FILE="$AP_ROOT/ide-ap-orchestrator.cfg.md"
+AP_KB_FILE="$AP_ROOT/data/ap-kb.md"
+AP_CHECKLISTS="$AP_ROOT/checklists"
+AP_DATA="$AP_ROOT/data"
+AP_PERSONAS="$AP_ROOT/personas"
+AP_TASKS="$AP_ROOT/tasks"
+AP_TEMPLATES="$AP_ROOT/templates"
+AP_DOCS="$AP_ROOT/docs"
+AP_VOICE="$AP_ROOT/voice"
+AP_PYTHON="$AP_ROOT/python"
+AP_MONITORING="$AP_ROOT/monitoring"
+AP_SCRIPTS="$AP_ROOT/scripts"
+AP_SUBTASKS="$AP_ROOT/tasks/subtasks"
+AP_DOCUMENTATION="$AP_ROOT/documentation"
+SPEAK_AGENT="$AP_ROOT/voice/speakAgent.sh"
 
 echo ""
 echo "Step 4: Creating Project Structure"
@@ -610,6 +671,37 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/sm.md.template" "$CL
 replace_variables "$INSTALLER_DIR/templates/claude/commands/subtask.md.template" "$CLAUDE_COMMANDS_DIR/subtask.md"
 
 echo "Created .claude commands in: $CLAUDE_COMMANDS_DIR"
+
+# Process persona templates
+echo ""
+echo "Processing persona templates..."
+PERSONAS_DIR="$AP_ROOT/personas"
+if [ -d "$INSTALLER_DIR/templates/personas" ]; then
+    echo "Creating persona files from templates..."
+    replace_variables "$INSTALLER_DIR/templates/personas/analyst.md.template" "$PERSONAS_DIR/analyst.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/architect.md.template" "$PERSONAS_DIR/architect.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/design-architect.md.template" "$PERSONAS_DIR/design-architect.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/dev.md.template" "$PERSONAS_DIR/dev.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/pm.md.template" "$PERSONAS_DIR/pm.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/po.md.template" "$PERSONAS_DIR/po.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/qa.md.template" "$PERSONAS_DIR/qa.md"
+    replace_variables "$INSTALLER_DIR/templates/personas/sm.md.template" "$PERSONAS_DIR/sm.md"
+    echo "✓ Persona files created with proper variable substitution"
+else
+    echo "Warning: Persona templates not found in installer"
+fi
+
+# Process AP Orchestrator IDE templates
+echo ""
+echo "Processing AP Orchestrator IDE templates..."
+if [ -f "$INSTALLER_DIR/templates/ide-ap-orchestrator.md.template" ]; then
+    echo "Creating AP Orchestrator IDE configuration from templates..."
+    replace_variables "$INSTALLER_DIR/templates/ide-ap-orchestrator.md.template" "$AP_ROOT/ide-ap-orchestrator.md"
+    replace_variables "$INSTALLER_DIR/templates/ide-ap-orchestrator.cfg.md.template" "$AP_ROOT/ide-ap-orchestrator.cfg.md"
+    echo "✓ AP Orchestrator IDE files created with proper variable substitution"
+else
+    echo "Warning: AP Orchestrator IDE templates not found in installer"
+fi
 
 echo ""
 echo "Step 7: Setting Up Python Hooks"

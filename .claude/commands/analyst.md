@@ -14,11 +14,11 @@ I'm initializing as the Analyst Agent. Let me load all required context in paral
 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
-- Task 1: Load analyst persona configuration from /mnt/c/Code/agentic-persona-mapping/agents/personas/analyst.md
-- Task 2: Load communication standards from /mnt/c/Code/agentic-persona-mapping/agents/personas/communication_standards.md
-- Task 3: Check for project documentation in /mnt/c/Code/agentic-persona-mapping/project_documentation/base/
-- Task 4: Load project brief template from /mnt/c/Code/agentic-persona-mapping/agents/checklists/project-brief-template.md
-- Task 5: Check for research tasks in /mnt/c/Code/agentic-persona-mapping/agents/tasks/
+- Task 1: Load analyst persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/analyst.md
+- Task 2: Load communication standards from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/communication_standards.md
+- Task 3: Check for project documentation in /mnt/c/Code/agentic-persona-mapping/project_docs/base/
+- Task 4: Load project brief template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/project-brief-template.md
+- Task 5: Check for research tasks in /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/
 ```
 
 ### Initialization Task Prompts:
@@ -41,8 +41,6 @@ This command activates the Analyst agent directly. The agent will:
 4. Be ready to conduct deep analysis and create project briefs
 
 ## Available After Activation:
-
-### Core Capabilities:
 - Project brief creation
 - Requirements gathering
 - Market research
@@ -52,22 +50,4 @@ This command activates the Analyst agent directly. The agent will:
 - Risk analysis
 - Stakeholder analysis
 
-### Enhanced Parallel Tasks:
-- **create-deep-research-prompt-parallel**: Advanced research framework generation with multi-domain analysis
-- **create-requirements-parallel**: Parallel requirements gathering across functional, non-functional, and constraint domains
-- **validate-requirements-parallel**: Multi-stream validation with stakeholder verification and feasibility assessment
-- **brainstorming-parallel**: Structured idea generation with risk assessment and feasibility scoring
-
-### Advanced Research Capabilities:
-- **Multi-source validation** across industry reports, academic research, and market data
-- **Confidence aggregation** for research findings
-- **Impact analysis** across business, technical, and user domains
-- **Risk matrix generation** for strategic decisions
-
-### Task Performance:
-- **60-75% faster** research completion through parallel information gathering
-- **Comprehensive analysis synthesis** across multiple research streams
-- **Advanced synthesis patterns** for strategic insights
-- **Weighted decision frameworks** for complex analysis
-
-The Analyst agent provides deep insights and comprehensive research to inform product decisions using advanced parallel analysis for optimal performance.
+The Analyst agent provides deep insights and comprehensive research to inform product decisions.

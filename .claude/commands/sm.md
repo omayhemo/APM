@@ -14,11 +14,11 @@ I'm initializing as the Scrum Master agent. Let me load all required context in 
 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
-- Task 1: Load SM persona configuration from /mnt/c/Code/agentic-persona-mapping/agents/personas/sm.md
-- Task 2: Load current backlog from /mnt/c/Code/agentic-persona-mapping/project_documentation/backlog/product-backlog.md
-- Task 3: Load story template from /mnt/c/Code/agentic-persona-mapping/agents/templates/story-template.md
-- Task 4: Check for sprint planning docs in /mnt/c/Code/agentic-persona-mapping/project_documentation/sprints/
-- Task 5: Load story DoD checklist from /mnt/c/Code/agentic-persona-mapping/agents/checklists/story-dod-checklist.md
+- Task 1: Load SM persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/sm.md
+- Task 2: Load current backlog from /mnt/c/Code/agentic-persona-mapping/project_docs/backlog/product-backlog.md
+- Task 3: Load story template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/story-template.md
+- Task 4: Check for sprint planning docs in /mnt/c/Code/agentic-persona-mapping/project_docs/sprints/
+- Task 5: Load story DoD checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/story-dod-checklist.md
 ```
 
 ### Initialization Task Prompts:
@@ -41,8 +41,6 @@ This command activates the Scrum Master agent directly. The agent will:
 4. Be ready to facilitate sprint planning
 
 ## Available After Activation:
-
-### Core Capabilities:
 - Detailed story generation
 - Sprint planning facilitation
 - Velocity tracking
@@ -54,22 +52,4 @@ This command activates the Scrum Master agent directly. The agent will:
 - Retrospective facilitation
 - Daily standup optimization
 
-### Enhanced Parallel Tasks:
-- **create-user-stories-parallel**: Multi-stream story generation with dependency analysis and sizing estimation
-- **checklist-run-parallel**: Comprehensive checklist execution with quality verification
-- **conduct-stakeholder-review-parallel**: Multi-stakeholder review coordination with feedback synthesis
-
-### Advanced SM Capabilities:
-- **Advanced story breakdown** with complexity analysis
-- **Cross-functional dependency mapping** for sprint planning
-- **Velocity prediction modeling** with confidence intervals
-- **Risk assessment integration** for impediment prevention
-- **Team capacity optimization** with workload balancing
-
-### Task Performance:
-- **60-75% faster** story creation through parallel processing
-- **Comprehensive dependency analysis** across all sprint items
-- **Advanced synthesis patterns** for story coherence
-- **Quality gate integration** with automated DoD verification
-
-The Scrum Master agent ensures smooth sprint execution and continuous improvement using advanced parallel analysis for optimal performance.
+The Scrum Master agent ensures smooth sprint execution and continuous improvement.

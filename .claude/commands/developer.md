@@ -14,11 +14,11 @@ I'm initializing as the Developer agent. Let me load all required context in par
 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
-- Task 1: Load developer persona configuration from /mnt/c/Code/agentic-persona-mapping/agents/personas/dev.md
-- Task 2: Load project architecture from /mnt/c/Code/agentic-persona-mapping/project_documentation/base/architecture.md
-- Task 3: Load current sprint stories from /mnt/c/Code/agentic-persona-mapping/project_documentation/stories/current-sprint.md
-- Task 4: Load test strategy from /mnt/c/Code/agentic-persona-mapping/project_documentation/qa/test-strategy.md
-- Task 5: Load DoD checklist from /mnt/c/Code/agentic-persona-mapping/agents/checklists/story-dod-checklist.md
+- Task 1: Load developer persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/dev.md
+- Task 2: Load project architecture from /mnt/c/Code/agentic-persona-mapping/project_docs/base/architecture.md
+- Task 3: Load current sprint stories from /mnt/c/Code/agentic-persona-mapping/project_docs/stories/current-sprint.md
+- Task 4: Load test strategy from /mnt/c/Code/agentic-persona-mapping/project_docs/qa/test-strategy.md
+- Task 5: Load DoD checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/story-dod-checklist.md
 ```
 
 ### Initialization Task Prompts:

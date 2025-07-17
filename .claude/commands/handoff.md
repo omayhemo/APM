@@ -15,7 +15,7 @@ I'm preparing to hand off to the [Target Agent]. Let me transfer context and ini
 *Executing parallel handoff tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Create handoff summary of current work and decisions
-- Task 2: Load target persona configuration from /mnt/c/Code/agentic-persona-mapping/agents/personas/{persona}.md
+- Task 2: Load target persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/{persona}.md
 - Task 3: Check for work artifacts relevant to target persona
 - Task 4: Prepare transition notes for seamless continuation
 - Task 5: Load target persona's required templates and checklists

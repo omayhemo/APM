@@ -64,8 +64,8 @@ def main():
         import os
         
         # Get notification manager path
-        ap_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        notification_manager = os.path.join(ap_root, 'agents', 'scripts', 'notification-manager.sh')
+        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Up from .claude/hooks/
+        notification_manager = os.path.join(project_root, '.apm', 'agents', 'scripts', 'notification-manager.sh')
         
         if os.path.exists(notification_manager):
             # Call notification manager

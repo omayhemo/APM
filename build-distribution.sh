@@ -25,6 +25,8 @@ echo "Cleaning previous builds..."
 if [ -d "dist" ]; then
     # Remove contents of dist directory but keep the directory itself
     rm -rf dist/*
+    # Also clean any hidden directories like .apm (but not . and ..)
+    find dist -name ".*" -not -name "." -not -name ".." -exec rm -rf {} + 2>/dev/null || true
 else
     # Create dist directory if it doesn't exist
     mkdir -p dist
@@ -34,39 +36,27 @@ fi
 echo "Creating distribution structure..."
 mkdir -p "$DIST_DIR"
 
-# Copy agents directory
-echo "Copying agents directory..."
-# Copy agents to .apm directory in distribution
-mkdir -p "$DIST_DIR/.apm"
-cp -r agents "$DIST_DIR/.apm/"
+# No generation - only templates and installer files go in distribution
+echo "Preparing distribution with templates and installer only..."
 
-# Clean up files that shouldn't be distributed
-echo "Cleaning up distribution..."
+# Validate template system integrity
+echo "Validating template system integrity..."
+TEMPLATE_COUNT=$(find installer/templates/agents -name "*.template" -type f | wc -l)
 
-# Count files before cleanup
-LOG_COUNT=$(find "$DIST_DIR/.apm/agents" -name "*.log" -type f | wc -l)
-TEMP_COUNT=$(find "$DIST_DIR/.apm/agents" \( -name "*~" -o -name "*.tmp" \) -type f | wc -l)
-DS_COUNT=$(find "$DIST_DIR/.apm/agents" -name ".DS_Store" -type f | wc -l)
+if [ "$TEMPLATE_COUNT" -eq 0 ]; then
+    echo "❌ ERROR: No template files found"
+    exit 1
+else
+    echo "✅ Template system validation passed: $TEMPLATE_COUNT templates ready for distribution"
+fi
 
-# Remove all log files
-find "$DIST_DIR/.apm/agents" -name "*.log" -type f -delete
-[ "$LOG_COUNT" -gt 0 ] && echo "  - Removed $LOG_COUNT log files"
-
-# Remove any .DS_Store files (macOS)
-find "$DIST_DIR/.apm/agents" -name ".DS_Store" -type f -delete
-[ "$DS_COUNT" -gt 0 ] && echo "  - Removed $DS_COUNT .DS_Store files"
-
-# Remove any temporary files
-find "$DIST_DIR/.apm/agents" -name "*~" -type f -delete
-find "$DIST_DIR/.apm/agents" -name "*.tmp" -type f -delete
-[ "$TEMP_COUNT" -gt 0 ] && echo "  - Removed $TEMP_COUNT temporary files"
+# No cleanup needed - only templates and installer files in distribution
+echo "No cleanup needed for template-only distribution"
 
 # Note: Hook scripts are now in installer/templates/hooks as Python files
 # The old agents/hooks directory has been removed
 
-# Remove any git files that might have been copied
-find "$DIST_DIR/.apm/agents" -name ".gitignore" -type f -delete
-find "$DIST_DIR/.apm/agents" -name ".git" -type d -exec rm -rf {} + 2>/dev/null || true
+# No git files to remove - only templates and installer in distribution
 
 # Create VERSION file
 echo "$VERSION" > "$DIST_DIR/VERSION"
@@ -74,10 +64,6 @@ echo "$VERSION" > "$DIST_DIR/VERSION"
 # Copy installer directory with templates
 echo "Copying installer directory..."
 cp -r installer "$DIST_DIR/"
-
-# Copy README from installer directory to .apm to avoid overwriting user README
-echo "Copying distribution README to .apm directory..."
-cp installer/README.md "$DIST_DIR/.apm/README.md"
 
 # Create LICENSE file
 echo "Creating LICENSE file..."
@@ -112,8 +98,7 @@ cd "$DIST_DIR"
 tar -czf "../$DIST_NAME.tar.gz" .
 cd ../..
 
-# Copy README to dist directory for easy access
-cp "$DIST_DIR/.apm/README.md" "dist/README.md"
+# No README copied to dist root - users get installer only
 
 # Validate distribution package
 echo ""
@@ -122,18 +107,8 @@ echo "Validating distribution package..."
 # Check critical directories exist
 VALIDATION_FAILED=false
 
-if [ ! -d "$DIST_DIR/.apm/agents" ]; then
-    echo "❌ ERROR: .apm/agents directory missing from distribution"
-    VALIDATION_FAILED=true
-fi
-
 if [ ! -d "$DIST_DIR/installer" ]; then
     echo "❌ ERROR: installer directory missing from distribution"
-    VALIDATION_FAILED=true
-fi
-
-if [ ! -f "$DIST_DIR/.apm/agents/personas/ap_orchestrator.md" ]; then
-    echo "❌ ERROR: Core persona files missing from distribution"
     VALIDATION_FAILED=true
 fi
 
@@ -141,6 +116,37 @@ if [ ! -f "$DIST_DIR/installer/templates/hooks/subagent_stop.py" ]; then
     echo "❌ ERROR: Enhanced hook files missing from distribution"
     VALIDATION_FAILED=true
 fi
+
+# Validate template system in distribution
+if [ ! -d "$DIST_DIR/installer/templates/agents" ]; then
+    echo "❌ ERROR: Template system missing from distribution"
+    VALIDATION_FAILED=true
+fi
+
+# Check template count
+TEMPLATE_COUNT=$(find "$DIST_DIR/installer/templates/agents" -name "*.template" -type f | wc -l)
+
+if [ "$TEMPLATE_COUNT" -eq 0 ]; then
+    echo "❌ ERROR: No template files found in distribution"
+    VALIDATION_FAILED=true
+else
+    echo "✅ Template system integrity: $TEMPLATE_COUNT templates ready for distribution"
+fi
+
+# Validate critical template files exist
+CRITICAL_TEMPLATES=(
+    "installer/templates/agents/personas/ap_orchestrator.md.template"
+    "installer/templates/agents/data/ap-kb.md.template"
+    "installer/templates/agents/tasks/create-prd.md.template"
+    "installer/templates/agents/checklists/story-dod-checklist.md.template"
+)
+
+for template in "${CRITICAL_TEMPLATES[@]}"; do
+    if [ ! -f "$DIST_DIR/$template" ]; then
+        echo "❌ ERROR: Critical template missing: $template"
+        VALIDATION_FAILED=true
+    fi
+done
 
 if [ "$VALIDATION_FAILED" = true ]; then
     echo ""
@@ -157,7 +163,6 @@ FILE_SIZE=$(ls -lh "dist/$DIST_NAME.tar.gz" | awk '{print $5}')
 
 # Count files in distribution
 FILE_COUNT=$(find "$DIST_DIR" -type f | wc -l)
-AGENT_FILE_COUNT=$(find "$DIST_DIR/.apm/agents" -type f | wc -l)
 
 echo ""
 echo "=========================================="
@@ -168,7 +173,8 @@ echo "Distribution Details:"
 echo "- Package: dist/$DIST_NAME.tar.gz"
 echo "- Size: $FILE_SIZE"
 echo "- Total Files: $FILE_COUNT"
-echo "- Agent Files: $AGENT_FILE_COUNT"
+echo "- Template Files: $TEMPLATE_COUNT"
+echo "- Distribution: ✅ Template-only build process"
 echo ""
 echo "Installation Instructions:"
 echo "1. Extract: tar -xzf $DIST_NAME.tar.gz"

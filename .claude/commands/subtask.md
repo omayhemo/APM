@@ -14,10 +14,10 @@ I'm initializing Parallel Subtask Analysis Mode. Let me load all required contex
 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
-- Task 1: Load parallel subtask implementation guide from /mnt/c/Code/agentic-persona-mapping/agents/tasks/subtasks/IMPLEMENTATION-GUIDE.md
-- Task 2: Load parallel subtask usage guide from /mnt/c/Code/agentic-persona-mapping/agents/docs/PARALLEL-SUBTASK-USAGE-GUIDE.md
-- Task 3: Check for available subtask templates in /mnt/c/Code/agentic-persona-mapping/agents/tasks/subtasks/
-- Task 4: Load synthesis patterns from /mnt/c/Code/agentic-persona-mapping/agents/tasks/subtasks/synthesis/patterns/
+- Task 1: Load parallel subtask implementation guide from /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/subtasks/IMPLEMENTATION-GUIDE.md
+- Task 2: Load parallel subtask usage guide from /mnt/c/Code/agentic-persona-mapping/.apm/agents/docs/PARALLEL-SUBTASK-USAGE-GUIDE.md
+- Task 3: Check for available subtask templates in /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/subtasks/
+- Task 4: Load synthesis patterns from /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/subtasks/synthesis/patterns/
 - Task 5: Check current persona context and available capabilities
 ```
 

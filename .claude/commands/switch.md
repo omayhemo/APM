@@ -16,7 +16,7 @@ I'm preparing to compact this session and switch to the [Target Agent]. Let me p
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Create comprehensive session summary and key insights
 - Task 2: Archive current work artifacts and decisions
-- Task 3: Load target persona configuration from /mnt/c/Code/agentic-persona-mapping/agents/personas/{persona}.md
+- Task 3: Load target persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/{persona}.md
 - Task 4: Generate transition brief for the incoming agent
 - Task 5: Load target persona's templates and workspace setup
 ```

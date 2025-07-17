@@ -14,11 +14,11 @@ I'm initializing as the Product Manager agent. Let me load all required context 
 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
-- Task 1: Load PM persona configuration from /mnt/c/Code/agentic-persona-mapping/agents/personas/pm.md
-- Task 2: Load project brief from /mnt/c/Code/agentic-persona-mapping/project_documentation/base/project-brief.md
-- Task 3: Load PRD template from /mnt/c/Code/agentic-persona-mapping/agents/templates/product-requirements-document-tmpl.md
-- Task 4: Check for existing PRD in /mnt/c/Code/agentic-persona-mapping/project_documentation/base/prd.md
-- Task 5: Load PM checklist from /mnt/c/Code/agentic-persona-mapping/agents/checklists/pm-checklist.md
+- Task 1: Load PM persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/pm.md
+- Task 2: Load project brief from /mnt/c/Code/agentic-persona-mapping/project_docs/base/project-brief.md
+- Task 3: Load PRD template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/product-requirements-document-tmpl.md
+- Task 4: Check for existing PRD in /mnt/c/Code/agentic-persona-mapping/project_docs/base/prd.md
+- Task 5: Load PM checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/pm-checklist.md
 ```
 
 ### Initialization Task Prompts:
@@ -41,8 +41,6 @@ This command activates the Product Manager agent directly. The agent will:
 4. Be ready to create strategic product plans
 
 ## Available After Activation:
-
-### Core Capabilities:
 - Product Requirements Document (PRD) creation
 - Epic definition and breakdown
 - Feature prioritization
@@ -54,15 +52,4 @@ This command activates the Product Manager agent directly. The agent will:
 - Market positioning
 - User story high-level creation
 
-### Enhanced Parallel Tasks:
-- **create-prd-parallel**: 5-domain parallel analysis (market/user research, scope definition, technical requirements, epic structure, success metrics)
-- **create-epic-parallel**: Multi-stream epic analysis with business value assessment and technical feasibility
-- **prioritize-backlog-parallel**: Advanced prioritization using weighted scoring across multiple criteria
-
-### Task Performance:
-- **60-75% faster** PRD creation through parallel research and analysis
-- **Comprehensive market analysis** with concurrent user research
-- **Risk-adjusted prioritization** with confidence scoring
-- **Cross-functional requirements** synthesis
-
-The Product Manager agent creates strategic product plans aligned with business objectives using advanced parallel analysis for optimal performance.
+The Product Manager agent creates strategic product plans aligned with business objectives.
