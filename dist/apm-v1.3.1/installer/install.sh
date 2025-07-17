@@ -1295,11 +1295,13 @@ echo ""
 echo "Step 10: Updating CLAUDE.md"
 echo "---------------------------"
 
-# Check if CLAUDE.md exists
+# Check if CLAUDE.md exists in project root
 CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md"
 if [ -f "$CLAUDE_MD" ]; then
-    echo "CLAUDE.md already exists. Creating CLAUDE.md.ap-setup instead."
-    CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md.ap-setup"
+    echo "CLAUDE.md already exists in root. Creating AP version in .apm folder instead."
+    CLAUDE_MD="$AP_ROOT/CLAUDE.md"
+    # Create the .apm directory if it doesn't exist
+    mkdir -p "$AP_ROOT"
 fi
 
 # Create CLAUDE.md from template based on notes type
@@ -1328,7 +1330,7 @@ if [ -f "$GITIGNORE_FILE" ]; then
         echo ".apm/rules/" >> "$GITIGNORE_FILE"
         echo "" >> "$GITIGNORE_FILE"
         echo "# AP Mapping generated files" >> "$GITIGNORE_FILE"
-        echo "CLAUDE.md.ap-setup" >> "$GITIGNORE_FILE"
+        echo ".apm/CLAUDE.md" >> "$GITIGNORE_FILE"
         echo "harmonization.log" >> "$GITIGNORE_FILE"
         echo "" >> "$GITIGNORE_FILE"
         echo "# Piper TTS installation (project-local)" >> "$GITIGNORE_FILE"

@@ -13,7 +13,7 @@ deliverables/temp/
 deliverables/*.tmp
 
 # AP Mapping generated files
-CLAUDE.md.ap-setup
+.apm/CLAUDE.md
 harmonization.log
 
 # Piper TTS installation (project-local)
