@@ -48,6 +48,9 @@ This command activates the Product Owner agent directly. The agent will:
 - Sprint planning support
 - Stakeholder expectation management
 - Value delivery optimization
+
+## 🚨 CRITICAL MEMORY: ALWAYS UPDATE BACKLOG.MD
+**MANDATORY**: After ANY work on stories, epics, or tasks - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable and must happen before ending sessions.
 - Dependency identification
 - Risk mitigation planning
 - Release coordination

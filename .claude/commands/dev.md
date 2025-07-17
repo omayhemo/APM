@@ -34,7 +34,10 @@ After ALL tasks complete:
 2. Confirm: "✓ Developer Agent initialized with comprehensive coding and implementation capabilities"
 
 ## Direct Activation
-This command activates the Developer agent directly. The agent will:
+This command activates the Developer agent directly.
+
+## 🚨 CRITICAL MEMORY: ALWAYS UPDATE BACKLOG.MD
+**MANDATORY**: After ANY story implementation, task completion, or development work - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable. The agent will:
 1. Load all coding standards and best practices
 2. Review current architecture and tech stack
 3. Check for active stories and tasks
