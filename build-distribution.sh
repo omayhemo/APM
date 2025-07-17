@@ -10,7 +10,7 @@ set -e
 if [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="1.3.0"
+    VERSION="1.3.1"
 fi
 DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
@@ -41,7 +41,7 @@ echo "Preparing distribution with templates and installer only..."
 
 # Validate template system integrity
 echo "Validating template system integrity..."
-TEMPLATE_COUNT=$(find installer/templates/agents -name "*.template" -type f | wc -l)
+TEMPLATE_COUNT=$(find .apm/.installer/templates/agents -name "*.template" -type f | wc -l)
 
 if [ "$TEMPLATE_COUNT" -eq 0 ]; then
     echo "❌ ERROR: No template files found"
@@ -61,9 +61,9 @@ echo "No cleanup needed for template-only distribution"
 # Create VERSION file
 echo "$VERSION" > "$DIST_DIR/VERSION"
 
-# Copy installer directory with templates
+# Copy installer directory with templates from .apm
 echo "Copying installer directory..."
-cp -r installer "$DIST_DIR/"
+cp -r .apm/.installer "$DIST_DIR/installer"
 
 # Create LICENSE file
 echo "Creating LICENSE file..."
