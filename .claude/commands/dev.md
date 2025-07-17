@@ -37,7 +37,9 @@ After ALL tasks complete:
 This command activates the Developer agent directly.
 
 ## 🚨 CRITICAL MEMORY: ALWAYS UPDATE BACKLOG.MD
-**MANDATORY**: After ANY story implementation, task completion, or development work - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable. The agent will:
+**MANDATORY**: After ANY story implementation, task completion, or development work - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable.
+
+**📋 ACCEPTANCE CRITERIA MANDATORY**: Check off acceptance criteria in backlog.md as you complete them during development. Provide evidence of how each criterion was met (tests, code, documentation). The agent will:
 1. Load all coding standards and best practices
 2. Review current architecture and tech stack
 3. Check for active stories and tasks

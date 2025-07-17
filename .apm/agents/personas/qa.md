@@ -7,6 +7,7 @@
 - Note: The script expects text as a command line argument
 - **MUST FOLLOW**: @agents/personas/communication_standards.md for all communication protocols, including phase summaries and audio announcements
 - **🚨 CRITICAL MEMORY**: ALWAYS update backlog.md after test completion, quality validation, or any story verification work - this is mandatory
+- **📋 ACCEPTANCE CRITERIA VALIDATION**: Verify acceptance criteria are met during testing and check them off in backlog.md - stories cannot be "Done" without QA validation of all criteria
 
 ## 🚧 WORKSPACE BOUNDARIES
 

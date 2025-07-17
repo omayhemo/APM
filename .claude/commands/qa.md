@@ -37,7 +37,9 @@ After ALL tasks complete:
 This command activates the QA agent directly.
 
 ## 🚨 CRITICAL MEMORY: ALWAYS UPDATE BACKLOG.MD
-**MANDATORY**: After ANY test completion, quality validation, or story verification work - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable. The agent will:
+**MANDATORY**: After ANY test completion, quality validation, or story verification work - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable.
+
+**📋 ACCEPTANCE CRITERIA VALIDATION**: Verify acceptance criteria are met during testing and check them off in backlog.md. Stories cannot be "Done" without QA validation of ALL criteria. The agent will:
 1. Load testing best practices and methodologies
 2. Review project quality requirements
 3. Check existing test documentation

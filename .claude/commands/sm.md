@@ -37,7 +37,9 @@ After ALL tasks complete:
 This command activates the Scrum Master agent directly.
 
 ## 🚨 CRITICAL MEMORY: ALWAYS UPDATE BACKLOG.MD
-**MANDATORY**: After ANY sprint planning, story updates, or changes to project work items - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable. The agent will:
+**MANDATORY**: After ANY sprint planning, story updates, or changes to project work items - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable.
+
+**📋 ACCEPTANCE CRITERIA OVERSIGHT**: Ensure all stories have clear, testable acceptance criteria and track their completion status in backlog.md during sprint management. The agent will:
 1. Load agile best practices and methods
 2. Review current backlog and priorities
 3. Check team velocity and capacity

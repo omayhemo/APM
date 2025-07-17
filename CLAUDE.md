@@ -191,10 +191,10 @@ Initialize session notes directories
 **Primary Backlog Location**: `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md`
 
 **🔴 CRITICAL ENFORCEMENT**:
-- **After completing ANY story-related work** → Update backlog.md immediately
+- **After completing ANY story-related work** → Update backlog.md immediately + check off acceptance criteria
 - **After completing ANY epic-related work** → Update backlog.md immediately  
-- **After completing ANY task or development work** → Update backlog.md immediately
-- **Before ending ANY session** → Verify backlog.md is current
+- **After completing ANY task or development work** → Update backlog.md immediately + update acceptance criteria progress
+- **Before ending ANY session** → Verify backlog.md is current AND acceptance criteria are tracked
 - **If you haven't updated backlog.md during your work** → Update it NOW before responding
 
 ### Product Owner Responsibilities
@@ -235,7 +235,9 @@ Before ending ANY session, EVERY agent must:
 1. **Check**: Have I worked on stories, epics, or tasks?
 2. **Verify**: Is backlog.md current with my work?  
 3. **Update**: If not current, update backlog.md NOW
-4. **Confirm**: Backlog shows accurate status of all work items
+4. **Acceptance Criteria**: Have I checked off any completed acceptance criteria?
+5. **Story Status**: Are stories marked "Done" only when ALL acceptance criteria are met?
+6. **Confirm**: Backlog shows accurate status of all work items AND acceptance criteria progress
 
 ### Critical Update Triggers
 Update backlog.md immediately when:
@@ -245,6 +247,23 @@ Update backlog.md immediately when:
 - ✅ Sprint assignments or capacity changes
 - ✅ Dependencies discovered or resolved
 - ✅ Any work item creation, modification, or completion
+- ✅ **ACCEPTANCE CRITERIA**: Check off acceptance criteria as they are met during story work
+
+### 📋 Acceptance Criteria Tracking (MANDATORY)
+**CRITICAL REQUIREMENT**: When working on stories, agents MUST:
+
+1. **Review Acceptance Criteria**: Before starting story work, identify all acceptance criteria
+2. **Track Progress**: As work progresses, check off completed acceptance criteria in backlog.md
+3. **Validate Completion**: Only mark story as "Done" when ALL acceptance criteria are checked off
+4. **Document Evidence**: Note where/how each criterion was met (tests, code, documentation)
+
+**Format for Acceptance Criteria Updates**:
+```
+- [x] User can login with email and password
+- [x] System validates password strength (min 8 chars, 1 special)  
+- [ ] Password reset email functionality implemented
+- [x] Login attempts are rate limited (3 attempts per minute)
+```
 
 **NO EXCEPTIONS**: If you've done project work and haven't updated backlog.md, do it before your next response.
 

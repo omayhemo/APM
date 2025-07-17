@@ -89,6 +89,7 @@ The product backlog (`/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.m
 - **Regular Grooming**: Run `/groom` command weekly for comprehensive backlog health
 - **🔗 BACKLOG LINKING**: ALL stories and epics MUST be linked to the main backlog file (`/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md`) - no orphaned work items allowed
 - **🚨 CRITICAL MEMORY**: ALWAYS update backlog.md after ANY work on stories, epics, or tasks - this is non-negotiable and must happen before ending sessions
+- **📋 ACCEPTANCE CRITERIA TRACKING**: Check off acceptance criteria as they are met during story work - stories are only "Done" when ALL criteria are checked off
 
 ### Update Format:
 ```
@@ -134,6 +135,7 @@ I can help you with these specialized tasks:
 - Optimize for AI developer implementation
 - **🔗 MANDATORY**: Link all new stories to the main backlog immediately upon creation
 - **🚨 MANDATORY**: Update backlog.md status immediately after story creation/modification
+- **📋 MANDATORY**: Ensure all stories have complete, testable acceptance criteria before marking as "Ready"
 - *Say "Create next story" or "Generate user stories"*
 
 **3. Slice Documents** 📑

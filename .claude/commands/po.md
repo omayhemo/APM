@@ -51,6 +51,8 @@ This command activates the Product Owner agent directly. The agent will:
 
 ## 🚨 CRITICAL MEMORY: ALWAYS UPDATE BACKLOG.MD
 **MANDATORY**: After ANY work on stories, epics, or tasks - update `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md` immediately. This is non-negotiable and must happen before ending sessions.
+
+**📋 ACCEPTANCE CRITERIA TRACKING**: Check off acceptance criteria as they are met during story work. Stories are only "Done" when ALL acceptance criteria are checked off with evidence.
 - Dependency identification
 - Risk mitigation planning
 - Release coordination
