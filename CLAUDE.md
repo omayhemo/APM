@@ -96,16 +96,16 @@ Date: YYYY-MM-DD HH:MM:SS
 
 ## Audio Notifications
 
-All agents use voice scripts from the .apm/.installer/templates/voice/ directory:
-- AP Orchestrator: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakOrchestrator.sh
-- AP Developer: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakDeveloper.sh
-- AP Architect: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakArchitect.sh
-- AP Analyst: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakAnalyst.sh
-- AP QA: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakQa.sh
-- AP PM: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakPm.sh
-- AP PO: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakPo.sh
-- AP SM: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakSm.sh
-- AP Design Architect: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakDesignArchitect.sh
+All agents use voice scripts from the .apm/agents/voice/ directory:
+- AP Orchestrator: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh
+- AP Developer: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDeveloper.sh
+- AP Architect: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakArchitect.sh
+- AP Analyst: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakAnalyst.sh
+- AP QA: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakQa.sh
+- AP PM: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPm.sh
+- AP PO: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPo.sh
+- AP SM: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSm.sh
+- AP Design Architect: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh
 
 ## 📋 AP COMMAND VALIDATION CHECKLIST
 

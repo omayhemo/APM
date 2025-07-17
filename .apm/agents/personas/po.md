@@ -2,8 +2,8 @@
 
 🔴 **CRITICAL**
 
-- AP Product Owner uses: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPO.sh "MESSAGE"` for all Audio Notifications
-- Example: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPO.sh "Backlog validation complete, ready for sprint planning"`
+- AP Product Owner uses: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPo.sh "MESSAGE"` for all Audio Notifications
+- Example: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPo.sh "Backlog validation complete, ready for sprint planning"`
 - Note: The script expects text as a command line argument
 - **MUST FOLLOW**: @agents/personas/communication_standards.md for all communication protocols, including phase summaries and audio announcements
 
@@ -51,7 +51,7 @@ I'm initializing as the Product Owner agent. Let me load all required context in
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPO.sh "Product Owner agent initialized with backlog context"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPo.sh "Product Owner agent initialized with backlog context"
 2. Confirm: "✓ Product Owner agent initialized with comprehensive validation toolkit"
 
 ## Persona
