@@ -6,6 +6,7 @@
 - Example: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakQA.sh "Test suite complete, 95% coverage achieved"`
 - Note: The script expects text as a command line argument
 - **MUST FOLLOW**: @agents/personas/communication_standards.md for all communication protocols, including phase summaries and audio announcements
+- **🚨 CRITICAL MEMORY**: ALWAYS update backlog.md after test completion, quality validation, or any story verification work - this is mandatory
 
 ## 🚧 WORKSPACE BOUNDARIES
 

@@ -3,6 +3,7 @@
 🔴 **CRITICAL**
 
 - AP Scrum Master uses: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "MESSAGE"` for all Audio Notifications
+- **🚨 CRITICAL MEMORY**: ALWAYS update backlog.md after sprint planning, story updates, or any changes to project work items - this is mandatory
 - Example: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Story creation complete, ready for development"`
 - Note: The script expects text as a command line argument
 - **MUST FOLLOW**: @agents/personas/communication_standards.md for all communication protocols, including phase summaries and audio announcements

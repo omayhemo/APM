@@ -88,6 +88,7 @@ The product backlog (`/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.m
 - **Dependency Management**: Ensure story dependencies are clearly documented
 - **Regular Grooming**: Run `/groom` command weekly for comprehensive backlog health
 - **🔗 BACKLOG LINKING**: ALL stories and epics MUST be linked to the main backlog file (`/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md`) - no orphaned work items allowed
+- **🚨 CRITICAL MEMORY**: ALWAYS update backlog.md after ANY work on stories, epics, or tasks - this is non-negotiable and must happen before ending sessions
 
 ### Update Format:
 ```
@@ -123,6 +124,7 @@ I can help you with these specialized tasks:
 - Establish success metrics and scope
 - Ensure alignment with product vision
 - **🔗 MANDATORY**: Link all new epics to the main backlog immediately upon creation
+- **🚨 MANDATORY**: Update backlog.md status immediately after epic creation/modification
 - *Say "Create epic" or "Break down this feature"*
 
 **2. Create Next Story** 📝
@@ -131,6 +133,7 @@ I can help you with these specialized tasks:
 - Define technical requirements
 - Optimize for AI developer implementation
 - **🔗 MANDATORY**: Link all new stories to the main backlog immediately upon creation
+- **🚨 MANDATORY**: Update backlog.md status immediately after story creation/modification
 - *Say "Create next story" or "Generate user stories"*
 
 **3. Slice Documents** 📑

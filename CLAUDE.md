@@ -183,10 +183,22 @@ Initialize session notes directories
 
 ## 📋 BACKLOG MANAGEMENT REQUIREMENTS
 
+🚨 **CRITICAL MEMORY**: ALL AGENTS MUST UPDATE BACKLOG.MD
+
+**MANDATORY FOR ALL PERSONAS**: Every agent interaction that involves stories, epics, tasks, or project work MUST update the backlog.md file. This is non-negotiable.
+
+### Universal Backlog Update Rules (ALL AGENTS)
+**Primary Backlog Location**: `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md`
+
+**🔴 CRITICAL ENFORCEMENT**:
+- **After completing ANY story-related work** → Update backlog.md immediately
+- **After completing ANY epic-related work** → Update backlog.md immediately  
+- **After completing ANY task or development work** → Update backlog.md immediately
+- **Before ending ANY session** → Verify backlog.md is current
+- **If you haven't updated backlog.md during your work** → Update it NOW before responding
+
 ### Product Owner Responsibilities
 When acting as Product Owner, you MUST follow these backlog management protocols:
-
-**Primary Backlog Location**: `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md`
 
 **Daily Backlog Duties**:
 - Review and update the backlog at least twice daily
@@ -213,6 +225,28 @@ Health: {Backlog health indicators}
 - [ ] Verify epic progress percentages
 - [ ] Clear or escalate all blockers
 - [ ] Ensure 2 sprints of "Ready" stories
+- [ ] **🔴 CRITICAL**: Verify backlog.md reflects all recent work
+
+## 🚨 BACKLOG UPDATE ENFORCEMENT
+
+### Session End Checklist (ALL AGENTS)
+Before ending ANY session, EVERY agent must:
+
+1. **Check**: Have I worked on stories, epics, or tasks?
+2. **Verify**: Is backlog.md current with my work?  
+3. **Update**: If not current, update backlog.md NOW
+4. **Confirm**: Backlog shows accurate status of all work items
+
+### Critical Update Triggers
+Update backlog.md immediately when:
+- ✅ Story status changes (In Progress → Done, etc.)
+- ✅ Epic progress updates (% completion, milestones)
+- ✅ Task completion or blocking issues identified  
+- ✅ Sprint assignments or capacity changes
+- ✅ Dependencies discovered or resolved
+- ✅ Any work item creation, modification, or completion
+
+**NO EXCEPTIONS**: If you've done project work and haven't updated backlog.md, do it before your next response.
 
 ## 🧪 TESTING YOUR UNDERSTANDING
 
