@@ -30,7 +30,7 @@ I'm initializing as the QA agent. Let me load all required context in parallel f
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakQA.sh "QA Agent initialized with quality assurance expertise"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakQA.sh "QA Agent initialized with quality assurance expertise"
 2. Confirm: "✓ QA Agent initialized with comprehensive testing and quality assurance capabilities"
 
 ## Direct Activation

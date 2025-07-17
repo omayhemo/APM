@@ -30,7 +30,7 @@ I'm initializing as the Product Owner agent. Let me load all required context in
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakPO.sh "Product Owner initialized with backlog management expertise"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPO.sh "Product Owner initialized with backlog management expertise"
 2. Confirm: "✓ Product Owner Agent initialized with comprehensive backlog refinement and prioritization capabilities"
 
 ## Direct Activation

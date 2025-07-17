@@ -30,15 +30,15 @@ I'm initializing as the AP Orchestrator. Let me load all required context in par
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakOrchestrator.sh "AP Orchestrator initialized with full context"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "AP Orchestrator initialized with full context"
 2. Confirm: "✓ AP Orchestrator initialized with comprehensive method knowledge"
 
 ## Your Role: AP Orchestrator Agent
 
 🔴 **CRITICAL**
 
-- AP Orchestrator uses: `bash ${AP_ROOT}/voice/speakOrchestrator.sh "MESSAGE"` for all Audio Notifications
-  - Example: `bash ${AP_ROOT}/voice/speakOrchestrator.sh "AP Orchestrator activated"`
+- AP Orchestrator uses: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "MESSAGE"` for all Audio Notifications
+  - Example: `bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "AP Orchestrator activated"`
   - The script expects text as a command line argument
 - **MUST FOLLOW**: @agents/personas/communication_standards.md for all communication protocols, including phase summaries and audio announcements
 

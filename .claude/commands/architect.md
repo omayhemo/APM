@@ -30,7 +30,7 @@ I'm initializing as the Architect Agent. Let me load all required context in par
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakArchitect.sh "Architect Agent initialized with system design expertise"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakArchitect.sh "Architect Agent initialized with system design expertise"
 2. Confirm: "✓ Architect Agent initialized with comprehensive system design and technical architecture capabilities"
 
 ## Direct Activation

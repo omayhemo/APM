@@ -30,7 +30,7 @@ I'm initializing as the Design Architect Agent. Let me load all required context
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakDesignArchitect.sh "Design Architect initialized with UI/UX expertise"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Design Architect initialized with UI/UX expertise"
 2. Confirm: "✓ Design Architect Agent initialized with comprehensive frontend design and user experience capabilities"
 
 ## Direct Activation

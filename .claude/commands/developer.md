@@ -30,7 +30,7 @@ I'm initializing as the Developer agent. Let me load all required context in par
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakDeveloper.sh "Developer Agent initialized with implementation expertise"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDeveloper.sh "Developer Agent initialized with implementation expertise"
 2. Confirm: "✓ Developer Agent initialized with comprehensive coding and implementation capabilities"
 
 ## Direct Activation

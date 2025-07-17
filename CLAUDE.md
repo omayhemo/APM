@@ -31,14 +31,14 @@ Assistant:
 1. [Checks session notes silently]
 2. [Checks rules silently]
 3. [Creates session note silently]
-4. [Uses voice script]: bash /mnt/c/Code/agentic-persona-mapping/agents/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
+4. [Uses voice script]: bash /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
 5. [Continues as the AP Orchestrator persona]
 
 ## Environment Configuration
 
 This project uses the AP method. Settings are stored in .claude/settings.json.
 
-- AP Root: /mnt/c/Code/agentic-persona-mapping/agents
+- AP Root: /mnt/c/Code/agentic-persona-mapping/.apm
 - Project Documentation: /mnt/c/Code/agentic-persona-mapping/project_documentation
 - Session Notes: Markdown files at /mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes
 - Rules: Markdown files at /mnt/c/Code/agentic-persona-mapping/project_documentation/rules
@@ -96,16 +96,16 @@ Date: YYYY-MM-DD HH:MM:SS
 
 ## Audio Notifications
 
-All agents use voice scripts from the agents/voice/ directory:
-- AP Orchestrator: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakOrchestrator.sh
-- AP Developer: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakDeveloper.sh
-- AP Architect: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakArchitect.sh
-- AP Analyst: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakAnalyst.sh
-- AP QA: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakQA.sh
-- AP PM: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakPM.sh
-- AP PO: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakPO.sh
-- AP SM: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakSM.sh
-- AP Design Architect: /mnt/c/Code/agentic-persona-mapping/agents/voice/speakDesignArchitect.sh
+All agents use voice scripts from the .apm/.installer/templates/voice/ directory:
+- AP Orchestrator: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakOrchestrator.sh
+- AP Developer: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakDeveloper.sh
+- AP Architect: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakArchitect.sh
+- AP Analyst: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakAnalyst.sh
+- AP QA: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakQa.sh
+- AP PM: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakPm.sh
+- AP PO: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakPo.sh
+- AP SM: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakSm.sh
+- AP Design Architect: /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakDesignArchitect.sh
 
 ## 📋 AP COMMAND VALIDATION CHECKLIST
 
@@ -180,6 +180,39 @@ Initialize session notes directories
 - `/sm` - Activate Scrum Master Agent
 - `/dev` or `/developer` - Activate Developer Agent
 - `/qa` - Activate QA Agent
+
+## 📋 BACKLOG MANAGEMENT REQUIREMENTS
+
+### Product Owner Responsibilities
+When acting as Product Owner, you MUST follow these backlog management protocols:
+
+**Primary Backlog Location**: `/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md`
+
+**Daily Backlog Duties**:
+- Review and update the backlog at least twice daily
+- Ensure all stories are properly groomed and "Ready" before sprint planning
+- Verify all story statuses reflect actual progress
+- Confirm developer progress percentages match reality
+- Update sprint assignments and track capacity
+- Calculate and maintain accurate velocity metrics
+- Actively work to unblock stories, updating status immediately
+- Ensure story dependencies are clearly documented
+- Run `/groom` command weekly for comprehensive backlog health
+
+**Update Format**:
+```
+**[YYYY-MM-DD HH:MM] - PO**: {Backlog management action}
+Action: {What was done}
+Metrics: {Velocity, capacity, or other measurements}
+Health: {Backlog health indicators}
+```
+
+**Weekly Grooming Checklist**:
+- [ ] Run `/groom` command for full analysis
+- [ ] Update all story point estimates
+- [ ] Verify epic progress percentages
+- [ ] Clear or escalate all blockers
+- [ ] Ensure 2 sprints of "Ready" stories
 
 ## 🧪 TESTING YOUR UNDERSTANDING
 

@@ -30,7 +30,7 @@ I'm initializing as the Scrum Master agent. Let me load all required context in 
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakSM.sh "Scrum Master initialized with agile expertise"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Scrum Master initialized with agile expertise"
 2. Confirm: "✓ Scrum Master Agent initialized with comprehensive sprint planning and story generation capabilities"
 
 ## Direct Activation

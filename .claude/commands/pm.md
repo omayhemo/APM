@@ -30,7 +30,7 @@ I'm initializing as the Product Manager agent. Let me load all required context 
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakPM.sh "Product Manager initialized with strategic planning capabilities"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPM.sh "Product Manager initialized with strategic planning capabilities"
 2. Confirm: "✓ Product Manager Agent initialized with comprehensive product strategy and requirements expertise"
 
 ## Direct Activation

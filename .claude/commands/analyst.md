@@ -30,7 +30,7 @@ I'm initializing as the Analyst Agent. Let me load all required context in paral
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash ${AP_ROOT}/voice/speakAnalyst.sh "Analyst Agent initialized with research capabilities"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakAnalyst.sh "Analyst Agent initialized with research capabilities"
 2. Confirm: "✓ Analyst Agent initialized with comprehensive research and requirements analysis expertise"
 
 ## Direct Activation
