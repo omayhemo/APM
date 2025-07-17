@@ -520,17 +520,8 @@ if [ "$NOTES_TYPE" = "obsidian" ]; then
     fi
 else
     NOTES_TYPE="markdown"
-    SESSION_NOTES_PATH="$PROJECT_DOCS/session_notes"
-    RULES_PATH="$PROJECT_DOCS/rules"
-    ARCHIVE_PATH="$PROJECT_DOCS/session_notes/archive"
-    
-    # Create the directories
-    ensure_dir "$SESSION_NOTES_PATH"
-    ensure_dir "$RULES_PATH"
-    ensure_dir "$ARCHIVE_PATH"
 fi
 
-# Create fallback session notes path for Obsidian users
 # Update session notes paths for new structure
 if [ "$NOTES_TYPE" = "obsidian" ]; then
     # Obsidian MCP paths remain as configured by user, but fallback to APM structure
@@ -538,7 +529,7 @@ if [ "$NOTES_TYPE" = "obsidian" ]; then
     FALLBACK_RULES_PATH="$RULES_PATH"
     FALLBACK_ARCHIVE_PATH="$ARCHIVE_PATH"
 else
-    # Markdown mode uses APM structure
+    # Markdown mode uses APM structure - session notes always in .apm/
     SESSION_NOTES_PATH="$APM_ROOT/session_notes"
     RULES_PATH="$APM_ROOT/rules"
     ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
@@ -630,6 +621,8 @@ echo "---------------------------------"
 
 ensure_dir "$CLAUDE_COMMANDS_DIR"
 
+echo "Installing APM commands (replacing APM commands, preserving user commands)..."
+
 # Create ap_orchestrator.md command (primary)
 replace_variables "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" "$CLAUDE_COMMANDS_DIR/ap_orchestrator.md"
 
@@ -657,7 +650,7 @@ fi
 replace_variables "$INSTALLER_DIR/templates/claude/commands/switch.md.template" "$CLAUDE_COMMANDS_DIR/switch.md"
 
 # Create direct persona activation commands
-echo "Creating persona activation commands..."
+echo "Installing persona activation commands..."
 replace_variables "$INSTALLER_DIR/templates/claude/commands/analyst.md.template" "$CLAUDE_COMMANDS_DIR/analyst.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/architect.md.template" "$CLAUDE_COMMANDS_DIR/architect.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/design-architect.md.template" "$CLAUDE_COMMANDS_DIR/design-architect.md"
@@ -670,7 +663,7 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/qa.md.template" "$CL
 replace_variables "$INSTALLER_DIR/templates/claude/commands/sm.md.template" "$CLAUDE_COMMANDS_DIR/sm.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/subtask.md.template" "$CLAUDE_COMMANDS_DIR/subtask.md"
 
-echo "Created .claude commands in: $CLAUDE_COMMANDS_DIR"
+echo "✓ APM commands installed/updated"
 
 # Process persona templates
 echo ""
@@ -1330,9 +1323,9 @@ if [ -f "$GITIGNORE_FILE" ]; then
     # Check if session notes entries already exist
     if ! grep -q "# Session notes" "$GITIGNORE_FILE"; then
         echo "" >> "$GITIGNORE_FILE"
-        echo "# Session notes (both Obsidian fallback and markdown)" >> "$GITIGNORE_FILE"
-        echo "project_documentation/session_notes/" >> "$GITIGNORE_FILE"
-        echo "session_notes/" >> "$GITIGNORE_FILE"
+        echo "# Session notes (APM infrastructure)" >> "$GITIGNORE_FILE"
+        echo ".apm/session_notes/" >> "$GITIGNORE_FILE"
+        echo ".apm/rules/" >> "$GITIGNORE_FILE"
         echo "" >> "$GITIGNORE_FILE"
         echo "# AP Mapping generated files" >> "$GITIGNORE_FILE"
         echo "CLAUDE.md.ap-setup" >> "$GITIGNORE_FILE"

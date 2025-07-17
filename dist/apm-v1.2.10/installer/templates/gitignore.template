@@ -1,5 +1,6 @@
 # APM Infrastructure (hidden)
 .apm/session_notes/
+.apm/rules/
 .apm/.claude/hooks/
 
 # Workspace (project-specific ignores)
@@ -10,10 +11,6 @@ workspace/dist/
 # Deliverables (temporary outputs)
 deliverables/temp/
 deliverables/*.tmp
-
-# Session notes (both Obsidian fallback and markdown)
-project_documentation/session_notes/
-session_notes/
 
 # AP Mapping generated files
 CLAUDE.md.ap-setup
