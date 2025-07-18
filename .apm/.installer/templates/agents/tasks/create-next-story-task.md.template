@@ -21,7 +21,7 @@ To identify the next logical story based on project progress and epic definition
   - `$PROJECT_DOCS/index.md` (hereafter "Index Doc")
   - `{{PROJECT_DOCS}}/planning/epics/epic-orchestration-guid.md` To Fully understand the epic structure and story identification process.
   - All Epic files (e.g., `{{PROJECT_DOCS}}/planning/epics/epic-{n}.md` - hereafter "Epic Files")
-  - Existing story files in `{{PROJECT_DOCS}}/planning/stories/`
+  - Existing story files in `project_docs/planning/stories/`
   - Main PRD (hereafter "PRD Doc")
   - Main Architecture Document (hereafter "Main Arch Doc")
   - Frontend Architecture Document (hereafter "Frontend Arch Doc," if relevant)
@@ -40,7 +40,7 @@ To identify the next logical story based on project progress and epic definition
 ### 1. Identify Next Story for Preparation (Automated)
 
 **The task-pre-hook automatically:**
-- Scans `{{PROJECT_DOCS}}/planning/stories/` for the highest-numbered story
+- Scans `project_docs/planning/stories/` for the highest-numbered story
 - Validates previous story completion status
 - Checks epic files for the next story in sequence
 - Verifies all prerequisites are met
@@ -86,7 +86,19 @@ To identify the next logical story based on project progress and epic definition
 
 ### 5. Populate Story Template with Full Context
 
-- Create a new story file: `{{PROJECT_DOCS}}/planning/stories/{epicNum}.{storyNum}.story.md`.
+## 📁 FILE OUTPUT REQUIREMENTS
+- **Primary Location**: `project_docs/planning/stories/`
+- **Secondary Location**: `deliverables/planning/stories/`
+- **Naming Convention**: `{epicNum}.{storyNum}.story.md`
+- **Supporting Files**: All story-related documentation in same directory
+
+## 🚨 CRITICAL PATH VALIDATION
+Before any file operation:
+1. Verify path starts with `project_docs/planning/stories/` or `deliverables/planning/stories/`
+2. Verify path does NOT target root directory or APM infrastructure
+3. Focus ONLY on project deliverables, never APM infrastructure
+
+- Create a new story file: `project_docs/planning/stories/{epicNum}.{storyNum}.story.md`.
 - Use the Story Template to structure the file.
 - Fill in:
   - Story `{EpicNum}.{StoryNum}: {Short Title Copied from Epic File}`

@@ -2,7 +2,18 @@
 
 ## Purpose
 
-To create a concise memory recording file (`.ai/core-dump-n.md`) that captures the essential context of the current agent session, enabling seamless continuation of work in future agent sessions. This task ensures persistent context across agent conversations while maintaining minimal token usage for efficient context loading.
+## 📁 FILE OUTPUT REQUIREMENTS
+- **Primary Location**: `session_notes/`
+- **Naming Convention**: `core-dump-[n].md` (where n is incremental number)
+- **Supporting Files**: All session-related temporary files in same directory
+
+## 🚨 CRITICAL PATH VALIDATION
+Before any file operation:
+1. Verify path starts with `session_notes/` (never `.ai/` or root directory)
+2. Verify path does NOT target root directory or APM infrastructure
+3. Focus ONLY on session documentation, never APM infrastructure
+
+To create a concise memory recording file (`session_notes/core-dump-n.md`) that captures the essential context of the current agent session, enabling seamless continuation of work in future agent sessions. This task ensures persistent context across agent conversations while maintaining minimal token usage for efficient context loading.
 
 ## Inputs for this Task
 
@@ -16,7 +27,7 @@ To create a concise memory recording file (`.ai/core-dump-n.md`) that captures t
 
 ### 0. Check Existing Core Dump
 
-Before proceeding, check if `.ai/core-dump.md` already exists:
+Before proceeding, check if `session_notes/core-dump.md` already exists:
 
 - If file exists, ask user: "Core dump file exists. Should I: 1. Overwrite, 2. Update, 3. Append or 4. Create new?"
 - **Overwrite**: Replace entire file with new content
