@@ -31,7 +31,7 @@ Assistant:
 1. [Checks session notes silently]
 2. [Checks rules silently]
 3. [Creates session note silently]
-4. [Uses voice script]: bash /mnt/c/Code/agentic-persona-mapping/.apm/.installer/templates/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
+4. [Uses voice script]: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
 5. [Continues as the AP Orchestrator persona]
 
 ## Environment Configuration
@@ -39,9 +39,9 @@ Assistant:
 This project uses the AP method. Settings are stored in .claude/settings.json.
 
 - AP Root: /mnt/c/Code/agentic-persona-mapping/.apm
-- Project Documentation: /mnt/c/Code/agentic-persona-mapping/project_documentation
-- Session Notes: Markdown files at /mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes
-- Rules: Markdown files at /mnt/c/Code/agentic-persona-mapping/project_documentation/rules
+- Project Documentation: /mnt/c/Code/agentic-persona-mapping/project_docs
+- Session Notes: Markdown files at /mnt/c/Code/agentic-persona-mapping/.apm/session_notes
+- Rules: Markdown files at /mnt/c/Code/agentic-persona-mapping/.apm/rules
 
 ## Session Management with Markdown
 
@@ -51,21 +51,21 @@ This project uses the AP method. Settings are stored in .claude/settings.json.
 
 Before reading further, if this is a new session:
 
-1. **Check session notes directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/`
+1. **Check session notes directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/`
    - This is a FOLDER containing `.md` files
    - Look for recent session note files with names like `2025-01-15-14-30-00-Session-Title.md`
 
-2. **Check rules directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/project_documentation/rules/`
+2. **Check rules directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/.apm/rules/`
    - This is a FOLDER containing `.md` files
    - Look for behavioral rule files to read
 
 3. **Check other documentation folders** as needed using LS tool
 
-4. **Create your session note file**: `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/YYYY-MM-DD-HH-mm-ss-Description.md`
+4. **Create your session note file**: `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/YYYY-MM-DD-HH-mm-ss-Description.md`
    - This creates a new FILE (not folder) with the current timestamp
    - Example: `2025-01-15-14-30-00-Orchestrator-Activation.md`
 
-5. **Archive when wrapping**: Move to `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/archive/YYYY-MM-DD-HH-mm-ss-SessionTitle.md`
+5. **Archive when wrapping**: Move to `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/YYYY-MM-DD-HH-mm-ss-SessionTitle.md`
 
 ### 🚨 DIRECTORY vs FILE GUIDANCE
 - **Directories (use LS tool)**: `session_notes/`, `rules/`, `archive/`
@@ -153,8 +153,8 @@ When a user types these keywords as their FIRST message, you MUST execute the fu
 
 ### /ap - Launch AP Orchestrator (alias for /ap_orchestrator)
 **IMPORTANT**: This makes YOU become the AP Orchestrator.
-- Step 1: Check session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/project_documentation/session_notes/`
-- Step 2: Check rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/project_documentation/rules/`
+- Step 1: Check session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/`
+- Step 2: Check rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/rules/`
 - Step 3: Create new session note FILE with timestamp (not a directory)
 - Step 4: Use speakOrchestrator.sh for ALL responses
 - Step 5: Act as the Orchestrator (coordinate, delegate, guide)
