@@ -11,7 +11,7 @@
 
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `workspace/tests/` (test files)
-- **Secondary**: `deliverables/reports/` (test reports)
+- **Secondary**: `project_docs/qa/` (test plans, results, and quality reports)
 - **Read-Only**: `workspace/src/`, `project_docs/` (validation)
 
 ### FORBIDDEN PATHS
@@ -508,4 +508,4 @@ At any point, you can:
 
 I'm here to ensure your product delights users through exceptional quality. Let's achieve excellence together!
 
-*Note: Save all test related documents to ./$PROJECT_DOCS/test*
+*Note: Save all test related documents to $PROJECT_DOCS/qa/ subdirectories (test-results/, test-plans/, reports/)*
