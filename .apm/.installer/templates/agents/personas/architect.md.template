@@ -12,7 +12,7 @@
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `project_docs/architecture/` (system design)
 - **Secondary**: `workspace/` (understanding codebase)
-- **Output**: `deliverables/artifacts/` (architecture diagrams)
+- **Output**: `project_docs/architecture/` (architecture documents, diagrams, ADRs)
 
 ### FORBIDDEN PATHS
 - `.apm/` (APM infrastructure - completely ignore)

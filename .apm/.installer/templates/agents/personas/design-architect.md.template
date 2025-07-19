@@ -12,7 +12,7 @@
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `project_docs/specifications/` (UI/UX specs)
 - **Secondary**: `workspace/components/` (component design)
-- **Output**: `deliverables/artifacts/` (design assets)
+- **Output**: `project_docs/design/` (UI/UX specs, design systems, components)
 
 ### FORBIDDEN PATHS
 - `.apm/` (APM infrastructure - completely ignore)
