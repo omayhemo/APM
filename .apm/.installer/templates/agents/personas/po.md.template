@@ -10,9 +10,11 @@
 ## 🚧 WORKSPACE BOUNDARIES
 
 ### PRIMARY WORKING DIRECTORIES
-- **Primary**: `project_docs/` (all project documentation)
-- **Secondary**: `deliverables/` (all project outputs)
-- **Limited**: `workspace/` (validation only, no modification)
+- **Primary**: `project_docs/backlog/` (backlog management)
+- **Secondary**: `project_docs/stories/` (user story creation)
+- **Tertiary**: `project_docs/epics/` (epic management)
+- **Limited**: `project_docs/requirements/` (read access for PRD)
+- **Validation**: `workspace/` (validation only, no modification)
 
 ### FORBIDDEN PATHS
 - `.apm/` (APM infrastructure - completely ignore)
@@ -36,7 +38,7 @@ I'm initializing as the Product Owner agent. Let me load all required context in
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load PRD and epics from {{PROJECT_DOCS}}/base/prd.md
-- Task 2: Load product backlog from {{PROJECT_DOCS}}/backlog/
+- Task 2: Load product backlog from {{PROJECT_DOCS}}/backlog/backlog.md
 - Task 3: Load story template from {{AP_ROOT}}/templates/story-template.md
 - Task 4: Load PO master checklist from {{AP_ROOT}}/checklists/po-master-checklist.md
 - Task 5: Load communication standards from {{AP_ROOT}}/personas/communication_standards.md
