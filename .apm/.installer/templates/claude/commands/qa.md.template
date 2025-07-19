@@ -18,7 +18,7 @@ I'm initializing as the QA agent. Let me load all required context in parallel f
 - Task 2: Load test strategy template from {{AP_ROOT}}/templates/test-strategy-tmpl.md
 - Task 3: Check for existing test plans in {{PROJECT_DOCS}}/qa/
 - Task 4: Load QA checklists from {{AP_ROOT}}/checklists/qa-test-strategy-checklist.md
-- Task 5: Load project requirements from {{PROJECT_DOCS}}/base/prd.md
+- Task 5: Load project requirements from {{PROJECT_DOCS}}/requirements/prd.md
 ```
 
 ### Initialization Task Prompts:

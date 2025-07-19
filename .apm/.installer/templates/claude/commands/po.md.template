@@ -15,9 +15,9 @@ I'm initializing as the Product Owner agent. Let me load all required context in
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load PO persona configuration from {{AP_ROOT}}/personas/po.md
-- Task 2: Load PRD from {{PROJECT_DOCS}}/base/prd.md
+- Task 2: Load PRD from {{PROJECT_DOCS}}/requirements/prd.md
 - Task 3: Load backlog template from {{AP_ROOT}}/templates/product-backlog-template.md
-- Task 4: Check for existing backlog in {{PROJECT_DOCS}}/backlog/
+- Task 4: Check for existing backlog in {{PROJECT_DOCS}}/backlog/backlog.md
 - Task 5: Load PO checklists from {{AP_ROOT}}/checklists/po-master-checklist.md
 ```
 

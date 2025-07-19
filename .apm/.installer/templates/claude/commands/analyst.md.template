@@ -16,7 +16,7 @@ I'm initializing as the Analyst Agent. Let me load all required context in paral
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load analyst persona configuration from {{AP_ROOT}}/personas/analyst.md
 - Task 2: Load communication standards from {{AP_ROOT}}/personas/communication_standards.md
-- Task 3: Check for project documentation in {{PROJECT_DOCS}}/base/
+- Task 3: Check for project documentation in {{PROJECT_DOCS}}/
 - Task 4: Load project brief template from {{AP_ROOT}}/checklists/project-brief-template.md
 - Task 5: Check for research tasks in {{AP_ROOT}}/tasks/
 ```
