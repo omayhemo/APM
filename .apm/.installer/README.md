@@ -92,12 +92,22 @@ your-project/
 │   ├── commands/                # 12+ custom commands (/ap, /handoff, etc.)
 │   └── hooks/                   # 5 notification hooks (audio system)
 └── project_docs/                # Your project documentation
-    ├── session_notes/           # Auto-generated session logs
-    ├── requirements/            # Requirements documentation  
-    ├── architecture/            # Architecture documents
-    ├── specifications/          # Technical specifications
-    ├── artifacts/               # Project artifacts
-    ├── releases/                # Release documentation
+    ├── requirements/            # PRDs, project briefs (PM, Analyst)
+    ├── backlog/                 # Product backlog (PO)
+    │   └── backlog.md          # Single source of truth for work items
+    ├── epics/                   # Epic definitions (PO)
+    ├── stories/                 # User stories (PO, SM)
+    ├── architecture/            # System & frontend architecture (Architect, Design)
+    ├── design/                  # UI/UX specifications (Design Architect)
+    ├── qa/                      # Test plans, results, reports (QA)
+    │   ├── test-plans/
+    │   ├── test-results/
+    │   └── reports/
+    ├── planning/                # Sprint planning, retrospectives (SM)
+    ├── research/                # Analysis and research (Analyst)
+    ├── releases/                # Release documentation (Developer)
+    └── session_notes/           # Auto-generated session logs
+        └── archive/             # Completed session archives
     └── reports/                 # Analysis and status reports
 ```
 
@@ -122,7 +132,7 @@ The installer will:
 3. **Configure your project** - Interactive prompts for:
    - Project name
    - Documentation paths
-   - Session notes configuration (Obsidian MCP or local markdown)
+   - Session notes configuration (local markdown files)
    - Voice notification preferences
 4. **Create Claude commands** - Sets up `/ap`, `/handoff`, `/switch`, `/wrap`
 5. **Update .gitignore** - Excludes session notes from version control
@@ -169,7 +179,7 @@ The installer will:
 
 - **Clean Installation**: The installer automatically cleans up distribution files after installation
 - **Preserved Installer**: The installer is preserved in `.apm/.installer/` for future updates
-- **Session Notes**: Choose between Obsidian MCP integration or local markdown files
+- **Session Notes**: Uses local markdown files for session management
 - **TTS Configuration**: Voice support is optional and can be configured post-installation
 - **Python Support**: Optional Python virtual environment for hooks (recommended)
 
@@ -278,12 +288,12 @@ During installation, you'll be prompted to select a TTS provider. You can also c
 .apm/agents/scripts/tts-manager.sh configure elevenlabs
 ```
 
-### Obsidian MCP Integration
+### Session Notes Management
 
-For cross-session memory using Obsidian:
-1. Install Obsidian MCP server
-2. Configure during setup with your vault path
-3. Session notes will sync automatically
+The AP Mapping system uses local markdown files for session management:
+1. Session notes are stored in `.apm/session_notes/`
+2. Archived sessions are stored in `.apm/session_notes/archive/`
+3. All session data is preserved locally in your project
 
 ### Python Support
 
@@ -370,7 +380,7 @@ After installation, see:
 - **Permission Issues**: Run `chmod +x installer/install.sh` if needed
 - **Missing Dependencies**: The installer will notify you of any missing tools
 - **Voice Not Working**: Check TTS configuration with `$AP_ROOT/scripts/configure-tts.sh`
-- **Session Notes**: Verify Obsidian MCP is installed if using Obsidian integration
+- **Session Notes**: Session notes are stored locally in `.apm/session_notes/`
 
 # AP Mapping System - Complete Command & Task Reference
 

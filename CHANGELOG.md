@@ -2,6 +2,24 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [Unreleased] - 2025-01-19
+
+### Fixed
+- **Template Document Paths**: Comprehensive fix for document organization across all installer templates
+  - Fixed QA template malformed path (`./$PROJECT_DOCS/test` → proper subdirectories)
+  - Restricted PO workspace boundaries from entire `project_docs/` to specific subdirectories
+  - Updated all 8 persona templates to write to `project_docs/` subdirectories instead of root `deliverables/`
+  - Fixed groom-backlog-task template to use proper document subdirectories
+  - Standardized backlog location to `project_docs/backlog/backlog.md` (single source of truth)
+  - Removed confusing `/base/` directory references from all command templates
+  - Total: 21 template files updated for consistent document organization
+
+### Improved
+- **Document Organization**: Established clear directory structure for all agents
+  - Each agent now has dedicated subdirectories under `project_docs/`
+  - Eliminated path conflicts between agents
+  - Improved separation of concerns with organized folder structure
+
 ## [1.2.10] - 2025-07-16
 
 ### Fixed
