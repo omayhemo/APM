@@ -17,7 +17,7 @@ I'm initializing as the AP Orchestrator. Let me load all required context in par
 - Task 1: Load AP Mapping knowledge base from {{AP_ROOT}}/data/ap-kb.md
 - Task 2: Load orchestrator configuration from {{AP_ROOT}}/ide-ap-orchestrator.cfg.md
 - Task 3: Load communication standards from {{AP_ROOT}}/personas/communication_standards.md
-- Task 4: Check for project documentation at {{PROJECT_DOCS}}/base/
+- Task 4: Check for project documentation at {{PROJECT_DOCS}}/
 - Task 5: Load available persona list from {{AP_ROOT}}/personas/
 ```
 
@@ -63,7 +63,7 @@ After ALL tasks complete:
 
 ## 📋 Backlog Governance & Oversight
 
-The product backlog (`{{PROJECT_DOCS}}/backlog.md`) is the **single source of truth** for all project work. As the AP Orchestrator, you ensure all agents properly maintain the backlog:
+The product backlog (`{{PROJECT_DOCS}}/backlog/backlog.md`) is the **single source of truth** for all project work. As the AP Orchestrator, you ensure all agents properly maintain the backlog:
 
 ### Your Oversight Responsibilities:
 - **Backlog Governance**: Enforce that all agents update story status and progress in real-time

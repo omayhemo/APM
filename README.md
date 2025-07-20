@@ -10,12 +10,12 @@ A project-agnostic framework for orchestrating AI agents in software development
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v1.2.3/apm-v1.2.3.tar.gz && tar -xzf apm-v1.2.3.tar.gz && cd apm-v1.2.3 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v1.2.3/apm-v1.2.3.tar.gz && tar -xzf apm-v1.2.3.tar.gz && cd apm-v1.2.3 && ./templates/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v1.2.3/apm-v1.2.3.tar.gz -o apm-v1.2.3.tar.gz && tar -xzf apm-v1.2.3.tar.gz && cd apm-v1.2.3 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v1.2.3/apm-v1.2.3.tar.gz -o apm-v1.2.3.tar.gz && tar -xzf apm-v1.2.3.tar.gz && cd apm-v1.2.3 && ./templates/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -112,7 +112,7 @@ After installation:
 - **Installation Guide**: See README in distribution package
 - **Framework Details**: `.apm/agents/README.md` after installation
 - **API Documentation**: `.apm/agents/docs/` directory
-- **Project Instructions**: `CLAUDE.md` created during installation
+- **Project Instructions**: `.apm/CLAUDE.md` created during installation
 
 ## Development
 
@@ -132,7 +132,7 @@ This repository contains the source code and build system for Agentic Persona Ma
 ```
 agentic-persona-mapping/
 ├── agents/                   # Source agent framework
-├── installer/               # Installation system
+├── templates/               # Installation system
 ├── dist/                   # Built distributions
 └── build-distribution.sh  # Build script
 ```

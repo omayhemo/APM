@@ -6,9 +6,9 @@
 set -e
 
 # Configuration
-TEMPLATE_DIR="installer/templates/agents"
+TEMPLATE_DIR="templates/templates/agents"
 AGENTS_DIR=".apm/agents"
-INSTALL_SCRIPT="installer/install.sh"
+INSTALL_SCRIPT="templates/install.sh"
 BACKUP_DIR="archive/template-dev-backup"
 
 # Color codes for output
@@ -322,13 +322,13 @@ generate_agents_from_templates_direct() {
         
     done < <(find "$TEMPLATE_DIR" -name "*.template" -type f -print0)
     
-    # Copy non-template files from installer
-    if [[ -d "installer/templates/voice" ]]; then
-        cp -r installer/templates/voice "$AGENTS_DIR/"
+    # Copy non-template files from templates
+    if [[ -d "templates/templates/voice" ]]; then
+        cp -r templates/templates/voice "$AGENTS_DIR/"
     fi
     
-    if [[ -d "installer/templates/sounds" ]]; then
-        cp -r installer/templates/sounds "$AGENTS_DIR/"
+    if [[ -d "templates/templates/sounds" ]]; then
+        cp -r templates/templates/sounds "$AGENTS_DIR/"
     fi
     
     log_success "Generated agents directory from templates"

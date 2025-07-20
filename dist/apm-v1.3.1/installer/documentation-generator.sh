@@ -359,7 +359,7 @@ generate_settings_structure() {
   "AP_ROOT": "AP Mapping root directory",
   "CLAUDE_DIR": "Claude configuration directory",
   "PROJECT_DOCS": "Project documentation directory",
-  "NOTES_TYPE": "Notes storage type (obsidian or local)"
+  "NOTES_TYPE": "Notes storage type (local markdown files)"
 }
 ```'
     
@@ -433,7 +433,7 @@ generate_config_examples() {
 
 # Custom configuration
 export PROJECT_NAME=\"My Custom Project\"
-export NOTES_TYPE=\"obsidian\"
+export NOTES_TYPE=\"markdown\"
 ./install-enhanced.sh /path/to/project
 \`\`\`
 

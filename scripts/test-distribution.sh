@@ -60,7 +60,7 @@ test_distribution() {
     tar -xzf "$dist_file"
     
     # Check if files were extracted (tar creates files in current directory)
-    if [[ ! -f "installer/install.sh" ]]; then
+    if [[ ! -f "templates/install.sh" ]]; then
         log_error "Distribution extraction failed - installer not found"
         return 1
     fi
@@ -102,8 +102,8 @@ test_distribution() {
 # Test distribution structure
 test_distribution_structure() {
     local required_files=(
-        "installer/install.sh"
-        "installer/templates/agents"
+        "templates/install.sh"
+        "templates/templates/agents"
         ".apm/agents"
         ".apm/README.md"
         "VERSION"
@@ -125,7 +125,7 @@ test_distribution_structure() {
 # Test template system
 test_template_system() {
     # Check template count
-    local template_count=$(find installer/templates/agents -name "*.template" -type f | wc -l)
+    local template_count=$(find templates/templates/agents -name "*.template" -type f | wc -l)
     local generated_count=$(find .apm/agents -name "*.md" -type f | wc -l)
     
     if [[ $template_count -eq 0 ]]; then
@@ -140,10 +140,10 @@ test_template_system() {
     
     # Check critical templates
     local critical_templates=(
-        "installer/templates/agents/personas/ap_orchestrator.md.template"
-        "installer/templates/agents/data/ap-kb.md.template"
-        "installer/templates/agents/tasks/create-prd.md.template"
-        "installer/templates/agents/checklists/story-dod-checklist.md.template"
+        "templates/templates/agents/personas/ap_orchestrator.md.template"
+        "templates/templates/agents/data/ap-kb.md.template"
+        "templates/templates/agents/tasks/create-prd.md.template"
+        "templates/templates/agents/checklists/story-dod-checklist.md.template"
     )
     
     for template in "${critical_templates[@]}"; do
@@ -168,7 +168,7 @@ test_installation_process() {
     
     # Run installer with defaults (defaults flag must be first)
     # Provide input for session notes choice (2 = markdown files)
-    if echo -e "test-install\n2\n" | ./installer/install.sh --defaults "$test_target" >/dev/null 2>&1; then
+    if echo -e "test-install\n2\n" | ./templates/install.sh --defaults "$test_target" >/dev/null 2>&1; then
         log_success "Installation completed successfully"
     else
         log_error "Installation failed"

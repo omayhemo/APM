@@ -436,107 +436,14 @@ echo ""
 echo "Step 3: Session Notes Configuration"
 echo "-----------------------------------"
 
-if [ "$USE_DEFAULTS" = true ]; then
-    NOTES_SYSTEM="2"
-    echo "Using default: Markdown files"
-else
-    echo -e "${GREEN}Choose your session notes system:${NC}"
-    echo -e "${BLUE}"
-    echo "1) Obsidian MCP (recommended if you use Obsidian)"
-    echo "2) Markdown files (standalone markdown files)"
-    echo -e "${NC}"
-    printf "${YELLOW}Enter choice (1-2) [2]: ${NC}"
-    read NOTES_SYSTEM
-    NOTES_SYSTEM="${NOTES_SYSTEM:-2}"
-fi
+# Always use markdown files (Obsidian integration removed)
+NOTES_TYPE="markdown"
+echo "Using: Markdown files"
 
-# Configure based on choice
-if [ "$NOTES_SYSTEM" = "1" ]; then
-    NOTES_TYPE="obsidian"
-    
-    # Warn about Obsidian MCP requirements
-    echo ""
-    echo -e "${YELLOW}IMPORTANT: Obsidian MCP Server Requirements${NC}"
-    echo "==========================================="
-    echo ""
-    echo "To use Obsidian integration, you must have:"
-    echo "1. Obsidian MCP server installed:"
-    echo "   ${GREEN}npm install -g @modelcontextprotocol/server-obsidian${NC}"
-    echo ""
-    echo "2. Claude Desktop configured with MCP:"
-    echo "   Add to ~/.config/claude/claude_desktop_config.json:"
-    echo "   ${GREEN}{
-      \"mcpServers\": {
-        \"obsidian\": {
-          \"command\": \"npx\",
-          \"args\": [\"-y\", \"@modelcontextprotocol/server-obsidian\", \"/path/to/vault\"]
-        }
-      }
-    }${NC}"
-    echo ""
-    echo "3. Restart Claude with MCP support"
-    echo ""
-    
-    if [ "$USE_DEFAULTS" != true ]; then
-        printf "${YELLOW}Have you completed these steps? (y/N): ${NC}"
-        read -n 1 -r
-        echo
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            echo ""
-            echo "Please complete MCP setup first, then re-run installer."
-            echo "Alternatively, choose 'Local markdown files' for now."
-            echo ""
-            echo "Switching to local markdown files..."
-            NOTES_SYSTEM="2"
-            NOTES_TYPE="markdown"
-        fi
-    fi
-fi
-
-if [ "$NOTES_TYPE" = "obsidian" ]; then
-    if [ "$USE_DEFAULTS" = true ]; then
-        OBSIDIAN_ROOT="."
-        SESSION_NOTES_PATH="Sessions/"
-        RULES_PATH="Rules/"
-        ARCHIVE_PATH="Sessions/Archive/"
-    else
-        echo ""
-        echo "Configure Obsidian MCP paths (relative to Obsidian vault root):"
-        printf "${YELLOW}Obsidian vault root (relative to project) [.]: ${NC}"
-        read OBSIDIAN_ROOT
-        OBSIDIAN_ROOT="${OBSIDIAN_ROOT:-.}"
-        
-        printf "${YELLOW}Session notes folder (in Obsidian) [Sessions/]: ${NC}"
-        read SESSION_NOTES_PATH
-        SESSION_NOTES_PATH="${SESSION_NOTES_PATH:-Sessions/}"
-        
-        printf "${YELLOW}Rules folder (in Obsidian) [Rules/]: ${NC}"
-        read RULES_PATH
-        RULES_PATH="${RULES_PATH:-Rules/}"
-        
-        printf "${YELLOW}Archive folder (in Obsidian) [Sessions/Archive/]: ${NC}"
-        read ARCHIVE_PATH
-        ARCHIVE_PATH="${ARCHIVE_PATH:-Sessions/Archive/}"
-    fi
-else
-    NOTES_TYPE="markdown"
-fi
-
-# Update session notes paths for new structure
-if [ "$NOTES_TYPE" = "obsidian" ]; then
-    # Obsidian MCP paths remain as configured by user, but fallback to APM structure
-    FALLBACK_SESSION_NOTES_PATH="$SESSION_NOTES_PATH"
-    FALLBACK_RULES_PATH="$RULES_PATH"
-    FALLBACK_ARCHIVE_PATH="$ARCHIVE_PATH"
-else
-    # Markdown mode uses APM structure - session notes always in .apm/
-    SESSION_NOTES_PATH="$APM_ROOT/session_notes"
-    RULES_PATH="$APM_ROOT/rules"
-    ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
-    FALLBACK_SESSION_NOTES_PATH=""
-    FALLBACK_RULES_PATH=""
-    FALLBACK_ARCHIVE_PATH=""
-fi
+# Markdown mode uses APM structure - session notes always in .apm/
+SESSION_NOTES_PATH="$APM_ROOT/session_notes"
+RULES_PATH="$APM_ROOT/rules"
+ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
 
 # Create APM infrastructure directories
 ensure_dir "$APM_ROOT"
@@ -632,19 +539,11 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/ap.md.template" "$CL
 # Create handoff.md command
 replace_variables "$INSTALLER_DIR/templates/claude/commands/handoff.md.template" "$CLAUDE_COMMANDS_DIR/handoff.md"
 
-# Create wrap.md command based on notes type
-if [ "$NOTES_TYPE" = "obsidian" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/wrap.md.obsidian.template" "$CLAUDE_COMMANDS_DIR/wrap.md"
-else
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/wrap.md.markdown.template" "$CLAUDE_COMMANDS_DIR/wrap.md"
-fi
+# Create wrap.md command (always use markdown template)
+replace_variables "$INSTALLER_DIR/templates/claude/commands/wrap.md.markdown.template" "$CLAUDE_COMMANDS_DIR/wrap.md"
 
-# Create session-note-setup.md command based on notes type
-if [ "$NOTES_TYPE" = "obsidian" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/session-note-setup.md.obsidian.template" "$CLAUDE_COMMANDS_DIR/session-note-setup.md"
-else
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/session-note-setup.md.markdown.template" "$CLAUDE_COMMANDS_DIR/session-note-setup.md"
-fi
+# Create session-note-setup.md command (always use markdown template)
+replace_variables "$INSTALLER_DIR/templates/claude/commands/session-note-setup.md.markdown.template" "$CLAUDE_COMMANDS_DIR/session-note-setup.md"
 
 # Create switch.md command
 replace_variables "$INSTALLER_DIR/templates/claude/commands/switch.md.template" "$CLAUDE_COMMANDS_DIR/switch.md"
@@ -1304,12 +1203,8 @@ if [ -f "$CLAUDE_MD" ]; then
     mkdir -p "$AP_ROOT"
 fi
 
-# Create CLAUDE.md from template based on notes type
-if [ "$NOTES_TYPE" = "obsidian" ]; then
-    replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.obsidian.template" "$CLAUDE_MD"
-else
-    replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$CLAUDE_MD"
-fi
+# Create CLAUDE.md from template (always use markdown template)
+replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$CLAUDE_MD"
 
 echo "Created: $CLAUDE_MD"
 
@@ -1353,17 +1248,7 @@ echo ""
 echo "Step 12: Validating Installation"
 echo "--------------------------------"
 
-# Validate Obsidian MCP if configured
-if [ "$NOTES_TYPE" = "obsidian" ]; then
-    echo ""
-    echo -e "${YELLOW}⚠ Obsidian MCP Reminder:${NC}"
-    echo "To complete Obsidian integration:"
-    echo "1. Install MCP server: npm install -g @modelcontextprotocol/server-obsidian"
-    echo "2. Configure Claude Desktop (see documentation)"
-    echo "3. Restart Claude with MCP support"
-    echo "4. Verify with: claude api list (should show Obsidian tools)"
-    echo ""
-fi
+# Obsidian integration removed - no additional configuration needed
 
 # Test TTS if Piper was installed
 if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then

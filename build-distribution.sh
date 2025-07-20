@@ -41,7 +41,7 @@ echo "Preparing distribution with templates and installer only..."
 
 # Validate template system integrity
 echo "Validating template system integrity..."
-TEMPLATE_COUNT=$(find .apm/.installer/templates/agents -name "*.template" -type f | wc -l)
+TEMPLATE_COUNT=$(find templates/templates -name "*.template" -type f | wc -l)
 
 if [ "$TEMPLATE_COUNT" -eq 0 ]; then
     echo "❌ ERROR: No template files found"
@@ -53,7 +53,7 @@ fi
 # No cleanup needed - only templates and installer files in distribution
 echo "No cleanup needed for template-only distribution"
 
-# Note: Hook scripts are now in installer/templates/hooks as Python files
+# Note: Hook scripts are now in templates/templates/hooks as Python files
 # The old agents/hooks directory has been removed
 
 # No git files to remove - only templates and installer in distribution
@@ -61,9 +61,9 @@ echo "No cleanup needed for template-only distribution"
 # Create VERSION file
 echo "$VERSION" > "$DIST_DIR/VERSION"
 
-# Copy installer directory with templates from .apm
-echo "Copying installer directory..."
-cp -r .apm/.installer "$DIST_DIR/installer"
+# Copy templates directory as installer
+echo "Copying templates directory as installer..."
+cp -r templates "$DIST_DIR/installer"
 
 # Create LICENSE file
 echo "Creating LICENSE file..."
@@ -124,7 +124,7 @@ if [ ! -d "$DIST_DIR/installer/templates/agents" ]; then
 fi
 
 # Check template count
-TEMPLATE_COUNT=$(find "$DIST_DIR/installer/templates/agents" -name "*.template" -type f | wc -l)
+TEMPLATE_COUNT=$(find "$DIST_DIR/installer/templates" -name "*.template" -type f | wc -l)
 
 if [ "$TEMPLATE_COUNT" -eq 0 ]; then
     echo "❌ ERROR: No template files found in distribution"

@@ -1,0 +1,24 @@
+⚠️  WARNING: DO NOT MODIFY FILES IN THIS DIRECTORY ⚠️
+
+The .apm directory contains the AP Mapping framework files.
+These files are managed by the installer and ap-manager.sh.
+
+ANY MODIFICATIONS TO THESE FILES WILL BE LOST:
+- During updates (ap-manager.sh update)
+- During repairs (ap-manager.sh repair)  
+- During reinstallation
+
+If you need to customize behavior:
+- Use project_docs/ for your project documentation
+- Use .claude/settings.json for configuration
+- Use session_notes/ for your working notes (preserved during repairs)
+
+For framework issues:
+- Run: ap-manager.sh verify    (to check installation)
+- Run: ap-manager.sh repair    (to fix corrupted files)
+- Run: ap-manager.sh update    (to get latest version)
+
+The ONLY directory preserved during repairs is:
+- .apm/session_notes/
+
+All other files in .apm will be replaced with fresh versions.

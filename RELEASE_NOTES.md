@@ -38,7 +38,7 @@ _None in this release_
 
 ```bash
 curl -L https://github.com/omayhemo/APM/releases/download/v1.3.1/apm-v1.3.1.tar.gz | tar -xz
-./installer/install.sh
+./templates/install.sh
 ```
 
 ### Updating from Previous Version

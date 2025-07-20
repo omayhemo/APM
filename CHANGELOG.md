@@ -4,7 +4,47 @@ All notable changes to the AP Mapping will be documented in this file.
 
 ## [Unreleased] - 2025-01-19
 
+### Added
+- **CRITICAL INSTRUCTIONS Section**: Installer now adds APM reference to existing root CLAUDE.md files
+  - Checks if root CLAUDE.md exists and lacks APM instructions
+  - Automatically inserts CRITICAL INSTRUCTIONS section with APM activation guide
+  - Provides clear distinction between root and .apm/CLAUDE.md files
+  - Lists key APM commands for quick reference
+- **Fresh Install Mode**: Installer now removes existing .apm directory for clean installation
+  - Ensures fresh install by removing any existing .apm directory
+  - Prevents file conflicts and ensures clean state
+  - All installations are now fresh (no file preservation)
+- **DO_NOT_MODIFY Warning**: Added warning file to .apm/agents directory
+  - Clearly indicates that files in .apm should not be modified
+  - Explains that modifications will be lost during updates/repairs
+  - Directs users to appropriate locations for customizations
+
+### Changed
+- **Directory Structure**: Renamed `installer` directory to `templates` throughout the project
+  - Updated build-distribution.sh to use templates/ directory
+  - Modified all installation commands to use ./templates/install.sh
+  - Changed preserved directory from .apm/.installer/ to .apm/.templates/
+  - Updated all documentation and scripts to reflect new naming
+- **CLAUDE.md Location**: Modified installer to always place CLAUDE.md in .apm directory
+  - Removed conditional logic that could place CLAUDE.md in project root
+  - Simplified installation process for consistent file placement
+  - Updated all documentation to reference .apm/CLAUDE.md location
+- **Update Process**: Modified ap-manager.sh update command to perform fresh install
+  - Update command now removes .apm directory before installing new files
+  - Ensures clean update without leftover files from previous versions
+  - Repair command now only preserves session_notes folder
+- **Repair Command**: Redesigned to enforce .apm as read-only
+  - Removes entire .apm directory and performs fresh install
+  - Only preserves session_notes folder during repair
+  - Replaces any modified files with original versions
+  - Makes clear that .apm files should never be modified
+
 ### Fixed
+- **Template Variables**: Added missing template variable replacements in install.sh
+  - Added WORKSPACE_ROOT variable pointing to project root
+  - Added SPEAK_BASE variable for base agent voice script
+  - Removed unused DELIVERABLES variable from CLAUDE.md template
+  - These variables are now properly replaced during installation
 - **Template Document Paths**: Comprehensive fix for document organization across all installer templates
   - Fixed QA template malformed path (`./$PROJECT_DOCS/test` → proper subdirectories)
   - Restricted PO workspace boundaries from entire `project_docs/` to specific subdirectories
