@@ -4,18 +4,18 @@ A revolutionary AI-powered framework for orchestrating parallel agent execution 
 
 ## Quick Start
 
-**Latest Release:** v2.0.0 🚀
+**Latest Release:** v2.0.1 🚀
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v2.0.0/apm-v2.0.0.tar.gz && tar -xzf apm-v2.0.0.tar.gz && cd apm-v2.0.0 && ./templates/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v2.0.1/apm-v2.0.1.tar.gz && tar -xzf apm-v2.0.1.tar.gz && cd apm-v2.0.1 && ./templates/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v2.0.0/apm-v2.0.0.tar.gz -o apm-v2.0.0.tar.gz && tar -xzf apm-v2.0.0.tar.gz && cd apm-v2.0.0 && ./templates/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v2.0.1/apm-v2.0.1.tar.gz -o apm-v2.0.1.tar.gz && tar -xzf apm-v2.0.1.tar.gz && cd apm-v2.0.1 && ./templates/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -31,7 +31,12 @@ Agentic Persona Mapping provides specialized AI agent personas for software deve
 
 ## Key Features
 
-### 🚀 **What's New in v2.0.0 - REVOLUTIONARY PARALLEL AGENTS**
+### 🔧 **What's New in v2.0.1 - Documentation Path Fixes**
+- **📁 Fixed Handoff Notes Location**: Corrected storage path for agent handoff notes to use `.apm/session_notes/handoffs/`
+- **📝 Updated Templates**: All persona and command templates now include proper handoff note guidance
+- **🗂️ Better Organization**: Clear separation between session artifacts and project deliverables
+
+### 🚀 **v2.0.0 - REVOLUTIONARY PARALLEL AGENTS**
 - **🔥 Parallel Agent Orchestration**: Product Owner can coordinate multiple developers and QA agents working on different stories simultaneously
 - **⚡ Unprecedented Velocity**: Multiple agents implementing features concurrently with intelligent conflict resolution
 - **🎪 Advanced Coordination**: Real-time collaboration between agents with automatic dependency management

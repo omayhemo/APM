@@ -2,6 +2,22 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [2.0.1] - 2025-01-21
+
+### 🔧 Minor Fixes
+
+- **Documentation Path Correction**: Fixed handoff notes storage location to properly use `.apm/session_notes/handoffs/` directory instead of `project_docs/planning/`
+  - Updated handoff command template with explicit path guidance
+  - Added handoff notes location instructions to all persona templates
+  - Created proper directory structure for handoff notes
+  - Migrated existing handoff notes to correct location
+  - Ensures clear separation between session artifacts and project deliverables
+
+### 📝 Documentation Updates
+
+- Added README.md in handoffs directory explaining proper usage and format
+- Updated all agent templates with consistent handoff note guidance
+
 ## [2.0.0] - 2025-01-20
 
 ### 🚀 Revolutionary Parallel Agent Coordination

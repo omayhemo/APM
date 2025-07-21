@@ -132,6 +132,23 @@ Create an intelligent merge system that seamlessly integrates template updates w
 | 6.2 | Algorithm Optimization | Medium | Ready | 3 | - | Sprint 5 |
 | 6.3 | Caching Implementation | Low | Ready | 2 | - | Sprint 5 |
 
+### Epic 7: APM Framework Improvements
+
+**Epic Goal:** Enhance APM framework structure and agent workflows  
+**Business Value:** Improves agent collaboration and maintains clean project organization  
+**Priority:** High  
+**Estimated Effort:** 8 Story Points  
+**Target Release:** 2.1  
+**Epic Details:** [EPIC-007: APM Framework Improvements](planning/epics/EPIC-007-apm-framework-improvements.md)
+
+#### Stories in Epic 7
+
+| Story ID | Title | Priority | Status | Story Points | Assignee | Sprint |
+|----------|-------|----------|--------|--------------|----------|---------|
+| 7.1 | Fix Handoff Notes Location | High | Done | 3 | AP Orchestrator | Current |
+| 7.2 | Session Notes Organization | Medium | Ready | 2 | - | Sprint 6 |
+| 7.3 | Agent Communication Standards | Medium | Ready | 3 | - | Sprint 6 |
+
 ---
 
 ## Backlog Metrics
@@ -148,11 +165,11 @@ Create an intelligent merge system that seamlessly integrates template updates w
 
 ### Burndown Metrics
 
-- **Total Backlog Points:** 73
+- **Total Backlog Points:** 81
 - **Completed Points:** 0
-- **Remaining Points:** 73
+- **Remaining Points:** 81
 - **Average Velocity:** 14 (estimated)
-- **Estimated Completion:** 2025-01-28
+- **Estimated Completion:** 2025-01-31
 
 ---
 
@@ -458,6 +475,21 @@ For a story to be considered complete:
 | 2025-01-18 | Backup-first strategy | Zero data loss requirement | All operations are safely recoverable |
 
 ---
+
+**[2025-01-21 01:00] - AP Orchestrator**: Released v2.0.1 with documentation path fixes
+**Action**: Updated all version references and release documentation
+**Changes**: CHANGELOG.md, README.md, RELEASE_NOTES.md, VERSION files, APM repo README
+**Impact**: Patch release ready for distribution with handoff notes path corrections
+
+**[2025-01-21 00:45] - AP Orchestrator**: Completed Story 7.1 - Fix Handoff Notes Location
+**Action**: Implemented proper handoff notes storage in session_notes directory
+**Changes**: Updated all templates, created directory structure, migrated existing notes
+**Impact**: Clear separation between session artifacts and project deliverables
+
+**[2025-01-21 00:15] - AP Orchestrator**: Added Epic 7 for APM Framework Improvements
+**Action**: Created new epic to address handoff notes location issue and improve agent workflows
+**Changes**: Added 3 stories (8 points) focusing on session management and agent communication
+**Impact**: Ensures proper organization of agent artifacts and cleaner project structure
 
 **[2025-01-20 23:35] - AP Orchestrator**: Release preparation for v2.0.0
 **Action**: Updated documentation for v2.0.0 release highlighting revolutionary parallel agent coordination
