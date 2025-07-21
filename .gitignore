@@ -12,6 +12,13 @@ harmonization.log
 # Piper TTS installation (project-local)
 .piper/
 
+# Archive and distribution folders
+archive/
+dist/
+
+# All directories starting with period
+.*/
+
 # Node modules
 node_modules/
 
