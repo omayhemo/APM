@@ -399,6 +399,76 @@ else
     fi
 fi
 
+# Create additional files that Claude Code expects
+echo "Creating additional required files..."
+SESSION_NOTES_DIR="$APM_ROOT/session_notes"
+ORCHESTRATOR_DIR="$AP_ROOT/orchestrator"
+
+# Create session_notes.md file to prevent Claude Code errors
+if [ ! -f "$SESSION_NOTES_DIR/session_notes.md" ]; then
+    mkdir -p "$SESSION_NOTES_DIR"
+    cat > "$SESSION_NOTES_DIR/session_notes.md" << 'EOF'
+# Session Notes
+
+This directory contains session notes for AP agent interactions.
+
+## Usage
+
+Session notes are automatically created with timestamps when AP agents are activated:
+- Format: `YYYY-MM-DD-HH-mm-ss-Description.md`
+- Location: This directory
+- Archive: `archive/` subdirectory
+
+## Current Sessions
+
+For current session files, use the LS tool to list this directory and read individual session files as needed.
+
+## Instructions for Claude
+
+**IMPORTANT**: This file exists only to prevent Read errors. AP agents should:
+1. Use LS tool to list the session_notes directory
+2. Read individual timestamped session files as needed
+3. Create new session files with proper timestamps
+4. Archive completed sessions in the archive/ subdirectory
+EOF
+    echo "- Created session_notes/session_notes.md"
+fi
+
+# Create orchestrator/rules.md file to prevent Claude Code errors
+if [ ! -f "$ORCHESTRATOR_DIR/rules.md" ]; then
+    mkdir -p "$ORCHESTRATOR_DIR"
+    cat > "$ORCHESTRATOR_DIR/rules.md" << 'EOF'
+# Orchestrator Rules
+
+This file contains behavioral rules for the AP Orchestrator agent.
+
+## Core Rules
+
+1. **Use LS tool** to list directories before attempting to read files
+2. **Use voice scripts** for all major announcements and transitions
+3. **Create session notes** with proper timestamps
+4. **Follow communication standards** from loaded configuration
+
+## File Structure
+
+**IMPORTANT**: This file exists only to prevent Read errors. The actual rules are located in:
+- Rules directory (use LS tool to explore)
+- Communication standards: `personas/communication_standards.md`
+
+## Instructions for Claude
+
+When activating as AP Orchestrator:
+1. List session notes directory using LS tool
+2. List rules directory using LS tool
+3. Create new session note with timestamp
+4. Use voice script for greeting
+5. Continue as the orchestrator persona
+
+Refer to the actual persona files and communication standards for detailed behavioral rules.
+EOF
+    echo "- Created orchestrator/rules.md"
+fi
+
 # Replace voice scripts with TTS-manager versions
 echo "Installing updated voice scripts..."
 rm -rf "$AP_ROOT/voice"

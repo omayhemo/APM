@@ -1,5 +1,39 @@
 # Release Notes
 
+## AP Mapping v2.1.4
+
+Released: 2025-01-22
+
+### 🔧 Critical Fix for AP Command Activation
+
+This patch release resolves the remaining file read errors that some users experienced when activating AP commands.
+
+#### What's Fixed
+
+**Claude Code Compatibility**
+- Fixed "File does not exist" errors for `session_notes/session_notes.md`
+- Fixed "File does not exist" errors for `agents/orchestrator/rules.md`
+- Created these files with explanatory content to prevent Claude Code errors
+- Updated installer to create these files automatically during new installations
+
+#### Installation
+
+**macOS:**
+```bash
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz | tar -xz && ./installer/install.sh
+```
+
+**Linux/WSL:**
+```bash
+wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh
+```
+
+#### Upgrade Note
+
+This release fixes the final remaining AP command activation errors. All users should upgrade to ensure seamless AP command functionality without file read errors.
+
+---
+
 ## AP Mapping v2.1.3
 
 Released: 2025-01-22

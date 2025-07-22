@@ -2,6 +2,23 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [2.1.4] - 2025-01-22
+
+### 🔧 Bug Fixes
+
+- **Claude Code AP Command Errors**: Fixed remaining file read errors when activating AP commands
+  - Created missing `session_notes/session_notes.md` file that Claude Code was trying to read
+  - Created missing `agents/orchestrator/rules.md` file that Claude Code was trying to read
+  - Updated installer to create these files automatically during installation
+  - Added template files to prevent recurrence in future installations
+
+### 🛠️ Technical Improvements
+
+- **Installation Process**: Enhanced installer to create all required files that Claude Code expects
+  - Prevents "File does not exist" errors during AP command activation
+  - Maintains compatibility with existing installations
+  - Added protective file creation for future installations
+
 ## [2.1.3] - 2025-01-22
 
 ### 🔧 Bug Fixes
