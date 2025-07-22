@@ -1142,6 +1142,8 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
     fi
     
     echo "✓ Notification system configured"
+    echo ""
+    echo "📁 Hook logs will be written to: .claude/hooks/logs/ in your project directory"
 else
     # Even if notifications are disabled, detect and save audio player info
     echo ""

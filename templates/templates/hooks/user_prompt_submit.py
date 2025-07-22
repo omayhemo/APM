@@ -22,14 +22,80 @@ import sys
 import json
 import os
 from datetime import datetime
-from hook_utils import setup_logging, get_notification_manager
 
-# Configure logging
-logger = setup_logging('user_prompt_submit')
+# Add current directory to Python path for hook_utils import
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    from hook_utils import setup_logging, get_notification_manager
+    logger = setup_logging('user_prompt_submit')
+except Exception as e:
+    # Fallback logging if hook_utils fails
+    import logging
+    
+    # Try to find project root for fallback logging
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    project_root = None
+    for _ in range(10):
+        if os.path.exists(os.path.join(current_dir, '.claude')):
+            project_root = current_dir
+            break
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:
+            break
+        current_dir = parent
+    
+    if project_root:
+        log_dir = os.path.join(project_root, '.claude', 'hooks', 'logs')
+    else:
+        log_dir = os.path.join(os.getcwd(), '.claude', 'hooks', 'logs')
+    
+    os.makedirs(log_dir, exist_ok=True)
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(os.path.join(log_dir, 'user_prompt_submit.log')),
+            logging.FileHandler('/tmp/user_prompt_submit_fallback.log')
+        ]
+    )
+    logger = logging.getLogger('user_prompt_submit')
+    logger.error(f"Failed to import hook_utils: {e}")
+    
+    # Define fallback function
+    def get_notification_manager():
+        return None
 
 
 def main():
     """Main hook entry point"""
+    # Debug: Try to write to project-local location to verify hook is running
+    debug_locations = []
+    
+    # Try to find project root
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for _ in range(10):
+        if os.path.exists(os.path.join(current_dir, '.claude')):
+            debug_locations.append(os.path.join(current_dir, '.claude', 'hooks', 'logs', 'user_prompt_submit_started.log'))
+            break
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:
+            break
+        current_dir = parent
+    
+    # Fallback to /tmp if project root not found
+    if not debug_locations:
+        debug_locations.append('/tmp/user_prompt_submit_started.log')
+    
+    for debug_log in debug_locations:
+        try:
+            os.makedirs(os.path.dirname(debug_log), exist_ok=True)
+            with open(debug_log, 'a') as f:
+                f.write(f"Hook started at {datetime.now().isoformat()}\n")
+        except:
+            pass
+    
     try:
         # Read JSON input from stdin
         input_data = json.load(sys.stdin)

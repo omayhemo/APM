@@ -79,8 +79,28 @@ def setup_logging(hook_name):
     Returns:
         logging.Logger: Configured logger instance
     """
-    # Configure logging
-    log_dir = os.path.expanduser('~/.claude/logs')
+    # Find the project root by looking for .claude directory
+    # Start from the hook's location and go up
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    project_root = None
+    
+    # Look up to 10 levels for .claude directory
+    for _ in range(10):
+        if os.path.exists(os.path.join(current_dir, '.claude')):
+            project_root = current_dir
+            break
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:  # Reached root
+            break
+        current_dir = parent
+    
+    # Configure logging to project-local directory
+    if project_root:
+        log_dir = os.path.join(project_root, '.claude', 'hooks', 'logs')
+    else:
+        # Fallback to current working directory if project root not found
+        log_dir = os.path.join(os.getcwd(), '.claude', 'hooks', 'logs')
+    
     os.makedirs(log_dir, exist_ok=True)
     
     # Create logger
@@ -90,7 +110,7 @@ def setup_logging(hook_name):
     # Clear any existing handlers
     logger.handlers = []
     
-    # Add file handler
+    # Add file handler for project-local logs
     file_handler = logging.FileHandler(os.path.join(log_dir, f'{hook_name}.log'))
     file_handler.setLevel(logging.INFO)
     
@@ -101,13 +121,15 @@ def setup_logging(hook_name):
     # Add handler to logger
     logger.addHandler(file_handler)
     
-    # Also add /tmp handler for backwards compatibility
+    # Also add global fallback for debugging
     try:
-        tmp_handler = logging.FileHandler(f'/tmp/{hook_name}.log')
-        tmp_handler.setLevel(logging.INFO)
-        tmp_handler.setFormatter(formatter)
-        logger.addHandler(tmp_handler)
+        global_log_dir = os.path.expanduser('~/.claude/logs')
+        os.makedirs(global_log_dir, exist_ok=True)
+        global_handler = logging.FileHandler(os.path.join(global_log_dir, f'{hook_name}_all_projects.log'))
+        global_handler.setLevel(logging.WARNING)  # Only warnings and errors to global log
+        global_handler.setFormatter(formatter)
+        logger.addHandler(global_handler)
     except:
-        pass  # Ignore if /tmp is not writable
+        pass  # Ignore if not writable
     
     return logger

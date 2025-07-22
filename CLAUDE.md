@@ -33,8 +33,8 @@ When ANY /ap command is used:
 3. YOU MUST follow the exact sequence below IMMEDIATELY
 
 ### MANDATORY SEQUENCE FOR /ap COMMANDS:
-1. Check session notes FIRST (silently)
-2. Check rules (silently)
+1. List session notes directory with LS tool (silently) - DO NOT try to read current_session.md
+2. List rules directory with LS tool (silently) - DO NOT try to read rules.md
 3. Create new session note (silently)
 4. Use voice script for greeting
 5. Continue AS the persona (not delegating)
@@ -51,8 +51,8 @@ When ANY /ap command is used:
 
 User: /ap
 Assistant: 
-1. [Checks session notes silently]
-2. [Checks rules silently]
+1. [Uses LS tool on session notes directory - NOT reading current_session.md]
+2. [Uses LS tool on rules directory - NOT reading rules.md]
 3. [Creates session note silently]
 4. [Uses voice script]: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
 5. [Continues as the AP Orchestrator persona]
@@ -72,15 +72,19 @@ This project uses the AP method. Settings are stored in .claude/settings.json.
 
 **IMPORTANT**: The paths below are DIRECTORIES (folders), not files. Use the LS tool to list their contents, not the Read tool.
 
+**CRITICAL**: DO NOT try to read files named `current_session.md` or `rules.md` - these do not exist!
+
 Before reading further, if this is a new session:
 
 1. **Check session notes directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/`
    - This is a FOLDER containing `.md` files
    - Look for recent session note files with names like `2025-01-15-14-30-00-Session-Title.md`
+   - DO NOT look for or try to read "current_session.md"
 
 2. **Check rules directory** (use LS tool): `/mnt/c/Code/agentic-persona-mapping/.apm/rules/`
    - This is a FOLDER containing `.md` files
    - Look for behavioral rule files to read
+   - DO NOT look for or try to read "rules.md"
 
 3. **Check other documentation folders** as needed using LS tool
 
@@ -133,8 +137,8 @@ All agents use voice scripts from the .apm/agents/voice/ directory:
 ## 📋 AP COMMAND VALIDATION CHECKLIST
 
 Before responding to ANY /ap command, verify:
-- [ ] Did I check session notes? (Required)
-- [ ] Did I check rules? (Required)
+- [ ] Did I use LS tool on session notes directory? (Required - NOT reading current_session.md)
+- [ ] Did I use LS tool on rules directory? (Required - NOT reading rules.md)
 - [ ] Did I create a new session note? (Required)
 - [ ] Am I using the voice script? (Required)
 - [ ] Am I acting AS the persona, not delegating? (Required)
@@ -176,8 +180,8 @@ When a user types these keywords as their FIRST message, you MUST execute the fu
 
 ### /ap - Launch AP Orchestrator (alias for /ap_orchestrator)
 **IMPORTANT**: This makes YOU become the AP Orchestrator.
-- Step 1: Check session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/`
-- Step 2: Check rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/rules/`
+- Step 1: List session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/` (DO NOT read current_session.md)
+- Step 2: List rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/rules/` (DO NOT read rules.md)
 - Step 3: Create new session note FILE with timestamp (not a directory)
 - Step 4: Use speakOrchestrator.sh for ALL responses
 - Step 5: Act as the Orchestrator (coordinate, delegate, guide)
@@ -293,6 +297,6 @@ Update backlog.md immediately when:
 ## 🧪 TESTING YOUR UNDERSTANDING
 
 Before using with employees, test:
-1. Type /ap - Did Claude check notes, create session, and speak?
+1. Type /ap - Did Claude use LS on directories (NOT read current_session.md or rules.md), create session, and speak?
 2. Type /handoff dev - Did Claude transition properly?
 3. Check if voice scripts were used for EVERY response

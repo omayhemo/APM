@@ -24,17 +24,76 @@ import json
 import os
 from datetime import datetime
 import shutil
-from hook_utils import setup_logging, get_notification_manager, get_apm_root
 
-# Configure logging
-logger = setup_logging('pre_compact')
+# Add current directory to Python path for hook_utils import
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    from hook_utils import setup_logging, get_notification_manager, get_apm_root
+    logger = setup_logging('pre_compact')
+except Exception as e:
+    # Fallback logging if hook_utils fails
+    import logging
+    
+    # Try to find project root for fallback logging
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    project_root = None
+    for _ in range(10):
+        if os.path.exists(os.path.join(current_dir, '.claude')):
+            project_root = current_dir
+            break
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:
+            break
+        current_dir = parent
+    
+    if project_root:
+        log_dir = os.path.join(project_root, '.claude', 'hooks', 'logs')
+    else:
+        log_dir = os.path.join(os.getcwd(), '.claude', 'hooks', 'logs')
+    
+    os.makedirs(log_dir, exist_ok=True)
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(os.path.join(log_dir, 'pre_compact.log')),
+            logging.FileHandler('/tmp/pre_compact_fallback.log')
+        ]
+    )
+    logger = logging.getLogger('pre_compact')
+    logger.error(f"Failed to import hook_utils: {e}")
+    
+    # Define fallback functions
+    def get_notification_manager():
+        return None
+    
+    def get_apm_root():
+        return None
 
 
 def save_pre_compact_state(session_id, transcript_path):
     """Save session state before compaction"""
     try:
-        # Create backup directory
-        backup_dir = os.path.expanduser(f'~/.claude/compact_backups/{session_id}')
+        # Find project root for backups
+        current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        project_root = None
+        for _ in range(10):
+            if os.path.exists(os.path.join(current_dir, '.claude')):
+                project_root = current_dir
+                break
+            parent = os.path.dirname(current_dir)
+            if parent == current_dir:
+                break
+            current_dir = parent
+        
+        # Create backup directory in project
+        if project_root:
+            backup_dir = os.path.join(project_root, '.claude', 'hooks', 'compact_backups', session_id)
+        else:
+            backup_dir = os.path.join(os.getcwd(), '.claude', 'hooks', 'compact_backups', session_id)
+        
         os.makedirs(backup_dir, exist_ok=True)
         
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
