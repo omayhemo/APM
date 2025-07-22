@@ -2,6 +2,29 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [2.1.1] - 2025-01-22
+
+### 🔧 Bug Fixes
+
+- **Hook Path Resolution**: Fixed hardcoded paths in hooks that prevented proper operation in target installations
+  - Added `hook_utils.py` module for dynamic APM root discovery
+  - All hooks now properly locate APM installation regardless of path
+  
+- **Audio Notifications**: Fixed notification manager to properly handle new hook names
+  - Corrected environment variable lookup for `user_prompt_submit` and `pre_compact` hooks
+  - Audio notifications now play correctly when hooks are enabled
+
+- **Settings Template**: Added missing UserPromptSubmit and PreCompact hook configurations
+  - Both hooks now properly configured in settings.json template
+  - Ensures new installations have complete hook support
+
+### 🛠️ Technical Improvements
+
+- Centralized logging configuration across all hooks
+- Improved error handling for subprocess calls
+- Better fallback mechanisms for APM root discovery
+- Consistent path resolution across different installation scenarios
+
 ## [2.1.0] - 2025-01-22
 
 ### 🎯 New Features

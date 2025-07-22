@@ -1,5 +1,47 @@
 # Release Notes
 
+## AP Mapping v2.1.1
+
+Released: 2025-01-22
+
+### 🔧 Critical Hook Fixes
+
+This patch release fixes critical issues with the new hooks introduced in v2.1.0.
+
+#### What's Fixed
+
+**Hook Path Resolution**
+- Fixed hardcoded paths that prevented hooks from working in target installations
+- Added dynamic APM root discovery through new `hook_utils.py` module
+- Hooks now properly locate APM installation regardless of installation path
+
+**Audio Notifications**
+- Fixed notification manager to recognize `user_prompt_submit` and `pre_compact` hooks
+- Corrected environment variable lookup for proper hook enablement detection
+- Audio notifications now play correctly when hooks are enabled
+
+**Configuration**
+- Added missing UserPromptSubmit and PreCompact configurations to settings template
+- New installations now have complete hook support out of the box
+
+#### Installation
+
+**macOS:**
+```bash
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.1/apm-v2.1.1.tar.gz | tar -xz && ./installer/install.sh
+```
+
+**Linux/WSL:**
+```bash
+wget https://github.com/omayhemo/APM/releases/download/v2.1.1/apm-v2.1.1.tar.gz && tar -xzf apm-v2.1.1.tar.gz && cd apm-v2.1.1 && ./installer/install.sh
+```
+
+#### Upgrade Note
+
+If you installed v2.1.0, please upgrade to v2.1.1 to ensure hooks work correctly. The installer will preserve your existing configuration while fixing the hook issues.
+
+---
+
 ## AP Mapping v2.1.0
 
 Released: 2025-01-22
