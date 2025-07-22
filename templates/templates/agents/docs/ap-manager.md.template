@@ -25,7 +25,7 @@ Checks for new releases on GitHub and updates your installation:
 
 Features:
 - Checks GitHub releases API for the latest version
-- Compares with your current version (`agents/version.txt`)
+- Compares with your current version (.apm/VERSION)
 - Downloads and applies updates in-place
 - Creates automatic backup before updating
 - Preserves your project work and customizations
@@ -40,7 +40,7 @@ Checks the integrity of your AP Mapping installation:
 ```
 
 Checks for:
-- Critical files (personas, scripts, version.txt)
+- Critical files (personas, scripts, VERSION)
 - Required directories (personas, tasks, templates, scripts)
 - File permissions
 - Installation completeness
@@ -99,7 +99,7 @@ Display usage information:
 When you run `update`, ap-manager:
 
 1. **Checks Current Version**
-   - Reads `agents/version.txt`
+   - Reads .apm/VERSION file
    - Defaults to "unknown" if not found
 
 2. **Queries GitHub API**
@@ -121,7 +121,7 @@ When you run `update`, ap-manager:
 6. **Applies Update**
    - Updates templates files in `.templates/`
    - Updates agents directory (preserves customizations)
-   - Updates version.txt
+   - Updates VERSION file
 
 7. **Verifies Update**
    - Runs integrity check
@@ -168,7 +168,7 @@ This enables:
 
 ### Version shows "unknown"
 - Run `verify` to check installation
-- Manually create `agents/version.txt` if missing
+- Check if VERSION file exists in .apm directory
 
 ## Environment Variables
 

@@ -187,7 +187,7 @@ The installer will:
 
 The installer includes comprehensive version and update management:
 
-- **Version Tracking**: Automatically creates `.apm/agents/version.txt` during installation
+- **Version Tracking**: Automatically creates `.apm/VERSION` during installation
 - **Update Checking**: Uses GitHub Releases API to check for new versions  
 - **In-Place Updates**: Updates can be applied without losing your work
 - **Automatic Backups**: Creates backups before updates and uninstalls

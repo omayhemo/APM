@@ -25,7 +25,7 @@ fi
 # Configuration
 REPO_OWNER="omayhemo"
 REPO_NAME="agentic-persona-mapping"
-VERSION_FILE="$AP_ROOT/version.txt"
+VERSION_FILE="$AP_ROOT/../VERSION"
 TEMPLATES_DIR="$AP_ROOT/.templates"
 BACKUP_DIR="$AP_ROOT/.backups"
 APM_ROOT="$(dirname "$AP_ROOT")"  # Get .apm directory from AP_ROOT
@@ -207,12 +207,18 @@ verify_installation() {
         local issues=0
         
         # Check critical files
-        for file in "personas/ap_orchestrator.md" "scripts/agentic-setup" "version.txt"; do
+        for file in "personas/ap_orchestrator.md" "scripts/agentic-setup"; do
             if [ ! -f "$AP_ROOT/$file" ]; then
                 echo -e "${RED}Missing: $file${NC}"
                 ((issues++))
             fi
         done
+        
+        # Check VERSION file in APM root
+        if [ ! -f "$VERSION_FILE" ]; then
+            echo -e "${RED}Missing: VERSION file${NC}"
+            ((issues++))
+        fi
         
         # Check critical directories
         for dir in "personas" "tasks" "templates" "scripts"; do

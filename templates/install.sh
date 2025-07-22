@@ -1322,6 +1322,17 @@ fi
 # Read VERSION file
 VERSION=$(cat "$DIST_DIR/VERSION" 2>/dev/null || echo "unknown")
 
+# Copy LICENSE and VERSION to .apm folder
+if [ -f "$DIST_DIR/LICENSE" ]; then
+    cp "$DIST_DIR/LICENSE" "$APM_ROOT/LICENSE"
+    echo "Copied LICENSE to .apm folder"
+fi
+
+if [ -f "$DIST_DIR/VERSION" ]; then
+    cp "$DIST_DIR/VERSION" "$APM_ROOT/VERSION"
+    echo "Copied VERSION to .apm folder"
+fi
+
 echo ""
 echo "Step 12: Validating Installation"
 echo "--------------------------------"
@@ -1432,9 +1443,15 @@ echo "- Location: $PROJECT_ROOT"
 echo "- Project: $PROJECT_NAME"
 echo ""
 
-# Create version file for update checking
-echo "$VERSION" > "$AP_ROOT/version.txt"
-echo "Created version file: $AP_ROOT/version.txt"
+# Version file is already in place from earlier copy
+# Just verify it exists
+if [ -f "$APM_ROOT/VERSION" ]; then
+    echo "Version file verified: $APM_ROOT/VERSION"
+else
+    # Fallback: Create version file if it wasn't copied
+    echo "$VERSION" > "$APM_ROOT/VERSION"
+    echo "Created version file: $APM_ROOT/VERSION"
+fi
 
 # Preserve installer for future management
 echo "Preserving installer for updates and management..."
@@ -1463,15 +1480,15 @@ if [ -f "$PROJECT_ROOT/apm-v$VERSION.tar.gz" ]; then
     echo "- Removed distribution archive"
 fi
 
-# Remove other distribution files that aren't needed after installation
+# Remove distribution files from project root (they're now in .apm folder)
 if [ -f "$PROJECT_ROOT/LICENSE" ] && [ "$SKIP_COPY" != "true" ]; then
     rm -f "$PROJECT_ROOT/LICENSE"
-    echo "- Removed LICENSE file (included in agents directory)"
+    echo "- Removed LICENSE file from root (now in .apm folder)"
 fi
 
 if [ -f "$PROJECT_ROOT/VERSION" ]; then
     rm -f "$PROJECT_ROOT/VERSION"
-    echo "- Removed VERSION file"
+    echo "- Removed VERSION file from root (now in .apm folder)"
 fi
 
 # Note: Distribution README is now placed in .apm directory to avoid overwriting user README
