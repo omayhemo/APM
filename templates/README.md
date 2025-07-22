@@ -1,6 +1,6 @@
 #  Agentic Persona Mapping Framework
 
-Version: 2.1.0
+Version: 2.1.4
 
 ## What is Agentic Persona Mapping?
 
@@ -12,12 +12,12 @@ The Agentic Persona Mapping is a project-agnostic approach to orchestrating AI a
 
 **For Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh
 ```
 
 **For macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz | tar -xz && cd apm-v2.1.4 && ./installer/install.sh
 ```
 
 ### Installation Options
@@ -28,28 +28,28 @@ Add nothing - the installer will prompt for all configuration options
 **Option 2: Install with Defaults (Skip prompts)**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh --defaults
+wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh --defaults
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh --defaults
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz | tar -xz && cd apm-v2.1.4 && ./installer/install.sh --defaults
 ```
 
 **Option 3: Install to Specific Directory**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh /path/to/your/project
+wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh /path/to/your/project
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh /path/to/your/project
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz | tar -xz && cd apm-v2.1.4 && ./installer/install.sh /path/to/your/project
 ```
 
 **Option 4: Install with Piper TTS Voice Support**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh --with-tts
+wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh --with-tts
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh --with-tts
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz | tar -xz && cd apm-v2.1.4 && ./installer/install.sh --with-tts
 ```
 
 ## Key Features

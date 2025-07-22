@@ -4,18 +4,18 @@ A revolutionary AI-powered framework for orchestrating parallel agent execution 
 
 ## Quick Start
 
-**Latest Release:** v2.1.0 🚀
+**Latest Release:** v2.1.4 🚀
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -31,7 +31,13 @@ Agentic Persona Mapping provides specialized AI agent personas for software deve
 
 ## Key Features
 
-### 🎯 **What's New in v2.1.0 - Enhanced Claude Code Hooks**
+### 🔧 **What's New in v2.1.4 - Critical AP Command Fixes**
+- **🛠️ Fixed AP Activation**: Resolved remaining "File does not exist" errors when running `/ap` commands
+- **📁 LICENSE/VERSION Relocation**: Moved LICENSE and VERSION files to `.apm` folder for better organization
+- **🔍 Claude Code Compatibility**: Created required files that Claude Code expects during AP command activation
+- **📦 Installer Improvements**: Enhanced installer to prevent file read errors on fresh installations
+
+### 🎯 **v2.1.0 - Enhanced Claude Code Hooks**
 - **🆕 UserPromptSubmit Hook**: Captures when users submit prompts with automatic logging and AP command detection
 - **🗂️ PreCompact Hook**: Archives session state before context compaction to preserve work history
 - **🔊 Expanded Audio Notifications**: Now supporting 7 hooks (up from 5) with new prompt and compact sounds
