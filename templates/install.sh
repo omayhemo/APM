@@ -308,6 +308,7 @@ replace_variables() {
     sed $sed_inplace "s|{{PROJECT_ROOT}}|$PROJECT_ROOT|g" "$temp_file"
     sed $sed_inplace "s|{{AP_ROOT}}|$AP_ROOT|g" "$temp_file"
     sed $sed_inplace "s|{{PROJECT_DOCS}}|$PROJECT_DOCS|g" "$temp_file"
+    sed $sed_inplace "s|{{BACKLOG_PATH}}|$BACKLOG_PATH|g" "$temp_file"
     sed $sed_inplace "s|{{CLAUDE_DIR}}|$CLAUDE_DIR|g" "$temp_file"
     sed $sed_inplace "s|{{CLAUDE_COMMANDS_DIR}}|$CLAUDE_COMMANDS_DIR|g" "$temp_file"
     sed $sed_inplace "s|{{NOTES_TYPE}}|$NOTES_TYPE|g" "$temp_file"
@@ -497,6 +498,7 @@ PROJECT_NAME=$(get_input "Enter project name" "$(basename "$PROJECT_ROOT")")
 CLAUDE_DIR="$PROJECT_ROOT/.claude"
 CLAUDE_COMMANDS_DIR="$CLAUDE_DIR/commands"
 PROJECT_DOCS="$PROJECT_ROOT/project_docs"
+BACKLOG_PATH="project_docs"
 PLANNING_ROOT="$PROJECT_ROOT/project_docs/planning"
 SESSION_NOTES_PATH="$APM_ROOT/session_notes"
 RULES_PATH="$APM_ROOT/rules"
@@ -630,9 +632,10 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/pm.md.template" "$CL
 replace_variables "$INSTALLER_DIR/templates/claude/commands/po.md.template" "$CLAUDE_COMMANDS_DIR/po.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/qa.md.template" "$CLAUDE_COMMANDS_DIR/qa.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/sm.md.template" "$CLAUDE_COMMANDS_DIR/sm.md"
+replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-sprint.md.template" "$CLAUDE_COMMANDS_DIR/parallel-sprint.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/subtask.md.template" "$CLAUDE_COMMANDS_DIR/subtask.md"
 
-echo "✓ APM commands installed/updated"
+echo "✓ APM commands installed/updated (including parallel-sprint)"
 
 # Process persona templates
 echo ""

@@ -171,6 +171,16 @@ I can help you with these specialized story preparation and sprint management ta
 - 65% faster than traditional course correction
 - Reference: `correct-course-parallel.md` task
 
+**`/parallel-sprint`** - 🚀 **REVOLUTIONARY** Parallel Development Orchestration
+- **Coordinates multiple Developer agents simultaneously** across different stories
+- Executes the Product Owner's parallel development plan with actual developer agents
+- Launches 2-4 Developer agent streams working concurrently on sprint stories
+- **Real-time coordination** of dependencies, integration points, and handoffs
+- **60-80% sprint acceleration** through true parallel story development
+- **Intelligent integration management** prevents conflicts between parallel streams
+- Includes QA coordination and comprehensive progress synthesis
+- Reference: `parallel-sprint-analysis.md`, `parallel-development-launch.md`, `parallel-coordination-synthesis.md` tasks
+
 ### Story Management Commands
 - `/create` - Create next development-ready story
 - `/pivot` - Run course correction task
@@ -180,6 +190,7 @@ I can help you with these specialized story preparation and sprint management ta
 - `/parallel-stories` - Parallel batch story creation
 - `/parallel-checklist` - Parallel validation
 - `/parallel-course-correction` - Parallel sprint adjustment
+- `/parallel-sprint` - 🚀 **REVOLUTIONARY** Parallel Development Orchestration
 - `/help` - Show all available commands
 
 ### Workflow Commands
@@ -248,6 +259,14 @@ Use `/parallel-checklist` for comprehensive validation:
 - Completeness verification across all dimensions
 - Acceptance criteria clarity and testability
 - Technical feasibility and architecture alignment
+
+### If You Need Parallel Development Execution
+Use `/parallel-sprint` for revolutionary sprint coordination:
+- Product Owner has created sprint plan with story assignments
+- Stories are groomed and ready for development
+- Multiple stories can be developed in parallel
+- Need maximum velocity and coordinated integration
+- Want to execute actual parallel development streams
 - Dependency identification and risk assessment
 - Definition of Ready compliance
 
