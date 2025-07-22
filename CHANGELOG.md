@@ -2,6 +2,38 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [2.1.3] - 2025-01-22
+
+### 🔧 Bug Fixes
+
+- **AP Command Errors**: Fixed issues where AP commands tried to read non-existent files
+  - Updated CLAUDE.md to clarify using LS tool on directories
+  - Added explicit warnings about files that don't exist (current_session.md, rules.md)
+  - Simplified /ap command to just call /ap_orchestrator
+
+- **Hook Logging Location**: Changed hook logs to project-local directory
+  - Logs now write to `.claude/hooks/logs/` in the project directory
+  - Backup transcripts go to `.claude/hooks/compact_backups/`
+  - Keeps project data within the project structure
+
+### 🛠️ Technical Improvements
+
+- **AP Orchestrator Enhancement**: Updated activation sequence with clear steps
+  - Explicit directory listing before initialization
+  - Voice announcements throughout activation
+  - Parallel task loading for APM system components
+
+- **Hook Improvements**: Better error handling and debugging
+  - Added fallback logging when hook_utils import fails
+  - Improved Python path handling for imports
+  - Added test_hook.py for debugging hook execution
+
+### 📝 Documentation
+
+- Updated installer to show hook log location
+- Clarified behavioral rules in command templates
+- Added warnings about non-existent file paths
+
 ## [2.1.1] - 2025-01-22
 
 ### 🔧 Bug Fixes

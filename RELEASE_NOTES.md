@@ -1,5 +1,50 @@
 # Release Notes
 
+## AP Mapping v2.1.3
+
+Released: 2025-01-22
+
+### 🔧 Important Fixes for AP Commands and Hooks
+
+This release fixes critical issues with AP command activation and improves hook logging.
+
+#### What's Fixed
+
+**AP Command Activation**
+- Fixed "File does not exist" errors when running `/ap` or `/ap_orchestrator`
+- Commands now properly list directories instead of trying to read non-existent files
+- Added clear warnings about files that don't exist (current_session.md, rules.md)
+- Simplified `/ap` to be an alias for `/ap_orchestrator`
+
+**Hook Logging**
+- Changed hook logs to write to project-local `.claude/hooks/logs/` directory
+- No more logging to global `~/.claude/logs/` directory
+- Keeps all project data within the project structure
+- Backup transcripts now go to `.claude/hooks/compact_backups/`
+
+**AP Orchestrator Improvements**
+- Clear activation sequence with proper directory checks
+- Voice announcements throughout initialization
+- Better parallel task loading for APM components
+
+#### Installation
+
+**macOS:**
+```bash
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.3/apm-v2.1.3.tar.gz | tar -xz && ./installer/install.sh
+```
+
+**Linux/WSL:**
+```bash
+wget https://github.com/omayhemo/APM/releases/download/v2.1.3/apm-v2.1.3.tar.gz && tar -xzf apm-v2.1.3.tar.gz && cd apm-v2.1.3 && ./installer/install.sh
+```
+
+#### Upgrade Note
+
+This release fixes the AP command activation errors and improves hook logging. All users should upgrade to ensure proper AP command functionality.
+
+---
+
 ## AP Mapping v2.1.1
 
 Released: 2025-01-22
