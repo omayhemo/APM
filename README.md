@@ -4,18 +4,18 @@ A revolutionary AI-powered framework for orchestrating parallel agent execution 
 
 ## Quick Start
 
-**Latest Release:** v2.1.4 🚀
+**Latest Release:** v2.4.0 🚀
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v2.1.4/apm-v2.1.4.tar.gz && tar -xzf apm-v2.1.4.tar.gz && cd apm-v2.1.4 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v2.4.0/apm-v2.4.0.tar.gz && tar -xzf apm-v2.4.0.tar.gz && cd apm-v2.4.0 && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v2.2.0/apm-v2.2.0.tar.gz | tar -xz && cd apm-v2.2.0 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v2.4.0/apm-v2.4.0.tar.gz | tar -xz && cd apm-v2.4.0 && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -31,7 +31,14 @@ Agentic Persona Mapping provides specialized AI agent personas for software deve
 
 ## Key Features
 
-### 🚀 **What's New in v2.2.0 - Claude.md Merge System**
+### 🚀 **What's New in v2.4.0 - Production-Ready Parallel Sprint System**
+- **🔥 Complete Template Integration**: Fully templatized `/parallel-sprint` system ready for deployment
+- **🛠️ Zero Configuration**: Installer handles all deployment automatically 
+- **📋 Enhanced Documentation**: Complete CLAUDE.md template integration with usage guidelines
+- **🎯 Production Ready**: Template validation complete, all variables properly substituted
+- **⚡ Revolutionary Capability**: Scrum Masters can coordinate 2-4 Developer agents simultaneously
+
+### 🚀 **v2.2.0 - Claude.md Merge System**
 - **🧠 Intelligent Merge System**: Revolutionary framework for seamless template updates while preserving customizations
 - **⚡ Lightning Performance**: < 500ms template analysis, < 100ms section parsing  
 - **🛡️ Zero Data Loss**: Comprehensive backup system with automatic recovery
