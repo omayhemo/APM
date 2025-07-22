@@ -349,6 +349,63 @@ replace_variables() {
     mv "$temp_file" "$output_file"
 }
 
+# Function to merge APM section into user's root CLAUDE.md file
+merge_apm_section() {
+    local root_claude_md="$1"
+    local template_file="$INSTALLER_DIR/template.claude.md"
+    
+    echo "Merging APM section into root CLAUDE.md..."
+    
+    # If the file doesn't exist, create it with just the APM section
+    if [ ! -f "$root_claude_md" ]; then
+        echo "Creating new CLAUDE.md file in project root..."
+        cp "$template_file" "$root_claude_md"
+        echo "✓ Created CLAUDE.md with APM section"
+        return 0
+    fi
+    
+    # File exists, check for APM section and merge
+    if grep -q "<BEGIN-APM-CLAUDE-MERGE>" "$root_claude_md"; then
+        echo "Existing APM section found, replacing with latest version..."
+        
+        # Create temporary files
+        local temp_before=$(mktemp)
+        local temp_after=$(mktemp)
+        local temp_new=$(mktemp)
+        
+        # Extract content before APM section
+        sed -n '1,/<BEGIN-APM-CLAUDE-MERGE>/p' "$root_claude_md" | head -n -1 > "$temp_before"
+        
+        # Extract content after APM section (everything after the closing tag)
+        sed -n '/<END-APM-CLAUDE-MERGE>/,$p' "$root_claude_md" | tail -n +2 > "$temp_after"
+        
+        # Combine: before + new APM section + after
+        cat "$temp_before" > "$temp_new"
+        cat "$template_file" >> "$temp_new"
+        cat "$temp_after" >> "$temp_new"
+        
+        # Replace original file
+        mv "$temp_new" "$root_claude_md"
+        
+        # Cleanup
+        rm -f "$temp_before" "$temp_after"
+        
+        echo "✓ Updated existing APM section in CLAUDE.md"
+    else
+        echo "No existing APM section found, appending to end of file..."
+        
+        # Add a newline if file doesn't end with one
+        if [ -s "$root_claude_md" ] && [ "$(tail -c1 "$root_claude_md" | wc -l)" -eq 0 ]; then
+            echo "" >> "$root_claude_md"
+        fi
+        
+        # Append APM section
+        cat "$template_file" >> "$root_claude_md"
+        
+        echo "✓ Added APM section to CLAUDE.md"
+    fi
+}
+
 # Function to generate agents directory from templates
 generate_agents_from_templates() {
     echo "Processing template files..."
@@ -1272,22 +1329,20 @@ else
 fi
 
 echo ""
-echo "Step 10: Updating CLAUDE.md"
-echo "---------------------------"
+echo "Step 10: Creating and Merging CLAUDE.md Files"
+echo "---------------------------------------------"
 
-# Check if CLAUDE.md exists in project root
-CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md"
-if [ -f "$CLAUDE_MD" ]; then
-    echo "CLAUDE.md already exists in root. Creating AP version in .apm folder instead."
-    CLAUDE_MD="$AP_ROOT/CLAUDE.md"
-    # Create the .apm directory if it doesn't exist
-    mkdir -p "$AP_ROOT"
-fi
+# Always create/replace the .apm/CLAUDE.md file
+APM_CLAUDE_MD="$AP_ROOT/CLAUDE.md"
+echo "Creating .apm/CLAUDE.md from template..."
+replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$APM_CLAUDE_MD"
+echo "✓ Created: $APM_CLAUDE_MD"
 
-# Create CLAUDE.md from template (always use markdown template)
-replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$CLAUDE_MD"
-
-echo "Created: $CLAUDE_MD"
+# Handle the root project CLAUDE.md file with APM section merge
+ROOT_CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md"
+echo ""
+echo "Handling root project CLAUDE.md file..."
+merge_apm_section "$ROOT_CLAUDE_MD"
 
 echo ""
 echo "Step 11: Configuring .gitignore"
