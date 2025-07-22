@@ -38,11 +38,11 @@ TARGET_DIR="$(cd "$TARGET_DIR" 2>/dev/null && pwd)" || {
 }
 
 # Special handling when running from distribution directory without arguments
-if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ]; then
+if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ] && [ -d "$DIST_DIR/.apm/agents" ]; then
     if [ "$USE_DEFAULTS" = true ]; then
         echo "Running with defaults - using current directory as project"
         TARGET_DIR="$DIST_DIR"
-        # Always do fresh install, never skip copy
+        SKIP_COPY="true"
     else
         echo "=========================================="
         echo "AP Mapping Quick Setup"
@@ -65,8 +65,9 @@ if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ]; then
             1)
                 echo ""
                 echo "Using current directory as project directory."
+                echo "This will configure AP Mapping in-place without copying files."
                 TARGET_DIR="$DIST_DIR"
-                # Always do fresh install, never skip copy
+                SKIP_COPY="true"
                 echo ""
                 ;;
             2)
@@ -124,14 +125,6 @@ PROJECT_ROOT="$TARGET_DIR"
 # Set up workspace structure with APM infrastructure hidden (early setup)
 APM_ROOT="$PROJECT_ROOT/.apm"
 AP_ROOT="$APM_ROOT/agents"
-
-# Remove existing .apm directory for fresh install
-if [ -d "$APM_ROOT" ]; then
-    echo ""
-    echo "Removing existing .apm directory for fresh installation..."
-    rm -rf "$APM_ROOT"
-    echo "✓ Removed existing .apm directory"
-fi
 
 # Function to get user input with default
 get_input() {
@@ -350,8 +343,6 @@ replace_variables() {
     sed $sed_inplace "s|{{SPEAK_AGENT}}|$SPEAK_AGENT|g" "$temp_file"
     sed $sed_inplace "s|{{APM_ROOT}}|$APM_ROOT|g" "$temp_file"
     sed $sed_inplace "s|{{PLANNING_ROOT}}|$PLANNING_ROOT|g" "$temp_file"
-    sed $sed_inplace "s|{{WORKSPACE_ROOT}}|$WORKSPACE_ROOT|g" "$temp_file"
-    sed $sed_inplace "s|{{SPEAK_BASE}}|$SPEAK_BASE|g" "$temp_file"
     
     # Move the processed file to the output location
     mv "$temp_file" "$output_file"
@@ -389,15 +380,23 @@ echo "Step 1: Generating Agents Directory from Templates"
 echo "------------------------------------------------"
 
 # Generate agents directory from templates
-if [ -d "$INSTALLER_DIR/templates/agents" ]; then
-    echo "Generating agents directory from templates to: $AP_ROOT"
-    ensure_dir "$APM_ROOT"
-    
-    # Generate agents directory structure from templates
-    generate_agents_from_templates
+if [ "$SKIP_COPY" != "true" ]; then
+    if [ -d "$INSTALLER_DIR/templates/agents" ]; then
+        echo "Generating agents directory from templates to: $AP_ROOT"
+        ensure_dir "$APM_ROOT"
+        
+        # Generate agents directory structure from templates
+        generate_agents_from_templates
+    else
+        echo "Error: templates/agents directory not found in installer"
+        exit 1
+    fi
 else
-    echo "Error: templates/agents directory not found in installer"
-    exit 1
+    echo "Using existing agents directory in APM structure"
+    if [ ! -d "$AP_ROOT" ]; then
+        echo "Error: APM agents directory not found at $AP_ROOT"
+        exit 1
+    fi
 fi
 
 # Replace voice scripts with TTS-manager versions
@@ -432,7 +431,6 @@ PLANNING_ROOT="$PROJECT_ROOT/project_docs/planning"
 SESSION_NOTES_PATH="$APM_ROOT/session_notes"
 RULES_PATH="$APM_ROOT/rules"
 ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
-WORKSPACE_ROOT="$PROJECT_ROOT"
 
 echo ""
 echo "Step 3: Session Notes Configuration"
@@ -463,7 +461,6 @@ SPEAK_PM="$AP_ROOT/voice/speakPM.sh"
 SPEAK_PO="$AP_ROOT/voice/speakPO.sh"
 SPEAK_SM="$AP_ROOT/voice/speakSM.sh"
 SPEAK_DESIGN_ARCHITECT="$AP_ROOT/voice/speakDesignArchitect.sh"
-SPEAK_BASE="$AP_ROOT/voice/speakBase.sh"
 
 # AP Orchestrator IDE configuration paths
 AP_CONFIG_FILE="$AP_ROOT/ide-ap-orchestrator.cfg.md"
@@ -884,7 +881,40 @@ case "$TTS_PROVIDER" in
                     echo "✓ TTS provider set to Piper"
                 fi
                 
-                # Audio testing removed - TTS can be tested after installation
+                # Skip audio test - removed per configuration
+                        echo "Playing test message..."
+                        # Different players need different parameters for raw audio
+                        case "$WAV_PLAYER" in
+                            paplay)
+                                echo "" | \
+                                    "$PROJECT_ROOT/.piper/piper" \
+                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                                    --output-raw 2>/dev/null | \
+                                    paplay --raw --rate=22050 --format=s16le --channels=1
+                                ;;
+                            aplay)
+                                echo "" | \
+                                    "$PROJECT_ROOT/.piper/piper" \
+                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                                    --output-raw 2>/dev/null | \
+                                    aplay -q -r 22050 -f S16_LE -t raw -c 1 -
+                                ;;
+                            play)
+                                echo "" | \
+                                    "$PROJECT_ROOT/.piper/piper" \
+                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                                    --output-raw 2>/dev/null | \
+                                    play -q -t raw -r 22050 -e signed -b 16 -c 1 -
+                                ;;
+                            *)
+                                echo "" | \
+                                    "$PROJECT_ROOT/.piper/piper" \
+                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                                    --output-raw 2>/dev/null | \
+                                    $WAV_PLAYER $WAV_PLAYER_ARGS
+                                ;;
+                        esac
+                        
             else
                 echo "⚠ Piper installation encountered issues."
                 echo "You can manually install it later."
@@ -948,7 +978,7 @@ configure_hook() {
     if [ "$USE_DEFAULTS" = true ]; then
         # Set default values based on hook type
         case "$hook_name" in
-            "stop"|"subagent_stop")
+            "stop"|"subagent_stop"|"user_prompt_submit"|"pre_compact")
                 hook_option="2"  # Default to audible notification
                 echo "Using default: 2 (Audible notification sound)"
                 ;;
@@ -960,7 +990,7 @@ configure_hook() {
     else
         # Set default display and value based on hook type
         case "$hook_name" in
-            "stop"|"subagent_stop")
+            "stop"|"subagent_stop"|"user_prompt_submit"|"pre_compact")
                 printf "${YELLOW}Select option (1-2) [2]: ${NC}"
                 read hook_option
                 hook_option="${hook_option:-2}"
@@ -986,7 +1016,7 @@ configure_hook() {
 # Check if user wants to configure notifications
 if [ "$USE_DEFAULTS" = true ]; then
     SETUP_NOTIFICATIONS=true
-    echo "Using default notification configuration (stop and subagent_stop hooks enabled)"
+    echo "Using default notification configuration (stop, subagent_stop, user_prompt_submit, and pre_compact hooks enabled)"
 else
     printf "${YELLOW}Would you like to setup audible notifications? (Y/n): ${NC}"
     read -n 1 -r
@@ -1070,12 +1100,14 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
     
     # Explain hooks
     echo ""
-    echo "Audible notifications are available on 5 hooks:"
+    echo "Audible notifications are available on 7 hooks:"
     echo "- Notification: General notifications and alerts"
     echo "- Pre-tool: Before Claude uses a tool"
     echo "- Post-tool: After Claude completes a tool"
     echo "- Stop: When Claude stops/exits"
     echo "- Subagent Stop: When a subagent completes"
+    echo "- User Prompt Submit: When user submits a prompt"
+    echo "- Pre-Compact: Before context compaction"
     echo ""
     echo "Each hook can be configured independently."
     
@@ -1085,6 +1117,8 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
     configure_hook "post_tool" "Post-tool" "HOOK_POST_TOOL"
     configure_hook "stop" "Stop" "HOOK_STOP"
     configure_hook "subagent_stop" "Subagent Stop" "HOOK_SUBAGENT_STOP"
+    configure_hook "user_prompt_submit" "User Prompt Submit" "HOOK_USER_PROMPT_SUBMIT"
+    configure_hook "pre_compact" "Pre-Compact" "HOOK_PRE_COMPACT"
     
     # Save notification configuration to settings
     echo ""
@@ -1102,7 +1136,9 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
             .env.HOOK_PRE_TOOL_ENABLED = \"$HOOK_PRE_TOOL_ENABLED\" |
             .env.HOOK_POST_TOOL_ENABLED = \"$HOOK_POST_TOOL_ENABLED\" |
             .env.HOOK_STOP_ENABLED = \"$HOOK_STOP_ENABLED\" |
-            .env.HOOK_SUBAGENT_STOP_ENABLED = \"$HOOK_SUBAGENT_STOP_ENABLED\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
+            .env.HOOK_SUBAGENT_STOP_ENABLED = \"$HOOK_SUBAGENT_STOP_ENABLED\" |
+            .env.HOOK_USER_PROMPT_SUBMIT_ENABLED = \"$HOOK_USER_PROMPT_SUBMIT_ENABLED\" |
+            .env.HOOK_PRE_COMPACT_ENABLED = \"$HOOK_PRE_COMPACT_ENABLED\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
     fi
     
     echo "✓ Notification system configured"
@@ -1164,12 +1200,14 @@ echo ""
 echo "Step 10: Updating CLAUDE.md"
 echo "---------------------------"
 
-# Always create CLAUDE.md in .apm directory
-CLAUDE_MD="$APM_ROOT/CLAUDE.md"
-echo "Creating CLAUDE.md in .apm directory..."
-
-# Create the .apm directory if it doesn't exist
-mkdir -p "$APM_ROOT"
+# Check if CLAUDE.md exists in project root
+CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md"
+if [ -f "$CLAUDE_MD" ]; then
+    echo "CLAUDE.md already exists in root. Creating AP version in .apm folder instead."
+    CLAUDE_MD="$AP_ROOT/CLAUDE.md"
+    # Create the .apm directory if it doesn't exist
+    mkdir -p "$AP_ROOT"
+fi
 
 # Create CLAUDE.md from template (always use markdown template)
 replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$CLAUDE_MD"
@@ -1177,51 +1215,7 @@ replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$CLAUD
 echo "Created: $CLAUDE_MD"
 
 echo ""
-echo "Step 11: Updating root CLAUDE.md (if exists)"
-echo "--------------------------------------------"
-
-# Check if root CLAUDE.md exists and add CRITICAL INSTRUCTIONS if needed
-ROOT_CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md"
-if [ -f "$ROOT_CLAUDE_MD" ]; then
-    echo "Found root CLAUDE.md, checking for APM instructions..."
-    
-    # Check if CRITICAL INSTRUCTIONS section already exists
-    if ! grep -q "## 🔴 CRITICAL INSTRUCTIONS 🔴" "$ROOT_CLAUDE_MD"; then
-        echo "Adding APM CRITICAL INSTRUCTIONS section..."
-        
-        # Create a temporary file with the original content
-        cp "$ROOT_CLAUDE_MD" "$ROOT_CLAUDE_MD.tmp"
-        
-        # Find the line after the main description (usually after line 3)
-        # We'll insert after the first paragraph
-        awk '
-        BEGIN { printed = 0 }
-        {
-            print $0
-            if (NR == 3 && printed == 0) {
-                print ""
-                while ((getline line < "'$INSTALLER_DIR'/templates/CRITICAL_INSTRUCTIONS.template") > 0) {
-                    print line
-                }
-                close("'$INSTALLER_DIR'/templates/CRITICAL_INSTRUCTIONS.template")
-                printed = 1
-            }
-        }
-        ' "$ROOT_CLAUDE_MD.tmp" > "$ROOT_CLAUDE_MD"
-        
-        # Clean up temp file
-        rm -f "$ROOT_CLAUDE_MD.tmp"
-        
-        echo "✓ Added CRITICAL INSTRUCTIONS section to root CLAUDE.md"
-    else
-        echo "✓ Root CLAUDE.md already contains CRITICAL INSTRUCTIONS section"
-    fi
-else
-    echo "No root CLAUDE.md found, skipping update"
-fi
-
-echo ""
-echo "Step 12: Configuring .gitignore"
+echo "Step 11: Configuring .gitignore"
 echo "-------------------------------"
 
 # Configure .gitignore
@@ -1257,12 +1251,58 @@ fi
 VERSION=$(cat "$DIST_DIR/VERSION" 2>/dev/null || echo "unknown")
 
 echo ""
-echo "Step 13: Validating Installation"
+echo "Step 12: Validating Installation"
 echo "--------------------------------"
 
 # Obsidian integration removed - no additional configuration needed
 
-# Audio testing removed - TTS can be tested after installation
+# Test TTS if Piper was installed
+if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then
+    echo ""
+    echo "Testing Piper TTS audio..."
+    
+    # Test audio playback
+    if [ "$WAV_PLAYER" != "none" ]; then
+        # Use proper parameters for each audio player
+        case "$WAV_PLAYER" in
+            paplay)
+                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                    --output-raw 2>/dev/null | \
+                    paplay --raw --rate=22050 --format=s16le --channels=1 2>/dev/null
+                ;;
+            aplay)
+                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                    --output-raw 2>/dev/null | \
+                    aplay -q -r 22050 -f S16_LE -t raw -c 1 - 2>/dev/null
+                ;;
+            play)
+                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                    --output-raw 2>/dev/null | \
+                    play -q -t raw -r 22050 -e signed -b 16 -c 1 - 2>/dev/null
+                ;;
+            *)
+                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
+                    --output-raw 2>/dev/null | \
+                    $WAV_PLAYER $WAV_PLAYER_ARGS 2>/dev/null
+                ;;
+        esac
+        
+        if [ $? -eq 0 ]; then
+            echo "✓ Audio test successful!"
+        else
+            echo -e "${YELLOW}⚠ Audio test failed. Please check:${NC}"
+            echo "  - WSL2: Is PulseAudio running? (pulseaudio --start)"
+            echo "  - Are audio devices configured correctly?"
+            echo "  - Try: pactl info"
+        fi
+    else
+        echo -e "${YELLOW}⚠ No audio player found for testing${NC}"
+    fi
+fi
 
 # Verify settings
 echo ""
@@ -1324,15 +1364,22 @@ echo ""
 echo "$VERSION" > "$AP_ROOT/version.txt"
 echo "Created version file: $AP_ROOT/version.txt"
 
-# Preserve templates for future management
-echo "Preserving templates for updates and management..."
+# Preserve installer for future management
+echo "Preserving installer for updates and management..."
 
-# Move templates to hidden directory in APM_ROOT
-TEMPLATES_PRESERVE_DIR="$APM_ROOT/.templates"
-if [ -d "$PROJECT_ROOT/templates" ] && [ ! -d "$TEMPLATES_PRESERVE_DIR" ]; then
-    mkdir -p "$TEMPLATES_PRESERVE_DIR"
-    cp -r "$PROJECT_ROOT/templates"/* "$TEMPLATES_PRESERVE_DIR/"
-    echo "- Templates preserved at: $TEMPLATES_PRESERVE_DIR"
+# Move installer to hidden directory in APM_ROOT
+INSTALLER_PRESERVE_DIR="$APM_ROOT/.installer"
+if [ ! -d "$INSTALLER_PRESERVE_DIR" ]; then
+    mkdir -p "$INSTALLER_PRESERVE_DIR"
+    # Copy from the actual installer directory
+    if [ -d "$INSTALLER_DIR" ]; then
+        cp -r "$INSTALLER_DIR"/* "$INSTALLER_PRESERVE_DIR/"
+        echo "- Installer preserved at: $INSTALLER_PRESERVE_DIR"
+    else
+        echo "- Warning: Could not preserve installer - source directory not found"
+    fi
+else
+    echo "- Installer already preserved at: $INSTALLER_PRESERVE_DIR"
 fi
 
 # Change to project root before cleaning up
@@ -1362,10 +1409,13 @@ if [ -f "$PROJECT_ROOT/README.md" ] && grep -q "AP Mapping - Agentic Persona Map
     echo "- Removed legacy distribution README from root"
 fi
 
-# Remove the templates directory after preserving it
-if [ -d "$PROJECT_ROOT/templates" ] && [ -d "$TEMPLATES_PRESERVE_DIR" ]; then
-    rm -rf "$PROJECT_ROOT/templates"
-    echo "- Removed templates directory (preserved in .apm/.templates)"
+# Remove the installer directory after preserving it
+if [ -d "$DIST_DIR/installer" ] && [ -d "$INSTALLER_PRESERVE_DIR" ] && [ "$SKIP_COPY" != "true" ]; then
+    # Only remove if we're installing from a distribution directory
+    if [ "$DIST_DIR" != "$PROJECT_ROOT" ]; then
+        rm -rf "$DIST_DIR/installer"
+        echo "- Removed installer directory (preserved in .apm/.installer)"
+    fi
 fi
 
 echo ""

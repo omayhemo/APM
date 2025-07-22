@@ -4,18 +4,18 @@ A revolutionary AI-powered framework for orchestrating parallel agent execution 
 
 ## Quick Start
 
-**Latest Release:** v2.0.1 🚀
+**Latest Release:** v2.1.0 🚀
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v2.0.1/apm-v2.0.1.tar.gz && tar -xzf apm-v2.0.1.tar.gz && cd apm-v2.0.1 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v2.0.1/apm-v2.0.1.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
@@ -31,10 +31,16 @@ Agentic Persona Mapping provides specialized AI agent personas for software deve
 
 ## Key Features
 
-### 🔧 **What's New in v2.0.1 - Documentation Path Fixes**
-- **📁 Fixed Handoff Notes Location**: Corrected storage path for agent handoff notes to use `.apm/session_notes/handoffs/`
-- **📝 Updated Templates**: All persona and command templates now include proper handoff note guidance
-- **🗂️ Better Organization**: Clear separation between session artifacts and project deliverables
+### 🎯 **What's New in v2.1.0 - Enhanced Claude Code Hooks**
+- **🆕 UserPromptSubmit Hook**: Captures when users submit prompts with automatic logging and AP command detection
+- **🗂️ PreCompact Hook**: Archives session state before context compaction to preserve work history
+- **🔊 Expanded Audio Notifications**: Now supporting 7 hooks (up from 5) with new prompt and compact sounds
+- **📋 Improved Configuration**: New hooks enabled by default with centralized logging to `~/.claude/logs/`
+
+### 🔧 **v2.0.1 - Documentation Path Fixes**
+- Fixed handoff notes location to use `.apm/session_notes/handoffs/`
+- Updated all persona templates with proper handoff guidance
+- Better separation between session artifacts and project deliverables
 
 ### 🚀 **v2.0.0 - REVOLUTIONARY PARALLEL AGENTS**
 - **🔥 Parallel Agent Orchestration**: Product Owner can coordinate multiple developers and QA agents working on different stories simultaneously

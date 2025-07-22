@@ -1,5 +1,47 @@
 # Release Notes
 
+## AP Mapping v2.1.0
+
+Released: 2025-01-22
+
+### 🎯 Enhanced Claude Code Hook Support
+
+This release brings comprehensive Claude Code hook enhancements for improved session management and user feedback.
+
+#### New Features
+
+**🎯 New Claude Code Hooks**
+- **UserPromptSubmit Hook**: Captures when users submit prompts with automatic logging and AP command detection
+- **PreCompact Hook**: Archives session state before context compaction to preserve work history
+
+**🔊 Enhanced Audio Notifications**
+- Expanded from 5 to 7 hooks with new sounds
+- `user_prompt_submit.mp3` for prompt submissions
+- `compact.mp3` for pre-compaction notifications
+- New hooks enabled by default with `--defaults` flag
+
+**🛠️ Technical Improvements**
+- Centralized logging to `~/.claude/logs/` with full JSON payloads
+- Automatic session note archiving before compaction
+- Better error handling to prevent blocking Claude Code
+- Complete hook templates in distribution
+
+#### Configuration
+- Added `HOOK_USER_PROMPT_SUBMIT_ENABLED` environment variable
+- Added `HOOK_PRE_COMPACT_ENABLED` environment variable
+- Updated settings.json template with all 7 hook configurations
+
+#### Installation
+```bash
+# macOS
+curl -L https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz | tar -xz && ./installer/install.sh
+
+# Linux/WSL  
+wget https://github.com/omayhemo/APM/releases/download/v2.1.0/apm-v2.1.0.tar.gz && tar -xzf apm-v2.1.0.tar.gz && cd apm-v2.1.0 && ./installer/install.sh
+```
+
+---
+
 ## AP Mapping v2.0.1
 
 Released: 2025-01-21

@@ -2,6 +2,35 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [2.1.0] - 2025-01-22
+
+### 🎯 New Features
+
+- **Claude Code Hook Enhancements**: Implemented two new hooks for improved session management
+  - **UserPromptSubmit Hook**: Fires when users submit prompts, enabling prompt logging and AP command detection
+  - **PreCompact Hook**: Fires before context compaction, allowing session state preservation and archiving
+
+### 🔊 Audio Notifications
+
+- **New Hook Sounds**: Added audio notifications for enhanced user feedback
+  - `user_prompt_submit.mp3` - Plays when user submits a prompt
+  - `compact.mp3` - Plays before context compaction occurs
+- **Expanded Coverage**: Now supporting 7 total hooks (up from 5)
+- **Default Configuration**: New hooks enabled by default when using `--defaults` flag
+
+### 🛠️ Technical Improvements
+
+- **Centralized Logging**: All hooks now log to `~/.claude/logs/` with full payload capture
+- **Session Archiving**: Pre-compact hook automatically archives APM session notes
+- **Installer Updates**: Enhanced installer to configure all 7 hooks with audio options
+- **Template System**: Added hook templates to distribution for seamless installation
+
+### 📋 Configuration
+
+- Added `HOOK_USER_PROMPT_SUBMIT_ENABLED` environment variable
+- Added `HOOK_PRE_COMPACT_ENABLED` environment variable
+- Updated settings.json template with new hook configurations
+
 ## [2.0.1] - 2025-01-21
 
 ### 🔧 Minor Fixes
