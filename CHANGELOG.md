@@ -2,6 +2,23 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+## [2.4.1] - 2025-01-22
+
+### 🔧 Critical Installer Fix
+
+- **CLAUDE.md Merge System**: Fixed installer's merge functionality for proper CLAUDE.md handling
+  - Added `merge_apm_section()` function to intelligently merge APM content into user's root CLAUDE.md
+  - Fixed content preservation after APM merge tags - no more lost user content
+  - Enhanced Step 10 to always replace `.apm/CLAUDE.md` and properly merge root CLAUDE.md
+  - Added `template.claude.md` for APM section merging with proper tag boundaries
+  - Complete support for 4 distinct CLAUDE.md files with appropriate handling
+
+### 🛠️ Technical Improvements
+
+- **Template System**: Enhanced template.claude.md with proper merge tag boundaries
+- **Content Preservation**: Fixed sed extraction that was losing content after APM sections
+- **Installation Safety**: User's root CLAUDE.md content now fully preserved during APM updates
+
 ## [2.4.0] - 2025-01-22
 
 ### 🚀 REVOLUTIONARY Feature Release: Complete /parallel-sprint System

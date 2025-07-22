@@ -1,5 +1,46 @@
 # Release Notes
 
+## AP Mapping v2.4.1
+
+Released: 2025-01-22
+
+### 🔧 Critical Installer Fix
+
+This patch release fixes critical installer functionality for proper CLAUDE.md file handling across all 4 distinct CLAUDE.md files in the APM ecosystem.
+
+#### What's Fixed
+
+**CLAUDE.md Merge System**
+- **Fixed merge_apm_section() function** - APM content now properly merges into user's root CLAUDE.md
+- **Fixed content preservation** - User content after APM sections no longer lost during updates
+- **Enhanced installer Step 10** - Always replaces `.apm/CLAUDE.md` while safely merging root CLAUDE.md
+- **Added template.claude.md** - Proper APM section template with merge tag boundaries
+- **Complete 4-file support** - All CLAUDE.md file types now handled correctly
+
+#### Technical Improvements
+
+- **Template System**: Enhanced template.claude.md with proper `<BEGIN-APM-CLAUDE-MERGE>` boundaries
+- **Content Safety**: Fixed sed command that was losing content after APM merge tags  
+- **Installation Reliability**: User's root CLAUDE.md customizations fully preserved during APM updates
+
+#### Installation
+
+**macOS:**
+```bash
+curl -L https://github.com/omayhemo/APM/releases/download/v2.4.1/apm-v2.4.1.tar.gz | tar -xz && cd apm-v2.4.1 && ./templates/install.sh
+```
+
+**Linux/WSL:**
+```bash
+wget https://github.com/omayhemo/APM/releases/download/v2.4.1/apm-v2.4.1.tar.gz && tar -xzf apm-v2.4.1.tar.gz && cd apm-v2.4.1 && ./templates/install.sh
+```
+
+#### Critical for APM Users
+
+This fix is **essential** for proper APM installation and updates. The v2.4.0 installer had a bug where user content after APM sections in root CLAUDE.md files could be lost. This has been completely resolved.
+
+---
+
 ## AP Mapping v2.4.0
 
 Released: 2025-01-22
