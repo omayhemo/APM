@@ -20,23 +20,12 @@ Return:
 
 import sys
 import json
-import logging
 import os
 from datetime import datetime
+from hook_utils import setup_logging, get_notification_manager
 
 # Configure logging
-log_dir = os.path.expanduser('~/.claude/logs')
-os.makedirs(log_dir, exist_ok=True)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(os.path.join(log_dir, 'user_prompt_submit.log')),
-        logging.FileHandler('/tmp/user_prompt_submit.log')  # Backwards compatibility
-    ]
-)
-logger = logging.getLogger(__name__)
+logger = setup_logging('user_prompt_submit')
 
 
 def main():
@@ -63,16 +52,18 @@ def main():
             logger.info("AP Orchestrator activation detected")
             
             # Call notification manager for AP activation
-            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-            notification_manager = os.path.join(project_root, '.apm', 'agents', 'scripts', 'notification-manager.sh')
+            notification_manager = get_notification_manager()
             
-            if os.path.exists(notification_manager):
+            if notification_manager:
                 import subprocess
-                subprocess.run([
+                result = subprocess.run([
                     notification_manager, 'notify', 'user_prompt_submit',
                     'orchestrator',
                     'AP Orchestrator activation request received'
-                ], capture_output=True)
+                ], capture_output=True, text=True)
+                
+                if result.returncode != 0:
+                    logger.warning(f"Notification manager failed: {result.stderr}")
         
         # Check for other persona activations
         persona_commands = {

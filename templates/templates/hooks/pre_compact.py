@@ -21,24 +21,13 @@ Return:
 
 import sys
 import json
-import logging
 import os
 from datetime import datetime
 import shutil
+from hook_utils import setup_logging, get_notification_manager, get_apm_root
 
 # Configure logging
-log_dir = os.path.expanduser('~/.claude/logs')
-os.makedirs(log_dir, exist_ok=True)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(os.path.join(log_dir, 'pre_compact.log')),
-        logging.FileHandler('/tmp/pre_compact.log')  # Backwards compatibility
-    ]
-)
-logger = logging.getLogger(__name__)
+logger = setup_logging('pre_compact')
 
 
 def save_pre_compact_state(session_id, transcript_path):
@@ -121,31 +110,35 @@ def main():
             logger.info(f"Session state saved: {summary['line_count']} lines, {len(summary['tool_uses'])} unique tools")
         
         # Check if this is APM session
-        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        apm_session_notes = os.path.join(project_root, '.apm', 'session_notes')
-        
-        if os.path.exists(apm_session_notes):
-            # Archive current session notes before compaction
-            archive_dir = os.path.join(apm_session_notes, 'pre_compact_archive', timestamp.replace(':', '-'))
-            os.makedirs(archive_dir, exist_ok=True)
+        apm_root = get_apm_root()
+        if apm_root:
+            apm_session_notes = os.path.join(apm_root, '.apm', 'session_notes')
             
-            # Copy active session notes
-            active_notes = [f for f in os.listdir(apm_session_notes) if f.endswith('.md') and not f.startswith('archive')]
-            for note in active_notes:
-                src = os.path.join(apm_session_notes, note)
-                dst = os.path.join(archive_dir, note)
-                shutil.copy2(src, dst)
-                logger.info(f"Archived session note: {note}")
-            
-            # Call notification manager
-            notification_manager = os.path.join(project_root, '.apm', 'agents', 'scripts', 'notification-manager.sh')
-            if os.path.exists(notification_manager):
-                import subprocess
-                subprocess.run([
-                    notification_manager, 'notify', 'pre_compact',
-                    'orchestrator',
-                    f"Preparing for context compaction: {trigger} trigger"
-                ], capture_output=True)
+            if os.path.exists(apm_session_notes):
+                # Archive current session notes before compaction
+                archive_dir = os.path.join(apm_session_notes, 'pre_compact_archive', timestamp.replace(':', '-'))
+                os.makedirs(archive_dir, exist_ok=True)
+                
+                # Copy active session notes
+                active_notes = [f for f in os.listdir(apm_session_notes) if f.endswith('.md') and not f.startswith('archive')]
+                for note in active_notes:
+                    src = os.path.join(apm_session_notes, note)
+                    dst = os.path.join(archive_dir, note)
+                    shutil.copy2(src, dst)
+                    logger.info(f"Archived session note: {note}")
+                
+                # Call notification manager
+                notification_manager = get_notification_manager()
+                if notification_manager:
+                    import subprocess
+                    result = subprocess.run([
+                        notification_manager, 'notify', 'pre_compact',
+                        'orchestrator',
+                        f"Preparing for context compaction: {trigger} trigger"
+                    ], capture_output=True, text=True)
+                    
+                    if result.returncode != 0:
+                        logger.warning(f"Notification manager failed: {result.stderr}")
         
         # Example: Block auto-compaction during critical operations (disabled by default)
         # if trigger == 'auto':

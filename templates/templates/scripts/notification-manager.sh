@@ -99,7 +99,21 @@ handle_notification() {
     
     # Get configuration for this hook
     if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
-        local enabled=$(jq -r ".env.HOOK_${hook_name^^}_ENABLED // false" "$SETTINGS_FILE")
+        # Convert hook name to uppercase environment variable format
+        # Handle both underscore and camelcase formats
+        local env_name=""
+        case "$hook_name" in
+            user_prompt_submit) env_name="HOOK_USER_PROMPT_SUBMIT_ENABLED" ;;
+            pre_compact) env_name="HOOK_PRE_COMPACT_ENABLED" ;;
+            pre_tool) env_name="HOOK_PRE_TOOL_ENABLED" ;;
+            post_tool) env_name="HOOK_POST_TOOL_ENABLED" ;;
+            notification) env_name="HOOK_NOTIFICATION_ENABLED" ;;
+            stop) env_name="HOOK_STOP_ENABLED" ;;
+            subagent_stop) env_name="HOOK_SUBAGENT_STOP_ENABLED" ;;
+            *) env_name="HOOK_${hook_name^^}_ENABLED" ;;
+        esac
+        
+        local enabled=$(jq -r ".env.$env_name // \"false\"" "$SETTINGS_FILE")
         
         if [ "$enabled" != "true" ]; then
             return 0
@@ -140,6 +154,6 @@ case "${1:-help}" in
         echo "       $0 test [hook_name]"
         echo "       $0 install-audio-player"
         echo ""
-        echo "Hooks: notification, pre_tool, post_tool, stop, subagent_stop"
+        echo "Hooks: notification, pre_tool, post_tool, stop, subagent_stop, user_prompt_submit, pre_compact"
         ;;
 esac

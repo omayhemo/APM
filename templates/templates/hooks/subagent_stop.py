@@ -23,18 +23,14 @@ Return:
 
 import sys
 import json
-import logging
 import os
+import subprocess
 from datetime import datetime, timezone
 import re
+from hook_utils import setup_logging, get_notification_manager
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[logging.FileHandler('/tmp/subagent_stop.log')]
-)
-logger = logging.getLogger(__name__)
+logger = setup_logging('subagent_stop')
 
 
 def parse_transcript(transcript_path):
@@ -183,21 +179,24 @@ def main():
         #     json.dump(existing_results, f, indent=2)
         
         # Call notification manager for audio/TTS notifications
-        import subprocess
-        import os
+        notification_manager = get_notification_manager()
         
-        # Get notification manager path
-        project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # Up from .claude/hooks/
-        notification_manager = os.path.join(project_root, '.apm', 'agents', 'scripts', 'notification-manager.sh')
-        
-        if os.path.exists(notification_manager):
-            # Call notification manager
-            status_text = "completed successfully" if success else "failed"
-            subprocess.run([
-                notification_manager, 'notify', 'subagent_stop',
-                input_data.get('context', {}).get('persona', 'orchestrator'),
-                f"Subagent {status_text}: {task_description}"
-            ], capture_output=True)
+        if notification_manager:
+            try:
+                # Call notification manager
+                status_text = "completed successfully" if success else "failed"
+                result = subprocess.run([
+                    notification_manager, 'notify', 'subagent_stop',
+                    input_data.get('context', {}).get('persona', 'orchestrator'),
+                    f"Subagent {status_text}: {task_description}"
+                ], capture_output=True, text=True)
+                
+                if result.returncode != 0:
+                    logger.warning(f"Notification manager returned non-zero exit code: {result.returncode}")
+                    if result.stderr:
+                        logger.warning(f"Notification manager stderr: {result.stderr}")
+            except Exception as e:
+                logger.error(f"Failed to call notification manager: {e}")
         
         # Return success
         sys.exit(0)

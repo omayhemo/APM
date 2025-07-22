@@ -68,7 +68,9 @@
     "HOOK_PRE_TOOL_ENABLED": "false",
     "HOOK_POST_TOOL_ENABLED": "false",
     "HOOK_STOP_ENABLED": "false",
-    "HOOK_SUBAGENT_STOP_ENABLED": "false"
+    "HOOK_SUBAGENT_STOP_ENABLED": "false",
+    "HOOK_USER_PROMPT_SUBMIT_ENABLED": "false",
+    "HOOK_PRE_COMPACT_ENABLED": "false"
   },
   "hooks": {
     "PreToolUse": [
@@ -122,6 +124,28 @@
           {
             "type": "command",
             "command": "python3 {{PROJECT_ROOT}}/.claude/hooks/subagent_stop.py"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 {{PROJECT_ROOT}}/.claude/hooks/user_prompt_submit.py"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 {{PROJECT_ROOT}}/.claude/hooks/pre_compact.py"
           }
         ]
       }
