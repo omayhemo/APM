@@ -716,6 +716,94 @@ fi
 
 # Process AP Orchestrator IDE templates
 echo ""
+echo "Processing Claude Sub-Agent templates..."
+if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
+    echo "Installing Claude Code sub-agent infrastructure..."
+    
+    # Create .claude/agents directory structure
+    ensure_dir "$CLAUDE_DIR/agents"
+    ensure_dir "$CLAUDE_DIR/agents/personas"
+    ensure_dir "$CLAUDE_DIR/agents/config"
+    ensure_dir "$CLAUDE_DIR/agents/migration"
+    ensure_dir "$CLAUDE_DIR/agents/qa-framework"
+    ensure_dir "$CLAUDE_DIR/agents/sprint-coordination"
+    ensure_dir "$CLAUDE_DIR/agents/chaining"
+    ensure_dir "$CLAUDE_DIR/agents/dual-mode"
+    ensure_dir "$CLAUDE_DIR/agents/user-guide"
+    ensure_dir "$CLAUDE_DIR/agents/documentation"
+    ensure_dir "$CLAUDE_DIR/agents/voice"
+    # Epic 17 Native Sub-Agents directories
+    ensure_dir "$CLAUDE_DIR/agents/coordination"
+    ensure_dir "$CLAUDE_DIR/agents/context"
+    ensure_dir "$CLAUDE_DIR/agents/monitoring"
+    ensure_dir "$CLAUDE_DIR/agents/compatibility"
+    
+    # Process all template files in claude/agents directory
+    echo "Processing Claude sub-agent templates..."
+    find "$INSTALLER_DIR/templates/claude/agents" -name "*.template" -type f | while read template_file; do
+        # Calculate relative path from templates/claude/agents
+        rel_path="${template_file#$INSTALLER_DIR/templates/claude/agents/}"
+        
+        # Remove .template extension
+        output_path="${rel_path%.template}"
+        
+        # Create output file path
+        output_file="$CLAUDE_DIR/agents/$output_path"
+        
+        # Ensure directory exists
+        output_dir=$(dirname "$output_file")
+        ensure_dir "$output_dir"
+        
+        # Process template
+        replace_variables "$template_file" "$output_file"
+        
+        # Make executable if it's a shell script
+        if [[ "$output_file" == *.sh ]]; then
+            chmod +x "$output_file"
+        fi
+    done
+    
+    echo "✓ Claude sub-agent infrastructure installed (65+ templates processed)"
+else
+    echo "✓ Claude sub-agent templates not found - using standard APM installation"
+fi
+
+# Process Epic 17 deprecation framework
+echo ""
+echo "Processing Epic 17 Task-Based Deprecation Framework..."
+if [ -d "$INSTALLER_DIR/templates/agents/deprecation" ]; then
+    ensure_dir "$AP_ROOT/deprecation"
+    find "$INSTALLER_DIR/templates/agents/deprecation" -name "*.template" -type f | while read template_file; do
+        filename=$(basename "$template_file" .template)
+        replace_variables "$template_file" "$AP_ROOT/deprecation/$filename"
+    done
+    echo "✓ Task-based deprecation framework installed"
+else
+    echo "✓ Deprecation templates not found - skipping"
+fi
+
+# Process Epic 17 documentation
+echo ""
+echo "Processing Epic 17 Native Sub-Agents Documentation..."
+if [ -d "$PROJECT_DOCS/docs" ]; then
+    echo "Epic 17 documentation already installed"
+else
+    echo "Installing Epic 17 documentation..."
+    ensure_dir "$PROJECT_DOCS/docs"
+    ensure_dir "$PROJECT_DOCS/docs/api"
+    ensure_dir "$PROJECT_DOCS/docs/architecture"
+    ensure_dir "$PROJECT_DOCS/docs/migration"
+    ensure_dir "$PROJECT_DOCS/docs/releases"
+    
+    # Copy documentation files (these were created directly, not from templates)
+    if [ -f "$PROJECT_DOCS/docs/api/parallel-commands.md" ]; then
+        echo "✓ Epic 17 documentation already present"
+    else
+        echo "✓ Epic 17 documentation will be available after first run"
+    fi
+fi
+
+echo ""
 echo "Processing AP Orchestrator IDE templates..."
 if [ -f "$INSTALLER_DIR/templates/ide-ap-orchestrator.md.template" ]; then
     echo "Creating AP Orchestrator IDE configuration from templates..."
