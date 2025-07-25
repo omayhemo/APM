@@ -1,0 +1,413 @@
+# Voice Notification System Integration Guide
+
+This document provides comprehensive instructions for integrating the APM Voice Notification system into your project.
+
+## Overview
+
+The APM Voice Notification system provides text-to-speech capabilities for all agent personas, supporting multiple TTS providers with automatic fallback and dynamic configuration.
+
+## Key Features
+
+- **Multi-Provider Support**: System TTS, Piper (offline), ElevenLabs (cloud), Discord webhook, or silent mode
+- **Dynamic Configuration**: Runtime switching between TTS providers
+- **Persona-Specific Voices**: Each agent persona can have unique voice mappings
+- **Automatic Fallback**: Graceful degradation when primary TTS provider fails
+- **Cross-Platform Audio**: WSL2, Linux, and macOS audio system support
+- **Caching System**: Efficient audio file caching for performance
+
+## Installation Structure
+
+```
+{{APM_ROOT}}/
+├── agents/
+│   ├── voice/
+│   │   ├── speakBase.sh              # Base voice functionality
+│   │   ├── speakOrchestrator.sh      # AP Orchestrator voice
+│   │   ├── speakDeveloper.sh         # Developer agent voice
+│   │   ├── speakArchitect.sh         # Architect agent voice
+│   │   ├── speakAnalyst.sh           # Analyst agent voice
+│   │   ├── speakQa.sh                # QA agent voice
+│   │   ├── speakPm.sh                # Project Manager voice
+│   │   ├── speakPo.sh                # Product Owner voice
+│   │   ├── speakSm.sh                # Scrum Master voice
+│   │   └── speakDesignArchitect.sh   # Design Architect voice
+│   └── scripts/
+│       ├── tts-manager.sh            # Central TTS coordinator
+│       ├── configure-tts.sh          # TTS configuration utility
+│       └── tts-providers/
+│           ├── system.sh             # System TTS provider
+│           ├── piper.sh              # Piper offline TTS
+│           ├── elevenlabs.sh         # ElevenLabs cloud TTS
+│           ├── discord.sh            # Discord webhook TTS
+│           └── none.sh               # Silent/disabled TTS
+```
+
+## Configuration
+
+### Environment Variables
+
+The voice system uses the following environment variables in `{{PROJECT_ROOT}}/.claude/settings.json`:
+
+```json
+{
+  "env": {
+    "TTS_ENABLED": "{{TTS_ENABLED}}",
+    "TTS_PROVIDER": "{{TTS_PROVIDER}}",
+    "TTS_FALLBACK_PROVIDER": "{{TTS_FALLBACK_PROVIDER}}",
+    
+    // Provider-specific settings
+    "TTS_PIPER_INSTALL_PATH": "{{TTS_PIPER_INSTALL_PATH}}",
+    "TTS_ELEVENLABS_API_KEY": "{{TTS_ELEVENLABS_API_KEY}}",
+    "TTS_SYSTEM_VOICE": "{{TTS_SYSTEM_VOICE}}",
+    
+    // Voice mappings per persona
+    "TTS_VOICE_ORCHESTRATOR_PIPER": "{{TTS_VOICE_ORCHESTRATOR_PIPER}}",
+    "TTS_VOICE_DEVELOPER_PIPER": "{{TTS_VOICE_DEVELOPER_PIPER}}",
+    "TTS_VOICE_ARCHITECT_PIPER": "{{TTS_VOICE_ARCHITECT_PIPER}}",
+    "TTS_VOICE_ANALYST_PIPER": "{{TTS_VOICE_ANALYST_PIPER}}",
+    "TTS_VOICE_QA_PIPER": "{{TTS_VOICE_QA_PIPER}}",
+    "TTS_VOICE_PM_PIPER": "{{TTS_VOICE_PM_PIPER}}",
+    "TTS_VOICE_PO_PIPER": "{{TTS_VOICE_PO_PIPER}}",
+    "TTS_VOICE_SM_PIPER": "{{TTS_VOICE_SM_PIPER}}",
+    "TTS_VOICE_DESIGNARCHITECT_PIPER": "{{TTS_VOICE_DESIGNARCHITECT_PIPER}}"
+  }
+}
+```
+
+### TTS Provider Configuration
+
+#### Auto-Detection (Recommended)
+```bash
+# Automatically selects best available provider
+export TTS_PROVIDER="auto"
+```
+
+Provider preference order: `piper` → `elevenlabs` → `system` → `discord` → `none`
+
+#### Manual Provider Selection
+```bash
+# Use specific provider
+export TTS_PROVIDER="{{TTS_PROVIDER}}"
+export TTS_FALLBACK_PROVIDER="{{TTS_FALLBACK_PROVIDER}}"
+```
+
+### Voice Mappings
+
+Each persona can have different voices per TTS provider:
+
+```bash
+# Piper voice mappings
+export TTS_VOICE_ORCHESTRATOR_PIPER="ryan"
+export TTS_VOICE_DEVELOPER_PIPER="joe"
+export TTS_VOICE_ARCHITECT_PIPER="ryan"
+export TTS_VOICE_ANALYST_PIPER="amy"
+export TTS_VOICE_QA_PIPER="hfc_female"
+export TTS_VOICE_PM_PIPER="joe"
+export TTS_VOICE_PO_PIPER="ryan"
+export TTS_VOICE_SM_PIPER="joe"
+export TTS_VOICE_DESIGNARCHITECT_PIPER="kusal"
+
+# ElevenLabs voice mappings
+export TTS_VOICE_ORCHESTRATOR_ELEVENLABS="{{ELEVENLABS_VOICE_ID_1}}"
+export TTS_VOICE_DEVELOPER_ELEVENLABS="{{ELEVENLABS_VOICE_ID_2}}"
+# ... additional mappings
+```
+
+## Usage Instructions
+
+### Basic Voice Integration
+
+Each agent persona uses its dedicated voice script:
+
+```bash
+# AP Orchestrator voice notification
+{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
+
+# Developer agent voice notification
+{{VOICE_SCRIPT_PATH}}/speakDeveloper.sh "Developer persona ready. Beginning implementation work."
+
+# QA agent voice notification
+{{VOICE_SCRIPT_PATH}}/speakQa.sh "QA framework loaded. Starting test execution analysis."
+```
+
+### Advanced Usage
+
+#### Direct TTS Manager Access
+```bash
+# Central TTS manager
+{{APM_ROOT}}/agents/scripts/tts-manager.sh speak orchestrator "Message text"
+
+# Test TTS functionality
+{{APM_ROOT}}/agents/scripts/tts-manager.sh test
+
+# List available providers
+{{APM_ROOT}}/agents/scripts/tts-manager.sh list
+
+# Configure provider
+{{APM_ROOT}}/agents/scripts/tts-manager.sh configure piper
+```
+
+#### Multiple Provider Support
+```bash
+# Test specific provider
+{{APM_ROOT}}/agents/scripts/tts-manager.sh test elevenlabs
+
+# Configure fallback chain
+export TTS_PROVIDER="elevenlabs"
+export TTS_FALLBACK_PROVIDER="piper"
+```
+
+## Agent Integration Examples
+
+### AP Orchestrator Integration
+```bash
+#!/bin/bash
+# AP Orchestrator activation with voice
+
+# Voice notification
+{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "AP Orchestrator activated. Loading system configuration and available personas."
+
+# Continue with orchestrator logic...
+```
+
+### Developer Agent Integration
+```bash
+#!/bin/bash
+# Developer agent with voice feedback
+
+# Startup notification
+{{VOICE_SCRIPT_PATH}}/speakDeveloper.sh "Developer persona activated. Analyzing project requirements and technical specifications."
+
+# Status updates during work
+{{VOICE_SCRIPT_PATH}}/speakDeveloper.sh "Beginning implementation of Story $STORY_ID. Estimated completion in $ESTIMATE minutes."
+
+# Completion notification
+{{VOICE_SCRIPT_PATH}}/speakDeveloper.sh "Implementation complete. Running test suite and preparing code review."
+```
+
+### QA Agent Integration
+```bash
+#!/bin/bash
+# QA agent with comprehensive voice feedback
+
+# Framework activation
+{{VOICE_SCRIPT_PATH}}/speakQa.sh "QA Framework activated. Loading test suites and analytics engine."
+
+# Test execution updates
+{{VOICE_SCRIPT_PATH}}/speakQa.sh "Executing regression test suite. $COMPLETED of $TOTAL test cases completed."
+
+# Results notification
+{{VOICE_SCRIPT_PATH}}/speakQa.sh "Test execution complete. $PASSED tests passed, $FAILED tests failed. Generating quality insights."
+```
+
+## TTS Provider Setup
+
+### Piper (Offline TTS) - Recommended
+```bash
+# Install Piper TTS
+{{APM_ROOT}}/agents/scripts/tts-manager.sh configure piper
+
+# Or manually:
+mkdir -p {{TTS_PIPER_INSTALL_PATH}}
+# Download Piper binary and voice models
+# See setup-piper-chat.sh for automated installation
+```
+
+### ElevenLabs (Cloud TTS)
+```bash
+# Set API key
+export TTS_ELEVENLABS_API_KEY="{{TTS_ELEVENLABS_API_KEY}}"
+
+# Configure voice mappings
+export TTS_VOICE_ORCHESTRATOR_ELEVENLABS="{{ELEVENLABS_VOICE_ID}}"
+```
+
+### System TTS
+```bash
+# Use system default voice
+export TTS_PROVIDER="system"
+export TTS_SYSTEM_VOICE="{{TTS_SYSTEM_VOICE}}"
+```
+
+## Error Handling and Fallback
+
+The voice system is designed for graceful degradation:
+
+1. **Primary Provider Failure**: Automatically falls back to `TTS_FALLBACK_PROVIDER`
+2. **All Providers Fail**: Silently continues without audio (prevents workflow interruption)
+3. **Missing Voice Models**: Falls back to default voice for provider
+4. **Audio System Issues**: Generates TTS but silently fails playback
+
+### Troubleshooting
+
+#### Audio System Diagnostics
+```bash
+# Comprehensive audio system diagnosis
+{{APM_ROOT}}/agents/scripts/tts-manager.sh diagnose
+```
+
+#### Common Issues
+
+**WSL2 Audio Problems**:
+```bash
+# Check PulseAudio connection
+echo $PULSE_SERVER
+
+# Start PulseAudio if needed
+pulseaudio --start --log-target=syslog
+
+# Test audio playback
+speaker-test -t wav -c 2
+```
+
+**Missing Voice Models**:
+```bash
+# List available models
+ls {{TTS_PIPER_INSTALL_PATH}}/models/
+
+# Download additional models
+# See Piper documentation for model URLs
+```
+
+**Provider Configuration Issues**:
+```bash
+# Test provider availability
+{{APM_ROOT}}/agents/scripts/tts-manager.sh test {{TTS_PROVIDER}}
+
+# Reconfigure provider
+{{APM_ROOT}}/agents/scripts/tts-manager.sh configure {{TTS_PROVIDER}}
+```
+
+## Performance Optimization
+
+### Audio Caching
+```bash
+# Audio files cached in:
+{{PROJECT_ROOT}}/.cache/tts/
+
+# Clear cache to free space
+{{APM_ROOT}}/agents/scripts/tts-manager.sh clear-cache
+```
+
+### Provider Selection Strategy
+
+**For Development**:
+- Use `piper` (offline, fast, no API costs)
+- Fallback to `none` (silent mode)
+
+**For Production**:
+- Use `elevenlabs` (high quality, cloud-based)
+- Fallback to `piper` (offline reliability)
+
+**For CI/CD**:
+- Use `none` (silent mode for automated environments)
+
+## Security Considerations
+
+### API Key Management
+```bash
+# Store ElevenLabs API key securely
+export TTS_ELEVENLABS_API_KEY="{{TTS_ELEVENLABS_API_KEY}}"
+
+# Never commit API keys to version control
+# Use .env files or secret management systems
+```
+
+### Voice Data Privacy
+- Piper TTS: Fully offline, no data transmission
+- ElevenLabs: Text sent to cloud service
+- Discord: Messages sent to webhook URL
+
+## Integration Checklist
+
+- [ ] Voice script directory created: `{{VOICE_SCRIPT_PATH}}/`
+- [ ] TTS manager installed: `{{APM_ROOT}}/agents/scripts/tts-manager.sh`
+- [ ] Provider scripts installed: `{{APM_ROOT}}/agents/scripts/tts-providers/`
+- [ ] Configuration updated: `{{PROJECT_ROOT}}/.claude/settings.json`
+- [ ] TTS provider configured and tested
+- [ ] Voice mappings defined for all personas
+- [ ] Fallback provider configured
+- [ ] Audio system tested on target platform
+- [ ] Error handling verified
+- [ ] Performance optimizations applied
+
+## Advanced Configuration
+
+### Custom Voice Scripts
+
+Create persona-specific voice scripts:
+
+```bash
+#!/bin/bash
+# Custom persona voice script template
+
+# Get the script directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source the base script
+source "$SCRIPT_DIR/speakBase.sh"
+
+# Set persona
+PERSONA="{{PERSONA_NAME}}"
+
+# Handle input and speak
+handle_input "$PERSONA" "$@"
+```
+
+### Dynamic Provider Switching
+
+```bash
+# Runtime provider switching
+export TTS_PROVIDER="elevenlabs"
+{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "Switching to high-quality cloud TTS."
+
+export TTS_PROVIDER="piper"
+{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "Switching to offline TTS for privacy."
+```
+
+### Voice Notification Patterns
+
+#### Status Updates
+```bash
+# Progress notifications
+{{VOICE_SCRIPT_PATH}}/speak${PERSONA}.sh "Task $TASK_ID: $PROGRESS_PERCENT percent complete."
+```
+
+#### Error Notifications
+```bash
+# Error handling with voice
+if [[ $EXIT_CODE -ne 0 ]]; then
+    {{VOICE_SCRIPT_PATH}}/speak${PERSONA}.sh "Error encountered in $FUNCTION_NAME. Please review logs."
+fi
+```
+
+#### Completion Notifications
+```bash
+# Success notifications
+{{VOICE_SCRIPT_PATH}}/speak${PERSONA}.sh "Story $STORY_ID implementation complete. All acceptance criteria validated."
+```
+
+## Maintenance
+
+### Regular Tasks
+
+1. **Update Voice Models**: Periodically check for new Piper voice models
+2. **Monitor API Usage**: Track ElevenLabs API consumption if using cloud TTS
+3. **Cache Cleanup**: Regularly clear TTS cache to manage disk usage
+4. **Audio System Health**: Run diagnostics to ensure audio playback works
+5. **Configuration Validation**: Verify all persona voice mappings are current
+
+### Monitoring
+
+```bash
+# Check TTS system health
+{{APM_ROOT}}/agents/scripts/tts-manager.sh diagnose
+
+# Test all personas
+for persona in orchestrator developer architect analyst qa pm po sm design_architect; do
+    echo "Testing $persona..."
+    {{APM_ROOT}}/agents/scripts/tts-manager.sh speak $persona "Testing voice for $persona persona."
+done
+```
+
+This integration guide ensures comprehensive voice notification capabilities across all APM agents while maintaining flexibility, reliability, and ease of maintenance.

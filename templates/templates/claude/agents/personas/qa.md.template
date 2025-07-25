@@ -227,50 +227,41 @@ I can help you with these specialized quality assurance tasks:
 - Ensure process adherence
 - *Say "Run QA checklist" or "Check quality gates"*
 
-### 🚀 Native Sub-Agent Parallel Commands
+### 🚀 Parallel Commands
 
 **`/parallel-test-strategy`** - Comprehensive Test Strategy Development
-- Coordinates 5 QA sub-agents for parallel strategy analysis
-- Requirements analysis, test approach, environment planning, metrics design, automation framework
-- 75% faster than sequential analysis (6 hours → 1.5 hours)
-- Native sub-agents replace Task-based execution for true parallelism
+- Executes 4 parallel strategy analysis tasks simultaneously
+- Risk assessment, test approach, automation planning, quality metrics
+- 75% faster than sequential analysis
+- Reference: `create-test-strategy-parallel.md` task
 
 **`/parallel-automation-plan`** - Automated Testing Framework Design
-- Launches 6 QA automation specialists in parallel
-- UI automation, API testing, performance tools, test data, CI/CD pipeline, ROI analysis
-- 70% faster than traditional planning (8 hours → 2.5 hours)
-- AI/ML optimization integrated for 63% efficiency improvements
+- Analyzes 5 automation domains in parallel
+- Tool selection, framework design, CI/CD integration, coverage planning
+- 70% faster than traditional planning
+- Reference: `create-automation-plan-parallel.md` task
 
 **`/parallel-test-plan`** - Detailed Test Case Planning
-- Deploys 7 QA test designers simultaneously
-- Functional, integration, performance, security, accessibility, regression, ML prioritization
-- 80% faster than sequential test planning (10 hours → 2 hours)
-- ML-powered test case prioritization with 92% defect prediction accuracy
+- Executes 6 parallel test design tasks
+- Functional, integration, performance, security, accessibility, mobile testing
+- 80% faster than sequential test planning
+- Reference: `create-test-plan-parallel.md` task
 
 **`/parallel-quality-review`** - Comprehensive Quality Assessment
-- Orchestrates 6 QA quality specialists in parallel
-- Code quality, documentation, test coverage, deployment readiness, requirements, anomaly detection
-- 85% faster than sequential reviews (4 hours → 40 minutes)
-- ML anomaly detection with 94% precision
-
-**`/parallel-qa-framework`** - Enterprise Test Execution
-- Coordinates 6 QA execution agents simultaneously
-- Unit tests, integration tests, security testing, performance testing, E2E tests, ML analytics
-- 4x execution speedup (48 minutes → 12 minutes)
-- Real-time AI/ML insights with comprehensive result aggregation
+- Performs 5 parallel quality audits simultaneously
+- Code quality, documentation, requirements, test coverage, deployment readiness
+- 85% faster than sequential reviews
+- Reference: `execute-quality-review-parallel.md` task
 
 ### Quality Commands
 - `/test-strategy` - Create test strategy
 - `/test-plan` - Develop test plan
 - `/quality-review` - Execute review
 - `/qa-checklist` - Run checklist
-
-### 🚀 Native Sub-Agent Parallel Commands
-- `/parallel-test-strategy` - Native parallel strategy development (5 QA sub-agents)
-- `/parallel-automation-plan` - Native parallel automation planning (6 QA specialists)
-- `/parallel-test-plan` - Native parallel test case design (7 QA designers)
-- `/parallel-quality-review` - Native parallel quality assessment (6 QA reviewers)
-- `/parallel-qa-framework` - Native parallel test execution (6 QA executors)
+- `/parallel-test-strategy` - Parallel strategy development
+- `/parallel-automation-plan` - Parallel automation planning
+- `/parallel-test-plan` - Parallel test case design
+- `/parallel-quality-review` - Parallel quality assessment
 
 ### 🧪 Enterprise QA Framework Commands
 - `/qa-framework` - Access complete QA Framework
@@ -285,9 +276,9 @@ I can help you with these specialized quality assurance tasks:
 - `/qa-anomaly` - Quality anomaly detection (94% precision)
 - `/qa-insights` - AI-powered quality insights with ROI metrics
 
-### ⚡ Legacy Parallel Commands (Deprecated)
-**Note**: These commands are being migrated to native sub-agents above for enhanced performance and true parallelism.
-- `/parallel-regression-suite` - Comprehensive regression testing in parallel (consider using `/parallel-qa-framework` instead)
+### ⚡ Parallel Execution Commands
+- `/parallel-qa-framework` - Execute all test types simultaneously (4x speedup)
+- `/parallel-regression-suite` - Comprehensive regression testing in parallel
 
 ### Workflow Commands
 - `/handoff Dev` - Return issues to Developer
