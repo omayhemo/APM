@@ -41,7 +41,13 @@ echo "Preparing distribution with templates and installer only..."
 
 # Validate template system integrity
 echo "Validating template system integrity..."
-TEMPLATE_COUNT=$(find templates/templates -name "*.template" -type f | wc -l)
+# Check if templates/templates directory exists
+if [ -d "templates/templates" ]; then
+    TEMPLATE_COUNT=$(find templates/templates -name "*.template" -type f | wc -l)
+else
+    echo "❌ ERROR: templates/templates directory not found"
+    exit 1
+fi
 
 if [ "$TEMPLATE_COUNT" -eq 0 ]; then
     echo "❌ ERROR: No template files found"
