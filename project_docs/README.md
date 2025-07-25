@@ -49,9 +49,3 @@ Master index linking all documentation for easy navigation.
 - **Developer**: References all documentation during implementation
 - **QA**: Creates and maintains test documentation
 
-## Important Notes
-
-1. All paths in agent configurations use the /mnt/c/Code/agentic-persona-mapping/project_docs environment variable
-2. Documents follow specific templates found in /mnt/c/Code/agentic-persona-mapping/.apm/agents/agents/templates/
-3. The structure supports both new projects and incremental feature development
-4. Documentation is meant to be version controlled alongside code

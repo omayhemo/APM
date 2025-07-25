@@ -774,13 +774,6 @@ All parallel commands execute multiple analysis tasks simultaneously using Claud
 
 ---
 
-## Support
-
-For issues or questions:
-- GitHub: https://github.com/omayhemo/APM
-- Documentation: See .apm/agents/README.md
-- Version: v1.2.3 - Production ready!
-
 ## License
 
 This project is licensed under the MIT License.

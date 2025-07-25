@@ -27,6 +27,13 @@ Before marking a story as 'Review', please go through each item in this checklis
     - [ ] All required integration tests (if applicable) as per the story and `Operational Guidelines` Testing Strategy are implemented.
     - [ ] All tests (unit, integration, E2E if applicable) pass successfully.
     - [ ] Test coverage meets project standards (if defined).
+    
+    **QA Framework (if available):**
+    - [ ] QA Framework test suite executed: `/qa-framework test-execute --suite feature`
+    - [ ] AI/ML failure prediction run: `/qa-predict --component {{component}}`
+    - [ ] Security scan completed: `/qa-framework security-scan --quick`
+    - [ ] No critical anomalies detected: `/qa-anomaly --scope feature`
+    - [ ] Test optimization applied if execution >30min: `/qa-optimize --apply`
 
 4.  **Functionality & Verification:**
 

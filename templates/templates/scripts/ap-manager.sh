@@ -29,6 +29,7 @@ VERSION_FILE="$AP_ROOT/../VERSION"
 TEMPLATES_DIR="$AP_ROOT/.templates"
 BACKUP_DIR="$AP_ROOT/.backups"
 APM_ROOT="$(dirname "$AP_ROOT")"  # Get .apm directory from AP_ROOT
+PROJECT_ROOT="$(dirname "$APM_ROOT")"  # Get project root from .apm directory
 
 # Show usage
 usage() {
@@ -331,6 +332,220 @@ show_version() {
             echo "Installed: $install_date"
         fi
     fi
+}
+
+# Uninstall AP Mapping
+uninstall_ap_method() {
+    local force_mode="$1"
+    
+    echo -e "${YELLOW}=========================================="
+    echo "AP Mapping Uninstall"
+    echo "==========================================${NC}"
+    echo ""
+    
+    # Confirm uninstallation
+    if [ "$force_mode" != "--force" ]; then
+        echo -e "${RED}WARNING: This will remove all AP Mapping files and configurations!${NC}"
+        echo ""
+        echo "This includes:"
+        echo "  - All APM infrastructure (.apm/)"
+        echo "  - Claude commands and hooks (.claude/commands/, .claude/hooks/)"
+        echo "  - APM sections from CLAUDE.md"
+        echo "  - TTS installation (.piper/)"
+        echo "  - APM environment variables"
+        echo ""
+        echo -e "${YELLOW}NOTE: Your project documentation in project_docs/ will be preserved.${NC}"
+        echo ""
+        printf "${RED}Are you sure you want to uninstall AP Mapping? (yes/no): ${NC}"
+        read confirmation
+        
+        if [ "$confirmation" != "yes" ]; then
+            echo "Uninstall cancelled."
+            exit 0
+        fi
+    fi
+    
+    echo ""
+    echo -e "${BLUE}Starting uninstallation...${NC}"
+    echo ""
+    
+    # Create uninstall log
+    local uninstall_log="$PROJECT_ROOT/apm-uninstall.log"
+    echo "AP Mapping Uninstall Log - $(date)" > "$uninstall_log"
+    echo "Version: $(cat "$VERSION_FILE" 2>/dev/null || echo 'unknown')" >> "$uninstall_log"
+    echo "" >> "$uninstall_log"
+    
+    # 1. Remove Claude commands
+    echo "Removing Claude commands..."
+    if [ -d "$PROJECT_ROOT/.claude/commands" ]; then
+        local apm_commands=(
+            "ap_orchestrator.md" "ap.md" "handoff.md" "wrap.md" "switch.md"
+            "session-note-setup.md" "analyst.md" "architect.md" "design-architect.md"
+            "dev.md" "developer.md" "personas.md" "pm.md" "po.md" "qa.md" "sm.md"
+            "parallel-sprint.md" "subtask.md"
+        )
+        
+        for cmd in "${apm_commands[@]}"; do
+            if [ -f "$PROJECT_ROOT/.claude/commands/$cmd" ]; then
+                rm -f "$PROJECT_ROOT/.claude/commands/$cmd"
+                echo "  - Removed $cmd" | tee -a "$uninstall_log"
+            fi
+        done
+        
+        # Remove QA Framework commands directory
+        if [ -d "$PROJECT_ROOT/.claude/commands/qa-framework" ]; then
+            rm -rf "$PROJECT_ROOT/.claude/commands/qa-framework"
+            echo "  - Removed qa-framework/ directory" | tee -a "$uninstall_log"
+        fi
+    fi
+    
+    # 2. Remove Claude hooks
+    echo ""
+    echo "Removing Claude hooks..."
+    if [ -d "$PROJECT_ROOT/.claude/hooks" ]; then
+        local apm_hooks=(
+            "hook_utils.py" "notification.py" "post_tool_use.py" "pre_compact.py"
+            "pre_tool_use.py" "stop.py" "subagent_stop.py" "test_hook.py"
+            "user_prompt_submit.py"
+        )
+        
+        for hook in "${apm_hooks[@]}"; do
+            if [ -f "$PROJECT_ROOT/.claude/hooks/$hook" ]; then
+                rm -f "$PROJECT_ROOT/.claude/hooks/$hook"
+                echo "  - Removed $hook" | tee -a "$uninstall_log"
+            fi
+        done
+        
+        # Remove logs directory if empty
+        if [ -d "$PROJECT_ROOT/.claude/hooks/logs" ]; then
+            rmdir "$PROJECT_ROOT/.claude/hooks/logs" 2>/dev/null && echo "  - Removed logs/ directory" | tee -a "$uninstall_log"
+        fi
+    fi
+    
+    # 3. Clean Claude settings.json
+    echo ""
+    echo "Cleaning Claude settings..."
+    if [ -f "$PROJECT_ROOT/.claude/settings.json" ]; then
+        # Create backup
+        cp "$PROJECT_ROOT/.claude/settings.json" "$PROJECT_ROOT/.claude/settings.json.pre-uninstall"
+        
+        # Remove APM-related environment variables
+        local tmp_file=$(mktemp)
+        jq 'del(.env.AP_ROOT) | 
+            del(.env.AP_MAPPING_ROOT) | 
+            del(.env.PROJECT_ROOT) | 
+            del(.env.PROJECT_DOCS) | 
+            del(.env.TTS_PROVIDER) | 
+            del(.env.WAV_PLAYER) | 
+            del(.env.WAV_PLAYER_ARGS) | 
+            del(.env.QA_FRAMEWORK_PATH) |
+            del(.env.AP_TEST_MODE) |
+            del(.env.SPEAK_PM) |
+            del(.env.SPEAK_QA) |
+            del(.env.SPEAK_ORCHESTRATOR) |
+            del(.env.SPEAK_DEVELOPER) |
+            del(.env.SPEAK_ARCHITECT) |
+            del(.env.SPEAK_ANALYST) |
+            del(.env.SPEAK_PO) |
+            del(.env.SPEAK_SM) |
+            del(.env.SPEAK_DESIGN_ARCHITECT) |
+            del(.hooks) |
+            del(.claude_chats_to_save)' "$PROJECT_ROOT/.claude/settings.json" > "$tmp_file" && mv "$tmp_file" "$PROJECT_ROOT/.claude/settings.json"
+        
+        echo "  - Cleaned APM settings from settings.json" | tee -a "$uninstall_log"
+        echo "  - Backup saved as settings.json.pre-uninstall" | tee -a "$uninstall_log"
+    fi
+    
+    # 4. Unmerge CLAUDE.md
+    echo ""
+    echo "Cleaning CLAUDE.md..."
+    if [ -f "$PROJECT_ROOT/CLAUDE.md" ]; then
+        # Create backup
+        cp "$PROJECT_ROOT/CLAUDE.md" "$PROJECT_ROOT/CLAUDE.md.pre-uninstall"
+        
+        # Remove APM sections between markers
+        local tmp_file=$(mktemp)
+        awk '
+            /<BEGIN-APM-CLAUDE-MERGE>/ { skip = 1; next }
+            /<END-APM-CLAUDE-MERGE>/ { skip = 0; next }
+            !skip { print }
+        ' "$PROJECT_ROOT/CLAUDE.md" > "$tmp_file" && mv "$tmp_file" "$PROJECT_ROOT/CLAUDE.md"
+        
+        echo "  - Removed APM sections from CLAUDE.md" | tee -a "$uninstall_log"
+        echo "  - Backup saved as CLAUDE.md.pre-uninstall" | tee -a "$uninstall_log"
+    fi
+    
+    # 5. Clean .gitignore
+    echo ""
+    echo "Cleaning .gitignore..."
+    if [ -f "$PROJECT_ROOT/.gitignore" ]; then
+        # Create backup
+        cp "$PROJECT_ROOT/.gitignore" "$PROJECT_ROOT/.gitignore.pre-uninstall"
+        
+        # Remove APM entries
+        local tmp_file=$(mktemp)
+        grep -v -E '^(\.apm/|\.piper/|apm-.*\.log|\.claude/hooks/logs/)' "$PROJECT_ROOT/.gitignore" > "$tmp_file" || true
+        mv "$tmp_file" "$PROJECT_ROOT/.gitignore"
+        
+        echo "  - Cleaned APM entries from .gitignore" | tee -a "$uninstall_log"
+        echo "  - Backup saved as .gitignore.pre-uninstall" | tee -a "$uninstall_log"
+    fi
+    
+    # 6. Remove TTS installation
+    echo ""
+    echo "Removing TTS installation..."
+    if [ -d "$PROJECT_ROOT/.piper" ]; then
+        rm -rf "$PROJECT_ROOT/.piper"
+        echo "  - Removed .piper/ directory" | tee -a "$uninstall_log"
+    fi
+    
+    # 7. Remove .apm directory (last step)
+    echo ""
+    echo "Removing APM infrastructure..."
+    if [ -d "$APM_ROOT" ]; then
+        # Save version for log
+        local version=$(cat "$VERSION_FILE" 2>/dev/null || echo "unknown")
+        
+        rm -rf "$APM_ROOT"
+        echo "  - Removed .apm/ directory" | tee -a "$uninstall_log"
+    fi
+    
+    # 8. Final cleanup
+    echo ""
+    echo "Final cleanup..."
+    
+    # Remove any stray APM files in project root
+    local root_files=("VERSION" "LICENSE" "install.sh" "apm-*.tar.gz")
+    for file_pattern in "${root_files[@]}"; do
+        for file in $PROJECT_ROOT/$file_pattern; do
+            if [ -f "$file" ]; then
+                rm -f "$file"
+                echo "  - Removed $(basename "$file")" | tee -a "$uninstall_log"
+            fi
+        done
+    done
+    
+    echo "" | tee -a "$uninstall_log"
+    echo "=========================================="
+    echo "Uninstall Summary:" | tee -a "$uninstall_log"
+    echo "==========================================" | tee -a "$uninstall_log"
+    echo "" | tee -a "$uninstall_log"
+    echo "✓ Removed APM infrastructure (.apm/)" | tee -a "$uninstall_log"
+    echo "✓ Removed Claude commands and hooks" | tee -a "$uninstall_log"
+    echo "✓ Cleaned configuration files" | tee -a "$uninstall_log"
+    echo "✓ Removed TTS installation" | tee -a "$uninstall_log"
+    echo "✓ Preserved project documentation" | tee -a "$uninstall_log"
+    echo "" | tee -a "$uninstall_log"
+    echo -e "${GREEN}AP Mapping has been successfully uninstalled.${NC}"
+    echo ""
+    echo "Backups created:"
+    echo "  - .claude/settings.json.pre-uninstall"
+    echo "  - CLAUDE.md.pre-uninstall"
+    echo "  - .gitignore.pre-uninstall"
+    echo ""
+    echo "Uninstall log saved to: $uninstall_log"
+    echo ""
+    echo -e "${YELLOW}Thank you for using AP Mapping!${NC}"
 }
 
 # Main command dispatcher

@@ -158,8 +158,8 @@ These scripts are designed to work seamlessly with Claude Code:
 ## Documentation
 
 ### Task Management
-- **User Guide**: [`../docs/TASK-MANAGEMENT-GUIDE.md`](../docs/TASK-MANAGEMENT-GUIDE.md)
-- **Quick Reference**: [`../docs/TASK-QUICK-REFERENCE.md`](../docs/TASK-QUICK-REFERENCE.md)
+- **Parallel Task Guide**: [`../docs/PARALLEL-SUBTASK-USAGE-GUIDE.md`](../docs/PARALLEL-SUBTASK-USAGE-GUIDE.md)
+- **Quick Reference**: [`../docs/PARALLEL-SUBTASK-QUICK-REFERENCE.md`](../docs/PARALLEL-SUBTASK-QUICK-REFERENCE.md)
 
 ### File Locations
 - **Tasks File**: `$PROJECT_DOCS/session-notes/tasks/tasks.md`
