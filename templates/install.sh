@@ -733,7 +733,44 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" ];
     echo "✓ Installed git-commit-all command"
 fi
 
-echo "✓ APM commands installed/updated (including parallel-sprint)"
+# Install QA framework commands if templates exist
+echo "Installing QA Framework commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-framework.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-framework.md.template" "$CLAUDE_COMMANDS_DIR/qa-framework.md"
+    echo "✓ Installed qa-framework command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-predict.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-predict.md.template" "$CLAUDE_COMMANDS_DIR/qa-predict.md"
+    echo "✓ Installed qa-predict command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-optimize.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-optimize.md.template" "$CLAUDE_COMMANDS_DIR/qa-optimize.md"
+    echo "✓ Installed qa-optimize command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-anomaly.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-anomaly.md.template" "$CLAUDE_COMMANDS_DIR/qa-anomaly.md"
+    echo "✓ Installed qa-anomaly command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-insights.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-insights.md.template" "$CLAUDE_COMMANDS_DIR/qa-insights.md"
+    echo "✓ Installed qa-insights command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-qa-framework.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-qa-framework.md.template" "$CLAUDE_COMMANDS_DIR/parallel-qa-framework.md"
+    echo "✓ Installed parallel-qa-framework command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.template" "$CLAUDE_COMMANDS_DIR/parallel-regression-suite.md"
+    echo "✓ Installed parallel-regression-suite command"
+fi
+
+echo "✓ APM commands installed/updated (including parallel-sprint and QA framework)"
 
 # Process persona templates
 echo ""
@@ -1773,6 +1810,20 @@ echo ""
 echo "Step 13: Setting Up QA Framework Integration"
 echo "--------------------------------------------"
 
+# QA Framework commands are now installed via templates above
+echo "✓ QA Framework commands installed via templates"
+echo ""
+echo "Available QA Framework Commands:"
+echo "- /qa-framework - Comprehensive QA Framework access"
+echo "- /qa-predict - ML-powered test failure prediction"
+echo "- /qa-optimize - Test execution optimization"
+echo "- /qa-anomaly - Quality anomaly detection"
+echo "- /qa-insights - AI-powered quality insights"
+echo "- /parallel-qa-framework - 4x faster parallel execution"
+echo "- /parallel-regression-suite - Parallel regression testing"
+
+# Skip old hardcoded QA framework setup
+if false; then
 # Check if QA Framework exists
 QA_FRAMEWORK_PATH="$AP_ROOT/qa-framework"
 if [ -d "$QA_FRAMEWORK_PATH" ]; then
@@ -1960,6 +2011,7 @@ else
     echo "ℹ QA Framework not found - basic QA agent available"
     echo "  To add comprehensive testing capabilities, install the QA Framework"
 fi
+fi # End of skipped old QA framework setup
 
 echo ""
 echo "=========================================="
@@ -2086,9 +2138,10 @@ echo "Next steps:"
 echo ""
 echo "1. Open the project in Claude Code"
 echo "2. Try running: /ap"
-echo "3. Test QA Framework: /qa-framework --help"
-echo "4. Explore AI/ML commands: /qa-predict, /qa-optimize"
-echo "5. Check out the documentation at: $PROJECT_DOCS"
+echo "3. Test QA Framework: /qa-framework"
+echo "4. Explore AI/ML commands: /qa-predict, /qa-optimize, /qa-anomaly, /qa-insights"
+echo "5. Try parallel testing: /parallel-qa-framework, /parallel-regression-suite"
+echo "6. Check out the documentation at: $PROJECT_DOCS"
 echo ""
 echo "Management commands:"
 echo "- Check for updates: $AP_ROOT/scripts/ap-manager.sh update"
