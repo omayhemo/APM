@@ -224,9 +224,9 @@ All voice scripts are located in `{{AP_VOICE}}/`:
 - **Session Summaries**: Generated when Claude Code stops
 
 ### Storage Locations
-- **With Obsidian MCP**: Sessions stored in configured vault
-- **Fallback**: Local markdown files at `$PROJECT_DOCS/session_notes/`
-- **Logs**: Hook activity logs in `$AP_ROOT/hooks/`
+- **Session Notes**: Stored in `{{APM_ROOT}}/session_notes/`
+- **Project Documentation**: Stored in `{{PROJECT_DOCS}}/`
+- **Logs**: Hook activity logs in `{{APM_ROOT}}/hooks/`
 
 ## Troubleshooting
 

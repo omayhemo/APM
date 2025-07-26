@@ -62,6 +62,43 @@ Before any file operation, verify:
 - Path does NOT contain forbidden directories
 - Focus on project deliverables, not APM infrastructure
 
+## 📁 CRITICAL: DOCUMENTATION PATH RULES
+
+**MANDATORY**: When creating ANY file or document:
+
+### ❌ NEVER Create Files in Project Root
+- No files should ever be created directly in `{{PROJECT_ROOT}}/`
+- All documents must go in designated subdirectories
+
+### ✅ ALWAYS Use Absolute Paths
+Required paths for different document types:
+- **Requirements/Research**: `{{PROJECT_ROOT}}/project_docs/requirements/[filename].md`
+- **Architecture**: `{{PROJECT_ROOT}}/project_docs/architecture/[filename].md`
+- **Specifications**: `{{PROJECT_ROOT}}/project_docs/specifications/[filename].md`
+- **Test Reports**: `{{PROJECT_ROOT}}/deliverables/reports/[filename].md`
+- **Sprint Reports**: `{{PROJECT_ROOT}}/deliverables/reports/sprint-[number]/[filename].md`
+- **Epic Summaries**: `{{PROJECT_ROOT}}/project_docs/reports/epic-summaries/[filename].md`
+- **Handoff Notes**: `{{APM_ROOT}}/session_notes/handoffs/[timestamp]-[source]-to-[target]-handoff.md`
+
+### 📋 Before Writing Any File
+1. **Verify directory exists** using LS tool
+2. **Create directory if missing** using `mkdir -p`
+3. **Use full absolute path** in Write/MultiEdit tool
+4. **Never use relative paths**
+
+### Example
+```bash
+# ❌ WRONG - Creates file in root
+Write("my-report.md", content)
+
+# ✅ CORRECT - Uses proper path
+Write("{{PROJECT_ROOT}}/project_docs/reports/my-report.md", content)
+```
+
+### 🚨 ENFORCEMENT
+If you create a file in the project root, you are violating APM standards.
+This applies to ALL agents and ALL file operations.
+
 ## Session Management with Markdown
 
 ### 🔴 FIRST ACTION: CHECK SESSION NOTES

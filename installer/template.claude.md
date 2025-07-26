@@ -34,6 +34,16 @@ The Agentic Persona Mapping system provides:
 
 All APM components are located in the `.apm/` directory.
 
+### 📁 CRITICAL: Documentation Path Rules
+
+**NEVER create files in the project root directory!** All documents must use proper paths:
+- Requirements: `/project_docs/requirements/`
+- Architecture: `/project_docs/architecture/`
+- Reports: `/deliverables/reports/`
+- Handoffs: `/.apm/session_notes/handoffs/`
+
+See `.apm/CLAUDE.md` for complete path validation rules.
+
 ---
 
 **Remember**: `ap` = Full AP Orchestrator activation, not just a simple response!
