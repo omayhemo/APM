@@ -4,23 +4,24 @@ This command provides access to the comprehensive QA Framework with AI/ML-powere
 
 ## Process
 
-When invoked, the assistant will:
+When invoked WITHOUT a sub-command, the assistant will:
 
-1. **Initialize QA Framework Context**
-   - Load QA framework configuration from `.apm/qa-framework/`
-   - Check available test types and tools
-   - Verify framework dependencies
-
-2. **Present Framework Options**
+1. **Present Framework Menu Only**
    - Display available sub-commands and capabilities
-   - Show current test suite status
-   - Provide quick access to common operations
+   - Show framework documentation
+   - DO NOT run any actual tests or npm commands
+   - Wait for user to specify a sub-command
 
-3. **Execute Based on Sub-command**
-   - `test-execute` - Run comprehensive test suites
-   - `security-scan` - Execute SAST/DAST security analysis
-   - `performance-test` - Run load and performance tests
-   - `analytics` - Query test analytics and generate reports
+2. **Important**: This command is a MENU/DOCUMENTATION command
+   - DO NOT execute npm test, npm run, or any other commands automatically
+   - Only present options and wait for user selection
+   - Actual test execution requires explicit sub-commands
+
+3. **Execute ONLY with Explicit Sub-command**
+   - `/qa-framework test-execute` - Run comprehensive test suites
+   - `/qa-framework security-scan` - Execute SAST/DAST security analysis
+   - `/qa-framework performance-test` - Run load and performance tests
+   - `/qa-framework analytics` - Query test analytics and generate reports
 
 ## Sub-Commands
 
