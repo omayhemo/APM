@@ -49,15 +49,15 @@ agents:
     
   architect:
     primary_workspace: "project_docs/architecture/"
-    output_workspace: "deliverables/artifacts/"
+    output_workspace: "project_docs/architecture/artifacts/"
     
   qa:
     primary_workspace: "workspace/tests/"
-    output_workspace: "deliverables/test-reports/"
+    output_workspace: "project_docs/qa/reports/"
     
   orchestrator:
     primary_workspace: "project_docs/"
-    output_workspace: "deliverables/coordination/"
+    output_workspace: "project_docs/planning/coordination/"
 
 # Integration Settings
 integration:

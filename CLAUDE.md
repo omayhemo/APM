@@ -416,18 +416,35 @@ All APM components are located in the `.apm/` directory.
 **All Personas Enhanced with Native Parallelism:**
 - **Orchestrator**: Coordinates multiple native sub-agents seamlessly
 - **Developer**: `/parallel-review` for concurrent code analysis
-- **QA**: `/parallel-test` with 4x speedup, preserved AI/ML
+- **QA**: `/parallel-test` with 4x speedup, preserved AI/ML, plus comprehensive test monitoring
 - **Product Owner**: `/groom` with 18 parallel subtasks
 - **Scrum Master**: `/parallel-sprint` for multi-developer coordination
 - **Architect**: `/parallel-architecture-review` for system analysis
 - **All Others**: Full native sub-agent capabilities
+
+### 📊 Test Monitoring Framework (v3.2.0)
+
+**Built-in Real-Time Test Monitoring:**
+- **CLI Monitoring**: `monitor tests` - Real-time console-based test monitoring
+- **Web Dashboard**: `test dashboard` - Browser-based monitoring with auto-refresh
+- **Metrics Collection**: `test metrics` - Comprehensive test execution data collection
+- **Export Capabilities**: CSV, JSON, YAML export formats for analysis
+- **AI/ML Integration**: Connects with QA prediction and anomaly detection systems
+- **Multi-Framework Support**: Jest, Pytest, Mocha, Karma, Vitest compatibility
+
+**Key Features:**
+- Real-time process tracking and file change detection
+- Performance metrics and coverage analysis
+- Integration with QA agent personas for seamless workflow
+- Notification system with TTS and webhook alerts
+- Executive and technical dashboard modes
 
 ### 📁 CRITICAL: Documentation Path Rules
 
 **NEVER create files in the project root directory!** All documents must use proper paths:
 - Requirements: `/project_docs/requirements/`
 - Architecture: `/project_docs/architecture/`
-- Reports: `/deliverables/reports/`
+- Reports: `/project_docs/reports/`
 - Handoffs: `/.apm/session_notes/handoffs/`
 
 See `.apm/CLAUDE.md` for complete path validation rules.
