@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
 from typing import Dict, List, Set, Tuple, Optional
+from difflib import SequenceMatcher
 
 class DocumentParser:
     def __init__(self, base_path: str):
@@ -214,7 +215,8 @@ class DocumentParser:
         # Fix broken links where possible
         if self.broken_links:
             print('  Analyzing broken links for potential fixes...')
-            # Implementation would include fuzzy matching and suggestions
+            fixed_count = self._fix_broken_links()
+            print(f'  Fixed {fixed_count} broken links')
             
         print('✅ Common issues fixed!')
         
@@ -349,6 +351,106 @@ Welcome to the project documentation. This index provides links to all documenta
                         break
                         
         return suggestions[:3]
+    
+    def _fix_broken_links(self) -> int:
+        """Fix broken links by finding moved documents"""
+        fixed_count = 0
+        files_to_update = defaultdict(list)  # file -> list of (old_link, new_link)
+        
+        for broken in self.broken_links:
+            source_file = broken['source']
+            broken_target = broken['target']
+            link_text = broken['text']
+            
+            # Try to find the document by various methods
+            new_target = self._find_moved_document(broken_target, link_text)
+            
+            if new_target:
+                files_to_update[source_file].append((broken_target, new_target))
+                fixed_count += 1
+                print(f"    Found: {broken_target} → {new_target}")
+        
+        # Apply the fixes
+        for file_path, replacements in files_to_update.items():
+            self._update_links_in_file(file_path, replacements)
+            
+        return fixed_count
+    
+    def _find_moved_document(self, broken_path: str, link_text: str) -> Optional[str]:
+        """Try to find where a document was moved to"""
+        # Remove anchor if present
+        clean_path = broken_path.split('#')[0]
+        if not clean_path:
+            return None
+            
+        # Extract filename
+        filename = Path(clean_path).name
+        
+        # Strategy 1: Find by exact filename
+        for doc_path in self.documents:
+            if Path(doc_path).name == filename:
+                return doc_path
+                
+        # Strategy 2: Find by similar title
+        best_match = None
+        best_score = 0.0
+        
+        for doc_path, doc in self.documents.items():
+            # Compare link text with document title
+            title_score = SequenceMatcher(None, link_text.lower(), doc['title'].lower()).ratio()
+            
+            # Compare filenames
+            file_score = SequenceMatcher(None, filename.lower(), Path(doc_path).name.lower()).ratio()
+            
+            # Combined score
+            score = max(title_score, file_score * 0.8)  # Slightly prefer title matches
+            
+            if score > 0.7 and score > best_score:  # 70% similarity threshold
+                best_match = doc_path
+                best_score = score
+                
+        # Strategy 3: Check if file was moved to archive
+        if not best_match and not clean_path.startswith('archives/'):
+            archive_path = f"archives/{clean_path}"
+            if archive_path in self.documents:
+                return archive_path
+                
+        return best_match
+    
+    def _update_links_in_file(self, file_path: str, replacements: List[Tuple[str, str]]):
+        """Update broken links in a file"""
+        full_path = self.base_path / file_path
+        
+        try:
+            content = full_path.read_text(encoding='utf-8')
+            original_content = content
+            
+            # Apply each replacement
+            for old_link, new_link in replacements:
+                # Handle relative path conversion
+                source_dir = Path(file_path).parent
+                if source_dir != Path('.'):
+                    # Calculate relative path from source to target
+                    new_link_path = Path(new_link)
+                    try:
+                        relative_new = os.path.relpath(new_link_path, source_dir)
+                        relative_new = relative_new.replace('\\', '/')
+                    except ValueError:
+                        relative_new = new_link
+                else:
+                    relative_new = new_link
+                
+                # Replace in markdown links
+                pattern = re.escape(f"]({old_link})")
+                replacement = f"]({relative_new})"
+                content = content.replace(pattern[1:], replacement)  # Remove the escape on ]
+                
+            # Only write if content changed
+            if content != original_content:
+                full_path.write_text(content, encoding='utf-8')
+                
+        except Exception as e:
+            print(f"    Error updating {file_path}: {e}")
 
 
 def main():
