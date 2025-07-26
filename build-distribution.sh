@@ -7,10 +7,12 @@ set -e
 
 # Configuration
 # Read version from VERSION file if it exists
-if [ -f "VERSION" ]; then
+if [ -f "templates/VERSION" ]; then
+    VERSION=$(cat templates/VERSION)
+elif [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="3.1.0"
+    VERSION="3.2.0"
 fi
 DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"

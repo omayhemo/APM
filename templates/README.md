@@ -70,6 +70,7 @@ curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.
 - **9 Specialized Agents**: PM, Architect, Developer, QA, PO, SM, Analyst, Design Architect
 - **45+ Parallel Commands**: Every persona enhanced with native sub-agent capabilities
 - **AI/ML QA Framework**: 92% failure prediction, 94% anomaly detection accuracy
+- **Test Monitoring**: Real-time CLI monitoring, web dashboard, and metrics collection
 - **Session Management**: Automatic documentation with intelligent archival
 - **Voice Notifications**: Persona-specific TTS with multiple providers
 - **Project Agnostic**: Works with any technology stack or methodology
@@ -92,6 +93,7 @@ your-project/
 │       ├── templates/           # 15+ document templates
 │       ├── checklists/          # 14 quality checklists
 │       ├── scripts/             # Management and automation scripts
+│       │   └── test-monitoring/ # Real-time test monitoring framework
 │       ├── voice/               # 9 persona voice scripts
 │       ├── sounds/              # Audio notification files
 │       ├── data/                # Knowledge base and preferences
@@ -111,7 +113,9 @@ your-project/
     ├── qa/                      # Test plans, results, reports (QA)
     │   ├── test-plans/
     │   ├── test-results/
-    │   └── reports/
+    │   ├── reports/
+    │   ├── metrics/            # Test monitoring metrics
+    │   └── dashboards/         # Dashboard HTML files
     ├── planning/                # Sprint planning, retrospectives (SM)
     ├── research/                # Analysis and research (Analyst)
     ├── releases/                # Release documentation (Developer)
@@ -181,6 +185,12 @@ The installer will:
 - `/qa-optimize` - Test optimization (63% time reduction)
 - `/qa-anomaly` - Anomaly detection (94% precision)
 - `/qa-insights` - AI-powered quality insights
+
+**Test Monitoring Commands (v3.2.0)**
+- `monitor tests` - Real-time CLI test monitoring
+- `test dashboard` - Web-based monitoring dashboard  
+- `test metrics` - Comprehensive metrics collection
+- `show test status` - Quick test status overview
 
 **All 45+ Commands**: Every persona now has native parallel capabilities
 
@@ -263,10 +273,88 @@ Run comprehensive test suites in parallel:
 - **Mobile Responsive Testing**: Device compatibility and touch interactions
 - **E2E User Journey**: Critical path validation
 
+#### Test Monitoring Framework (v3.2.0)
+Real-time test monitoring and dashboard capabilities:
+
+**CLI Monitoring Commands:**
+```bash
+# Start real-time test monitoring
+monitor tests
+
+# Show test status once and exit
+monitor tests --once
+
+# Monitor only running test processes
+monitor tests --processes
+
+# Monitor only QA reports
+monitor tests --reports
+
+# Custom refresh interval (seconds)
+monitor tests --interval 10
+```
+
+**Web Dashboard:**
+```bash
+# Launch web monitoring dashboard
+test dashboard
+
+# Custom port and mode
+test dashboard --port 3000 --mode executive
+
+# Available modes: full, metrics, executive
+test dashboard --mode metrics
+
+# Generate HTML file only
+test dashboard --generate
+```
+
+**Metrics Collection:**
+```bash
+# Collect comprehensive test metrics
+test metrics
+
+# Export metrics in different formats
+test metrics --export csv
+test metrics --export json
+test metrics --export yaml
+
+# Collect specific metric types
+test metrics --metrics process
+test metrics --metrics coverage
+test metrics --metrics qa-framework
+
+# Generate summary report only
+test metrics --summary
+```
+
+**Integration with QA Agent:**
+```bash
+# Activate QA agent
+/qa
+
+# Within QA session, use monitoring commands:
+monitor tests          # Start real-time monitoring
+test dashboard          # Launch web dashboard
+test metrics           # Collect metrics
+show test status       # Quick status check
+```
+
+**Test Monitoring Features:**
+- **Real-time Process Tracking**: Monitor Jest, Pytest, Mocha, Karma, Vitest
+- **File Change Detection**: Track test file modifications and recent changes
+- **Coverage Analysis**: Monitor test coverage reports and metrics
+- **Performance Metrics**: Track execution times and resource usage
+- **Web Dashboard**: Auto-refreshing browser-based monitoring
+- **Export Capabilities**: CSV, JSON, YAML formats for analysis
+- **AI/ML Integration**: Connects with QA prediction and anomaly detection
+- **Notification System**: TTS and webhook alerts for test failures
+
 #### Performance Benefits
 - **Sequential Execution**: 25-35 minutes for comprehensive review
 - **Parallel Execution**: 5-7 minutes (80% time reduction)
 - **Automatic Synthesis**: Results aggregated with priority rankings
+- **Real-time Monitoring**: Instant visibility into test execution status
 
 ### Text-to-Speech (TTS) System
 

@@ -771,7 +771,29 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.t
     echo "✓ Installed parallel-regression-suite command"
 fi
 
-echo "✓ APM commands installed/updated (including parallel-sprint and QA framework)"
+# Install test monitoring commands if templates exist
+echo "Installing Test Monitoring commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" "$CLAUDE_COMMANDS_DIR/monitor-tests.md"
+    echo "✓ Installed monitor-tests command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" "$CLAUDE_COMMANDS_DIR/test-dashboard.md"
+    echo "✓ Installed test-dashboard command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" "$CLAUDE_COMMANDS_DIR/test-metrics.md"
+    echo "✓ Installed test-metrics command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" "$CLAUDE_COMMANDS_DIR/show-test-status.md"
+    echo "✓ Installed show-test-status command"
+fi
+
+echo "✓ APM commands installed/updated (including parallel-sprint, QA framework, and test monitoring)"
 
 # Process persona templates
 echo ""
@@ -858,6 +880,43 @@ if [ -d "$INSTALLER_DIR/templates/agents/deprecation" ]; then
     echo "✓ Task-based deprecation framework installed"
 else
     echo "✓ Deprecation templates not found - skipping"
+fi
+
+# Process test monitoring framework templates
+echo ""
+echo "Processing Test Monitoring Framework Templates..."
+if [ -d "$INSTALLER_DIR/templates/scripts/test-monitoring" ]; then
+    ensure_dir "$AP_ROOT/scripts/test-monitoring"
+    find "$INSTALLER_DIR/templates/scripts/test-monitoring" -name "*.template" -type f | while read template_file; do
+        filename=$(basename "$template_file" .template)
+        replace_variables "$template_file" "$AP_ROOT/scripts/test-monitoring/$filename"
+        chmod +x "$AP_ROOT/scripts/test-monitoring/$filename" 2>/dev/null || true
+    done
+    echo "✓ Test monitoring framework templates processed"
+    
+    # Create test monitoring configuration
+    ensure_dir "$APM_ROOT/config"
+    if [ ! -f "$APM_ROOT/config/test-monitoring.yaml" ]; then
+        cat > "$APM_ROOT/config/test-monitoring.yaml" << 'EOF'
+# APM Framework Test Monitoring Configuration
+monitoring:
+  refresh_interval: 5
+  dashboard:
+    default_port: 8080
+    auto_refresh: true
+  notifications:
+    enabled: true
+    tts_enabled: true
+  features:
+    process_monitoring: true
+    file_watching: true
+    coverage_tracking: true
+    ai_ml_integration: true
+EOF
+        echo "✓ Test monitoring configuration created"
+    fi
+else
+    echo "✓ Test monitoring templates not found - skipping"
 fi
 
 # Process Epic 17 documentation
@@ -1822,6 +1881,37 @@ echo "- /qa-anomaly - Quality anomaly detection"
 echo "- /qa-insights - AI-powered quality insights"
 echo "- /parallel-qa-framework - 4x faster parallel execution"
 echo "- /parallel-regression-suite - Parallel regression testing"
+
+echo ""
+echo "Step 14: Setting Up Test Monitoring Framework"
+echo "----------------------------------------------"
+
+# Create test monitoring infrastructure
+echo "Installing test monitoring capabilities..."
+
+# Create test monitoring directories
+ensure_dir "$APM_ROOT/scripts/test-monitoring"
+ensure_dir "$PROJECT_DOCS/qa/metrics"
+ensure_dir "$PROJECT_DOCS/qa/reports"
+ensure_dir "$PROJECT_DOCS/qa/test-results"
+ensure_dir "$PROJECT_DOCS/qa/dashboards"
+
+# Test monitoring scripts are installed via templates above
+echo "✓ Test monitoring scripts installed via templates"
+echo ""
+echo "Available Test Monitoring Commands:"
+echo "- monitor tests - Real-time CLI test monitoring"
+echo "- test dashboard - Web-based monitoring dashboard"
+echo "- test metrics - Comprehensive metrics collection"
+echo "- show test status - Quick test status overview"
+echo ""
+echo "Test Monitoring Features:"
+echo "- Real-time process monitoring"
+echo "- Web dashboard with auto-refresh"
+echo "- Metrics collection and export (CSV, JSON, YAML)"
+echo "- Integration with QA agent personas"
+echo "- AI/ML analytics integration"
+echo "- Notification system (TTS and webhooks)"
 
 echo ""
 echo "=========================================="
