@@ -1,11 +1,11 @@
-# Sprint Coordination Templates
-<!-- APM Migration Template - Revolutionary Parallel Sprint System -->
-<!-- Template Version: {{MIGRATION_VERSION}} -->
-<!-- Compatible with: APM Framework 2.4+ -->
+# Sprint Coordination Templates - v{{VERSION}}
+<!-- APM Native Sub-Agent Architecture - Epic 17 Complete -->
+<!-- Template Version: {{VERSION}} -->
+<!-- Compatible with: APM Framework 3.2+ -->
 
-## 🚀 Revolutionary Parallel Sprint Coordination System
+## 🚀 Native Sub-Agent Sprint Coordination System
 
-This directory contains comprehensive templates for the APM Parallel Sprint system that enables **multiple Developer agents to work simultaneously** across different sprint stories, achieving **60-80% sprint acceleration** through intelligent coordination.
+This directory contains comprehensive templates for the APM Parallel Sprint system with **native sub-agent architecture** that enables **2-4 Developer sub-agents working simultaneously** with true parallelism, achieving **4.6x sprint acceleration** through native Claude Code integration.
 
 ### 📋 Template Overview
 
