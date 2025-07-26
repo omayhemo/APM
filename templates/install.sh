@@ -447,6 +447,25 @@ if [ "$SKIP_COPY" != "true" ]; then
         
         # Generate agents directory structure from templates
         generate_agents_from_templates
+        
+        # Copy non-template documentation files
+        echo "Copying documentation files..."
+        if [ -d "$INSTALLER_DIR/templates/agents/docs" ]; then
+            mkdir -p "$AP_DOCS"
+            cp -r "$INSTALLER_DIR/templates/agents/docs"/* "$AP_DOCS/" 2>/dev/null || true
+            echo "✅ Copied documentation files to $AP_DOCS"
+        fi
+        
+        # Copy index files
+        if [ -f "$INSTALLER_DIR/templates/index.md" ]; then
+            cp "$INSTALLER_DIR/templates/index.md" "$APM_ROOT/index.md"
+            echo "✅ Copied templates index.md"
+        fi
+        if [ -f "$INSTALLER_DIR/templates/templates/index.md" ]; then
+            mkdir -p "$APM_ROOT/.templates"
+            cp "$INSTALLER_DIR/templates/templates/index.md" "$APM_ROOT/.templates/index.md"
+            echo "✅ Copied templates/templates index.md"
+        fi
     else
         echo "Error: templates/agents directory not found in installer"
         exit 1
@@ -630,6 +649,15 @@ ensure_dir "$PLANNING_ROOT/tasks"
 
 # Copy project documentation README from template
 replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$PROJECT_DOCS/README.md"
+
+# Copy project_docs index.md if it exists
+if [ -f "$PROJECT_ROOT/project_docs/index.md" ]; then
+    echo "Project documentation index.md already exists"
+elif [ -f "$INSTALLER_DIR/../project_docs/index.md" ]; then
+    cp "$INSTALLER_DIR/../project_docs/index.md" "$PROJECT_DOCS/index.md"
+    echo "✅ Copied project_docs/index.md"
+fi
+
 echo "Created project documentation structure at: $PROJECT_DOCS"
 
 echo ""
@@ -692,6 +720,18 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/qa.md.template" "$CL
 replace_variables "$INSTALLER_DIR/templates/claude/commands/sm.md.template" "$CLAUDE_COMMANDS_DIR/sm.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-sprint.md.template" "$CLAUDE_COMMANDS_DIR/parallel-sprint.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/subtask.md.template" "$CLAUDE_COMMANDS_DIR/subtask.md"
+
+# Install organize-docs command if template exists
+if [ -f "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" "$CLAUDE_COMMANDS_DIR/organize-docs.md"
+    echo "✓ Installed organize-docs command"
+fi
+
+# Install git-commit-all command if template exists
+if [ -f "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" "$CLAUDE_COMMANDS_DIR/git-commit-all.md"
+    echo "✓ Installed git-commit-all command"
+fi
 
 echo "✓ APM commands installed/updated (including parallel-sprint)"
 
