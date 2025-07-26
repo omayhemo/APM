@@ -193,7 +193,7 @@ The installer includes comprehensive version and update management:
 - **Automatic Backups**: Creates backups before updates and uninstalls
 - **Templates Preservation**: Templates saved to `.apm/.templates/` for future use
 
-See the [AP Manager Documentation](../agents/docs/ap-manager.md) for detailed information.
+See the [AP Manager Documentation](agents/docs/ap-manager.md) for detailed information.
 
 ## Optional Features
 

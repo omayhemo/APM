@@ -231,6 +231,7 @@ Backups are saved as:
 - **Framework Details**: `.apm/agents/README.md` after installation
 - **API Documentation**: `.apm/agents/docs/` directory
 - **Project Instructions**: `.apm/CLAUDE.md` created during installation
+- **Project Documentation Index**: [Complete documentation overview](project_docs/index.md)
 
 ## Development
 

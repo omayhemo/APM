@@ -248,9 +248,9 @@ $ /migrate-command rollback --all
 
 ## 📚 Documentation
 
-- [Migration Guide](./docs/migration)
-- [API Reference](./docs/api)
-- [Architecture Overview](./docs/architecture)
+- [Migration Guide](../../docs/migration/migration-guide.md)
+- [API Reference](../../docs/api/parallel-commands.md)
+- [Architecture Overview](../../docs/architecture/native-agent-architecture.md)
 ```
 
 ## Success Metrics

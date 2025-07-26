@@ -226,7 +226,7 @@ Native sub-agents provide graceful error handling:
 
 ## Support
 
-- **Migration Guide**: [/docs/migration/](../migration/)
-- **Architecture Overview**: [/docs/architecture/](../architecture/)  
-- **Performance Benchmarks**: [/docs/performance/](../performance/)
-- **Troubleshooting**: [/docs/migration/troubleshooting.md](../migration/troubleshooting.md)
+- **Migration Guide**: [Migration Guide](../migration/migration-guide.md)
+- **Architecture Overview**: [Native Agent Architecture](../architecture/native-agent-architecture.md)  
+- **Performance Benchmarks**: [Performance Benchmarks](../performance/benchmarks.md)
+- **Troubleshooting**: [Troubleshooting Guide](../migration/troubleshooting.md)

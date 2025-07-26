@@ -138,8 +138,8 @@ Successfully transformed the APM framework from command-based personas to native
 ## References
 
 - [Original Epic Document](../../planning/epics/EPIC-016-APM-to-SubAgents-Migration.md)
-- [Sprint Retrospectives](../../reports/)
-- [Technical Documentation](../../planning/)
+- [Sprint Retrospectives](../../reports/sprint-13-final-polish-synthesis.md)
+- [Technical Documentation](../../planning/native-subagent-transition-evaluation.md)
 - [Release Notes](../../../RELEASE-NOTES-v3.1.0.md)
 
 ---
