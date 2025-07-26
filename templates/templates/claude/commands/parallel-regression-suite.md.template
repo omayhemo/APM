@@ -32,11 +32,16 @@ When invoked, the assistant will:
 - **Data Integrity**: Database operations and migrations
 - **Security Boundaries**: Authentication and authorization
 
-### UI/UX Regression
-- **Visual Regression**: Screenshot comparison testing
-- **Cross-Browser Compatibility**: Chrome, Firefox, Safari, Edge
-- **Mobile Responsiveness**: Tablet and phone layouts
-- **Accessibility**: WCAG compliance validation
+### UI/UX Regression (Playwright-Powered)
+- **Visual Regression**: Playwright screenshot comparison testing
+- **Cross-Browser Compatibility**: All browsers via Playwright MCP
+  - Chrome, Firefox, Safari, Edge with single test suite
+  - Parallel browser execution for faster results
+- **Mobile Responsiveness**: Playwright device emulation
+  - Real device viewport and user agent simulation
+  - Touch event support for mobile interactions
+- **Accessibility**: WCAG compliance via Playwright accessibility tree
+- **Network Conditions**: Playwright network throttling for real-world testing
 
 ### Performance Regression
 - **Page Load Times**: Performance budget validation
@@ -134,6 +139,45 @@ ORDER BY regression_rate DESC, avg_risk_score DESC;
 - **Historical regression pattern analysis** using advanced SQL
 - **Intelligent test selection** based on change impact scoring
 - **Cross-environment regression tracking** with centralized data
+
+## Playwright MCP Integration for Browser Testing
+
+### Exclusive Browser Testing Framework
+The regression suite **prioritizes Playwright MCP** as the primary browser testing tool:
+
+```bash
+# Playwright browser initialization for regression testing
+mcp__playwright__browser_install  # Ensure browsers are installed
+
+# Multi-browser regression execution
+for browser in chrome firefox safari edge; do
+  echo "Starting regression on $browser..."
+  mcp__playwright__browser_navigate --url "${TEST_URL}"
+  mcp__playwright__browser_snapshot  # Capture initial state
+  
+  # Run regression test suite
+  ./run_playwright_regression.sh --browser $browser --parallel
+done
+
+# Visual regression with Playwright
+mcp__playwright__browser_take_screenshot --filename "baseline/${TEST_NAME}.png"
+# After changes...
+mcp__playwright__browser_take_screenshot --filename "current/${TEST_NAME}.png"
+./compare_screenshots.sh baseline current
+
+# Mobile regression testing
+devices=("iPhone 12" "iPad Pro" "Pixel 5" "Galaxy S21")
+for device in "${devices[@]}"; do
+  ./playwright_device_test.sh --device "$device"
+done
+```
+
+### Playwright-Specific Regression Features
+- **Automatic retry logic** for flaky browser tests
+- **Network condition simulation** for real-world scenarios
+- **Console error detection** during regression runs
+- **Performance metrics collection** via Playwright APIs
+- **Parallel browser context** for isolated test execution
 
 ## Implementation
 
@@ -340,8 +384,9 @@ environments:
 # Targeted regression based on code changes
 /parallel-regression-suite --scope targeted --comparison-mode adaptive
 
-# Cross-browser UI regression
+# Cross-browser UI regression with Playwright
 /parallel-regression-suite --types ui --browsers all --scope full
+# This launches Playwright MCP to test on Chrome, Firefox, Safari, and Edge simultaneously
 
 # Performance regression analysis
 /parallel-regression-suite --types performance --comparison-mode strict

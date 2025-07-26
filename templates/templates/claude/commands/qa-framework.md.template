@@ -28,11 +28,11 @@ When invoked WITHOUT a sub-command, the assistant will:
 ### test-execute
 Runs comprehensive test suites including:
 - Unit tests
-- Integration tests
+- Integration tests (Playwright-powered for browser testing)
 - API tests (REST, GraphQL, WebSocket)
-- UI/E2E tests
-- Cross-browser compatibility
-- Mobile responsive tests
+- UI/E2E tests (exclusively using Playwright MCP)
+- Cross-browser compatibility (Playwright multi-browser support)
+- Mobile responsive tests (Playwright device emulation)
 
 Example: `/qa-framework test-execute --type api --parallel`
 
@@ -65,6 +65,37 @@ Provides test analytics and insights:
 - Quality gates evaluation
 
 Example: `/qa-framework analytics --report dashboard --period 30d`
+
+## Playwright MCP Integration for Browser Testing
+
+### Primary Browser Testing Tool
+The QA Framework **exclusively uses Playwright MCP** for all browser-based testing:
+
+- **Browser Automation**: All UI tests use Playwright's MCP tools
+- **Cross-Browser Testing**: Chrome, Firefox, Safari, Edge via Playwright
+- **Mobile Testing**: Device emulation and responsive testing
+- **Visual Testing**: Screenshot comparison and visual regression
+- **Network Interception**: API mocking and request monitoring
+- **Performance Metrics**: Core Web Vitals and page performance
+
+### Playwright Test Examples
+```bash
+# UI test using Playwright MCP
+mcp__playwright__browser_navigate --url "https://app.example.com"
+mcp__playwright__browser_snapshot  # Capture page state
+mcp__playwright__browser_click --element "Login button" --ref "#login-btn"
+mcp__playwright__browser_type --element "Username field" --ref "#username" --text "testuser"
+
+# Visual regression with Playwright
+mcp__playwright__browser_take_screenshot --filename "baseline.png"
+# ... make changes ...
+mcp__playwright__browser_take_screenshot --filename "current.png"
+# Compare screenshots for visual regression
+
+# Mobile responsive testing
+mcp__playwright__browser_resize --width 375 --height 667  # iPhone SE
+mcp__playwright__browser_snapshot  # Verify mobile layout
+```
 
 ## PostgreSQL MCP Test Execution Data Management
 
