@@ -227,6 +227,7 @@ Backups are saved as:
 ## Documentation
 
 - **Installation Guide**: See README in distribution package
+- **Parallel Testing System**: [Flexible parameter-driven testing](PARALLEL-TESTING-TRANSFORMATION.md)
 - **Framework Details**: `.apm/agents/README.md` after installation
 - **API Documentation**: `.apm/agents/docs/` directory
 - **Project Instructions**: `.apm/CLAUDE.md` created during installation
