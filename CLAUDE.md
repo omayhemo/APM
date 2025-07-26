@@ -363,6 +363,8 @@ Before using with employees, test:
 1. Type /ap - Did Claude use LS on directories (NOT read current_session.md or rules.md), create session, and speak?
 2. Type /handoff dev - Did Claude transition properly?
 3. Check if voice scripts were used for EVERY response
+# APM Claude.md Template
+
 <BEGIN-APM-CLAUDE-MERGE>
 
 ## 🚀 AGENTIC PERSONA MAPPING (APM)
