@@ -1174,7 +1174,8 @@ esac
 # (Piper updates its own setting after successful installation)
 if [ "$TTS_PROVIDER" != "piper" ] && [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
     tmp_file=$(mktemp)
-    jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" | .env.TTS_ENABLED = \"true\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
+    TTS_ENABLED_VAL=$([[ "$TTS_PROVIDER" != "none" ]] && echo "true" || echo "false")
+    jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" | .env.TTS_ENABLED = \"$TTS_ENABLED_VAL\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
     echo "✓ TTS provider set to $TTS_PROVIDER"
 fi
 
@@ -1302,6 +1303,18 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
 fi
 
 if [ "$SETUP_NOTIFICATIONS" = true ]; then
+    # If using defaults, set the default hook values before configuration
+    if [ "$USE_DEFAULTS" = true ]; then
+        # Set default enabled hooks
+        HOOK_NOTIFICATION_ENABLED=false
+        HOOK_PRE_TOOL_ENABLED=false
+        HOOK_POST_TOOL_ENABLED=false
+        HOOK_STOP_ENABLED=true
+        HOOK_SUBAGENT_STOP_ENABLED=true
+        HOOK_USER_PROMPT_SUBMIT_ENABLED=true
+        HOOK_PRE_COMPACT_ENABLED=true
+    fi
+    
     # Copy notification sounds
     echo ""
     echo "Installing notification sounds..."
@@ -1330,14 +1343,23 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
     echo ""
     echo "Each hook can be configured independently."
     
-    # Configure each hook
-    configure_hook "notification" "Notification" "HOOK_NOTIFICATION"
-    configure_hook "pre_tool" "Pre-tool" "HOOK_PRE_TOOL"
-    configure_hook "post_tool" "Post-tool" "HOOK_POST_TOOL"
-    configure_hook "stop" "Stop" "HOOK_STOP"
-    configure_hook "subagent_stop" "Subagent Stop" "HOOK_SUBAGENT_STOP"
-    configure_hook "user_prompt_submit" "User Prompt Submit" "HOOK_USER_PROMPT_SUBMIT"
-    configure_hook "pre_compact" "Pre-Compact" "HOOK_PRE_COMPACT"
+    # Configure each hook - skip if using defaults
+    if [ "$USE_DEFAULTS" != true ]; then
+        configure_hook "notification" "Notification" "HOOK_NOTIFICATION"
+        configure_hook "pre_tool" "Pre-tool" "HOOK_PRE_TOOL"
+        configure_hook "post_tool" "Post-tool" "HOOK_POST_TOOL"
+        configure_hook "stop" "Stop" "HOOK_STOP"
+        configure_hook "subagent_stop" "Subagent Stop" "HOOK_SUBAGENT_STOP"
+        configure_hook "user_prompt_submit" "User Prompt Submit" "HOOK_USER_PROMPT_SUBMIT"
+        configure_hook "pre_compact" "Pre-Compact" "HOOK_PRE_COMPACT"
+    else
+        echo ""
+        echo "Applied default notification settings:"
+        echo "- Stop: Enabled"
+        echo "- Subagent Stop: Enabled"
+        echo "- User Prompt Submit: Enabled"
+        echo "- Pre-Compact: Enabled"
+    fi
     
     # Save notification configuration to settings
     echo ""
@@ -1364,6 +1386,15 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
     echo ""
     echo "📁 Hook logs will be written to: .claude/hooks/logs/ in your project directory"
 else
+    # Even if notifications are disabled, set all hooks to false
+    HOOK_NOTIFICATION_ENABLED=false
+    HOOK_PRE_TOOL_ENABLED=false
+    HOOK_POST_TOOL_ENABLED=false
+    HOOK_STOP_ENABLED=false
+    HOOK_SUBAGENT_STOP_ENABLED=false
+    HOOK_USER_PROMPT_SUBMIT_ENABLED=false
+    HOOK_PRE_COMPACT_ENABLED=false
+    
     # Even if notifications are disabled, detect and save audio player info
     echo ""
     echo "Detecting audio players for TTS support..."
@@ -1376,7 +1407,14 @@ else
             .env.AUDIO_PLAYER_ARGS = \"$AUDIO_PLAYER_ARGS\" |
             .env.WAV_PLAYER = \"$WAV_PLAYER\" |
             .env.WAV_PLAYER_ARGS = \"$WAV_PLAYER_ARGS\" |
-            .env.FFMPEG_AVAILABLE = \"$FFMPEG_AVAILABLE\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
+            .env.FFMPEG_AVAILABLE = \"$FFMPEG_AVAILABLE\" |
+            .env.HOOK_NOTIFICATION_ENABLED = \"$HOOK_NOTIFICATION_ENABLED\" |
+            .env.HOOK_PRE_TOOL_ENABLED = \"$HOOK_PRE_TOOL_ENABLED\" |
+            .env.HOOK_POST_TOOL_ENABLED = \"$HOOK_POST_TOOL_ENABLED\" |
+            .env.HOOK_STOP_ENABLED = \"$HOOK_STOP_ENABLED\" |
+            .env.HOOK_SUBAGENT_STOP_ENABLED = \"$HOOK_SUBAGENT_STOP_ENABLED\" |
+            .env.HOOK_USER_PROMPT_SUBMIT_ENABLED = \"$HOOK_USER_PROMPT_SUBMIT_ENABLED\" |
+            .env.HOOK_PRE_COMPACT_ENABLED = \"$HOOK_PRE_COMPACT_ENABLED\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
     fi
 fi
 
@@ -1682,6 +1720,7 @@ if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
         echo "Fixing configuration..."
         tmp_file=$(mktemp)
         jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" |
+            .env.TTS_ENABLED = \"$([[ "$TTS_PROVIDER" != "none" ]] && echo "true" || echo "false")\" |
             .env.AUDIO_PLAYER = \"$AUDIO_PLAYER\" |
             .env.AUDIO_PLAYER_ARGS = \"$AUDIO_PLAYER_ARGS\" |
             .env.WAV_PLAYER = \"$WAV_PLAYER\" |

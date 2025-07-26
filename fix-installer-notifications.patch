@@ -1,0 +1,70 @@
+--- templates/install.sh.orig
++++ templates/install.sh
+@@ -1173,8 +1173,10 @@
+ # Update settings with TTS provider - but only for non-piper providers
+ # (Piper updates its own setting after successful installation)
+ if [ "$TTS_PROVIDER" != "piper" ] && [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
+     tmp_file=$(mktemp)
+-    jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" | .env.TTS_ENABLED = \"true\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
++    TTS_ENABLED_VAL=$([[ "$TTS_PROVIDER" != "none" ]] && echo "true" || echo "false")
++    jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" | .env.TTS_ENABLED = \"$TTS_ENABLED_VAL\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
+     echo "✓ TTS provider set to $TTS_PROVIDER"
+ fi
+ 
+@@ -1303,6 +1305,20 @@
+ fi
+ 
+ if [ "$SETUP_NOTIFICATIONS" = true ]; then
++    # If using defaults, set the default hook values before configuration
++    if [ "$USE_DEFAULTS" = true ]; then
++        # Set default enabled hooks
++        HOOK_NOTIFICATION_ENABLED=false
++        HOOK_PRE_TOOL_ENABLED=false
++        HOOK_POST_TOOL_ENABLED=false
++        HOOK_STOP_ENABLED=true
++        HOOK_SUBAGENT_STOP_ENABLED=true
++        HOOK_USER_PROMPT_SUBMIT_ENABLED=true
++        HOOK_PRE_COMPACT_ENABLED=true
++    fi
++    
+     # Copy notification sounds
+     echo ""
+     echo "Installing notification sounds..."
+@@ -1332,12 +1348,21 @@
+     echo ""
+     echo "Each hook can be configured independently."
+     
+-    # Configure each hook
+-    configure_hook "notification" "Notification" "HOOK_NOTIFICATION"
+-    configure_hook "pre_tool" "Pre-tool" "HOOK_PRE_TOOL"
+-    configure_hook "post_tool" "Post-tool" "HOOK_POST_TOOL"
+-    configure_hook "stop" "Stop" "HOOK_STOP"
+-    configure_hook "subagent_stop" "Subagent Stop" "HOOK_SUBAGENT_STOP"
+-    configure_hook "user_prompt_submit" "User Prompt Submit" "HOOK_USER_PROMPT_SUBMIT"
+-    configure_hook "pre_compact" "Pre-Compact" "HOOK_PRE_COMPACT"
++    # Configure each hook - skip if using defaults
++    if [ "$USE_DEFAULTS" != true ]; then
++        configure_hook "notification" "Notification" "HOOK_NOTIFICATION"
++        configure_hook "pre_tool" "Pre-tool" "HOOK_PRE_TOOL"
++        configure_hook "post_tool" "Post-tool" "HOOK_POST_TOOL"
++        configure_hook "stop" "Stop" "HOOK_STOP"
++        configure_hook "subagent_stop" "Subagent Stop" "HOOK_SUBAGENT_STOP"
++        configure_hook "user_prompt_submit" "User Prompt Submit" "HOOK_USER_PROMPT_SUBMIT"
++        configure_hook "pre_compact" "Pre-Compact" "HOOK_PRE_COMPACT"
++    else
++        echo ""
++        echo "Applied default notification settings:"
++        echo "- Stop: Enabled"
++        echo "- Subagent Stop: Enabled"
++        echo "- User Prompt Submit: Enabled"
++        echo "- Pre-Compact: Enabled"
++    fi
+     
+@@ -1680,7 +1705,7 @@
+     
+     if [ "$NEEDS_FIX" = true ]; then
+         echo "Fixing configuration..."
+         tmp_file=$(mktemp)
+         jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" |
++            .env.TTS_ENABLED = \"$([[ "$TTS_PROVIDER" != "none" ]] && echo "true" || echo "false")\" |
+             .env.AUDIO_PLAYER = \"$AUDIO_PLAYER\" |
