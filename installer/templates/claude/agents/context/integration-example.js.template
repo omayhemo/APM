@@ -1,0 +1,386 @@
+/**
+ * Integration Example - Context Passing with Native Sub-Agents
+ * Demonstrates how to use the Context Passing Mechanism with Story 17.1 framework
+ */
+
+const { getContextManager } = require('./context-manager.js');
+
+/**
+ * Example: Parallel Sprint Development with Context Passing
+ * Shows how context is prepared and passed to multiple developers working in parallel
+ */
+async function parallelSprintExample() {
+  const contextManager = getContextManager({
+    enableCaching: true,
+    enableOptimization: true,
+    enableMonitoring: true
+  });
+  
+  // Full parent context (simulated)
+  const parentContext = {
+    projectPath: '/mnt/c/Code/agentic-persona-mapping',
+    currentSprint: 18,
+    sprintGoal: 'Build native sub-agent coordination',
+    parentAgent: 'AP_Orchestrator',
+    sessionId: 'session_2025_07_25_14_30',
+    
+    // Project structure
+    codebase: {
+      patterns: [
+        { name: 'Agent Pattern', location: '.apm/agents/', critical: true },
+        { name: 'Context Templates', location: 'templates/templates/claude/agents/', recent: true },
+        { name: 'Session Management', location: '.apm/session_notes/', usage: 10 }
+      ]
+    },
+    
+    // Development constraints
+    developmentConstraints: [
+      'Maintain backward compatibility',
+      'Follow APM framework patterns',
+      'Include comprehensive tests',
+      'Document all APIs'
+    ],
+    
+    // Test strategy
+    testStrategy: 'Unit tests with 80% coverage, integration tests for all personas',
+    qualityMetrics: { coverage: '80%', types: ['unit', 'integration', 'e2e'] },
+    
+    // Architecture decisions
+    architecturalDecisions: [
+      'Use natural language context passing',
+      'Implement priority-based optimization',
+      'Cache contexts for efficiency'
+    ],
+    
+    // Coding standards
+    codingStandards: 'Follow ESLint configuration, JSDoc comments, error handling patterns'
+  };
+  
+  // Story assignments for parallel development
+  const storyAssignments = [
+    {
+      story: 'Story 17.2: Context Passing Mechanism',
+      taskType: 'development',
+      targetAgent: 'developer',
+      specificTask: 'Implement the context optimization system with priority-based trimming and caching'
+    },
+    {
+      story: 'Story 17.3: Integration Testing',
+      taskType: 'qa',
+      targetAgent: 'qa',
+      specificTask: 'Create comprehensive test coverage for context passing mechanisms'
+    },
+    {
+      story: 'Story 17.4: Performance Monitoring',
+      taskType: 'analysis',
+      targetAgent: 'analyst',
+      specificTask: 'Analyze context passing performance and create optimization recommendations'
+    }
+  ];
+  
+  console.log('🚀 Starting Parallel Sprint Development with Context Passing\n');
+  
+  // Prepare contexts for all parallel agents
+  const preparedContexts = [];
+  
+  for (const assignment of storyAssignments) {
+    console.log(`📋 Preparing context for ${assignment.targetAgent} - ${assignment.story}`);
+    
+    const contextResult = await contextManager.prepareContext(
+      parentContext,
+      assignment.taskType,
+      assignment.targetAgent,
+      assignment.specificTask
+    );
+    
+    if (contextResult.success) {
+      // Format for natural language presentation
+      const naturalLanguageContext = contextManager.formatContextForAgent(
+        contextResult.context,
+        assignment.taskType
+      );
+      
+      preparedContexts.push({
+        ...assignment,
+        contextId: contextResult.contextId,
+        naturalLanguageContext,
+        metadata: contextResult.metadata
+      });
+      
+      console.log(`✅ Context prepared (${contextResult.metadata.size} tokens, optimized: ${contextResult.metadata.optimized})`);
+      console.log(`📤 Context for ${assignment.targetAgent}:`);
+      console.log('---');
+      console.log(naturalLanguageContext);
+      console.log('---\n');
+      
+    } else {
+      console.error(`❌ Failed to prepare context: ${contextResult.error}`);
+    }
+  }
+  
+  // Simulate sub-agent execution and result processing
+  console.log('🔧 Simulating sub-agent execution...\n');
+  
+  // Mock sub-agent results
+  const mockResults = [
+    {
+      contextId: preparedContexts[0]?.contextId,
+      agentType: 'developer',
+      result: `
+        Task completed: Implemented context optimization system
+        
+        Key Decisions:
+        - Used priority-based trimming with critical/important/helpful levels
+        - Implemented TTL-based caching with 15-minute default
+        - Added token estimation using 4-character approximation
+        
+        Created:
+        - /templates/templates/claude/agents/context/context-extractor.js
+        - /templates/templates/claude/agents/context/context-optimizer.js
+        - /templates/templates/claude/agents/context/context-cache.js
+        - /templates/templates/claude/agents/context/context-manager.js
+        
+        Dependencies Added:
+        - No external dependencies - pure JavaScript implementation
+        
+        Important for other agents:
+        - Context size limit: 20,000 tokens maximum
+        - Cache keys based on taskType + targetAgent + taskHash
+        - Performance metrics available via contextMetrics.getMetrics()
+        
+        Warnings:
+        - Context optimization is aggressive - may lose some helpful details
+        - Cache cleanup runs every 5 minutes - may impact performance
+        
+        Next Steps:
+        - Integrate with Story 17.1 native sub-agent framework
+        - Add unit tests for all optimization strategies
+        - Create performance benchmarks
+      `
+    },
+    {
+      contextId: preparedContexts[1]?.contextId,
+      agentType: 'qa',
+      result: `
+        Task completed: Created comprehensive test coverage for context passing
+        
+        Key Decisions:
+        - Focused on integration tests between context components
+        - Created performance benchmarks for optimization effectiveness
+        - Implemented cache behavior validation
+        
+        Created:
+        - /tests/context-passing/integration.test.js
+        - /tests/context-passing/performance.test.js
+        - /tests/context-passing/cache.test.js
+        
+        Test Coverage: 92% overall, 100% critical paths
+        
+        Important for other agents:
+        - All optimization strategies validated with real context data
+        - Performance tests confirm <10% overhead target met
+        - Cache hit rate averages 73% in testing
+        
+        Next Steps:
+        - Add edge case testing for malformed contexts
+        - Create load testing for high-concurrency scenarios
+      `
+    }
+  ];
+  
+  // Process results from sub-agents
+  for (const mockResult of mockResults) {
+    if (mockResult.contextId) {
+      console.log(`📥 Processing results from ${mockResult.agentType} agent...`);
+      
+      const processedResult = contextManager.processSubAgentResult(
+        mockResult.contextId,
+        mockResult.result
+      );
+      
+      if (processedResult.success) {
+        console.log('✅ Results processed successfully');
+        console.log('📊 Key Findings:');
+        console.log(`   Decisions: ${processedResult.findings.decisions.length}`);
+        console.log(`   Artifacts: ${processedResult.findings.createdArtifacts.length}`);
+        console.log(`   Warnings: ${processedResult.findings.warnings.length}`);
+        
+        console.log('\n📤 Formatted for parent agent:');
+        console.log('---');
+        console.log(processedResult.formattedResult);
+        console.log('---\n');
+        
+      } else {
+        console.error(`❌ Failed to process results: ${processedResult.error}`);
+      }
+    }
+  }
+  
+  // Show performance metrics
+  console.log('📈 Context Passing Performance Metrics:');
+  const metrics = contextManager.getMetrics();
+  console.log(JSON.stringify(metrics, null, 2));
+  
+  // Show active contexts
+  console.log('\n🔄 Active Contexts:');
+  const activeContexts = contextManager.getActiveContexts();
+  console.log(JSON.stringify(activeContexts, null, 2));
+  
+  // Cleanup
+  const cleanedUp = contextManager.cleanupContexts();
+  console.log(`\n🧹 Cleaned up ${cleanedUp} completed contexts`);
+}
+
+/**
+ * Example: Context Template Usage
+ * Shows how different agent types receive tailored contexts
+ */
+function demonstrateContextTemplates() {
+  const contextManager = getContextManager();
+  
+  // Sample context data
+  const sampleContext = {
+    taskDescription: 'Implement user authentication system',
+    workingDirectory: '/project/src/auth',
+    dependencies: ['express', 'passport', 'bcrypt', 'jsonwebtoken'],
+    relatedFiles: [
+      '/project/src/models/User.js',
+      '/project/src/middleware/auth.js',
+      '/project/src/routes/auth.routes.js'
+    ],
+    patterns: [
+      { name: 'Repository Pattern', location: '/project/src/patterns/repository.js' },
+      { name: 'Middleware Pattern', location: '/project/src/patterns/middleware.js' }
+    ],
+    testRequirements: 'Unit tests with 80% coverage, integration tests for all endpoints',
+    constraints: ['Must support OAuth2.0', 'Session timeout after 30 minutes'],
+    specificInstructions: 'Please implement the login endpoint following our established patterns and ensure all tests pass.'
+  };
+  
+  console.log('🎭 Context Template Examples\n');
+  
+  // Development context
+  console.log('👨‍💻 Development Context:');
+  console.log('---');
+  console.log(contextManager.formatContextForAgent(sampleContext, 'development'));
+  console.log('---\n');
+  
+  // QA context (modified for QA)
+  const qaContext = {
+    ...sampleContext,
+    taskDescription: 'create comprehensive test coverage for the authentication system',
+    componentUnderTest: '/project/src/auth/AuthenticationService.js',
+    coverageGoals: '90% line coverage, 85% branch coverage',
+    testData: '/project/tests/fixtures/auth-data.json',
+    qualityStandards: ['All critical paths tested', 'Performance benchmarks met'],
+    specificInstructions: 'Please create test suites that validate all authentication methods and error scenarios.'
+  };
+  
+  console.log('🧪 QA Context:');
+  console.log('---');
+  console.log(contextManager.formatContextForAgent(qaContext, 'qa'));
+  console.log('---\n');
+  
+  // Architecture context (modified for Architecture)
+  const archContext = {
+    ...sampleContext,
+    taskDescription: 'design the authentication microservice architecture',
+    systemBoundaries: ['User service', 'Auth service', 'Session service'],
+    designPatterns: ['JWT tokens', 'OAuth2.0 flows', 'Session management'],
+    integrationPoints: [
+      { type: 'api', endpoint: 'POST /api/auth/login' },
+      { type: 'service', name: 'UserService' }
+    ],
+    standards: ['OpenAPI 3.0 for API specs', 'RFC 6749 for OAuth2.0'],
+    specificInstructions: 'Please design the service architecture and define the API contracts.'
+  };
+  
+  console.log('🏗️ Architecture Context:');
+  console.log('---');
+  console.log(contextManager.formatContextForAgent(archContext, 'architecture'));
+  console.log('---');
+}
+
+/**
+ * Example: Performance Monitoring
+ * Shows how to track and optimize context passing performance
+ */
+async function demonstratePerformanceMonitoring() {
+  const contextManager = getContextManager({
+    enableMonitoring: true
+  });
+  
+  console.log('📊 Performance Monitoring Example\n');
+  
+  // Simulate various context passing scenarios
+  const scenarios = [
+    { taskType: 'development', targetAgent: 'developer', size: 15000 },
+    { taskType: 'qa', targetAgent: 'qa', size: 12000 },
+    { taskType: 'architecture', targetAgent: 'architect', size: 18000 },
+    { taskType: 'development', targetAgent: 'developer', size: 25000 }, // Will be optimized
+    { taskType: 'analysis', targetAgent: 'analyst', size: 8000 }
+  ];
+  
+  for (const scenario of scenarios) {
+    // Simulate context preparation
+    const mockContext = {
+      projectPath: '/project',
+      task: `Mock ${scenario.taskType} task`,
+      parentAgent: 'test'
+    };
+    
+    const result = await contextManager.prepareContext(
+      mockContext,
+      scenario.taskType,
+      scenario.targetAgent,
+      'Mock task for performance testing'
+    );
+    
+    if (result.success) {
+      console.log(`✅ ${scenario.targetAgent}: ${result.metadata.size} tokens (${result.metadata.optimized ? 'optimized' : 'original'})`);
+    }
+  }
+  
+  // Generate performance report
+  console.log('\n📈 Performance Report:');
+  const report = contextManager.generatePerformanceReport();
+  
+  console.log('\n📋 Overview:');
+  console.log(JSON.stringify(report.overview, null, 2));
+  
+  console.log('\n🎯 Agent Breakdown:');
+  console.log(JSON.stringify(report.agentBreakdown, null, 2));
+  
+  if (report.recommendations.length > 0) {
+    console.log('\n💡 Recommendations:');
+    report.recommendations.forEach(rec => {
+      console.log(`   ${rec.type} (${rec.priority}): ${rec.message}`);
+      console.log(`   Action: ${rec.action}`);
+    });
+  }
+}
+
+// Run examples if this file is executed directly
+if (require.main === module) {
+  console.log('🎯 Context Passing Mechanism - Integration Examples\n');
+  
+  parallelSprintExample()
+    .then(() => {
+      console.log('\n' + '='.repeat(60) + '\n');
+      demonstrateContextTemplates();
+      console.log('\n' + '='.repeat(60) + '\n');
+      return demonstratePerformanceMonitoring();
+    })
+    .then(() => {
+      console.log('\n✨ All examples completed successfully!');
+    })
+    .catch(error => {
+      console.error('❌ Example execution failed:', error);
+    });
+}
+
+module.exports = {
+  parallelSprintExample,
+  demonstrateContextTemplates,
+  demonstratePerformanceMonitoring
+};
