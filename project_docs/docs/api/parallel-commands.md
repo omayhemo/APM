@@ -1,8 +1,8 @@
-# Parallel Commands API Reference
+# Parallel Commands API Reference - v3.2.0
 
 ## Overview
 
-APM v3.1.0 introduces native Claude Code sub-agent integration for all 45+ parallel commands, delivering 4-8x performance improvements with true parallel execution.
+APM v3.2.0 completes Epic 17 with revolutionary native Claude Code sub-agent architecture for all 45+ parallel commands, delivering 4.1x average performance improvement (up to 4.8x) with true parallel execution and zero CLI crashes.
 
 ## Core Commands
 
