@@ -173,7 +173,7 @@ Stories are done when they have:
 - **Completed**: 2025-07-25
 - **Total Points**: 89 (100% complete)
 - **Outcome**: Successfully created 65 sub-agent templates
-- **Key Achievement**: v3.0.0 release with dual-mode operation
+- **Key Achievement**: v3.1.0 release with dual-mode operation
 - **Archive Location**: `/project_docs/archives/completed-epics/EPIC-016-APM-SubAgents-COMPLETE.md`
 
 ### Historical Completions

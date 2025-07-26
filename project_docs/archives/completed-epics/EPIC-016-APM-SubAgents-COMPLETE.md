@@ -80,7 +80,7 @@ Successfully transformed the APM framework from command-based personas to native
 
 ### Release Artifacts
 - **Version**: 3.0.0 released
-- **Distribution**: APM-Installer-v3.0.0.tar.gz
+- **Distribution**: APM-Installer-v3.1.0.tar.gz
 - **Documentation**: Complete user and API guides
 - **Migration Tools**: Comprehensive transition support
 
@@ -140,7 +140,7 @@ Successfully transformed the APM framework from command-based personas to native
 - [Original Epic Document](../../planning/epics/EPIC-016-APM-to-SubAgents-Migration.md)
 - [Sprint Retrospectives](../../reports/)
 - [Technical Documentation](../../planning/)
-- [Release Notes](../../../RELEASE-NOTES-v3.0.0.md)
+- [Release Notes](../../../RELEASE-NOTES-v3.1.0.md)
 
 ---
 

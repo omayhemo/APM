@@ -41,7 +41,7 @@ Transform the APM framework from command-based personas to native Claude Code su
 ## Dependencies
 
 - Claude Code v1.0+ with sub-agent support
-- Existing APM framework (v3.0.0.rc.1)
+- Existing APM framework (v3.1.0.rc.1)
 - Voice notification scripts
 - Session management system
 
