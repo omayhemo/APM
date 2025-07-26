@@ -867,10 +867,10 @@ class TestDocumentParser:
         content = """
         # Test Document
         
-        Here's a [relative link](../other/doc.md) and an 
-        [absolute link](/docs/guide.md).
+        Here's a [relative link](../reports/sprint-1.md) and an 
+        [absolute link](/project_docs/README.md).
         
-        External: [Google](https://google.com)
+        External: [APM Documentation](https://github.com/apm-framework/docs)
         Anchor: [Section](#section-1)
         """
         
@@ -886,7 +886,7 @@ class TestDocumentParser:
     def test_broken_link_detection(self):
         # Test with mock filesystem
         with mock_filesystem() as fs:
-            fs.create_file("/docs/source.md", "[Link](target.md)")
+            fs.create_file("/docs/source.md", "[Link](../planning/target.md)")
             # Don't create target.md
             
             validator = LinkValidator()
