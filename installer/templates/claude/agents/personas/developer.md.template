@@ -32,6 +32,38 @@ Before any file operation:
 2. Verify path does NOT contain forbidden directories
 3. Focus ONLY on project deliverables, never APM infrastructure
 
+
+## 🚨 PATH VALIDATION AND DOCUMENTATION RULES
+
+**CRITICAL**: When creating ANY documentation or file:
+
+### Always Use Absolute Paths
+Never create files in the project root. Always specify full paths:
+- Research/Analysis: `{{PROJECT_ROOT}}/project_docs/requirements/[filename].md`
+- Architecture: `{{PROJECT_ROOT}}/project_docs/architecture/[filename].md`
+- Specifications: `{{PROJECT_ROOT}}/project_docs/specifications/[filename].md`
+- Test Reports: `{{PROJECT_ROOT}}/deliverables/reports/[filename].md`
+- Sprint Reports: `{{PROJECT_ROOT}}/deliverables/reports/sprint-[number]/[filename].md`
+- Handoff Notes: `{{APM_ROOT}}/session_notes/handoffs/[timestamp]-[source]-to-[target]-handoff.md`
+
+### Before Creating Any File
+1. **Verify target directory exists** using LS tool
+2. **Create directory if needed** using Bash mkdir -p
+3. **Use full absolute path** in Write/MultiEdit tool
+4. **Never use relative paths** or assume current directory
+
+### Example
+```bash
+# Wrong
+Write("my-report.md", content)
+
+# Correct
+Write("{{PROJECT_ROOT}}/project_docs/requirements/my-report.md", content)
+```
+
+### Document Creation Standards
+Instead of external tools, use standard Write/MultiEdit tools with proper paths.
+
 ## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
 
 **CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
@@ -226,7 +258,7 @@ If you need comprehensive code review, `/parallel-review` provides instant multi
 
 1. **Story is Primary:**\
    The story file is your operational log. Log all actions, statuses, decisions, and outputs here
-   Use the Obsidian MCP to create documentation about the work you do, ensuring using links and relationships, categories and tags appropriately.
+   Use Write tool with absolute paths to create documentation.
 
 2. **Strict Standards:**\
    All code/tests/config MUST follow `Operational Guidelines` and `Project Structure`

@@ -23,6 +23,38 @@ I'm initializing as the Product Manager agent. Let me load all required context 
 - Task 5: Check for market research in {{PROJECT_DOCS}}/research/
 ```
 
+
+## 🚨 PATH VALIDATION AND DOCUMENTATION RULES
+
+**CRITICAL**: When creating ANY documentation or file:
+
+### Always Use Absolute Paths
+Never create files in the project root. Always specify full paths:
+- Research/Analysis: `{{PROJECT_ROOT}}/project_docs/requirements/[filename].md`
+- Architecture: `{{PROJECT_ROOT}}/project_docs/architecture/[filename].md`
+- Specifications: `{{PROJECT_ROOT}}/project_docs/specifications/[filename].md`
+- Test Reports: `{{PROJECT_ROOT}}/deliverables/reports/[filename].md`
+- Sprint Reports: `{{PROJECT_ROOT}}/deliverables/reports/sprint-[number]/[filename].md`
+- Handoff Notes: `{{APM_ROOT}}/session_notes/handoffs/[timestamp]-[source]-to-[target]-handoff.md`
+
+### Before Creating Any File
+1. **Verify target directory exists** using LS tool
+2. **Create directory if needed** using Bash mkdir -p
+3. **Use full absolute path** in Write/MultiEdit tool
+4. **Never use relative paths** or assume current directory
+
+### Example
+```bash
+# Wrong
+Write("my-report.md", content)
+
+# Correct
+Write("{{PROJECT_ROOT}}/project_docs/requirements/my-report.md", content)
+```
+
+### Document Creation Standards
+Instead of external tools, use standard Write/MultiEdit tools with proper paths.
+
 ### Initialization Task Prompts:
 1. "Read the project brief and extract key vision, goals, MVP scope, and constraints"
 2. "Load the PRD template structure to understand required sections and format"
