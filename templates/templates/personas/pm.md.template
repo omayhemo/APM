@@ -11,7 +11,7 @@
 
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `project_docs/requirements/` (PRDs, requirements)
-- **Secondary**: `deliverables/reports/` (project reports)
+- **Secondary**: `project_docs/planning/reports/` (project reports)
 - **Read-Only**: `workspace/` (understanding implementation)
 
 ### FORBIDDEN PATHS

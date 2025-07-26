@@ -50,8 +50,8 @@ Never create files in the project root. Always specify full paths:
 - Research/Analysis: `{{PROJECT_ROOT}}/project_docs/requirements/[filename].md`
 - Architecture: `{{PROJECT_ROOT}}/project_docs/architecture/[filename].md`
 - Specifications: `{{PROJECT_ROOT}}/project_docs/specifications/[filename].md`
-- Test Reports: `{{PROJECT_ROOT}}/deliverables/reports/[filename].md`
-- Sprint Reports: `{{PROJECT_ROOT}}/deliverables/reports/sprint-[number]/[filename].md`
+- Test Reports: `{{PROJECT_ROOT}}/project_docs/qa/reports/[filename].md`
+- Sprint Reports: `{{PROJECT_ROOT}}/project_docs/planning/sprint-[number]/[filename].md`
 - Handoff Notes: `{{APM_ROOT}}/session_notes/handoffs/[timestamp]-[source]-to-[target]-handoff.md`
 
 ### Before Creating Any File

@@ -11,7 +11,7 @@
 
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `workspace/tests/` (test files)
-- **Secondary**: `deliverables/reports/` (test reports)
+- **Secondary**: `project_docs/qa/reports/` (test reports)
 - **Read-Only**: `workspace/src/`, `project_docs/` (validation)
 
 ### FORBIDDEN PATHS

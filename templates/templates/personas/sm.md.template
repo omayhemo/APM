@@ -11,7 +11,7 @@
 
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `project_docs/` (project planning)
-- **Secondary**: `deliverables/reports/` (sprint reports)
+- **Secondary**: `project_docs/planning/sprint-reports/` (sprint reports)
 - **Read-Only**: `workspace/` (progress assessment)
 
 ### FORBIDDEN PATHS

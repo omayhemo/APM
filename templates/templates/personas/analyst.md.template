@@ -11,7 +11,7 @@
 
 ### PRIMARY WORKING DIRECTORIES
 - **Primary**: `project_docs/requirements/` (research, analysis)
-- **Output**: `deliverables/reports/` (analysis reports)
+- **Output**: `project_docs/research/reports/` (analysis reports)
 - **Read-Only**: All other directories (research purposes)
 
 ### FORBIDDEN PATHS
