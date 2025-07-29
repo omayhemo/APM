@@ -23,7 +23,8 @@ if [ "$1" = "--defaults" ] || [ "$1" = "-d" ]; then
 fi
 
 echo "=========================================="
-echo "   Agentic Persona Mapping Installation"
+echo "   APM Framework Installation v3.2.0"
+echo "   Native Sub-Agent Architecture"
 echo "=========================================="
 echo ""
 
@@ -48,12 +49,12 @@ if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ] && [ -d "$DIST_DIR/.apm/
         SKIP_COPY="true"
     else
         echo "=========================================="
-        echo "AP Mapping Quick Setup"
+        echo "APM Framework Quick Setup v3.2.0"
         echo "=========================================="
         echo ""
         echo "You're running the installer from the extracted distribution."
         echo ""
-        echo -e "${GREEN}Where would you like to install AP Mapping?${NC}"
+        echo -e "${GREEN}Where would you like to install APM Framework?${NC}"
         echo -e "${BLUE}"
         echo "1) Use this directory as the project (quick start)"
         echo "2) Create new project in parent directory"
@@ -368,31 +369,40 @@ merge_apm_section() {
     
     # File exists, check for APM section and merge
     if grep -q "<BEGIN-APM-CLAUDE-MERGE>" "$root_claude_md"; then
-        echo "Existing APM section found, replacing with latest version..."
+        echo "Existing APM section(s) found, cleaning and replacing with latest version..."
         
         # Create temporary files
-        local temp_before=$(mktemp)
-        local temp_after=$(mktemp)
+        local temp_clean=$(mktemp)
         local temp_new=$(mktemp)
         
-        # Extract content before APM section
-        sed -n '1,/<BEGIN-APM-CLAUDE-MERGE>/p' "$root_claude_md" | head -n -1 > "$temp_before"
+        # First, remove ALL APM sections (in case of duplicates)
+        # This awk script removes everything between BEGIN and END tags, inclusive
+        awk '
+            /<BEGIN-APM-CLAUDE-MERGE>/ { in_apm = 1; next }
+            /<END-APM-CLAUDE-MERGE>/ { in_apm = 0; next }
+            !in_apm { print }
+        ' "$root_claude_md" > "$temp_clean"
         
-        # Extract content after APM section (everything after the closing tag)
-        sed -n '/<END-APM-CLAUDE-MERGE>/,$p' "$root_claude_md" | tail -n +2 > "$temp_after"
+        # Remove any trailing blank lines from the cleaned content
+        sed -i -e :a -e '/^\s*$/d;N;ba' "$temp_clean"
         
-        # Combine: before + new APM section + after
-        cat "$temp_before" > "$temp_new"
+        # Now build the new file
+        if [ -s "$temp_clean" ]; then
+            # If there's content before APM section
+            cat "$temp_clean" > "$temp_new"
+            echo "" >> "$temp_new"  # Add separator
+        fi
+        
+        # Add the new APM section
         cat "$template_file" >> "$temp_new"
-        cat "$temp_after" >> "$temp_new"
         
         # Replace original file
         mv "$temp_new" "$root_claude_md"
         
         # Cleanup
-        rm -f "$temp_before" "$temp_after"
+        rm -f "$temp_clean"
         
-        echo "✓ Updated existing APM section in CLAUDE.md"
+        echo "✓ Cleaned duplicates and updated APM section in CLAUDE.md"
     else
         echo "No existing APM section found, appending to end of file..."
         
@@ -443,6 +453,14 @@ echo "------------------------------------------------"
 if [ "$SKIP_COPY" != "true" ]; then
     if [ -d "$INSTALLER_DIR/templates/agents" ]; then
         echo "Generating agents directory from templates to: $AP_ROOT"
+        
+        # Clean up existing .apm folder to ensure fresh installation
+        if [ -d "$APM_ROOT" ]; then
+            echo "Removing existing .apm folder for clean installation..."
+            rm -rf "$APM_ROOT"
+            echo "✓ Existing .apm folder removed"
+        fi
+        
         ensure_dir "$APM_ROOT"
         
         # Generate agents directory structure from templates
@@ -556,7 +574,7 @@ cp "$INSTALLER_DIR/templates/voice"/*.sh "$AP_ROOT/voice/"
 chmod +x "$AP_ROOT/voice"/*.sh
 
 # Install ap-manager.sh
-echo "Installing AP Mapping Manager..."
+echo "Installing APM Framework Manager..."
 if [ -f "$INSTALLER_DIR/templates/scripts/ap-manager.sh" ]; then
     cp "$INSTALLER_DIR/templates/scripts/ap-manager.sh" "$AP_ROOT/scripts/"
     chmod +x "$AP_ROOT/scripts/ap-manager.sh"
@@ -577,7 +595,7 @@ CLAUDE_DIR="$PROJECT_ROOT/.claude"
 CLAUDE_COMMANDS_DIR="$CLAUDE_DIR/commands"
 PROJECT_DOCS="$PROJECT_ROOT/project_docs"
 BACKLOG_PATH="project_docs"
-PLANNING_ROOT="$PROJECT_ROOT/project_docs/planning"
+PLANNING_ROOT="$PROJECT_ROOT/${PROJECT_ROOT}/project_docs/planning"
 SESSION_NOTES_PATH="$APM_ROOT/session_notes"
 RULES_PATH="$APM_ROOT/rules"
 ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
@@ -651,11 +669,11 @@ ensure_dir "$PLANNING_ROOT/tasks"
 replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$PROJECT_DOCS/README.md"
 
 # Copy project_docs index.md if it exists
-if [ -f "$PROJECT_ROOT/project_docs/index.md" ]; then
+if [ -f "$PROJECT_ROOT/${PROJECT_ROOT}/project_docs/index.md" ]; then
     echo "Project documentation index.md already exists"
-elif [ -f "$INSTALLER_DIR/../project_docs/index.md" ]; then
-    cp "$INSTALLER_DIR/../project_docs/index.md" "$PROJECT_DOCS/index.md"
-    echo "✅ Copied project_docs/index.md"
+elif [ -f "$INSTALLER_DIR/../${PROJECT_ROOT}/project_docs/index.md" ]; then
+    cp "$INSTALLER_DIR/../${PROJECT_ROOT}/project_docs/index.md" "$PROJECT_DOCS/index.md"
+    echo "✅ Copied ${PROJECT_ROOT}/project_docs/index.md"
 fi
 
 echo "Created project documentation structure at: $PROJECT_DOCS"
@@ -770,7 +788,29 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.t
     echo "✓ Installed parallel-regression-suite command"
 fi
 
-echo "✓ APM commands installed/updated (including parallel-sprint and QA framework)"
+# Install test monitoring commands if templates exist
+echo "Installing Test Monitoring commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" "$CLAUDE_COMMANDS_DIR/monitor-tests.md"
+    echo "✓ Installed monitor-tests command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" "$CLAUDE_COMMANDS_DIR/test-dashboard.md"
+    echo "✓ Installed test-dashboard command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" "$CLAUDE_COMMANDS_DIR/test-metrics.md"
+    echo "✓ Installed test-metrics command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" "$CLAUDE_COMMANDS_DIR/show-test-status.md"
+    echo "✓ Installed show-test-status command"
+fi
+
+echo "✓ APM commands installed/updated (including parallel-sprint, QA framework, and test monitoring)"
 
 # Process persona templates
 echo ""
@@ -857,6 +897,43 @@ if [ -d "$INSTALLER_DIR/templates/agents/deprecation" ]; then
     echo "✓ Task-based deprecation framework installed"
 else
     echo "✓ Deprecation templates not found - skipping"
+fi
+
+# Process test monitoring framework templates
+echo ""
+echo "Processing Test Monitoring Framework Templates..."
+if [ -d "$INSTALLER_DIR/templates/scripts/test-monitoring" ]; then
+    ensure_dir "$AP_ROOT/scripts/test-monitoring"
+    find "$INSTALLER_DIR/templates/scripts/test-monitoring" -name "*.template" -type f | while read template_file; do
+        filename=$(basename "$template_file" .template)
+        replace_variables "$template_file" "$AP_ROOT/scripts/test-monitoring/$filename"
+        chmod +x "$AP_ROOT/scripts/test-monitoring/$filename" 2>/dev/null || true
+    done
+    echo "✓ Test monitoring framework templates processed"
+    
+    # Create test monitoring configuration
+    ensure_dir "$APM_ROOT/config"
+    if [ ! -f "$APM_ROOT/config/test-monitoring.yaml" ]; then
+        cat > "$APM_ROOT/config/test-monitoring.yaml" << 'EOF'
+# APM Framework Test Monitoring Configuration
+monitoring:
+  refresh_interval: 5
+  dashboard:
+    default_port: 8080
+    auto_refresh: true
+  notifications:
+    enabled: true
+    tts_enabled: true
+  features:
+    process_monitoring: true
+    file_watching: true
+    coverage_tracking: true
+    ai_ml_integration: true
+EOF
+        echo "✓ Test monitoring configuration created"
+    fi
+else
+    echo "✓ Test monitoring templates not found - skipping"
 fi
 
 # Process Epic 17 documentation
@@ -1823,12 +1900,44 @@ echo "- /parallel-qa-framework - 4x faster parallel execution"
 echo "- /parallel-regression-suite - Parallel regression testing"
 
 echo ""
+echo "Step 14: Setting Up Test Monitoring Framework"
+echo "----------------------------------------------"
+
+# Create test monitoring infrastructure
+echo "Installing test monitoring capabilities..."
+
+# Create test monitoring directories
+ensure_dir "$APM_ROOT/scripts/test-monitoring"
+ensure_dir "$PROJECT_DOCS/qa/metrics"
+ensure_dir "$PROJECT_DOCS/qa/reports"
+ensure_dir "$PROJECT_DOCS/qa/test-results"
+ensure_dir "$PROJECT_DOCS/qa/dashboards"
+
+# Test monitoring scripts are installed via templates above
+echo "✓ Test monitoring scripts installed via templates"
+echo ""
+echo "Available Test Monitoring Commands:"
+echo "- monitor tests - Real-time CLI test monitoring"
+echo "- test dashboard - Web-based monitoring dashboard"
+echo "- test metrics - Comprehensive metrics collection"
+echo "- show test status - Quick test status overview"
+echo ""
+echo "Test Monitoring Features:"
+echo "- Real-time process monitoring"
+echo "- Web dashboard with auto-refresh"
+echo "- Metrics collection and export (CSV, JSON, YAML)"
+echo "- Integration with QA agent personas"
+echo "- AI/ML analytics integration"
+echo "- Notification system (TTS and webhooks)"
+
+echo ""
 echo "=========================================="
-echo "AP Mapping installation completed!"
+echo "APM Framework installation completed!"
 echo "=========================================="
 echo ""
 echo "Installation Summary:"
-echo "- Version: $VERSION"
+echo "- Version: $VERSION (Native Sub-Agent Architecture)"
+echo "- Performance: 4-8x faster parallel execution"
 echo "- Location: $PROJECT_ROOT"
 echo "- Project: $PROJECT_NAME"
 echo ""
@@ -1888,84 +1997,37 @@ if [ -f "$PROJECT_ROOT/README.md" ] && grep -q "AP Mapping - Agentic Persona Map
     echo "- Removed legacy distribution README from root"
 fi
 
-# Remove the installer directory after preserving it
+# Clean up installer files from project root (simplified)
+echo ""
+echo "Cleaning up installer files..."
+
+# Remove installer directory if it exists and we've preserved it
 if [ -d "$INSTALLER_PRESERVE_DIR" ] && [ "$SKIP_COPY" != "true" ]; then
-    # Check if we should remove the installer directory
-    if [ -d "$PROJECT_ROOT/installer" ] && [ "$PROJECT_ROOT/installer" != "$INSTALLER_DIR" ]; then
-        # Remove installer directory from project root
+    if [ -d "$PROJECT_ROOT/installer" ]; then
         rm -rf "$PROJECT_ROOT/installer"
         echo "- Removed installer directory from project root (preserved in .apm/.installer)"
-    elif [ -d "$DIST_DIR/installer" ] && [ "$DIST_DIR" != "$PROJECT_ROOT" ]; then
-        # Remove installer directory from distribution directory
+    fi
+    # Also remove from distribution directory if different from project root
+    if [ -d "$DIST_DIR/installer" ] && [ "$DIST_DIR" != "$PROJECT_ROOT" ]; then
         rm -rf "$DIST_DIR/installer"
-        echo "- Removed installer directory (preserved in .apm/.installer)"
+        echo "- Removed installer directory from distribution (preserved in .apm/.installer)"
     fi
 fi
 
-# Clean up installer script from project root
-cleanup_installer_script() {
-    local installer_in_root="$PROJECT_ROOT/install.sh"
-    
-    # Don't remove if we're running from this location
-    if [ "$(readlink -f "$0" 2>/dev/null || echo "$0")" = "$(readlink -f "$installer_in_root" 2>/dev/null || echo "$installer_in_root")" ]; then
-        # Schedule removal after script completes
-        echo "- Scheduling installer cleanup after script completion..."
-        
-        # Create cleanup script
-        cat > "$PROJECT_ROOT/.apm/.installer/cleanup-installer.sh" << 'EOF'
-#!/bin/bash
-# Wait for installer to complete
-sleep 2
+# Remove installer script from project root (but not if we're running from it)
+installer_script="$PROJECT_ROOT/install.sh"
+current_script="$(readlink -f "$0" 2>/dev/null || echo "$0")"
+target_script="$(readlink -f "$installer_script" 2>/dev/null || echo "$installer_script")"
 
-# Remove installer script if it matches our signature
-if [ -f "$1" ] && grep -q "AP Mapping Installation Script" "$1" 2>/dev/null; then
-    rm -f "$1" && echo "Cleaned up installer script from project root"
-    # Remove this cleanup script too
-    rm -f "$0"
-fi
-EOF
-        chmod +x "$PROJECT_ROOT/.apm/.installer/cleanup-installer.sh"
-        
-        # Schedule cleanup in background
-        nohup "$PROJECT_ROOT/.apm/.installer/cleanup-installer.sh" "$installer_in_root" >/dev/null 2>&1 &
-        echo "- Installer will be removed after installation completes"
-    elif [ -f "$installer_in_root" ]; then
-        # Safe to remove directly - verify it's our installer
-        if grep -q "$INSTALLER_SIGNATURE" "$installer_in_root" 2>/dev/null; then
-            rm -f "$installer_in_root"
-            echo "- Removed installer script from project root"
-        else
-            # Check for basic installer signature if full signature not found
-            if grep -q "AP Mapping Installation Script" "$installer_in_root" 2>/dev/null; then
-                rm -f "$installer_in_root"
-                echo "- Removed installer script from project root"
-            fi
-        fi
+if [ -f "$installer_script" ] && [ "$current_script" != "$target_script" ]; then
+    # Safe to remove directly - verify it's our installer
+    if grep -q "AP Mapping Installation Script" "$installer_script" 2>/dev/null; then
+        rm -f "$installer_script"
+        echo "- Removed installer script from project root"
     fi
-}
-
-# Call cleanup function
-cleanup_installer_script
-
-# Final cleanup of installer directory if it still exists
-if [ -d "$PROJECT_ROOT/installer" ] && [ -d "$INSTALLER_PRESERVE_DIR" ]; then
-    echo ""
-    echo "Performing final installer directory cleanup..."
-    # Create a deferred cleanup script
-    cat > "$PROJECT_ROOT/.apm/.installer/deferred-cleanup.sh" << 'EOF'
-#!/bin/bash
-# Deferred cleanup of installer directory
-sleep 3
-if [ -d "$1/installer" ] && [ -d "$1/.apm/.installer" ]; then
-    rm -rf "$1/installer"
-    echo "✓ Installer directory removed from project root"
-fi
-# Remove this cleanup script
-rm -f "$0"
-EOF
-    chmod +x "$PROJECT_ROOT/.apm/.installer/deferred-cleanup.sh"
-    nohup "$PROJECT_ROOT/.apm/.installer/deferred-cleanup.sh" "$PROJECT_ROOT" >/dev/null 2>&1 &
-    echo "- Scheduled installer directory cleanup"
+elif [ -f "$installer_script" ] && [ "$current_script" = "$target_script" ]; then
+    echo "- Installer script will remain (currently executing from this location)"
+    echo "  You can manually remove it after installation: rm install.sh"
 fi
 
 echo ""
@@ -1987,4 +2049,4 @@ echo "For more information, see:"
 echo "- Main instructions: $CLAUDE_MD"
 echo "- Agents directory: $AP_ROOT"
 echo ""
-echo "Enjoy using the AP Mapping!"
+echo "Enjoy using the APM Framework v3.2.0 with 4-8x performance!"

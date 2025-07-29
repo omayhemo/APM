@@ -3,7 +3,7 @@
     "APM_ROOT": "{{APM_ROOT}}",
     "AP_ROOT": "{{AP_ROOT}}",
     "PROJECT_ROOT": "{{PROJECT_ROOT}}",
-    "PROJECT_DOCS": "{{PROJECT_DOCS}}",
+    "PROJECT_DOCS": "{{PROJECT_ROOT}}/project_docs",
     "PLANNING_ROOT": "{{PLANNING_ROOT}}",
     "PROJECT_NAME": "{{PROJECT_NAME}}",
     "CLAUDE_COMMANDS_DIR": "{{CLAUDE_COMMANDS_DIR}}",

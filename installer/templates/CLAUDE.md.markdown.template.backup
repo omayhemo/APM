@@ -38,7 +38,7 @@ This project uses the AP method with workspace boundaries.
 
 - APM Infrastructure: {{APM_ROOT}} (agents should ignore)
 - Project Workspace: {{WORKSPACE_ROOT}}
-- Project Documentation: {{PROJECT_ROOT}}/project_docs
+- Project Documentation: {{PROJECT_DOCS}}
 - Session Notes: {{SESSION_NOTES_PATH}}
 - Rules: {{RULES_PATH}}
 
@@ -48,7 +48,7 @@ This project uses the AP method with workspace boundaries.
 
 ### ✅ ALLOWED DIRECTORIES
 - `{{WORKSPACE_ROOT}}/` - All project source code and components
-- `{{PROJECT_ROOT}}/project_docs/` - Project-specific documentation
+- `{{PROJECT_DOCS}}/` - Project-specific documentation
 
 ### ❌ FORBIDDEN DIRECTORIES  
 - `{{APM_ROOT}}/` - APM infrastructure (hidden)
