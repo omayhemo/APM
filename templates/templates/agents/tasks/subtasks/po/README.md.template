@@ -50,7 +50,7 @@ The PO uses specialized synthesis patterns to merge results:
 The `/groom` command orchestrates all subtasks:
 
 ```bash
-/groom --source $PROJECT_DOCS --sprint-length 14 --team-velocity 40
+/groom --source {{PROJECT_ROOT}}/project_docs --sprint-length 14 --team-velocity 40
 ```
 
 This will:

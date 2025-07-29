@@ -9,10 +9,10 @@ The epic template is available at: `@{{AP_TEMPLATES}}/epic-tmpl.md`
 ### Important Prerequisites
 Before creating an epic, you MUST:
 1. **Use the epic template** at `@{{AP_TEMPLATES}}/epic-tmpl.md` as your starting point
-2. **Review the Product Requirements Document (PRD)** at `@$PROJECT_DOCS/base/prd.md` to ensure alignment with overall product vision and requirements
-3. **Review existing documentation** in `@$PROJECT_DOCS/` including:
-   - `{{PROJECT_DOCS}}/planning/epics/` - Check existing epics to avoid duplication and ensure consistency
-   - `{{PROJECT_DOCS}}/planning/stories/` - Understand the story format and numbering conventions
+2. **Review the Product Requirements Document (PRD)** at `@{{PROJECT_ROOT}}/project_docs/base/prd.md` to ensure alignment with overall product vision and requirements
+3. **Review existing documentation** in `@{{PROJECT_ROOT}}/project_docs/` including:
+   - `{{PROJECT_ROOT}}/project_docs/planning/epics/` - Check existing epics to avoid duplication and ensure consistency
+   - `{{PROJECT_ROOT}}/project_docs/planning/stories/` - Understand the story format and numbering conventions
    - `/base/` - Review architecture, development workflow, and technical standards
 
 This ensures your epic aligns with the product strategy and maintains consistency with existing work.
@@ -25,7 +25,7 @@ This ensures your epic aligns with the product strategy and maintains consistenc
 
 ### Epic Overview
 - **Epic Title:** [Provide a clear, descriptive title that captures the essence of the feature/initiative]
-- **Epic ID:** [EPIC-XXX] *(Check @{{PROJECT_DOCS}}/planning/epics/ for next available number)*
+- **Epic ID:** [EPIC-XXX] *(Check @{{PROJECT_ROOT}}/project_docs/planning/epics/ for next available number)*
 - **Product Area:** [Specify which area of AP this impacts] *(Align with PRD product areas)*
 - **Target Release:** [Quarter/Year or specific version]
 - **Priority:** [P1 - Must Have / P2 - Should Have / P3 - Nice to Have]
@@ -63,7 +63,7 @@ This ensures your epic aligns with the product strategy and maintains consistenc
 
 ### Technical Considerations
 **Architecture Impact:**
-[Describe any architectural changes or considerations - review @$PROJECT_DOCS/base/architecture.md and frontend-architecture.md for alignment]
+[Describe any architectural changes or considerations - review @{{PROJECT_ROOT}}/project_docs/base/architecture.md and frontend-architecture.md for alignment]
 
 **Dependencies:**
 - **Internal Dependencies:** [List other AP components or features this depends on]
@@ -140,8 +140,8 @@ This ensures your epic aligns with the product strategy and maintains consistenc
 - [List assumptions being made in the epic planning]
 
 **Related Epics/Features:**
-- [Link to related work or dependent epics from @{{PROJECT_DOCS}}/planning/epics/]
-- [Reference relevant sections from @$PROJECT_DOCS/base/prd.md]
+- [Link to related work or dependent epics from @{{PROJECT_ROOT}}/project_docs/planning/epics/]
+- [Reference relevant sections from @{{PROJECT_ROOT}}/project_docs/base/prd.md]
 
 ---
 

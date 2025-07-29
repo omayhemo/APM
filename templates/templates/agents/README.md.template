@@ -46,7 +46,7 @@ The AP Orchestrator serves as the project's technical lead and coordinator:
 The following variables are configured in `.claude/settings.json`:
 
 - `$AP_ROOT` - Path to agents directory
-- `$PROJECT_DOCS` - Path to project documentation
+- `{{PROJECT_ROOT}}/project_docs` - Path to project documentation
 - `$SPEAK_ORCHESTRATOR` - Orchestrator voice script
 - `$SPEAK_DEVELOPER` - Developer voice script
 - `$SPEAK_ARCHITECT` - Architect voice script
@@ -226,7 +226,7 @@ All voice scripts are located in `{{AP_VOICE}}/`:
 
 ### Storage Locations
 - **With Obsidian MCP**: Sessions stored in configured vault
-- **Fallback**: Local markdown files at `$PROJECT_DOCS/session_notes/`
+- **Fallback**: Local markdown files at `{{PROJECT_ROOT}}/project_docs/session_notes/`
 - **Logs**: Hook activity logs in `$AP_ROOT/hooks/`
 
 ## Troubleshooting

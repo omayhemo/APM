@@ -43,10 +43,10 @@
 
 ## Introduction
 
-{ This document details the technical architecture specifically for the frontend of {Project Name}. It complements the main {Project Name} Architecture Document and the UI/UX Specification. This document details the frontend architecture and **builds upon the foundational decisions** (e.g., overall tech stack, CI/CD, primary testing tools) defined in the main {Project Name} Architecture Document (`$PROJECT_DOCS/base/architecture.md` or linked equivalent). **Frontend-specific elaborations or deviations from general patterns must be explicitly noted here.** The goal is to provide a clear blueprint for frontend development, ensuring consistency, maintainability, and alignment with the overall system design and user experience goals. }
+{ This document details the technical architecture specifically for the frontend of {Project Name}. It complements the main {Project Name} Architecture Document and the UI/UX Specification. This document details the frontend architecture and **builds upon the foundational decisions** (e.g., overall tech stack, CI/CD, primary testing tools) defined in the main {Project Name} Architecture Document (`{{PROJECT_ROOT}}/project_docs/base/architecture.md` or linked equivalent). **Frontend-specific elaborations or deviations from general patterns must be explicitly noted here.** The goal is to provide a clear blueprint for frontend development, ensuring consistency, maintainability, and alignment with the overall system design and user experience goals. }
 
-- **Link to Main Architecture Document (REQUIRED):** {e.g., `$PROJECT_DOCS/base/architecture.md`}
-- **Link to UI/UX Specification (REQUIRED if exists):** {e.g., `$PROJECT_DOCS/base/front-end-spec.md`}
+- **Link to Main Architecture Document (REQUIRED):** {e.g., `{{PROJECT_ROOT}}/project_docs/base/architecture.md`}
+- **Link to UI/UX Specification (REQUIRED if exists):** {e.g., `{{PROJECT_ROOT}}/project_docs/base/front-end-spec.md`}
 - **Link to Primary Design Files (Figma, Sketch, etc.) (REQUIRED if exists):** {From UI/UX Spec}
 - **Link to Deployed Storybook / Component Showcase (if applicable):** {URL}
 

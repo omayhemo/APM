@@ -100,9 +100,9 @@ test metrics --clean
 
 ## Output Locations
 
-- **Metrics Storage**: `{{PROJECT_DOCS}}/qa/metrics/`
-- **Export Files**: `{{PROJECT_DOCS}}/qa/metrics/exported_metrics_*.{format}`
-- **Summary Reports**: `{{PROJECT_DOCS}}/qa/reports/`
+- **Metrics Storage**: `{{PROJECT_ROOT}}/project_docs/qa/metrics/`
+- **Export Files**: `{{PROJECT_ROOT}}/project_docs/qa/metrics/exported_metrics_*.{format}`
+- **Summary Reports**: `{{PROJECT_ROOT}}/project_docs/qa/reports/`
 
 ## Technical Details
 

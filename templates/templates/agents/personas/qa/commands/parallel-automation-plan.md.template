@@ -109,7 +109,7 @@ The command leverages ML for intelligent automation design:
 ## Integration Points
 
 - **Input**: Tech stack, test requirements, team capabilities
-- **Output**: {{PROJECT_DOCS}}/qa/automation-plans/
+- **Output**: {{PROJECT_ROOT}}/project_docs/qa/automation-plans/
 - **Implementation**: Development team, DevOps
 - **Monitoring**: QA Framework analytics dashboard
 
@@ -136,7 +136,7 @@ The command leverages ML for intelligent automation design:
 
 ## Command Variables
 
-- `{{PROJECT_DOCS}}`: Project documentation root
+- `{{PROJECT_ROOT}}/project_docs`: Project documentation root
 - `{{AUTOMATION_TOOLS}}`: Available automation tools list
 - `{{CI_CD_PLATFORM}}`: Target CI/CD platform (Jenkins/GitLab/GitHub)
 - `{{ML_MODELS_PATH}}`: ML model repository location

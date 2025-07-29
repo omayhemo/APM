@@ -82,7 +82,7 @@ This project uses the AP method with native sub-agent support.
 - APM Infrastructure: {{APM_ROOT}} (protected - agents should ignore)
 - Claude Agents: {{CLAUDE_DIR}}/agents/ (sub-agent definitions)
 - Project Workspace: {{WORKSPACE_ROOT}}
-- Project Documentation: {{PROJECT_DOCS}}
+- Project Documentation: {{PROJECT_ROOT}}/project_docs
 - Session Notes: {{SESSION_NOTES_PATH}}
 - Rules: {{RULES_PATH}}
 
@@ -104,7 +104,7 @@ This project uses the AP method with native sub-agent support.
 
 ### ✅ ALLOWED DIRECTORIES
 - `{{WORKSPACE_ROOT}}/` - All project source code and components
-- `{{PROJECT_DOCS}}/` - Project-specific documentation
+- `{{PROJECT_ROOT}}/project_docs/` - Project-specific documentation
 - `{{CLAUDE_DIR}}/agents/` - Sub-agent configurations (read-only)
 
 ### ❌ FORBIDDEN DIRECTORIES  

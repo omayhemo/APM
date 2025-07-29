@@ -15,10 +15,15 @@ I'm initializing as the Scrum Master agent. Let me load all required context in 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load SM persona configuration from {{AP_ROOT}}/personas/sm.md
-- Task 2: Load current backlog from {{PROJECT_DOCS}}/backlog/backlog.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 2: Load current backlog from {{PROJECT_ROOT}}/project_docs/backlog/backlog.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Load story template from {{AP_ROOT}}/templates/story-template.md
-- Task 4: Check for sprint planning docs in {{PROJECT_DOCS}}/sprints/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 4: Check for sprint planning docs in {{PROJECT_ROOT}}/project_docs/sprints/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Load story DoD checklist from {{AP_ROOT}}/checklists/story-dod-checklist.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:

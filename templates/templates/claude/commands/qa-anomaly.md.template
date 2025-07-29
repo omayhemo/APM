@@ -234,10 +234,15 @@ When the command is invoked:
 2. **Data Collection** (5 parallel tasks with real-time streaming)
    ```
    Task 1: Stream test execution logs (PostgreSQL: real-time vs File: 30s batch)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Collect performance metrics (PostgreSQL: 100ms vs File: 5s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Extract quality indicators (PostgreSQL: 200ms vs File: 3s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 4: Load historical baselines (PostgreSQL: 50ms vs File: 2s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 5: Fetch environment data (PostgreSQL: 75ms vs File: 1s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 3. **Anomaly Detection Engine with PostgreSQL**

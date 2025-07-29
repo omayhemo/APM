@@ -15,10 +15,15 @@ I'm initializing Parallel Subtask Analysis Mode. Let me load all required contex
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load parallel subtask implementation guide from {{AP_ROOT}}/tasks/subtasks/IMPLEMENTATION-GUIDE.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load parallel subtask usage guide from {{AP_ROOT}}/docs/PARALLEL-SUBTASK-USAGE-GUIDE.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Check for available subtask templates in {{AP_ROOT}}/tasks/subtasks/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 4: Load synthesis patterns from {{AP_ROOT}}/tasks/subtasks/synthesis/patterns/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Check current persona context and available capabilities
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:

@@ -15,10 +15,15 @@ I'm initializing as the Design Architect Agent. Let me load all required context
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load design architect persona from {{AP_ROOT}}/personas/design-architect.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load frontend architecture template from {{AP_ROOT}}/templates/front-end-architecture-tmpl.md
-- Task 3: Check for existing UI/UX docs in {{PROJECT_DOCS}}/architecture/frontend-architecture.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 3: Check for existing UI/UX docs in {{PROJECT_ROOT}}/project_docs/architecture/frontend-architecture.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 4: Load frontend checklist from {{AP_ROOT}}/checklists/frontend-architecture-checklist.md
-- Task 5: Check for design system or style guides in {{PROJECT_DOCS}}/design/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 5: Check for design system or style guides in {{PROJECT_ROOT}}/project_docs/design/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:

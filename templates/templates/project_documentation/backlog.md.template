@@ -156,7 +156,7 @@ Stories are done when they have:
 - Claude.md Merge System (Epics 1-7): 94 story points ✅
 - QA Framework (Epics 8-15): 93 story points ✅
 
-**Archive Location**: `/project_docs/archives/completed-epics/`
+**Archive Location**: `/{{PROJECT_ROOT}}/project_docs/archives/completed-epics/`
 
 **Archive Date**: {{ARCHIVE_DATE}}  
 **Archived by**: Product Owner

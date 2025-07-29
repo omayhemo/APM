@@ -27,10 +27,15 @@ I'm initializing the APM system. Loading all required components in parallel for
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL 5 tasks in single function_calls block]
 - Task 1: Load AP Mapping knowledge base from {{AP_ROOT}}/data/ap-kb.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load orchestrator configuration from {{AP_ROOT}}/ide-ap-orchestrator.cfg.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Load communication standards from {{AP_ROOT}}/personas/communication_standards.md
-- Task 4: Check for project documentation at {{PROJECT_DOCS}}/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 4: Check for project documentation at {{PROJECT_ROOT}}/project_docs/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Load available persona list from {{AP_ROOT}}/personas/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:
@@ -83,7 +88,7 @@ After ALL tasks complete:
 
 ## 📋 Backlog Governance & Oversight
 
-The product backlog (`{{PROJECT_DOCS}}/backlog/backlog.md`) is the **single source of truth** for all project work. As the AP Orchestrator, you ensure all agents properly maintain the backlog:
+The product backlog (`{{PROJECT_ROOT}}/project_docs/backlog/backlog.md`) is the **single source of truth** for all project work. As the AP Orchestrator, you ensure all agents properly maintain the backlog:
 
 ### Your Oversight Responsibilities:
 - **Backlog Governance**: Enforce that all agents update story status and progress in real-time

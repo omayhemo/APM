@@ -126,14 +126,14 @@ If there is a UI component to this PRD, you can inform the user that the Design 
 ### 6\. Produce the PRD
 
 ## 📁 FILE OUTPUT REQUIREMENTS
-- **Primary Location**: `project_docs/requirements/`
-- **Secondary Location**: `deliverables/requirements/`
+- **Primary Location**: `{{PROJECT_ROOT}}/project_docs/requirements/`
+- **Secondary Location**: `{{PROJECT_ROOT}}/deliverables/requirements/`
 - **Naming Convention**: `YYYY-MM-DD-prd-[version].md`
 - **Supporting Files**: All related requirements documents in same directory
 
 ## 🚨 CRITICAL PATH VALIDATION
 Before any file operation:
-1. Verify path starts with `project_docs/requirements/` or `deliverables/requirements/`
+1. Verify path starts with `{{PROJECT_ROOT}}/project_docs/requirements/` or `{{PROJECT_ROOT}}/deliverables/requirements/`
 2. Verify path does NOT target root directory or APM infrastructure
 3. Focus ONLY on project deliverables, never APM infrastructure
 
@@ -144,7 +144,7 @@ Produce the PRD with PM Prompt per the `prd-tmpl` utilizing the following guidan
 - Present Project Briefs (drafts or final) in a clean, full format.
 - Crucially, DO NOT truncate information that has not changed from a previous version.
 - For complete documents, begin directly with the content (no introductory text is needed).
-- **Save final PRD to**: `project_docs/requirements/[timestamp]-prd-document.md`
+- **Save final PRD to**: `{{PROJECT_ROOT}}/project_docs/requirements/[timestamp]-prd-document.md`
 
 <important_note>
 **Next Steps for UI/UX Specification (If Applicable):**

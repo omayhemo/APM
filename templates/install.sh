@@ -369,31 +369,40 @@ merge_apm_section() {
     
     # File exists, check for APM section and merge
     if grep -q "<BEGIN-APM-CLAUDE-MERGE>" "$root_claude_md"; then
-        echo "Existing APM section found, replacing with latest version..."
+        echo "Existing APM section(s) found, cleaning and replacing with latest version..."
         
         # Create temporary files
-        local temp_before=$(mktemp)
-        local temp_after=$(mktemp)
+        local temp_clean=$(mktemp)
         local temp_new=$(mktemp)
         
-        # Extract content before APM section
-        sed -n '1,/<BEGIN-APM-CLAUDE-MERGE>/p' "$root_claude_md" | head -n -1 > "$temp_before"
+        # First, remove ALL APM sections (in case of duplicates)
+        # This awk script removes everything between BEGIN and END tags, inclusive
+        awk '
+            /<BEGIN-APM-CLAUDE-MERGE>/ { in_apm = 1; next }
+            /<END-APM-CLAUDE-MERGE>/ { in_apm = 0; next }
+            !in_apm { print }
+        ' "$root_claude_md" > "$temp_clean"
         
-        # Extract content after APM section (everything after the closing tag)
-        sed -n '/<END-APM-CLAUDE-MERGE>/,$p' "$root_claude_md" | tail -n +2 > "$temp_after"
+        # Remove any trailing blank lines from the cleaned content
+        sed -i -e :a -e '/^\s*$/d;N;ba' "$temp_clean"
         
-        # Combine: before + new APM section + after
-        cat "$temp_before" > "$temp_new"
+        # Now build the new file
+        if [ -s "$temp_clean" ]; then
+            # If there's content before APM section
+            cat "$temp_clean" > "$temp_new"
+            echo "" >> "$temp_new"  # Add separator
+        fi
+        
+        # Add the new APM section
         cat "$template_file" >> "$temp_new"
-        cat "$temp_after" >> "$temp_new"
         
         # Replace original file
         mv "$temp_new" "$root_claude_md"
         
         # Cleanup
-        rm -f "$temp_before" "$temp_after"
+        rm -f "$temp_clean"
         
-        echo "✓ Updated existing APM section in CLAUDE.md"
+        echo "✓ Cleaned duplicates and updated APM section in CLAUDE.md"
     else
         echo "No existing APM section found, appending to end of file..."
         
@@ -444,6 +453,14 @@ echo "------------------------------------------------"
 if [ "$SKIP_COPY" != "true" ]; then
     if [ -d "$INSTALLER_DIR/templates/agents" ]; then
         echo "Generating agents directory from templates to: $AP_ROOT"
+        
+        # Clean up existing .apm folder to ensure fresh installation
+        if [ -d "$APM_ROOT" ]; then
+            echo "Removing existing .apm folder for clean installation..."
+            rm -rf "$APM_ROOT"
+            echo "✓ Existing .apm folder removed"
+        fi
+        
         ensure_dir "$APM_ROOT"
         
         # Generate agents directory structure from templates
@@ -578,7 +595,7 @@ CLAUDE_DIR="$PROJECT_ROOT/.claude"
 CLAUDE_COMMANDS_DIR="$CLAUDE_DIR/commands"
 PROJECT_DOCS="$PROJECT_ROOT/project_docs"
 BACKLOG_PATH="project_docs"
-PLANNING_ROOT="$PROJECT_ROOT/project_docs/planning"
+PLANNING_ROOT="$PROJECT_ROOT/${PROJECT_ROOT}/project_docs/planning"
 SESSION_NOTES_PATH="$APM_ROOT/session_notes"
 RULES_PATH="$APM_ROOT/rules"
 ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
@@ -652,11 +669,11 @@ ensure_dir "$PLANNING_ROOT/tasks"
 replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$PROJECT_DOCS/README.md"
 
 # Copy project_docs index.md if it exists
-if [ -f "$PROJECT_ROOT/project_docs/index.md" ]; then
+if [ -f "$PROJECT_ROOT/${PROJECT_ROOT}/project_docs/index.md" ]; then
     echo "Project documentation index.md already exists"
-elif [ -f "$INSTALLER_DIR/../project_docs/index.md" ]; then
-    cp "$INSTALLER_DIR/../project_docs/index.md" "$PROJECT_DOCS/index.md"
-    echo "✅ Copied project_docs/index.md"
+elif [ -f "$INSTALLER_DIR/../${PROJECT_ROOT}/project_docs/index.md" ]; then
+    cp "$INSTALLER_DIR/../${PROJECT_ROOT}/project_docs/index.md" "$PROJECT_DOCS/index.md"
+    echo "✅ Copied ${PROJECT_ROOT}/project_docs/index.md"
 fi
 
 echo "Created project documentation structure at: $PROJECT_DOCS"
@@ -1980,59 +1997,38 @@ if [ -f "$PROJECT_ROOT/README.md" ] && grep -q "AP Mapping - Agentic Persona Map
     echo "- Removed legacy distribution README from root"
 fi
 
-# Remove the installer directory after preserving it
-if [ -d "$DIST_DIR/installer" ] && [ -d "$INSTALLER_PRESERVE_DIR" ] && [ "$SKIP_COPY" != "true" ]; then
-    # Only remove if we're installing from a distribution directory
-    if [ "$DIST_DIR" != "$PROJECT_ROOT" ]; then
+# Clean up installer files from project root (simplified)
+echo ""
+echo "Cleaning up installer files..."
+
+# Remove installer directory if it exists and we've preserved it
+if [ -d "$INSTALLER_PRESERVE_DIR" ] && [ "$SKIP_COPY" != "true" ]; then
+    if [ -d "$PROJECT_ROOT/installer" ]; then
+        rm -rf "$PROJECT_ROOT/installer"
+        echo "- Removed installer directory from project root (preserved in .apm/.installer)"
+    fi
+    # Also remove from distribution directory if different from project root
+    if [ -d "$DIST_DIR/installer" ] && [ "$DIST_DIR" != "$PROJECT_ROOT" ]; then
         rm -rf "$DIST_DIR/installer"
-        echo "- Removed installer directory (preserved in .apm/.installer)"
+        echo "- Removed installer directory from distribution (preserved in .apm/.installer)"
     fi
 fi
 
-# Clean up installer script from project root
-cleanup_installer_script() {
-    local installer_in_root="$PROJECT_ROOT/install.sh"
-    
-    # Don't remove if we're running from this location
-    if [ "$(readlink -f "$0" 2>/dev/null || echo "$0")" = "$(readlink -f "$installer_in_root" 2>/dev/null || echo "$installer_in_root")" ]; then
-        # Schedule removal after script completes
-        echo "- Scheduling installer cleanup after script completion..."
-        
-        # Create cleanup script
-        cat > "$PROJECT_ROOT/.apm/.installer/cleanup-installer.sh" << 'EOF'
-#!/bin/bash
-# Wait for installer to complete
-sleep 2
+# Remove installer script from project root (but not if we're running from it)
+installer_script="$PROJECT_ROOT/install.sh"
+current_script="$(readlink -f "$0" 2>/dev/null || echo "$0")"
+target_script="$(readlink -f "$installer_script" 2>/dev/null || echo "$installer_script")"
 
-# Remove installer script if it matches our signature
-if [ -f "$1" ] && grep -q "AP Mapping Installation Script" "$1" 2>/dev/null; then
-    rm -f "$1" && echo "Cleaned up installer script from project root"
-    # Remove this cleanup script too
-    rm -f "$0"
-fi
-EOF
-        chmod +x "$PROJECT_ROOT/.apm/.installer/cleanup-installer.sh"
-        
-        # Schedule cleanup in background
-        nohup "$PROJECT_ROOT/.apm/.installer/cleanup-installer.sh" "$installer_in_root" >/dev/null 2>&1 &
-        echo "- Installer will be removed after installation completes"
-    elif [ -f "$installer_in_root" ]; then
-        # Safe to remove directly - verify it's our installer
-        if grep -q "$INSTALLER_SIGNATURE" "$installer_in_root" 2>/dev/null; then
-            rm -f "$installer_in_root"
-            echo "- Removed installer script from project root"
-        else
-            # Check for basic installer signature if full signature not found
-            if grep -q "AP Mapping Installation Script" "$installer_in_root" 2>/dev/null; then
-                rm -f "$installer_in_root"
-                echo "- Removed installer script from project root"
-            fi
-        fi
+if [ -f "$installer_script" ] && [ "$current_script" != "$target_script" ]; then
+    # Safe to remove directly - verify it's our installer
+    if grep -q "AP Mapping Installation Script" "$installer_script" 2>/dev/null; then
+        rm -f "$installer_script"
+        echo "- Removed installer script from project root"
     fi
-}
-
-# Call cleanup function
-cleanup_installer_script
+elif [ -f "$installer_script" ] && [ "$current_script" = "$target_script" ]; then
+    echo "- Installer script will remain (currently executing from this location)"
+    echo "  You can manually remove it after installation: rm install.sh"
+fi
 
 echo ""
 echo "Next steps:"

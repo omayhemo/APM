@@ -13,12 +13,12 @@ To create and maintain a comprehensive product backlog that serves as the single
 ### 1. Gather and Review All Project Documentation
 
 #### 1.1 Core Documents Review
-- [ ] Read `{{PROJECT_DOCS}}/prd.md` - Understand product vision and requirements
-- [ ] Read `{{PROJECT_DOCS}}/architecture.md` - Understand technical constraints and design
-- [ ] Read `{{PROJECT_DOCS}}/frontend-architecture.md` (if exists) - Frontend specific requirements
-- [ ] Read `{{PROJECT_DOCS}}/uxui-spec.md` (if exists) - Design requirements
-- [ ] Read `{{PROJECT_DOCS}}/project_brief.md` (if exists) - Initial project context
-- [ ] Read `{{PROJECT_DOCS}}/operational-guidelines.md` (if exists) - Development standards
+- [ ] Read `{{PROJECT_ROOT}}/project_docs/prd.md` - Understand product vision and requirements
+- [ ] Read `{{PROJECT_ROOT}}/project_docs/architecture.md` - Understand technical constraints and design
+- [ ] Read `{{PROJECT_ROOT}}/project_docs/frontend-architecture.md` (if exists) - Frontend specific requirements
+- [ ] Read `{{PROJECT_ROOT}}/project_docs/uxui-spec.md` (if exists) - Design requirements
+- [ ] Read `{{PROJECT_ROOT}}/project_docs/project_brief.md` (if exists) - Initial project context
+- [ ] Read `{{PROJECT_ROOT}}/project_docs/operational-guidelines.md` (if exists) - Development standards
 
 #### 1.2 Analyze Documentation for Work Items
 - [ ] Extract implied work items from PRD that aren't yet stories
@@ -29,7 +29,7 @@ To create and maintain a comprehensive product backlog that serves as the single
 ### 2. Inventory Existing Epics and Stories
 
 #### 2.1 Locate Epic Files
-- [ ] Search for all `epic-*.md` files in `{{PROJECT_DOCS}}/`
+- [ ] Search for all `epic-*.md` files in `{{PROJECT_ROOT}}/project_docs/`
 - [ ] Create a list of all epics with their:
   - Epic ID
   - Title
@@ -38,7 +38,7 @@ To create and maintain a comprehensive product backlog that serves as the single
   - Priority indicators
 
 #### 2.2 Locate Story Files
-- [ ] Search for all `*.story.md` files in `{{PROJECT_DOCS}}/`
+- [ ] Search for all `*.story.md` files in `{{PROJECT_ROOT}}/project_docs/`
 - [ ] For each story, note:
   - Story ID
   - Parent epic (if specified)
@@ -118,7 +118,7 @@ For each epic:
 ### 6. Create/Update the Backlog Document
 
 #### 6.1 Initialize from Template
-- [ ] Copy `backlog_tmpl.md` to `{{PROJECT_DOCS}}/backlog.md`
+- [ ] Copy `backlog_tmpl.md` to `{{PROJECT_ROOT}}/project_docs/backlog.md`
 - [ ] Fill in header information:
   - Project name
   - Current date
@@ -176,7 +176,7 @@ The grooming task is complete when:
 ## Output Artifacts
 
 **Primary Output:**
-- `{{PROJECT_DOCS}}/backlog.md` - The complete, prioritized product backlog
+- `{{PROJECT_ROOT}}/project_docs/backlog.md` - The complete, prioritized product backlog
 
 **Supporting Outputs:**
 - Updated epic files with corrected relationships

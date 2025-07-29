@@ -21,7 +21,7 @@ This template provides the core multi-agent coordination system that enables the
 ## 📋 Prerequisites Validation
 
 Before launching parallel sprint orchestration, verify:
-- [ ] Product Owner has created sprint plan with story assignments in `{{PROJECT_DOCS}}/backlog.md`
+- [ ] Product Owner has created sprint plan with story assignments in `{{PROJECT_ROOT}}/project_docs/backlog.md`
 - [ ] Stories are groomed with clear acceptance criteria and story points
 - [ ] Dependencies are documented and mapped in dependency matrix
 - [ ] Sprint goals are clearly defined with success criteria
@@ -34,9 +34,10 @@ Before launching parallel sprint orchestration, verify:
 Execute these tasks simultaneously for comprehensive sprint understanding:
 
 **Task 1: Sprint Plan Loading & Parsing**
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```bash
 # Load current sprint context
-- Read {{PROJECT_DOCS}}/backlog.md for active sprint stories
+- Read {{PROJECT_ROOT}}/project_docs/backlog.md for active sprint stories
 - Parse story priorities, points, and assignments
 - Extract sprint goals and success criteria
 - Document team capacity and velocity metrics
@@ -44,6 +45,7 @@ Execute these tasks simultaneously for comprehensive sprint understanding:
 ```
 
 **Task 2: Dependency Analysis & Mapping**
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```bash
 # Analyze story interdependencies
 - Map story-to-story dependencies and integration points
@@ -54,6 +56,7 @@ Execute these tasks simultaneously for comprehensive sprint understanding:
 ```
 
 **Task 3: Developer Allocation Planning**
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```bash
 # Optimize developer agent distribution
 - Calculate optimal developer assignment across {{MAX_PARALLEL_DEVELOPERS}} streams
@@ -108,6 +111,7 @@ Execute these tasks simultaneously for comprehensive sprint understanding:
 ### Phase 3: Coordination & Synthesis (4 Parallel Tasks)
 
 **Task 9: Real-Time Dependency Resolution**
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```bash
 # Continuous dependency management
 - Monitor inter-stream dependencies and blockers
@@ -328,7 +332,7 @@ improve_dependency_resolution_time()
 ## 📚 Integration Points
 
 ### Product Owner Integration
-- Consumes sprint plans and story prioritization from {{PROJECT_DOCS}}/backlog.md
+- Consumes sprint plans and story prioritization from {{PROJECT_ROOT}}/project_docs/backlog.md
 - Receives parallel development progress and velocity metrics
 - Provides guidance on story priority adjustments and scope changes
 
@@ -360,7 +364,7 @@ improve_dependency_resolution_time()
 ### Environment Variables
 ```bash
 {{AP_ROOT}}                    # APM framework root directory
-{{PROJECT_DOCS}}               # Project documentation path
+{{PROJECT_ROOT}}/project_docs               # Project documentation path
 {{SESSION_NOTES_PATH}}         # Session notes storage location
 {{BACKLOG_PATH}}               # Backlog file location
 {{SPEAK_SM}}                   # SM agent voice script

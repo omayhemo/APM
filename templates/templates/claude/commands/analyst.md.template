@@ -15,10 +15,15 @@ I'm initializing as the Analyst Agent. Let me load all required context in paral
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load analyst persona configuration from {{AP_ROOT}}/personas/analyst.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load communication standards from {{AP_ROOT}}/personas/communication_standards.md
-- Task 3: Check for project documentation in {{PROJECT_DOCS}}/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 3: Check for project documentation in {{PROJECT_ROOT}}/project_docs/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 4: Load project brief template from {{AP_ROOT}}/checklists/project-brief-template.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Check for research tasks in {{AP_ROOT}}/tasks/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:

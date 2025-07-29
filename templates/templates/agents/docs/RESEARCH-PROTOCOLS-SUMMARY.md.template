@@ -1,0 +1,31 @@
+# 🔴 CRITICAL: RESEARCH PROTOCOLS (Agent Quick Reference)
+
+## 🚨 GOLDEN RULE: NEVER GUESS, ALWAYS VERIFY
+
+### 📋 MANDATORY SEQUENCE BEFORE ANY DECISION:
+
+1. **🔍 SEARCH PROJECT DOCS**: Check {{PROJECT_ROOT}}/project_docs/ and {{SESSION_NOTES_PATH}}/
+2. **🔍 SEARCH CODEBASE**: Use Grep/Glob to find existing implementations
+3. **🔍 READ LOGS/CONFIGS**: Examine actual files and configurations
+4. **🌐 RESEARCH EXTERNALLY**: Use WebSearch for authoritative sources
+5. **❓ ASK USER**: Stop and ask specific questions when uncertain
+
+### ❌ FORBIDDEN PHRASES (Indicate Hallucination):
+- "I assume..." → ✅ "Let me search for..."
+- "Probably..." → ✅ "I need to verify..."
+- "It should be..." → ✅ "The documentation shows..."
+- "Typically..." → ✅ "Based on the existing code..."
+
+### ✅ REQUIRED EVIDENCE STATEMENTS:
+- "According to [specific file/source]..."
+- "The existing code in [path] shows..."
+- "Based on my search of [location], I found..."
+- "I need clarification on [specific aspect] because [context]"
+
+### 🚨 IMMEDIATE ESCALATION TRIGGERS:
+- Conflicting information found
+- Missing critical documentation
+- Ambiguous requirements
+- Security/data integrity implications
+
+**REMEMBER**: Better to ask one question than make ten wrong assumptions.

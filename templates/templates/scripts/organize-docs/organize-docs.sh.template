@@ -87,7 +87,7 @@ load_config() {
     if [ -f "$CONFIG_FILE" ]; then
         echo -e "${BLUE}Loading configuration from $CONFIG_FILE${NC}"
         # Parse YAML config (simplified - in production would use proper YAML parser)
-        PROJECT_DOCS=$(grep "project_docs:" "$CONFIG_FILE" | cut -d'"' -f2 || echo "$PROJECT_DOCS")
+        PROJECT_DOCS=$(grep "project_docs:" "$CONFIG_FILE" | cut -d'"' -f2 || echo "{{PROJECT_ROOT}}/project_docs")
         INDEX_FILE=$(grep "index_file:" "$CONFIG_FILE" | cut -d'"' -f2 || echo "$INDEX_FILE")
     else
         echo -e "${YELLOW}No configuration file found. Using defaults.${NC}"
@@ -116,7 +116,7 @@ cmd_scan() {
     
     # Run the document parser
     python3 "$SCRIPT_DIR/doc-parser.py" scan \
-        --path "$PROJECT_DOCS" \
+        --path "{{PROJECT_ROOT}}/project_docs" \
         ${verbose:+--verbose} \
         ${check_links:+--check-links} \
         ${fix:+--fix}
@@ -142,7 +142,7 @@ cmd_validate() {
     echo -e "${BLUE}✓ Validating documentation...${NC}"
     
     python3 "$SCRIPT_DIR/doc-parser.py" validate \
-        --path "$PROJECT_DOCS" \
+        --path "{{PROJECT_ROOT}}/project_docs" \
         ${rules_file:+--rules "$rules_file"} \
         ${strict:+--strict} \
         ${fix_warnings:+--fix-warnings}
@@ -168,7 +168,7 @@ cmd_graph() {
     echo -e "${BLUE}📊 Generating documentation graph...${NC}"
     
     python3 "$SCRIPT_DIR/doc-parser.py" graph \
-        --path "$PROJECT_DOCS" \
+        --path "{{PROJECT_ROOT}}/project_docs" \
         --format "$format" \
         ${output:+--output "$output"} \
         ${depth:+--depth "$depth"}
@@ -192,7 +192,7 @@ cmd_orphans() {
     echo -e "${BLUE}🔍 Finding orphaned documents...${NC}"
     
     python3 "$SCRIPT_DIR/doc-parser.py" orphans \
-        --path "$PROJECT_DOCS" \
+        --path "{{PROJECT_ROOT}}/project_docs" \
         ${suggest_links:+--suggest-links} \
         ${add_to_index:+--add-to-index}
 }
@@ -217,7 +217,7 @@ cmd_health() {
     echo -e "${BLUE}🏥 Checking documentation health...${NC}"
     
     python3 "$SCRIPT_DIR/doc-parser.py" health \
-        --path "$PROJECT_DOCS" \
+        --path "{{PROJECT_ROOT}}/project_docs" \
         ${score:+--score} \
         ${fix_critical:+--fix-critical} \
         --mode "$mode"
@@ -241,7 +241,7 @@ cmd_summary() {
     echo -e "${BLUE}📋 Generating documentation summary...${NC}"
     
     python3 "$SCRIPT_DIR/doc-parser.py" summary \
-        --path "$PROJECT_DOCS" \
+        --path "{{PROJECT_ROOT}}/project_docs" \
         --format "$format" \
         ${export_file:+--export "$export_file"}
 }

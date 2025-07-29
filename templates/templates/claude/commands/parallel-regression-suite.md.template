@@ -197,9 +197,13 @@ When the command is invoked:
 2. **Change Impact Analysis** (4 parallel tasks with PostgreSQL intelligence)
    ```
    Task 1: Analyze code diff for affected modules (PostgreSQL: 150ms vs File: 4s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Map changes to test coverage areas (PostgreSQL: 200ms vs File: 6s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Identify regression risk factors (PostgreSQL: 100ms vs File: 3s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 4: Select optimal regression test subset (PostgreSQL: 175ms vs File: 5s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 2. **Environment Preparation**

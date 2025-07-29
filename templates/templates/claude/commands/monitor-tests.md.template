@@ -47,6 +47,6 @@ This command integrates seamlessly with:
 
 - **Script Location**: `{{APM_ROOT}}/scripts/test-monitoring/monitor-tests.sh`
 - **Configuration**: `{{APM_ROOT}}/config/test-monitoring.yaml`
-- **Output Directory**: `{{PROJECT_DOCS}}/qa/metrics/`
+- **Output Directory**: `{{PROJECT_ROOT}}/project_docs/qa/metrics/`
 
 Execute this command by simply typing `monitor tests` in your Claude Code session.

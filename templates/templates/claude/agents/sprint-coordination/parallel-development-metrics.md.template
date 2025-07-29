@@ -456,7 +456,7 @@ OPTIMIZATION_TRIGGERS:
 ### Environment Integration
 ```bash
 {{AP_ROOT}}                    # APM framework root directory
-{{PROJECT_DOCS}}               # Project documentation path
+{{PROJECT_ROOT}}/project_docs               # Project documentation path
 {{METRICS_DATA_PATH}}          # Performance metrics data storage
 {{DASHBOARD_DATA_PATH}}        # Dashboard configuration and data
 {{PERFORMANCE_LOG_PATH}}       # Performance tracking logs

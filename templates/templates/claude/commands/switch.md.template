@@ -15,10 +15,15 @@ I'm preparing to compact this session and switch to the [Target Agent]. Let me p
 *Executing parallel switch tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Create comprehensive session summary and key insights
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Archive current work artifacts and decisions
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Load target persona configuration from {{AP_ROOT}}/personas/{persona}.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 4: Generate transition brief for the incoming agent
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Load target persona's templates and workspace setup
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Switch Task Prompts:
