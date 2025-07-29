@@ -10,12 +10,12 @@
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && cd apm-v3.2.0 && ./templates/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && cd apm-v3.2.0 && ./templates/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?

@@ -28,12 +28,12 @@ This major release completes Epic 17, delivering a revolutionary transformation 
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && cd apm-v3.2.0 && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && cd apm-v3.2.0 && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh
 ```
 
 #### Performance Metrics
