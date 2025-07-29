@@ -43,11 +43,11 @@ echo "Preparing distribution with templates and installer only..."
 
 # Validate template system integrity
 echo "Validating template system integrity..."
-# Check if templates/templates directory exists
-if [ -d "templates/templates" ]; then
-    TEMPLATE_COUNT=$(find templates/templates -name "*.template" -type f | wc -l)
+# Check if installer/templates directory exists
+if [ -d "installer/templates" ]; then
+    TEMPLATE_COUNT=$(find installer/templates -name "*.template" -type f | wc -l)
 else
-    echo "❌ ERROR: templates/templates directory not found"
+    echo "❌ ERROR: installer/templates directory not found"
     exit 1
 fi
 
@@ -69,9 +69,9 @@ echo "No cleanup needed for template-only distribution"
 # Create VERSION file
 echo "$VERSION" > "$DIST_DIR/VERSION"
 
-# Copy templates directory as installer
-echo "Copying templates directory as installer..."
-cp -r templates "$DIST_DIR/installer"
+# Copy installer directory
+echo "Copying installer directory..."
+cp -r installer "$DIST_DIR/installer"
 
 # Create LICENSE file
 echo "Creating LICENSE file..."

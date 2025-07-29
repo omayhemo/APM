@@ -469,9 +469,13 @@ if [ "$SKIP_COPY" != "true" ]; then
         # Copy non-template documentation files
         echo "Copying documentation files..."
         if [ -d "$INSTALLER_DIR/templates/agents/docs" ]; then
-            mkdir -p "$AP_DOCS"
-            cp -r "$INSTALLER_DIR/templates/agents/docs"/* "$AP_DOCS/" 2>/dev/null || true
-            echo "✅ Copied documentation files to $AP_DOCS"
+            if [ -n "$AP_DOCS" ]; then
+                mkdir -p "$AP_DOCS"
+                cp -r "$INSTALLER_DIR/templates/agents/docs"/* "$AP_DOCS/" 2>/dev/null || true
+                echo "✅ Copied documentation files to $AP_DOCS"
+            else
+                echo "⚠️  Skipping documentation copy - AP_DOCS path not set"
+            fi
         fi
         
         # Copy index files
@@ -595,7 +599,6 @@ CLAUDE_DIR="$PROJECT_ROOT/.claude"
 CLAUDE_COMMANDS_DIR="$CLAUDE_DIR/commands"
 PROJECT_DOCS="$PROJECT_ROOT/project_docs"
 BACKLOG_PATH="project_docs"
-PLANNING_ROOT="$PROJECT_ROOT/${PROJECT_ROOT}/project_docs/planning"
 SESSION_NOTES_PATH="$APM_ROOT/session_notes"
 RULES_PATH="$APM_ROOT/rules"
 ARCHIVE_PATH="$APM_ROOT/session_notes/archive"
@@ -659,21 +662,24 @@ ensure_dir "$PROJECT_DOCS/artifacts"
 ensure_dir "$PROJECT_DOCS/releases"
 ensure_dir "$PROJECT_DOCS/reports"
 
-# Create planning structure
-ensure_dir "$PLANNING_ROOT"
-ensure_dir "$PLANNING_ROOT/epics"
-ensure_dir "$PLANNING_ROOT/stories"
-ensure_dir "$PLANNING_ROOT/tasks"
+# Create modern APM structure (v3.2.0)
+ensure_dir "$PROJECT_DOCS/epics"
+ensure_dir "$PROJECT_DOCS/stories"
+ensure_dir "$PROJECT_DOCS/sprints"
+ensure_dir "$PROJECT_DOCS/time-tracking"
+ensure_dir "$PROJECT_DOCS/docs"
+ensure_dir "$PROJECT_DOCS/qa"
+ensure_dir "$PROJECT_DOCS/qa/test-plans"
 
 # Copy project documentation README from template
 replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$PROJECT_DOCS/README.md"
 
 # Copy project_docs index.md if it exists
-if [ -f "$PROJECT_ROOT/${PROJECT_ROOT}/project_docs/index.md" ]; then
+if [ -f "$PROJECT_ROOT/project_docs/index.md" ]; then
     echo "Project documentation index.md already exists"
-elif [ -f "$INSTALLER_DIR/../${PROJECT_ROOT}/project_docs/index.md" ]; then
-    cp "$INSTALLER_DIR/../${PROJECT_ROOT}/project_docs/index.md" "$PROJECT_DOCS/index.md"
-    echo "✅ Copied ${PROJECT_ROOT}/project_docs/index.md"
+elif [ -f "$INSTALLER_DIR/../project_docs/index.md" ]; then
+    cp "$INSTALLER_DIR/../project_docs/index.md" "$PROJECT_DOCS/index.md"
+    echo "✅ Copied project_docs/index.md"
 fi
 
 echo "Created project documentation structure at: $PROJECT_DOCS"
@@ -1255,38 +1261,7 @@ case "$TTS_PROVIDER" in
                 fi
                 
                 # Skip audio test - removed per configuration
-                        echo "Playing test message..."
-                        # Different players need different parameters for raw audio
-                        case "$WAV_PLAYER" in
-                            paplay)
-                                echo "" | \
-                                    "$PROJECT_ROOT/.piper/piper" \
-                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
-                                    --output-raw 2>/dev/null | \
-                                    paplay --raw --rate=22050 --format=s16le --channels=1
-                                ;;
-                            aplay)
-                                echo "" | \
-                                    "$PROJECT_ROOT/.piper/piper" \
-                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
-                                    --output-raw 2>/dev/null | \
-                                    aplay -q -r 22050 -f S16_LE -t raw -c 1 -
-                                ;;
-                            play)
-                                echo "" | \
-                                    "$PROJECT_ROOT/.piper/piper" \
-                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
-                                    --output-raw 2>/dev/null | \
-                                    play -q -t raw -r 22050 -e signed -b 16 -c 1 -
-                                ;;
-                            *)
-                                echo "" | \
-                                    "$PROJECT_ROOT/.piper/piper" \
-                                    --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
-                                    --output-raw 2>/dev/null | \
-                                    $WAV_PLAYER $WAV_PLAYER_ARGS
-                                ;;
-                        esac
+                # Audio test moved to validation section to avoid duplicate testing
                         
             else
                 echo "⚠ Piper installation encountered issues."
@@ -1799,25 +1774,25 @@ if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then
         # Use proper parameters for each audio player
         case "$WAV_PLAYER" in
             paplay)
-                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     paplay --raw --rate=22050 --format=s16le --channels=1 2>/dev/null
                 ;;
             aplay)
-                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     aplay -q -r 22050 -f S16_LE -t raw -c 1 - 2>/dev/null
                 ;;
             play)
-                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     play -q -t raw -r 22050 -e signed -b 16 -c 1 - 2>/dev/null
                 ;;
             *)
-                echo "" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     $WAV_PLAYER $WAV_PLAYER_ARGS 2>/dev/null

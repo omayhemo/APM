@@ -1,0 +1,205 @@
+# Story 16.1: Create Sub-Agent Infrastructure Templates
+
+**Epic**: EPIC-016 APM to Claude Code Sub-Agents Migration  
+**Story Points**: 3  
+**Priority**: High  
+**Status**: {{STORY_STATUS}}  
+**Assignee**: {{STORY_ASSIGNEE}}  
+**Sprint**: 14 (Foundation Phase)
+
+## User Story
+
+As a **Product Owner**, I want **sub-agent infrastructure templates created for the installer** so that **the APM to Sub-Agents migration can be deployed without modifying the APM framework directly**.
+
+## Business Value
+
+- **APM Protection**: Ensures APM framework integrity by using template-based deployment
+- **Safe Migration**: Installer templates allow controlled, reversible migration
+- **Infrastructure Foundation**: Provides the base structure for all agent templates
+- **Risk Mitigation**: Template approach prevents accidental APM corruption
+
+## Acceptance Criteria
+
+### AC1: Infrastructure Documentation Template
+- [x] Create `templates/templates/claude/agents/README.md.template`
+- [x] Document sub-agent infrastructure for installer
+- [x] Include directory structure and features overview
+- [x] Explain template-based deployment approach
+
+### AC2: Agent Template Foundation
+- [x] Create `templates/templates/claude/agents/agent-template.md.template`
+- [x] Provide base template for all agent personas
+- [x] Include template variables for dynamic configuration
+- [x] Preserve APM compatibility patterns
+
+### AC3: Configuration Template System
+- [x] Create `templates/templates/claude/agents/config/base-config.yaml.template`
+- [x] Define shared configuration for all sub-agents
+- [x] Include voice notification settings
+- [x] Establish workspace boundaries and security
+
+### AC4: Migration Tracking Template
+- [x] Create `templates/templates/claude/agents/migration/tracking.md.template`
+- [x] Provide migration progress monitoring template
+- [x] Include phase progress tracking
+- [x] Define success criteria validation
+
+### AC5: Rollback Procedures Template
+- [x] Create `templates/templates/claude/agents/migration/rollback.md.template`
+- [x] Provide comprehensive rollback procedures template
+- [x] Include data preservation strategies
+- [x] Define rollback triggers and communication plans
+
+### AC6: APM Protection Compliance
+- [x] **CRITICAL**: Zero modifications to `.apm/` directory
+- [x] All files created in `templates/templates/claude/agents/`
+- [x] Template structure validated for installer compatibility
+- [x] APM protection protocol documented
+
+## Technical Requirements
+
+### Template Structure
+```
+templates/templates/claude/agents/
+├── README.md.template                   # Infrastructure documentation
+├── agent-template.md.template          # Base agent template
+├── config/
+│   └── base-config.yaml.template      # Shared configuration
+├── migration/
+│   ├── tracking.md.template           # Progress tracking
+│   └── rollback.md.template           # Rollback procedures
+└── personas/                          # Individual agent templates (future stories)
+```
+
+### Template Variables
+Templates must include placeholders for:
+- `{{AGENT_NAME}}` - Agent persona name
+- `{{MIGRATION_VERSION}}` - Migration version
+- `{{AP_ROOT}}` - APM root directory
+- `{{TTS_PROVIDER}}` - Text-to-speech provider
+- `{{SESSION_NOTES_PATH}}` - Session notes directory
+
+### Security Requirements
+- **No APM Modifications**: Never touch `.apm/` directory
+- **Template Isolation**: All work in `templates/templates/claude/agents/`
+- **Installer Integration**: Templates must work with existing installer
+- **Backward Compatibility**: Preserve all APM command functionality
+
+## Implementation Notes
+
+### Critical Incident Resolution
+**APM Protection Violation Detected**: Initial implementation incorrectly created `.claude/agents/` directory, violating the fundamental rule of never modifying APM infrastructure.
+
+**Resolution Actions Taken**:
+1. **Immediate Halt**: Stopped all work on incorrect implementation
+2. **APM Restoration**: Removed all `.claude/agents/` modifications with `rm -rf`
+3. **Template Creation**: Recreated all work as proper installer templates
+4. **Process Enhancement**: Added APM protection monitoring to prevent future violations
+
+**Lessons Learned**:
+- APM protection must be enforced at the start of every story
+- Template-first approach is non-negotiable
+- Continuous verification needed during implementation
+- Team education on APM protection critical
+
+### Template Design Principles
+1. **Preservation First**: All APM capabilities preserved in template format
+2. **Variable-Driven**: Dynamic configuration through template variables
+3. **Installer-Ready**: Compatible with existing installer infrastructure
+4. **Rollback-Enabled**: Support for complete migration reversal
+
+## Definition of Done
+
+- [x] All 6 acceptance criteria completed
+- [x] Templates created in correct `templates/templates/claude/agents/` location
+- [x] Zero modifications made to APM framework
+- [x] Template structure validated for installer compatibility
+- [x] APM protection protocol implemented and documented
+- [x] Code review completed (template structure validation)
+- [x] Template variables properly defined
+- [x] Installer integration verified
+
+## Testing Strategy
+
+### Template Validation
+- **Structure Test**: Verify all templates in correct directory
+- **Variable Test**: Confirm all template variables defined
+- **Installer Test**: Validate compatibility with installer system
+- **APM Test**: Verify no APM modifications made
+
+### Integration Testing
+- **Template Processing**: Test installer template processing
+- **Configuration Test**: Validate base configuration template
+- **Documentation Test**: Verify README template completeness
+
+## Dependencies
+
+### Upstream Dependencies
+- Existing installer template system
+- APM framework v3.0.0.rc.1 (READ ONLY)
+- Template processing infrastructure
+
+### Downstream Dependencies
+- Story 16.2: Create Developer Agent Template
+- Story 16.3: Create Architect Agent Template
+- Story 16.4: Create QA Agent Template
+- Story 16.5: Create Orchestrator Template
+
+## Risk Assessment
+
+### High Risk Items
+- **APM Framework Corruption**: Mitigated by templates-only approach
+- **Template Incompatibility**: Mitigated by installer integration testing
+- **Missing Variables**: Mitigated by comprehensive template variable definition
+
+### Risk Mitigation
+- **APM Protection Monitoring**: Continuous verification of no APM changes
+- **Template Validation**: Automated checking of template structure
+- **Rollback Readiness**: Complete rollback procedures templated
+
+## Success Metrics
+
+### Functional Metrics
+- **Templates Created**: 5/5 (100%)
+- **APM Violations**: 0/0 (0% - Target achieved after correction)
+- **Template Variables**: 100% defined
+- **Installer Compatibility**: 100%
+
+### Quality Metrics
+- **Code Review**: Passed (template structure validation)
+- **APM Protection**: Passed (after incident resolution)
+- **Documentation**: Complete (comprehensive README)
+- **Testing**: Passed (template validation)
+
+## Timeline
+
+### Implementation Timeline
+- **Start Date**: {{START_DATE}}
+- **Incident Date**: {{INCIDENT_DATE}} (APM violation detected)
+- **Resolution Date**: {{RESOLUTION_DATE}} (Templates created correctly)
+- **Completion Date**: {{COMPLETION_DATE}}
+
+### Key Milestones
+- [x] **Incident Response**: APM violation corrected immediately
+- [x] **Template Foundation**: Base infrastructure templates created
+- [x] **Configuration System**: Shared configuration template established
+- [x] **Migration Support**: Tracking and rollback templates completed
+- [x] **Validation Complete**: All templates verified for installer compatibility
+
+## Post-Implementation
+
+### Next Steps
+1. **Story 16.2**: Use infrastructure to create Developer Agent template
+2. **Story 16.3**: Use infrastructure to create Architect Agent template
+3. **Story 16.4**: Use infrastructure to create QA Agent template
+4. **Story 16.5**: Use infrastructure to create Orchestrator template
+
+### Continuous Improvement
+- Enhanced APM protection monitoring for future stories
+- Template validation automation
+- Team training on template-first approach
+- Documentation of APM protection protocols
+
+---
+
+**Critical Success Factor**: This story establishes the foundation for the entire migration while maintaining absolute APM framework protection through the template-based approach.

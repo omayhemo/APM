@@ -1,0 +1,884 @@
+# Sub-Agent Integration Template
+
+## Overview
+This template enables seamless integration of native Claude Code sub-agent capabilities while maintaining full compatibility with existing APM infrastructure.
+
+## Configuration Variables
+```yaml
+# Sub-Agent Integration Configuration
+SUBAGENT_INTEGRATION_MODE: {{SUBAGENT_INTEGRATION_MODE}}    # native, hybrid, legacy-enhanced
+NATURAL_LANGUAGE_PROCESSING: {{NATURAL_LANGUAGE_PROCESSING}} # advanced, standard, basic
+COORDINATION_PATTERNS: {{COORDINATION_PATTERNS}}            # modern, hybrid, traditional
+PERFORMANCE_OPTIMIZATION: {{PERFORMANCE_OPTIMIZATION}}      # maximum, balanced, conservative
+CONTEXT_FLOW_MODE: {{CONTEXT_FLOW_MODE}}                   # seamless, structured, traditional
+
+# Native Features Configuration
+MULTI_AGENT_COORDINATION: {{MULTI_AGENT_COORDINATION}}      # enabled, partial, disabled
+INTELLIGENT_TASK_ROUTING: {{INTELLIGENT_TASK_ROUTING}}      # enabled, basic, disabled
+ADVANCED_CONTEXT_MANAGEMENT: {{ADVANCED_CONTEXT_MANAGEMENT}} # enabled, standard, basic
+PERFORMANCE_ANALYTICS: {{PERFORMANCE_ANALYTICS}}            # comprehensive, basic, disabled
+```
+
+## Native Sub-Agent Architecture
+
+### 1. Natural Language Agent Recognition
+```markdown
+## Intelligent Agent Mention Detection
+
+### Natural Language Patterns
+```python
+def detect_subagent_mentions(user_input):
+    """Detect native sub-agent requests in natural language"""
+    
+    patterns = {
+        # Developer agent patterns
+        "developer": [
+            r"have the developer (review|analyze|implement|fix)",
+            r"ask the developer to",
+            r"developer, (please|can you)",
+            r"need a developer to"
+        ],
+        
+        # Architect agent patterns  
+        "architect": [
+            r"have the architect (design|review|analyze)",
+            r"ask the architect about",
+            r"architect, (what|how|can you)",
+            r"need architectural (guidance|review|design)"
+        ],
+        
+        # QA agent patterns
+        "qa": [
+            r"have (qa|quality assurance) (test|review|validate)",
+            r"ask qa to",
+            r"qa, (please|can you)",
+            r"need (testing|quality) (review|analysis)"
+        ],
+        
+        # PM agent patterns
+        "pm": [
+            r"have the (project manager|pm) (plan|coordinate|track)",
+            r"ask the pm about",
+            r"pm, (what|how|can you)",
+            r"need project management (help|guidance)"
+        ],
+        
+        # Multi-agent patterns
+        "multi_agent": [
+            r"have (both|all) (the )?(developer|architect|qa|pm)",
+            r"coordinate between (developer|architect|qa|pm) and",
+            r"need (developer|architect|qa|pm) and (developer|architect|qa|pm)",
+            r"team of (agents|developers|architects)"
+        ]
+    }
+    
+    detected_agents = []
+    for agent_type, agent_patterns in patterns.items():
+        for pattern in agent_patterns:
+            if re.search(pattern, user_input.lower()):
+                detected_agents.append(agent_type)
+                break
+    
+    return list(set(detected_agents))  # Remove duplicates
+```
+
+### Context-Aware Intent Recognition
+```python
+def analyze_intent_context(user_input, session_context):
+    """Analyze user intent within session context"""
+    
+    intent_analysis = {
+        "primary_intent": extract_primary_intent(user_input),
+        "required_agents": detect_subagent_mentions(user_input),
+        "complexity_level": assess_task_complexity(user_input),
+        "coordination_needed": requires_multi_agent_coordination(user_input),
+        "context_dependencies": identify_context_dependencies(user_input, session_context)
+    }
+    
+    return intent_analysis
+```
+
+### 2. Intelligent Agent Coordination
+```markdown
+## Modern Multi-Agent Coordination
+
+### Single Agent Coordination
+```python
+def coordinate_single_agent(agent_type, task, context):
+    """Coordinate single sub-agent execution"""
+    
+    # Step 1: Agent selection and preparation
+    agent = select_optimal_agent(agent_type, task, context)
+    agent_context = prepare_agent_context(agent, task, context)
+    
+    # Step 2: Task execution with context flow
+    {{#if CONTEXT_FLOW_MODE == "seamless"}}
+    result = execute_with_seamless_context_flow(agent, task, agent_context)
+    {{else}}
+    result = execute_with_structured_context(agent, task, agent_context)
+    {{/if}}
+    
+    # Step 3: Result integration and optimization
+    {{#if PERFORMANCE_OPTIMIZATION == "maximum"}}
+    optimized_result = apply_performance_optimizations(result)
+    integrated_result = integrate_with_session_context(optimized_result, context)
+    {{else}}
+    integrated_result = integrate_with_session_context(result, context)
+    {{/if}}
+    
+    return integrated_result
+```
+
+### Multi-Agent Orchestration
+```python
+def orchestrate_multi_agent_coordination(agents, task, context):
+    """Orchestrate multiple sub-agents working together"""
+    
+    # Step 1: Task decomposition and agent assignment
+    task_breakdown = decompose_complex_task(task, agents)
+    agent_assignments = assign_tasks_to_agents(task_breakdown, agents, context)
+    
+    # Step 2: Coordination strategy selection
+    coordination_strategy = select_coordination_strategy(agents, task_breakdown)
+    
+    strategies = {
+        "parallel": execute_parallel_coordination,
+        "sequential": execute_sequential_coordination,
+        "hierarchical": execute_hierarchical_coordination,
+        "collaborative": execute_collaborative_coordination
+    }
+    
+    # Step 3: Execute coordination strategy
+    {{#if MULTI_AGENT_COORDINATION == "enabled"}}
+    coordination_result = strategies[coordination_strategy](
+        agent_assignments, 
+        context,
+        {
+            "real_time_sync": True,
+            "conflict_resolution": "intelligent",
+            "performance_monitoring": True
+        }
+    )
+    {{else}}
+    coordination_result = strategies["sequential"](agent_assignments, context)
+    {{/if}}
+    
+    # Step 4: Result synthesis and optimization
+    synthesized_result = synthesize_multi_agent_results(coordination_result)
+    
+    return synthesized_result
+```
+
+### 3. Advanced Context Management
+```markdown
+## Seamless Context Flow System
+
+### Context Preservation Engine
+```python
+def manage_subagent_context_flow(agents, task, session_context):
+    """Manage context flow between sub-agents"""
+    
+    context_manager = {
+        "session_state": preserve_session_state(session_context),
+        "agent_contexts": initialize_agent_contexts(agents),
+        "shared_knowledge": extract_shared_knowledge(session_context),
+        "task_context": prepare_task_context(task),
+        "performance_context": initialize_performance_tracking()
+    }
+    
+    {{#if ADVANCED_CONTEXT_MANAGEMENT == "enabled"}}
+    # Advanced context features
+    context_manager.update({
+        "predictive_context": predict_context_needs(agents, task),
+        "adaptive_context": create_adaptive_context_system(),
+        "intelligent_caching": initialize_intelligent_context_cache(),
+        "cross_agent_memory": setup_cross_agent_memory_system()
+    })
+    {{/if}}
+    
+    return context_manager
+```
+
+### Context Translation Between APM and Native
+```python
+def translate_context_apm_to_native(apm_context):
+    """Translate APM context to native sub-agent format"""
+    
+    native_context = {
+        # Core translation
+        "agents": [apm_context.get("persona", "orchestrator")],
+        "session_data": apm_context.get("session_notes", {}),
+        "task_history": extract_task_history(apm_context),
+        "performance_data": extract_performance_metrics(apm_context),
+        
+        # Enhanced translation  
+        {{#if NATURAL_LANGUAGE_PROCESSING == "advanced"}}
+        "natural_language_context": convert_to_natural_language_context(apm_context),
+        "intent_history": extract_intent_patterns(apm_context),
+        "conversation_flow": map_conversation_patterns(apm_context),
+        {{/if}}
+        
+        # Compatibility preservation
+        "apm_compatibility": {
+            "original_persona": apm_context.get("persona"),
+            "voice_enabled": apm_context.get("voice_enabled", False),
+            "session_id": apm_context.get("session_id"),
+            "legacy_mode": True
+        }
+    }
+    
+    return native_context
+
+def translate_context_native_to_apm(native_context):
+    """Translate native context back to APM format"""
+    
+    # Determine primary persona from active agents
+    primary_agent = native_context.get("agents", ["orchestrator"])[0]
+    persona_mapping = {
+        "developer": "dev",
+        "architect": "architect", 
+        "qa": "qa",
+        "pm": "pm",
+        "orchestrator": "ap_orchestrator"
+    }
+    
+    apm_context = {
+        "persona": persona_mapping.get(primary_agent, "ap_orchestrator"),
+        "session_notes": native_context.get("session_data", {}),
+        "voice_enabled": native_context.get("apm_compatibility", {}).get("voice_enabled", True),
+        "session_id": native_context.get("apm_compatibility", {}).get("session_id"),
+        "native_enhanced": True,
+        "performance_data": native_context.get("performance_data", {})
+    }
+    
+    return apm_context
+```
+
+## Native Agent Capabilities
+
+### 1. Developer Sub-Agent Integration
+```markdown
+## Native Developer Agent Capabilities
+
+### Code Analysis and Development
+```python
+def native_developer_agent_capabilities():
+    """Native developer agent with enhanced capabilities"""
+    
+    capabilities = {
+        # Core development capabilities
+        "code_analysis": {
+            "static_analysis": True,
+            "complexity_metrics": True,
+            "security_scanning": True,
+            "performance_profiling": True
+        },
+        
+        # Implementation capabilities
+        "code_generation": {
+            "ai_assisted_coding": True,
+            "pattern_recognition": True,
+            "automated_refactoring": True,
+            "test_generation": True
+        },
+        
+        # Integration capabilities
+        "system_integration": {
+            "api_design": True,
+            "database_optimization": True,
+            "architecture_compliance": True,
+            "dependency_management": True
+        },
+        
+        {{#if PERFORMANCE_OPTIMIZATION == "maximum"}}
+        # Advanced capabilities
+        "advanced_features": {
+            "ml_assisted_development": True,
+            "predictive_debugging": True,
+            "intelligent_code_review": True,
+            "automated_optimization": True
+        }
+        {{/if}}
+    }
+    
+    return capabilities
+```
+
+### Natural Language Development Requests
+```python
+def process_natural_developer_request(request, context):
+    """Process natural language developer requests"""
+    
+    # Parse development intent
+    dev_intent = parse_development_intent(request)
+    
+    intent_processors = {
+        "code_review": process_code_review_request,
+        "implementation": process_implementation_request,
+        "debugging": process_debugging_request,
+        "optimization": process_optimization_request,
+        "testing": process_testing_request,
+        "documentation": process_documentation_request
+    }
+    
+    # Execute appropriate processor
+    processor = intent_processors.get(dev_intent.type, process_generic_dev_request)
+    result = processor(dev_intent, context)
+    
+    {{#if INTELLIGENT_TASK_ROUTING == "enabled"}}
+    # Apply intelligent routing optimizations
+    result = apply_intelligent_task_routing(result, context)
+    {{/if}}
+    
+    return result
+```
+
+### 2. QA Sub-Agent Integration
+```markdown
+## Native QA Agent with AI/ML Framework
+
+### AI-Powered Quality Assurance
+```python
+def native_qa_agent_with_ml_framework():
+    """Native QA agent with full AI/ML capabilities"""
+    
+    qa_framework = {
+        # ML-Powered Prediction (92% accuracy preserved)
+        "test_failure_prediction": {
+            "accuracy": "92%",
+            "ml_models": ["gradient_boosting", "neural_networks", "ensemble"],
+            "features": ["code_changes", "historical_patterns", "dependencies"],
+            "real_time_prediction": True
+        },
+        
+        # Test Optimization (63% time reduction preserved)  
+        "test_optimization": {
+            "time_reduction": "63%",
+            "optimization_algorithms": ["genetic", "simulated_annealing", "ml_guided"],
+            "execution_strategies": ["parallel", "priority_based", "risk_optimized"],
+            "adaptive_optimization": True
+        },
+        
+        # Anomaly Detection (94% precision preserved)
+        "anomaly_detection": {
+            "precision": "94%",
+            "detection_methods": ["statistical", "ml_based", "pattern_recognition"],
+            "real_time_monitoring": True,
+            "automated_alerting": True
+        },
+        
+        # Advanced Analytics
+        {{#if PERFORMANCE_ANALYTICS == "comprehensive"}}
+        "advanced_analytics": {
+            "predictive_quality_metrics": True,
+            "automated_root_cause_analysis": True,
+            "intelligent_test_case_generation": True,
+            "quality_trend_prediction": True
+        }
+        {{/if}}
+    }
+    
+    return qa_framework
+```
+
+### Natural Language Testing Requests
+```python
+def process_natural_qa_request(request, context):
+    """Process natural language QA requests"""
+    
+    # Analyze testing intent
+    qa_intent = analyze_qa_intent(request)
+    
+    qa_processors = {
+        "test_execution": execute_comprehensive_testing,
+        "quality_analysis": perform_quality_analysis,
+        "performance_testing": execute_performance_tests,
+        "security_testing": perform_security_analysis,
+        "automated_testing": setup_automated_test_suite,
+        "ml_prediction": execute_ml_predictions,
+        "anomaly_detection": perform_anomaly_detection
+    }
+    
+    # Execute QA operation
+    processor = qa_processors.get(qa_intent.type, execute_general_qa_task)
+    qa_result = processor(qa_intent, context)
+    
+    # Apply AI/ML enhancements
+    enhanced_result = apply_ai_ml_enhancements(qa_result, context)
+    
+    return enhanced_result
+```
+
+### 3. Architect Sub-Agent Integration
+```markdown
+## Native Architect Agent Capabilities
+
+### Architectural Analysis and Design
+```python
+def native_architect_agent_capabilities():
+    """Native architect agent with enhanced design capabilities"""
+    
+    capabilities = {
+        # System Architecture
+        "system_design": {
+            "microservices_architecture": True,
+            "distributed_systems_design": True,
+            "scalability_analysis": True,
+            "performance_architecture": True
+        },
+        
+        # Design Patterns
+        "design_patterns": {
+            "pattern_recognition": True,
+            "pattern_recommendation": True,
+            "anti_pattern_detection": True,
+            "custom_pattern_creation": True
+        },
+        
+        # Architecture Validation
+        "validation": {
+            "architecture_compliance": True,
+            "design_review": True,
+            "technical_debt_analysis": True,
+            "architecture_evolution": True
+        },
+        
+        {{#if COORDINATION_PATTERNS == "modern"}}
+        # Advanced architectural capabilities
+        "advanced_capabilities": {
+            "ai_assisted_architecture": True,
+            "automated_architecture_generation": True,
+            "intelligent_refactoring_recommendations": True,
+            "predictive_architecture_analysis": True
+        }
+        {{/if}}
+    }
+    
+    return capabilities
+```
+
+## Performance Optimization
+
+### 1. Native Sub-Agent Performance
+```markdown
+## Performance Optimization for Sub-Agents
+
+### Execution Optimization
+```python
+def optimize_subagent_execution(agents, task, context):
+    """Optimize sub-agent execution performance"""
+    
+    optimization_strategies = {
+        # Parallel execution optimization
+        "parallel_optimization": {
+            "enabled": {{PERFORMANCE_OPTIMIZATION == "maximum"}},
+            "max_parallel_agents": determine_optimal_parallelism(agents, task),
+            "load_balancing": "intelligent",
+            "resource_allocation": "dynamic"
+        },
+        
+        # Context optimization
+        "context_optimization": {
+            "context_caching": True,
+            "selective_context_loading": True,
+            "context_compression": True,
+            "predictive_context_preloading": {{ADVANCED_CONTEXT_MANAGEMENT == "enabled"}}
+        },
+        
+        # Task optimization
+        "task_optimization": {
+            "task_batching": True,
+            "intelligent_task_routing": {{INTELLIGENT_TASK_ROUTING == "enabled"}},
+            "adaptive_task_scheduling": True,
+            "performance_guided_execution": True
+        }
+    }
+    
+    # Apply optimizations based on configuration
+    optimized_execution_plan = create_optimized_execution_plan(
+        agents, task, context, optimization_strategies
+    )
+    
+    return execute_optimized_plan(optimized_execution_plan)
+```
+
+### Resource Management
+```python
+def manage_subagent_resources():
+    """Intelligent resource management for sub-agents"""
+    
+    resource_manager = {
+        # Memory management
+        "memory": {
+            "context_memory_pooling": True,
+            "intelligent_garbage_collection": True,
+            "memory_usage_optimization": True,
+            "memory_leak_prevention": True
+        },
+        
+        # CPU optimization
+        "cpu": {
+            "load_balanced_execution": True,
+            "cpu_usage_monitoring": True,
+            "adaptive_thread_management": True,
+            "performance_profiling": True
+        },
+        
+        # I/O optimization
+        "io": {
+            "async_io_operations": True,
+            "io_request_batching": True,
+            "intelligent_caching": True,
+            "file_system_optimization": True
+        }
+    }
+    
+    return resource_manager
+```
+
+### 2. Cross-Mode Performance
+```markdown
+## Cross-Mode Performance Optimization
+
+### Mode Transition Optimization
+```python
+def optimize_mode_transitions(from_mode, to_mode, context):
+    """Optimize transitions between APM and native modes"""
+    
+    transition_optimizations = {
+        # Context preservation optimization
+        "context_preservation": {
+            "selective_context_transfer": True,
+            "context_compression": True,
+            "intelligent_context_mapping": True,
+            "performance_context_caching": True
+        },
+        
+        # State synchronization optimization  
+        "state_synchronization": {
+            "async_state_sync": True,
+            "differential_state_updates": True,
+            "state_consistency_validation": True,
+            "rollback_state_protection": True
+        },
+        
+        # Performance continuity
+        "performance_continuity": {
+            "performance_profile_transfer": True,
+            "optimization_state_preservation": True,
+            "cache_continuity": True,
+            "resource_allocation_continuity": True
+        }
+    }
+    
+    return execute_optimized_transition(from_mode, to_mode, context, transition_optimizations)
+```
+
+## Integration Patterns
+
+### 1. Hybrid Workflow Patterns
+```markdown
+## Advanced Hybrid Workflow Integration
+
+### APM-to-Native Handoff Patterns
+```python
+def create_apm_to_native_handoff_pattern():
+    """Create seamless handoff from APM to native sub-agents"""
+    
+    handoff_pattern = {
+        # Initiation phase
+        "initiation": {
+            "apm_session_preservation": preserve_apm_session_state,
+            "context_extraction": extract_apm_context_for_native,
+            "task_analysis": analyze_task_for_native_capabilities,
+            "agent_selection": select_optimal_native_agents
+        },
+        
+        # Transition phase
+        "transition": {
+            "context_translation": translate_apm_context_to_native,
+            "state_synchronization": synchronize_cross_mode_state,
+            "performance_continuity": maintain_performance_characteristics,
+            "user_experience_continuity": ensure_seamless_user_experience
+        },
+        
+        # Execution phase  
+        "execution": {
+            "native_agent_coordination": coordinate_native_agents,
+            "performance_monitoring": monitor_native_execution_performance,
+            "context_updates": update_cross_mode_context,
+            "quality_assurance": validate_native_execution_quality
+        },
+        
+        # Integration phase
+        "integration": {
+            "result_translation": translate_native_results_to_apm,
+            "session_integration": integrate_results_with_apm_session,
+            "performance_aggregation": aggregate_cross_mode_performance,
+            "user_notification": notify_user_of_completion
+        }
+    }
+    
+    return handoff_pattern
+```
+
+### Native-to-APM Integration Patterns
+```python
+def create_native_to_apm_integration_pattern():
+    """Create seamless integration from native to APM personas"""
+    
+    integration_pattern = {
+        # Recognition phase
+        "recognition": {
+            "apm_capability_detection": detect_apm_specific_capabilities_needed,
+            "persona_requirement_analysis": analyze_required_apm_personas,
+            "compatibility_assessment": assess_apm_compatibility_requirements,
+            "integration_strategy_selection": select_optimal_integration_strategy
+        },
+        
+        # Preparation phase
+        "preparation": {
+            "native_context_preservation": preserve_native_execution_context,
+            "apm_environment_preparation": prepare_apm_execution_environment,
+            "context_translation": translate_native_context_to_apm,
+            "performance_baseline_establishment": establish_performance_baselines
+        },
+        
+        # Activation phase
+        "activation": {
+            "apm_persona_activation": activate_appropriate_apm_personas,
+            "voice_system_integration": integrate_apm_voice_capabilities,
+            "session_management_activation": activate_apm_session_management,
+            "specialized_capability_activation": activate_apm_specialized_features
+        },
+        
+        # Coordination phase
+        "coordination": {
+            "hybrid_coordination": coordinate_native_and_apm_capabilities,
+            "performance_optimization": optimize_hybrid_performance,
+            "context_synchronization": maintain_cross_mode_context_sync,
+            "quality_monitoring": monitor_hybrid_execution_quality
+        }
+    }
+    
+    return integration_pattern
+```
+
+### 2. Advanced Coordination Patterns
+```markdown
+## Sophisticated Multi-Mode Coordination
+
+### Intelligent Mode Selection
+```python
+def intelligent_mode_selection(task, context, user_preferences):
+    """Intelligently select optimal mode based on task and context"""
+    
+    selection_criteria = {
+        # Task analysis
+        "task_characteristics": {
+            "complexity": assess_task_complexity(task),
+            "agent_requirements": identify_required_agent_types(task),
+            "performance_requirements": determine_performance_needs(task),
+            "specialized_capabilities": identify_specialized_capability_needs(task)
+        },
+        
+        # Context analysis
+        "context_factors": {
+            "current_mode": context.get("active_mode"),
+            "session_history": analyze_session_mode_history(context),
+            "performance_history": analyze_mode_performance_history(context),
+            "user_satisfaction": assess_user_satisfaction_by_mode(context)
+        },
+        
+        # User preferences
+        "user_preferences": {
+            "preferred_mode": user_preferences.get("preferred_mode"),
+            "performance_priority": user_preferences.get("performance_priority"),
+            "feature_preferences": user_preferences.get("feature_preferences"),
+            "experience_level": user_preferences.get("experience_level")
+        }
+    }
+    
+    # Intelligent mode selection algorithm
+    optimal_mode = select_optimal_mode_with_ai(selection_criteria)
+    
+    return optimal_mode
+```
+
+### Dynamic Mode Adaptation
+```python
+def dynamic_mode_adaptation(current_mode, execution_context, performance_metrics):
+    """Dynamically adapt mode based on execution performance"""
+    
+    adaptation_triggers = {
+        # Performance-based triggers
+        "performance_degradation": performance_metrics.get("response_time") > threshold,
+        "resource_exhaustion": performance_metrics.get("resource_usage") > limit,
+        "error_rate_increase": performance_metrics.get("error_rate") > acceptable_rate,
+        
+        # Context-based triggers  
+        "capability_mismatch": not current_mode_supports_required_capabilities(execution_context),
+        "user_frustration": detect_user_frustration_indicators(execution_context),
+        "efficiency_opportunity": detect_efficiency_improvement_opportunity(execution_context)
+    }
+    
+    # Determine if adaptation is beneficial
+    if should_adapt_mode(adaptation_triggers):
+        new_mode = determine_optimal_mode_for_context(execution_context, performance_metrics)
+        adaptation_result = execute_mode_adaptation(current_mode, new_mode, execution_context)
+        return adaptation_result
+    
+    return {"adapted": False, "current_mode": current_mode}
+```
+
+## Quality Assurance and Testing
+
+### 1. Sub-Agent Integration Testing
+```markdown
+## Comprehensive Sub-Agent Testing Framework
+
+### Native Sub-Agent Functionality Testing
+```python
+def test_native_subagent_functionality():
+    """Comprehensive testing of native sub-agent capabilities"""
+    
+    test_suites = {
+        # Natural language processing tests
+        "nlp_tests": {
+            "agent_mention_detection": test_agent_mention_accuracy,
+            "intent_recognition": test_intent_classification_accuracy,
+            "context_understanding": test_context_comprehension,
+            "ambiguity_resolution": test_ambiguous_request_handling
+        },
+        
+        # Coordination tests
+        "coordination_tests": {
+            "single_agent_coordination": test_single_agent_execution,
+            "multi_agent_coordination": test_multi_agent_orchestration,
+            "parallel_execution": test_parallel_agent_coordination,
+            "conflict_resolution": test_agent_conflict_resolution
+        },
+        
+        # Performance tests
+        "performance_tests": {
+            "response_time": test_agent_response_times,
+            "throughput": test_agent_throughput_capacity,
+            "resource_usage": test_resource_consumption,
+            "scalability": test_agent_scalability
+        },
+        
+        # Integration tests
+        "integration_tests": {
+            "apm_compatibility": test_apm_integration_compatibility,
+            "context_preservation": test_cross_mode_context_preservation,
+            "state_consistency": test_cross_mode_state_consistency,
+            "performance_parity": test_cross_mode_performance_parity
+        }
+    }
+    
+    return execute_comprehensive_test_suite(test_suites)
+```
+
+### Cross-Mode Integration Testing
+```python
+def test_cross_mode_integration():
+    """Test integration between APM and native sub-agent modes"""
+    
+    integration_tests = {
+        # Mode transition tests
+        "transition_tests": {
+            "apm_to_native": test_apm_to_native_transitions,
+            "native_to_apm": test_native_to_apm_transitions,
+            "hybrid_mode": test_hybrid_mode_operations,
+            "mode_switching": test_dynamic_mode_switching
+        },
+        
+        # Context preservation tests
+        "context_tests": {
+            "context_translation": test_context_translation_accuracy,
+            "state_synchronization": test_state_sync_reliability,
+            "performance_continuity": test_performance_metric_continuity,
+            "user_experience_continuity": test_ux_continuity
+        },
+        
+        # Compatibility tests
+        "compatibility_tests": {
+            "feature_parity": test_feature_availability_across_modes,
+            "behavior_consistency": test_consistent_behavior_across_modes,
+            "performance_consistency": test_performance_consistency,
+            "error_handling_consistency": test_error_handling_parity
+        }
+    }
+    
+    return execute_integration_test_suite(integration_tests)
+```
+
+### 2. Performance Validation
+```markdown
+## Performance Validation Framework
+
+### Sub-Agent Performance Benchmarks
+```yaml
+subagent_performance_benchmarks:
+  natural_language_processing:
+    intent_recognition_accuracy: ">95%"
+    agent_mention_detection: ">98%"
+    context_understanding: ">90%"
+    response_generation_time: "<200ms"
+  
+  coordination_efficiency:
+    single_agent_response_time: "<500ms"
+    multi_agent_coordination_time: "<1000ms"
+    parallel_execution_speedup: ">3x"
+    resource_utilization_efficiency: ">85%"
+  
+  integration_performance:
+    mode_transition_time: "<100ms"
+    context_translation_time: "<50ms"
+    cross_mode_sync_time: "<200ms"
+    hybrid_execution_efficiency: ">90%"
+```
+
+### Performance Monitoring and Analytics
+```python
+{{#if PERFORMANCE_ANALYTICS == "comprehensive"}}
+def comprehensive_performance_monitoring():
+    """Comprehensive performance monitoring for sub-agents"""
+    
+    monitoring_framework = {
+        # Real-time performance metrics
+        "real_time_metrics": {
+            "response_time_distribution": monitor_response_time_percentiles,
+            "throughput_monitoring": monitor_request_throughput,
+            "error_rate_tracking": monitor_error_rates,
+            "resource_utilization": monitor_system_resource_usage
+        },
+        
+        # Predictive analytics
+        "predictive_analytics": {
+            "performance_trend_prediction": predict_performance_trends,
+            "capacity_planning": predict_capacity_requirements,
+            "bottleneck_prediction": predict_potential_bottlenecks,
+            "optimization_opportunities": identify_optimization_opportunities
+        },
+        
+        # Advanced analytics
+        "advanced_analytics": {
+            "user_satisfaction_correlation": correlate_performance_with_satisfaction,
+            "business_impact_analysis": analyze_performance_business_impact,
+            "comparative_analysis": compare_performance_across_modes,
+            "roi_analysis": calculate_performance_roi
+        }
+    }
+    
+    return monitoring_framework
+{{/if}}
+```
+
+---
+
+**Template Status**: {{TEMPLATE_STATUS}}
+**Integration Mode**: {{SUBAGENT_INTEGRATION_MODE}}
+**Last Updated**: {{LAST_UPDATED}}
+**Version**: {{TEMPLATE_VERSION}}
+**Native Sub-Agent Support**: Enabled
