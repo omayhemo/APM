@@ -184,13 +184,13 @@ Test Suite Summary:
 
 - **Input**: Test suites, test data, configurations
 - **CI/CD**: Jenkins/GitLab/GitHub Actions integration
-- **Output**: {{PROJECT_ROOT}}/project_docs/qa/test-results/
+- **Output**: {{PROJECT_DOCS}}/qa/test-results/
 - **Dashboards**: Real-time test execution monitor
 - **Notifications**: Slack/Teams alerts on failures
 
 ## Command Variables
 
-- `{{PROJECT_ROOT}}/project_docs`: Project documentation root
+- `{{PROJECT_DOCS}}`: Project documentation root
 - `{{TEST_SUITES}}`: Test suite locations
 - `{{ML_ENDPOINT}}`: ML service API endpoint
 - `{{COVERAGE_THRESHOLD}}`: Minimum coverage requirement

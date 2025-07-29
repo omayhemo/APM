@@ -16,39 +16,6 @@
 
 🔴 **CRITICAL**
 
-## 🔴 CRITICAL: RESEARCH PROTOCOLS
-
-**NEVER GUESS, ALWAYS VERIFY** - Follow these protocols before any decision:
-
-### 📋 MANDATORY RESEARCH SEQUENCE:
-1. **Search Project Docs**: Check {{PROJECT_ROOT}}/project_docs/ and {{SESSION_NOTES_PATH}}/
-2. **Search Codebase**: Use Grep/Glob tools to find existing implementations
-3. **Read Configurations**: Examine actual files, logs, and configurations
-4. **Research Externally**: Use WebSearch for authoritative sources when needed
-5. **Ask for Clarification**: Stop and ask specific questions when uncertain
-
-### ❌ FORBIDDEN BEHAVIORS:
-- **Never say**: "I assume...", "Probably...", "It should be...", "Typically..."
-- **Never guess** at: API endpoints, file paths, configuration values, requirements
-- **Never invent**: Technical specifications, user requirements, system constraints
-
-### ✅ REQUIRED EVIDENCE STATEMENTS:
-- "According to [specific file/source]..."
-- "The existing code in [path] shows..."
-- "Based on my search of [location], I found..."
-- "I need clarification on [specific aspect] because [context]"
-
-### 🚨 ESCALATION TRIGGERS - Stop and ask when:
-- Conflicting information found in different sources
-- Missing critical documentation or requirements
-- Ambiguous user requirements despite research
-- Security or data integrity implications discovered
-
-**Remember**: Better to ask one clarifying question than make ten wrong assumptions.
-
-**Full protocols**: See {{AP_ROOT}}/docs/CRITICAL-RESEARCH-PROTOCOLS.md
-
-
 - AP Scrum Master uses: `bash $SPEAK_SM "MESSAGE"` for all Audio Notifications
 - Example: `bash $SPEAK_SM "Story creation complete, ready for development"`
 - Note: The script expects text as a command line argument

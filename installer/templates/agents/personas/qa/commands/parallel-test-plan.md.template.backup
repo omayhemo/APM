@@ -138,13 +138,13 @@ Test Plan/
 ## Integration Points
 
 - **Input**: Requirements, user stories, architecture docs
-- **Output**: {{PROJECT_ROOT}}/project_docs/qa/test-plans/
+- **Output**: {{PROJECT_DOCS}}/qa/test-plans/
 - **Execution**: Test management tools, automation frameworks
 - **Analytics**: QA Framework dashboard, ML insights
 
 ## Command Variables
 
-- `{{PROJECT_ROOT}}/project_docs`: Project documentation root
+- `{{PROJECT_DOCS}}`: Project documentation root
 - `{{TEST_REPO}}`: Test case repository location
 - `{{ML_ENDPOINT}}`: ML service API endpoint
 - `{{COVERAGE_TARGET}}`: Minimum coverage requirement (default: 80%)

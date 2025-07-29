@@ -98,13 +98,13 @@ The command preserves ML capabilities through specialized analysis:
 ## Integration Points
 
 - **Input**: User stories, architecture docs, business requirements
-- **Output**: {{PROJECT_ROOT}}/project_docs/qa/test-strategies/
+- **Output**: {{PROJECT_DOCS}}/qa/test-strategies/
 - **Downstream**: Test plan creation, automation implementation
 - **Metrics**: Track via QA Framework analytics
 
 ## Command Variables
 
-- `{{PROJECT_ROOT}}/project_docs`: Project documentation root
+- `{{PROJECT_DOCS}}`: Project documentation root
 - `{{QA_FRAMEWORK_PATH}}`: QA Framework installation directory
 - `{{ML_MODELS_PATH}}`: AI/ML model repository location
 - `{{TEST_METRICS_DB}}`: Test metrics database connection
