@@ -471,7 +471,7 @@ def model_dependency_impact():
 ### Environment Integration
 ```bash
 {{AP_ROOT}}                    # APM framework root directory
-{{PROJECT_ROOT}}/project_docs               # Project documentation path
+{{PROJECT_DOCS}}               # Project documentation path
 {{DEPENDENCY_DATA_PATH}}       # Dependency tracking data storage
 {{RESOLUTION_LOG_PATH}}        # Resolution activity logs
 {{ESCALATION_CONFIG_PATH}}     # Escalation configuration

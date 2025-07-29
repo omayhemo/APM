@@ -248,7 +248,7 @@ Large documents like PRDs or Architecture Documents can become unwieldy for AI a
 - **How to Use:**
   1. Ensure the large document you want to shard (e.g., `prd.md`, `architecture.md`) exists in your project's `project_documentation` folder.
   2. Instruct your active IDE agent (e.g., PO, SM, or the AP Orchestrator embodying one of these roles) to run the `doc-sharding-task.md`.
-  3. You will typically specify the _source file_ to be sharded. For example: "Run the `doc-sharding-task.md` against `{{PROJECT_ROOT}}/project_docs/base/prd.md`."
+  3. You will typically specify the _source file_ to be sharded. For example: "Run the `doc-sharding-task.md` against `$PROJECT_DOCS/base/prd.md`."
   4. The task will guide the agent to break down the document. The output might be new smaller files or instructions on how the document is logically segmented.
 
 ### Utilizing Dedicated IDE Agents (SM and Dev)

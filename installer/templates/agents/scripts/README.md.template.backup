@@ -57,7 +57,7 @@ bash $AP_ROOT/{{AP_SCRIPTS}}/parallel-sprint.sh --sprint feature-auth --agents d
 Extracts tasks from story files and adds them to the central task tracking file.
 
 ```bash
-./extract-tasks.sh {{PROJECT_ROOT}}/project_docs/stories/STORY-001.md
+./extract-tasks.sh $PROJECT_DOCS/stories/STORY-001.md
 ```
 
 #### query-tasks.sh
@@ -165,9 +165,9 @@ These scripts are designed to work seamlessly with Claude Code:
 - **Quick Reference**: [`../docs/PARALLEL-SUBTASK-QUICK-REFERENCE.md`](../docs/PARALLEL-SUBTASK-QUICK-REFERENCE.md)
 
 ### File Locations
-- **Tasks File**: `{{PROJECT_ROOT}}/project_docs/session-notes/tasks/tasks.md`
-- **Archive Directory**: `{{PROJECT_ROOT}}/project_docs/session-notes/tasks/archive/`
-- **Story Files**: `{{PROJECT_ROOT}}/project_docs/stories/`
+- **Tasks File**: `$PROJECT_DOCS/session-notes/tasks/tasks.md`
+- **Archive Directory**: `$PROJECT_DOCS/session-notes/tasks/archive/`
+- **Story Files**: `$PROJECT_DOCS/stories/`
 
 ## Troubleshooting
 

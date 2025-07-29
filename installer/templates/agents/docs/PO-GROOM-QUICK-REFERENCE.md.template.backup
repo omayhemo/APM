@@ -6,8 +6,8 @@ The `/groom` command executes comprehensive backlog grooming through 18 parallel
 ## Command Syntax
 ```bash
 /groom [options]
-  --source <path>         # Documentation source (default: {{PROJECT_ROOT}}/project_docs)
-  --output <path>         # Output directory (default: {{PROJECT_ROOT}}/project_docs/backlog)
+  --source <path>         # Documentation source (default: $PROJECT_DOCS)
+  --output <path>         # Output directory (default: $PROJECT_DOCS/backlog)
   --sprint-length <days>  # Sprint duration (default: 14)
   --team-velocity <pts>   # Team velocity (default: 40)
   --focus-areas <list>    # Specific areas to prioritize
