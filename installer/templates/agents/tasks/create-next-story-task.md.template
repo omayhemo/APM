@@ -18,16 +18,16 @@ To identify the next logical story based on project progress and epic definition
 ## Inputs for this Task
 
 - Access to the project's documentation repository, specifically:
-  - `$PROJECT_DOCS/index.md` (hereafter "Index Doc")
-  - `{{PROJECT_DOCS}}/planning/epics/epic-orchestration-guid.md` To Fully understand the epic structure and story identification process.
-  - All Epic files (e.g., `{{PROJECT_DOCS}}/planning/epics/epic-{n}.md` - hereafter "Epic Files")
-  - Existing story files in `project_docs/planning/stories/`
+  - `{{PROJECT_ROOT}}/project_docs/index.md` (hereafter "Index Doc")
+  - `{{PROJECT_ROOT}}/project_docs/epics/epic-orchestration-guid.md` To Fully understand the epic structure and story identification process.
+  - All Epic files (e.g., `{{PROJECT_ROOT}}/project_docs/epics/epic-{n}.md` - hereafter "Epic Files")
+  - Existing story files in `{{PROJECT_ROOT}}/project_docs/stories/`
   - Main PRD (hereafter "PRD Doc")
   - Main Architecture Document (hereafter "Main Arch Doc")
   - Frontend Architecture Document (hereafter "Frontend Arch Doc," if relevant)
-  - Project Structure Guide (`$PROJECT_DOCS/base/project_structure.md`)
-  - Operational Guidelines Document (`$PROJECT_DOCS/base/development_workflow.md`)
-  - Technology Stack Document (`$PROJECT_DOCS/base/tech_stack.md`)
+  - Project Structure Guide (`{{PROJECT_ROOT}}/project_docs/base/project_structure.md`)
+  - Operational Guidelines Document (`{{PROJECT_ROOT}}/project_docs/base/development_workflow.md`)
+  - Technology Stack Document (`{{PROJECT_ROOT}}/project_docs/base/tech_stack.md`)
   - Data Models Document (as referenced in Index Doc)
   - API Reference Document (as referenced in Index Doc)
   - UI/UX Specifications, Style Guides, Component Guides (if relevant, as referenced in Index Doc)
@@ -40,7 +40,7 @@ To identify the next logical story based on project progress and epic definition
 ### 1. Identify Next Story for Preparation (Automated)
 
 **The task-pre-hook automatically:**
-- Scans `project_docs/planning/stories/` for the highest-numbered story
+- Scans `{{PROJECT_ROOT}}/project_docs/stories/` for the highest-numbered story
 - Validates previous story completion status
 - Checks epic files for the next story in sequence
 - Verifies all prerequisites are met
@@ -67,7 +67,7 @@ To identify the next logical story based on project progress and epic definition
 
 ### 3. Gather & Synthesize In-Depth Technical Context for Dev Agent
 
-- <critical_rule>Systematically use the Index Doc (`$PROJECT_DOCS/index.md`) as your primary guide to discover paths to ALL detailed documentation relevant to the current story's implementation needs.</critical_rule>
+- <critical_rule>Systematically use the Index Doc (`{{PROJECT_ROOT}}/project_docs/index.md`) as your primary guide to discover paths to ALL detailed documentation relevant to the current story's implementation needs.</critical_rule>
 - Thoroughly review the PRD Doc, Main Arch Doc, and Frontend Arch Doc (if a UI story).
 - Guided by the Index Doc and the story's needs, locate, analyze, and synthesize specific, relevant information from sources such as:
   - Data Models Doc (structure, validation rules).
@@ -87,18 +87,18 @@ To identify the next logical story based on project progress and epic definition
 ### 5. Populate Story Template with Full Context
 
 ## 📁 FILE OUTPUT REQUIREMENTS
-- **Primary Location**: `project_docs/planning/stories/`
-- **Secondary Location**: `deliverables/planning/stories/`
+- **Primary Location**: `{{PROJECT_ROOT}}/project_docs/stories/`
+- **Secondary Location**: `{{PROJECT_ROOT}}/project_docs/stories/archive/`
 - **Naming Convention**: `{epicNum}.{storyNum}.story.md`
 - **Supporting Files**: All story-related documentation in same directory
 
 ## 🚨 CRITICAL PATH VALIDATION
 Before any file operation:
-1. Verify path starts with `project_docs/planning/stories/` or `deliverables/planning/stories/`
+1. Verify path starts with `{{PROJECT_ROOT}}/project_docs/stories/` or `{{PROJECT_ROOT}}/project_docs/stories/archive/`
 2. Verify path does NOT target root directory or APM infrastructure
 3. Focus ONLY on project deliverables, never APM infrastructure
 
-- Create a new story file: `project_docs/planning/stories/{epicNum}.{storyNum}.story.md`.
+- Create a new story file: `{{PROJECT_ROOT}}/project_docs/stories/{epicNum}.{storyNum}.story.md`.
 - Use the Story Template to structure the file.
 - Fill in:
   - Story `{EpicNum}.{StoryNum}: {Short Title Copied from Epic File}`

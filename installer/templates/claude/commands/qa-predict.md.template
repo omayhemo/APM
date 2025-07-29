@@ -151,9 +151,13 @@ When the command is invoked:
 2. **Parallel Data Collection** (4 tasks with PostgreSQL optimization)
    ```
    Task 1: Extract code change metrics (PostgreSQL: 50ms vs File: 2s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Load test execution history (PostgreSQL: 100ms vs File: 5s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Analyze dependency graph (PostgreSQL: 75ms vs File: 1.5s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 4: Gather team performance data (PostgreSQL: 125ms vs File: 3s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 3. **Feature Engineering with PostgreSQL**

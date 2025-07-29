@@ -44,11 +44,17 @@ When invoked, the assistant will:
 - **Coverage**: REST, GraphQL, WebSocket APIs
 - **Dependencies**: API servers, authentication
 
-### Stream 4: UI/E2E Tests
+### Stream 4: UI/E2E Tests (Playwright-Powered)
 - **Execution Time**: 8-15 minutes
-- **Resource Usage**: Browser instances, memory
-- **Coverage**: User workflows, cross-browser
-- **Dependencies**: Browser drivers, test environments
+- **Resource Usage**: Playwright browser instances, memory
+- **Coverage**: User workflows, cross-browser via Playwright MCP
+- **Dependencies**: Playwright MCP tools, test environments
+- **Key Features**: 
+  - Parallel browser instance management
+  - Automatic retry on flaky tests
+  - Built-in wait strategies
+  - Network request interception
+  - Console log capture
 
 ### Stream 5: Security Tests
 - **Execution Time**: 10-20 minutes
@@ -160,8 +166,11 @@ When the command is invoked:
    if command -v mcp__postgres__query >/dev/null 2>&1; then
      echo "PostgreSQL MCP detected - enabling database-driven parallel coordination"
      Task 1: Setup parallel execution schema
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
      Task 2: Initialize resource allocation tracking  
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
      Task 3: Start real-time coordination service
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    else
      echo "Using file-based coordination with limited efficiency"
    fi
@@ -170,11 +179,21 @@ When the command is invoked:
 2. **Parallel Environment Setup** (6 simultaneous tasks with PostgreSQL coordination)
    ```
    Task 1: Initialize unit test environment (PostgreSQL: 200ms vs File: 5s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Setup integration test database (PostgreSQL: 300ms vs File: 8s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Launch API test services (PostgreSQL: 400ms vs File: 6s)
-   Task 4: Start browser instances for UI tests (PostgreSQL: 500ms vs File: 10s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+   Task 4: Start Playwright browser instances for UI tests (PostgreSQL: 500ms vs File: 10s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+          - Initialize Playwright MCP connection
+          - Launch Chrome, Firefox, Safari, Edge browsers
+          - Configure browser contexts for parallel execution
+          - Setup network interception and mocking
    Task 5: Configure security scanning tools (PostgreSQL: 350ms vs File: 7s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 6: Initialize performance test infrastructure (PostgreSQL: 450ms vs File: 9s)
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 2. **Resource Allocation**

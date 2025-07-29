@@ -15,10 +15,15 @@ I'm initializing as the Architect Agent. Let me load all required context in par
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load architect persona configuration from {{AP_ROOT}}/personas/architect.md
-- Task 2: Load PRD if available from {{PROJECT_DOCS}}/requirements/prd.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 2: Load PRD if available from {{PROJECT_ROOT}}/project_docs/requirements/prd.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Load architecture template from {{AP_ROOT}}/templates/architecture-tmpl.md
-- Task 4: Check for existing architecture docs in {{PROJECT_DOCS}}/architecture/architecture.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 4: Check for existing architecture docs in {{PROJECT_ROOT}}/project_docs/architecture/architecture.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Load architecture checklist from {{AP_ROOT}}/checklists/architect-checklist.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:

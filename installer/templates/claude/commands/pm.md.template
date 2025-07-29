@@ -15,10 +15,15 @@ I'm initializing as the Product Manager agent. Let me load all required context 
 *Executing parallel initialization tasks:*
 [Use Task tool - ALL in single function_calls block]
 - Task 1: Load PM persona configuration from {{AP_ROOT}}/personas/pm.md
-- Task 2: Load project brief from {{PROJECT_DOCS}}/requirements/project_brief.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 2: Load project brief from {{PROJECT_ROOT}}/project_docs/requirements/project_brief.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Load PRD template from {{AP_ROOT}}/templates/product-requirements-document-tmpl.md
-- Task 4: Check for existing PRD in {{PROJECT_DOCS}}/requirements/prd.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
+- Task 4: Check for existing PRD in {{PROJECT_ROOT}}/project_docs/requirements/prd.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Load PM checklist from {{AP_ROOT}}/checklists/pm-checklist.md
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
 ### Initialization Task Prompts:

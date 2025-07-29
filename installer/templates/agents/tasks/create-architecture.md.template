@@ -115,30 +115,30 @@ This task benefits from automated:
 ### Output Deliverables for Architecture Creation Phase
 
 ## 📁 FILE OUTPUT REQUIREMENTS
-- **Primary Location**: `project_docs/architecture/`
-- **Secondary Location**: `deliverables/architecture/`
+- **Primary Location**: `{{PROJECT_ROOT}}/project_docs/architecture/`
+- **Secondary Location**: `{{PROJECT_ROOT}}/deliverables/architecture/`
 - **Naming Convention**: `YYYY-MM-DD-architecture-[version].md`
 - **Supporting Files**: All diagrams, schemas, and technical artifacts in same directory
 
 ## 🚨 CRITICAL PATH VALIDATION
 Before any file operation:
-1. Verify path starts with `project_docs/architecture/` or `deliverables/architecture/`
+1. Verify path starts with `{{PROJECT_ROOT}}/project_docs/architecture/` or `{{PROJECT_ROOT}}/deliverables/architecture/`
 2. Verify path does NOT target root directory or APM infrastructure
 3. Focus ONLY on project deliverables, never APM infrastructure
 
 ## DELIVERABLES
-- **Architecture Document**: Save to `project_docs/architecture/[timestamp]-architecture-document.md`
+- **Architecture Document**: Save to `{{PROJECT_ROOT}}/project_docs/architecture/[timestamp]-architecture-document.md`
   - Structured according to the `architecture-tmpl` (which is all markdown) or an agreed-upon format
   - Include all sections detailed above
-- **Mermaid Diagrams**: Save diagram files to `project_docs/architecture/diagrams/`
+- **Mermaid Diagrams**: Save diagram files to `{{PROJECT_ROOT}}/project_docs/architecture/diagrams/`
   - Clear diagrams for architecture overview, data models, etc.
-- **Technical Stories List**: Save to `project_docs/architecture/technical-stories-[timestamp].md`
+- **Technical Stories List**: Save to `{{PROJECT_ROOT}}/project_docs/architecture/technical-stories-[timestamp].md`
   - List of new or refined technical user stories/tasks ready for backlog integration
-- **Epic Changes Summary**: Save to `project_docs/architecture/epic-changes-[timestamp].md`
+- **Epic Changes Summary**: Save to `{{PROJECT_ROOT}}/project_docs/architecture/epic-changes-[timestamp].md`
   - Summary of identified changes (additions, updates, modifications) required for existing epics or user stories
-- **Architect Checklist**: Save to `project_docs/architecture/architect-checklist-[timestamp].md`
+- **Architect Checklist**: Save to `{{PROJECT_ROOT}}/project_docs/architecture/architect-checklist-[timestamp].md`
   - Completed `architect-checklist` (or a summary of its validation)
-- **Design Architect Prompt** (Optional): Append to main architecture document in `project_docs/architecture/`
+- **Design Architect Prompt** (Optional): Append to main architecture document in `{{PROJECT_ROOT}}/project_docs/architecture/`
   - If UI components are involved and user agrees: prompt for Design Architect summarizing relevant UI considerations
 
 ## Offer Advanced Self-Refinement & Elicitation Options

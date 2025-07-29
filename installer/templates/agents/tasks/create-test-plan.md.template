@@ -170,29 +170,29 @@ Using the `test-plan-tmpl` template (found in `templates#test-plan-tmpl`), creat
 ## Output Deliverables
 
 ## 📁 FILE OUTPUT REQUIREMENTS
-- **Primary Location**: `project_docs/test/plans/`
-- **Secondary Location**: `deliverables/test/plans/`
+- **Primary Location**: `{{PROJECT_ROOT}}/project_docs/test/plans/`
+- **Secondary Location**: `{{PROJECT_ROOT}}/deliverables/test/plans/`
 - **Naming Convention**: `YYYY-MM-DD-test-plan-[feature/epic].md`
 - **Supporting Files**: All test-related documents in same directory
 
 ## 🚨 CRITICAL PATH VALIDATION
 Before any file operation:
-1. Verify path starts with `project_docs/test/plans/` or `deliverables/test/plans/`
+1. Verify path starts with `{{PROJECT_ROOT}}/project_docs/test/plans/` or `{{PROJECT_ROOT}}/deliverables/test/plans/`
 2. Verify path does NOT target root directory or APM infrastructure
 3. Focus ONLY on project deliverables, never APM infrastructure
 
 ## DELIVERABLES
-- **Detailed Test Plan Document**: Save to `project_docs/test/plans/[timestamp]-test-plan-[feature].md`
+- **Detailed Test Plan Document**: Save to `{{PROJECT_ROOT}}/project_docs/test/plans/[timestamp]-test-plan-[feature].md`
   - Following `test-plan-tmpl` format
-- **Test Case Specifications**: Save to `project_docs/test/plans/test-cases/[timestamp]-test-cases-[feature].md`
+- **Test Case Specifications**: Save to `{{PROJECT_ROOT}}/project_docs/test/plans/test-cases/[timestamp]-test-cases-[feature].md`
   - With full traceability to requirements
-- **Test Data Requirements**: Save to `project_docs/test/plans/test-data/[timestamp]-test-data-requirements.md`
+- **Test Data Requirements**: Save to `{{PROJECT_ROOT}}/project_docs/test/plans/test-data/[timestamp]-test-data-requirements.md`
   - Including creation procedures
-- **Environment Setup Guide**: Save to `project_docs/test/plans/setup/[timestamp]-environment-setup.md`
+- **Environment Setup Guide**: Save to `{{PROJECT_ROOT}}/project_docs/test/plans/setup/[timestamp]-environment-setup.md`
   - With configuration details
-- **Execution Timeline**: Save to `project_docs/test/plans/[timestamp]-execution-timeline.md`
+- **Execution Timeline**: Save to `{{PROJECT_ROOT}}/project_docs/test/plans/[timestamp]-execution-timeline.md`
   - Integrated with development schedule
-- **Risk Mitigation Plan**: Save to `project_docs/test/plans/[timestamp]-risk-mitigation-plan.md`
+- **Risk Mitigation Plan**: Save to `{{PROJECT_ROOT}}/project_docs/test/plans/[timestamp]-risk-mitigation-plan.md`
   - With specific countermeasures
 
 ## Success Criteria
