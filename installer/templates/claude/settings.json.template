@@ -70,7 +70,8 @@
     "HOOK_STOP_ENABLED": "false",
     "HOOK_SUBAGENT_STOP_ENABLED": "false",
     "HOOK_USER_PROMPT_SUBMIT_ENABLED": "false",
-    "HOOK_PRE_COMPACT_ENABLED": "false"
+    "HOOK_PRE_COMPACT_ENABLED": "false",
+    "PROMPT_APPEND_TEXT": ""
   },
   "hooks": {
     "PreToolUse": [

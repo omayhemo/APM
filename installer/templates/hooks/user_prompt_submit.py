@@ -156,6 +156,29 @@ def main():
         #         print(json.dumps({"blocked": True, "reason": f"Prompt contains blocked pattern: {pattern}"}))
         #         sys.exit(1)
         
+        # Check for append text configuration
+        append_text = os.environ.get('PROMPT_APPEND_TEXT', '').strip()
+        
+        if append_text:
+            # Append configured text to the prompt with a space separator
+            modified_prompt = f"{prompt} {append_text}"
+            logger.info(f"Appending text to prompt: '{append_text}'")
+            logger.info(f"Modified prompt length: {len(modified_prompt)} chars")
+            
+            # Return the modified prompt to Claude
+            output = {
+                "hookSpecificOutput": {
+                    "hookEventName": "UserPromptSubmit",
+                    "additionalContext": f" {append_text}"
+                }
+            }
+            
+            # Print the output as JSON
+            print(json.dumps(output))
+            logger.info(f"Successfully appended text to prompt")
+        else:
+            logger.info("No append text configured (PROMPT_APPEND_TEXT is empty or not set)")
+        
         # Return success (allow prompt processing)
         sys.exit(0)
         

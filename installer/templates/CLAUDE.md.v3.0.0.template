@@ -1,10 +1,10 @@
-# AP Mapping Instructions - v3.0.0
+# AP Mapping Instructions - v3.3.0
 
 This file provides guidance to AI CLI when working with code in this repository using the AP (Agentic Persona) mapping with native Claude Code sub-agent support.
 
-## 🚀 DUAL-MODE OPERATION (v3.0.0)
+## 🚀 DUAL-MODE OPERATION (v3.3.0)
 
-APM v3.0.0 supports **two modes of operation** with 100% feature parity:
+APM v3.3.0 supports **two modes of operation** with 100% feature parity and **configurable prompt enhancement**:
 
 ### 1️⃣ Traditional APM Commands
 Use familiar slash commands for precise agent activation:

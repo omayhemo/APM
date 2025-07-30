@@ -1,26 +1,26 @@
 # Agentic Persona Mapping (APM) Framework
 
-**v3.2.0** - Revolutionary AI-powered framework with **native sub-agent parallelism** delivering **4-8x performance improvement** in software development workflows.
+**v3.3.0** - Revolutionary AI-powered framework with **native sub-agent parallelism** and **configurable prompt enhancement** delivering **4-8x performance improvement** in software development workflows.
 
 ## 🚀 Quick Start
 
-**Latest Release:** v3.2.0 ⚡ *Epic 17 Complete - Native Sub-Agent Architecture*
+**Latest Release:** v3.3.0 ⚡ *New Feature: Configurable Prompt Enhancement*
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
 
-APM v3.2.0 delivers **revolutionary native sub-agent architecture** that enables true parallel AI agent execution:
+APM v3.3.0 delivers **revolutionary native sub-agent architecture** with **configurable prompt enhancement** that enables true parallel AI agent execution:
 
 - **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
 - **⚡ Native Sub-Agent Parallelism**: True concurrent execution with 4-8x performance improvement
@@ -34,7 +34,32 @@ APM v3.2.0 delivers **revolutionary native sub-agent architecture** that enables
 
 ## Key Features
 
-### 🚀 **What's New in v3.2.0 - Epic 17 Native Sub-Agent Revolution**
+### 🔧 **What's New in v3.3.0 - Configurable Prompt Enhancement**
+
+**Revolutionary Prompt Customization:**
+- **🎯 Configurable Prompt Append**: Automatically append custom text to ALL user prompts
+- **🔍 Invisible to Users**: Appended content processed by Claude but hidden from UI
+- **⚙️ Simple Configuration**: Single environment variable `PROMPT_APPEND_TEXT` in settings.json
+- **🎪 Perfect for Standards**: Enforce coding standards, APM guidelines, or project context
+- **📝 Format Control**: Automatic spacing between user prompt and appended text
+- **🛡️ Error Resilient**: Hook fails gracefully without blocking Claude
+- **📊 Comprehensive Testing**: Full test suite for all scenarios
+- **📚 Complete Documentation**: Step-by-step configuration guide
+
+**Usage Example:**
+```json
+{
+  "env": {
+    "HOOK_USER_PROMPT_SUBMIT_ENABLED": "true",
+    "PROMPT_APPEND_TEXT": "[Remember: Update backlog.md after story work]"
+  }
+}
+```
+
+**User types:** "Create a login function"  
+**Claude receives:** "Create a login function [Remember: Update backlog.md after story work]"
+
+### 🚀 **v3.2.0 - Epic 17 Native Sub-Agent Revolution**
 
 **Complete Architecture Transformation:**
 - **⚡ Native Sub-Agent Parallelism**: Replaced Task-based simulation with true native Claude Code sub-agents

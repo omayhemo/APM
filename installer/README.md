@@ -1,11 +1,12 @@
 # Agentic Persona Mapping (APM) Framework
 
-**Version: 3.2.0** - Native Sub-Agent Architecture with 4-8x Performance
+**Version: 3.3.0** - Native Sub-Agent Architecture with Configurable Prompt Enhancement
 
 ## What is Agentic Persona Mapping?
 
-APM v3.2.0 delivers **revolutionary native sub-agent architecture** that transforms AI-powered software development:
+APM v3.3.0 delivers **revolutionary native sub-agent architecture** with **configurable prompt enhancement** that transforms AI-powered software development:
 
+- **🔧 NEW: Configurable Prompt Enhancement**: Automatically append custom context to all prompts
 - **4-8x Performance Improvement**: True parallel execution with native Claude Code sub-agents
 - **Zero CLI Crashes**: Rock-solid integration replacing Task-based simulation
 - **45+ Parallel Commands**: Every persona enhanced with native parallelism
@@ -18,12 +19,12 @@ APM v3.2.0 delivers **revolutionary native sub-agent architecture** that transfo
 
 **For Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh
 ```
 
 **For macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ### Installation Options
@@ -34,19 +35,19 @@ Add nothing - the installer will prompt for all configuration options
 **Option 2: Install with Defaults (Skip prompts)**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh --defaults
+wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh --defaults
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh --defaults
+curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh --defaults
 ```
 
 **Option 3: Install to Specific Directory**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh /path/to/your/project
+wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh /path/to/your/project
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh /path/to/your/project
+curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh /path/to/your/project
 ```
 
 **Option 4: Install with Piper TTS Voice Support**
@@ -400,6 +401,52 @@ During installation, you'll be prompted to select a TTS provider. You can also c
 # Or use the configuration utility directly
 .apm/agents/scripts/configure-tts.sh
 ```
+
+### 🔧 NEW: Prompt Enhancement Configuration (v3.3.0)
+
+APM v3.3.0 introduces **configurable prompt enhancement** that automatically appends custom text to all user prompts:
+
+#### How It Works:
+- **Invisible to Users**: Appended text is processed by Claude but hidden from the UI
+- **Automatic**: Applied to ALL prompts without user action
+- **Configurable**: Set once in settings.json
+- **Perfect for Standards**: Enforce project guidelines, coding standards, or context
+
+#### Configuration:
+
+Add to your `.claude/settings.json`:
+```json
+{
+  "env": {
+    "HOOK_USER_PROMPT_SUBMIT_ENABLED": "true",
+    "PROMPT_APPEND_TEXT": "[Remember: Update backlog.md after story work]"
+  }
+}
+```
+
+#### Example Usage:
+- **User types:** "Create a login function"
+- **Claude receives:** "Create a login function [Remember: Update backlog.md after story work]"
+
+#### Common Configurations:
+```json
+// APM Framework Guidelines
+"PROMPT_APPEND_TEXT": "[APM Framework Active - Use voice notifications]"
+
+// Coding Standards
+"PROMPT_APPEND_TEXT": "[Follow coding standards in .apm/rules/]"
+
+// Project Context
+"PROMPT_APPEND_TEXT": "[E-commerce project - Security first approach]"
+
+// Multiple Instructions
+"PROMPT_APPEND_TEXT": "[APM Active] [Update backlog.md] [Use TDD approach]"
+
+// Disable (empty string)
+"PROMPT_APPEND_TEXT": ""
+```
+
+See `.claude/hooks/PROMPT_APPEND_CONFIGURATION.md` for detailed setup guide.
 
 #### Managing TTS:
 

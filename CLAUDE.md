@@ -1,4 +1,4 @@
-# APM Framework Instructions - v3.2.0
+# APM Framework Instructions - v3.3.0
 
 This file provides guidance to AI CLI when working with code in this repository using the APM (Agentic Persona Mapping) framework with **native sub-agent architecture**.
 
@@ -273,6 +273,39 @@ The QA Agent leverages **native sub-agent parallelism** for 4x performance with 
 - 34+ hours/week saved per development team
 
 **⚠️ ARCHITECTURE**: This command uses native Claude Code sub-agents (Epic 17 complete), not Task-based simulation. Each sub-agent executes with true parallelism while the Scrum Master provides real-time coordination.
+
+## 🔧 NEW IN v3.3.0: CONFIGURABLE PROMPT ENHANCEMENT
+
+### Automatic Prompt Appending
+APM v3.3.0 introduces **configurable prompt enhancement** through the UserPromptSubmit hook:
+
+- **🎯 Invisible Context Addition**: Automatically append custom text to ALL user prompts
+- **⚙️ Simple Configuration**: Single `PROMPT_APPEND_TEXT` environment variable
+- **🔍 User-Transparent**: Appended content processed by Claude but hidden from UI
+- **🎪 Perfect for Standards**: Enforce APM guidelines, coding standards, or project context
+
+### Configuration Example
+```json
+{
+  "env": {
+    "HOOK_USER_PROMPT_SUBMIT_ENABLED": "true",
+    "PROMPT_APPEND_TEXT": "[Remember: Update backlog.md after story work]"
+  }
+}
+```
+
+### How It Works
+- **User types:** "Create a login function"
+- **Claude receives:** "Create a login function [Remember: Update backlog.md after story work]"
+- **Format:** `[USER PROMPT] [APPENDED TEXT]` with automatic spacing
+
+### Common Use Cases
+- `"[APM Framework Active - Use voice notifications]"`
+- `"[Remember: Follow coding standards in .apm/rules/]"`
+- `"[Critical: Update backlog.md after any story work]"`
+- `"[Project Context: E-commerce platform with security focus]"`
+
+See `/hooks/PROMPT_APPEND_CONFIGURATION.md` for complete setup guide.
 
 ## 📋 BACKLOG MANAGEMENT REQUIREMENTS
 
