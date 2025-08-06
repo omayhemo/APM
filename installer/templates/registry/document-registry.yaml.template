@@ -1,0 +1,281 @@
+# APM Document Registry
+# Central registry for all documentation types and their locations
+# This file is used by the Documentation Compliance Agent for validation
+
+version: "1.0"
+name: "APM Document Registry"
+description: "Defines authoritative locations and standards for all document types"
+last_updated: "{{CURRENT_DATE}}"
+
+# Global document settings
+settings:
+  enforce_structure: true
+  auto_organize: true
+  validate_on_commit: true
+  archive_after_days: 30
+
+# Document type definitions
+document_types:
+  
+  # Single instance documents (only one should exist)
+  singletons:
+    backlog:
+      path: "{{PROJECT_DOCS}}/backlog.md"
+      template: "{{APM_ROOT}}/templates/backlog.md.template"
+      owner: "Product Owner"
+      update_frequency: "continuous"
+      required: true
+      validation:
+        - "Must contain Epic and Story sections"
+        - "Stories must have acceptance criteria"
+        - "Must track velocity and capacity"
+      
+    readme:
+      path: "{{PROJECT_ROOT}}/README.md"
+      template: "{{APM_ROOT}}/templates/README.md.template"
+      owner: "Project Lead"
+      update_frequency: "as_needed"
+      required: true
+      
+    claude_instructions:
+      path: "{{PROJECT_ROOT}}/CLAUDE.md"
+      template: "{{APM_ROOT}}/templates/CLAUDE.md.template"
+      owner: "Architecture Team"
+      update_frequency: "version_release"
+      required: true
+
+  # Collection documents (multiple instances with pattern)
+  collections:
+    session_notes:
+      directory: "{{SESSION_NOTES_PATH}}"
+      pattern: "^\\d{4}-\\d{2}-\\d{2}-\\d{2}-\\d{2}-\\d{2}-.*\\.md$"
+      template: "{{APM_ROOT}}/templates/session-note.md.template"
+      archive_path: "{{SESSION_NOTES_PATH}}/archive"
+      owner: "Active Agent"
+      retention: "30_days_active"
+      required_sections:
+        - "Objectives"
+        - "Progress"
+        - "Decisions Made"
+        - "Next Steps"
+    
+    stories:
+      directory: "{{PROJECT_DOCS}}/planning/stories"
+      pattern: "^STORY-\\d+-.*\\.md$"
+      template: "{{APM_ROOT}}/templates/story.md.template"
+      owner: "Product Owner"
+      validation:
+        - "Must have story points"
+        - "Must have acceptance criteria"
+        - "Must reference parent epic"
+    
+    epics:
+      directory: "{{PROJECT_DOCS}}/planning/epics"
+      pattern: "^EPIC-\\d+-.*\\.md$"
+      template: "{{APM_ROOT}}/templates/epic.md.template"
+      owner: "Product Owner"
+      validation:
+        - "Must have success criteria"
+        - "Must have business value"
+    
+    reports:
+      directory: "{{PROJECT_DOCS}}/reports"
+      pattern: "^[A-Z][A-Z0-9-]*\\.md$"
+      date_prefix_recommended: true
+      owner: "Reporting Agent"
+      archive_after: "90_days"
+    
+    architecture_decisions:
+      directory: "{{PROJECT_DOCS}}/architecture/decisions"
+      pattern: "^ADR-\\d{4}-.*\\.md$"
+      template: "{{APM_ROOT}}/templates/adr.md.template"
+      owner: "Architect"
+      immutable: true
+      validation:
+        - "Must follow ADR format"
+        - "Must include context, decision, consequences"
+
+# Category-based documents
+categories:
+  architecture:
+    root: "{{PROJECT_DOCS}}/architecture"
+    subdirectories:
+      decisions:
+        description: "Architecture Decision Records"
+        pattern: "^ADR-\\d{4}-.*\\.md$"
+        owner: "Architect"
+      diagrams:
+        description: "System architecture diagrams"
+        extensions: [".md", ".png", ".svg", ".puml"]
+        owner: "Architect"
+      specifications:
+        description: "Technical specifications"
+        pattern: "^[A-Z][A-Z0-9-]*-SPEC\\.md$"
+        owner: "Architect"
+    validation:
+      - "All documents must be referenced in architecture index"
+      - "Diagrams must have accompanying markdown description"
+  
+  qa_documentation:
+    root: "{{PROJECT_DOCS}}/qa"
+    subdirectories:
+      test_plans:
+        description: "Test planning documents"
+        pattern: "^TEST-PLAN-.*\\.md$"
+        template: "{{APM_ROOT}}/templates/test-plan.md.template"
+        owner: "QA Agent"
+      test_results:
+        description: "Test execution results"
+        pattern: "^TEST-RESULT-\\d{8}-.*\\.md$"
+        owner: "QA Agent"
+        archive_after: "30_days"
+      defects:
+        description: "Defect reports"
+        pattern: "^DEFECT-\\d+-.*\\.md$"
+        template: "{{APM_ROOT}}/templates/defect.md.template"
+        owner: "QA Agent"
+      metrics:
+        description: "Quality metrics and analytics"
+        pattern: "^QA-METRIC-.*\\.md$"
+        owner: "QA Agent"
+  
+  planning:
+    root: "{{PROJECT_DOCS}}/planning"
+    subdirectories:
+      roadmaps:
+        description: "Product and technical roadmaps"
+        owner: "Product Owner"
+      requirements:
+        description: "Requirements documentation"
+        pattern: "^REQ-.*\\.md$"
+        owner: "Product Owner"
+      estimates:
+        description: "Estimation documents"
+        owner: "Scrum Master"
+      retrospectives:
+        description: "Sprint retrospectives"
+        pattern: "^RETRO-\\d{8}-.*\\.md$"
+        owner: "Scrum Master"
+
+# Cross-reference requirements
+cross_references:
+  - from: "stories"
+    to: "epics"
+    relationship: "many_to_one"
+    validation: "Every story must reference parent epic"
+    
+  - from: "backlog"
+    to: ["stories", "epics"]
+    relationship: "index"
+    validation: "Backlog must list all active stories and epics"
+    
+  - from: "test_plans"
+    to: "stories"
+    relationship: "one_to_many"
+    validation: "Test plans must reference tested stories"
+    
+  - from: "architecture_decisions"
+    to: "architecture/specifications"
+    relationship: "one_to_many"
+    validation: "ADRs must reference affected specifications"
+
+# Archive policies
+archive_policies:
+  session_notes:
+    trigger: "session_end"
+    destination: "{{SESSION_NOTES_PATH}}/archive"
+    naming: "preserve"
+    
+  completed_stories:
+    trigger: "story_done"
+    destination: "{{PROJECT_DOCS}}/archives/stories"
+    naming: "add_completion_date"
+    
+  old_reports:
+    trigger: "age_90_days"
+    destination: "{{PROJECT_DOCS}}/archives/reports"
+    naming: "preserve"
+    compress: true
+
+# Validation rules
+validation_rules:
+  global:
+    - rule: "no_spaces_in_filenames"
+      severity: "error"
+      auto_fix: true
+    - rule: "markdown_extension_required"
+      severity: "error"
+      pattern: "\\.md$"
+    - rule: "no_duplicate_names_in_directory"
+      severity: "error"
+    - rule: "max_file_size_10mb"
+      severity: "warning"
+  
+  content:
+    - rule: "frontmatter_required"
+      fields: ["title", "date", "author"]
+      severity: "error"
+      auto_fix: true
+    - rule: "toc_for_long_documents"
+      threshold: "500_lines"
+      severity: "warning"
+      auto_fix: true
+    - rule: "no_broken_links"
+      severity: "error"
+      check_external: false
+
+# Enforcement exceptions
+exceptions:
+  paths:
+    - "node_modules/"
+    - ".git/"
+    - "vendor/"
+    - "dist/"
+    - "build/"
+  
+  files:
+    - "*.tmp"
+    - "*.backup"
+    - "*.draft"
+    - ".DS_Store"
+    - "Thumbs.db"
+
+# Compliance metrics
+metrics:
+  targets:
+    overall_compliance: 95
+    naming_compliance: 100
+    structure_compliance: 100
+    content_compliance: 90
+    cross_reference_validity: 98
+  
+  reporting:
+    frequency: "weekly"
+    format: "markdown"
+    destination: "{{PROJECT_DOCS}}/reports/compliance"
+
+# Automation hooks
+hooks:
+  pre_commit:
+    enabled: true
+    actions:
+      - "validate_changed_files"
+      - "auto_fix_simple_issues"
+      - "block_on_errors"
+  
+  post_session:
+    enabled: true
+    actions:
+      - "archive_session_notes"
+      - "update_document_registry"
+      - "generate_compliance_report"
+  
+  scheduled:
+    weekly_audit:
+      enabled: true
+      day: "monday"
+      time: "09:00"
+      actions:
+        - "full_compliance_scan"
+        - "generate_trend_report"
+        - "cleanup_old_archives"

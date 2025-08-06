@@ -1,18 +1,19 @@
-# 🧪 QA Framework Complete Guide
+# 🧪 QA Framework Complete Guide (v3.3.0)
 
 ## Overview
 
-The APM QA Framework is a comprehensive, enterprise-grade testing infrastructure with AI/ML powered analytics, providing production-ready testing capabilities integrated directly into the APM system.
+The APM QA Framework is a comprehensive, enterprise-grade testing infrastructure with AI/ML powered analytics and **MCP Debug Host integration**, providing production-ready testing capabilities with persistent development server management integrated directly into the APM system.
 
 ## Table of Contents
 
 1. [Installation & Setup](#installation--setup)
 2. [Core Components](#core-components)
-3. [Command Reference](#command-reference)
-4. [AI/ML Analytics](#aiml-analytics)
-5. [Quick Start Examples](#quick-start-examples)
-6. [Performance Metrics](#performance-metrics)
-7. [Troubleshooting](#troubleshooting)
+3. [MCP Debug Host Integration](#mcp-debug-host-integration)
+4. [Command Reference](#command-reference)
+5. [AI/ML Analytics](#aiml-analytics)
+6. [Quick Start Examples](#quick-start-examples)
+7. [Performance Metrics](#performance-metrics)
+8. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -94,6 +95,69 @@ APM integration:
 - **command-translator.sh** - Command routing
 - **analytics-connector.sh** - ML model interface
 - **result-aggregator.sh** - Output formatting
+
+---
+
+## MCP Debug Host Integration (v3.3.0 - Epic 26)
+
+### Overview
+
+The QA Framework now integrates seamlessly with MCP Debug Host for persistent development server management during testing:
+
+### Key Features
+
+**Persistent Test Environments:**
+- Development servers survive Claude Code restarts during testing
+- Consistent environment across test suite execution
+- Real-time server monitoring during test runs
+
+**MCP Tool Integration:**
+- `start_dev_server` - Initialize test environment
+- `server_status` - Verify server health before tests
+- `server_logs` - Capture real-time logs during testing
+- `restart_dev_server` - Reset environment between test suites
+- `stop_dev_server` - Clean shutdown after testing
+
+**Testing Benefits:**
+- **Consistent Testing**: Same server instance across all test executions
+- **Parallel Test Isolation**: Multiple test streams with separate server instances
+- **Real-time Debugging**: Live log access during test failures
+- **Resource Optimization**: Automatic server lifecycle management
+
+### QA Framework Commands with MCP Integration
+
+```bash
+# Initialize test environment with persistent server
+/qa-framework test-execute --with-dev-server
+
+# Check server health before running tests
+/qa-framework server-status --pre-test-validation
+
+# Run tests with live server monitoring
+/qa-framework test-execute --monitor-server --capture-logs
+
+# Performance testing with persistent server
+/qa-framework performance-test --persistent-server --scenario load
+```
+
+### Example Test Workflow
+
+```bash
+# 1. Start managed development server
+start_dev_server
+
+# 2. Verify server is ready for testing
+server_status
+
+# 3. Run comprehensive tests
+/qa-framework test-execute --suite comprehensive
+
+# 4. Monitor server during testing
+server_logs --follow
+
+# 5. Clean shutdown after testing
+stop_dev_server
+```
 
 ---
 

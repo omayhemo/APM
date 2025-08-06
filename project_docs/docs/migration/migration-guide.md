@@ -1,18 +1,17 @@
-# Migration Guide: Task-Based to Native Sub-Agents - v3.2.0
+# APM Native Sub-Agent Architecture - v3.3.0+
 
-## Quick Start Migration
+## Architecture Overview
 
-The good news: **All commands work immediately** with 4.1x average performance improvement (up to 4.8x) and zero CLI crashes!
+APM now exclusively uses **native Claude Code sub-agents** for all parallel operations, delivering 4.1x average performance improvement (up to 4.8x) and zero CLI crashes.
 
-### Instant Migration (30 seconds)
+### Performance Optimized Commands
 ```bash
-# Before (Task-based)
-$ /parallel-sprint --mode=task
-⏱️ Execution time: 10:32 (sequential Task processing)
-
-# After (Native sub-agents) - Just remove --mode=task
+# All commands use native sub-agents by default
 $ /parallel-sprint  
 🚀 Execution time: 2:18 (4.5x speedup with true parallelism)
+
+$ /parallel-qa-framework
+🚀 Execution time: 12 minutes (4x speedup with AI/ML analytics)
 ```
 
 ### Verify Your System
@@ -129,20 +128,8 @@ $ /migrate-command validate
 
 ## Detailed Migration Examples
 
-### Example 1: Sprint Coordination Migration
+### Example 1: Sprint Coordination with Native Sub-Agents
 
-#### Before (Task-based)
-```bash
-$ /parallel-sprint --mode=task
-⏳ Initializing Task-based execution...
-⏳ Task 1: Sprint analysis (2:15)
-⏳ Task 2: Developer allocation (1:45)
-⏳ Task 3: Story distribution (3:20)
-⏳ Task 4: Progress monitoring (2:47)
-📊 Total time: 10:07
-```
-
-#### After (Native sub-agents)
 ```bash  
 $ /parallel-sprint
 🚀 Spawning native sub-agents...
@@ -150,23 +137,11 @@ $ /parallel-sprint
 👤 Developer Agent 2: Story 16.3 (API Endpoints)  
 👤 QA Agent: Testing coordination
 👤 Architect Agent: Integration review
-📊 Total time: 2:18 (4.4x speedup)
+📊 Total time: 2:18 (true parallel execution)
 ```
 
-### Example 2: QA Framework Migration
+### Example 2: QA Framework with Native Sub-Agents
 
-#### Before (Task-based)
-```bash
-$ /parallel-qa-framework --mode=task
-⏳ Sequential test execution...
-📝 Unit tests: 18:00
-📝 Integration tests: 12:00
-📝 Performance tests: 11:00
-📝 Security scan: 7:00
-📊 Total time: 48:00
-```
-
-#### After (Native sub-agents)
 ```bash
 $ /parallel-qa-framework
 🚀 Launching parallel QA agents...
@@ -174,7 +149,7 @@ $ /parallel-qa-framework
 🧪 QA Agent 2: Integration tests (12:00) → Running in parallel
 🧪 QA Agent 3: Performance tests (11:00) → Running in parallel  
 🧪 QA Agent 4: Security scan (7:00) → Running in parallel
-📊 Total time: 12:00 (4x speedup - true parallelism!)
+📊 Total time: 12:00 (4x speedup with true parallelism!)
 ```
 
 ## Advanced Migration Scenarios
@@ -192,21 +167,14 @@ $ /parallel-qa-framework --timeout=600
 🛡️ Ensures completion of long-running security scans
 ```
 
-### Scripted Workflow Migration
+### Optimized Scripted Workflows
 ```bash
-# Before: Script with Task-based commands
 #!/bin/bash
-/parallel-sprint --mode=task      # 10 minutes
-/parallel-qa-framework --mode=task  # 48 minutes  
-/parallel-architecture --mode=task  # 100 minutes
-# Total: 158 minutes (2.6 hours)
-
-# After: Same script, remove --mode=task
-#!/bin/bash
-/parallel-sprint                  # 2.5 minutes
-/parallel-qa-framework           # 12 minutes
-/parallel-architecture           # 25 minutes  
-# Total: 39.5 minutes (4x speedup!)
+# Native sub-agent workflow - optimized for performance
+/parallel-sprint                  # 2.5 minutes (4x faster)
+/parallel-qa-framework           # 12 minutes (4x faster)
+/parallel-architecture           # 25 minutes (4x faster)
+# Total: 39.5 minutes with true parallel execution
 ```
 
 ## Troubleshooting Common Issues
@@ -219,13 +187,13 @@ $ /parallel-sprint
 
 # Diagnosis  
 $ /migrate-command diagnose /parallel-sprint
-❌ Command still has --mode=task flag
-❌ Or using legacy configuration
+❌ Sub-agent coordination issues detected
+❌ Or performance optimization needed
 
 # Solution
 $ /migrate-command fix /parallel-sprint
-✅ Removed --mode=task flag
-✅ Updated to native sub-agents
+✅ Native sub-agent coordination optimized
+✅ Performance profile updated
 ✅ Ready for 4x speedup
 ```
 
@@ -297,17 +265,17 @@ Average: 2:18.2 (4.58x speedup)
 
 ### Emergency Rollback
 ```bash
-# Immediate rollback to Task-based (if needed)
-$ /migrate-command rollback --emergency
-⚠️  Rolling back to Task-based execution...
-✅ All commands reverted to --mode=task
-✅ Functionality preserved (slower execution)
-📞 Contact support for assistance
+# Emergency troubleshooting (native sub-agents)
+$ /migrate-command diagnose --emergency
+⚠️  Diagnosing native sub-agent issues...
+✅ All commands verified for native execution
+✅ Performance monitoring active
+📞 Contact support for optimization assistance
 
-# Selective rollback
-$ /migrate-command rollback /parallel-sprint
-✅ /parallel-sprint reverted to Task-based  
-✅ Other commands remain native
+# Command optimization
+$ /migrate-command optimize /parallel-sprint
+✅ /parallel-sprint performance optimized
+✅ Native sub-agent coordination improved
 ```
 
 ### Gradual Re-migration

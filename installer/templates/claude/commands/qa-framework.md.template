@@ -246,15 +246,10 @@ When the command is invoked:
 1. **Parallel Initialization** (5 tasks)
    ```
    Task 1: Load QA framework configuration
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Check test environment status
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Verify tool availability
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 4: Load historical test data
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 5: Initialize analytics engine
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 2. **Framework Activation**

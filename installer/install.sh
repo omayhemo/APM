@@ -130,6 +130,35 @@ PROJECT_ROOT="$TARGET_DIR"
 APM_ROOT="$PROJECT_ROOT/.apm"
 AP_ROOT="$APM_ROOT/agents"
 
+# Set up installation logging
+INSTALL_LOG_DIR="$APM_ROOT/logs"
+INSTALL_LOG_FILE="$INSTALL_LOG_DIR/installer.log"
+
+# Function to log installation steps
+log_install() {
+    local message="$1"
+    local level="${2:-INFO}"
+    local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+    
+    # Ensure log directory exists
+    mkdir -p "$INSTALL_LOG_DIR"
+    
+    # Write to log file
+    echo "[$timestamp] [$level] $message" >> "$INSTALL_LOG_FILE"
+    
+    # Also echo to console for immediate feedback
+    if [ "$level" = "ERROR" ]; then
+        echo -e "${RED}$message${NC}"
+    elif [ "$level" = "WARN" ]; then
+        echo -e "${YELLOW}$message${NC}"
+    elif [ "$level" = "SUCCESS" ]; then
+        echo -e "${GREEN}$message${NC}"
+    else
+        echo "$message"
+    fi
+}
+
+
 # Function to get user input with default
 get_input() {
     local prompt="$1"
@@ -488,6 +517,12 @@ if [ "$SKIP_COPY" != "true" ]; then
             cp "$INSTALLER_DIR/templates/templates/index.md" "$APM_ROOT/.templates/index.md"
             echo "✅ Copied templates/templates index.md"
         fi
+        
+        # Copy README.md from template to .apm directory
+        if [ -f "$INSTALLER_DIR/templates/README.md.template" ]; then
+            replace_variables "$INSTALLER_DIR/templates/README.md.template" "$APM_ROOT/README.md"
+            echo "✅ Copied README.md to .apm directory"
+        fi
     else
         echo "Error: templates/agents directory not found in installer"
         exit 1
@@ -585,6 +620,20 @@ if [ -f "$INSTALLER_DIR/templates/scripts/ap-manager.sh" ]; then
     echo "- Installed ap-manager.sh for updates and management"
 else
     echo "- Warning: ap-manager.sh not found in installer"
+fi
+
+# Install documentation compliance scripts
+echo "Installing Documentation Compliance scripts..."
+if [ -f "$INSTALLER_DIR/templates/scripts/doc-compliance-registry-integration.py" ]; then
+    cp "$INSTALLER_DIR/templates/scripts/doc-compliance-registry-integration.py" "$AP_ROOT/scripts/"
+    chmod +x "$AP_ROOT/scripts/doc-compliance-registry-integration.py"
+    echo "- Installed doc-compliance-registry-integration.py for document organization"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/scripts/test-enhanced-compliance.py" ]; then
+    cp "$INSTALLER_DIR/templates/scripts/test-enhanced-compliance.py" "$AP_ROOT/scripts/"
+    chmod +x "$AP_ROOT/scripts/test-enhanced-compliance.py"
+    echo "- Installed test-enhanced-compliance.py for compliance testing"
 fi
 
 echo ""
@@ -751,6 +800,12 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" ]; 
     echo "✓ Installed organize-docs command"
 fi
 
+# Install mcp-install command if template exists
+if [ -f "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" "$CLAUDE_COMMANDS_DIR/mcp-install.md"
+    echo "✓ Installed mcp-install command"
+fi
+
 # Install git-commit-all command if template exists
 if [ -f "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" "$CLAUDE_COMMANDS_DIR/git-commit-all.md"
@@ -816,26 +871,32 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" 
     echo "✓ Installed show-test-status command"
 fi
 
-echo "✓ APM commands installed/updated (including parallel-sprint, QA framework, and test monitoring)"
+# Install documentation management commands if templates exist
+echo "Installing Documentation Management commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-compliance.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-compliance.md.template" "$CLAUDE_COMMANDS_DIR/doc-compliance.md"
+    echo "✓ Installed doc-compliance command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-sharding.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-sharding.md.template" "$CLAUDE_COMMANDS_DIR/doc-sharding.md"
+    echo "✓ Installed doc-sharding command"  
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" "$CLAUDE_COMMANDS_DIR/update-all-documentation.md"
+    echo "✓ Installed update-all-documentation command"
+fi
+
+echo "✓ APM commands installed/updated (including parallel-sprint, QA framework, test monitoring, and documentation management)"
 
 # Process persona templates
+# NOTE: Personas are now processed via the bulk agents/ template processing above
+# The separate templates/personas/ directory has been archived as it contained
+# legacy versions. The templates/agents/personas/ directory contains the
+# current, more advanced templates with native sub-agent architecture.
 echo ""
-echo "Processing persona templates..."
-PERSONAS_DIR="$AP_ROOT/personas"
-if [ -d "$INSTALLER_DIR/templates/personas" ]; then
-    echo "Creating persona files from templates..."
-    replace_variables "$INSTALLER_DIR/templates/personas/analyst.md.template" "$PERSONAS_DIR/analyst.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/architect.md.template" "$PERSONAS_DIR/architect.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/design-architect.md.template" "$PERSONAS_DIR/design-architect.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/dev.md.template" "$PERSONAS_DIR/dev.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/pm.md.template" "$PERSONAS_DIR/pm.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/po.md.template" "$PERSONAS_DIR/po.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/qa.md.template" "$PERSONAS_DIR/qa.md"
-    replace_variables "$INSTALLER_DIR/templates/personas/sm.md.template" "$PERSONAS_DIR/sm.md"
-    echo "✓ Persona files created with proper variable substitution"
-else
-    echo "Warning: Persona templates not found in installer"
-fi
+echo "✓ Persona templates processed via agents/ directory (native sub-agent architecture)"
 
 # Process AP Orchestrator IDE templates
 echo ""
@@ -891,19 +952,7 @@ else
     echo "✓ Claude sub-agent templates not found - using standard APM installation"
 fi
 
-# Process Epic 17 deprecation framework
-echo ""
-echo "Processing Epic 17 Task-Based Deprecation Framework..."
-if [ -d "$INSTALLER_DIR/templates/agents/deprecation" ]; then
-    ensure_dir "$AP_ROOT/deprecation"
-    find "$INSTALLER_DIR/templates/agents/deprecation" -name "*.template" -type f | while read template_file; do
-        filename=$(basename "$template_file" .template)
-        replace_variables "$template_file" "$AP_ROOT/deprecation/$filename"
-    done
-    echo "✓ Task-based deprecation framework installed"
-else
-    echo "✓ Deprecation templates not found - skipping"
-fi
+# Deprecated Task-based system removed - Epic 17 complete with native sub-agents only
 
 # Process test monitoring framework templates
 echo ""
@@ -937,6 +986,12 @@ monitoring:
     ai_ml_integration: true
 EOF
         echo "✓ Test monitoring configuration created"
+    fi
+
+    # Create document registry configuration for documentation compliance
+    if [ -f "$INSTALLER_DIR/templates/config/document-registry.json.template" ]; then
+        replace_variables "$INSTALLER_DIR/templates/config/document-registry.json.template" "$APM_ROOT/config/document-registry.json"
+        echo "✓ Document registry configuration created"
     fi
 else
     echo "✓ Test monitoring templates not found - skipping"
@@ -982,7 +1037,82 @@ echo "-------------------------------"
 echo "✓ Python hooks configured in $CLAUDE_DIR/hooks/"
 
 echo ""
-echo "Step 8: Configuring Text-to-Speech (TTS) System"
+echo "Step 8: Debug Host MCP Server Integration (Optional)"
+echo "---------------------------------------------------"
+
+# Check if user wants to use Debug Host MCP
+if [ "$USE_DEFAULTS" = true ]; then
+    echo "Using defaults - Debug Host MCP integration disabled"
+    USE_DEBUG_HOST_MCP=false
+else
+    echo ""
+    echo -e "${GREEN}Debug Host MCP Server Integration${NC}"
+    echo ""
+    echo "The Debug Host MCP Server provides:"
+    echo "  • Persistent development servers across Claude Code sessions"
+    echo "  • Real-time monitoring dashboard at http://localhost:8080"
+    echo "  • Automatic interception of dev server commands"
+    echo "  • Centralized process management"
+    echo ""
+    echo -e "${YELLOW}Note: This requires separate installation of the Debug Host MCP Server${NC}"
+    echo "Repository: https://github.com/your-org/DebugHostMCP"
+    echo ""
+    printf "${YELLOW}Will you be using the Debug Host MCP Server? (y/N): ${NC}"
+    read -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        USE_DEBUG_HOST_MCP=true
+    else
+        USE_DEBUG_HOST_MCP=false
+    fi
+fi
+
+if [ "$USE_DEBUG_HOST_MCP" = true ]; then
+    echo ""
+    echo "Installing Debug Host MCP integration..."
+    
+    # Install the pre_tool_use hook for intercepting dev commands
+    HOOK_FILE="$CLAUDE_DIR/hooks/pre_tool_use_debug_host.py"
+    
+    if [ -f "$INSTALLER_DIR/templates/hooks/pre_tool_use_debug_host.py" ]; then
+        cp "$INSTALLER_DIR/templates/hooks/pre_tool_use_debug_host.py" "$HOOK_FILE"
+        chmod +x "$HOOK_FILE"
+        log_install "Debug Host MCP hook installed: $HOOK_FILE" "SUCCESS"
+        
+        # Update settings to enable the hook
+        if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
+            tmp_file=$(mktemp)
+            if jq '.env.HOOK_PRE_TOOL_USE_ENABLED = "true" | 
+                .env.DEBUG_HOST_MCP_ENABLED = "true" |
+                .env.DEBUG_HOST_MCP_URL = "http://localhost:8080"' "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"; then
+                log_install "Debug Host MCP settings configured" "SUCCESS"
+            fi
+        fi
+        
+        echo ""
+        echo -e "${GREEN}✓ Debug Host MCP integration installed${NC}"
+        echo ""
+        echo "Features enabled:"
+        echo "  • Development server commands will be intercepted"
+        echo "  • Servers will be managed by Debug Host MCP"
+        echo "  • Voice notifications for command interception"
+        echo ""
+        echo -e "${YELLOW}Important: Install Debug Host MCP Server separately:${NC}"
+        echo "  git clone https://github.com/your-org/DebugHostMCP"
+        echo "  cd DebugHostMCP && ./install-mcp-host.sh"
+        echo ""
+    else
+        log_install "Debug Host MCP hook template not found" "WARN"
+        echo -e "${YELLOW}Debug Host MCP hook not installed - template missing${NC}"
+        USE_DEBUG_HOST_MCP=false
+    fi
+else
+    echo "Debug Host MCP integration skipped"
+    log_install "Debug Host MCP integration: Not configured (user choice)" "INFO"
+fi
+
+echo ""
+echo "Step 9: Configuring Text-to-Speech (TTS) System"
 echo "-----------------------------------------------"
 
 # Install TTS manager
@@ -1309,7 +1439,7 @@ if [ "$TTS_PROVIDER" != "piper" ] && [ -f "$SETTINGS_FILE" ] && command -v jq >/
 fi
 
 echo ""
-echo "Step 8a: Configuring Notification System"
+echo "Step 9a: Configuring Notification System"
 echo "----------------------------------------"
 
 # Function to configure individual hook
@@ -1548,7 +1678,7 @@ else
 fi
 
 echo ""
-echo "Step 9: Setting Up Python Support (Optional)"
+echo "Step 10: Setting Up Python Support (Optional)"
 echo "-------------------------------------------"
 
 # Ask if user wants to set up Python support
@@ -1585,7 +1715,7 @@ else
 fi
 
 echo ""
-echo "Step 10: Creating and Merging CLAUDE.md Files"
+echo "Step 11: Creating and Merging CLAUDE.md Files"
 echo "---------------------------------------------"
 
 # Always create/replace the .apm/CLAUDE.md file
@@ -1712,7 +1842,7 @@ else
 fi
 
 echo ""
-echo "Step 11: Configuring .gitignore"
+echo "Step 12: Configuring .gitignore"
 echo "-------------------------------"
 
 # Configure .gitignore
@@ -1759,8 +1889,9 @@ if [ -f "$DIST_DIR/VERSION" ]; then
 fi
 
 echo ""
-echo "Step 12: Validating Installation"
+echo "Step 13: Validating Installation"
 echo "--------------------------------"
+
 
 # Obsidian integration removed - no additional configuration needed
 
@@ -1859,7 +1990,7 @@ if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
 fi
 
 echo ""
-echo "Step 13: Setting Up QA Framework Integration"
+echo "Step 14: Setting Up QA Framework Integration"
 echo "--------------------------------------------"
 
 # QA Framework commands are now installed via templates above
@@ -1875,7 +2006,7 @@ echo "- /parallel-qa-framework - 4x faster parallel execution"
 echo "- /parallel-regression-suite - Parallel regression testing"
 
 echo ""
-echo "Step 14: Setting Up Test Monitoring Framework"
+echo "Step 15: Setting Up Test Monitoring Framework"
 echo "----------------------------------------------"
 
 # Create test monitoring infrastructure
@@ -2013,7 +2144,15 @@ echo "2. Try running: /ap"
 echo "3. Test QA Framework: /qa-framework"
 echo "4. Explore AI/ML commands: /qa-predict, /qa-optimize, /qa-anomaly, /qa-insights"
 echo "5. Try parallel testing: /parallel-qa-framework, /parallel-regression-suite"
-echo "6. Check out the documentation at: $PROJECT_DOCS"
+echo "6. Organize documentation: /doc-compliance organize --dry-run"
+echo "7. Check out the documentation at: $PROJECT_DOCS"
+if [ "$USE_DEBUG_HOST_MCP" = true ]; then
+    echo ""
+    echo -e "${GREEN}Debug Host MCP Integration Active:${NC}"
+    echo "  • Dev server commands will be intercepted and managed"
+    echo "  • Install Debug Host MCP: https://github.com/your-org/DebugHostMCP"
+    echo "  • Dashboard will be at: http://localhost:8080"
+fi
 echo ""
 echo "Management commands:"
 echo "- Check for updates: $AP_ROOT/scripts/ap-manager.sh update"
@@ -2024,4 +2163,58 @@ echo "For more information, see:"
 echo "- Main instructions: $CLAUDE_MD"
 echo "- Agents directory: $AP_ROOT"
 echo ""
-echo "Enjoy using the APM Framework v3.2.0 with 4-8x performance!"
+echo "Enjoy using the APM Framework v$VERSION with 4-8x performance!"
+
+# Log final installation summary
+log_install "=== APM Framework Installation Summary ===" "INFO"
+log_install "Version: $VERSION (Native Sub-Agent Architecture)" "INFO"
+log_install "Location: $PROJECT_ROOT" "INFO"
+log_install "Project: $PROJECT_NAME" "INFO"
+log_install "TTS Provider: $TTS_PROVIDER" "INFO"
+log_install "Session Notes: $NOTES_TYPE mode" "INFO"
+if [ "$USE_DEBUG_HOST_MCP" = true ]; then
+    log_install "Debug Host MCP: Enabled (dev commands will be intercepted)" "INFO"
+else
+    log_install "Debug Host MCP: Not configured" "INFO"
+fi
+log_install "Installation completed successfully" "SUCCESS"
+log_install "Installation log saved to: $INSTALL_LOG_FILE" "INFO"
+
+# Clean up installer directory after successful installation
+echo ""
+echo "Step 10: Cleanup"
+echo "---------------"
+if [ -d "$INSTALLER_DIR" ] && [ "$INSTALLER_DIR" != "$PROJECT_ROOT" ]; then
+    # Check if we're running from within the installer directory
+    current_dir="$(pwd)"
+    script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    
+    if [[ "$current_dir" == "$INSTALLER_DIR"* ]] || [[ "$script_dir" == "$INSTALLER_DIR"* ]]; then
+        echo "- Installer directory will be removed after script completes"
+        echo "  Creating cleanup script..."
+        
+        # Create a cleanup script that will run after install.sh exits
+        cat > "$PROJECT_ROOT/cleanup_installer.sh" << 'EOF'
+#!/bin/bash
+# Cleanup script to remove installer directory after installation
+sleep 2  # Wait for install.sh to fully exit
+if [ -d "installer" ]; then
+    rm -rf installer
+    echo "✓ Installer directory removed"
+fi
+rm -f "$0"  # Remove this cleanup script
+EOF
+        chmod +x "$PROJECT_ROOT/cleanup_installer.sh"
+        
+        # Schedule the cleanup to run in background after install.sh exits
+        (nohup bash "$PROJECT_ROOT/cleanup_installer.sh" > /dev/null 2>&1 &)
+        echo "✓ Cleanup scheduled"
+    else
+        # Safe to remove directly - we're not running from within installer
+        rm -rf "$INSTALLER_DIR"
+        echo "✓ Installer directory removed"
+        log_install "Installer directory cleaned up: $INSTALLER_DIR" "INFO"
+    fi
+else
+    echo "- No cleanup needed (installer directory not found or is project root)"
+fi

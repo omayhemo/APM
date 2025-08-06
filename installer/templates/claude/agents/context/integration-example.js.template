@@ -18,7 +18,7 @@ async function parallelSprintExample() {
   
   // Full parent context (simulated)
   const parentContext = {
-    projectPath: '/mnt/c/Code/agentic-persona-mapping',
+    projectPath: '{{PROJECT_ROOT}}',
     currentSprint: 18,
     sprintGoal: 'Build native sub-agent coordination',
     parentAgent: 'AP_Orchestrator',

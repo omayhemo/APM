@@ -1,4 +1,4 @@
-# APM Framework Instructions - v3.3.0
+# APM Framework Instructions - v3.5.0
 
 This file provides guidance to AI CLI when working with code in this repository using the APM (Agentic Persona Mapping) framework with **native sub-agent architecture**.
 
@@ -34,11 +34,12 @@ When ANY /ap command is used:
 4. **NEW**: For parallel commands, activate multiple native sub-agents concurrently
 
 ### MANDATORY SEQUENCE FOR /ap COMMANDS:
-1. List session notes directory with LS tool (silently) - DO NOT try to read current_session.md
-2. List rules directory with LS tool (silently) - DO NOT try to read rules.md
-3. Create new session note (silently)
-4. Use voice script for greeting
-5. Continue AS the persona (not delegating)
+1. List session notes directory with LS tool (silently)
+2. Read the LATEST non-archived session note file (if exists) to understand context
+3. List rules directory with LS tool (silently)
+4. Create new session note OR append to existing if same day
+5. Use voice script for greeting
+6. Continue AS the persona (not delegating)
 
 ## ❌ COMMON MISTAKES TO AVOID
 
@@ -138,8 +139,9 @@ All agents use voice scripts from the .apm/agents/voice/ directory:
 ## 📋 AP COMMAND VALIDATION CHECKLIST
 
 Before responding to ANY /ap command, verify:
-- [ ] Did I use LS tool on session notes directory? (Required - NOT reading current_session.md)
-- [ ] Did I use LS tool on rules directory? (Required - NOT reading rules.md)
+- [ ] Did I use LS tool on session notes directory? (Required)
+- [ ] Did I read the latest session note for context? (Required if exists)
+- [ ] Did I use LS tool on rules directory? (Required)
 - [ ] Did I create a new session note? (Required)
 - [ ] Am I using the voice script? (Required)
 - [ ] Am I acting AS the persona, not delegating? (Required)
@@ -181,8 +183,9 @@ When a user types these keywords as their FIRST message, you MUST execute the fu
 
 ### /ap - Launch AP Orchestrator (alias for /ap_orchestrator)
 **IMPORTANT**: This makes YOU become the AP Orchestrator.
-- Step 1: List session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/` (DO NOT read current_session.md)
-- Step 2: List rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/rules/` (DO NOT read rules.md)
+- Step 1: List session notes directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/session_notes/`
+- Step 2: Read the LATEST session note file (skip archived ones) for context continuity
+- Step 3: List rules directory using LS tool: `/mnt/c/Code/agentic-persona-mapping/.apm/rules/`
 - Step 3: Create new session note FILE with timestamp (not a directory)
 - Step 4: Use speakOrchestrator.sh for ALL responses
 - Step 5: Act as the Orchestrator (coordinate, delegate, guide)
@@ -241,6 +244,40 @@ The QA Agent leverages **native sub-agent parallelism** for 4x performance with 
 - `/parallel-regression-suite` - Native parallel regression testing
 - **Performance**: All commands now use native sub-agent architecture (not Task-based)
 
+### 🖥️ MCP Debug Host Integration (v3.3.0 - Epic 26)
+
+**🚨 CRITICAL: Development Server Management**
+
+**NEVER use direct bash commands to start development servers!**
+
+#### ❌ FORBIDDEN Commands:
+- `npm run dev`
+- `npm start`
+- `python manage.py runserver`
+- `flask run`
+- `php artisan serve`
+- Any direct server start command
+
+#### ✅ REQUIRED: Use MCP Debug Host
+
+**Always use the MCP Debug Host tools for server management:**
+
+```
+Tool: server:start
+Parameters:
+- cwd: /path/to/project
+- sessionName: "Descriptive Name"
+```
+
+**Benefits:**
+- **Persistent Servers**: Development servers continue running across Claude Code sessions
+- **Real-time Dashboard**: Full console output visibility at http://localhost:8080
+- **Universal Support**: Automatic detection for 11+ frameworks (React, Django, Laravel, etc.)
+- **Intelligent Interception**: PreToolUse hooks prevent duplicate server instances
+- **Voice Notifications**: Context-aware alerts when commands are blocked
+
+**Dashboard Access:** http://localhost:8080
+
 ### 🚀 Native Sub-Agent Parallel Commands (v3.2.0)
 
 #### `/parallel-sprint` - Native Parallel Development Orchestration
@@ -272,12 +309,28 @@ The QA Agent leverages **native sub-agent parallelism** for 4x performance with 
 - Zero CLI crashes with native integration
 - 34+ hours/week saved per development team
 
-**⚠️ ARCHITECTURE**: This command uses native Claude Code sub-agents (Epic 17 complete), not Task-based simulation. Each sub-agent executes with true parallelism while the Scrum Master provides real-time coordination.
+**🚀 ARCHITECTURE**: APM uses exclusively native Claude Code sub-agents for all parallel operations, delivering 4.1x average performance improvement with true parallelism and zero CLI crashes.
 
-## 🔧 NEW IN v3.3.0: CONFIGURABLE PROMPT ENHANCEMENT
+## 🔧 NEW IN v3.5.0: UNIFIED PERSONA SYSTEM
+
+### JSON-Based Persona Management
+APM v3.5.0 introduces a **unified persona definition system** that eliminates template duplication:
+
+- **🎯 Single Source of Truth**: All personas defined in JSON format at `/installer/personas/_master/`
+- **⚙️ Automatic Generation**: Templates generated from JSON during build process
+- **🔍 Zero Duplication**: Eliminated 3x template duplication across directories
+- **🎪 Easier Maintenance**: Update once in JSON, regenerate everywhere
+
+### Persona System Architecture
+- **Master Definitions**: `/installer/personas/_master/*.persona.json`
+- **APM Templates**: Auto-generated to `/installer/templates/agents/personas/`
+- **Claude Templates**: Auto-generated to `/installer/templates/claude/agents/personas/`
+- **Build Integration**: `build-distribution.sh` automatically generates templates
+
+## 🔧 CONFIGURABLE PROMPT ENHANCEMENT (v3.3.0)
 
 ### Automatic Prompt Appending
-APM v3.3.0 introduces **configurable prompt enhancement** through the UserPromptSubmit hook:
+APM v3.3.0 introduced **configurable prompt enhancement** through the UserPromptSubmit hook:
 
 - **🎯 Invisible Context Addition**: Automatically append custom text to ALL user prompts
 - **⚙️ Simple Configuration**: Single `PROMPT_APPEND_TEXT` environment variable
@@ -306,6 +359,42 @@ APM v3.3.0 introduces **configurable prompt enhancement** through the UserPrompt
 - `"[Project Context: E-commerce platform with security focus]"`
 
 See `/hooks/PROMPT_APPEND_CONFIGURATION.md` for complete setup guide.
+
+## 📝 CONTINUOUS SESSION NOTE PROTOCOL
+
+🚨 **CRITICAL**: ALL AGENTS MUST MAINTAIN ACTIVE SESSION NOTES
+
+### When to Update Session Notes (ALL AGENTS)
+Agents MUST update their session note file when:
+- ✅ Completing any significant task or subtask
+- ✅ Making important decisions or architectural choices
+- ✅ Encountering and resolving issues or blockers
+- ✅ Every 10-15 minutes during active work (progress checkpoint)
+- ✅ Before any handoff, switch, or wrap command
+- ✅ After modifying backlog.md or other key project files
+- ✅ When receiving important information from users
+
+### How to Update Session Notes
+1. **Read** current session note file (use Read tool)
+2. **Append** new progress under appropriate section
+3. **Use timestamps** for major updates: `[HH:MM] - Update description`
+4. **Keep updates** concise but informative
+5. **Save immediately** after significant work
+
+### Session Note Continuity Rules
+- **Same day**: Append to existing session note with timestamp
+- **New day**: Create new session note with "Previous Session" section
+- **Context carryover**: Include unfinished tasks and key decisions
+- **Link references**: Reference previous session file for continuity
+
+### Example Update Format
+```markdown
+## Progress
+[10:15] - Completed user authentication implementation
+[10:32] - Resolved database connection issue - increased timeout
+[10:45] - Started API endpoint development for /users
+[11:00] - Progress checkpoint: 3/5 endpoints complete
+```
 
 ## 📋 BACKLOG MANAGEMENT REQUIREMENTS
 
@@ -401,6 +490,12 @@ Before using with employees, test:
 3. Check if voice scripts were used for EVERY response
 # APM Claude.md Template
 
+
+# APM Claude.md Template
+
+
+# APM Claude.md Template
+
 <BEGIN-APM-CLAUDE-MERGE>
 
 ## 🚀 AGENTIC PERSONA MAPPING (APM)
@@ -430,57 +525,10 @@ This launches the full AP Orchestrator initialization sequence, including:
 The Agentic Persona Mapping system provides:
 - **AP Orchestrator**: Central coordination and delegation
 - **Specialized Agents**: Analyst, PM, Architect, Developer, QA, and more
-- **Native Sub-Agent Architecture**: True parallel execution with 4-8x performance
-- **45+ Parallel Commands**: Every persona has native parallel capabilities
 - **Session Management**: Intelligent context preservation and handoffs
 - **Collaborative Workflow**: Seamless transitions between personas
 
 All APM components are located in the `.apm/` directory.
-
-### 🚀 Epic 17 Achievement Summary (v3.2.0)
-
-**Revolutionary Architecture Transformation:**
-- ✅ Complete migration from Task-based to native sub-agents
-- ✅ 4.1x average performance improvement (up to 4.8x for complex operations)
-- ✅ Zero CLI crashes with rock-solid integration
-- ✅ 100% backward compatibility maintained
-- ✅ 34+ hours/week saved per development team
-
-**All Personas Enhanced with Native Parallelism:**
-- **Orchestrator**: Coordinates multiple native sub-agents seamlessly
-- **Developer**: `/parallel-review` for concurrent code analysis
-- **QA**: `/parallel-test` with 4x speedup, preserved AI/ML, plus comprehensive test monitoring
-- **Product Owner**: `/groom` with 18 parallel subtasks
-- **Scrum Master**: `/parallel-sprint` for multi-developer coordination
-- **Architect**: `/parallel-architecture-review` for system analysis
-- **All Others**: Full native sub-agent capabilities
-
-### 📊 Test Monitoring Framework (v3.2.0)
-
-**Built-in Real-Time Test Monitoring:**
-- **CLI Monitoring**: `monitor tests` - Real-time console-based test monitoring
-- **Web Dashboard**: `test dashboard` - Browser-based monitoring with auto-refresh
-- **Metrics Collection**: `test metrics` - Comprehensive test execution data collection
-- **Export Capabilities**: CSV, JSON, YAML export formats for analysis
-- **AI/ML Integration**: Connects with QA prediction and anomaly detection systems
-- **Multi-Framework Support**: Jest, Pytest, Mocha, Karma, Vitest compatibility
-
-**Key Features:**
-- Real-time process tracking and file change detection
-- Performance metrics and coverage analysis
-- Integration with QA agent personas for seamless workflow
-- Notification system with TTS and webhook alerts
-- Executive and technical dashboard modes
-
-### 📁 CRITICAL: Documentation Path Rules
-
-**NEVER create files in the project root directory!** All documents must use proper paths:
-- Requirements: `/project_docs/requirements/`
-- Architecture: `/project_docs/architecture/`
-- Reports: `/project_docs/reports/`
-- Handoffs: `/.apm/session_notes/handoffs/`
-
-See `.apm/CLAUDE.md` for complete path validation rules.
 
 ---
 

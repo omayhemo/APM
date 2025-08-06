@@ -156,13 +156,9 @@ When the command is invoked:
 2. **Test Suite Analysis** (4 parallel tasks with PostgreSQL analytics)
    ```
    Task 1: Profile test execution times (PostgreSQL: 100ms vs File: 3s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Extract test dependencies (PostgreSQL: 75ms vs File: 2s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Calculate resource requirements (PostgreSQL: 125ms vs File: 4s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 4: Load historical performance data (PostgreSQL: 50ms vs File: 5s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 2. **Optimization Planning**

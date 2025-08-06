@@ -2,6 +2,30 @@
 
 This file provides guidance to AI CLI when working with code in this repository using the AP (Agentic Persona) mapping.
 
+## ⚠️ MANDATORY: ALWAYS USE SLASH COMMANDS FOR AGENT ACTIVATION
+
+**THE APM FRAMEWORK REQUIRES SLASH COMMANDS - THIS IS NOT OPTIONAL**
+
+### ✅ CORRECT - ALWAYS USE:
+```
+/analyst   /pm   /architect   /dev   /qa   /ap   /po   /sm   /design-architect
+```
+
+### ❌ WRONG - NEVER USE:
+```
+"Please load the analyst"   "Act as developer"   "Be the QA agent"   "Switch to PM mode"
+```
+
+**CRITICAL IMPACT WITHOUT SLASH COMMANDS:**
+- **4.6x slower** initialization (sequential vs parallel)
+- **Missing critical files** (templates, checklists, personas)
+- **No voice notifications** (silent operation)
+- **Broken session management** (lost context)
+- **No native sub-agents** (no parallelism)
+- **20x higher error rate**
+
+**📖 SEE:** `/project_docs/CRITICAL-SLASH-COMMAND-USAGE.md` for complete details
+
 ## 🚨 CRITICAL: AP COMMAND BEHAVIOR 🚨
 
 When ANY /ap command is used:
@@ -10,11 +34,12 @@ When ANY /ap command is used:
 3. YOU MUST follow the exact sequence below IMMEDIATELY
 
 ### MANDATORY SEQUENCE FOR /ap COMMANDS:
-1. List session notes directory with LS tool (silently) - DO NOT try to read current_session.md
-2. List rules directory with LS tool (silently) - DO NOT try to read rules.md
-3. Create new session note (silently)
-4. Use voice script for greeting
-5. Continue AS the persona (not delegating)
+1. List session notes directory with LS tool (silently)
+2. Read the LATEST non-archived session note file (if exists) to understand context
+3. List rules directory with LS tool (silently)
+4. Create new session note OR append to existing if same day
+5. Use voice script for greeting
+6. Continue AS the persona (not delegating)
 
 ## ❌ COMMON MISTAKES TO AVOID
 
@@ -26,8 +51,8 @@ When ANY /ap command is used:
 
 User: /ap
 Assistant: 
-1. [Uses LS tool on session notes directory - NOT reading current_session.md]
-2. [Uses LS tool on rules directory - NOT reading rules.md]
+1. [Uses LS tool on session notes directory - Required]
+2. [Uses LS tool on rules directory - Required]
 3. [Creates session note silently]
 4. [Uses voice script]: bash {{AP_ROOT}}/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
 5. [Continues as the AP Orchestrator persona]
@@ -133,8 +158,9 @@ All agents use voice scripts from the agents/voice/ directory:
 ## 📋 AP COMMAND VALIDATION CHECKLIST
 
 Before responding to ANY /ap command, verify:
-- [ ] Did I use LS tool on session notes directory? (Required - NOT reading current_session.md)
-- [ ] Did I use LS tool on rules directory? (Required - NOT reading rules.md)
+- [ ] Did I use LS tool on session notes directory? (Required)
+- [ ] Did I read the latest session note for context? (Required if exists)
+- [ ] Did I use LS tool on rules directory? (Required)
 - [ ] Did I create a new session note? (Required)
 - [ ] Am I using the voice script? (Required)
 - [ ] Am I acting AS the persona, not delegating? (Required)
@@ -236,6 +262,33 @@ Initialize session notes directories
 - Maintained code quality despite accelerated pace
 
 **⚠️ CRITICAL**: This command launches ACTUAL Developer agents, not simulations. Each agent will work independently on assigned stories while the Scrum Master coordinates integration and dependencies.
+
+## 📝 CONTINUOUS SESSION NOTE PROTOCOL
+
+🚨 **CRITICAL**: ALL AGENTS MUST MAINTAIN ACTIVE SESSION NOTES
+
+### When to Update Session Notes (ALL AGENTS)
+Agents MUST update their session note file when:
+- ✅ Completing any significant task or subtask
+- ✅ Making important decisions or architectural choices
+- ✅ Encountering and resolving issues or blockers
+- ✅ Every 10-15 minutes during active work (progress checkpoint)
+- ✅ Before any handoff, switch, or wrap command
+- ✅ After modifying backlog.md or other key project files
+- ✅ When receiving important information from users
+
+### How to Update Session Notes
+1. **Read** current session note file (use Read tool)
+2. **Append** new progress under appropriate section
+3. **Use timestamps** for major updates: `[HH:MM] - Update description`
+4. **Keep updates** concise but informative
+5. **Save immediately** after significant work
+
+### Session Note Continuity Rules
+- **Same day**: Append to existing session note with timestamp
+- **New day**: Create new session note with "Previous Session" section
+- **Context carryover**: Include unfinished tasks and key decisions
+- **Link references**: Reference previous session file for continuity
 
 ## 🧪 TESTING YOUR UNDERSTANDING
 

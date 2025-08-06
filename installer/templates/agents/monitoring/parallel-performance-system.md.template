@@ -63,7 +63,7 @@ Adoption_Tracking:
 ```python
 class ParallelPerformanceTracker:
     def __init__(self):
-        self.metrics_db = Path("/mnt/c/Code/agentic-persona-mapping/.claude/metrics/parallel_performance.json")
+        self.metrics_db = Path("{{PROJECT_ROOT}}/.claude/metrics/parallel_performance.json")
         self.session_tracking = {}
         
     def track_parallel_execution_start(self, tool_calls, context):

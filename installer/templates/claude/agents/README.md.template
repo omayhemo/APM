@@ -1,6 +1,6 @@
-# Claude Code Sub-Agents Infrastructure
+# Claude Code Sub-Agents Infrastructure (v3.3.0)
 
-This directory contains the Claude Code sub-agent templates for APM persona migration.
+This directory contains the Claude Code sub-agent templates for APM persona migration with **MCP Debug Host integration**.
 
 ## Installation
 
@@ -44,6 +44,31 @@ This infrastructure is installed via the APM installer when the sub-agents migra
 - **Resource Management**: Intelligent task distribution and monitoring
 - **Error Recovery**: Robust error handling with automatic recovery
 - **Backward Compatibility**: Dual-mode operation with legacy commands
+- **MCP Debug Host Integration**: Persistent development server management (v3.3.0)
+
+## MCP Debug Host Integration (v3.3.0 - Epic 26)
+
+### Development Server Management
+
+All sub-agents MUST use MCP tools for development server management instead of direct bash commands:
+
+**❌ FORBIDDEN Commands:**
+- Direct server startup: `npm run dev`, `python manage.py runserver`, `php artisan serve`
+- Port binding commands: `node server.js`, `python app.py`, `go run main.go`
+- Framework servers: `rails server`, `cargo run`, `flask run`
+
+**✅ REQUIRED: MCP Tools:**
+- `start_dev_server` - Managed server startup with persistence
+- `stop_dev_server` - Graceful shutdown with resource cleanup
+- `server_status` - Real-time server monitoring
+- `server_logs` - Console output streaming
+- `restart_dev_server` - Configuration reload with zero downtime
+
+**Benefits for Sub-Agents:**
+- **Session Persistence**: Servers survive Claude Code restarts
+- **Resource Isolation**: Prevents conflicts between parallel development streams
+- **Real-time Monitoring**: Web dashboard accessible at http://localhost:8080
+- **Intelligent Coordination**: Automatic port allocation for concurrent development
 
 ## Parallel Execution Capabilities
 

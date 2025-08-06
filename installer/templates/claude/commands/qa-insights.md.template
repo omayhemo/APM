@@ -224,17 +224,11 @@ When the command is invoked:
 2. **Data Collection Pipeline** (6 parallel tasks with PostgreSQL optimization)
    ```
    Task 1: Aggregate test execution metrics (PostgreSQL: 25ms vs File: 3s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 2: Load prediction accuracy data (PostgreSQL: 15ms vs File: 2s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 3: Collect anomaly detection results (PostgreSQL: 30ms vs File: 4s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 4: Gather performance benchmarks (PostgreSQL: 40ms vs File: 5s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 5: Extract team productivity metrics (PostgreSQL: 20ms vs File: 2.5s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    Task 6: Load historical quality trends (PostgreSQL: 35ms vs File: 6s)
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
    ```
 
 3. **AI Analysis Engine with PostgreSQL Backend**

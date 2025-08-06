@@ -1,11 +1,36 @@
 # APM AI/ML QA Framework Templates - v{{VERSION}}
 <!-- Template Version: {{VERSION}} -->
-<!-- QA Framework Suite: Native Sub-Agent Architecture -->
-<!-- Compatible with: APM Framework 3.2+ -->
+<!-- QA Framework Suite: Native Sub-Agent Architecture with MCP Debug Host Integration -->
+<!-- Compatible with: APM Framework 3.3+ -->
 
 ## 🧪 Complete QA Framework Template Suite
 
-This directory contains comprehensive templates for the APM AI/ML QA Framework with **native sub-agent architecture** delivering **4x performance improvement**. These templates preserve all advanced analytics (92% prediction accuracy, 94% anomaly detection) while leveraging true parallel execution.
+This directory contains comprehensive templates for the APM AI/ML QA Framework with **native sub-agent architecture** and **MCP Debug Host integration** delivering **4x performance improvement**. These templates preserve all advanced analytics (92% prediction accuracy, 94% anomaly detection) while leveraging true parallel execution and persistent development server management.
+
+## 🖥️ MCP Debug Host Integration (v{{VERSION}} - Epic 26)
+
+### QA Testing with Persistent Servers
+
+The QA Framework integrates with MCP Debug Host for consistent testing environments:
+
+**Testing Requirements:**
+- **Server Persistence**: Test servers survive Claude Code restarts
+- **Consistent Environment**: Same server instance across test suites
+- **Real-time Monitoring**: Live server logs during test execution
+- **Resource Management**: Intelligent port allocation for parallel tests
+
+**MCP Commands for QA:**
+- `start_dev_server` - Initialize test environment with persistent server
+- `server_status` - Verify server health before test execution
+- `server_logs` - Capture real-time logs during testing
+- `restart_dev_server` - Reset environment between test suites
+- `stop_dev_server` - Clean shutdown after testing complete
+
+**Benefits for QA Framework:**
+- **Consistent Testing**: Same environment across all test executions
+- **Parallel Test Isolation**: Multiple test streams with separate server instances
+- **Real-time Debugging**: Live log access during test failures
+- **Resource Optimization**: Automatic server lifecycle management
 
 ---
 

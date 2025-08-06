@@ -2,6 +2,20 @@
 
 **Version: 3.3.0** - Native Sub-Agent Architecture with Configurable Prompt Enhancement
 
+## ⚠️ CRITICAL REQUIREMENT: SLASH COMMANDS ARE MANDATORY
+
+**THE APM FRAMEWORK REQUIRES SLASH COMMANDS FOR PROPER OPERATION**
+
+After installation, you MUST use slash commands to activate agents:
+- ✅ **CORRECT:** `/analyst` `/pm` `/dev` `/qa` `/ap`
+- ❌ **WRONG:** "load analyst" "be the PM" "act as developer"
+
+**Without slash commands:** 4.6x slower, missing critical files, no parallelism, broken features.
+
+**📖 Full Details:** After installation, read `/project_docs/CRITICAL-SLASH-COMMAND-USAGE.md`
+
+---
+
 ## What is Agentic Persona Mapping?
 
 APM v3.3.0 delivers **revolutionary native sub-agent architecture** with **configurable prompt enhancement** that transforms AI-powered software development:
@@ -53,10 +67,10 @@ curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.
 **Option 4: Install with Piper TTS Voice Support**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz && tar -xzf apm-v3.2.0.tar.gz && ./installer/install.sh --with-tts
+wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh --with-tts
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.gz | tar -xz && ./installer/install.sh --with-tts
+curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh --with-tts
 ```
 
 ## Key Features
@@ -66,6 +80,15 @@ curl -L https://github.com/omayhemo/APM/releases/download/v3.2.0/apm-v3.2.0.tar.
 - **4.1x Average Speedup**: Up to 4.8x for complex parallel operations
 - **Zero Downtime Migration**: Seamless upgrade with backward compatibility
 - **Enterprise Ready**: 34+ hours/week saved per development team
+
+### 🖥️ MCP Debug Host Integration (Epic 26 - 93% Complete)
+- **Persistent Development Servers**: Servers survive Claude Code restarts
+- **Real-time Web Dashboard**: Full console output at http://localhost:8080
+- **Universal Framework Support**: Auto-detects React, Django, Laravel, and 8+ other frameworks
+- **Intelligent Command Interception**: Prevents duplicate server instances automatically
+- **Configurable Installation**: Optional during setup with zero impact on users who decline
+- **Voice-Guided Redirection**: Context-aware notifications when commands are blocked
+- **Zero-Config Experience**: Automatic tech stack detection for 90%+ of projects
 
 ### Core Capabilities
 - **9 Specialized Agents**: PM, Architect, Developer, QA, PO, SM, Analyst, Design Architect

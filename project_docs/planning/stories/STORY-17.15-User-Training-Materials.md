@@ -211,8 +211,8 @@ A: No! Backward compatibility ensures existing scripts continue working. The sys
 Q: How much faster is it really?
 A: Most users see 4-6x improvement. Some commands like /parallel-qa achieve up to 7x speedup.
 
-Q: What if I preferred the old way?
-A: You can use --mode=task to force Task-based execution, though we recommend trying native agents first.
+Q: What if I need different performance settings?
+A: Native sub-agents automatically optimize for your system. Use performance monitoring commands to fine-tune execution.
 ```
 
 ## Success Metrics

@@ -1,6 +1,6 @@
-# Project Documentation Structure
+# Project Documentation Structure - APM v{{VERSION}}
 
-This directory contains all project-specific documentation generated and used by the AP Mapping agents.
+This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Debug Host integration** for 4-8x faster documentation generation.
 
 ## Directory Structure
 
@@ -38,14 +38,33 @@ Quality assurance documentation:
 ### index.md
 Master index linking all documentation for easy navigation.
 
-## Usage by Agents
+## Usage by Agents (v{{VERSION}} - Native Sub-Agent Enhanced)
 
-- **Analyst**: Creates initial project briefs and research documents
-- **PM**: Generates PRD and manages epic documentation
-- **Architect**: Creates and maintains architecture documents
-- **Design Architect**: Produces frontend architecture and UI/UX specs
-- **PO**: Validates and organizes documentation alignment
-- **SM**: Generates stories from epics, maintains story documentation
-- **Developer**: References all documentation during implementation
-- **QA**: Creates and maintains test documentation
+- **Analyst**: Parallel research and analysis with native sub-agents
+- **PM**: Concurrent PRD generation and epic management (4x speedup)
+- **Architect**: `/parallel-architecture-review` for system-wide analysis
+- **Design Architect**: Parallel component and UI/UX analysis
+- **PO**: `/groom` with 18 native sub-agents for backlog optimization
+- **SM**: `/parallel-sprint` coordinating 2-4 Developer sub-agents
+- **Developer**: `/parallel-review` for concurrent code analysis
+- **QA**: `/parallel-test` with AI/ML analytics (92% accuracy)
+
+**Performance Impact**: Documentation generation now 4-8x faster with zero CLI crashes
+
+## MCP Debug Host Integration (v{{VERSION}} - Epic 26)
+
+### Development Documentation Requirements
+
+When documenting development server management, agents MUST reference MCP tools instead of direct commands:
+
+**Documentation Standards:**
+- **Setup Guides**: Always reference `start_dev_server` MCP tool
+- **Deployment Docs**: Include MCP server management workflows
+- **Development Workflow**: Document MCP-based development process
+- **Troubleshooting**: MCP server diagnostics and log access via `server_logs`
+
+**Real-time Documentation:**
+- **Server Status**: Live updates via http://localhost:8080 dashboard
+- **Log Integration**: Automatic log capture and documentation
+- **Persistent Sessions**: Document survival across Claude Code restarts
 

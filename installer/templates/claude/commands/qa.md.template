@@ -7,31 +7,25 @@ description: Activate QA Agent
 
 ## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
 
-**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization by launching 5 Task tools in a single function_calls block.
 
-```
-I'm initializing as the QA agent. Let me load all required context in parallel for optimal performance.
+### Required Tasks:
+Execute these 5 tasks in parallel using the Task tool:
 
-*Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
-- Task 1: Load QA persona configuration from {{AP_ROOT}}/personas/qa.md
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
-- Task 2: Load test strategy template from {{AP_ROOT}}/templates/test-strategy-tmpl.md
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
-- Task 3: Check for existing test plans in {{PROJECT_ROOT}}/project_docs/qa/
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
-- Task 4: Load QA checklists from {{AP_ROOT}}/checklists/qa-test-strategy-checklist.md
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
-- Task 5: Load project requirements from {{PROJECT_ROOT}}/project_docs/requirements/prd.md
-Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
-```
+1. **Task Name**: Load_QA_Persona
+   **Prompt**: "Read the QA persona file at {{AP_ROOT}}/personas/qa.md and extract QA principles, testing methodologies, and quality assurance expertise"
 
-### Initialization Task Prompts:
-1. "Read and extract QA principles, testing methodologies, and quality assurance expertise"
-2. "Load test strategy template structure and key components"
-3. "Check for existing test plans, test cases, or quality documentation"
-4. "Load all QA checklists including strategy, execution, and automation"
-5. "Extract testable requirements and quality criteria from PRD"
+2. **Task Name**: Load_Test_Template  
+   **Prompt**: "Read the test strategy template at {{AP_ROOT}}/templates/test-strategy-tmpl.md and load test strategy template structure and key components"
+
+3. **Task Name**: Check_Test_Plans
+   **Prompt**: "List the directory {{PROJECT_ROOT}}/project_docs/qa/ and check for existing test plans, test cases, or quality documentation"
+
+4. **Task Name**: Load_QA_Checklists
+   **Prompt**: "Read the QA checklists file at {{AP_ROOT}}/checklists/qa-test-strategy-checklist.md and load all QA checklists including strategy, execution, and automation"
+
+5. **Task Name**: Load_Requirements
+   **Prompt**: "Read the PRD file at {{PROJECT_ROOT}}/project_docs/requirements/prd.md and extract testable requirements and quality criteria"
 
 ### Post-Initialization:
 After ALL tasks complete:

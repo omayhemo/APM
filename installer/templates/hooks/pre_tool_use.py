@@ -40,11 +40,40 @@ def main():
         parameters = input_data.get('parameters', {})
         context = input_data.get('context', {})
         
-        # Add your custom logic here
-        # Example: Check if tool is allowed, validate parameters, etc.
+        # ============================================
+        # DOCUMENT LOCATION ENFORCEMENT
+        # ============================================
+        if tool_name in ['Write', 'Edit', 'MultiEdit']:
+            try:
+                # Import location enforcer (if available)
+                from pre_tool_use_location_enforcer import DocumentLocationEnforcer
+                logger.info("Running Document Location Enforcement...")
+                
+                # Initialize enforcer
+                enforcer = DocumentLocationEnforcer()
+                
+                # Process the hook
+                modified_params = enforcer.process_hook(tool_name, parameters, context)
+                
+                # If parameters were modified, update them
+                if modified_params != parameters:
+                    parameters = modified_params
+                    input_data['parameters'] = modified_params
+                    logger.info(f"Document location corrected: {modified_params.get('file_path')}")
+                    
+                    # Output the modified parameters
+                    print(json.dumps({
+                        'modified': True,
+                        'parameters': modified_params
+                    }))
+                    
+            except ImportError:
+                logger.info("Document Location Enforcer not installed, skipping")
+            except Exception as e:
+                logger.error(f"Error in Document Location Enforcement: {e}")
         
-        # For now, just log and allow all tools
-        logger.info(f"Allowing tool: {tool_name}")
+        # Log the tool usage
+        logger.info(f"Processing tool: {tool_name}")
         
         # Call notification manager for audio/TTS notifications
         notification_manager = get_notification_manager()

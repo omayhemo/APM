@@ -10,11 +10,12 @@ When ANY /ap command is used:
 3. YOU MUST follow the exact sequence below IMMEDIATELY
 
 ### MANDATORY SEQUENCE FOR /ap COMMANDS:
-1. List session notes directory with LS tool (silently) - DO NOT try to read current_session.md
-2. List rules directory with LS tool (silently) - DO NOT try to read rules.md
-3. Create new session note (silently)
-4. Use voice script for greeting
-5. Continue AS the persona (not delegating)
+1. List session notes directory with LS tool (silently)
+2. Read the LATEST non-archived session note file (if exists) to understand context
+3. List rules directory with LS tool (silently)
+4. Create new session note OR append to existing if same day
+5. Use voice script for greeting
+6. Continue AS the persona (not delegating)
 
 ## ❌ COMMON MISTAKES TO AVOID
 
@@ -26,8 +27,8 @@ When ANY /ap command is used:
 
 User: /ap
 Assistant: 
-1. [Uses LS tool on session notes directory - NOT reading current_session.md]
-2. [Uses LS tool on rules directory - NOT reading rules.md]
+1. [Uses LS tool on session notes directory - Required]
+2. [Uses LS tool on rules directory - Required]
 3. [Creates session note silently]
 4. [Uses voice script]: bash {{AP_ROOT}}/voice/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
 5. [Continues as the AP Orchestrator persona]
@@ -133,8 +134,8 @@ All agents use voice scripts from the agents/voice/ directory:
 ## 📋 AP COMMAND VALIDATION CHECKLIST
 
 Before responding to ANY /ap command, verify:
-- [ ] Did I use LS tool on session notes directory? (Required - NOT reading current_session.md)
-- [ ] Did I use LS tool on rules directory? (Required - NOT reading rules.md)
+- [ ] Did I use LS tool on session notes directory? (Required - Required)
+- [ ] Did I use LS tool on rules directory? (Required - Required)
 - [ ] Did I create a new session note? (Required)
 - [ ] Am I using the voice script? (Required)
 - [ ] Am I acting AS the persona, not delegating? (Required)
