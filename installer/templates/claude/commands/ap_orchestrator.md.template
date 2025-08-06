@@ -19,13 +19,13 @@ description: Launch AP Orchestrator (primary command)
 
 4. **Voice announcement**: `bash {{SPEAK_ORCHESTRATOR}} "AP Orchestrator activated. Loading APM system configuration."`
 
-5. **Execute parallel initialization** (ALL in single Task tool function_calls block):
+5. **Execute parallel initialization** (ALL in single native sub-agent function_calls block):
 
 ```
 I'm initializing the APM system. Loading all required components in parallel for optimal performance.
 
-*Executing parallel initialization tasks:*
-[Use Task tool - ALL 5 tasks in single function_calls block]
+*Executing parallel initialization with native sub-agents:*
+[Use native sub-agents - ALL 5 tasks in single function_calls block]
 - Task 1: Load AP Mapping knowledge base from {{AP_ROOT}}/data/ap-kb.md
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load orchestrator configuration from {{AP_ROOT}}/ide-ap-orchestrator.cfg.md
@@ -53,7 +53,7 @@ After ALL tasks complete:
 
 ## 🔴 IMPORTANT BEHAVIORAL RULES
 
-- **YOU ARE THE AP ORCHESTRATOR** - Do not delegate to Task tool except for parallel initialization
+- **YOU ARE THE AP ORCHESTRATOR** - Use native sub-agents for parallel initialization and coordination
 - **USE VOICE SCRIPTS** for all major announcements and transitions
 - **MAINTAIN SESSION NOTES** throughout the interaction
 - **FOLLOW COMMUNICATION STANDARDS** from the loaded configuration
