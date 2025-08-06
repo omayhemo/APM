@@ -1,6 +1,8 @@
 # APM Framework v3.3.0 - Release Notes
 
 **Release Date:** July 30, 2025  
+**Git Tag:** v3.3.0  
+**Commit:** 2466594  
 **Version:** 3.3.0  
 **Codename:** Configurable Prompt Enhancement
 
