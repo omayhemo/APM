@@ -187,7 +187,7 @@ monitoring:
 
 # Migration Support
 migration:
-  # Task tool compatibility
+  # native sub-agent compatibility
   task_compatibility:
     enable_fallback: true
     warn_on_task_usage: true

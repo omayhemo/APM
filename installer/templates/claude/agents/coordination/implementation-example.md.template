@@ -4,7 +4,7 @@
 
 This example demonstrates the complete conversion of the `/parallel-sprint` command from Task-based to native sub-agent coordination.
 
-## Original Task-Based Implementation
+## Original Native Sub-Agent Implementation
 
 ### Problems with Current Approach
 ```javascript

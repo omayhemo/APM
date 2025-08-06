@@ -131,7 +131,7 @@ When you run `/parallel-sprint`, I will:
 
 ## Performance Improvements
 
-### Old Task-Based Approach (Sequential):
+### Old Native Sub-Agent Approach (Sequential):
 - Task 1 → Wait → Task 2 → Wait → Task 3 → Wait...
 - Total Time: Sum of all task times
 - CLI crashes with too many parallel tasks

@@ -18,7 +18,7 @@ metadata:
 I'm launching parallel research prompt generation with 4 native sub-agents for comprehensive research planning.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load Analyst persona from {{AP_ROOT}}/personas/analyst.md
 - Task 2: Load existing research context from {{PROJECT_ROOT}}/project_docs/research/
 - Task 3: Load deep research prompt template from {{AP_ROOT}}/tasks/create-deep-research-prompt.md
@@ -43,7 +43,7 @@ After ALL tasks complete:
 ### Research Domain Streams (4 Parallel Sub-Agents)
 ```
 *Launching research prompt generation sub-agents:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Sub-Agent 1: Research Objectives & Methodology
   Prompt: "Define clear research objectives, questions, hypotheses, and methodologies. Specify data collection methods, analysis frameworks, and validation criteria. Include success metrics."
 

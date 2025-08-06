@@ -63,7 +63,7 @@ agents:
 integration:
   preserve_apm_commands: true
   enable_parallel_execution: true
-  task_tool_optimization: true
+  native_sub_agent_optimization: true
   
 # Monitoring & Metrics
 monitoring:

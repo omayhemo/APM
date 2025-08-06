@@ -13,7 +13,7 @@ description: Hand off to another Agent Persona
 I'm preparing to hand off to the [Target Agent]. Let me transfer context and initialize the new agent in parallel.
 
 *Executing parallel handoff tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Create handoff summary of current work and decisions
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load target persona configuration from {{AP_ROOT}}/personas/{persona}.md

@@ -245,6 +245,6 @@ All agents work simultaneously on their respective areas.
 
 - Sub-agent activation time: <2 seconds per agent
 - True parallel execution: Verified by concurrent timestamps
-- Performance improvement: 4x minimum over Task tool
+- Performance improvement: 4x minimum over native sub-agent
 - Zero CLI crashes during parallel operations
 - Clear, aggregated results from all agents

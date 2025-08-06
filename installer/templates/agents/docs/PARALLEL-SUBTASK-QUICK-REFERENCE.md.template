@@ -1,7 +1,7 @@
 # Parallel Subtask Quick Reference Card
 
 ## 🚨 Critical Rule
-**ALL Task invocations MUST be in a SINGLE response for parallel execution**
+**ALL native sub-agent invocations MUST be in a SINGLE response for parallel execution**
 
 ## Available Personas & Commands
 
@@ -31,7 +31,7 @@
 - `e2e-user-journey` - Complete flow testing
 
 ### 🏗️ Architect (Existing)
-**Command**: Use Task tool directly
+**Command**: Use native sub-agents directly
 
 **Available Subtasks**:
 - `code-quality` - Architecture quality

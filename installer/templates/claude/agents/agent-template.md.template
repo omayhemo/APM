@@ -87,7 +87,7 @@ Before any file operation:
 I'm initializing as the {{AGENT_NAME}} agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 {{INITIALIZATION_TASKS}}
 ```
 

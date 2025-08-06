@@ -14,7 +14,7 @@ This infrastructure is installed via the APM installer when the sub-agents migra
 │   ├── README.md                          # This file
 │   ├── agent-template.md                  # Base template for all sub-agents
 │   ├── parallel-execution-patterns.md     # Core parallel execution patterns
-│   ├── task-coordination.md              # Task tool coordination system
+│   ├── task-coordination.md              # native sub-agent coordination system
 │   ├── synthesis-patterns.md             # Result synthesis approaches
 │   ├── config/
 │   │   └── base-config.yaml             # Shared configuration
@@ -39,7 +39,7 @@ This infrastructure is installed via the APM installer when the sub-agents migra
 - **Enhanced Context**: Dedicated context windows per agent
 - **Voice Integration**: Seamless TTS system integration
 - **Session Management**: Improved note creation and archiving
-- **Parallel Execution**: Advanced Task tool coordination with 5x performance boost
+- **Parallel Execution**: Advanced native sub-agent coordination with 5x performance boost
 - **Synthesis Patterns**: Four specialized result aggregation algorithms
 - **Resource Management**: Intelligent task distribution and monitoring
 - **Error Recovery**: Robust error handling with automatic recovery
@@ -151,7 +151,7 @@ Sub-agents are automatically available after installation. They can be invoked:
 I'm initializing as the {{AGENT_ROLE}} agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load project architecture from {{ARCHITECTURE_PATH}}
 - Task 2: Load current sprint stories from {{SPRINT_PATH}}
 - Task 3: Load coding standards from {{STANDARDS_PATH}}
@@ -165,7 +165,7 @@ I'm initializing as the {{AGENT_ROLE}} agent. Let me load all required context i
 I'll perform comprehensive security analysis using parallel subtasks.
 
 *Executing parallel security analysis:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: SAST analysis focusing on injection vulnerabilities
 - Task 2: DAST analysis of authentication endpoints
 - Task 3: Dependency vulnerability scanning
@@ -181,7 +181,7 @@ After ALL tasks complete, I'll synthesize findings using multi_source_validator 
 Launching parallel development streams for sprint execution:
 
 *Executing parallel development coordination:*
-[Use Task tool - ALL in single function_calls block]  
+[Use native sub-agents - ALL in single function_calls block]  
 - Task 1: Primary Developer Stream (Stories 1-3)
 - Task 2: Secondary Developer Stream (Stories 4-6)
 - Task 3: Integration Developer Stream (API contracts)

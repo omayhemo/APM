@@ -144,7 +144,7 @@ architect:
 
 **Parallel Execution Strategies**:
 ```bash
-# Strategy 1: Task-Based Parallelism
+# Strategy 1: Native Sub-Agent Parallelism
 /parallel-development \
   --tasks=feature-a,feature-b,feature-c \
   --coordination=smart \

@@ -13,7 +13,7 @@ description: Compact session and switch to another Agent Persona
 I'm preparing to compact this session and switch to the [Target Agent]. Let me preserve context and initialize the new agent in parallel.
 
 *Executing parallel switch tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Create comprehensive session summary and key insights
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Archive current work artifacts and decisions

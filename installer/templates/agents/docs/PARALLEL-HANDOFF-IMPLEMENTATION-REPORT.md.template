@@ -11,7 +11,7 @@ Successfully extended the parallel initialization pattern to the **handoff** and
 1. **`/handoff`** - Direct agent-to-agent transfer with parallel context preservation
 2. **`/switch`** - Session compaction with parallel context archival and transfer
 
-Both commands now follow the established pattern of explicit Task tool usage with mandatory parallel execution.
+Both commands now follow the established pattern of explicit native sub-agent usage with mandatory parallel execution.
 
 ## Detailed Implementation
 
@@ -68,7 +68,7 @@ Current Agent → Parallel Handoff Tasks → Target Agent Activation → Target'
 Both commands now include:
 
 1. **Mandatory Protocol Section**: `## 🚀 PARALLEL CONTEXT TRANSFER (MANDATORY)`
-2. **Explicit Task Instructions**: Clear Task tool usage with single function_calls block
+2. **Explicit Task Instructions**: Clear native sub-agent usage with single function_calls block
 3. **Specific Prompts**: Guided extraction for each parallel task
 4. **Post-Protocol Steps**: Clear sequence after parallel execution
 5. **Confirmation Pattern**: Visual and voice confirmation of completion
@@ -153,7 +153,7 @@ Templates use variable substitution ({{AP_ROOT}}, etc.) for portability across i
 
 ### Validation Completed
 - ✅ Both commands follow identical structural pattern
-- ✅ Explicit Task tool usage specified
+- ✅ Explicit native sub-agent usage specified
 - ✅ Single function_calls block requirement clear
 - ✅ Post-execution protocols defined
 - ✅ Context formats standardized

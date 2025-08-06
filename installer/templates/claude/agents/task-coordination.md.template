@@ -5,7 +5,7 @@
 
 ## 🎯 Task Coordination Architecture
 
-The Task tool coordination system enables seamless parallel execution across all AP Mapping agents with intelligent task distribution, resource management, and result synthesis.
+The native sub-agent coordination system enables seamless parallel execution across all AP Mapping agents with intelligent task distribution, resource management, and result synthesis.
 
 ## 🚀 Core Coordination Principles
 
@@ -15,20 +15,20 @@ The Task tool coordination system enables seamless parallel execution across all
 ```markdown
 ✅ CORRECT PATTERN:
 <function_calls>
-  <invoke name="Task">...</invoke>
-  <invoke name="Task">...</invoke>
-  <invoke name="Task">...</invoke>
-  <invoke name="Task">...</invoke>
+  <invoke native sub-agent">...</invoke>
+  <invoke native sub-agent">...</invoke>
+  <invoke native sub-agent">...</invoke>
+  <invoke native sub-agent">...</invoke>
 </function_calls>
 # All tasks execute simultaneously
 
 ❌ WRONG PATTERN:
 <function_calls>
-  <invoke name="Task">...</invoke>
+  <invoke native sub-agent">...</invoke>
 </function_calls>
 # Wait for completion...
 <function_calls>
-  <invoke name="Task">...</invoke>
+  <invoke native sub-agent">...</invoke>
 </function_calls>
 # Tasks run sequentially
 ```
@@ -152,7 +152,7 @@ class TaskQueueCoordinator:
         function_calls = []
         for i, task in enumerate(task_list):
             function_calls.append({
-                "invoke": "Task",
+                "invoke native sub-agent",
                 "parameters": {
                     "task": f"{task.prompt}",
                     "timeout": task.timeout or {{TASK_TIMEOUT}},

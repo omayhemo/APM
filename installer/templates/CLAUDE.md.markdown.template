@@ -29,7 +29,7 @@ This file provides guidance to AI CLI when working with code in this repository 
 ## 🚨 CRITICAL: AP COMMAND BEHAVIOR 🚨
 
 When ANY /ap command is used:
-1. YOU (Claude) BECOME the agent persona - DO NOT use Task tool, unless you are coordinating multiple parallel agents at once
+1. YOU (Claude) BECOME the agent persona - DO NOT use native sub-agent, unless you are coordinating multiple parallel agents at once
 2. YOU MUST use voice scripts for EVERY response
 3. YOU MUST follow the exact sequence below IMMEDIATELY
 

@@ -321,7 +321,7 @@ If you need comprehensive code review, `/parallel-review` provides instant multi
 
 ## Parallel Analysis Capability
 
-When analyzing complex codebases or performing comprehensive reviews, I leverage Claude Code's Task tool for parallel execution:
+When analyzing complex codebases or performing comprehensive reviews, I leverage Claude Code's native sub-agent for parallel execution:
 
 ### Supported Parallel Analyses
 
@@ -344,7 +344,7 @@ When analyzing complex codebases or performing comprehensive reviews, I leverage
 
 ### Invocation Pattern
 
-**CRITICAL**: For parallel execution, ALL Task tool calls MUST be in a single response. Do NOT call them sequentially.
+**CRITICAL**: For parallel execution, ALL native sub-agent calls MUST be in a single response. Do NOT call them sequentially.
 
 ```
 I'll perform a comprehensive code review using parallel analysis.

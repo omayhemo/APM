@@ -13,7 +13,7 @@ description: Activate Design Architect Agent
 I'm initializing as the Design Architect Agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load design architect persona from {{AP_ROOT}}/personas/design-architect.md
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load frontend architecture template from {{AP_ROOT}}/templates/front-end-architecture-tmpl.md

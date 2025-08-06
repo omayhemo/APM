@@ -13,7 +13,7 @@ description: Activate Parallel Subtask Analysis Mode
 I'm initializing Parallel Subtask Analysis Mode. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load parallel subtask implementation guide from {{AP_ROOT}}/tasks/subtasks/IMPLEMENTATION-GUIDE.md
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load parallel subtask usage guide from {{AP_ROOT}}/docs/PARALLEL-SUBTASK-USAGE-GUIDE.md
@@ -94,7 +94,7 @@ This command activates the Parallel Subtask Analysis system. The system will:
 ## CRITICAL EXECUTION RULES:
 
 ### 🚨 The Golden Rule:
-**ALL Task tool invocations MUST be in a SINGLE response for parallel execution**
+**ALL native sub-agent invocations MUST be in a SINGLE response for parallel execution**
 
 ✅ **CORRECT**: Multiple Tasks in one function_calls block
 ❌ **WRONG**: Tasks in separate responses (sequential)

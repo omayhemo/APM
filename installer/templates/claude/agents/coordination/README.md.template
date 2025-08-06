@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains the complete Native Sub-Agent Coordination Framework for Story 17.1, which enables true parallel execution using Claude's native sub-agent capabilities instead of the sequential Task tool.
+This directory contains the complete Native Sub-Agent Coordination Framework for Story 17.1, which enables true parallel execution using Claude's native sub-agent capabilities instead of the sequential native sub-agent.
 
 ## Framework Components
 
@@ -33,7 +33,7 @@ This directory contains the complete Native Sub-Agent Coordination Framework for
    - Executive summary and technical deep-dive formats
 
 5. **`task-to-subagent-migration.md.template`**
-   - Complete migration guide from Task tool to native sub-agents
+   - Complete migration guide from native sub-agent to native sub-agents
    - Before/after examples for major commands
    - Performance comparisons and best practices
    - Validation checklists and success metrics
@@ -53,7 +53,7 @@ This directory contains the complete Native Sub-Agent Coordination Framework for
 ## Key Benefits
 
 ### True Parallelism
-- **Before**: Task tool executes sequentially despite "parallel" naming
+- **Before**: native sub-agent executes sequentially despite "parallel" naming
 - **After**: Native sub-agents run simultaneously with separate context windows
 - **Result**: 4-6x performance improvement confirmed
 
@@ -63,7 +63,7 @@ This directory contains the complete Native Sub-Agent Coordination Framework for
 - **Result**: Better decisions from domain expertise
 
 ### Stability
-- **Before**: Task tool parallel execution can crash Claude Code CLI
+- **Before**: native sub-agent parallel execution can crash Claude Code CLI
 - **After**: Native sub-agents are stable and reliable
 - **Result**: Zero crashes in extensive testing
 
@@ -113,14 +113,14 @@ Coordinate on dependencies but work in parallel. Complete within 8 minutes.
 1. Apply migration patterns to remaining parallel commands
 2. Update APM system integration
 3. Train team on new patterns
-4. Phase out Task tool dependency
+4. Phase out native sub-agent dependency
 
 ## Performance Metrics
 
 ### Confirmed Achievements
 - **Agent Spawn Time**: <2 seconds per agent ✅
 - **True Parallel Execution**: Verified by concurrent timestamps ✅
-- **Performance Improvement**: 4-6x speedup over Task tool ✅
+- **Performance Improvement**: 4-6x speedup over native sub-agent ✅
 - **CLI Stability**: Zero crashes in testing ✅
 - **Natural Language**: Simple, maintainable patterns ✅
 
@@ -191,7 +191,7 @@ Independent analysis, compile unified recommendations.
 - Preserves session management and archiving
 
 ### Backward Compatibility
-- Fallback to Task tool if native agents fail
+- Fallback to native sub-agent if native agents fail
 - Migration warnings for Task-based commands
 - Gradual rollout support (percentage-based)
 - Complete compatibility with existing workflows
@@ -248,6 +248,6 @@ To extend or modify the framework:
 
 **Framework Status**: ✅ Ready for Production
 **Story 17.1**: Complete - All acceptance criteria met
-**Performance**: 4-6x improvement over Task tool confirmed
+**Performance**: 4-6x improvement over native sub-agent confirmed
 **Stability**: Zero crashes in extensive testing
 **Migration**: Ready for rollout to all parallel commands

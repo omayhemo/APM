@@ -84,7 +84,7 @@ pwd  # Should show: /path/to/your/project
 
 ### APM-Specific Features
 - **Session Management**: Maintain context across interactions
-- **Task-Based Execution**: Use Task tool for complex workflows
+- **Native Sub-Agent Coordination**: Use native sub-agents for complex parallel workflows
 - **Voice Notifications**: Audio feedback for all operations
 - **Workspace Validation**: Strict path and permission controls
 

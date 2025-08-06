@@ -13,7 +13,7 @@ description: Activate Analyst Agent
 I'm initializing as the Analyst Agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load analyst persona configuration from {{AP_ROOT}}/personas/analyst.md
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load communication standards from {{AP_ROOT}}/personas/communication_standards.md

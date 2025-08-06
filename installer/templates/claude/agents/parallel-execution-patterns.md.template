@@ -4,9 +4,9 @@
 
 ## 🚀 CRITICAL PARALLEL EXECUTION PRINCIPLES
 
-**FUNDAMENTAL RULE**: ALL Task tool invocations MUST be in a SINGLE response to execute in parallel.
+**FUNDAMENTAL RULE**: ALL native sub-agent invocations MUST be in a SINGLE response to execute in parallel.
 
-This is the foundation of all parallel execution in the AP Mapping system. Claude Code's Task tool executes in parallel ONLY when multiple Task invocations are in the same function_calls block.
+This is the foundation of all parallel execution in the AP Mapping system. Claude Code's native sub-agent executes in parallel ONLY when multiple Task invocations are in the same function_calls block.
 
 ## 🔧 Core Parallel Patterns
 
@@ -24,7 +24,7 @@ This is the foundation of all parallel execution in the AP Mapping system. Claud
 I'm initializing as the {{AGENT_ROLE}} agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load {{DOCUMENT_1}} 
 - Task 2: Load {{DOCUMENT_2}}
 - Task 3: Load {{DOCUMENT_3}}
@@ -53,7 +53,7 @@ After ALL tasks complete:
 I'll perform comprehensive {{ANALYSIS_TYPE}} analysis using parallel subtasks.
 
 *Executing parallel analysis:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: {{ANALYSIS_TASK_1}}
 - Task 2: {{ANALYSIS_TASK_2}}
 - Task 3: {{ANALYSIS_TASK_3}}
@@ -78,7 +78,7 @@ After ALL tasks complete, I'll synthesize findings using {{SYNTHESIS_PATTERNS}}.
 Launching parallel development streams for sprint execution:
 
 *Executing parallel development coordination:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Primary Developer Stream ({{STORY_SET_1}})
 - Task 2: Secondary Developer Stream ({{STORY_SET_2}})
 - Task 3: Integration Developer Stream ({{INTEGRATION_POINTS}})
@@ -167,7 +167,7 @@ class ParallelTaskCoordinator:
         function_calls = []
         for task in tasks:
             function_calls.append({
-                "invoke": "Task",
+                "invoke native sub-agent",
                 "parameters": {
                     "task": task.prompt,
                     "timeout": self.timeout

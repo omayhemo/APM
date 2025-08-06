@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-Successfully implemented parallel initialization protocols across all 8 AP Mapping agent personas, achieving an estimated 5x performance improvement in agent activation time. Each agent now loads their required context using Claude Code's Task tool in parallel rather than sequential reads.
+Successfully implemented parallel initialization protocols across all 8 AP Mapping agent personas, achieving an estimated 5x performance improvement in agent activation time. Each agent now loads their required context using Claude Code's native sub-agent in parallel rather than sequential reads.
 
 ## Implementation Overview
 
@@ -12,7 +12,7 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 
 1. **Visibility**: Impossible to miss with emoji and MANDATORY label
 2. **Consistency**: Same pattern across all agents
-3. **Explicit Instructions**: Clear Task tool usage with single function_calls block requirement
+3. **Explicit Instructions**: Clear native sub-agent usage with single function_calls block requirement
 4. **Context-Specific**: Each agent loads relevant documents for their role
 
 ### Agents Updated
@@ -129,7 +129,7 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 I'm initializing as the [Agent] agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: [Document 1]
 - Task 2: [Document 2]
 - Task 3: [Document 3]
@@ -199,7 +199,7 @@ After ALL tasks complete:
 
 ### Pattern Validation
 - ✅ All personas have identical structure
-- ✅ All use Task tool explicitly
+- ✅ All use native sub-agent explicitly
 - ✅ All specify single function_calls block
 - ✅ All have post-initialization confirmation
 - ✅ All maintain original functionality

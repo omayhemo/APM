@@ -7,10 +7,10 @@ description: Activate QA Agent
 
 ## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
 
-**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization by launching 5 Task tools in a single function_calls block.
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization by launching 5 native sub-agents in a single function_calls block.
 
 ### Required Tasks:
-Execute these 5 tasks in parallel using the Task tool:
+Execute these 5 tasks in parallel using the native sub-agent:
 
 1. **Task Name**: Load_QA_Persona
    **Prompt**: "Read the QA persona file at {{AP_ROOT}}/personas/qa.md and extract QA principles, testing methodologies, and quality assurance expertise"

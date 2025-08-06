@@ -18,7 +18,7 @@ metadata:
 I'm launching parallel requirements analysis with 5 native sub-agents for comprehensive coverage.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load Analyst persona configuration from {{AP_ROOT}}/personas/analyst.md
 - Task 2: Load project documentation from {{PROJECT_ROOT}}/project_docs/
 - Task 3: Load existing requirements if available from {{PROJECT_ROOT}}/project_docs/requirements/
@@ -43,7 +43,7 @@ After ALL tasks complete:
 ### Comprehensive Requirements Streams (5 Parallel Sub-Agents)
 ```
 *Launching requirements analysis sub-agents:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Sub-Agent 1: Functional Requirements Analysis
   Prompt: "Analyze and document all functional requirements including features, capabilities, user interactions, workflows, and business logic. Create detailed functional specifications."
 

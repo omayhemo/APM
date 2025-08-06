@@ -18,7 +18,7 @@ metadata:
 I'm launching parallel PRD creation with 5 native sub-agents for comprehensive product documentation.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load PM persona from {{AP_ROOT}}/personas/pm.md
 - Task 2: Load project brief from {{PROJECT_ROOT}}/project_docs/requirements/project_brief.md
 - Task 3: Load PRD template from {{AP_ROOT}}/templates/prd-tmpl.md
@@ -43,7 +43,7 @@ After ALL tasks complete:
 ### Comprehensive PRD Domains (5 Parallel Sub-Agents)
 ```
 *Launching PRD creation sub-agents:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Sub-Agent 1: Product Vision & Strategy
   Prompt: "Define product vision, strategic objectives, success metrics, market positioning, competitive differentiation, and long-term roadmap. Create compelling value proposition."
 

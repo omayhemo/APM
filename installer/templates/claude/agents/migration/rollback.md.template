@@ -28,7 +28,7 @@ Initiate rollback if any of the following occur:
 ### Technical Issues
 - [ ] **Integration Failures**: Claude Code sub-agent system unstable
 - [ ] **Context Window Problems**: Memory/context issues affecting functionality  
-- [ ] **Parallel Execution Broken**: Task tool integration failures
+- [ ] **Parallel Execution Broken**: native sub-agent integration failures
 - [ ] **Backward Compatibility Lost**: Legacy commands not working
 
 ## Rollback Phases

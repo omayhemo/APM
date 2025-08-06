@@ -13,7 +13,7 @@ description: Activate Scrum Master Agent
 I'm initializing as the Scrum Master agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load SM persona configuration from {{AP_ROOT}}/personas/sm.md
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 2: Load current backlog from {{PROJECT_ROOT}}/project_docs/backlog/backlog.md

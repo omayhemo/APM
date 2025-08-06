@@ -18,7 +18,7 @@ metadata:
 I'm activating comprehensive backlog grooming with 18 parallel sub-agents for maximum efficiency.
 
 *Executing parallel grooming tasks:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load Product Owner persona from {{AP_ROOT}}/personas/po.md
 - Task 2: Load current backlog from {{PROJECT_ROOT}}/project_docs/backlog.md
 - Task 3: Analyze story dependencies and relationships
@@ -43,7 +43,7 @@ After ALL tasks complete:
 ### Phase 1: Domain Analysis (6 Parallel Sub-Agents)
 ```
 *Launching domain analysis sub-agents:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Sub-Agent 1: Business Value Analysis - Assess ROI and business impact
 - Sub-Agent 2: Domain Modeling - Analyze domain boundaries and contexts
 - Sub-Agent 3: Feature Extraction - Identify feature opportunities
@@ -55,7 +55,7 @@ After ALL tasks complete:
 ### Phase 2: Story Generation (6 Parallel Sub-Agents)
 ```
 *Launching story generation sub-agents:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Sub-Agent 7: Feature Epic Generation - Create feature-focused epics
 - Sub-Agent 8: Technical Epic Generation - Create technical/infrastructure epics
 - Sub-Agent 9: Compliance Epic Generation - Create compliance/security epics
@@ -67,7 +67,7 @@ After ALL tasks complete:
 ### Phase 3: Optimization & Planning (6 Parallel Sub-Agents)
 ```
 *Launching optimization sub-agents:*
-[Use Task tool - ALL in single function_calls block]
+[Use native sub-agents - ALL in single function_calls block]
 - Sub-Agent 13: Sprint Allocation - Optimize story distribution across sprints
 - Sub-Agent 14: Capacity Planning - Balance team capacity with story points
 - Sub-Agent 15: Parallel Stream Planning - Identify parallel development opportunities
