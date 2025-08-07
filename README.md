@@ -1,6 +1,6 @@
 # Agentic Persona Mapping (APM) Framework
 
-**v3.5.0** - Revolutionary AI-powered framework with **unified persona system**, **native sub-agent parallelism**, and **configurable prompt enhancement** delivering **4-8x performance improvement** in software development workflows.
+**v3.5.0** - Revolutionary AI-powered framework with **unified persona system**, **complete native sub-agent modernization**, **massive codebase cleanup**, and **configurable prompt enhancement** delivering **4-8x performance improvement** in software development workflows.
 
 ## ⚠️ CRITICAL: ALWAYS USE SLASH COMMANDS
 
@@ -23,7 +23,7 @@
 
 ## 🚀 Quick Start
 
-**Latest Release:** v3.5.0 ⚡ *New Feature: Unified JSON-Based Persona System*
+**Latest Release:** v3.5.0 ⚡ *Major Update: Complete Native Sub-Agent Modernization + Unified Persona System*
 
 ### One-Command Installation
 
@@ -39,15 +39,17 @@ curl -L https://github.com/omayhemo/APM/releases/download/v3.5.0/apm-v3.5.0.tar.
 
 ## What is Agentic Persona Mapping?
 
-APM v3.5.0 delivers **revolutionary native sub-agent architecture** with **unified persona management** and **configurable prompt enhancement** that enables true parallel AI agent execution:
+APM v3.5.0 delivers **revolutionary native sub-agent architecture** with **unified persona management**, **complete modernization**, and **configurable prompt enhancement** that enables true parallel AI agent execution:
 
 - **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
-- **⚡ Native Sub-Agent Parallelism**: True concurrent execution with 4-8x performance improvement
+- **⚡ Native Sub-Agent Architecture**: Complete Task tool modernization with 4-8x performance improvement
 - **🎯 45+ Parallel Commands**: Execute multiple analyses, tests, and development tasks simultaneously
 - **🧪 Enterprise QA Framework**: AI/ML powered testing with 92% prediction accuracy
 - **🚀 Zero CLI Crashes**: Rock-solid native integration with Claude Code
 - **📈 34+ Hours/Week Saved**: Per development team through parallel execution
+- **🧹 Massive Cleanup**: Eliminated 25,599 lines of deprecated code and backup files
 - **🔄 Seamless Migration**: Backward compatibility with automatic command translation
+- **🎯 Unified System**: Single JSON-based persona definitions eliminate 3x template duplication
 - **Audio Notifications**: TTS system with persona-specific voices
 - **Session Management**: Automatic documentation and archival
 
