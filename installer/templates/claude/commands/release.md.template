@@ -33,7 +33,7 @@ When you run this command, I will:
    - Update RELEASE_NOTES.md with release notes template
    - Ensure all documentation reflects the new version
    - Update releavant readme files with new version information
-    
+   
 4. **Build Distribution Package**
    - Run `build-distribution.sh` with new version
    - Verify distribution package creation
