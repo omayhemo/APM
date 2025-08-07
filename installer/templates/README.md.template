@@ -36,7 +36,7 @@ The AP (Agentic Persona) Mapping is a revolutionary project-agnostic approach to
 
 **🚀 MCP Debug Host Integration (Epic 26 - 93% Complete):**
 - **Persistent Development Servers**: Servers survive Claude Code restarts
-- **Real-time Web Dashboard**: Full console output at http://localhost:8080
+- **Real-time Web Dashboard**: Full console output at http://localhost:2601
 - **Tech Stack Auto-Detection**: 11+ frameworks (React, Django, Laravel, etc.)
 - **Intelligent Command Interception**: PreToolUse hooks prevent conflicts
 - **Zero-Config Setup**: Automatic detection and optimal server management
@@ -62,7 +62,7 @@ The AP (Agentic Persona) Mapping is a revolutionary project-agnostic approach to
 **Benefits:**
 - **Persistent Servers**: Survive Claude Code session restarts
 - **Resource Management**: Prevents port conflicts and zombie processes
-- **Real-time Monitoring**: Web dashboard at http://localhost:8080
+- **Real-time Monitoring**: Web dashboard at http://localhost:2601
 - **Automatic Cleanup**: Proper server lifecycle management
 
 ## Quick Start

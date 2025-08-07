@@ -142,7 +142,7 @@ echo "/parallel-sprint" | claude
 ./scripts/test-tts-installation.sh
 
 # Verify API documentation
-curl -s localhost:8080/api/v{{API_VERSION}}/health
+curl -s localhost:2601/api/v{{API_VERSION}}/health
 
 # Test analytics dashboard
 python3 .apm/analytics/test_dashboard.py

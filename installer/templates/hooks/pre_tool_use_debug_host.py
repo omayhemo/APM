@@ -221,7 +221,7 @@ Project: {project_info['project_name']}
 The Debug Host MCP server will manage this development server for you.
 Benefits:
 - Server persists across Claude Code sessions
-- Real-time monitoring at http://localhost:8080
+- Real-time monitoring at http://localhost:2601
 - Centralized log management
 - Process lifecycle control
 

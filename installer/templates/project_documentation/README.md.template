@@ -64,7 +64,7 @@ When documenting development server management, agents MUST reference MCP tools 
 - **Troubleshooting**: MCP server diagnostics and log access via `server_logs`
 
 **Real-time Documentation:**
-- **Server Status**: Live updates via http://localhost:8080 dashboard
+- **Server Status**: Live updates via http://localhost:2601 dashboard
 - **Log Integration**: Automatic log capture and documentation
 - **Persistent Sessions**: Document survival across Claude Code restarts
 

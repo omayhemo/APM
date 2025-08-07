@@ -11,7 +11,7 @@ The `test dashboard` command launches a modern, web-based monitoring dashboard t
 ## Usage
 
 ```bash
-# Launch dashboard on default port (8080)
+# Launch dashboard on default port (2601)
 test dashboard
 
 # Launch on custom port
@@ -72,14 +72,14 @@ test dashboard --generate
 ## Technical Details
 
 - **Script Location**: `{{APM_ROOT}}/scripts/test-monitoring/test-dashboard.sh`
-- **Default Port**: 8080 (configurable)
+- **Default Port**: 2601 (configurable)
 - **Browser Auto-open**: Attempts to open browser automatically
 - **Server Options**: Python, Node.js, or system HTTP server
 
 ## Access
 
 Once launched, access your dashboard at:
-- **Local**: http://localhost:8080 (or custom port)
+- **Local**: http://localhost:2601 (or custom port)
 - **Network**: Dashboard binds to 127.0.0.1 (local only)
 
 Execute this command by typing `test dashboard` in your Claude Code session.

@@ -67,7 +67,7 @@ All sub-agents MUST use MCP tools for development server management instead of d
 **Benefits for Sub-Agents:**
 - **Session Persistence**: Servers survive Claude Code restarts
 - **Resource Isolation**: Prevents conflicts between parallel development streams
-- **Real-time Monitoring**: Web dashboard accessible at http://localhost:8080
+- **Real-time Monitoring**: Web dashboard accessible at http://localhost:2601
 - **Intelligent Coordination**: Automatic port allocation for concurrent development
 
 ## Parallel Execution Capabilities

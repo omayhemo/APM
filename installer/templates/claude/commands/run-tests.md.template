@@ -368,7 +368,7 @@ mcp__apm-debug-host__server_start with parameters:
 
 **Benefits for Testing**:
 - **Persistent Servers**: Test servers remain running across test sessions
-- **Real-time Monitoring**: Full server output visibility at http://localhost:8080
+- **Real-time Monitoring**: Full server output visibility at http://localhost:2601
 - **Clean Isolation**: Each test run gets fresh server instances
 - **Automatic Cleanup**: Servers properly terminated after tests
 

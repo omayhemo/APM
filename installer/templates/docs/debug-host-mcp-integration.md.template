@@ -19,7 +19,7 @@ When enabled, the Debug Host MCP integration provides:
 - Centralized process lifecycle management
 
 ### 3. Real-time Monitoring
-- Web dashboard at http://localhost:8080
+- Web dashboard at http://localhost:2601
 - Live console output streaming
 - Performance metrics and resource usage
 - Multi-server management interface
@@ -89,7 +89,7 @@ Add to your Claude Code MCP configuration:
       "command": "node",
       "args": ["~/.debug-host-mcp/src/index.js"],
       "env": {
-        "PORT": "8080",
+        "PORT": "2601",
         "DASHBOARD_ENABLED": "true"
       }
     }
@@ -106,7 +106,7 @@ Add to your Claude Code MCP configuration:
 3. **Framework detection**: Identifies project type (React, Django, etc.)
 4. **MCP redirection**: Converts to `server:start` MCP tool
 5. **Server management**: Debug Host MCP manages the process
-6. **Dashboard update**: Real-time status at http://localhost:8080
+6. **Dashboard update**: Real-time status at http://localhost:2601
 
 ### Supported Commands
 
@@ -147,7 +147,7 @@ Set in `{{SETTINGS_FILE}}`:
   "env": {
     "HOOK_PRE_TOOL_USE_ENABLED": "true",
     "DEBUG_HOST_MCP_ENABLED": "true",
-    "DEBUG_HOST_MCP_URL": "http://localhost:8080"
+    "DEBUG_HOST_MCP_URL": "http://localhost:2601"
   }
 }
 ```
@@ -220,7 +220,7 @@ claude mcp list
 
 2. **Verify dashboard access**:
 ```bash
-curl http://localhost:8080/api/health
+curl http://localhost:2601/api/health
 ```
 
 3. **Check logs**:
@@ -309,7 +309,7 @@ cd project1 && npm run dev  # Intercepted -> Session 1
 cd project2 && yarn start    # Intercepted -> Session 2
 cd project3 && flask run     # Intercepted -> Session 3
 
-# All visible at http://localhost:8080
+# All visible at http://localhost:2601
 ```
 
 ## Security Considerations
