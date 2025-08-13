@@ -29,12 +29,12 @@
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
