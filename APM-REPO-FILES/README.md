@@ -21,10 +21,17 @@ APM is a revolutionary framework that orchestrates multiple AI personas to deliv
 ### Install (30 seconds)
 
 ```bash
-# Download and install latest version
-curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz
-cd apm-v4.0.0
-./installer/install.sh
+# Quick install with defaults (non-interactive)
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+
+# Or interactive installation
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash
+
+# Install specific version
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --version 4.0.0
+
+# With TTS voice notifications
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --with-tts --defaults
 ```
 
 ### Your First Command
@@ -99,6 +106,20 @@ After installation, comprehensive documentation is available at:
 - 2GB free space
 - Git (optional, for version control)
 
+## 📦 Installation Options
+
+The universal installer supports several options:
+
+| Option | Description |
+|--------|-------------|
+| `--defaults`, `-y` | Non-interactive installation with default settings |
+| `--version VERSION`, `-v` | Install specific version (e.g., `--version 4.0.0`) |
+| `--path PATH`, `-p` | Custom installation directory |
+| `--with-tts`, `-t` | Enable TTS voice notifications |
+| `--quiet`, `-q` | Minimal output |
+| `--verbose`, `-V` | Detailed debug output |
+| `--help`, `-h` | Show all available options |
+
 ## 📦 Latest Release
 
 **v4.0.0** - Native Sub-Agent Architecture
@@ -128,8 +149,8 @@ MIT License - see [LICENSE](LICENSE) for details.
 **Ready to revolutionize your development workflow?** Install APM and experience the power of parallel AI agents working as your team.
 
 ```bash
-# Get started in 30 seconds
-curl -L https://github.com/omayhemo/APM/releases/latest/download/apm-v4.0.0.tar.gz | tar -xz && cd apm-v4.0.0 && ./installer/install.sh
+# Get started in 30 seconds (non-interactive)
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
 ```
 
 *Built for developers who ship.*
