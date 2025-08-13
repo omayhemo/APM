@@ -14,6 +14,9 @@ NC='\033[0m'
 REPO="omayhemo/APM"
 INSTALL_DIR="${APM_INSTALL_DIR:-$HOME/.apm-framework}"
 
+# Capture the user's current directory (where they ran the curl command)
+USER_PROJECT_DIR="$(pwd)"
+
 echo -e "${BLUE}═══════════════════════════════════════════${NC}"
 echo -e "${BLUE}     APM Framework Installer v2.0${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════${NC}"
@@ -71,9 +74,9 @@ echo ""
 
 if [ -f "$EXTRACTED_DIR/installer/install.sh" ]; then
     cd "$EXTRACTED_DIR"
-    # Pass through any arguments (like --defaults)
+    # Pass the user's project directory as the first argument, followed by any other arguments
     # Use /dev/tty for input to allow interactive mode when piped
-    bash installer/install.sh "$@" < /dev/tty
+    bash installer/install.sh "$USER_PROJECT_DIR" "$@" < /dev/tty
 else
     echo -e "${RED}Error: Installer not found in package${NC}"
     exit 1
