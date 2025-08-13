@@ -129,7 +129,7 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
           "properties": {
             "version": {"type": "string"},
             "hooks_enabled": {"type": "boolean", "default": true},
-            "mcp_debug_host": {"type": "boolean", "default": true}
+            "mcp_plopdock": {"type": "boolean", "default": true}
           }
         },
         "git": {
@@ -507,7 +507,7 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
         "HOOK_POST_TOOL_USE_ENABLED": {"type": "string", "enum": ["true", "false"]},
         "HOOK_USER_PROMPT_SUBMIT_ENABLED": {"type": "string", "enum": ["true", "false"]},
         "PROMPT_APPEND_TEXT": {"type": "string"},
-        "MCP_DEBUG_HOST_ENABLED": {"type": "string", "enum": ["true", "false"]}
+        "MCP_PLOPDOCK_ENABLED": {"type": "string", "enum": ["true", "false"]}
       }
     }
   }
@@ -871,7 +871,7 @@ Each hook script can have its own configuration:
         "HOOK_POST_TOOL_USE_ENABLED": {"type": "string"},
         "HOOK_USER_PROMPT_SUBMIT_ENABLED": {"type": "string"},
         "PROMPT_APPEND_TEXT": {"type": "string"},
-        "MCP_DEBUG_HOST_ENABLED": {"type": "string"}
+        "MCP_PLOPDOCK_ENABLED": {"type": "string"}
       }
     },
     "commands": {

@@ -92,10 +92,10 @@ Each MCP architectural document MUST include:
 
 ## 2. Technical Design Document Structure
 
-### 2.1 MCP Debug Host Technical Design Template
+### 2.1 MCP Plopdock Technical Design Template
 
 ```markdown
-# MCP Debug Host Technical Design Document
+# MCP Plopdock Technical Design Document
 
 ## 1. System Overview
 
@@ -311,25 +311,25 @@ processManager.on('log', ({ sessionId, log }) => {
 #### 3.1.1 Level 1: System Context Diagram
 ```mermaid
 C4Context
-  title MCP Debug Host System Context
+  title MCP Plopdock System Context
 
   Person(developer, "AI Agent/Developer", "Develops applications using various tech stacks")
   System(claudeCode, "Claude Code", "AI development environment")
-  System(mcpDebugHost, "MCP Debug Host", "Persistent development server management")
+  System(mcpPlopdock, "MCP Plopdock", "Persistent development server management")
   System(devServer, "Development Servers", "Application servers (Node.js, Python, PHP)")
   System(browser, "Web Browser", "Dashboard interface")
 
   Rel(developer, claudeCode, "Uses for development")
-  Rel(claudeCode, mcpDebugHost, "Manages servers via MCP protocol")
-  Rel(mcpDebugHost, devServer, "Starts/stops/monitors")
+  Rel(claudeCode, mcpPlopdock, "Manages servers via MCP protocol")
+  Rel(mcpPlopdock, devServer, "Starts/stops/monitors")
   Rel(developer, browser, "Views logs and server status")
-  Rel(browser, mcpDebugHost, "HTTP/WebSocket")
+  Rel(browser, mcpPlopdock, "HTTP/WebSocket")
 ```
 
 #### 3.1.2 Level 2: Container Diagram
 ```mermaid
 C4Container
-  title MCP Debug Host Container Architecture
+  title MCP Plopdock Container Architecture
 
   Container(mcpServer, "MCP Server", "Node.js", "Handles MCP protocol communication")
   Container(processManager, "Process Manager", "Node.js", "Manages development server lifecycle")
@@ -923,7 +923,7 @@ class PerformanceMetrics {
 ```yaml
 openapi: 3.0.3
 info:
-  title: MCP Debug Host API
+  title: MCP Plopdock API
   description: REST API for development server management
   version: 1.0.0
   contact:
@@ -1118,7 +1118,7 @@ class PortManager {
 #### 8.2.1 systemd Service Configuration
 ```ini
 [Unit]
-Description=MCP Debug Host Server
+Description=MCP Plopdock Server
 After=network.target
 Wants=network-online.target
 
@@ -1126,8 +1126,8 @@ Wants=network-online.target
 Type=simple
 User=mcpuser
 Group=mcpuser
-WorkingDirectory=/opt/mcp-debug-host
-ExecStart=/usr/bin/node /opt/mcp-debug-host/src/index.js
+WorkingDirectory=/opt/mcp-plopdock
+ExecStart=/usr/bin/node /opt/mcp-plopdock/src/index.js
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=always
 RestartSec=10
@@ -1138,7 +1138,7 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=read-only
-ReadWritePaths=/opt/mcp-debug-host/logs
+ReadWritePaths=/opt/mcp-plopdock/logs
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 
 # Resource limits
@@ -1157,7 +1157,7 @@ WantedBy=multi-user.target
 
 #### 8.2.2 Docker Deployment Option
 ```dockerfile
-# Multi-stage build for MCP Debug Host
+# Multi-stage build for MCP Plopdock
 FROM node:18-alpine AS builder
 
 WORKDIR /app
@@ -1378,7 +1378,7 @@ This architectural documentation framework provides comprehensive guidelines for
 
 ### 10.1 Next Steps
 
-1. **Template Application**: Apply this framework to the MCP Debug Host implementation
+1. **Template Application**: Apply this framework to the MCP Plopdock implementation
 2. **Team Training**: Educate development teams on these standards
 3. **Review Process**: Establish architectural review checkpoints
 4. **Continuous Improvement**: Gather feedback and refine guidelines

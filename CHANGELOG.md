@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.0.1] - 2025-08-13
+
+### 🔄 Updated
+- **BREAKING**: Debug Host renamed to Plopdock throughout framework
+- Updated all installer references to use Plopdock MCP Server
+- Updated hook files: `pre_tool_use_debug_host.py` → `pre_tool_use_plopdock.py`
+- Updated environment variables: `DEBUG_HOST_MCP_*` → `PLOPDOCK_MCP_*`
+- Updated documentation (410+ files) with Plopdock references
+- Updated GitHub wiki with new branding
+
+### 🚀 Improved
+- Consistent branding across all components
+- Updated installation instructions with Plopdock references
+- Enhanced documentation clarity
+
+### 📦 Distribution
+- Rebuilt APM v4.0.1 with Plopdock updates
+- Updated GitHub releases and documentation
+
+---
+
+
 All notable changes to the AP Mapping will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -26,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Command Interface**: All functionality now accessible through consistent slash commands
 - **Persona Management**: JSON-based definitions replace manual template synchronization
 - **Installation Process**: Streamlined with automatic persona generation and tech stack detection
-- **Debug Host Port Configuration**: Changed default port from 8080 to 2601 for UI consistency
+- **Plopdock Port Configuration**: Changed default port from 8080 to 2601 for UI consistency
 - **Agent Initialization**: All agents now include Task 6 for mandatory rule loading during parallel startup
 - **Command Execution Flow**: 63 commands enhanced with lightweight persona activation (1-2 second overhead)
 - **Professional Messaging**: Removed all internal development references (Epic 17) from installer output
@@ -37,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - **95 Duplicate Template Files**: Complete elimination of conflicting definitions and obsolete templates
-- **MCP Debug Host Integration**: Migrated to standalone repository for cleaner architecture
+- **MCP Plopdock Integration**: Migrated to standalone repository for cleaner architecture
 - **Legacy Task Templates**: 48 original sequential templates archived for native commands
 - **Parallel Template System**: 23 parallel templates replaced by native sub-agent commands
 - **25,599 Lines of Deprecated Code**: Massive cleanup of backup files, unused templates, and legacy infrastructure
@@ -48,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Path Resolution**: All templates now use dynamic variables instead of hardcoded paths
 - **Command Consistency**: Standardized interface across all agent functions
 - **Voice Integration**: Proper voice notifications for all native commands
-- **Debug Host Port References**: Fixed 23 template references from localhost:8080 to proper 2601 default port
+- **Plopdock Port References**: Fixed 23 template references from localhost:8080 to proper 2601 default port
 - **Command Installation Gaps**: Resolved missing 55 commands (88 total now deployed vs previous 33)
 - **Agent Rule Compliance**: Fixed agents not automatically reading rules despite documentation requirements
 - **Installer Duplicate Messages**: Removed duplicate "Processing Claude Sub-Agent templates" output

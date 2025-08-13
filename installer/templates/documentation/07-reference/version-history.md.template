@@ -83,7 +83,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 #### ✨ New Features
 - **Advanced QA Framework**: AI/ML powered testing with prediction and optimization
 - **Hook System Integration**: Pre/post tool use hooks for enhanced functionality
-- **MCP Debug Host**: Development server management with persistent sessions
+- **MCP Plopdock**: Development server management with persistent sessions
 - **Configurable Prompt Enhancement**: Automatic prompt appending system
 
 #### 🚀 QA Framework Capabilities
@@ -348,7 +348,7 @@ Expected improvements after migration:
 #### Major Changes
 - Introduction of QA Framework with AI/ML capabilities
 - Hook system integration with Claude Code
-- MCP Debug Host for development server management
+- MCP Plopdock for development server management
 
 #### Migration Steps
 1. **Update Configuration**: Add QA framework settings
@@ -362,7 +362,7 @@ Expected improvements after migration:
   "features": {
     "qa_framework": true,
     "hooks_enabled": true,
-    "mcp_debug_host": true
+    "mcp_plopdock": true
   }
 }
 ```

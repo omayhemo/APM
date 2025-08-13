@@ -1,6 +1,6 @@
 # 🚀 Agentic Persona Mapping (APM) Framework
 
-[![Version](https://img.shields.io/badge/version-4.0.0-blue.svg)](https://github.com/omayhemo/APM/releases/latest)
+[![Version](https://img.shields.io/badge/version-4.0.1-blue.svg)](https://github.com/omayhemo/APM/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-4--8x_faster-orange.svg)](https://github.com/omayhemo/APM)
 
@@ -22,16 +22,16 @@ APM is a revolutionary framework that orchestrates multiple AI personas to deliv
 
 ```bash
 # Quick install with defaults (non-interactive)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
 # Or interactive installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --version 4.0.0
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.0.1
 
 # With TTS voice notifications
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
 ```
 
 ### Your First Command
@@ -115,7 +115,7 @@ The universal installer v2.0 supports flexible command-line options for various 
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--defaults` | `-y` | Non-interactive installation with default settings |
-| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.0.0`) |
+| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.0.1`) |
 | `--path PATH` | `-p` | Custom installation directory |
 | `--with-tts` | `-t` | Enable TTS voice notifications |
 | `--quiet` | `-q` | Minimal output (silent mode) |
@@ -126,45 +126,53 @@ The universal installer v2.0 supports flexible command-line options for various 
 
 ```bash
 # 🚀 Quick install with defaults (recommended for automation)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
 # 📍 Install to specific directory
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --path /opt/apm --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --defaults
 
 # 🎯 Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --version 3.5.0 --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 3.5.0 --defaults
 
 # 🔊 Install with TTS voice notifications
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
 
 # 🤫 Silent installation (CI/CD friendly)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults --quiet
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --quiet
 
 # 🔍 Debug installation issues
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults --verbose
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.0.0
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.0.1
 
 # ❓ Show help and all options
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --help
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
 ```
 
 ### Interactive vs Non-Interactive
 
 - **Interactive Mode** (default): Prompts for configuration options
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash
+  # ✅ NOW WORKS! Fixed in v2.0 - accepts user input even when piped
+  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
   ```
+  You'll be prompted for:
+  - Project name
+  - Plopdock MCP Server setup
+  - TTS provider selection
+  - Notification preferences
+  - Python support
 
 - **Non-Interactive Mode**: Perfect for automation and scripts
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
   ```
+  Uses defaults for all options - no prompts
 
 ## 📦 Latest Release
 
-**v4.0.0** - Native Sub-Agent Architecture
+**v4.0.1** - Native Sub-Agent Architecture
 - 4-8x performance improvements
 - Complete modernization with zero CLI crashes
 - 25,000+ lines of code cleanup
@@ -192,7 +200,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ```bash
 # Get started in 30 seconds (non-interactive)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 ```
 
 *Built for developers who ship.*

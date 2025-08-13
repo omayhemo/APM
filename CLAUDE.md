@@ -1,4 +1,4 @@
-# APM Framework Instructions - v4.0.0
+# APM Framework Instructions - v4.0.1
 
 This file provides guidance to AI CLI when working with code in this repository using the APM (Agentic Persona Mapping) framework with **complete native sub-agent modernization** and **unified persona system**.
 
@@ -244,7 +244,7 @@ The QA Agent leverages **native sub-agent parallelism** for 4x performance with 
 - `/parallel-regression-suite` - Native parallel regression testing
 - **Performance**: All commands now use native sub-agent architecture (not Task-based)
 
-### 🖥️ MCP Debug Host Integration (v3.3.0 - Epic 26)
+### 🖥️ MCP Plopdock Integration (v3.3.0 - Epic 26)
 
 **🚨 CRITICAL: Development Server Management**
 
@@ -258,9 +258,9 @@ The QA Agent leverages **native sub-agent parallelism** for 4x performance with 
 - `php artisan serve`
 - Any direct server start command
 
-#### ✅ REQUIRED: Use MCP Debug Host
+#### ✅ REQUIRED: Use MCP Plopdock
 
-**Always use the MCP Debug Host tools for server management:**
+**Always use the MCP Plopdock tools for server management:**
 
 ```
 Tool: server:start
@@ -309,12 +309,12 @@ Parameters:
 - Zero CLI crashes with native integration
 - 34+ hours/week saved per development team
 
-**🚀 ARCHITECTURE**: APM v4.0.0 uses exclusively native Claude Code sub-agents for all parallel operations, delivering 4-8x average performance improvement with complete Task tool modernization, true parallelism, and zero CLI crashes. The framework has undergone complete modernization with massive cleanup eliminating 25,599 lines of deprecated code.
+**🚀 ARCHITECTURE**: APM v4.0.1 uses exclusively native Claude Code sub-agents for all parallel operations, delivering 4-8x average performance improvement with complete Task tool modernization, true parallelism, and zero CLI crashes. The framework has undergone complete modernization with massive cleanup eliminating 25,599 lines of deprecated code.
 
-## ⚡ NEW IN v4.0.0: COMPLETE MODERNIZATION
+## ⚡ NEW IN v4.0.1: COMPLETE MODERNIZATION
 
 ### Native Sub-Agent Architecture Revolution
-APM v4.0.0 delivers **complete Task tool modernization** with unprecedented performance:
+APM v4.0.1 delivers **complete Task tool modernization** with unprecedented performance:
 
 - **🚀 4-8x Performance Improvement**: Native sub-agent execution eliminates bottlenecks
 - **⚡ Zero CLI Crashes**: Rock-solid integration with Claude Code's native architecture
@@ -330,7 +330,7 @@ The largest modernization effort in APM history:
 - **🔧 Path Modernization**: 100% dynamic path variables replace hardcoded references
 
 ### Unified Persona System
-APM v4.0.0 introduces a **unified persona definition system** that eliminates template duplication:
+APM v4.0.1 introduces a **unified persona definition system** that eliminates template duplication:
 
 - **🎯 Single Source of Truth**: All personas defined in JSON format at `/installer/personas/_master/`
 - **⚙️ Automatic Generation**: Templates generated from JSON during build process

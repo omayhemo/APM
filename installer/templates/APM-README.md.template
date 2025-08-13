@@ -141,7 +141,7 @@ Each agent is an expert in their domain:
 - **4-8x Faster Development** with parallel execution
 - **Native Sub-Agent Architecture** for true concurrency
 - **AI-Powered QA** with 92-94% accuracy
-- **MCP Debug Host** for persistent server management
+- **MCP Plopdock** for persistent server management
 
 ### Parallel Commands
 Execute multiple tasks simultaneously:

@@ -20,7 +20,7 @@
 
 ---
 
-The AP (Agentic Persona) Mapping is a revolutionary project-agnostic approach to orchestrating AI agents for software development with **native sub-agent architecture** and **MCP Debug Host integration**. This system provides specialized agent personas, each with specific expertise and responsibilities, working together with **true parallel execution** to deliver high-quality software projects at **4.1x faster speed**.
+The AP (Agentic Persona) Mapping is a revolutionary project-agnostic approach to orchestrating AI agents for software development with **native sub-agent architecture** and **MCP Plopdock integration**. This system provides specialized agent personas, each with specific expertise and responsibilities, working together with **true parallel execution** to deliver high-quality software projects at **4.1x faster speed**.
 
 ## 🚀 Epic 17 Complete - Revolutionary Architecture
 
@@ -32,9 +32,9 @@ The AP (Agentic Persona) Mapping is a revolutionary project-agnostic approach to
 - ✅ **34+ Hours/Week Saved** per development team
 - ✅ **100% Backward Compatibility** maintained
 
-## 🖥️ MCP Debug Host Integration (v3.5.0 - Epic 26)
+## 🖥️ MCP Plopdock Integration (v3.5.0 - Epic 26)
 
-**🚀 MCP Debug Host Integration (Epic 26 - 93% Complete):**
+**🚀 MCP Plopdock Integration (Epic 26 - 93% Complete):**
 - **Persistent Development Servers**: Servers survive Claude Code restarts
 - **Real-time Web Dashboard**: Full console output at http://localhost:2601
 - **Tech Stack Auto-Detection**: 11+ frameworks (React, Django, Laravel, etc.)

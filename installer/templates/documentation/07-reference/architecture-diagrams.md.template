@@ -52,7 +52,7 @@ graph TB
 
     subgraph "Integration Layer"
         HOOKS[Hook System]
-        MCP[MCP Debug Host]
+        MCP[MCP Plopdock]
         GIT[Git Integration]
         CI[CI/CD Integration]
     end
@@ -126,7 +126,7 @@ graph TB
 
 #### 5. Integration Layer
 - **Hook System**: Integration points with Claude Code lifecycle
-- **MCP Debug Host**: Development server management
+- **MCP Plopdock**: Development server management
 - **External Integrations**: Git, CI/CD, and third-party tool connections
 
 #### 6. Data Layer
@@ -676,7 +676,7 @@ graph LR
     end
 
     subgraph "External Integrations"
-        MCP[MCP Debug Host]
+        MCP[MCP Plopdock]
         GIT[Git Integration]
         CI[CI/CD Pipeline]
         PM_TOOL[Project Management]
@@ -706,14 +706,14 @@ graph LR
     style PROMPT_HOOK fill:#00cc66,stroke:#333,stroke-width:3px
 ```
 
-### MCP Debug Host Integration
+### MCP Plopdock Integration
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Claude as Claude Code
     participant PreHook as Pre-Tool Hook
-    participant MCP as MCP Debug Host
+    participant MCP as MCP Plopdock
     participant Server as Dev Server
 
     User->>Claude: npm run dev
@@ -885,7 +885,7 @@ graph LR
     subgraph "Local Environment"
         APM[APM Framework]
         CLAUDE[Claude Code]
-        MCP[MCP Debug Host:8080]
+        MCP[MCP Plopdock:8080]
         DEV[Dev Server:3000]
     end
 

@@ -2,13 +2,13 @@
 
 ## Overview
 
-The APM QA Framework is a comprehensive, enterprise-grade testing infrastructure with AI/ML powered analytics and **MCP Debug Host integration**, providing production-ready testing capabilities with persistent development server management integrated directly into the APM system.
+The APM QA Framework is a comprehensive, enterprise-grade testing infrastructure with AI/ML powered analytics and **MCP Plopdock integration**, providing production-ready testing capabilities with persistent development server management integrated directly into the APM system.
 
 ## Table of Contents
 
 1. [Installation & Setup](#installation--setup)
 2. [Core Components](#core-components)
-3. [MCP Debug Host Integration](#mcp-debug-host-integration)
+3. [MCP Plopdock Integration](#mcp-plopdock-integration)
 4. [Command Reference](#command-reference)
 5. [AI/ML Analytics](#aiml-analytics)
 6. [Quick Start Examples](#quick-start-examples)
@@ -98,11 +98,11 @@ APM integration:
 
 ---
 
-## MCP Debug Host Integration (v3.3.0 - Epic 26)
+## MCP Plopdock Integration (v3.3.0 - Epic 26)
 
 ### Overview
 
-The QA Framework now integrates seamlessly with MCP Debug Host for persistent development server management during testing:
+The QA Framework now integrates seamlessly with MCP Plopdock for persistent development server management during testing:
 
 ### Key Features
 

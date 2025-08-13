@@ -1,6 +1,6 @@
 # Agentic Persona Mapping (APM) Framework
 
-**v4.0.0** - Revolutionary AI-powered framework with **unified persona system**, **complete native sub-agent modernization**, **massive codebase cleanup**, and **configurable prompt enhancement** delivering **4-8x performance improvement** in software development workflows.
+**v4.0.1** - Revolutionary AI-powered framework with **unified persona system**, **complete native sub-agent modernization**, **massive codebase cleanup**, and **configurable prompt enhancement** delivering **4-8x performance improvement** in software development workflows.
 
 ## ⚠️ CRITICAL: ALWAYS USE SLASH COMMANDS
 
@@ -23,23 +23,23 @@
 
 ## 🚀 Quick Start
 
-**Latest Release:** v4.0.0 ⚡ *Major Update: Revolutionary Release Management + AI-Powered Documentation*
+**Latest Release:** v4.0.1 ⚡ *Major Update: Revolutionary Release Management + AI-Powered Documentation*
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.1/apm-v4.0.1.tar.gz && tar -xzf apm-v4.0.1.tar.gz && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.1/apm-v4.0.1.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ## What is Agentic Persona Mapping?
 
-APM v4.0.0 delivers **revolutionary release management automation**, **AI-powered documentation generation**, **unified persona management**, and **complete modernization** that enables true parallel AI agent execution with professional release capabilities:
+APM v4.0.1 delivers **revolutionary release management automation**, **AI-powered documentation generation**, **unified persona management**, and **complete modernization** that enables true parallel AI agent execution with professional release capabilities:
 
 - **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
 - **⚡ Native Sub-Agent Architecture**: Complete Task tool modernization with 4-8x performance improvement
@@ -58,7 +58,7 @@ APM v4.0.0 delivers **revolutionary release management automation**, **AI-powere
 
 ## Key Features
 
-### 🔧 **What's New in v4.0.0 - Revolutionary Release Management**
+### 🔧 **What's New in v4.0.1 - Revolutionary Release Management**
 
 **🚀 Automated Release Management:**
 - **`/version <version>`**: Complete version management with parallel documentation updates
@@ -84,7 +84,7 @@ APM v4.0.0 delivers **revolutionary release management automation**, **AI-powere
 - **Build-Time Generation**: Templates created during distribution build
 - **Backward Compatible**: Seamless upgrade from previous versions
 
-### 🔧 **v3.3.0+ Features - Configurable Prompt Enhancement & MCP Debug Host**
+### 🔧 **v3.3.0+ Features - Configurable Prompt Enhancement & MCP Plopdock**
 
 **🎯 Configurable Prompt Enhancement:**
 - **Automatic Text Append**: Append custom text to ALL user prompts invisibly
@@ -93,7 +93,7 @@ APM v4.0.0 delivers **revolutionary release management automation**, **AI-powere
 - **Error Resilient**: Graceful failure without blocking Claude
 - **Comprehensive Testing**: Full test suite for all scenarios
 
-**🚀 MCP Debug Host Integration (Epic 26 - 93% Complete):**
+**🚀 MCP Plopdock Integration (Epic 26 - 93% Complete):**
 - **Persistent Development Servers**: Servers survive Claude Code restarts
 - **Real-time Web Dashboard**: Full console output at http://localhost:8080
 - **Universal Framework Support**: Auto-detects 11+ frameworks (React, Django, Laravel, etc.)
@@ -210,7 +210,7 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 /qa-anomaly    # Detect quality issues with 94% precision
 /qa-insights   # Generate AI-powered quality insights
 
-# NEW v4.0.0: Release Management Integration
+# NEW v4.0.1: Release Management Integration
 /version 4.1.0           # Update version with QA validation
 /release 4.1.0           # Complete release with automated QA
 /doc-compliance          # Documentation quality assurance
@@ -230,7 +230,7 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 # Optimize test execution
 /qa-optimize --strategy fail-fast --apply
 
-# NEW v4.0.0: Integrated release workflow
+# NEW v4.0.1: Integrated release workflow
 /version 4.1.0 --dry-run  # Preview version update with QA checks
 /release 4.1.0            # Complete release with automated testing
 ```
@@ -284,7 +284,7 @@ your-project/
 
 ## Usage
 
-### v4.0.0 Enhanced Workflow
+### v4.0.1 Enhanced Workflow
 
 After installation:
 
@@ -294,7 +294,7 @@ After installation:
 4. **Develop**: Use personas and parallel commands for development
 5. **🆕 Release**: Use `/version` and `/release` for automated releases
 
-### New v4.0.0 Release Workflow
+### New v4.0.1 Release Workflow
 ```bash
 # Traditional development workflow (unchanged)
 /ap              # Launch AP Orchestrator
@@ -389,7 +389,7 @@ agentic-persona-mapping/
 
 - **Documentation**: Comprehensive guides included with installation
 - **Issues**: GitHub Issues for bug reports and feature requests
-- **Version**: v4.0.0 (Native Sub-Agent Architecture)
+- **Version**: v4.0.1 (Native Sub-Agent Architecture)
 
 ## License
 

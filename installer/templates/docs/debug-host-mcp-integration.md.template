@@ -1,12 +1,12 @@
-# Debug Host MCP Integration
+# Plopdock MCP Integration
 
 ## Overview
 
-The APM Framework includes optional integration with the Debug Host MCP Server, providing intelligent interception and management of development servers across Claude Code sessions.
+The APM Framework includes optional integration with the Plopdock MCP Server, providing intelligent interception and management of development servers across Claude Code sessions.
 
 ## Features
 
-When enabled, the Debug Host MCP integration provides:
+When enabled, the Plopdock MCP integration provides:
 
 ### 1. Automatic Command Interception
 - Intercepts all development server commands (`npm run dev`, `python manage.py runserver`, etc.)
@@ -36,7 +36,7 @@ When enabled, the Debug Host MCP integration provides:
 When running the APM installer, you'll be prompted:
 
 ```
-Will you be using the Debug Host MCP Server? (y/N):
+Will you be using the Plopdock MCP Server? (y/N):
 ```
 
 Select **Y** to enable the integration.
@@ -55,20 +55,20 @@ chmod +x {{CLAUDE_DIR}}/hooks/pre_tool_use_debug_host.py
 
 # Update settings
 jq '.env.HOOK_PRE_TOOL_USE_ENABLED = "true" | 
-    .env.DEBUG_HOST_MCP_ENABLED = "true"' \
+    .env.PLOPDOCK_MCP_ENABLED = "true"' \
     {{SETTINGS_FILE}} > temp.json && mv temp.json {{SETTINGS_FILE}}
 ```
 
-## Debug Host MCP Server Setup
+## Plopdock MCP Server Setup
 
-The integration requires the Debug Host MCP Server to be installed separately:
+The integration requires the Plopdock MCP Server to be installed separately:
 
 ### Quick Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-org/DebugHostMCP
-cd DebugHostMCP
+git clone https://github.com/your-org/PlopdockMCP
+cd PlopdockMCP
 
 # Run installer
 ./install-mcp-host.sh
@@ -105,7 +105,7 @@ Add to your Claude Code MCP configuration:
 2. **Hook intercepts**: `pre_tool_use_debug_host.py` catches the command
 3. **Framework detection**: Identifies project type (React, Django, etc.)
 4. **MCP redirection**: Converts to `server:start` MCP tool
-5. **Server management**: Debug Host MCP manages the process
+5. **Server management**: Plopdock MCP manages the process
 6. **Dashboard update**: Real-time status at http://localhost:2601
 
 ### Supported Commands
@@ -146,8 +146,8 @@ Set in `{{SETTINGS_FILE}}`:
 {
   "env": {
     "HOOK_PRE_TOOL_USE_ENABLED": "true",
-    "DEBUG_HOST_MCP_ENABLED": "true",
-    "DEBUG_HOST_MCP_URL": "http://localhost:2601"
+    "PLOPDOCK_MCP_ENABLED": "true",
+    "PLOPDOCK_MCP_URL": "http://localhost:2601"
   }
 }
 ```
@@ -170,7 +170,7 @@ To temporarily disable:
 
 ```bash
 # Edit settings
-jq '.env.DEBUG_HOST_MCP_ENABLED = "false"' {{SETTINGS_FILE}} > temp.json
+jq '.env.PLOPDOCK_MCP_ENABLED = "false"' {{SETTINGS_FILE}} > temp.json
 mv temp.json {{SETTINGS_FILE}}
 ```
 
@@ -181,7 +181,7 @@ To permanently remove:
 rm {{CLAUDE_DIR}}/hooks/pre_tool_use_debug_host.py
 
 # Update settings
-jq 'del(.env.DEBUG_HOST_MCP_ENABLED)' {{SETTINGS_FILE}} > temp.json
+jq 'del(.env.PLOPDOCK_MCP_ENABLED)' {{SETTINGS_FILE}} > temp.json
 mv temp.json {{SETTINGS_FILE}}
 ```
 
@@ -236,7 +236,7 @@ tail -f ~/.debug-host-mcp/logs/server.log
 
 1. **Verify hook is enabled**:
 ```bash
-jq '.env.DEBUG_HOST_MCP_ENABLED' {{SETTINGS_FILE}}
+jq '.env.PLOPDOCK_MCP_ENABLED' {{SETTINGS_FILE}}
 ```
 
 2. **Check command pattern**:
@@ -295,7 +295,7 @@ DEV_SERVER_PATTERNS = [
 
 ### Integration with APM Personas
 
-The Debug Host MCP works seamlessly with APM personas:
+The Plopdock MCP works seamlessly with APM personas:
 
 - **Developer**: Automatic server management during coding
 - **QA**: Test server isolation and management
@@ -332,11 +332,11 @@ Future enhancements planned:
 
 ## Support
 
-- **Documentation**: https://github.com/your-org/DebugHostMCP
-- **Issues**: https://github.com/your-org/DebugHostMCP/issues
+- **Documentation**: https://github.com/your-org/PlopdockMCP
+- **Issues**: https://github.com/your-org/PlopdockMCP/issues
 - **APM Integration**: See APM documentation
 
 ---
 
-*Debug Host MCP Integration v1.0*
+*Plopdock MCP Integration v1.0*
 *Part of the APM Framework {{VERSION}}*

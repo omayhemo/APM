@@ -275,7 +275,7 @@ time /parallel-qa-framework
 
 ## 🧪 Integration Testing
 
-### MCP Debug Host Integration
+### MCP Plopdock Integration
 
 **Test Command:**
 ```bash
@@ -288,7 +288,7 @@ npm run dev
 **Expected Behavior:**
 - Command intercepted by PreToolUse hook
 - Alternative MCP command suggested
-- Development server management through MCP Debug Host
+- Development server management through MCP Plopdock
 
 ### QA Framework Integration
 
@@ -322,7 +322,7 @@ Complete this checklist to confirm successful installation:
 
 ### Integration Testing
 - [ ] Claude Code commands registered
-- [ ] MCP Debug Host integration working
+- [ ] MCP Plopdock integration working
 - [ ] QA Framework AI capabilities active
 - [ ] Voice notifications functioning
 

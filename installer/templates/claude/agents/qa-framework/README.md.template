@@ -1,17 +1,17 @@
 # APM AI/ML QA Framework Templates - v{{VERSION}}
 <!-- Template Version: {{VERSION}} -->
-<!-- QA Framework Suite: Native Sub-Agent Architecture with MCP Debug Host Integration -->
+<!-- QA Framework Suite: Native Sub-Agent Architecture with MCP Plopdock Integration -->
 <!-- Compatible with: APM Framework 3.3+ -->
 
 ## 🧪 Complete QA Framework Template Suite
 
-This directory contains comprehensive templates for the APM AI/ML QA Framework with **native sub-agent architecture** and **MCP Debug Host integration** delivering **4x performance improvement**. These templates preserve all advanced analytics (92% prediction accuracy, 94% anomaly detection) while leveraging true parallel execution and persistent development server management.
+This directory contains comprehensive templates for the APM AI/ML QA Framework with **native sub-agent architecture** and **MCP Plopdock integration** delivering **4x performance improvement**. These templates preserve all advanced analytics (92% prediction accuracy, 94% anomaly detection) while leveraging true parallel execution and persistent development server management.
 
-## 🖥️ MCP Debug Host Integration (v{{VERSION}} - Epic 26)
+## 🖥️ MCP Plopdock Integration (v{{VERSION}} - Epic 26)
 
 ### QA Testing with Persistent Servers
 
-The QA Framework integrates with MCP Debug Host for consistent testing environments:
+The QA Framework integrates with MCP Plopdock for consistent testing environments:
 
 **Testing Requirements:**
 - **Server Persistence**: Test servers survive Claude Code restarts

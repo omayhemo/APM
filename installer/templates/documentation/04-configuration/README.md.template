@@ -10,7 +10,7 @@ The APM framework provides extensive configuration options to customize:
 - **Persona Definitions**: Modify agent behaviors and capabilities
 - **Voice Notifications**: Configure audio alerts and notifications
 - **Path Structures**: Customize directory layouts and file locations
-- **Development Integration**: Configure MCP Debug Host and development tools
+- **Development Integration**: Configure MCP Plopdock and development tools
 
 ## Configuration File Locations
 
@@ -59,7 +59,7 @@ Customize directory structures and file locations.
 - [ ] Test configuration with `/ap` command
 
 ### Advanced Configuration
-- [ ] Set up MCP Debug Host integration
+- [ ] Set up MCP Plopdock integration
 - [ ] Configure custom environment variables
 - [ ] Customize persona behaviors
 - [ ] Set up session management preferences
@@ -130,7 +130,7 @@ For configuration support:
 This configuration guide is for APM Framework v4.0.0+. Key changes:
 
 - **v4.0.0**: Native sub-agent architecture, unified persona system
-- **v3.5.0**: MCP Debug Host integration, enhanced session management
+- **v3.5.0**: MCP Plopdock integration, enhanced session management
 - **v3.3.0**: Configurable prompt enhancement, voice notification improvements
 
 ---

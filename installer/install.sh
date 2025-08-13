@@ -39,7 +39,7 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
 fi
 
 echo "=========================================="
-echo "   APM Framework Installation v4.0.0"
+echo "   APM Framework Installation v4.0.1"
 echo "   Native Sub-Agent Architecture"
 echo "=========================================="
 echo ""
@@ -788,7 +788,7 @@ ensure_dir "$PROJECT_DOCS/artifacts"
 ensure_dir "$PROJECT_DOCS/releases"
 ensure_dir "$PROJECT_DOCS/reports"
 
-# Create modern APM structure (v4.0.0)
+# Create modern APM structure (v4.0.1)
 # Stories and epics go under planning/ subdirectory per document registry
 ensure_dir "$PROJECT_DOCS/planning"
 ensure_dir "$PROJECT_DOCS/planning/stories"
@@ -1364,78 +1364,78 @@ else
 fi
 
 echo ""
-echo "Step 8: Debug Host MCP Server Integration (Optional)"
+echo "Step 8: Plopdock MCP Server Integration (Optional)"
 echo "---------------------------------------------------"
 
-# Check if user wants to use Debug Host MCP
+# Check if user wants to use Plopdock MCP
 if [ "$USE_DEFAULTS" = true ]; then
-    echo "Using defaults - Debug Host MCP integration disabled"
-    USE_DEBUG_HOST_MCP=false
+    echo "Using defaults - Plopdock MCP integration disabled"
+    USE_PLOPDOCK_MCP=false
 else
     echo ""
-    echo -e "${GREEN}Debug Host MCP Server Integration${NC}"
+    echo -e "${GREEN}Plopdock MCP Server Integration${NC}"
     echo ""
-    echo "The Debug Host MCP Server provides:"
+    echo "The Plopdock MCP Server provides:"
     echo "  • Persistent development servers across Claude Code sessions"
     echo "  • Real-time monitoring dashboard at http://localhost:8080"
     echo "  • Automatic interception of dev server commands"
     echo "  • Centralized process management"
     echo ""
-    echo -e "${YELLOW}Note: This requires separate installation of the Debug Host MCP Server${NC}"
-    echo "Repository: https://github.com/your-org/DebugHostMCP"
+    echo -e "${YELLOW}Note: This requires separate installation of the Plopdock MCP Server${NC}"
+    echo "Repository: https://github.com/your-org/Plopdock"
     echo ""
-    printf "${YELLOW}Will you be using the Debug Host MCP Server? (y/N): ${NC}"
+    printf "${YELLOW}Will you be using the Plopdock MCP Server? (y/N): ${NC}"
     safe_read -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        USE_DEBUG_HOST_MCP=true
+        USE_PLOPDOCK_MCP=true
     else
-        USE_DEBUG_HOST_MCP=false
+        USE_PLOPDOCK_MCP=false
     fi
 fi
 
-if [ "$USE_DEBUG_HOST_MCP" = true ]; then
+if [ "$USE_PLOPDOCK_MCP" = true ]; then
     echo ""
-    echo "⏳ Installing Debug Host MCP integration..."
+    echo "⏳ Installing Plopdock MCP integration..."
     
     # Install the pre_tool_use hook for intercepting dev commands
-    HOOK_FILE="$CLAUDE_DIR/hooks/pre_tool_use_debug_host.py"
+    HOOK_FILE="$CLAUDE_DIR/hooks/pre_tool_use_plopdock.py"
     
-    if [ -f "$INSTALLER_DIR/templates/hooks/pre_tool_use_debug_host.py" ]; then
-        cp "$INSTALLER_DIR/templates/hooks/pre_tool_use_debug_host.py" "$HOOK_FILE"
+    if [ -f "$INSTALLER_DIR/templates/hooks/pre_tool_use_plopdock.py" ]; then
+        cp "$INSTALLER_DIR/templates/hooks/pre_tool_use_plopdock.py" "$HOOK_FILE"
         chmod +x "$HOOK_FILE"
-        log_install "Debug Host MCP hook installed: $HOOK_FILE" "SUCCESS"
+        log_install "Plopdock MCP hook installed: $HOOK_FILE" "SUCCESS"
         
         # Update settings to enable the hook
         if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
             tmp_file=$(mktemp)
             if jq '.env.HOOK_PRE_TOOL_USE_ENABLED = "true" | 
-                .env.DEBUG_HOST_MCP_ENABLED = "true" |
-                .env.DEBUG_HOST_MCP_URL = "http://localhost:8080"' "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"; then
-                log_install "Debug Host MCP settings configured" "SUCCESS"
+                .env.PLOPDOCK_MCP_ENABLED = "true" |
+                .env.PLOPDOCK_MCP_URL = "http://localhost:8080"' "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"; then
+                log_install "Plopdock MCP settings configured" "SUCCESS"
             fi
         fi
         
         echo ""
-        echo -e "${GREEN}✓ Debug Host MCP integration installed${NC}"
+        echo -e "${GREEN}✓ Plopdock MCP integration installed${NC}"
         echo ""
         echo "Features enabled:"
         echo "  • Development server commands will be intercepted"
-        echo "  • Servers will be managed by Debug Host MCP"
+        echo "  • Servers will be managed by Plopdock MCP"
         echo "  • Voice notifications for command interception"
         echo ""
-        echo -e "${YELLOW}Important: Install Debug Host MCP Server separately:${NC}"
-        echo "  git clone https://github.com/your-org/DebugHostMCP"
-        echo "  cd DebugHostMCP && ./install-mcp-host.sh"
+        echo -e "${YELLOW}Important: Install Plopdock MCP Server separately:${NC}"
+        echo "  git clone https://github.com/your-org/Plopdock"
+        echo "  cd Plopdock && ./install-mcp-host.sh"
         echo ""
     else
-        log_install "Debug Host MCP hook template not found" "WARN"
-        echo -e "${YELLOW}Debug Host MCP hook not installed - template missing${NC}"
-        USE_DEBUG_HOST_MCP=false
+        log_install "Plopdock MCP hook template not found" "WARN"
+        echo -e "${YELLOW}Plopdock MCP hook not installed - template missing${NC}"
+        USE_PLOPDOCK_MCP=false
     fi
 else
-    echo "Debug Host MCP integration skipped"
-    log_install "Debug Host MCP integration: Not configured (user choice)" "INFO"
+    echo "Plopdock MCP integration skipped"
+    log_install "Plopdock MCP integration: Not configured (user choice)" "INFO"
 fi
 
 echo ""
@@ -2467,11 +2467,11 @@ elif [ -f "$installer_script" ] && [ "$current_script" = "$target_script" ]; the
     echo "  You can manually remove it after installation: rm install.sh"
 fi
 
-if [ "$USE_DEBUG_HOST_MCP" = true ]; then
+if [ "$USE_PLOPDOCK_MCP" = true ]; then
     echo ""
-    echo -e "${GREEN}Debug Host MCP Integration Active:${NC}"
+    echo -e "${GREEN}Plopdock MCP Integration Active:${NC}"
     echo "  • Dev server commands will be intercepted and managed"
-    echo "  • Install Debug Host MCP: https://github.com/your-org/DebugHostMCP"
+    echo "  • Install Plopdock MCP: https://github.com/your-org/Plopdock"
     echo "  • Dashboard will be at: http://localhost:8080"
 fi
 echo ""
@@ -2493,10 +2493,10 @@ log_install "Location: $PROJECT_ROOT" "INFO"
 log_install "Project: $PROJECT_NAME" "INFO"
 log_install "TTS Provider: $TTS_PROVIDER" "INFO"
 log_install "Session Notes: $NOTES_TYPE mode" "INFO"
-if [ "$USE_DEBUG_HOST_MCP" = true ]; then
-    log_install "Debug Host MCP: Enabled (dev commands will be intercepted)" "INFO"
+if [ "$USE_PLOPDOCK_MCP" = true ]; then
+    log_install "Plopdock MCP: Enabled (dev commands will be intercepted)" "INFO"
 else
-    log_install "Debug Host MCP: Not configured" "INFO"
+    log_install "Plopdock MCP: Not configured" "INFO"
 fi
 log_install "Installation completed successfully" "SUCCESS"
 log_install "Installation log saved to: $INSTALL_LOG_FILE" "INFO"

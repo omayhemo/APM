@@ -347,11 +347,11 @@ I'm initializing the Test Execution process. Let me load all required context in
 bash {{AP_ROOT}}/voice/speakDeveloper.sh "Test execution initiated. Running intelligent test selection with parallel optimization..."
 ```
 
-## MCP Debug Host Integration
+## MCP Plopdock Integration
 
-**🚨 CRITICAL: Use MCP Debug Host for Development Servers**
+**🚨 CRITICAL: Use MCP Plopdock for Development Servers**
 
-If tests require development servers (API servers, databases, web servers), ALWAYS use MCP Debug Host instead of direct bash commands:
+If tests require development servers (API servers, databases, web servers), ALWAYS use MCP Plopdock instead of direct bash commands:
 
 ```
 # ❌ NEVER use direct bash commands:
@@ -359,7 +359,7 @@ npm run dev
 python manage.py runserver  
 php artisan serve
 
-# ✅ ALWAYS use MCP Debug Host:
+# ✅ ALWAYS use MCP Plopdock:
 mcp__apm-debug-host__server_start with parameters:
 - command: "npm run dev"
 - cwd: /path/to/project

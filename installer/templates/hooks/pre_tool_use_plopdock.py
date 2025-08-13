@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Pre-tool use hook for Debug Host MCP Server integration
+Pre-tool use hook for Plopdock MCP Server integration
 Intercepts development server commands and redirects to MCP server
 """
 
@@ -189,7 +189,7 @@ def main():
     project_info = get_project_info()
     
     # Send voice notification
-    send_voice_notification(f"Intercepting {project_info['framework']} development server command. Redirecting to Debug Host MCP server.")
+    send_voice_notification(f"Intercepting {project_info['framework']} development server command. Redirecting to Plopdock MCP server.")
     
     # Create the MCP server start command instead
     mcp_command = {
@@ -204,7 +204,7 @@ def main():
         "metadata": {
             "intercepted": True,
             "original_command": command,
-            "reason": "Development server commands should use Debug Host MCP for persistent management",
+            "reason": "Development server commands should use Plopdock MCP for persistent management",
             "project": project_info
         }
     }
@@ -214,13 +214,13 @@ def main():
         "type": "response",
         "status": "intercepted",
         "message": f"""
-🚫 Direct server launch prevented - Using Debug Host MCP instead
+🚫 Direct server launch prevented - Using Plopdock MCP instead
 
 Original command: {command}
 Framework detected: {project_info['framework']}
 Project: {project_info['project_name']}
 
-The Debug Host MCP server will manage this development server for you.
+The Plopdock MCP server will manage this development server for you.
 Benefits:
 - Server persists across Claude Code sessions
 - Real-time monitoring at http://localhost:2601

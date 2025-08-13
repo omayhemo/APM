@@ -1,14 +1,14 @@
-# APM Debug Host - Related Files in This Project
+# APM Plopdock - Related Files in This Project
 
 ## Overview
-This document catalogs all files within the `agentic-persona-mapping` project that are related to the APM Debug Host MCP server. Total: **37 files directly reference apm-debug-host**, plus the entire `/installer/mcp-host/` directory structure.
+This document catalogs all files within the `agentic-persona-mapping` project that are related to the APM Plopdock MCP server. Total: **37 files directly reference apm-plopdock**, plus the entire `/installer/mcp-host/` directory structure.
 
 ## File Categories
 
 ### 1. Core MCP Host Installation Directory
 **Location**: `/mnt/c/Code/agentic-persona-mapping/installer/mcp-host/`
 
-This is the **SOURCE directory** that gets copied to `/home/dougw/.apm-debug-host/` during installation.
+This is the **SOURCE directory** that gets copied to `/home/dougw/.apm-plopdock/` during installation.
 
 #### Main Installation Files
 - `install-mcp-host.sh` - Primary installation script
@@ -127,7 +127,7 @@ Files that handle MCP host integration:
 ### 4. Documentation Files
 **Location**: `/mnt/c/Code/agentic-persona-mapping/project_docs/`
 
-Project-level documentation about MCP Debug Host:
+Project-level documentation about MCP Plopdock:
 
 - `APM-DEBUG-HOST-MIGRATION-PLAN.md` - Migration plan (just created)
 - `MCP-DEBUG-HOST-IMPLEMENTATION-GUIDE.md` - Implementation guide
@@ -142,7 +142,7 @@ Project-level documentation about MCP Debug Host:
 ### 5. Project Configuration
 **Location**: `/mnt/c/Code/agentic-persona-mapping/`
 
-- `.mcp.json` - Project's MCP configuration (includes apm-debug-host reference)
+- `.mcp.json` - Project's MCP configuration (includes apm-plopdock reference)
 
 ## File Count Summary
 
@@ -153,7 +153,7 @@ Project-level documentation about MCP Debug Host:
 | Templates | 3 | Integration templates |
 | Documentation | 9 | Project documentation files |
 | Configuration | 1 | Project MCP config |
-| **Total Direct References** | **37** | Files containing "apm-debug-host" |
+| **Total Direct References** | **37** | Files containing "apm-plopdock" |
 | **Total Including Source** | **~200+** | All related files |
 
 ## Key Integration Points
@@ -162,7 +162,7 @@ Project-level documentation about MCP Debug Host:
 ```
 install.sh → install-mcp-enhanced.sh → mcp-host/install-mcp-host.sh
                 ↓
-        Copies /installer/mcp-host/* → /home/dougw/.apm-debug-host/
+        Copies /installer/mcp-host/* → /home/dougw/.apm-plopdock/
                 ↓
         merge-mcp-config.sh → Updates project .mcp.json
 ```
@@ -178,7 +178,7 @@ pre_tool_use_mcp.py → Intercepts dev server commands
 ```
 installer/templates/claude/settings.json.mcp.template
     → .claude/settings.json (in target project)
-    → References apm-debug-host MCP server
+    → References apm-plopdock MCP server
 ```
 
 ## Migration Impact
@@ -202,8 +202,8 @@ When migrating to a standalone project, these files will need updates:
 
 ## Notes
 
-- The `/installer/mcp-host/` directory is a **complete, self-contained** copy of the MCP Debug Host
-- During installation, this entire directory is copied to `/home/dougw/.apm-debug-host/`
+- The `/installer/mcp-host/` directory is a **complete, self-contained** copy of the MCP Plopdock
+- During installation, this entire directory is copied to `/home/dougw/.apm-plopdock/`
 - The migration plan should consider whether to:
   1. Keep a copy in APM for bundled installation, OR
   2. Download from the new repository during installation
@@ -213,4 +213,4 @@ When migrating to a standalone project, these files will need updates:
 
 *Document Version: 1.0*
 *Created: 2025-01-03*
-*Purpose: Catalog all APM project files related to apm-debug-host for migration planning*
+*Purpose: Catalog all APM project files related to apm-plopdock for migration planning*

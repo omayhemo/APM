@@ -15,18 +15,18 @@ This document provides standardized system architecture diagrams for MCP (Model 
 
 ### Level 1: System Context Diagram
 
-#### MCP Debug Host System Context
+#### MCP Plopdock System Context
 
 ```mermaid
 C4Context
-  title MCP Debug Host System Context Diagram
+  title MCP Plopdock System Context Diagram
   
   Person(developer, "Developer/AI Agent", "Develops applications using various technology stacks")
   Person(user, "End User", "Monitors development servers through web interface")
   
   System(claudeCode, "Claude Code", "AI development environment with MCP support")
-  System_Boundary(mcpSystem, "MCP Debug Host System") {
-    System(mcpDebugHost, "MCP Debug Host", "Persistent development server management and monitoring")
+  System_Boundary(mcpSystem, "MCP Plopdock System") {
+    System(mcpPlopdock, "MCP Plopdock", "Persistent development server management and monitoring")
   }
   
   System_Ext(devServers, "Development Servers", "Various tech stack servers (Node.js, Python, PHP)")
@@ -34,14 +34,14 @@ C4Context
   System_Ext(systemServices, "System Services", "systemd/launchd for service management")
   
   Rel(developer, claudeCode, "Uses for development", "MCP Protocol")
-  Rel(claudeCode, mcpDebugHost, "Manages servers", "MCP Tools (stdio)")
-  Rel(user, mcpDebugHost, "Monitors servers", "HTTPS/WebSocket")
-  Rel(mcpDebugHost, devServers, "Starts/stops/monitors", "Process spawn/kill")
-  Rel(mcpDebugHost, fileSystem, "Reads project configs", "File I/O")
-  Rel(mcpDebugHost, systemServices, "Service management", "System calls")
+  Rel(claudeCode, mcpPlopdock, "Manages servers", "MCP Tools (stdio)")
+  Rel(user, mcpPlopdock, "Monitors servers", "HTTPS/WebSocket")
+  Rel(mcpPlopdock, devServers, "Starts/stops/monitors", "Process spawn/kill")
+  Rel(mcpPlopdock, fileSystem, "Reads project configs", "File I/O")
+  Rel(mcpPlopdock, systemServices, "Service management", "System calls")
   
-  UpdateElementStyle(mcpDebugHost, $fontColor="white", $bgColor="#2563eb")
-  UpdateRelStyle(claudeCode, mcpDebugHost, $textColor="blue", $lineColor="blue")
+  UpdateElementStyle(mcpPlopdock, $fontColor="white", $bgColor="#2563eb")
+  UpdateRelStyle(claudeCode, mcpPlopdock, $textColor="blue", $lineColor="blue")
 ```
 
 #### Generic MCP Integration Context Template
@@ -70,16 +70,16 @@ C4Context
 
 ### Level 2: Container Diagram
 
-#### MCP Debug Host Container Architecture
+#### MCP Plopdock Container Architecture
 
 ```mermaid
 C4Container
-  title MCP Debug Host Container Diagram
+  title MCP Plopdock Container Diagram
   
   Person(developer, "Developer/AI Agent")
   Person(user, "User")
   
-  System_Boundary(mcpSystem, "MCP Debug Host System") {
+  System_Boundary(mcpSystem, "MCP Plopdock System") {
     Container(mcpServer, "MCP Server", "Node.js", "Handles MCP protocol communication and tool registration")
     Container(processManager, "Process Manager", "Node.js", "Manages development server lifecycle and monitoring")
     Container(dashboardServer, "Dashboard Server", "Express.js", "Provides web interface and REST API")
@@ -403,7 +403,7 @@ flowchart TD
 
 ```mermaid
 C4Deployment
-  title MCP Debug Host Single-Node Deployment
+  title MCP Plopdock Single-Node Deployment
   
   Deployment_Node(userMachine, "Developer Machine", "Linux/macOS/Windows") {
     Deployment_Node(nodeRuntime, "Node.js Runtime", "Node.js 18+") {
@@ -445,10 +445,10 @@ C4Deployment
 
 ```mermaid
 C4Deployment
-  title MCP Debug Host Container Deployment
+  title MCP Plopdock Container Deployment
   
   Deployment_Node(dockerHost, "Docker Host", "Linux with Docker") {
-    Deployment_Node(mcpContainer, "MCP Debug Host Container", "Alpine Linux + Node.js") {
+    Deployment_Node(mcpContainer, "MCP Plopdock Container", "Alpine Linux + Node.js") {
       Container(mcpServer, "MCP Server", "Main MCP process")
       Container(dashboardServer, "Dashboard Server", "Web interface")
       ContainerDb(tempLogs, "Temporary Logs", "In-memory log buffer")
@@ -479,10 +479,10 @@ C4Deployment
 
 ```mermaid
 C4Deployment
-  title MCP Debug Host Kubernetes Deployment
+  title MCP Plopdock Kubernetes Deployment
   
   Deployment_Node(k8sCluster, "Kubernetes Cluster", "Container orchestration") {
-    Deployment_Node(namespace, "mcp-debug-host Namespace", "Isolated environment") {
+    Deployment_Node(namespace, "mcp-plopdock Namespace", "Isolated environment") {
       Deployment_Node(deployment, "Deployment", "Replica management") {
         Container(mcpPod1, "MCP Pod", "Primary instance")
         Container(mcpPod2, "MCP Pod", "Standby instance")
@@ -577,7 +577,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-  subgraph "MCP Debug Host System"
+  subgraph "MCP Plopdock System"
     direction TB
     MCP[MCP Server<br/>stdio only]
     DS[Dashboard Server<br/>:8080]
@@ -626,7 +626,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  subgraph "MCP Debug Host"
+  subgraph "MCP Plopdock"
     MCP[MCP Server]
     PM[Process Manager]
     DS[Dashboard Server]
@@ -684,7 +684,7 @@ flowchart TB
     SYS[System Logs<br/>syslog/journald]
   end
   
-  subgraph "MCP Debug Host"
+  subgraph "MCP Plopdock"
     LC[Log Collector]
     LS[Log Store]
     LF[Log Filter]

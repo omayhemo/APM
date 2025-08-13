@@ -81,7 +81,7 @@ curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4
 - **Zero Downtime Migration**: Seamless upgrade with backward compatibility
 - **Enterprise Ready**: 34+ hours/week saved per development team
 
-### 🖥️ MCP Debug Host Integration (Epic 26 - 93% Complete)
+### 🖥️ MCP Plopdock Integration (Epic 26 - 93% Complete)
 - **Persistent Development Servers**: Servers survive Claude Code restarts
 - **Real-time Web Dashboard**: Full console output at http://localhost:8080
 - **Universal Framework Support**: Auto-detects React, Django, Laravel, and 8+ other frameworks

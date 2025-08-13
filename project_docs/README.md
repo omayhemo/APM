@@ -1,6 +1,6 @@
 # Project Documentation Structure - APM v4.0.0
 
-This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Debug Host integration** for 4-8x faster documentation generation.
+This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Plopdock integration** for 4-8x faster documentation generation.
 
 ## Directory Structure
 
@@ -98,7 +98,7 @@ APM v4.0.0 introduces comprehensive release management capabilities:
 /doc-compliance
 ```
 
-## MCP Debug Host Integration (v3.3.0+ - Epic 26)
+## MCP Plopdock Integration (v3.3.0+ - Epic 26)
 
 ### Development Documentation Requirements
 

@@ -69,8 +69,8 @@ VOICE_NOTIFICATIONS_ENABLED=true
 PARALLEL_EXECUTION_ENABLED=true
 DEBUG_LOGGING_ENABLED=false
 
-# MCP Debug Host Integration
-MCP_DEBUG_HOST_ENABLED=true
+# MCP Plopdock Integration
+MCP_PLOPDOCK_ENABLED=true
 MCP_DEBUG_PORT=8080
 
 # Voice Configuration
@@ -279,15 +279,15 @@ Previous Session: {{PREVIOUS_SESSION_LINK}}
 
 ## Step 5: Development Integration
 
-### 5.1 MCP Debug Host Configuration
+### 5.1 MCP Plopdock Configuration
 
-Enable MCP Debug Host integration in settings:
+Enable MCP Plopdock integration in settings:
 
 ```json
 {
   "development": {
-    "mcp_debug_host_enabled": true,
-    "debug_host_port": 8080,
+    "mcp_plopdock_enabled": true,
+    "plopdock_port": 8080,
     "auto_detect_servers": true,
     "persistent_servers": true,
     "voice_notifications_for_servers": true

@@ -1,12 +1,12 @@
-# APM Debug Host Migration Plan
+# APM Plopdock Migration Plan
 
 ## Executive Summary
-Plan to migrate the APM Debug Host MCP server from its current location (`/home/dougw/.apm-debug-host/`) to a standalone project repository. This will enable better version control, easier distribution, and independent development.
+Plan to migrate the APM Plopdock MCP server from its current location (`/home/dougw/.apm-plopdock/`) to a standalone project repository. This will enable better version control, easier distribution, and independent development.
 
 ## Current Architecture Catalog
 
 ### 1. Core Installation Location
-**Primary Directory**: `/home/dougw/.apm-debug-host/`
+**Primary Directory**: `/home/dougw/.apm-plopdock/`
 
 #### Root Level Files
 - `package.json` - Node.js package configuration
@@ -69,12 +69,12 @@ Plan to migrate the APM Debug Host MCP server from its current location (`/home/
 #### Global Claude Configuration
 **File**: `/home/dougw/.claude.json`
 ```json
-"apm-debug-host": {
+"apm-plopdock": {
   "type": "stdio",
   "command": "node",
-  "args": ["/home/dougw/.apm-debug-host/src/index.js"],
+  "args": ["/home/dougw/.apm-plopdock/src/index.js"],
   "env": {
-    "CONFIG_PATH": "/home/dougw/.apm-debug-host/config.json",
+    "CONFIG_PATH": "/home/dougw/.apm-plopdock/config.json",
     "PORT": "8080"
   }
 }
@@ -120,14 +120,14 @@ Plan to migrate the APM Debug Host MCP server from its current location (`/home/
 ### Phase 1: Project Setup (Week 1)
 
 #### 1.1 Create New Repository
-- [ ] Create GitHub repository: `apm-debug-host`
+- [ ] Create GitHub repository: `apm-plopdock`
 - [ ] Initialize with proper `.gitignore`
 - [ ] Set up CI/CD pipeline
 - [ ] Create comprehensive README.md
 
 #### 1.2 Project Structure
 ```
-apm-debug-host/
+apm-plopdock/
 ├── src/
 │   ├── core/           # Core MCP functionality
 │   ├── adapters/       # Framework adapters
@@ -144,7 +144,7 @@ apm-debug-host/
 ### Phase 2: Code Migration (Week 1-2)
 
 #### 2.1 Core Components
-- [ ] Migrate all source files from `/home/dougw/.apm-debug-host/src/`
+- [ ] Migrate all source files from `/home/dougw/.apm-plopdock/src/`
 - [ ] Refactor code for better modularity
 - [ ] Add TypeScript support (optional but recommended)
 - [ ] Implement proper error boundaries
@@ -223,7 +223,7 @@ apm-debug-host/
 ## Technical Considerations
 
 ### 1. Breaking Changes
-- **Path Changes**: All hardcoded paths to `/home/dougw/.apm-debug-host/` must be updated
+- **Path Changes**: All hardcoded paths to `/home/dougw/.apm-plopdock/` must be updated
 - **Configuration**: New configuration format may require migration
 - **API Changes**: Ensure backward compatibility or provide migration path
 

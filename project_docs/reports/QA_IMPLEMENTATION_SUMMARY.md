@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document summarizes the comprehensive Quality Assurance and Testing Strategy implementation for the Agentic Persona Mapping (APM) system with **MCP Debug Host integration**. The implementation provides a robust framework for ensuring technical quality, performance, security, and compatibility across all APM components including persistent development server management.
+This document summarizes the comprehensive Quality Assurance and Testing Strategy implementation for the Agentic Persona Mapping (APM) system with **MCP Plopdock integration**. The implementation provides a robust framework for ensuring technical quality, performance, security, and compatibility across all APM components including persistent development server management.
 
 ## 📋 Deliverables Created
 
@@ -20,7 +20,7 @@ This document summarizes the comprehensive Quality Assurance and Testing Strateg
 - Unit, integration, performance, security, and compatibility testing implementations
 - Real-time monitoring and reporting systems
 - Quality metrics and dashboard frameworks
-- **MCP Debug Host integration testing** (v3.3.0)
+- **MCP Plopdock integration testing** (v3.3.0)
 
 ## 🧪 Testing Framework Architecture
 
@@ -53,7 +53,7 @@ Testing Framework
 │   ├── Shell Environment Compatibility
 │   ├── Tool Availability Testing
 │   └── Environment Variable Testing
-└── MCP Debug Host Tests (v3.3.0)
+└── MCP Plopdock Tests (v3.3.0)
     ├── Server Persistence Testing
     ├── MCP Tool Integration Testing
     ├── Real-time Dashboard Testing
@@ -93,7 +93,7 @@ Testing Framework
 - **Tool Dependencies**: Automated dependency checking
 - **Environment Validation**: System compatibility verification
 
-### 6. MCP Debug Host Integration Testing (v3.3.0)
+### 6. MCP Plopdock Integration Testing (v3.3.0)
 - **Server Persistence**: Validation that development servers survive Claude Code restarts
 - **MCP Tool Testing**: Comprehensive testing of `start_dev_server`, `stop_dev_server`, `server_status`, `server_logs`
 - **Real-time Dashboard**: Testing web dashboard functionality at http://localhost:8080

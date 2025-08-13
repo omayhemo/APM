@@ -1,8 +1,8 @@
-# MCP Debug Host Configurable Implementation Plan
+# MCP Plopdock Configurable Implementation Plan
 
 ## Executive Summary
 
-This implementation plan outlines the development of a configurable MCP Debug Host integration that allows users to opt-in during installation, automatically configures the system based on their project's tech stack, and enforces MCP usage through intelligent hook interception.
+This implementation plan outlines the development of a configurable MCP Plopdock integration that allows users to opt-in during installation, automatically configures the system based on their project's tech stack, and enforces MCP usage through intelligent hook interception.
 
 ## Architecture Overview
 
@@ -12,9 +12,9 @@ This implementation plan outlines the development of a configurable MCP Debug Ho
 ├─────────────────────────────────────────────────────────────┤
 │                                                               │
 │  1. User runs install.sh                                      │
-│  2. Installer asks: "Enable MCP Debug Host? (Y/n)"          │
+│  2. Installer asks: "Enable MCP Plopdock? (Y/n)"          │
 │  3. If YES:                                                   │
-│     a. Install MCP Debug Host                                │
+│     a. Install MCP Plopdock                                │
 │     b. Detect project tech stack                             │
 │     c. Configure settings.json                               │
 │     d. Enable PreToolUse hook                                │
@@ -33,17 +33,17 @@ This implementation plan outlines the development of a configurable MCP Debug Ho
 **File**: `/installer/install.sh`
 
 ```bash
-# Add to Step 8: MCP Debug Host Server Installation
-echo "Step 8: MCP Debug Host Server Installation (Recommended)"
+# Add to Step 8: MCP Plopdock Server Installation
+echo "Step 8: MCP Plopdock Server Installation (Recommended)"
 echo "=========================================="
 echo ""
-echo "The MCP Debug Host provides:"
+echo "The MCP Plopdock provides:"
 echo "  • Persistent development servers across Claude sessions"
 echo "  • Real-time monitoring dashboard at http://localhost:8080"
 echo "  • Automatic tech stack detection and configuration"
 echo "  • Prevents accidental multiple server instances"
 echo ""
-printf "${YELLOW}Enable MCP Debug Host Server? (Recommended) [Y/n]: ${NC}"
+printf "${YELLOW}Enable MCP Plopdock Server? (Recommended) [Y/n]: ${NC}"
 read -r ENABLE_MCP_HOST
 
 # Set default to Yes if empty
@@ -51,21 +51,21 @@ ENABLE_MCP_HOST=${ENABLE_MCP_HOST:-Y}
 
 if [[ "$ENABLE_MCP_HOST" =~ ^[Yy]$ ]]; then
     MCP_HOST_ENABLED="true"
-    log_install "User enabled MCP Debug Host" "INFO"
+    log_install "User enabled MCP Plopdock" "INFO"
     
     # Detect project tech stack
     echo "Detecting project technology stack..."
     TECH_STACK=$(detect_project_tech_stack "$TARGET_DIR")
     log_install "Detected tech stack: $TECH_STACK" "INFO"
     
-    # Install MCP Debug Host
+    # Install MCP Plopdock
     install_mcp_debug_host "$TECH_STACK"
     
     # Configure hook interception
     configure_mcp_interception "true"
 else
     MCP_HOST_ENABLED="false"
-    log_install "User disabled MCP Debug Host" "INFO"
+    log_install "User disabled MCP Plopdock" "INFO"
     configure_mcp_interception "false"
 fi
 
@@ -158,11 +158,11 @@ validate_mcp_compatibility() {
             ;;
         unknown)
             echo "Warning: Unable to detect project tech stack"
-            echo "MCP Debug Host will attempt auto-detection at runtime"
+            echo "MCP Plopdock will attempt auto-detection at runtime"
             return 0  # Allow with warning
             ;;
         *)
-            echo "Error: Unsupported tech stack for MCP Debug Host"
+            echo "Error: Unsupported tech stack for MCP Plopdock"
             return 1
             ;;
     esac
@@ -176,7 +176,7 @@ validate_mcp_compatibility() {
 ```json
 {
   "mcpServers": {
-    "apm-debug-host": {
+    "apm-plopdock": {
       "command": "node",
       "args": ["{{MCP_HOME}}/src/index.js"],
       "env": {
@@ -214,7 +214,7 @@ validate_mcp_compatibility() {
 ```python
 #!/usr/bin/env python3
 """
-MCP Debug Host Interception Hook
+MCP Plopdock Interception Hook
 Conditionally intercepts development server commands based on configuration
 """
 
@@ -296,7 +296,7 @@ class MCPInterceptor:
         return False
     
     def check_mcp_running(self):
-        """Check if MCP Debug Host is running"""
+        """Check if MCP Plopdock is running"""
         try:
             import urllib.request
             response = urllib.request.urlopen(f"{self.mcp_url}/api/health", timeout=2)
@@ -310,14 +310,14 @@ class MCPInterceptor:
         
         response = {
             "intercepted": True,
-            "reason": "Development server commands should use MCP Debug Host",
+            "reason": "Development server commands should use MCP Plopdock",
             "mcp_status": "running" if mcp_running else "not_running",
             "guidance": {
-                "title": "🚨 Use MCP Debug Host Instead",
+                "title": "🚨 Use MCP Plopdock Instead",
                 "message": f"Detected {self.tech_stack} development server command.",
                 "blocked_command": command,
                 "instructions": [
-                    "The MCP Debug Host provides persistent server management.",
+                    "The MCP Plopdock provides persistent server management.",
                     "",
                     "Use the MCP tool 'server:start' with:",
                     f"  - cwd: {os.getcwd()}",
@@ -332,9 +332,9 @@ class MCPInterceptor:
         if not mcp_running:
             response["guidance"]["instructions"].extend([
                 "",
-                "⚠️  MCP Debug Host is not running!",
-                "Start it with: systemctl --user start apm-debug-host",
-                "Or check installation: ~/.apm-debug-host/"
+                "⚠️  MCP Plopdock is not running!",
+                "Start it with: systemctl --user start apm-plopdock",
+                "Or check installation: ~/.apm-plopdock/"
             ])
         
         return response
@@ -451,21 +451,21 @@ validate_mcp_setup() {
     local tech_stack="$1"
     local project_dir="$2"
     
-    echo "Validating MCP Debug Host setup..."
+    echo "Validating MCP Plopdock setup..."
     
     # Check if MCP service is running
-    if systemctl --user is-active apm-debug-host &>/dev/null; then
-        echo "✅ MCP Debug Host service is running"
+    if systemctl --user is-active apm-plopdock &>/dev/null; then
+        echo "✅ MCP Plopdock service is running"
     else
-        echo "⚠️  MCP Debug Host service is not running"
-        echo "   Start with: systemctl --user start apm-debug-host"
+        echo "⚠️  MCP Plopdock service is not running"
+        echo "   Start with: systemctl --user start apm-plopdock"
     fi
     
     # Test MCP health endpoint
     if curl -s -f http://localhost:8080/api/health > /dev/null; then
-        echo "✅ MCP Debug Host API is responding"
+        echo "✅ MCP Plopdock API is responding"
     else
-        echo "❌ MCP Debug Host API is not responding"
+        echo "❌ MCP Plopdock API is not responding"
         return 1
     fi
     
@@ -487,7 +487,7 @@ validate_mcp_setup() {
             ;;
     esac
     
-    echo "✅ MCP Debug Host validation complete"
+    echo "✅ MCP Plopdock validation complete"
 }
 
 test_nodejs_detection() {
@@ -567,22 +567,22 @@ flowchart TD
 
 ```
 ===========================================
-Step 8: MCP Debug Host Server Installation
+Step 8: MCP Plopdock Server Installation
 ===========================================
 
-The MCP Debug Host provides intelligent development server management:
+The MCP Plopdock provides intelligent development server management:
   ✓ Servers persist across Claude Code sessions
   ✓ Real-time monitoring at http://localhost:8080
   ✓ Automatic tech stack detection
   ✓ Prevents duplicate server instances
 
-Would you like to enable MCP Debug Host? (Recommended) [Y/n]: Y
+Would you like to enable MCP Plopdock? (Recommended) [Y/n]: Y
 
 Detecting project technology stack...
 ✓ Detected: nodejs-react
 
-Installing MCP Debug Host...
-✓ MCP Host installed to ~/.apm-debug-host
+Installing MCP Plopdock...
+✓ MCP Host installed to ~/.apm-plopdock
 ✓ Service configured for automatic startup
 ✓ Dashboard available at http://localhost:8080
 
@@ -590,7 +590,7 @@ Configuring intelligent command interception...
 ✓ PreToolUse hook configured
 ✓ Will redirect server commands to MCP
 
-Installation complete! MCP Debug Host is ready.
+Installation complete! MCP Plopdock is ready.
 ```
 
 ### Agent Interaction
@@ -601,10 +601,10 @@ When an agent tries to run a dev server with MCP enabled:
 Agent: I'll start the development server now...
 Command: npm run dev
 
-🚨 Use MCP Debug Host Instead
+🚨 Use MCP Plopdock Instead
 Detected nodejs-react development server command.
 
-The MCP Debug Host provides persistent server management.
+The MCP Plopdock provides persistent server management.
 
 Use the MCP tool 'server:start' with:
   - cwd: /path/to/project
@@ -632,7 +632,7 @@ Status: ✅ Running
 
 ## Conclusion
 
-This implementation provides a seamless, configurable integration of the MCP Debug Host that:
+This implementation provides a seamless, configurable integration of the MCP Plopdock that:
 - Respects user choice during installation
 - Automatically configures based on project tech stack
 - Intelligently intercepts and redirects server commands

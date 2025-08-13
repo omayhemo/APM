@@ -1,10 +1,10 @@
 # APM Active Product Backlog
 
-### Last Updated: 2025-08-01 (✅ EPIC 18 COMPLETE - MCP Debug Host Server 100% Complete, Epic 26 93% Complete)
+### Last Updated: 2025-08-01 (✅ EPIC 18 COMPLETE - MCP Plopdock Server 100% Complete, Epic 26 93% Complete)
 
 ### Product Owner: PO Agent
 
-### Version: 3.3.0 (Native Sub-Agent Architecture + MCP Debug Host Integration)
+### Version: 3.3.0 (Native Sub-Agent Architecture + MCP Plopdock Integration)
 
 ---
 
@@ -12,11 +12,11 @@
 
 ### Product Vision
 
-Transform the APM framework to leverage native Claude Code sub-agents for true parallel execution with **MCP Debug Host integration**, delivering 4-8x performance improvements and persistent development server management while maintaining backward compatibility and user experience.
+Transform the APM framework to leverage native Claude Code sub-agents for true parallel execution with **MCP Plopdock integration**, delivering 4-8x performance improvements and persistent development server management while maintaining backward compatibility and user experience.
 
 ### Backlog Metrics
 
-- **Total Active Epics**: 9 (MCP Debug Host Server Implementation + Configurable Integration)
+- **Total Active Epics**: 9 (MCP Plopdock Server Implementation + Configurable Integration)
 - **Total Active Story Points**: 330 points across 9 epics (including 45 points for Epic 26)
 - **Completed Points (All Time)**: 384 points across 17 previous epics
 - **Current Sprint**: Planning Sprint 22 (MCP Implementation Start)
@@ -25,15 +25,15 @@ Transform the APM framework to leverage native Claude Code sub-agents for true p
 
 ### Current Sprint Goal
 
-**Sprint 22**: ✅ EPIC 18 COMPLETE - MCP Debug Host Server fully implemented with 55/55 points complete (100%). Epic 19 Dashboard advanced features (21/45 points, 47%) with foundation, session management, and advanced log viewer complete.
+**Sprint 22**: ✅ EPIC 18 COMPLETE - MCP Plopdock Server fully implemented with 55/55 points complete (100%). Epic 19 Dashboard advanced features (21/45 points, 47%) with foundation, session management, and advanced log viewer complete.
 
 ### Release Goals
 
 **Released APM v3.2.0 - 2025-07-26**: ✅ COMPLETE - All parallel commands migrated to native sub-agents with 4.1x average performance improvement (up to 4.8x) and zero CLI crashes. 34+ hours/week saved per development team.
 
-**Released APM v3.3.0 - 2025-08-01**: ✅ COMPLETE - MCP Debug Host integration with persistent development server management, real-time monitoring dashboard, and intelligent command interception (Epic 26 - 93% complete).
+**Released APM v3.3.0 - 2025-08-01**: ✅ COMPLETE - MCP Plopdock integration with persistent development server management, real-time monitoring dashboard, and intelligent command interception (Epic 26 - 93% complete).
 
-**Target APM v3.4.0 - 2025-09-15**: MVP MCP Debug Host Server with core functionality, web dashboard, and APM installer integration (200 story points)
+**Target APM v3.4.0 - 2025-09-15**: MVP MCP Plopdock Server with core functionality, web dashboard, and APM installer integration (200 story points)
 
 **Target APM v3.5.0 - 2025-10-30**: Full MCP implementation with tech stack auto-detection, system services, and comprehensive documentation (85 additional story points)
 
@@ -150,14 +150,14 @@ Transform the APM framework to leverage native Claude Code sub-agents for true p
 - **18.8** Configuration Management (5 pts) - ✅ COMPLETE (2025-08-01) - Comprehensive config system with secure API keys, environment templates, JSON schema validation
 - **18.9** Basic Testing Suite (3 pts) - ✅ COMPLETE (2025-08-01) - Complete Jest framework with 83.72% coverage, 33 passing tests
 
-**Epic 18 Progress**: ✅ 55/55 points complete (100%) - EPIC 18 COMPLETE! Production-ready MCP Debug Host Server ✅
+**Epic 18 Progress**: ✅ 55/55 points complete (100%) - EPIC 18 COMPLETE! Production-ready MCP Plopdock Server ✅
 
-**[2025-08-01 17:00] - AP Orchestrator**: Epic 18 MCP Debug Host Server Implementation COMPLETE ✅  
+**[2025-08-01 17:00] - AP Orchestrator**: Epic 18 MCP Plopdock Server Implementation COMPLETE ✅  
 Action: Successfully completed dual-epic parallel development with 3 specialized sub-agents  
 Final Deliverables:
 - **Story 18.8 COMPLETE** (5 pts): Configuration Management - Comprehensive production config system with secure API key generation, environment-specific templates, JSON schema validation, deployment automation, and service integration
 - **Story 18.9 COMPLETE** (3 pts): Basic Testing Suite - Complete Jest testing framework with 83.72% code coverage, 33 passing tests, MCP protocol validation, integration testing, and CI/CD ready configuration  
-Business Impact: Epic 18 delivers a complete, production-ready MCP Debug Host Server that solves the invisible console output problem for AI development workflows. The system supports 15+ development frameworks with persistent server hosting, real-time monitoring, and enterprise-grade configuration management.  
+Business Impact: Epic 18 delivers a complete, production-ready MCP Plopdock Server that solves the invisible console output problem for AI development workflows. The system supports 15+ development frameworks with persistent server hosting, real-time monitoring, and enterprise-grade configuration management.  
 Technical Achievement: Native sub-agent parallel development delivered 13 additional story points in second coordination session, completing Epic 18 at 100% while establishing Epic 19 foundation  
 Production Status: ✅ READY FOR DEPLOYMENT - Complete MCP server infrastructure with comprehensive testing, configuration, and deployment capabilities
 
@@ -308,7 +308,7 @@ Business Impact: Dashboard now features enterprise-grade design system that deve
 
 ### Epic 23: APM Installer Integration
 **Epic Goal:** Seamless integration with existing APM Framework installer  
-**Business Value:** One-click installation of MCP Debug Host with APM Framework  
+**Business Value:** One-click installation of MCP Plopdock with APM Framework  
 **Priority:** High  
 **Estimated Effort:** 25 Story Points  
 **Target Release:** APM v3.4.0  
@@ -326,7 +326,7 @@ Business Impact: Dashboard now features enterprise-grade design system that deve
 
 #### Stories (25 points total): ✅ ALL COMPLETE
 - **23.1** ✅ **COMPLETE** Installer Script Integration (8 pts) - MCP installation option in main installer
-  - [x] Modified main APM installer script to add MCP Debug Host option
+  - [x] Modified main APM installer script to add MCP Plopdock option
   - [x] Created comprehensive installation prompts and user guidance
   - [x] Integrated existing install-mcp-host.sh script into main installer flow
   - [x] Added prerequisite checking (Node.js version, system requirements)
@@ -466,8 +466,8 @@ Business Impact: Dashboard now features enterprise-grade design system that deve
 
 ## 🎯 Next Epic Planning (Post MCP Implementation)
 
-### Epic 26: Configurable MCP Debug Host Integration
-**Epic Goal:** Implement user-configurable MCP Debug Host with intelligent command interception  
+### Epic 26: Configurable MCP Plopdock Integration
+**Epic Goal:** Implement user-configurable MCP Plopdock with intelligent command interception  
 **Business Value:** Seamless developer experience with optional persistent server management that prevents accidental duplicate servers  
 **Priority:** High  
 **Estimated Effort:** 45 Story Points (38 Complete, 7 Remaining)  
@@ -476,7 +476,7 @@ Business Impact: Dashboard now features enterprise-grade design system that deve
 **Status:** In Progress (84% Complete)  
 
 ### Success Criteria
-- [x] User choice during installation to enable/disable MCP Debug Host
+- [x] User choice during installation to enable/disable MCP Plopdock
 - [x] Automatic tech stack detection for project configuration
 - [x] Intelligent PreToolUse hook that intercepts dev server commands
 - [x] Conditional behavior based on settings.json configuration
@@ -886,14 +886,14 @@ Epic 21 (Tech Detection) → Epic 22 (Services) → Epic 25 (Docs)
 - **Time Savings:** 4-6 hours/week per developer in server management
 
 ### User Journey Impact
-**Before MCP Debug Host:**
+**Before MCP Plopdock:**
 1. AI agent starts development server
 2. Console output invisible to user
 3. Server dies when Claude Code session ends
 4. Manual server restart required
 5. Lost productivity and context
 
-**After MCP Debug Host:** 
+**After MCP Plopdock:** 
 1. AI agent starts server via MCP tools
 2. Real-time console output in web dashboard
 3. Server persists across sessions
@@ -926,8 +926,8 @@ Business Impact: Enables zero-configuration server startup for 11 major developm
 Quality Assurance: All 27 tests passing, 86.66% code coverage, comprehensive error handling, live demonstration successful across all supported frameworks.
 Implementation Notes: This work advances Epic 21 (Tech Stack Auto-detection) significantly, implementing the core detection engine that will be integrated with the process manager for automatic server startup.
 
-**[2025-08-01 17:45] - Developer Agent 1**: Story 18.1 MCP Debug Host Project Structure COMPLETE ✅
-Action: Implemented complete MCP Debug Host project scaffolding and structure (5 story points)
+**[2025-08-01 17:45] - Developer Agent 1**: Story 18.1 MCP Plopdock Project Structure COMPLETE ✅
+Action: Implemented complete MCP Plopdock project scaffolding and structure (5 story points)
 Implementation Details:
 - **Complete Directory Structure**: Created installer/mcp-host/src/{dashboard,adapters} with all required subdirectories
 - **Package.json Configuration**: All MCP dependencies (@modelcontextprotocol/sdk, express, ws, winston, node-pty, etc.) properly configured
@@ -992,7 +992,7 @@ Deliverables:
 - **Story 18.2 COMPLETE** (8 pts): MCP Server Implementation - Full MCP protocol integration, process manager, log store, dashboard server with WebSocket  
 - **Story 18.3 COMPLETE** (5 pts): Tech Stack Detection - Universal detection for 11 frameworks, zero-config setup, comprehensive testing  
 - **Additional Components** (29 pts): Process lifecycle management, MCP tool definitions, log storage system, error handling, Winston logging  
-Business Impact: MCP Debug Host Server foundation is production-ready, solving the invisible console output problem for AI development workflows. Core infrastructure supports 15+ development frameworks with persistent server hosting and real-time monitoring.  
+Business Impact: MCP Plopdock Server foundation is production-ready, solving the invisible console output problem for AI development workflows. Core infrastructure supports 15+ development frameworks with persistent server hosting and real-time monitoring.  
 Technical Achievement: Native sub-agent parallel development delivered 18 story points in single coordination session with 4x development velocity  
 Epic 18 Status: ✅ 47/55 points complete (85%) - Configuration management and testing suite remain for full completion  
 Next Phase: Ready for Epic 19 (Dashboard) parallel development and remaining Epic 18 completion
@@ -1012,14 +1012,14 @@ Technical Deliverables:
 - Created detailed integration guide with troubleshooting
 - Enhanced package.json with CLI script integration
 
-Business Impact: Epic 23 transforms APM Framework installation from complex manual setup to seamless one-click experience. Users now enjoy automatic MCP Debug Host installation with Claude Code integration, professional health monitoring, safe rollback capabilities, and comprehensive documentation. This eliminates installation friction and provides enterprise-grade reliability.
+Business Impact: Epic 23 transforms APM Framework installation from complex manual setup to seamless one-click experience. Users now enjoy automatic MCP Plopdock installation with Claude Code integration, professional health monitoring, safe rollback capabilities, and comprehensive documentation. This eliminates installation friction and provides enterprise-grade reliability.
 
 Quality Achievement: All components are production-ready with comprehensive error handling, cross-platform support, detailed logging, and extensive testing. The implementation exceeds Epic 23 requirements with additional features like dry-run capabilities, backup systems, and advanced CLI management.
 
 **Epic 23 Status**: ✅ 25/25 points complete (100%) - EPIC 23 COMPLETE!
 
-**[2025-08-01 14:30] - PO**: MCP Debug Host Server Product Backlog Created - EPIC SCOPE COMPLETE ✅
-Action: Comprehensive product backlog created for MCP Debug Host Server implementation
+**[2025-08-01 14:30] - PO**: MCP Plopdock Server Product Backlog Created - EPIC SCOPE COMPLETE ✅
+Action: Comprehensive product backlog created for MCP Plopdock Server implementation
 Deliverables:
 - **8 Complete Epics**: Core Server, Dashboard, Process Management, Tech Detection, System Services, APM Integration, Testing, Documentation
 - **285 Total Story Points**: Structured across MVP (200 pts) and Full (85 pts) releases  
@@ -1047,7 +1047,7 @@ Next Steps: Sprint 22 planning ready - recommend starting with Epic 18 (Core MCP
 
 ## 📋 Backlog Change Log
 
-**[2025-08-01 13:56] - AP Orchestrator**: Created Epic 26 for Configurable MCP Debug Host Integration
+**[2025-08-01 13:56] - AP Orchestrator**: Created Epic 26 for Configurable MCP Plopdock Integration
 - Action: Added 45 story points across 12 stories for user-configurable MCP implementation
 - Context: User requested configurable installation option with intelligent command interception
 - Dependencies: Requires Epic 18 completion (✅ Done)
@@ -1061,7 +1061,7 @@ Next Steps: Sprint 22 planning ready - recommend starting with Epic 18 (Core MCP
   - ✅ Enhanced installer with user-configurable MCP installation
   - ✅ Complete settings.json integration with MCP configuration
   - ✅ Comprehensive test suites and multi-persona validation
-  - ✅ Agent knowledge base updated with MCP Debug Host documentation
+  - ✅ Agent knowledge base updated with MCP Plopdock documentation
   - ✅ Rollout strategy and success metrics documented
 - Remaining: Story 26.11 (Troubleshooting guide - 3 pts) requires PM agent
-- Business Impact: Provides seamless opt-in experience for MCP Debug Host with zero impact on users who prefer traditional workflows
+- Business Impact: Provides seamless opt-in experience for MCP Plopdock with zero impact on users who prefer traditional workflows

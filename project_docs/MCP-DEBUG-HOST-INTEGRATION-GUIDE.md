@@ -1,8 +1,8 @@
-# APM Debug Host MCP Server Integration Guide
+# APM Plopdock MCP Server Integration Guide
 
 ## Overview
 
-The APM Debug Host MCP Server provides seamless integration with Claude Code, enabling persistent development server hosting with full console output visibility. This guide covers installation, configuration, and usage.
+The APM Plopdock MCP Server provides seamless integration with Claude Code, enabling persistent development server hosting with full console output visibility. This guide covers installation, configuration, and usage.
 
 ## Table of Contents
 
@@ -19,14 +19,14 @@ The APM Debug Host MCP Server provides seamless integration with Claude Code, en
 
 ### Automatic Installation (Recommended)
 
-The MCP Debug Host Server is integrated into the APM Framework installer:
+The MCP Plopdock Server is integrated into the APM Framework installer:
 
 ```bash
 # Run APM installer
 cd /path/to/apm-framework
 ./installer/install.sh
 
-# When prompted, select "Yes" for MCP Debug Host installation
+# When prompted, select "Yes" for MCP Plopdock installation
 # The installer will:
 # - Check Node.js 18+ requirement
 # - Install MCP server dependencies
@@ -68,7 +68,7 @@ The installer automatically generates `.mcp.json` with optimal settings:
 ```json
 {
   "mcpServers": {
-    "apm-debug-host": {
+    "apm-plopdock": {
       "command": "node",
       "args": ["path/to/installer/mcp-host/src/index.js"],
       "env": {
@@ -77,7 +77,7 @@ The installer automatically generates `.mcp.json` with optimal settings:
         "ENVIRONMENT": "development",
         "API_KEY": "apm_generated_secure_key"
       },
-      "description": "APM Debug Host MCP Server for persistent process management",
+      "description": "APM Plopdock MCP Server for persistent process management",
       "capabilities": [
         "server:start",
         "server:stop",
@@ -100,7 +100,7 @@ Generate custom configuration:
 node cli.js generate-config --environment development --port 8080
 
 # Generate production config  
-node cli.js generate-config --environment production --port 3000 --server-name prod-debug-host
+node cli.js generate-config --environment production --port 3000 --server-name prod-plopdock
 
 # Custom project configuration
 node cli.js generate-config --project-path /path/to/project --output /custom/path/.mcp.json
@@ -426,9 +426,9 @@ rm -rf installer/mcp-host/node_modules
 rm -rf installer/mcp-host/logs
 
 # Remove system services (if installed)
-sudo systemctl stop apm-debug-host
-sudo systemctl disable apm-debug-host
-sudo rm /etc/systemd/system/apm-debug-host.service
+sudo systemctl stop apm-plopdock
+sudo systemctl disable apm-plopdock
+sudo rm /etc/systemd/system/apm-plopdock.service
 ```
 
 ### Rollback Failed Installation
@@ -444,13 +444,13 @@ node cli.js rollback --verbose
 ## Support and Resources
 
 ### Documentation
-- **Main Documentation**: https://docs.apm-framework.com/mcp-debug-host
+- **Main Documentation**: https://docs.apm-framework.com/mcp-plopdock
 - **API Reference**: https://docs.apm-framework.com/mcp-api
 - **Troubleshooting**: https://docs.apm-framework.com/troubleshooting
 
 ### Community
-- **GitHub Issues**: https://github.com/apm-framework/debug-host-mcp/issues
-- **Discussions**: https://github.com/apm-framework/debug-host-mcp/discussions
+- **GitHub Issues**: https://github.com/apm-framework/plopdock-mcp/issues
+- **Discussions**: https://github.com/apm-framework/plopdock-mcp/discussions
 - **Discord**: https://discord.gg/apm-framework
 
 ### Getting Help

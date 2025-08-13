@@ -164,13 +164,13 @@ confidence_score = (
 
 ### Added
 - **Configurable Prompt Enhancement**: Automatic text append to all user prompts via `PROMPT_APPEND_TEXT`
-- **MCP Debug Host Integration**: Persistent development servers with web dashboard
+- **MCP Plopdock Integration**: Persistent development servers with web dashboard
 - **Universal Framework Support**: Auto-detection for 11+ frameworks
 - **Voice-Guided Notifications**: Context-aware alerts for server management
 - **Comprehensive Hook Testing**: Full test suite for prompt append functionality
 
 ### Changed
-- **Server Management**: All development servers now managed through MCP Debug Host
+- **Server Management**: All development servers now managed through MCP Plopdock
 - **Hook System**: Enhanced with UserPromptSubmit hook for prompt modification
 - **Error Handling**: Graceful failure without blocking Claude operations
 
@@ -219,7 +219,7 @@ confidence_score = (
 ## Version History
 
 - **v3.5.0** (2025-08-06): Unified Persona System + Enterprise Document Management
-- **v3.3.0** (2025-07-30): Configurable Prompt Enhancement & MCP Debug Host
+- **v3.3.0** (2025-07-30): Configurable Prompt Enhancement & MCP Plopdock
 - **v3.2.0** (2025-07-26): Native Sub-Agent Revolution (Epic 17)
 - **v3.0.0** (2025-07-15): Initial APM Framework Release
 
@@ -235,7 +235,7 @@ confidence_score = (
 
 ### From v3.2.0 to v3.5.0
 1. Follow same steps as above
-2. MCP Debug Host configuration will be preserved
+2. MCP Plopdock configuration will be preserved
 3. All parallel commands remain functional
 4. Document enforcement system will enhance existing documentation workflows
 

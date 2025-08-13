@@ -1,12 +1,12 @@
-# MCP Debug Host Migration - Complete
+# MCP Plopdock Migration - Complete
 
 ## Summary
-Successfully migrated the APM Debug Host MCP Server from the APM project to a standalone repository.
+Successfully migrated the APM Plopdock MCP Server from the APM project to a standalone repository.
 
 ## Actions Completed
 
 ### 1. Files Moved
-✅ **Created new repository**: `/mnt/c/Code/MCPServers/DebugHostMCP/`
+✅ **Created new repository**: `/mnt/c/Code/MCPServers/PlopdockMCP/`
 ✅ **Moved all source files**: ~150+ files from `/installer/mcp-host/`
 - Complete source code (`src/`)
 - Dashboard files (`src/dashboard/`)
@@ -16,7 +16,7 @@ Successfully migrated the APM Debug Host MCP Server from the APM project to a st
 
 ### 2. APM Project Cleanup
 ✅ **Removed from installer**:
-- Deleted entire Step 8 (MCP Debug Host Installation) from `install.sh`
+- Deleted entire Step 8 (MCP Plopdock Installation) from `install.sh`
 - Removed `rollback_mcp_installation()` function
 - Updated step numbering (9→8, 10→9, 11→10, 12→11, 13→12)
 - Removed all validation and summary references
@@ -37,7 +37,7 @@ Successfully migrated the APM Debug Host MCP Server from the APM project to a st
 - `templates/claude/commands/mcp-install.md.template`
 
 ✅ **Updated configuration**:
-- Removed `apm-debug-host` reference from `.mcp.json`
+- Removed `apm-plopdock` reference from `.mcp.json`
 
 ### 3. New Standalone Project Setup
 ✅ **Created documentation**:
@@ -46,7 +46,7 @@ Successfully migrated the APM Debug Host MCP Server from the APM project to a st
 
 ✅ **Project structure**:
 ```
-/mnt/c/Code/MCPServers/DebugHostMCP/
+/mnt/c/Code/MCPServers/PlopdockMCP/
 ├── src/                 # Complete source code
 ├── tests/              # Comprehensive test suite
 ├── docs/               # Documentation
@@ -60,22 +60,22 @@ Successfully migrated the APM Debug Host MCP Server from the APM project to a st
 
 ### Removed Dependencies
 - APM installer no longer depends on Node.js/npm
-- No MCP Debug Host prompts during installation
+- No MCP Plopdock prompts during installation
 - Cleaner, faster installation process
 
 ### Preserved Functionality
-- All MCP Debug Host code intact in new location
+- All MCP Plopdock code intact in new location
 - Can be installed independently
 - Dashboard still accessible at http://localhost:8080
 
 ### User Impact
-- Existing installations unaffected (still at `~/.apm-debug-host`)
-- New APM installations won't include MCP Debug Host
+- Existing installations unaffected (still at `~/.apm-plopdock`)
+- New APM installations won't include MCP Plopdock
 - Users can install separately from new repository
 
 ## Next Steps
 
-### For the new DebugHostMCP project:
+### For the new PlopdockMCP project:
 1. Initialize git repository
 2. Set up GitHub/GitLab repository
 3. Configure CI/CD pipeline
@@ -108,4 +108,4 @@ Successfully migrated the APM Debug Host MCP Server from the APM project to a st
 **Migration Date**: 2025-01-03
 **Status**: ✅ Complete
 **APM Version**: Post-MCP removal
-**New Project**: `/mnt/c/Code/MCPServers/DebugHostMCP/`
+**New Project**: `/mnt/c/Code/MCPServers/PlopdockMCP/`

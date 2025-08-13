@@ -179,7 +179,7 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 |----------|-------------|---------------|-------|
 | `{{CLAUDE_CODE_VERSION}}` | Claude Code version | `2.1.0` | Compatibility checks |
 | `{{HOOK_ENABLED}}` | Hooks enabled status | `true` | Hook system |
-| `{{MCP_DEBUG_HOST}}` | MCP Debug Host enabled | `true` | Development server management |
+| `{{MCP_PLOPDOCK}}` | MCP Plopdock enabled | `true` | Development server management |
 
 ---
 

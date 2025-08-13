@@ -1,8 +1,8 @@
-# MCP Debug Host Agent Integration Strategy
+# MCP Plopdock Agent Integration Strategy
 
 ## Executive Summary
 
-This document outlines the implementation strategy for automatically intercepting development server commands and redirecting agents to use the MCP Debug Host system.
+This document outlines the implementation strategy for automatically intercepting development server commands and redirecting agents to use the MCP Plopdock system.
 
 ## Implementation Overview
 
@@ -61,14 +61,14 @@ def is_dev_server_command(command):
     return False
 
 def generate_mcp_suggestion(command):
-    """Generate MCP Debug Host alternative suggestion"""
+    """Generate MCP Plopdock alternative suggestion"""
     return {
         "blocked": True,
-        "reason": "Development server commands should use MCP Debug Host",
+        "reason": "Development server commands should use MCP Plopdock",
         "suggestion": {
-            "message": "🚨 STOP! Use MCP Debug Host instead of direct server commands.",
+            "message": "🚨 STOP! Use MCP Plopdock instead of direct server commands.",
             "instructions": [
-                "The MCP Debug Host provides persistent server management that survives Claude sessions.",
+                "The MCP Plopdock provides persistent server management that survives Claude sessions.",
                 "",
                 "Instead of running:",
                 f"  {command}",
@@ -140,8 +140,8 @@ Update `.claude/settings.json`:
 {
   "env": {
     "HOOK_PRE_TOOL_ENABLED": "true",
-    "MCP_DEBUG_HOST_INTERCEPT": "true",
-    "MCP_DEBUG_HOST_URL": "http://localhost:8080"
+    "MCP_PLOPDOCK_INTERCEPT": "true",
+    "MCP_PLOPDOCK_URL": "http://localhost:8080"
   },
   "hooks": {
     "PreToolUse": [{
@@ -171,9 +171,9 @@ Create a new knowledge base entry:
 - `php artisan serve`
 - Any direct server start command
 
-### ✅ REQUIRED: Use MCP Debug Host
+### ✅ REQUIRED: Use MCP Plopdock
 
-**Always use the MCP Debug Host tools:**
+**Always use the MCP Plopdock tools:**
 
 ```
 Tool: server:start
@@ -202,7 +202,7 @@ import subprocess
 
 def notify_mcp_redirect(command):
     """Send voice notification about MCP redirect"""
-    message = f"Blocking direct server command. Please use MCP Debug Host instead for persistent server management."
+    message = f"Blocking direct server command. Please use MCP Plopdock instead for persistent server management."
     
     # Determine which agent is active and use appropriate voice
     voice_script = "/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh"
@@ -220,7 +220,7 @@ def notify_mcp_redirect(command):
 ### 1. **Automatic Enforcement**
 - No need to update all agent personas immediately
 - Hook intercepts ALL server start attempts
-- Provides clear guidance on using MCP Debug Host
+- Provides clear guidance on using MCP Plopdock
 
 ### 2. **Education Through Interruption**
 - Agents learn to use MCP tools through repeated guidance
@@ -257,13 +257,13 @@ def notify_mcp_redirect(command):
 ## Success Metrics
 
 - **Interception Rate**: % of server commands redirected
-- **Adoption Rate**: % of sessions using MCP Debug Host
+- **Adoption Rate**: % of sessions using MCP Plopdock
 - **Error Reduction**: Decrease in "server not found" issues
 - **Session Persistence**: Increase in cross-session server availability
 
 ## Conclusion
 
-This implementation provides a seamless transition to MCP Debug Host usage without requiring immediate updates to all agent personas. The pre-execution hook acts as an intelligent middleware, educating agents and users about the superior MCP Debug Host alternative while preventing the problematic direct server execution pattern.
+This implementation provides a seamless transition to MCP Plopdock usage without requiring immediate updates to all agent personas. The pre-execution hook acts as an intelligent middleware, educating agents and users about the superior MCP Plopdock alternative while preventing the problematic direct server execution pattern.
 
 ---
 

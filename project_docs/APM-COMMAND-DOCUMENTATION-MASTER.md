@@ -203,7 +203,7 @@ Result: Complete development lifecycle workflow
 ### v3.5.0
 - Enhanced parallel commands
 - QA framework AI/ML integration
-- MCP Debug Host integration
+- MCP Plopdock integration
 
 ### v3.2.0
 - Initial parallel command implementation

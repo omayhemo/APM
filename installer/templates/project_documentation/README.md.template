@@ -1,6 +1,6 @@
 # Project Documentation Structure - APM v{{VERSION}}
 
-This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Debug Host integration** for 4-8x faster documentation generation.
+This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Plopdock integration** for 4-8x faster documentation generation.
 
 ## Directory Structure
 
@@ -51,7 +51,7 @@ Master index linking all documentation for easy navigation.
 
 **Performance Impact**: Documentation generation now 4-8x faster with zero CLI crashes
 
-## MCP Debug Host Integration (v{{VERSION}} - Epic 26)
+## MCP Plopdock Integration (v{{VERSION}} - Epic 26)
 
 ### Development Documentation Requirements
 

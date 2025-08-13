@@ -136,7 +136,7 @@ Deep technical documentation.
 │   ├── native-subagent-architecture.md    # Sub-agent system details
 │   ├── session-management-internals.md    # Session system design
 │   ├── template-processing.md             # Template engine details
-│   ├── mcp-integration.md                 # MCP Debug Host integration
+│   ├── mcp-integration.md                 # MCP Plopdock integration
 │   └── api-specification.md               # Complete API documentation
 ```
 

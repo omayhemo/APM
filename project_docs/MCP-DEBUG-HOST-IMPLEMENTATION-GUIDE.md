@@ -1,8 +1,8 @@
-# MCP Debug Host Server Implementation Guide
+# MCP Plopdock Server Implementation Guide
 
 ## 🎯 Overview
 
-This guide provides step-by-step instructions for implementing the MCP (Model Context Protocol) Debug Host Server integration into the APM Framework installer. The MCP Debug Host solves the problem of invisible console output when AI agents start development servers.
+This guide provides step-by-step instructions for implementing the MCP (Model Context Protocol) Plopdock Server integration into the APM Framework installer. The MCP Plopdock solves the problem of invisible console output when AI agents start development servers.
 
 ### What You'll Build
 - A persistent server that manages all development processes
@@ -76,9 +76,9 @@ Create `installer/mcp-host/package.json`:
 
 ```json
 {
-  "name": "@apm/debug-host-mcp",
+  "name": "@apm/plopdock-mcp",
   "version": "1.0.0",
-  "description": "APM Debug Host MCP Server for persistent process management",
+  "description": "APM Plopdock MCP Server for persistent process management",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
@@ -122,7 +122,7 @@ const logger = winston.createLogger({
   format: winston.format.json(),
   transports: [
     new winston.transports.File({ 
-      filename: path.join(process.env.HOME, '.apm-debug-host', 'server.log') 
+      filename: path.join(process.env.HOME, '.apm-plopdock', 'server.log') 
     })
   ]
 });
@@ -135,7 +135,7 @@ const dashboardServer = new DashboardServer(processManager, logStore, logger);
 // Create MCP server
 const server = new Server(
   {
-    name: 'apm-debug-host',
+    name: 'apm-plopdock',
     version: '1.0.0'
   },
   {
@@ -156,7 +156,7 @@ dashboardServer.start(dashboardPort).then(() => {
 
 // Handle shutdown
 process.on('SIGINT', async () => {
-  logger.info('Shutting down MCP Debug Host...');
+  logger.info('Shutting down MCP Plopdock...');
   await processManager.stopAll();
   await dashboardServer.stop();
   process.exit(0);
@@ -165,7 +165,7 @@ process.on('SIGINT', async () => {
 // Start MCP server
 const transport = new StdioServerTransport();
 server.connect(transport).then(() => {
-  logger.info('MCP Debug Host Server started');
+  logger.info('MCP Plopdock Server started');
 }).catch((error) => {
   logger.error('Failed to start MCP server:', error);
   process.exit(1);
@@ -788,13 +788,13 @@ Create `installer/mcp-host/src/dashboard/public/index.html`:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APM Debug Host Dashboard</title>
+  <title>APM Plopdock Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>🚀 APM Debug Host Dashboard</h1>
+      <h1>🚀 APM Plopdock Dashboard</h1>
       <div class="connection-status" id="connectionStatus">
         <span class="status-dot"></span>
         <span class="status-text">Connecting...</span>
@@ -1120,12 +1120,12 @@ class DashboardApp {
     
     this.ws.onopen = () => {
       this.updateConnectionStatus(true);
-      console.log('Connected to MCP Debug Host');
+      console.log('Connected to MCP Plopdock');
     };
     
     this.ws.onclose = () => {
       this.updateConnectionStatus(false);
-      console.log('Disconnected from MCP Debug Host');
+      console.log('Disconnected from MCP Plopdock');
       
       // Reconnect after 3 seconds
       setTimeout(() => this.initializeWebSocket(), 3000);
@@ -1391,8 +1391,8 @@ Create `installer/mcp-host/install-mcp-host.sh`:
 ```bash
 #!/bin/bash
 
-# MCP Debug Host Installation Script
-# This script installs and configures the MCP Debug Host Server
+# MCP Plopdock Installation Script
+# This script installs and configures the MCP Plopdock Server
 
 set -e
 
@@ -1405,9 +1405,9 @@ NC='\033[0m' # No Color
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-MCP_HOME="$HOME/.apm-debug-host"
+MCP_HOME="$HOME/.apm-plopdock"
 
-echo -e "${GREEN}Installing MCP Debug Host Server...${NC}"
+echo -e "${GREEN}Installing MCP Plopdock Server...${NC}"
 
 # Function to check if command exists
 command_exists() {
@@ -1461,7 +1461,7 @@ generate_config() {
     
     # Create .env file
     cat > "$MCP_HOME/.env" << EOF
-# MCP Debug Host Configuration
+# MCP Plopdock Configuration
 MCP_API_KEY=$API_KEY
 PORT=8080
 LOG_LEVEL=info
@@ -1517,7 +1517,7 @@ update_mcp_config() {
         cat << EOF
 {
   "mcpServers": {
-    "apm-debug-host": {
+    "apm-plopdock": {
       "command": "node",
       "args": ["$MCP_HOME/src/index.js"],
       "env": {
@@ -1534,7 +1534,7 @@ EOF
     # Update configuration with jq
     jq --arg home "$MCP_HOME" \
        --arg project "$TARGET_DIR" \
-       '.mcpServers["apm-debug-host"] = {
+       '.mcpServers["apm-plopdock"] = {
           "command": "node",
           "args": [($home + "/src/index.js")],
           "env": {
@@ -1552,9 +1552,9 @@ setup_service() {
     
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         # Create systemd service
-        cat > /tmp/apm-debug-host.service << EOF
+        cat > /tmp/apm-plopdock.service << EOF
 [Unit]
-Description=APM Debug Host MCP Server
+Description=APM Plopdock MCP Server
 After=network.target
 
 [Service]
@@ -1572,10 +1572,10 @@ EOF
         
         # Install service
         if command_exists systemctl; then
-            sudo mv /tmp/apm-debug-host.service /etc/systemd/system/
+            sudo mv /tmp/apm-plopdock.service /etc/systemd/system/
             sudo systemctl daemon-reload
-            sudo systemctl enable apm-debug-host
-            sudo systemctl start apm-debug-host
+            sudo systemctl enable apm-plopdock
+            sudo systemctl start apm-plopdock
             
             echo -e "${GREEN}✓ Systemd service installed and started${NC}"
         else
@@ -1584,7 +1584,7 @@ EOF
         
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         # Create LaunchAgent for macOS
-        PLIST_PATH="$HOME/Library/LaunchAgents/com.apm.debug-host.plist"
+        PLIST_PATH="$HOME/Library/LaunchAgents/com.apm.plopdock.plist"
         mkdir -p "$HOME/Library/LaunchAgents"
         
         cat > "$PLIST_PATH" << EOF
@@ -1593,7 +1593,7 @@ EOF
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.apm.debug-host</string>
+    <string>com.apm.plopdock</string>
     <key>ProgramArguments</key>
     <array>
         <string>$(which node)</string>
@@ -1661,7 +1661,7 @@ EOF
 
 # Main installation flow
 main() {
-    echo -e "${BLUE}=== MCP Debug Host Installation ===${NC}"
+    echo -e "${BLUE}=== MCP Plopdock Installation ===${NC}"
     echo ""
     
     # Check prerequisites
@@ -1682,7 +1682,7 @@ main() {
     echo ""
     echo -e "${GREEN}=== Installation Complete ===${NC}"
     echo ""
-    echo "MCP Debug Host Dashboard: ${BLUE}http://localhost:8080${NC}"
+    echo "MCP Plopdock Dashboard: ${BLUE}http://localhost:8080${NC}"
     echo "Configuration: $MCP_HOME/config.json"
     echo "Logs: $MCP_HOME/logs/"
     echo ""
@@ -1704,7 +1704,7 @@ Create `installer/mcp-host/templates/systemd.service.template`:
 
 ```ini
 [Unit]
-Description=APM Debug Host MCP Server
+Description=APM Plopdock MCP Server
 After=network.target
 
 [Service]
@@ -1736,7 +1736,7 @@ Create `installer/mcp-host/templates/launchd.plist.template`:
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.apm.debug-host</string>
+    <string>com.apm.plopdock</string>
     <key>ProgramArguments</key>
     <array>
         <string>{{NODE_PATH}}</string>
@@ -1773,17 +1773,17 @@ Modify `installer/install.sh` to add MCP host installation:
 ```bash
 # Add after line 600 (after template processing)
 
-# Function to install MCP Debug Host
+# Function to install MCP Plopdock
 install_mcp_host() {
     echo ""
-    echo -e "${YELLOW}Optional: MCP Debug Host Server${NC}"
+    echo -e "${YELLOW}Optional: MCP Plopdock Server${NC}"
     echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     
     if [ "$USE_DEFAULTS" = true ]; then
         INSTALL_MCP="yes"
     else
         echo ""
-        echo "The MCP Debug Host provides:"
+        echo "The MCP Plopdock provides:"
         echo "• Persistent server hosting across AI agent sessions"
         echo "• Full console output visibility in web dashboard"
         echo "• Automatic process management for all tech stacks"
@@ -1795,14 +1795,14 @@ install_mcp_host() {
             echo -e "${BLUE}Note: Existing MCP configuration found${NC}"
         fi
         
-        printf "${YELLOW}Install MCP Debug Host Server? [Y/n]: ${NC}"
+        printf "${YELLOW}Install MCP Plopdock Server? [Y/n]: ${NC}"
         read INSTALL_MCP
         INSTALL_MCP="${INSTALL_MCP:-Y}"
     fi
     
     if [[ "$INSTALL_MCP" =~ ^[Yy] ]]; then
         echo ""
-        echo -e "${GREEN}Installing MCP Debug Host...${NC}"
+        echo -e "${GREEN}Installing MCP Plopdock...${NC}"
         
         # Export TARGET_DIR for the installer
         export TARGET_DIR
@@ -1815,7 +1815,7 @@ install_mcp_host() {
             echo "Expected at: $INSTALLER_DIR/mcp-host/install-mcp-host.sh"
         fi
     else
-        echo -e "${YELLOW}Skipping MCP Debug Host installation${NC}"
+        echo -e "${YELLOW}Skipping MCP Plopdock installation${NC}"
     fi
 }
 
@@ -1831,7 +1831,7 @@ Create `installer/templates/mcp.json.template`:
 ```json
 {
   "mcpServers": {
-    "apm-debug-host": {
+    "apm-plopdock": {
       "command": "node",
       "args": ["{{MCP_HOME}}/src/index.js"],
       "env": {
@@ -1858,21 +1858,21 @@ chmod +x installer/mcp-host/install-mcp-host.sh
 # Run installer
 ./installer/install.sh
 
-# When prompted, choose to install MCP Debug Host
+# When prompted, choose to install MCP Plopdock
 ```
 
 ### 2. Verify Installation
 
 ```bash
 # Check if service is running
-systemctl status apm-debug-host  # Linux
+systemctl status apm-plopdock  # Linux
 launchctl list | grep apm        # macOS
 
 # Check if dashboard is accessible
 curl http://localhost:8080/api/health
 
 # Check MCP configuration
-cat .mcp.json | jq '.mcpServers["apm-debug-host"]'
+cat .mcp.json | jq '.mcpServers["apm-plopdock"]'
 ```
 
 ### 3. Test with Claude Code
@@ -1889,7 +1889,7 @@ cat .mcp.json | jq '.mcpServers["apm-debug-host"]'
 ### Common Issues
 
 1. **Port 8080 already in use**
-   - Edit `~/.apm-debug-host/config.json`
+   - Edit `~/.apm-plopdock/config.json`
    - Change port number
    - Restart service
 
@@ -1901,19 +1901,19 @@ cat .mcp.json | jq '.mcpServers["apm-debug-host"]'
 3. **No logs appearing**
    - Verify server is running
    - Check WebSocket connection in browser console
-   - Look at server logs: `~/.apm-debug-host/logs/server.log`
+   - Look at server logs: `~/.apm-plopdock/logs/server.log`
 
 ### Debug Commands
 
 ```bash
 # View MCP server logs
-tail -f ~/.apm-debug-host/logs/server.log
+tail -f ~/.apm-plopdock/logs/server.log
 
 # Test MCP connection
-echo '{}' | node ~/.apm-debug-host/src/index.js
+echo '{}' | node ~/.apm-plopdock/src/index.js
 
 # Manually start server
-cd ~/.apm-debug-host && npm start
+cd ~/.apm-plopdock && npm start
 ```
 
 ---
@@ -1940,4 +1940,4 @@ Your implementation is successful when:
 - [WebSocket API Reference](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 - [Systemd Service Files](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
 
-This completes the implementation guide. Follow each step carefully, test thoroughly, and you'll have a fully functional MCP Debug Host Server integrated with the APM installer!
+This completes the implementation guide. Follow each step carefully, test thoroughly, and you'll have a fully functional MCP Plopdock Server integrated with the APM installer!

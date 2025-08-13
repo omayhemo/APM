@@ -116,7 +116,7 @@ This plan details all documentation that should be created as templates in the i
 | `06-advanced/README.md` | Advanced topics overview | Medium | 📝 Todo |
 | `06-advanced/performance-optimization.md` | Speed maximization | High | 📝 Todo |
 | `06-advanced/custom-personas.md` | Creating custom agents | Low | 📝 Todo |
-| `06-advanced/mcp-debug-host.md` | Server management guide | High | 📝 Todo |
+| `06-advanced/mcp-plopdock.md` | Server management guide | High | 📝 Todo |
 | `06-advanced/ci-cd-integration.md` | Pipeline integration | Medium | 📝 Todo |
 | `06-advanced/enterprise-deployment.md` | Large-scale usage | Low | 📝 Todo |
 | `06-advanced/native-subagents.md` | Sub-agent architecture | Medium | 📝 Todo |

@@ -1,8 +1,8 @@
-# MCP Debug Host Rollout Strategy & Success Metrics
+# MCP Plopdock Rollout Strategy & Success Metrics
 
 ## Executive Summary
 
-This document outlines the phased rollout strategy for the configurable MCP Debug Host integration, including success metrics, risk mitigation, and feedback mechanisms.
+This document outlines the phased rollout strategy for the configurable MCP Plopdock integration, including success metrics, risk mitigation, and feedback mechanisms.
 
 ---
 
@@ -140,7 +140,7 @@ This document outlines the phased rollout strategy for the configurable MCP Debu
    - Troubleshooting tips
 
 2. **Video Tutorials**
-   - "Why MCP Debug Host?"
+   - "Why MCP Plopdock?"
    - "Getting Started"
    - "Advanced Configuration"
 
@@ -230,7 +230,7 @@ This document outlines the phased rollout strategy for the configurable MCP Debu
    - Performance metrics
 
 4. **Community Forums**
-   - Discord channel #mcp-debug-host
+   - Discord channel #mcp-plopdock
    - Weekly office hours
    - Feature request voting
 
@@ -316,4 +316,4 @@ Based on rollout success:
 
 ## Conclusion
 
-The MCP Debug Host rollout strategy emphasizes user choice, clear communication, and continuous improvement. By following this phased approach with careful monitoring and feedback integration, we ensure a successful deployment that enhances the developer experience while maintaining system stability and performance.
+The MCP Plopdock rollout strategy emphasizes user choice, clear communication, and continuous improvement. By following this phased approach with careful monitoring and feedback integration, we ensure a successful deployment that enhances the developer experience while maintaining system stability and performance.

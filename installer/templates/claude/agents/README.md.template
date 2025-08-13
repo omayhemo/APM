@@ -1,6 +1,6 @@
 # Claude Code Sub-Agents Infrastructure (v3.3.0)
 
-This directory contains the Claude Code sub-agent templates for APM persona migration with **MCP Debug Host integration**.
+This directory contains the Claude Code sub-agent templates for APM persona migration with **MCP Plopdock integration**.
 
 ## Installation
 
@@ -44,9 +44,9 @@ This infrastructure is installed via the APM installer when the sub-agents migra
 - **Resource Management**: Intelligent task distribution and monitoring
 - **Error Recovery**: Robust error handling with automatic recovery
 - **Backward Compatibility**: Dual-mode operation with legacy commands
-- **MCP Debug Host Integration**: Persistent development server management (v3.3.0)
+- **MCP Plopdock Integration**: Persistent development server management (v3.3.0)
 
-## MCP Debug Host Integration (v3.3.0 - Epic 26)
+## MCP Plopdock Integration (v3.3.0 - Epic 26)
 
 ### Development Server Management
 

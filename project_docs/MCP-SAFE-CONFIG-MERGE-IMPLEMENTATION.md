@@ -1,12 +1,12 @@
 # MCP Safe Configuration Merge Implementation
 
 **Date**: 2025-08-02  
-**Epic**: 26 - MCP Debug Host Integration  
+**Epic**: 26 - MCP Plopdock Integration  
 **Status**: ✅ COMPLETE  
 
 ## 🔴 Critical Issue Identified
 
-The original installer implementation would **completely overwrite** user's existing Claude settings.json file when MCP Debug Host was enabled, destroying any existing MCP server configurations.
+The original installer implementation would **completely overwrite** user's existing Claude settings.json file when MCP Plopdock was enabled, destroying any existing MCP server configurations.
 
 ### Problem Analysis
 
@@ -23,7 +23,7 @@ The original installer implementation would **completely overwrite** user's exis
 **File**: `installer/merge-mcp-config.sh`
 
 **Features**:
-- Safely merges APM Debug Host into existing MCP configurations
+- Safely merges APM Plopdock into existing MCP configurations
 - Preserves all existing user settings and MCP servers
 - Creates automatic backups before modifications
 - Validates JSON structure after merge
@@ -35,7 +35,7 @@ The original installer implementation would **completely overwrite** user's exis
 ```bash
 merge_mcp_configuration <settings_file> <mcp_home> <project_root> <enabled> [tech_stack]
 ```
-- Checks for existing apm-debug-host configuration
+- Checks for existing apm-plopdock configuration
 - If exists: Updates only enabled status and environment
 - If not exists: Adds new MCP server configuration
 - Preserves all other settings, env vars, hooks, and MCP servers
@@ -44,7 +44,7 @@ merge_mcp_configuration <settings_file> <mcp_home> <project_root> <enabled> [tec
 ```bash
 remove_apm_mcp_config <settings_file>
 ```
-- Safely removes APM Debug Host from mcpServers
+- Safely removes APM Plopdock from mcpServers
 - Updates related environment variables
 - Removes APM-specific hooks
 - Preserves all other configurations
@@ -103,7 +103,7 @@ After merge, displays:
 MCP Server Configuration Summary:
 ---------------------------------
 Total MCP servers configured: 3
-  • apm-debug-host: ✓ Enabled
+  • apm-plopdock: ✓ Enabled
   • existing-server-1: ✓ Enabled
   • existing-server-2: ✗ Disabled
 ```
@@ -151,7 +151,7 @@ Uses `jq` for deep merging with preservation of:
 3. **Verify Merge**:
    ```bash
    jq '.mcpServers | keys' ~/.claude/settings.json
-   # Should show both existing and apm-debug-host
+   # Should show both existing and apm-plopdock
    ```
 
 4. **Check Backup**:
@@ -174,8 +174,8 @@ Uses `jq` for deep merging with preservation of:
 
 **Successfully implemented safe MCP configuration merging that:**
 - Never overwrites existing user configurations
-- Properly merges APM Debug Host with existing MCP servers
+- Properly merges APM Plopdock with existing MCP servers
 - Provides safety through backups and validation
 - Handles all edge cases gracefully
 
-This ensures users can safely install APM Debug Host alongside their existing MCP server configurations without any data loss.
+This ensures users can safely install APM Plopdock alongside their existing MCP server configurations without any data loss.

@@ -12,7 +12,7 @@ if [ -f "templates/VERSION" ]; then
 elif [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="4.0.0"
+    VERSION="4.0.1"
 fi
 DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
@@ -114,9 +114,9 @@ EOF
 # Create the tar.gz archive
 echo ""
 echo "Creating distribution archive..."
-cd "$DIST_DIR"
-tar -czf "../$DIST_NAME.tar.gz" .
-cd ../..
+cd dist
+tar -czf "$DIST_NAME.tar.gz" "$DIST_NAME"
+cd ..
 
 # No README copied to dist root - users get installer only
 

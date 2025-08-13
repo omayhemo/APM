@@ -289,15 +289,15 @@ JSON schema definitions that validate APM configuration files and ensure proper 
 Integration points that allow APM to intercept and modify Claude Code operations, including pre/post tool use and prompt enhancement.
 
 **Hook Script**
-Python scripts that execute at specific integration points to provide custom functionality like MCP Debug Host integration.
+Python scripts that execute at specific integration points to provide custom functionality like MCP Plopdock integration.
 
 ### **M**
 
 **Master Persona Definition**
 JSON configuration files in `/installer/personas/_master/` that serve as the single source of truth for persona definitions.
 
-**MCP Debug Host**
-Model Context Protocol debug host integration that manages development servers and provides persistent execution environments.
+**MCP Plopdock**
+Model Context Protocol plopdock integration that manages development servers and provides persistent execution environments.
 
 **Modernization**
 The comprehensive update of APM v4.0.0 that replaced legacy systems with native sub-agent architecture and unified persona definitions.
@@ -377,7 +377,7 @@ Structured process for peer review of code changes, facilitated by APM personas 
 ### **D**
 
 **Development Server Management**
-APM's integration with MCP Debug Host for persistent development server management across Claude Code sessions.
+APM's integration with MCP Plopdock for persistent development server management across Claude Code sessions.
 
 **Documentation Strategy**
 Comprehensive approach to maintaining project documentation through automated generation and persona-driven updates.

@@ -196,18 +196,18 @@ export SESSION_TIMEOUT_HOURS="12"
 
 ## Development Integration Variables
 
-### MCP_DEBUG_HOST_ENABLED
-**Description**: Enable MCP Debug Host integration  
+### MCP_PLOPDOCK_ENABLED
+**Description**: Enable MCP Plopdock integration  
 **Values**: `true`, `false`  
 **Default**: `true`  
-**Usage**: Enables development server management through MCP Debug Host  
+**Usage**: Enables development server management through MCP Plopdock  
 
 ```bash
-export MCP_DEBUG_HOST_ENABLED="true"
+export MCP_PLOPDOCK_ENABLED="true"
 ```
 
 ### MCP_DEBUG_PORT
-**Description**: Port for MCP Debug Host dashboard  
+**Description**: Port for MCP Plopdock dashboard  
 **Values**: Port number (1024-65535)  
 **Default**: `8080`  
 **Usage**: Configures dashboard access port  
@@ -389,7 +389,7 @@ SESSION_BACKUP_ENABLED=true
 MAX_SESSION_HISTORY=50
 
 # Development Integration
-MCP_DEBUG_HOST_ENABLED=true
+MCP_PLOPDOCK_ENABLED=true
 MCP_DEBUG_PORT=8080
 ```
 
@@ -432,7 +432,7 @@ ENV APM_ENVIRONMENT=production
 export APM_ENVIRONMENT="development"
 export DEBUG_LOGGING_ENABLED="true"
 export VOICE_NOTIFICATIONS_ENABLED="true"
-export MCP_DEBUG_HOST_ENABLED="true"
+export MCP_PLOPDOCK_ENABLED="true"
 export SESSION_BACKUP_ENABLED="true"
 export ENABLE_PERFORMANCE_MONITORING="true"
 ```
@@ -444,7 +444,7 @@ export ENABLE_PERFORMANCE_MONITORING="true"
 export APM_ENVIRONMENT="production"
 export DEBUG_LOGGING_ENABLED="false"
 export VOICE_NOTIFICATIONS_ENABLED="false"
-export MCP_DEBUG_HOST_ENABLED="false"
+export MCP_PLOPDOCK_ENABLED="false"
 export SESSION_BACKUP_ENABLED="false"
 export ENABLE_PERFORMANCE_MONITORING="false"
 export APM_SECURITY_MODE="strict"

@@ -1,15 +1,15 @@
-# MCP Debug Host Technical Design Document
+# MCP Plopdock Technical Design Document
 
 **Document Type**: MCP Integration Technical Design  
 **Version**: 1.0.0  
 **Last Updated**: 2025-08-01  
 **Author**: System Architect  
 **Status**: Active  
-**Related**: [MCP Debug Host Implementation Guide](../MCP-DEBUG-HOST-IMPLEMENTATION-GUIDE.md)
+**Related**: [MCP Plopdock Implementation Guide](../MCP-DEBUG-HOST-IMPLEMENTATION-GUIDE.md)
 
 ## Executive Summary
 
-The MCP Debug Host Server provides persistent development server management and console output visibility for AI agents using the Model Context Protocol (MCP). This system solves the critical problem of invisible console output when AI agents start development servers, enabling real-time monitoring and management through a web-based dashboard.
+The MCP Plopdock Server provides persistent development server management and console output visibility for AI agents using the Model Context Protocol (MCP). This system solves the critical problem of invisible console output when AI agents start development servers, enabling real-time monitoring and management through a web-based dashboard.
 
 ## Context and Scope
 
@@ -43,11 +43,11 @@ The MCP Debug Host Server provides persistent development server management and 
 
 ### High-Level System Design
 
-The MCP Debug Host follows a modular, event-driven architecture with clear separation of concerns:
+The MCP Plopdock follows a modular, event-driven architecture with clear separation of concerns:
 
 ```mermaid
 graph TB
-    subgraph "MCP Debug Host System"
+    subgraph "MCP Plopdock System"
         MCP[MCP Server] --> PM[Process Manager]
         PM --> TD[Tech Stack Detector]
         PM --> LS[Log Store]
@@ -1199,7 +1199,7 @@ class MetricsCollector {
 #### systemd Service (Linux)
 ```ini
 [Unit]
-Description=MCP Debug Host Server
+Description=MCP Plopdock Server
 Documentation=https://github.com/your-org/agentic-persona-mapping
 After=network-online.target
 Wants=network-online.target
@@ -1209,9 +1209,9 @@ Requires=network.target
 Type=simple
 User=mcpuser
 Group=mcpuser
-WorkingDirectory=/opt/mcp-debug-host
-ExecStart=/usr/bin/node /opt/mcp-debug-host/src/index.js
-ExecStartPre=/usr/bin/test -f /opt/mcp-debug-host/config.json
+WorkingDirectory=/opt/mcp-plopdock
+ExecStart=/usr/bin/node /opt/mcp-plopdock/src/index.js
+ExecStartPre=/usr/bin/test -f /opt/mcp-plopdock/config.json
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=always
 RestartSec=10
@@ -1223,8 +1223,8 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectSystem=strict
 ProtectHome=read-only
-ReadWritePaths=/opt/mcp-debug-host/logs
-ReadWritePaths=/opt/mcp-debug-host/data
+ReadWritePaths=/opt/mcp-plopdock/logs
+ReadWritePaths=/opt/mcp-plopdock/data
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 
@@ -1237,7 +1237,7 @@ CPUQuota=80%
 # Environment
 Environment="NODE_ENV=production"
 Environment="NODE_OPTIONS=--max-old-space-size=512"
-EnvironmentFile=-/opt/mcp-debug-host/.env
+EnvironmentFile=-/opt/mcp-plopdock/.env
 
 [Install]
 WantedBy=multi-user.target
@@ -1250,16 +1250,16 @@ WantedBy=multi-user.target
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.apm.debug-host</string>
+    <string>com.apm.plopdock</string>
     
     <key>ProgramArguments</key>
     <array>
         <string>/usr/local/bin/node</string>
-        <string>/opt/mcp-debug-host/src/index.js</string>
+        <string>/opt/mcp-plopdock/src/index.js</string>
     </array>
     
     <key>WorkingDirectory</key>
-    <string>/opt/mcp-debug-host</string>
+    <string>/opt/mcp-plopdock</string>
     
     <key>RunAtLoad</key>
     <true/>
@@ -1276,10 +1276,10 @@ WantedBy=multi-user.target
     <string>Background</string>
     
     <key>StandardOutPath</key>
-    <string>/opt/mcp-debug-host/logs/stdout.log</string>
+    <string>/opt/mcp-plopdock/logs/stdout.log</string>
     
     <key>StandardErrorPath</key>
-    <string>/opt/mcp-debug-host/logs/stderr.log</string>
+    <string>/opt/mcp-plopdock/logs/stderr.log</string>
     
     <key>EnvironmentVariables</key>
     <dict>
@@ -1369,7 +1369,7 @@ CMD ["node", "src/index.js"]
 # Metadata
 LABEL maintainer="APM Framework Team" \
       version="1.0.0" \
-      description="MCP Debug Host Server for development process management"
+      description="MCP Plopdock Server for development process management"
 ```
 
 ### Kubernetes Deployment
@@ -1378,29 +1378,29 @@ LABEL maintainer="APM Framework Team" \
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mcp-debug-host
+  name: mcp-plopdock
   labels:
-    app: mcp-debug-host
+    app: mcp-plopdock
     version: v1.0.0
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mcp-debug-host
+      app: mcp-plopdock
   template:
     metadata:
       labels:
-        app: mcp-debug-host
+        app: mcp-plopdock
     spec:
-      serviceAccountName: mcp-debug-host
+      serviceAccountName: mcp-plopdock
       securityContext:
         runAsNonRoot: true
         runAsUser: 1001
         runAsGroup: 1001
         fsGroup: 1001
       containers:
-      - name: mcp-debug-host
-        image: mcp-debug-host:1.0.0
+      - name: mcp-plopdock
+        image: mcp-plopdock:1.0.0
         ports:
         - containerPort: 8080
           name: http
@@ -1413,7 +1413,7 @@ spec:
         - name: MCP_API_KEY
           valueFrom:
             secretKeyRef:
-              name: mcp-debug-host-secret
+              name: mcp-plopdock-secret
               key: api-key
         resources:
           requests:
@@ -1449,16 +1449,16 @@ spec:
         emptyDir: {}
       - name: config
         configMap:
-          name: mcp-debug-host-config
+          name: mcp-plopdock-config
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mcp-debug-host-service
+  name: mcp-plopdock-service
 spec:
   selector:
-    app: mcp-debug-host
+    app: mcp-plopdock
   ports:
   - name: http
     port: 80
@@ -1470,7 +1470,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mcp-debug-host-config
+  name: mcp-plopdock-config
 data:
   config.json: |
     {
