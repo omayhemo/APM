@@ -1,5 +1,5 @@
 #!/bin/bash
-# APM Framework Universal Installer v2.0
+# APM Framework Universal Installer v4.0.0
 # Downloads and installs the latest APM release with flexible options
 
 set -e

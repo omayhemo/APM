@@ -1,64 +1,60 @@
-# AP Mapping v4.0.0
+# APM Framework v4.0.0
 
 Released: 2025-08-13
 
 ## 🎉 Highlights
 
-APM v4.0.0 represents the most significant modernization in framework history, delivering **4-8x performance improvements** through native sub-agent architecture and complete Task tool modernization. This release eliminates 25,599 lines of deprecated code while introducing comprehensive documentation reorganization.
+<!-- Brief summary of major changes in this release -->
 
 ## ✨ New Features
 
-- **Native Sub-Agent Architecture**: Complete modernization from Task-based to native Claude Code sub-agents
-- **Documentation Reorganization**: All APM docs now properly located in `.apm/documentation/` 
-- **Comprehensive README**: New `.apm/README.md` with full table of contents and navigation
-- **Unified Persona System**: Single source of truth for persona definitions eliminating 3x duplication
-- **Enhanced /version Command**: Real-time version checking and update capabilities
-- **Test Monitoring Integration**: Complete test dashboard and metrics collection
+<!-- List new features with descriptions -->
+- **Feature Name**: Description
 
 ## 🐛 Bug Fixes
 
-- Fixed hardcoded path issues throughout installer templates
-- Resolved persona template duplication across multiple directories  
-- Fixed document compliance enforcement patterns
-- Corrected installer documentation delivery locations
+<!-- List bug fixes -->
+- Fixed issue where...
 
 ## 🔧 Improvements
 
-- **Performance**: 4-8x faster parallel execution with native sub-agents
-- **Stability**: Zero CLI crashes with rock-solid native integration
-- **Code Quality**: Removed 25,599 lines of deprecated/redundant code
-- **Documentation**: 74 comprehensive documentation files covering all aspects
-- **Installer**: Streamlined installation with proper path handling
-- **Maintenance**: 75% reduction in template maintenance overhead
+<!-- List improvements -->
+- Enhanced performance of...
 
 ## 📚 Documentation
 
-- Created comprehensive APM README at `.apm/README.md`
-- Added 11 command reference documents covering 85+ commands
-- Reorganized documentation structure with 8 major categories
-- Created quick reference guides and cheatsheets
-- Added troubleshooting and advanced topics sections
+<!-- Documentation updates -->
+- Updated guide for...
 
 ## 💔 Breaking Changes
 
-**Documentation Location Change**:
-- APM documentation moved from `project_docs/` to `.apm/documentation/`
-- Project-specific docs should remain in `project_docs/`
-- Update any scripts referencing old documentation paths
+_None in this release_
+
+<!-- OR list breaking changes with migration paths -->
 
 ## 📦 Installation
 
-### New Installation
+### Quick Install (Recommended)
 
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz
+# Using the APM distribution repository installer
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash
+```
+
+### Direct Download
+
+```bash
+# Download specific version directly
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz
+cd apm-v4.0.0
 ./installer/install.sh
 ```
 
 ### Updating from Previous Version
 
 ```bash
-agents/scripts/ap-manager.sh update
+# If you have APM installed
+.apm/agents/scripts/ap-manager.sh update
 ```
 
 ## 🔄 Migration Guide
@@ -67,4 +63,9 @@ agents/scripts/ap-manager.sh update
 
 ## 📋 Full Changelog
 
-See [CHANGELOG.md](https://github.com/omayhemo/APM/blob/main/CHANGELOG.md) for complete history.
+See [CHANGELOG.md](https://github.com/omayhemo/agentic-persona-mapping/blob/master/CHANGELOG.md) for complete history.
+
+---
+
+*The APM Framework is distributed via the clean installer at https://github.com/omayhemo/APM*
+*Releases are published at https://github.com/omayhemo/agentic-persona-mapping/releases*
