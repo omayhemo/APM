@@ -11,7 +11,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # Configuration
-REPO="omayhemo/APM"
+REPO="omayhemo/agentic-persona-mapping"
 INSTALL_DIR="${APM_INSTALL_DIR:-$HOME/.apm-framework}"
 
 echo -e "${BLUE}═══════════════════════════════════════════${NC}"
