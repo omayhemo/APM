@@ -22,16 +22,16 @@ APM is a revolutionary framework that orchestrates multiple AI personas to deliv
 
 ```bash
 # Quick install with defaults (non-interactive)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
 # Or interactive installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --version 4.0.0
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.0.0
 
 # With TTS voice notifications
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
 ```
 
 ### Your First Command
@@ -126,40 +126,40 @@ The universal installer v2.0 supports flexible command-line options for various 
 
 ```bash
 # 🚀 Quick install with defaults (recommended for automation)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
 # 📍 Install to specific directory
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --path /opt/apm --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --defaults
 
 # 🎯 Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --version 3.5.0 --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 3.5.0 --defaults
 
 # 🔊 Install with TTS voice notifications
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
 
 # 🤫 Silent installation (CI/CD friendly)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults --quiet
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --quiet
 
 # 🔍 Debug installation issues
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults --verbose
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.0.0
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.0.0
 
 # ❓ Show help and all options
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --help
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
 ```
 
 ### Interactive vs Non-Interactive
 
 - **Interactive Mode** (default): Prompts for configuration options
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
   ```
 
 - **Non-Interactive Mode**: Perfect for automation and scripts
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
   ```
 
 ## 📦 Latest Release
@@ -192,7 +192,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ```bash
 # Get started in 30 seconds (non-interactive)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 ```
 
 *Built for developers who ship.*

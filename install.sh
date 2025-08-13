@@ -39,16 +39,16 @@ OPTIONS:
 
 EXAMPLES:
     # Quick install with defaults (non-interactive)
-    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults
+    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
     # Install specific version
-    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --version 4.0.0
+    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.0.0
 
     # Install to specific directory with TTS
-    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --path /opt/apm --with-tts
+    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts
 
     # Quiet installation with defaults
-    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/main/install.sh | bash -s -- --defaults --quiet
+    curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --quiet
 
 EOF
     exit 0
