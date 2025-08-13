@@ -547,54 +547,6 @@ if [ "$SKIP_COPY" != "true" ]; then
             fi
         fi
         
-        # Process and copy all documentation templates to .apm/documentation
-        if [ -n "$AP_DOCS" ] && [ -d "$INSTALLER_DIR/templates/documentation" ]; then
-            for doc_dir in "$INSTALLER_DIR/templates/documentation"/*; do
-                if [ -d "$doc_dir" ]; then
-                    doc_basename=$(basename "$doc_dir")
-                    mkdir -p "$AP_DOCS/$doc_basename"
-                    
-                    # Process .template files and regular files
-                    for file in "$doc_dir"/*; do
-                        if [ -f "$file" ]; then
-                            filename=$(basename "$file")
-                            if [[ "$filename" == *.template ]]; then
-                                # Process template file
-                                output_name="${filename%.template}"
-                                replace_variables "$file" "$AP_DOCS/$doc_basename/$output_name"
-                            else
-                                # Copy non-template file directly
-                                cp "$file" "$AP_DOCS/$doc_basename/" 2>/dev/null || true
-                            fi
-                        fi
-                    done
-                    echo "✅ Processed $doc_basename documentation to $AP_DOCS/$doc_basename"
-                fi
-            done
-        fi
-        
-        # Copy APM README to .apm directory
-        if [ -f "$INSTALLER_DIR/templates/APM-README.md.template" ]; then
-            replace_variables "$INSTALLER_DIR/templates/APM-README.md.template" "$APM_ROOT/README.md"
-            echo "✅ Created APM README with table of contents at $APM_ROOT/README.md"
-        fi
-        
-        # Copy index files
-        if [ -f "$INSTALLER_DIR/templates/index.md" ]; then
-            cp "$INSTALLER_DIR/templates/index.md" "$APM_ROOT/index.md"
-            echo "✅ Copied templates index.md"
-        fi
-        if [ -f "$INSTALLER_DIR/templates/templates/index.md" ]; then
-            mkdir -p "$APM_ROOT/.templates"
-            cp "$INSTALLER_DIR/templates/templates/index.md" "$APM_ROOT/.templates/index.md"
-            echo "✅ Copied templates/templates index.md"
-        fi
-        
-        # Copy README.md from template to .apm directory
-        if [ -f "$INSTALLER_DIR/templates/README.md.template" ]; then
-            replace_variables "$INSTALLER_DIR/templates/README.md.template" "$APM_ROOT/README.md"
-            echo "✅ Copied README.md to .apm directory"
-        fi
     else
         echo "Error: templates/agents directory not found in installer"
         exit 1
@@ -605,6 +557,58 @@ else
         echo "Error: APM agents directory not found at $AP_ROOT"
         exit 1
     fi
+fi
+
+# Process and install documentation (always do this, regardless of SKIP_COPY)
+echo ""
+echo "Installing Documentation"
+echo "------------------------"
+
+# Ensure AP_DOCS directory exists
+ensure_dir "$AP_DOCS"
+
+# Process and copy all documentation templates to .apm/documentation
+if [ -d "$INSTALLER_DIR/templates/documentation" ]; then
+    echo "Installing comprehensive documentation to $AP_DOCS..."
+    for doc_dir in "$INSTALLER_DIR/templates/documentation"/*; do
+        if [ -d "$doc_dir" ]; then
+            doc_basename=$(basename "$doc_dir")
+            mkdir -p "$AP_DOCS/$doc_basename"
+            
+            # Process .template files and regular files
+            for file in "$doc_dir"/*; do
+                if [ -f "$file" ]; then
+                    filename=$(basename "$file")
+                    if [[ "$filename" == *.template ]]; then
+                        # Process template file
+                        output_name="${filename%.template}"
+                        replace_variables "$file" "$AP_DOCS/$doc_basename/$output_name"
+                    else
+                        # Copy non-template file directly
+                        cp "$file" "$AP_DOCS/$doc_basename/" 2>/dev/null || true
+                    fi
+                fi
+            done
+            echo "✅ Installed $doc_basename documentation"
+        fi
+    done
+    echo "✅ Complete documentation installed to $AP_DOCS"
+else
+    echo "⚠️  Warning: Documentation templates not found in $INSTALLER_DIR/templates/documentation"
+fi
+
+# Copy APM README to .apm directory (always install this)
+if [ -f "$INSTALLER_DIR/templates/APM-README.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/APM-README.md.template" "$APM_ROOT/README.md"
+    echo "✅ Created main APM README at $APM_ROOT/README.md"
+fi
+
+# Copy other essential files
+# REMOVED: index.md is outdated and should not be installed
+
+if [ -f "$INSTALLER_DIR/templates/README.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/README.md.template" "$APM_ROOT/agents/README.md"
+    echo "✅ Created agents README"
 fi
 
 # Create additional files that Claude Code expects
