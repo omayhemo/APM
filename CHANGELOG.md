@@ -1,5 +1,25 @@
 # Changelog
 
+## [4.0.3] - 2025-08-13
+
+### 🔧 Fixed
+- **CRITICAL**: Fixed installer hanging at Step 2 when piped through curl
+- Fixed TTY detection logic causing conflicts between universal installer and main installer
+- Installer now properly handles stdin redirection from `/dev/tty`
+- Fixed `safe_read()` function to use stdin when already redirected by universal installer
+
+### 🚀 Improved
+- Enhanced TTY detection to prevent hanging when piped through curl
+- Better handling of interactive vs non-interactive installation modes
+- Improved installer reliability in various shell environments
+
+### 🎯 Impact
+- Interactive installation via `curl | bash` now works reliably
+- No more hanging at project configuration step
+- Maintains compatibility with both interactive and `--defaults` modes
+
+---
+
 ## [4.0.2] - 2025-08-13
 
 ### 🔧 Fixed

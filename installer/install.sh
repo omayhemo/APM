@@ -24,7 +24,10 @@ fi
 
 # Check if we have a TTY available for interactive input
 INTERACTIVE_TTY=""
-if [ -t 0 ]; then
+if [ "$USE_DEFAULTS" = true ]; then
+    # When using defaults, don't try to access any TTY to avoid hangs when piped
+    INTERACTIVE_TTY=""
+elif [ -t 0 ]; then
     # stdin is a terminal
     INTERACTIVE_TTY="stdin"
 elif [ -e /dev/tty ]; then
@@ -39,7 +42,7 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
 fi
 
 echo "=========================================="
-echo "   APM Framework Installation v4.0.1"
+echo "   APM Framework Installation v4.0.3"
 echo "   Native Sub-Agent Architecture"
 echo "=========================================="
 echo ""
@@ -180,7 +183,11 @@ log_install() {
 
 # Helper function for safe reading from TTY
 safe_read() {
-    if [ "$INTERACTIVE_TTY" = "/dev/tty" ]; then
+    # If stdin is already redirected (like from the universal installer), just use stdin
+    # This prevents hanging when the universal installer has already set up /dev/tty redirection
+    if [ -t 0 ] || [ "$INTERACTIVE_TTY" != "/dev/tty" ]; then
+        read "$@"
+    elif [ "$INTERACTIVE_TTY" = "/dev/tty" ]; then
         read "$@" < /dev/tty
     else
         read "$@"
