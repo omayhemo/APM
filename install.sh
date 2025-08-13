@@ -40,7 +40,7 @@ fi
 echo -e "${GREEN}✓ Installing version: $LATEST_VERSION${NC}"
 
 # Download URL
-DOWNLOAD_URL="https://github.com/$REPO/releases/download/$LATEST_VERSION/apm-${LATEST_VERSION#v}.tar.gz"
+DOWNLOAD_URL="https://github.com/$REPO/releases/download/$LATEST_VERSION/apm-${LATEST_VERSION}.tar.gz"
 
 # Create temp directory
 TEMP_DIR=$(mktemp -d)
