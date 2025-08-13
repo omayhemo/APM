@@ -154,13 +154,21 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 - **Interactive Mode** (default): Prompts for configuration options
   ```bash
+  # ✅ NOW WORKS! Fixed in v2.0 - accepts user input even when piped
   curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
   ```
+  You'll be prompted for:
+  - Project name
+  - Debug Host MCP Server setup
+  - TTS provider selection
+  - Notification preferences
+  - Python support
 
 - **Non-Interactive Mode**: Perfect for automation and scripts
   ```bash
   curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
   ```
+  Uses defaults for all options - no prompts
 
 ## 📦 Latest Release
 
