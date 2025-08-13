@@ -12,7 +12,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # Default Configuration
-REPO="omayhemo/agentic-persona-mapping"
+REPO="omayhemo/APM"
 DEFAULT_INSTALL_DIR="$HOME/.apm-framework"
 INSTALL_DIR=""
 VERSION=""
