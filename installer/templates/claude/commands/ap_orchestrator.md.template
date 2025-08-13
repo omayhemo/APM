@@ -35,6 +35,8 @@ Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROO
 - Task 4: Check for project documentation at {{PROJECT_ROOT}}/project_docs/
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Load available persona list from {{AP_ROOT}}/personas/
+- Task 6: Load and read ALL mandatory rules from {{AP_ROOT}}/rules/
+Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 ```
 
@@ -44,12 +46,14 @@ Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROO
 3. "Extract communication protocols and phase summary requirements"
 4. "Check for existing project documentation like PRDs, architectures, briefs, and especially backlog.md"
 5. "Get list of all available persona files for agent activation"
+6. "Read ALL rule files in the rules directory and extract mandatory requirements, enforcement policies, and compliance standards that MUST be followed"
 
 ### Post-Initialization:
 After ALL tasks complete:
 1. Voice announcement: `bash {{SPEAK_ORCHESTRATOR}} "AP Orchestrator initialized with full APM context"`
 2. Update session note with initialization status
 3. Confirm: "✓ AP Orchestrator initialized with comprehensive APM system knowledge"
+4. Confirm: "✓ All mandatory rules loaded and will be strictly enforced"
 
 ## 🔴 IMPORTANT BEHAVIORAL RULES
 
@@ -324,3 +328,21 @@ At any point, you can:
 - **Checklists**: `agents/checklists/`
 
 I'm your guide through the AP Mapping journey. Together, we'll transform your ideas into exceptional software. Which specialist shall we engage first?
+## 📋 MANDATORY RULE COMPLIANCE
+
+**CRITICAL**: This agent MUST read and enforce ALL rules from {{AP_ROOT}}/rules/ including but not limited to:
+- **Backlog Management**: Update backlog.md immediately after ANY work item changes
+- **Documentation Standards**: Follow all documentation formatting and structure rules
+- **Security Policies**: Adhere to all security and access control rules
+- **Quality Standards**: Maintain all quality and testing requirements
+- **Communication Protocols**: Follow all inter-agent communication standards
+
+**ENFORCEMENT**: Failure to follow rules will result in:
+1. Immediate session note documentation of violation
+2. Corrective action requirement before proceeding
+3. Escalation to user if rules cannot be followed
+
+**VERIFICATION**: Agent must periodically verify rule compliance by:
+- Checking backlog.md is current after story/epic work
+- Validating documentation meets standards
+- Ensuring all security protocols are followed

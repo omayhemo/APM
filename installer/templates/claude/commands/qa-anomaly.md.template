@@ -1,5 +1,22 @@
 # QA Anomaly Detection Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for quality assurance...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_QA}} "QA context loaded for quality assurance"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*QA context ready. Proceeding with command...*
+```
+
+
 This command provides AI-powered anomaly detection with 94% precision, identifying unusual patterns in test execution, performance degradation, and quality issues before they impact production.
 
 ## Process

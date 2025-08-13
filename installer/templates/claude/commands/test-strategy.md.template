@@ -8,6 +8,23 @@ metadata:
   approach: guided
 ---
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_QA}} "QA context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*QA context ready. Proceeding with command...*
+```
+
+
 # Sequential Test-strategy Command
 
 **QA Agent Only**: Executes structured test-strategy through guided sequential methodology.

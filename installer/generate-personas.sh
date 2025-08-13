@@ -20,7 +20,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 echo -e "${GREEN}═══════════════════════════════════════════${NC}" >&1
-echo -e "${GREEN}   Production Persona Generation v3.5.0${NC}" >&1
+echo -e "${GREEN}   Production Persona Generation v4.0.0${NC}" >&1
 echo -e "${GREEN}═══════════════════════════════════════════${NC}" >&1
 echo "" >&1
 

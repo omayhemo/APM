@@ -1,5 +1,22 @@
 # Parallel Code Review Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Developer persona.**
+
+```markdown
+*Loading Developer context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Developer configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_DEV}} "Developer ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Developer context ready. Launching parallel streams...*
+```
+
+
 **Developer Agent Only**: Executes comprehensive code review using native sub-agents for 9 parallel analysis streams with 80% performance improvement.
 
 ## Metadata

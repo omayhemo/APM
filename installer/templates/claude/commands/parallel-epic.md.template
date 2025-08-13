@@ -1,5 +1,22 @@
 # Parallel Epic Creation (Native Sub-Agent Implementation)
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Product Owner persona.**
+
+```markdown
+*Loading Product Owner context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Product Owner configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_PO}} "Product Owner ready for parallel epic creation"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Product Owner context ready. Launching parallel streams...*
+```
+
+
 **Product Owner Only**: Epic creation with 5 parallel domains delivering 70% faster epic development through comprehensive business analysis and strategic planning.
 
 ## Overview

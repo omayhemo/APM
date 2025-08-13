@@ -1,5 +1,22 @@
 # Parallel Architecture Design Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Architect persona.**
+
+```markdown
+*Loading Architect context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Architect configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_ARCHITECT}} "Architect ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Architect context ready. Launching parallel streams...*
+```
+
+
 **Architect Agent Only**: Executes comprehensive system architecture design using native sub-agents for 6 parallel domains with 75% performance improvement.
 
 ## Metadata

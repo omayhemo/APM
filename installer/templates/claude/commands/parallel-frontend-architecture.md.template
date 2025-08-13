@@ -1,5 +1,22 @@
 # Parallel Frontend Architecture Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Design Architect persona.**
+
+```markdown
+*Loading Design Architect context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Design Architect configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_DESIGN_ARCHITECT}} "Design Architect ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Design Architect context ready. Launching parallel streams...*
+```
+
+
 **Design Architect Agent Only**: Executes comprehensive frontend design architecture using native sub-agents for 6 parallel domains with 80% performance improvement.
 
 ## Metadata

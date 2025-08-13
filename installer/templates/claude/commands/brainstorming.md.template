@@ -8,9 +8,22 @@ metadata:
   approach: guided
 ---
 
-# Sequential Brainstorming Command
+## 🎭 PERSONA CONTEXT ACTIVATION
 
-**Analyst Agent Only**: Executes structured brainstorming through guided sequential ideation process for creative concept development.
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
 
 ## Metadata
 - **Name**: brainstorming

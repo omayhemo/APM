@@ -1,5 +1,22 @@
 # Parallel Course Correction (Native Sub-Agent Implementation)
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Scrum Master persona.**
+
+```markdown
+*Loading Scrum Master context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Scrum Master configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_SM}} "Scrum Master ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Scrum Master context ready. Launching parallel streams...*
+```
+
+
 **Scrum Master Only**: Sprint adjustment analysis with 5 parallel streams delivering 65% faster sprint course correction through comprehensive impact analysis and solution generation.
 
 ## Overview

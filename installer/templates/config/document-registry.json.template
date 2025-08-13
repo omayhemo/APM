@@ -197,6 +197,34 @@
         "agent_hints": ["PM", "PO", "Product Manager", "Product Owner"]
       }
     },
+    "product_brief": {
+      "location": "{{PROJECT_DOCS}}/requirements/",
+      "type": "collection",
+      "naming": {
+        "pattern": "{title}-product-brief.md",
+        "title_format": "kebab-case"
+      },
+      "allow_subfolders": false,
+      "detection": {
+        "filename_patterns": ["brief", "product-brief", "project-brief", "product_brief"],
+        "content_markers": ["Product Brief", "Project Brief", "Product Vision", "Problem Statement", "Target Audience", "Objectives"],
+        "agent_hints": ["Analyst", "PM", "Product Manager"]
+      }
+    },
+    "prd": {
+      "location": "{{PROJECT_DOCS}}/requirements/",
+      "type": "collection",
+      "naming": {
+        "pattern": "{title}-PRD.md",
+        "title_format": "kebab-case"
+      },
+      "allow_subfolders": false,
+      "detection": {
+        "filename_patterns": ["prd", "PRD", "product-requirements", "requirements-document"],
+        "content_markers": ["Product Requirements", "PRD", "User Stories", "Acceptance Criteria", "Success Metrics", "Requirements"],
+        "agent_hints": ["PM", "Product Manager", "PO", "Product Owner"]
+      }
+    },
     "api_documentation": {
       "location": "{{PROJECT_DOCS}}/api/",
       "type": "collection",
@@ -233,15 +261,17 @@
     "options": [
       {"key": "1", "type": "story", "label": "User Story"},
       {"key": "2", "type": "epic", "label": "Epic"},
-      {"key": "3", "type": "test_plan", "label": "Test Plan"},
-      {"key": "4", "type": "test_result", "label": "Test Results"},
-      {"key": "5", "type": "specification", "label": "Technical Specification"},
-      {"key": "6", "type": "architecture_decision", "label": "Architecture Decision"},
-      {"key": "7", "type": "report", "label": "Report/Analysis"},
-      {"key": "8", "type": "defect", "label": "Defect/Bug Report"},
-      {"key": "9", "type": "meeting_note", "label": "Meeting Notes"},
-      {"key": "10", "type": "api_documentation", "label": "API Documentation"},
-      {"key": "11", "type": "general", "label": "General Documentation"}
+      {"key": "3", "type": "product_brief", "label": "Product/Project Brief"},
+      {"key": "4", "type": "prd", "label": "Product Requirements Document (PRD)"},
+      {"key": "5", "type": "test_plan", "label": "Test Plan"},
+      {"key": "6", "type": "test_result", "label": "Test Results"},
+      {"key": "7", "type": "specification", "label": "Technical Specification"},
+      {"key": "8", "type": "architecture_decision", "label": "Architecture Decision"},
+      {"key": "9", "type": "report", "label": "Report/Analysis"},
+      {"key": "10", "type": "defect", "label": "Defect/Bug Report"},
+      {"key": "11", "type": "meeting_note", "label": "Meeting Notes"},
+      {"key": "12", "type": "api_documentation", "label": "API Documentation"},
+      {"key": "13", "type": "general", "label": "General Documentation"}
     ],
     "default_location": "{{PROJECT_DOCS}}/general/"
   },

@@ -8,6 +8,23 @@ metadata:
   approach: guided
 ---
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Design persona.**
+
+```markdown
+*Loading Design context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Design configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_DESIGN_ARCHITECT}} "Design context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Design context ready. Proceeding with command...*
+```
+
+
 # Sequential Ai-prompt Command
 
 **Design Architect Agent Only**: Executes structured ai-prompt through guided sequential methodology.

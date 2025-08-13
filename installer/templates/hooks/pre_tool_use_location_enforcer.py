@@ -20,6 +20,13 @@ class DocumentLocationEnforcer:
     
     def __init__(self, config_path: str = None):
         """Initialize the enforcer with configuration"""
+        # Set project paths FIRST, before loading registry
+        self.project_root = os.environ.get('PROJECT_ROOT', os.getcwd())
+        self.project_docs = os.path.join(self.project_root, 'project_docs')
+        self.session_notes = os.path.join(self.project_root, '.apm', 'session_notes')
+        self.sequence_counters = {}
+        
+        # Now we can safely load the registry (which uses self.project_root)
         if config_path is None:
             config_path = os.path.join(
                 os.environ.get('APM_ROOT', '.apm'),
@@ -29,10 +36,6 @@ class DocumentLocationEnforcer:
         
         self.config_path = config_path
         self.registry = self.load_registry()
-        self.sequence_counters = {}
-        self.project_root = os.environ.get('PROJECT_ROOT', os.getcwd())
-        self.project_docs = os.path.join(self.project_root, 'project_docs')
-        self.session_notes = os.path.join(self.project_root, '.apm', 'session_notes')
         
     def load_registry(self) -> dict:
         """Load document registry from JSON"""
@@ -90,13 +93,17 @@ class DocumentLocationEnforcer:
         Main hook entry point - processes tool calls and enforces location standards
         
         Args:
-            tool_name: Name of the tool being called (Write, Edit, etc.)
+            tool_name: Name of the tool being called (Write, Edit, Bash, etc.)
             params: Parameters passed to the tool
             context: Additional context (agent persona, etc.)
         
         Returns:
-            Modified params with corrected file path
+            Modified params with corrected file path or command
         """
+        
+        # Process Bash commands for directory creation
+        if tool_name == 'Bash':
+            return self.process_bash_command(params, context)
         
         # Only process document creation/editing tools
         if tool_name not in ['Write', 'Edit', 'MultiEdit']:
@@ -107,6 +114,32 @@ class DocumentLocationEnforcer:
         # Skip non-markdown files
         if not file_path.endswith('.md'):
             return params
+        
+        # First, check for direct violations of epic/story placement
+        # This catches when agents try to create files in wrong locations
+        direct_corrections = {
+            # Epic files in wrong location
+            r'(.*/)?project_docs/epics/': r'\1project_docs/planning/epics/',
+            # Story files in wrong location
+            r'(.*/)?project_docs/stories/': r'\1project_docs/planning/stories/',
+        }
+        
+        for pattern, replacement in direct_corrections.items():
+            if re.search(pattern, file_path):
+                corrected_path = re.sub(pattern, replacement, file_path)
+                # Create a copy to avoid modifying original
+                import copy
+                modified_params = copy.deepcopy(params)
+                modified_params['file_path'] = corrected_path
+                modified_params['_location_corrected'] = True
+                modified_params['_original_path'] = file_path
+                modified_params['_correction_reason'] = 'direct_path_violation'
+                
+                agent = context.get('agent_persona', 'Unknown') if context else 'Unknown'
+                print(f"📁 Path correction for {agent} agent:")
+                print(f"   ❌ Blocked: {file_path}")
+                print(f"   ✅ Corrected: {corrected_path}")
+                return modified_params
         
         # Check for emergency override
         if self.check_override(params):
@@ -129,43 +162,87 @@ class DocumentLocationEnforcer:
         
         # Only modify if path needs correction
         if correct_path != file_path:
-            params['file_path'] = correct_path
-            params['_location_corrected'] = True
-            params['_original_path'] = file_path
-            params['_doc_type'] = doc_type
+            # Create a copy of params to avoid modifying the original
+            import copy
+            modified_params = copy.deepcopy(params)
+            modified_params['file_path'] = correct_path
+            modified_params['_location_corrected'] = True
+            modified_params['_original_path'] = file_path
+            modified_params['_doc_type'] = doc_type
             
             # Provide transparent feedback
             print(f"✅ Created at correct location: {correct_path}")
+            
+            return modified_params
         
         return params
     
     def detect_document_type(self, file_path: str, params: dict, context: dict) -> Tuple[str, float]:
         """
-        Multi-signal document type detection
+        Multi-signal document type detection with content-first approach
         
         Returns:
             Tuple of (document_type, confidence_score)
         """
         
+        content = params.get('content', '')
+        
+        # PRIORITY 1: Check for explicit type markers in content
+        if content:
+            # Check for EPIC markers
+            if any(marker in content for marker in [
+                '# Epic:', '## Epic:', '### Epic:',
+                'Epic Owner:', 'Epic Status:', 'Epic ID:',
+                'Business Value:', 'Success Criteria:',
+                'Child Stories:', 'Epic Progress:'
+            ]):
+                return 'epic', 95.0
+            
+            # Check for STORY markers
+            if any(marker in content for marker in [
+                '# Story:', '## Story:', '### Story:',
+                'User Story:', 'Story Points:',
+                'As a ', 'I want to', 'So that',
+                'Acceptance Criteria:', 'Definition of Done:'
+            ]):
+                return 'story', 95.0
+            
+            # Check for TEST PLAN markers
+            if any(marker in content for marker in [
+                'Test Plan:', 'Test Cases:', 'Test Scenarios:',
+                'Test Coverage:', 'Test Strategy:',
+                'Expected Results:', 'Test Environment:'
+            ]):
+                return 'test_plan', 90.0
+            
+            # Check for PRD markers
+            if any(marker in content for marker in [
+                'Product Requirements', 'PRD:', 
+                'Requirements Document', 'Functional Requirements:',
+                'Non-Functional Requirements:', 'Success Metrics:'
+            ]):
+                return 'prd', 90.0
+        
+        # PRIORITY 2: Multi-signal scoring (original approach)
         scores = {}
         
         for doc_type, config in self.registry.get('document_types', {}).items():
             score = 0.0
             detection = config.get('detection', {})
             
-            # Weight: 40% - Filename pattern matching
+            # Weight: 30% - Filename pattern matching (reduced from 40%)
             filename_score = self.score_filename_patterns(
                 file_path, 
                 detection.get('filename_patterns', [])
             )
-            score += filename_score * 0.4
+            score += filename_score * 0.3
             
-            # Weight: 40% - Content marker matching
+            # Weight: 50% - Content marker matching (increased from 40%)
             content_score = self.score_content_markers(
                 params.get('content', ''),
                 detection.get('content_markers', [])
             )
-            score += content_score * 0.4
+            score += content_score * 0.5
             
             # Weight: 20% - Agent persona hints
             agent_score = self.score_agent_hints(
@@ -179,6 +256,13 @@ class DocumentLocationEnforcer:
         # Get best match
         if scores:
             best_match = max(scores.items(), key=lambda x: x[1])
+            # If content strongly suggests a type, override filename-based detection
+            if best_match[1] < 50 and content:
+                # Do one more aggressive content check
+                if 'epic' in content.lower() and 'epic' not in file_path.lower():
+                    return 'epic', 75.0  # Force epic detection
+                elif 'story' in content.lower() and 'story' not in file_path.lower():
+                    return 'story', 75.0  # Force story detection
             return best_match[0], best_match[1]
         
         return 'uncertain', 0.0
@@ -504,6 +588,131 @@ class DocumentLocationEnforcer:
             return None
         
         return None
+    
+    def process_bash_command(self, params: dict, context: dict = None) -> dict:
+        """
+        Process Bash commands to prevent directory creation in wrong locations
+        
+        Specifically targets:
+        - mkdir commands creating epics/stories folders in wrong locations
+        - Direct folder creation that violates document structure
+        """
+        
+        command = params.get('command', '')
+        
+        # Check if this is a mkdir command
+        if 'mkdir' not in command:
+            return params
+        
+        # Define incorrect patterns and their corrections
+        corrections = {
+            # Epics folder in wrong location
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/epics/?(["\']?)': 
+                r'mkdir \1\2\3project_docs/planning/epics/\4',
+            
+            # Stories folder in wrong location  
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/stories/?(["\']?)':
+                r'mkdir \1\2\3project_docs/planning/stories/\4',
+            
+            # Epic file creation in wrong location (when creating parent dirs)
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/epics/':
+                r'mkdir \1\2\3project_docs/planning/epics/',
+            
+            # Story file creation in wrong location (when creating parent dirs)
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/stories/':
+                r'mkdir \1\2\3project_docs/planning/stories/',
+        }
+        
+        original_command = command
+        corrected = False
+        
+        # Apply corrections
+        for pattern, replacement in corrections.items():
+            if re.search(pattern, command, re.IGNORECASE):
+                command = re.sub(pattern, replacement, command, flags=re.IGNORECASE)
+                corrected = True
+                break
+        
+        # Also check for file operations that might create directories
+        file_corrections = {
+            # Files being created in wrong epic location
+            r'([>]+|touch|echo.*>+)\s*(["\']?)(.*/)?project_docs/epics/':
+                r'\1 \2\3project_docs/planning/epics/',
+            
+            # Files being created in wrong story location
+            r'([>]+|touch|echo.*>+)\s*(["\']?)(.*/)?project_docs/stories/':
+                r'\1 \2\3project_docs/planning/stories/',
+        }
+        
+        for pattern, replacement in file_corrections.items():
+            if re.search(pattern, command, re.IGNORECASE):
+                command = re.sub(pattern, replacement, command, flags=re.IGNORECASE)
+                corrected = True
+        
+        if corrected:
+            # Create a copy to avoid modifying original
+            import copy
+            modified_params = copy.deepcopy(params)
+            modified_params['command'] = command
+            modified_params['_location_corrected'] = True
+            modified_params['_original_command'] = original_command
+            
+            # Log the correction
+            agent = context.get('agent_persona', 'Unknown') if context else 'Unknown'
+            print(f"📁 Directory structure enforced for {agent} agent")
+            print(f"   ❌ Blocked: Creating folders directly under project_docs/")
+            print(f"   ✅ Corrected: Folders will be created under project_docs/planning/")
+            
+            # Log for audit
+            self.log_directory_correction(original_command, command, context)
+            
+            return modified_params
+        
+        return params
+    
+    def log_directory_correction(self, original_cmd: str, corrected_cmd: str, context: dict):
+        """Log directory structure corrections for audit"""
+        
+        log_file = os.path.join(
+            os.environ.get('APM_ROOT', '.apm'),
+            'logs',
+            'directory-corrections.json'
+        )
+        
+        log_entry = {
+            'timestamp': datetime.now().isoformat(),
+            'agent': context.get('agent_persona', 'unknown') if context else 'unknown',
+            'original_command': original_cmd,
+            'corrected_command': corrected_cmd,
+            'correction_type': 'directory_structure'
+        }
+        
+        # Ensure log directory exists
+        log_dir = os.path.dirname(log_file)
+        os.makedirs(log_dir, exist_ok=True)
+        
+        # Load existing logs
+        logs = []
+        if os.path.exists(log_file):
+            try:
+                with open(log_file, 'r') as f:
+                    logs = json.load(f)
+            except:
+                logs = []
+        
+        # Append new entry
+        logs.append(log_entry)
+        
+        # Keep only last 1000 entries
+        if len(logs) > 1000:
+            logs = logs[-1000:]
+        
+        # Save updated logs
+        try:
+            with open(log_file, 'w') as f:
+                json.dump(logs, f, indent=2)
+        except Exception as e:
+            print(f"⚠️ Failed to log directory correction: {e}")
     
     def check_override(self, params: dict) -> bool:
         """Check if emergency override flag is present"""

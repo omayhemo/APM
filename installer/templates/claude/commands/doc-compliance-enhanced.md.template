@@ -1,4 +1,21 @@
 # Enhanced Documentation Compliance Agent Command
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for documentation management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for documentation management"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
 **Version 2.0 with Document Registry Integration**
 
 **All Personas**: Enforces documentation structure standards using sophisticated multi-signal detection and pattern-based placement from document-registry.json.
@@ -87,7 +104,7 @@ I'm initializing the Enhanced Documentation Compliance Agent with Document Regis
 [Execute all 7 tasks in single function_calls block]
 - Task 1: Load document-registry.json from {{APM_ROOT}}/config/
 - Task 2: Initialize DocumentLocationEnforcer with registry
-- Task 3: Load doc-standards.yaml for additional rules
+- Task 3: Load backlog management rules from {{APM_ROOT}}/rules/
 - Task 4: Scan all project documentation
 - Task 5: Build document type detection cache
 - Task 6: Load sequence counters and naming history
@@ -300,16 +317,16 @@ class EnhancedDocCompliance:
 
 The enhanced doc-compliance maintains full compatibility with existing features:
 - ✅ All original modes still work (`validate`, `fix`, `report`)
-- ✅ doc-standards.yaml rules still applied
+- ✅ document-registry.json rules still applied
 - ✅ Existing workflows unchanged
 - ✅ Registry integration is optional (`--use-registry` flag)
 
 ## Migration from v1.0 to v2.0
 
 ```bash
-# Step 1: Deploy document-registry.json
-cp installer/templates/config/document-registry.json.template \
-   .apm/config/document-registry.json
+# Step 1: Document registry already deployed during installation
+# Located at: {{APM_ROOT}}/config/document-registry.json
+# No need to copy from installer - file already exists
 
 # Step 2: Test detection without changes
 /doc-compliance detect --dry-run

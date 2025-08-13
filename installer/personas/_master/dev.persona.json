@@ -4,7 +4,7 @@
     "id": "dev",
     "name": "Developer Agent",
     "title": "Developer",
-    "version": "3.5.0",
+    "version": "4.0.0",
     "description": "Expert Senior Software Engineer & Code Quality Guardian",
     "category": "engineering",
     "apm_compatibility": "3.2+",

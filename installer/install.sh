@@ -23,7 +23,7 @@ if [ "$1" = "--defaults" ] || [ "$1" = "-d" ]; then
 fi
 
 echo "=========================================="
-echo "   APM Framework Installation v3.2.0"
+echo "   APM Framework Installation v4.0.0"
 echo "   Native Sub-Agent Architecture"
 echo "=========================================="
 echo ""
@@ -392,7 +392,7 @@ merge_apm_section() {
     if [ ! -f "$root_claude_md" ]; then
         echo "Creating new CLAUDE.md file in project root..."
         cp "$template_file" "$root_claude_md"
-        echo "✓ Created CLAUDE.md with APM section"
+        echo "✅ Created CLAUDE.md with APM section"
         return 0
     fi
     
@@ -431,7 +431,7 @@ merge_apm_section() {
         # Cleanup
         rm -f "$temp_clean"
         
-        echo "✓ Cleaned duplicates and updated APM section in CLAUDE.md"
+        echo "✅ Cleaned duplicates and updated APM section in CLAUDE.md"
     else
         echo "No existing APM section found, appending to end of file..."
         
@@ -443,7 +443,7 @@ merge_apm_section() {
         # Append APM section
         cat "$template_file" >> "$root_claude_md"
         
-        echo "✓ Added APM section to CLAUDE.md"
+        echo "✅ Added APM section to CLAUDE.md"
     fi
 }
 
@@ -487,7 +487,7 @@ if [ "$SKIP_COPY" != "true" ]; then
         if [ -d "$APM_ROOT" ]; then
             echo "Removing existing .apm folder for clean installation..."
             rm -rf "$APM_ROOT"
-            echo "✓ Existing .apm folder removed"
+            echo "✅ Existing .apm folder removed"
         fi
         
         ensure_dir "$APM_ROOT"
@@ -505,6 +505,31 @@ if [ "$SKIP_COPY" != "true" ]; then
             else
                 echo "⚠️  Skipping documentation copy - AP_DOCS path not set"
             fi
+        fi
+        
+        # Copy command reference documentation
+        if [ -d "$INSTALLER_DIR/templates/documentation/command-reference" ]; then
+            mkdir -p "$AP_DOCS/command-reference"
+            cp -r "$INSTALLER_DIR/templates/documentation/command-reference"/* "$AP_DOCS/command-reference/" 2>/dev/null || true
+            echo "✅ Copied APM command reference documentation to $AP_DOCS/command-reference"
+        fi
+        
+        # Copy all documentation categories to .apm/documentation
+        if [ -d "$INSTALLER_DIR/templates/documentation" ]; then
+            for doc_dir in "$INSTALLER_DIR/templates/documentation"/*; do
+                if [ -d "$doc_dir" ]; then
+                    doc_basename=$(basename "$doc_dir")
+                    mkdir -p "$AP_DOCS/$doc_basename"
+                    cp -r "$doc_dir"/* "$AP_DOCS/$doc_basename/" 2>/dev/null || true
+                    echo "✅ Copied $doc_basename documentation to $AP_DOCS/$doc_basename"
+                fi
+            done
+        fi
+        
+        # Copy APM README to .apm directory
+        if [ -f "$INSTALLER_DIR/templates/APM-README.md.template" ]; then
+            replace_variables "$INSTALLER_DIR/templates/APM-README.md.template" "$APM_ROOT/README.md"
+            echo "✅ Created APM README with table of contents at $APM_ROOT/README.md"
         fi
         
         # Copy index files
@@ -606,34 +631,34 @@ EOF
 fi
 
 # Replace voice scripts with TTS-manager versions
-echo "Installing updated voice scripts..."
+echo "⏳ Installing updated voice scripts..."
 rm -rf "$AP_ROOT/voice"
 mkdir -p "$AP_ROOT/voice"
 cp "$INSTALLER_DIR/templates/voice"/*.sh "$AP_ROOT/voice/"
 chmod +x "$AP_ROOT/voice"/*.sh
 
 # Install ap-manager.sh
-echo "Installing APM Framework Manager..."
+echo "⏳ Installing APM Framework Manager..."
 if [ -f "$INSTALLER_DIR/templates/scripts/ap-manager.sh" ]; then
     cp "$INSTALLER_DIR/templates/scripts/ap-manager.sh" "$AP_ROOT/scripts/"
     chmod +x "$AP_ROOT/scripts/ap-manager.sh"
-    echo "- Installed ap-manager.sh for updates and management"
+    echo "✅ Installed ap-manager.sh for updates and management"
 else
     echo "- Warning: ap-manager.sh not found in installer"
 fi
 
 # Install documentation compliance scripts
-echo "Installing Documentation Compliance scripts..."
+echo "⏳ Installing Documentation Compliance scripts..."
 if [ -f "$INSTALLER_DIR/templates/scripts/doc-compliance-registry-integration.py" ]; then
     cp "$INSTALLER_DIR/templates/scripts/doc-compliance-registry-integration.py" "$AP_ROOT/scripts/"
     chmod +x "$AP_ROOT/scripts/doc-compliance-registry-integration.py"
-    echo "- Installed doc-compliance-registry-integration.py for document organization"
+    echo "✅ Installed doc-compliance-registry-integration.py for document organization"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/scripts/test-enhanced-compliance.py" ]; then
     cp "$INSTALLER_DIR/templates/scripts/test-enhanced-compliance.py" "$AP_ROOT/scripts/"
     chmod +x "$AP_ROOT/scripts/test-enhanced-compliance.py"
-    echo "- Installed test-enhanced-compliance.py for compliance testing"
+    echo "✅ Installed test-enhanced-compliance.py for compliance testing"
 fi
 
 echo ""
@@ -690,7 +715,7 @@ AP_DATA="$AP_ROOT/data"
 AP_PERSONAS="$AP_ROOT/personas"
 AP_TASKS="$AP_ROOT/tasks"
 AP_TEMPLATES="$AP_ROOT/templates"
-AP_DOCS="$AP_ROOT/docs"
+AP_DOCS="$AP_ROOT/documentation"
 AP_VOICE="$AP_ROOT/voice"
 AP_PYTHON="$AP_ROOT/python"
 AP_MONITORING="$AP_ROOT/monitoring"
@@ -702,7 +727,8 @@ echo ""
 echo "Step 4: Creating Project Structure"
 echo "------------------------------------"
 
-# Create project documentation structure
+# Note: Project documentation now installed in .apm/documentation
+# Create minimal project_docs structure for backwards compatibility
 ensure_dir "$PROJECT_DOCS"
 ensure_dir "$PROJECT_DOCS/requirements"
 ensure_dir "$PROJECT_DOCS/architecture"
@@ -711,27 +737,59 @@ ensure_dir "$PROJECT_DOCS/artifacts"
 ensure_dir "$PROJECT_DOCS/releases"
 ensure_dir "$PROJECT_DOCS/reports"
 
-# Create modern APM structure (v3.2.0)
-ensure_dir "$PROJECT_DOCS/epics"
-ensure_dir "$PROJECT_DOCS/stories"
-ensure_dir "$PROJECT_DOCS/sprints"
+# Create modern APM structure (v4.0.0)
+# Stories and epics go under planning/ subdirectory per document registry
+ensure_dir "$PROJECT_DOCS/planning"
+ensure_dir "$PROJECT_DOCS/planning/stories"
+ensure_dir "$PROJECT_DOCS/planning/epics"
+ensure_dir "$PROJECT_DOCS/planning/retrospectives"
+ensure_dir "$PROJECT_DOCS/planning/roadmaps"
 ensure_dir "$PROJECT_DOCS/time-tracking"
-ensure_dir "$PROJECT_DOCS/docs"
 ensure_dir "$PROJECT_DOCS/qa"
 ensure_dir "$PROJECT_DOCS/qa/test-plans"
 
-# Copy project documentation README from template
-replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$PROJECT_DOCS/README.md"
-
-# Copy project_docs index.md if it exists
-if [ -f "$PROJECT_ROOT/project_docs/index.md" ]; then
-    echo "Project documentation index.md already exists"
-elif [ -f "$INSTALLER_DIR/../project_docs/index.md" ]; then
-    cp "$INSTALLER_DIR/../project_docs/index.md" "$PROJECT_DOCS/index.md"
-    echo "✅ Copied project_docs/index.md"
+# Copy project documentation README to APM documentation folder
+if [ -f "$INSTALLER_DIR/templates/project_documentation/README.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$AP_DOCS/README.md"
 fi
 
-echo "Created project documentation structure at: $PROJECT_DOCS"
+# Create reference in project_docs pointing to APM documentation
+cat > "$PROJECT_DOCS/README.md" << 'EOF'
+# Project Documentation
+
+The APM framework documentation has been relocated to maintain better organization.
+
+## Documentation Location
+All APM documentation is now located at: `.apm/documentation/`
+
+Please refer to the main documentation index at `.apm/README.md` for:
+- Table of Contents
+- Quick Start Guide
+- Command Reference
+- Persona Guides
+- Workflow Documentation
+
+For project-specific documentation, please create files in this `project_docs/` directory.
+EOF
+
+echo "✅ Created documentation reference at: $PROJECT_DOCS"
+echo "✅ Main documentation installed at: $AP_DOCS"
+
+# Copy rules templates
+echo ""
+echo "Setting up APM rules..."
+if [ -d "$INSTALLER_DIR/templates/rules" ]; then
+    for rule_template in "$INSTALLER_DIR/templates/rules"/*.template; do
+        if [ -f "$rule_template" ]; then
+            rule_name=$(basename "$rule_template" .template)
+            replace_variables "$rule_template" "$RULES_PATH/$rule_name"
+            echo "✅ Installed rule: $rule_name"
+        fi
+    done
+    echo "Created rules directory at: $RULES_PATH"
+else
+    echo "⚠️ No rules templates found, skipping rules setup"
+fi
 
 echo ""
 echo "Step 5: Creating Claude Configuration"
@@ -759,7 +817,7 @@ echo "---------------------------------"
 
 ensure_dir "$CLAUDE_COMMANDS_DIR"
 
-echo "Installing APM commands (replacing APM commands, preserving user commands)..."
+echo "⏳ Installing APM commands (replacing APM commands, preserving user commands)..."
 
 # Create ap_orchestrator.md command (primary)
 replace_variables "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" "$CLAUDE_COMMANDS_DIR/ap_orchestrator.md"
@@ -780,7 +838,7 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/session-note-setup.m
 replace_variables "$INSTALLER_DIR/templates/claude/commands/switch.md.template" "$CLAUDE_COMMANDS_DIR/switch.md"
 
 # Create direct persona activation commands
-echo "Installing persona activation commands..."
+echo "⏳ Installing persona activation commands..."
 replace_variables "$INSTALLER_DIR/templates/claude/commands/analyst.md.template" "$CLAUDE_COMMANDS_DIR/analyst.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/architect.md.template" "$CLAUDE_COMMANDS_DIR/architect.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/design-architect.md.template" "$CLAUDE_COMMANDS_DIR/design-architect.md"
@@ -797,98 +855,312 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/subtask.md.template"
 # Install organize-docs command if template exists
 if [ -f "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" "$CLAUDE_COMMANDS_DIR/organize-docs.md"
-    echo "✓ Installed organize-docs command"
+    echo "✅ Installed organize-docs command"
 fi
 
 # Install mcp-install command if template exists
 if [ -f "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" "$CLAUDE_COMMANDS_DIR/mcp-install.md"
-    echo "✓ Installed mcp-install command"
+    echo "✅ Installed mcp-install command"
 fi
 
 # Install git-commit-all command if template exists
 if [ -f "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" "$CLAUDE_COMMANDS_DIR/git-commit-all.md"
-    echo "✓ Installed git-commit-all command"
+    echo "✅ Installed git-commit-all command"
 fi
 
 # Install QA framework commands if templates exist
-echo "Installing QA Framework commands..."
+echo "⏳ Installing QA Framework commands..."
 if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-framework.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-framework.md.template" "$CLAUDE_COMMANDS_DIR/qa-framework.md"
-    echo "✓ Installed qa-framework command"
+    echo "✅ Installed qa-framework command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-predict.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-predict.md.template" "$CLAUDE_COMMANDS_DIR/qa-predict.md"
-    echo "✓ Installed qa-predict command"
+    echo "✅ Installed qa-predict command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-optimize.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-optimize.md.template" "$CLAUDE_COMMANDS_DIR/qa-optimize.md"
-    echo "✓ Installed qa-optimize command"
+    echo "✅ Installed qa-optimize command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-anomaly.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-anomaly.md.template" "$CLAUDE_COMMANDS_DIR/qa-anomaly.md"
-    echo "✓ Installed qa-anomaly command"
+    echo "✅ Installed qa-anomaly command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-insights.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-insights.md.template" "$CLAUDE_COMMANDS_DIR/qa-insights.md"
-    echo "✓ Installed qa-insights command"
+    echo "✅ Installed qa-insights command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-qa-framework.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-qa-framework.md.template" "$CLAUDE_COMMANDS_DIR/parallel-qa-framework.md"
-    echo "✓ Installed parallel-qa-framework command"
+    echo "✅ Installed parallel-qa-framework command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.template" "$CLAUDE_COMMANDS_DIR/parallel-regression-suite.md"
-    echo "✓ Installed parallel-regression-suite command"
+    echo "✅ Installed parallel-regression-suite command"
 fi
 
 # Install test monitoring commands if templates exist
-echo "Installing Test Monitoring commands..."
+echo "⏳ Installing Test Monitoring commands..."
 if [ -f "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" "$CLAUDE_COMMANDS_DIR/monitor-tests.md"
-    echo "✓ Installed monitor-tests command"
+    echo "✅ Installed monitor-tests command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" "$CLAUDE_COMMANDS_DIR/test-dashboard.md"
-    echo "✓ Installed test-dashboard command"
+    echo "✅ Installed test-dashboard command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" "$CLAUDE_COMMANDS_DIR/test-metrics.md"
-    echo "✓ Installed test-metrics command"
+    echo "✅ Installed test-metrics command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" "$CLAUDE_COMMANDS_DIR/show-test-status.md"
-    echo "✓ Installed show-test-status command"
+    echo "✅ Installed show-test-status command"
 fi
 
 # Install documentation management commands if templates exist
-echo "Installing Documentation Management commands..."
+echo "⏳ Installing Documentation Management commands..."
 if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-compliance.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-compliance.md.template" "$CLAUDE_COMMANDS_DIR/doc-compliance.md"
-    echo "✓ Installed doc-compliance command"
+    echo "✅ Installed doc-compliance command"
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-sharding.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-sharding.md.template" "$CLAUDE_COMMANDS_DIR/doc-sharding.md"
-    echo "✓ Installed doc-sharding command"  
+    echo "✅ Installed doc-sharding command"  
 fi
 
 if [ -f "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" ]; then
     replace_variables "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" "$CLAUDE_COMMANDS_DIR/update-all-documentation.md"
-    echo "✓ Installed update-all-documentation command"
+    echo "✅ Installed update-all-documentation command"
 fi
 
-echo "✓ APM commands installed/updated (including parallel-sprint, QA framework, test monitoring, and documentation management)"
+# Install Product Owner commands
+echo "⏳ Installing Product Owner commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/epic.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/epic.md.template" "$CLAUDE_COMMANDS_DIR/epic.md"
+    echo "✅ Installed epic command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/acceptance-criteria.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/acceptance-criteria.md.template" "$CLAUDE_COMMANDS_DIR/acceptance-criteria.md"
+    echo "✅ Installed acceptance-criteria command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-acceptance-criteria.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-acceptance-criteria.md.template" "$CLAUDE_COMMANDS_DIR/parallel-acceptance-criteria.md"
+    echo "✅ Installed parallel-acceptance-criteria command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/groom-backlog.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/groom-backlog.md.template" "$CLAUDE_COMMANDS_DIR/groom-backlog.md"
+    echo "✅ Installed groom-backlog command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/prioritize-backlog.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/prioritize-backlog.md.template" "$CLAUDE_COMMANDS_DIR/prioritize-backlog.md"
+    echo "✅ Installed prioritize-backlog command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/user-stories.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/user-stories.md.template" "$CLAUDE_COMMANDS_DIR/user-stories.md"
+    echo "✅ Installed user-stories command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-stories.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-stories.md.template" "$CLAUDE_COMMANDS_DIR/parallel-stories.md"
+    echo "✅ Installed parallel-stories command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/validate-requirements.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/validate-requirements.md.template" "$CLAUDE_COMMANDS_DIR/validate-requirements.md"
+    echo "✅ Installed validate-requirements command"
+fi
+
+# Install Scrum Master commands
+echo "⏳ Installing Scrum Master commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/next-story.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/next-story.md.template" "$CLAUDE_COMMANDS_DIR/next-story.md"
+    echo "✅ Installed next-story command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-next-story.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-next-story.md.template" "$CLAUDE_COMMANDS_DIR/parallel-next-story.md"
+    echo "✅ Installed parallel-next-story command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/checklist.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/checklist.md.template" "$CLAUDE_COMMANDS_DIR/checklist.md"
+    echo "✅ Installed checklist command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-checklist.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-checklist.md.template" "$CLAUDE_COMMANDS_DIR/parallel-checklist.md"
+    echo "✅ Installed parallel-checklist command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/course-correction.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/course-correction.md.template" "$CLAUDE_COMMANDS_DIR/course-correction.md"
+    echo "✅ Installed course-correction command"
+fi
+
+# Install Architect commands
+echo "⏳ Installing Architect commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/architecture.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/architecture.md.template" "$CLAUDE_COMMANDS_DIR/architecture.md"
+    echo "✅ Installed architecture command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/frontend-architecture.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/frontend-architecture.md.template" "$CLAUDE_COMMANDS_DIR/frontend-architecture.md"
+    echo "✅ Installed frontend-architecture command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/ai-prompt.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/ai-prompt.md.template" "$CLAUDE_COMMANDS_DIR/ai-prompt.md"
+    echo "✅ Installed ai-prompt command"
+fi
+
+# Install Analyst commands
+echo "⏳ Installing Analyst commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/brainstorming.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/brainstorming.md.template" "$CLAUDE_COMMANDS_DIR/brainstorming.md"
+    echo "✅ Installed brainstorming command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/requirements.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/requirements.md.template" "$CLAUDE_COMMANDS_DIR/requirements.md"
+    echo "✅ Installed requirements command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/stakeholder-review.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/stakeholder-review.md.template" "$CLAUDE_COMMANDS_DIR/stakeholder-review.md"
+    echo "✅ Installed stakeholder-review command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/research-prompt.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/research-prompt.md.template" "$CLAUDE_COMMANDS_DIR/research-prompt.md"
+    echo "✅ Installed research-prompt command"
+fi
+
+# Install PM commands
+echo "⏳ Installing Project Manager commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/prd.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/prd.md.template" "$CLAUDE_COMMANDS_DIR/prd.md"
+    echo "✅ Installed prd command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/project-brief.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/project-brief.md.template" "$CLAUDE_COMMANDS_DIR/project-brief.md"
+    echo "✅ Installed project-brief command"
+fi
+
+# Install Automation commands
+echo "⏳ Installing Automation commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/automation-plan.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/automation-plan.md.template" "$CLAUDE_COMMANDS_DIR/automation-plan.md"
+    echo "✅ Installed automation-plan command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/test-plan.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-plan.md.template" "$CLAUDE_COMMANDS_DIR/test-plan.md"
+    echo "✅ Installed test-plan command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/test-strategy.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-strategy.md.template" "$CLAUDE_COMMANDS_DIR/test-strategy.md"
+    echo "✅ Installed test-strategy command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/quality-review.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/quality-review.md.template" "$CLAUDE_COMMANDS_DIR/quality-review.md"
+    echo "✅ Installed quality-review command"
+fi
+
+# Install Utility commands
+echo "⏳ Installing Utility commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/buildit.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/buildit.md.template" "$CLAUDE_COMMANDS_DIR/buildit.md"
+    echo "✅ Installed buildit command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/run-tests.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/run-tests.md.template" "$CLAUDE_COMMANDS_DIR/run-tests.md"
+    echo "✅ Installed run-tests command"
+fi
+
+# Install additional parallel commands
+echo "⏳ Installing additional parallel commands..."
+for template in parallel-ai-prompt parallel-architecture parallel-automation-plan parallel-brainstorming \
+                parallel-course-correction parallel-epic parallel-frontend-architecture parallel-prd \
+                parallel-prioritization parallel-quality-review parallel-requirements parallel-research-prompt \
+                parallel-review parallel-stakeholder-review parallel-test-plan parallel-test-strategy \
+                parallel-test parallel-validation; do
+    if [ -f "$INSTALLER_DIR/templates/claude/commands/${template}.md.template" ]; then
+        replace_variables "$INSTALLER_DIR/templates/claude/commands/${template}.md.template" "$CLAUDE_COMMANDS_DIR/${template}.md"
+        echo "✅ Installed ${template} command"
+    fi
+done
+
+# Install additional utility commands
+echo "⏳ Installing additional utility commands..."
+if [ -f "$INSTALLER_DIR/templates/claude/commands/groom.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/groom.md.template" "$CLAUDE_COMMANDS_DIR/groom.md"
+    echo "✅ Installed groom command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/groom-backlog-task.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/groom-backlog-task.md.template" "$CLAUDE_COMMANDS_DIR/groom-backlog-task.md"
+    echo "✅ Installed groom-backlog-task command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/library-indexing.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/library-indexing.md.template" "$CLAUDE_COMMANDS_DIR/library-indexing.md"
+    echo "✅ Installed library-indexing command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/prioritization.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/prioritization.md.template" "$CLAUDE_COMMANDS_DIR/prioritization.md"
+    echo "✅ Installed prioritization command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/validation.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/validation.md.template" "$CLAUDE_COMMANDS_DIR/validation.md"
+    echo "✅ Installed validation command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/release.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/release.md.template" "$CLAUDE_COMMANDS_DIR/release.md"
+    echo "✅ Installed release command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/ux-spec.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/ux-spec.md.template" "$CLAUDE_COMMANDS_DIR/ux-spec.md"
+    echo "✅ Installed ux-spec command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/version.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/version.md.template" "$CLAUDE_COMMANDS_DIR/version.md"
+    echo "✅ Installed version command"
+fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-compliance-enhanced.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-compliance-enhanced.md.template" "$CLAUDE_COMMANDS_DIR/doc-compliance-enhanced.md"
+    echo "✅ Installed doc-compliance-enhanced command"
+fi
+
+echo "✅ APM commands installed/updated (including ALL parallel commands, QA framework, test monitoring, documentation management, PO/SM commands, and more)"
 
 # Process persona templates
 # NOTE: Personas are now processed via the bulk agents/ template processing above
@@ -896,13 +1168,13 @@ echo "✓ APM commands installed/updated (including parallel-sprint, QA framewor
 # legacy versions. The templates/agents/personas/ directory contains the
 # current, more advanced templates with native sub-agent architecture.
 echo ""
-echo "✓ Persona templates processed via agents/ directory (native sub-agent architecture)"
+echo "✅ Persona templates processed via agents/ directory (native sub-agent architecture)"
 
 # Process AP Orchestrator IDE templates
 echo ""
 echo "Processing Claude Sub-Agent templates..."
 if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
-    echo "Installing Claude Code sub-agent infrastructure..."
+    echo "⏳ Installing Claude Code sub-agent infrastructure..."
     
     # Create .claude/agents directory structure
     ensure_dir "$CLAUDE_DIR/agents"
@@ -916,14 +1188,13 @@ if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
     ensure_dir "$CLAUDE_DIR/agents/user-guide"
     ensure_dir "$CLAUDE_DIR/agents/documentation"
     ensure_dir "$CLAUDE_DIR/agents/voice"
-    # Epic 17 Native Sub-Agents directories
+    # Native Sub-Agents directories
     ensure_dir "$CLAUDE_DIR/agents/coordination"
     ensure_dir "$CLAUDE_DIR/agents/context"
     ensure_dir "$CLAUDE_DIR/agents/monitoring"
     ensure_dir "$CLAUDE_DIR/agents/compatibility"
     
     # Process all template files in claude/agents directory
-    echo "Processing Claude sub-agent templates..."
     find "$INSTALLER_DIR/templates/claude/agents" -name "*.template" -type f | while read template_file; do
         # Calculate relative path from templates/claude/agents
         rel_path="${template_file#$INSTALLER_DIR/templates/claude/agents/}"
@@ -947,12 +1218,12 @@ if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
         fi
     done
     
-    echo "✓ Claude sub-agent infrastructure installed (65+ templates processed)"
+    echo "✅ Claude sub-agent infrastructure installed (65+ templates processed)"
 else
     echo "✓ Claude sub-agent templates not found - using standard APM installation"
 fi
 
-# Deprecated Task-based system removed - Epic 17 complete with native sub-agents only
+# Deprecated Task-based system removed - native sub-agents only
 
 # Process test monitoring framework templates
 echo ""
@@ -964,7 +1235,7 @@ if [ -d "$INSTALLER_DIR/templates/scripts/test-monitoring" ]; then
         replace_variables "$template_file" "$AP_ROOT/scripts/test-monitoring/$filename"
         chmod +x "$AP_ROOT/scripts/test-monitoring/$filename" 2>/dev/null || true
     done
-    echo "✓ Test monitoring framework templates processed"
+    echo "✅ Test monitoring framework templates processed"
     
     # Create test monitoring configuration
     ensure_dir "$APM_ROOT/config"
@@ -985,38 +1256,20 @@ monitoring:
     coverage_tracking: true
     ai_ml_integration: true
 EOF
-        echo "✓ Test monitoring configuration created"
+        echo "✅ Test monitoring configuration created"
     fi
 
     # Create document registry configuration for documentation compliance
     if [ -f "$INSTALLER_DIR/templates/config/document-registry.json.template" ]; then
         replace_variables "$INSTALLER_DIR/templates/config/document-registry.json.template" "$APM_ROOT/config/document-registry.json"
-        echo "✓ Document registry configuration created"
+        echo "✅ Document registry configuration created"
     fi
 else
     echo "✓ Test monitoring templates not found - skipping"
 fi
 
-# Process Epic 17 documentation
-echo ""
-echo "Processing Epic 17 Native Sub-Agents Documentation..."
-if [ -d "$PROJECT_DOCS/docs" ]; then
-    echo "Epic 17 documentation already installed"
-else
-    echo "Installing Epic 17 documentation..."
-    ensure_dir "$PROJECT_DOCS/docs"
-    ensure_dir "$PROJECT_DOCS/docs/api"
-    ensure_dir "$PROJECT_DOCS/docs/architecture"
-    ensure_dir "$PROJECT_DOCS/docs/migration"
-    ensure_dir "$PROJECT_DOCS/docs/releases"
-    
-    # Copy documentation files (these were created directly, not from templates)
-    if [ -f "$PROJECT_DOCS/docs/api/parallel-commands.md" ]; then
-        echo "✓ Epic 17 documentation already present"
-    else
-        echo "✓ Epic 17 documentation will be available after first run"
-    fi
-fi
+# Process Native Sub-Agents documentation
+# Documentation handled via templates and proper registry locations
 
 echo ""
 echo "Processing AP Orchestrator IDE templates..."
@@ -1024,7 +1277,7 @@ if [ -f "$INSTALLER_DIR/templates/ide-ap-orchestrator.md.template" ]; then
     echo "Creating AP Orchestrator IDE configuration from templates..."
     replace_variables "$INSTALLER_DIR/templates/ide-ap-orchestrator.md.template" "$AP_ROOT/ide-ap-orchestrator.md"
     replace_variables "$INSTALLER_DIR/templates/ide-ap-orchestrator.cfg.md.template" "$AP_ROOT/ide-ap-orchestrator.cfg.md"
-    echo "✓ AP Orchestrator IDE files created with proper variable substitution"
+    echo "✅ AP Orchestrator IDE files created with proper variable substitution"
 else
     echo "Warning: AP Orchestrator IDE templates not found in installer"
 fi
@@ -1034,7 +1287,28 @@ echo "Step 7: Setting Up Python Hooks"
 echo "-------------------------------"
 
 # Python hooks are already copied and made executable in Step 5
-echo "✓ Python hooks configured in $CLAUDE_DIR/hooks/"
+echo "✅ Python hooks configured in $CLAUDE_DIR/hooks/"
+
+# Install the document location enforcer hook
+echo "⏳ Installing Document Location Enforcer..."
+ENFORCER_FILE="$CLAUDE_DIR/hooks/pre_tool_use_location_enforcer.py"
+
+if [ -f "$INSTALLER_DIR/templates/hooks/pre_tool_use_location_enforcer.py" ]; then
+    cp "$INSTALLER_DIR/templates/hooks/pre_tool_use_location_enforcer.py" "$ENFORCER_FILE"
+    chmod +x "$ENFORCER_FILE"
+    log_install "Document Location Enforcer installed: $ENFORCER_FILE" "SUCCESS"
+    echo "✅ Document Location Enforcer installed"
+    
+    # Verify document registry exists
+    if [ -f "$APM_ROOT/config/document-registry.json" ]; then
+        echo "✅ Document registry configuration verified"
+    else
+        echo -e "${YELLOW}⚠ Document registry not found - enforcer may not work properly${NC}"
+    fi
+else
+    log_install "Document Location Enforcer template not found" "WARNING"
+    echo -e "${YELLOW}⚠ Document Location Enforcer not installed - stories may be created in wrong locations${NC}"
+fi
 
 echo ""
 echo "Step 8: Debug Host MCP Server Integration (Optional)"
@@ -1069,7 +1343,7 @@ fi
 
 if [ "$USE_DEBUG_HOST_MCP" = true ]; then
     echo ""
-    echo "Installing Debug Host MCP integration..."
+    echo "⏳ Installing Debug Host MCP integration..."
     
     # Install the pre_tool_use hook for intercepting dev commands
     HOOK_FILE="$CLAUDE_DIR/hooks/pre_tool_use_debug_host.py"
@@ -1116,7 +1390,7 @@ echo "Step 9: Configuring Text-to-Speech (TTS) System"
 echo "-----------------------------------------------"
 
 # Install TTS manager
-echo "Installing TTS manager..."
+echo "⏳ Installing TTS manager..."
 cp "$INSTALLER_DIR/templates/scripts/tts-manager.sh" "$AP_ROOT/scripts/"
 chmod +x "$AP_ROOT/scripts/tts-manager.sh"
 
@@ -1205,10 +1479,10 @@ else
                     fi
                     
                     if [[ $INSTALL_MPG123 =~ ^[Yy]$ ]]; then
-                        echo "Installing mpg123..."
+                        echo "⏳ Installing mpg123..."
                         sudo apt-get update >/dev/null 2>&1
                         if sudo apt-get install -y mpg123; then
-                            echo "✓ mpg123 installed successfully"
+                            echo "✅ mpg123 installed successfully"
                         else
                             echo "⚠ Failed to install mpg123. Audio playback may not work correctly."
                             echo "  You can install it manually later with: sudo apt-get install mpg123"
@@ -1323,20 +1597,20 @@ case "$TTS_PROVIDER" in
             # Try to install audio player
             if command -v apt-get >/dev/null 2>&1; then
                 if [ "$IS_WSL2" = true ]; then
-                    echo "Installing PulseAudio utilities (recommended for WSL2)..."
+                    echo "⏳ Installing PulseAudio utilities (recommended for WSL2)..."
                     sudo apt-get update >/dev/null 2>&1
                     if sudo apt-get install -y pulseaudio-utils; then
-                        echo "✓ PulseAudio utilities installed successfully"
+                        echo "✅ PulseAudio utilities installed successfully"
                     else
                         echo "Trying ALSA utilities as fallback..."
                         if sudo apt-get install -y alsa-utils; then
-                            echo "✓ ALSA utilities installed successfully"
+                            echo "✅ ALSA utilities installed successfully"
                         else
                             echo "⚠ Failed to install audio player. Audio playback may not work."
                         fi
                     fi
                 else
-                    echo "Installing ALSA audio utilities..."
+                    echo "⏳ Installing ALSA audio utilities..."
                     sudo apt-get update >/dev/null 2>&1
                     if sudo apt-get install -y alsa-utils; then
                         echo "✓ ALSA utilities installed successfully"
@@ -1368,7 +1642,7 @@ case "$TTS_PROVIDER" in
         fi
         
         echo ""
-        echo "Installing Piper TTS system..."
+        echo "⏳ Installing Piper TTS system..."
         
         # Check if setup script exists
         PIPER_SETUP_SCRIPT="$INSTALLER_DIR/templates/scripts/tts-setup/setup-piper-chat.sh"
@@ -1381,13 +1655,13 @@ case "$TTS_PROVIDER" in
             fi
             
             if [ $? -eq 0 ]; then
-                echo "✓ Piper installation completed successfully!"
+                echo "✅ Piper installation completed successfully!"
                 
                 # Ensure TTS_PROVIDER is set to piper in settings
                 if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
                     tmp_file=$(mktemp)
                     jq '.env.TTS_PROVIDER = "piper" | .env.TTS_ENABLED = "true"' "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
-                    echo "✓ TTS provider set to Piper"
+                    echo "✅ TTS provider set to Piper"
                 fi
                 
                 # Skip audio test - removed per configuration
@@ -1435,7 +1709,7 @@ if [ "$TTS_PROVIDER" != "piper" ] && [ -f "$SETTINGS_FILE" ] && command -v jq >/
     tmp_file=$(mktemp)
     TTS_ENABLED_VAL=$([[ "$TTS_PROVIDER" != "none" ]] && echo "true" || echo "false")
     jq ".env.TTS_PROVIDER = \"$TTS_PROVIDER\" | .env.TTS_ENABLED = \"$TTS_ENABLED_VAL\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
-    echo "✓ TTS provider set to $TTS_PROVIDER"
+    echo "✅ TTS provider set to $TTS_PROVIDER"
 fi
 
 echo ""
@@ -1531,7 +1805,7 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
         case "$install_choice" in
             1)
                 echo ""
-                echo "Installing mpg123..."
+                echo "⏳ Installing mpg123..."
                 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
                     if command -v apt-get >/dev/null 2>&1; then
                         sudo apt-get update && sudo apt-get install -y mpg123
@@ -1576,7 +1850,7 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
     
     # Copy notification sounds
     echo ""
-    echo "Installing notification sounds..."
+    echo "⏳ Installing notification sounds..."
     mkdir -p "$AP_ROOT/sounds"
     if [ -d "$INSTALLER_DIR/templates/sounds" ]; then
         cp "$INSTALLER_DIR/templates/sounds"/*.mp3 "$AP_ROOT/sounds/" 2>/dev/null || true
@@ -1641,7 +1915,7 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
             .env.HOOK_PRE_COMPACT_ENABLED = \"$HOOK_PRE_COMPACT_ENABLED\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
     fi
     
-    echo "✓ Notification system configured"
+    echo "✅ Notification system configured"
     echo ""
     echo "📁 Hook logs will be written to: .claude/hooks/logs/ in your project directory"
 else
@@ -1702,10 +1976,10 @@ else
 fi
 
 if [ "$SETUP_PYTHON" = true ]; then
-    echo "Installing Python support..."
+    echo "⏳ Installing Python support..."
     if [ -f "$INSTALLER_DIR/templates/python-support/install-python-support.sh" ]; then
         bash "$INSTALLER_DIR/templates/python-support/install-python-support.sh" "$PROJECT_ROOT"
-        echo "✓ Python support installed"
+        echo "✅ Python support installed"
     else
         echo "⚠ Python support files not found in installer"
     fi
@@ -1722,15 +1996,15 @@ echo "---------------------------------------------"
 APM_CLAUDE_MD="$AP_ROOT/CLAUDE.md"
 echo "Creating .apm/CLAUDE.md from template..."
 replace_variables "$INSTALLER_DIR/templates/CLAUDE.md.markdown.template" "$APM_CLAUDE_MD"
-echo "✓ Created: $APM_CLAUDE_MD"
+echo "✅ Created: $APM_CLAUDE_MD"
 
 # Handle the root project CLAUDE.md file with intelligent merge
 ROOT_CLAUDE_MD="$PROJECT_ROOT/CLAUDE.md"
 echo ""
 echo "Handling root project CLAUDE.md file..."
 
-# Set up merge system paths
-MERGE_SYSTEM="${APM_ROOT}/.installer/claude-merge-system"
+# Set up merge system paths (use installer's own location, not deployed copy)
+MERGE_SYSTEM="${INSTALLER_DIR}/claude-merge-system"
 MERGE_ORCHESTRATOR="${MERGE_SYSTEM}/merge-orchestrator.sh"
 TEMPLATE_FILE="${INSTALLER_DIR}/template.claude.md"
 
@@ -1795,7 +2069,7 @@ if [[ -f "$ROOT_CLAUDE_MD" ]]; then
                 
                 if [[ "$CUSTOM_PRESERVED" = true ]]; then
                     mv "$MERGE_OUTPUT" "$ROOT_CLAUDE_MD"
-                    echo "✓ CLAUDE.md successfully merged"
+                    echo "✅ CLAUDE.md successfully merged"
                     echo "  - Your customizations have been preserved"
                     echo "  - APM commands have been updated to latest version"
                     echo "  - Backup saved to: ${BACKUP_DIR}/"
@@ -1836,7 +2110,7 @@ else
     # No existing file - create from template
     echo "Creating new CLAUDE.md from template..."
     cp "$TEMPLATE_FILE" "$ROOT_CLAUDE_MD"
-    echo "✓ Created new CLAUDE.md"
+    echo "✅ Created new CLAUDE.md"
     echo "  - Contains APM commands and project instructions"
     echo "  - You can customize this file with your own sections"
 fi
@@ -1931,7 +2205,7 @@ if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then
         esac
         
         if [ $? -eq 0 ]; then
-            echo "✓ Audio test successful!"
+            echo "✅ Audio test successful!"
         else
             echo -e "${YELLOW}⚠ Audio test failed. Please check:${NC}"
             echo "  - WSL2: Is PulseAudio running? (pulseaudio --start)"
@@ -1985,7 +2259,7 @@ if [ -f "$SETTINGS_FILE" ] && command -v jq >/dev/null 2>&1; then
             .env.AUDIO_PLAYER_ARGS = \"$AUDIO_PLAYER_ARGS\" |
             .env.WAV_PLAYER = \"$WAV_PLAYER\" |
             .env.WAV_PLAYER_ARGS = \"$WAV_PLAYER_ARGS\"" "$SETTINGS_FILE" > "$tmp_file" && mv "$tmp_file" "$SETTINGS_FILE"
-        echo "✓ Configuration fixed"
+        echo "✅ Configuration fixed"
     fi
 fi
 
@@ -1994,7 +2268,7 @@ echo "Step 14: Setting Up QA Framework Integration"
 echo "--------------------------------------------"
 
 # QA Framework commands are now installed via templates above
-echo "✓ QA Framework commands installed via templates"
+echo "✅ QA Framework commands installed via templates"
 echo ""
 echo "Available QA Framework Commands:"
 echo "- /qa-framework - Comprehensive QA Framework access"
@@ -2010,7 +2284,7 @@ echo "Step 15: Setting Up Test Monitoring Framework"
 echo "----------------------------------------------"
 
 # Create test monitoring infrastructure
-echo "Installing test monitoring capabilities..."
+echo "⏳ Installing test monitoring capabilities..."
 
 # Create test monitoring directories
 ensure_dir "$APM_ROOT/scripts/test-monitoring"
@@ -2020,7 +2294,7 @@ ensure_dir "$PROJECT_DOCS/qa/test-results"
 ensure_dir "$PROJECT_DOCS/qa/dashboards"
 
 # Test monitoring scripts are installed via templates above
-echo "✓ Test monitoring scripts installed via templates"
+echo "✅ Test monitoring scripts installed via templates"
 echo ""
 echo "Available Test Monitoring Commands:"
 echo "- monitor tests - Real-time CLI test monitoring"
@@ -2058,23 +2332,27 @@ else
     echo "Created version file: $APM_ROOT/VERSION"
 fi
 
-# Preserve installer for future management
-echo "Preserving installer for updates and management..."
+# Preserve ONLY essential files for ap-manager.sh updates
+echo "Preserving essential update files..."
+mkdir -p "$APM_ROOT/.installer"
 
-# Move installer to hidden directory in APM_ROOT
-INSTALLER_PRESERVE_DIR="$APM_ROOT/.installer"
-if [ ! -d "$INSTALLER_PRESERVE_DIR" ]; then
-    mkdir -p "$INSTALLER_PRESERVE_DIR"
-    # Copy from the actual installer directory
-    if [ -d "$INSTALLER_DIR" ]; then
-        cp -r "$INSTALLER_DIR"/* "$INSTALLER_PRESERVE_DIR/"
-        echo "- Installer preserved at: $INSTALLER_PRESERVE_DIR"
-    else
-        echo "- Warning: Could not preserve installer - source directory not found"
-    fi
-else
-    echo "- Installer already preserved at: $INSTALLER_PRESERVE_DIR"
+# Copy only what ap-manager needs for updates
+if [ -f "$INSTALLER_DIR/integrity-checker.sh" ]; then
+    cp "$INSTALLER_DIR/integrity-checker.sh" "$APM_ROOT/.installer/"
+    chmod +x "$APM_ROOT/.installer/integrity-checker.sh"
 fi
+
+# Create a minimal templates backup for updates (not the entire templates directory)
+mkdir -p "$APM_ROOT/.installer/templates"
+# Just store version info for update compatibility checking
+echo "$VERSION" > "$APM_ROOT/.installer/templates/VERSION"
+
+echo "✅ Preserved minimal files for ap-manager updates"
+
+# Now clean up the rest of the installer
+echo "Cleaning installer artifacts..."
+# The full installer should not exist in the deployed project
+# It creates confusion and agents read from wrong locations
 
 # Change to project root before cleaning up
 cd "$PROJECT_ROOT" 2>/dev/null || true
@@ -2107,16 +2385,16 @@ fi
 echo ""
 echo "Cleaning up installer files..."
 
-# Remove installer directory if it exists and we've preserved it
-if [ -d "$INSTALLER_PRESERVE_DIR" ] && [ "$SKIP_COPY" != "true" ]; then
+# Remove installer directory from project after installation
+if [ "$SKIP_COPY" != "true" ]; then
     if [ -d "$PROJECT_ROOT/installer" ]; then
         rm -rf "$PROJECT_ROOT/installer"
-        echo "- Removed installer directory from project root (preserved in .apm/.installer)"
+        echo "- Removed installer directory from project root"
     fi
     # Also remove from distribution directory if different from project root
     if [ -d "$DIST_DIR/installer" ] && [ "$DIST_DIR" != "$PROJECT_ROOT" ]; then
         rm -rf "$DIST_DIR/installer"
-        echo "- Removed installer directory from distribution (preserved in .apm/.installer)"
+        echo "- Removed installer directory from distribution"
     fi
 fi
 
@@ -2136,16 +2414,6 @@ elif [ -f "$installer_script" ] && [ "$current_script" = "$target_script" ]; the
     echo "  You can manually remove it after installation: rm install.sh"
 fi
 
-echo ""
-echo "Next steps:"
-echo ""
-echo "1. Open the project in Claude Code"
-echo "2. Try running: /ap"
-echo "3. Test QA Framework: /qa-framework"
-echo "4. Explore AI/ML commands: /qa-predict, /qa-optimize, /qa-anomaly, /qa-insights"
-echo "5. Try parallel testing: /parallel-qa-framework, /parallel-regression-suite"
-echo "6. Organize documentation: /doc-compliance organize --dry-run"
-echo "7. Check out the documentation at: $PROJECT_DOCS"
 if [ "$USE_DEBUG_HOST_MCP" = true ]; then
     echo ""
     echo -e "${GREEN}Debug Host MCP Integration Active:${NC}"
@@ -2200,7 +2468,7 @@ if [ -d "$INSTALLER_DIR" ] && [ "$INSTALLER_DIR" != "$PROJECT_ROOT" ]; then
 sleep 2  # Wait for install.sh to fully exit
 if [ -d "installer" ]; then
     rm -rf installer
-    echo "✓ Installer directory removed"
+    echo "✅ Installer directory removed"
 fi
 rm -f "$0"  # Remove this cleanup script
 EOF
@@ -2208,13 +2476,25 @@ EOF
         
         # Schedule the cleanup to run in background after install.sh exits
         (nohup bash "$PROJECT_ROOT/cleanup_installer.sh" > /dev/null 2>&1 &)
-        echo "✓ Cleanup scheduled"
+        echo "✅ Cleanup scheduled"
     else
         # Safe to remove directly - we're not running from within installer
         rm -rf "$INSTALLER_DIR"
-        echo "✓ Installer directory removed"
+        echo "✅ Installer directory removed"
         log_install "Installer directory cleaned up: $INSTALLER_DIR" "INFO"
     fi
 else
     echo "- No cleanup needed (installer directory not found or is project root)"
 fi
+
+# Display next steps in blue at the very end
+echo ""
+echo -e "${BLUE}Next steps:${NC}"
+echo -e "${BLUE}${NC}"
+echo -e "${BLUE}1. Open the project in Claude Code${NC}"
+echo -e "${BLUE}2. Try running: /ap${NC}"
+echo -e "${BLUE}3. Test QA Framework: /qa-framework${NC}"
+echo -e "${BLUE}4. Explore AI/ML commands: /qa-predict, /qa-optimize, /qa-anomaly, /qa-insights${NC}"
+echo -e "${BLUE}5. Try parallel testing: /parallel-qa-framework, /parallel-regression-suite${NC}"
+echo -e "${BLUE}6. Organize documentation: /doc-compliance organize --dry-run${NC}"
+echo -e "${BLUE}7. Check out the documentation at: .apm/documentation/ (Main index: .apm/README.md)${NC}"

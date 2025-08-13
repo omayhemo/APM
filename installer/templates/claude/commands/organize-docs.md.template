@@ -1,5 +1,22 @@
 # Organize Documentation System
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for documentation management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for documentation management"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
+
 **Command**: `/organize-docs`
 
 ## Description

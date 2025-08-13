@@ -2,6 +2,82 @@
 
 All notable changes to the AP Mapping will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [4.0.0] - 2025-08-07
+
+### Added
+- **Complete Framework Modernization**: Revolutionary transformation to native Claude Code slash command architecture
+- **24 New Native Slash Commands**: Full coverage for all agent functions with both sequential and parallel options
+- **Unified JSON-Based Persona System**: Single source of truth for all persona definitions with automatic template generation
+- **Advanced Tech Stack Detection**: Automatic framework detection for 11+ technologies (React, Django, Laravel, etc.)
+- **Enhanced Voice Notifications**: Complete integration with all native commands and persona activations
+- **Version Command**: New `/version` command for runtime version checking and system information
+- **Mandatory Backlog Management Rule**: Comprehensive rule template requiring all agents to update backlog.md with progress tracking
+- **Complete Command Installation**: All 88 commands now properly installed (previously only 33 were deployed)
+- **Persona-First Command Execution**: 63 commands now automatically activate their required persona before execution
+- **Mandatory Rule Enforcement**: All 10 agent activations now explicitly load and enforce rules from `.apm/rules/` directory
+
+### Changed
+- **BREAKING: Complete Architecture Migration**: From template-based task execution to native Claude Code integration
+- **Template System Overhaul**: 162 templates consolidated to 67 clean templates (58% reduction)
+- **Performance Revolution**: 4-8x performance improvement with native sub-agent parallelism
+- **Command Interface**: All functionality now accessible through consistent slash commands
+- **Persona Management**: JSON-based definitions replace manual template synchronization
+- **Installation Process**: Streamlined with automatic persona generation and tech stack detection
+- **Debug Host Port Configuration**: Changed default port from 8080 to 2601 for UI consistency
+- **Agent Initialization**: All agents now include Task 6 for mandatory rule loading during parallel startup
+- **Command Execution Flow**: 63 commands enhanced with lightweight persona activation (1-2 second overhead)
+- **Professional Messaging**: Removed all internal development references (Epic 17) from installer output
+
+### Deprecated
+- **Task-Based Parallelism**: Task tool architecture replaced by native sub-agents
+- **Manual Template Editing**: Direct template modification now discouraged in favor of JSON definitions
+
+### Removed
+- **95 Duplicate Template Files**: Complete elimination of conflicting definitions and obsolete templates
+- **MCP Debug Host Integration**: Migrated to standalone repository for cleaner architecture
+- **Legacy Task Templates**: 48 original sequential templates archived for native commands
+- **Parallel Template System**: 23 parallel templates replaced by native sub-agent commands
+- **25,599 Lines of Deprecated Code**: Massive cleanup of backup files, unused templates, and legacy infrastructure
+
+### Fixed
+- **Template Duplication Issues**: Complete elimination of conflicting definitions between different template locations
+- **Installation Reliability**: Enhanced installer with better error handling and tech stack detection
+- **Path Resolution**: All templates now use dynamic variables instead of hardcoded paths
+- **Command Consistency**: Standardized interface across all agent functions
+- **Voice Integration**: Proper voice notifications for all native commands
+- **Debug Host Port References**: Fixed 23 template references from localhost:8080 to proper 2601 default port
+- **Command Installation Gaps**: Resolved missing 55 commands (88 total now deployed vs previous 33)
+- **Agent Rule Compliance**: Fixed agents not automatically reading rules despite documentation requirements
+- **Installer Duplicate Messages**: Removed duplicate "Processing Claude Sub-Agent templates" output
+- **Persona Command Mapping**: Corrected persona associations for git-commit-all, frontend-architecture, run-tests, and document management commands
+
+### Security
+- **Clean Architecture**: Removal of redundant code reduces attack surface
+- **Validated Templates**: All templates undergo validation during build process
+- **Safe Migration**: Complete backup and recovery procedures for all changes
+
+### Technical Implementation
+- **Automation Scripts Created**:
+  - `add-persona-activation.sh`: Automated persona activation addition to 63 commands
+  - `add-rule-enforcement.sh`: Automated rule loading implementation across all 10 agents
+  - `verify-rule-loading.sh`: Validation script for rule enforcement implementation
+- **Rule System Architecture**:
+  - Created `backlog-management.md.template` (301-line comprehensive rule)
+  - Implemented Task 6 parallel rule loading for all agent activations
+  - Added mandatory rule compliance sections to all agent templates
+- **Command-Persona Correlation System**:
+  - Phase 1: 28 sequential commands with persona activation
+  - Phase 2: 20 parallel commands with enhanced activation
+  - Phase 3: 15 specialized commands with targeted personas
+  - Lightweight activation pattern with 1-2 second overhead per command
+- **Installation Process Enhancements**:
+  - Added rules template processing (lines 736-750 in install.sh)
+  - Added 54 new command installations (lines 907-1121 in install.sh)
+  - Fixed duplicate installer messaging and professional output formatting
+
 ## [3.2.0] - 2025-07-29
 
 ### 🚀 Epic 17 Complete - Native Sub-Agent Revolution
@@ -524,3 +600,22 @@ Welcome to the era of Parallel Agent Development! 🎉
 - Project documentation structure
 - Configurable environment settings
 - Git-aware installation process
+
+[4.0.0]: https://github.com/omayhemo/APM/compare/v3.5.0...v4.0.0
+[3.2.0]: https://github.com/omayhemo/APM/compare/v2.4.1...v3.2.0
+[2.4.1]: https://github.com/omayhemo/APM/compare/v2.4.0...v2.4.1
+[2.4.0]: https://github.com/omayhemo/APM/compare/v2.3.0...v2.4.0
+[2.3.0]: https://github.com/omayhemo/APM/compare/v2.2.0...v2.3.0
+[2.2.0]: https://github.com/omayhemo/APM/compare/v2.1.4...v2.2.0
+[2.1.4]: https://github.com/omayhemo/APM/compare/v2.1.3...v2.1.4
+[2.1.3]: https://github.com/omayhemo/APM/compare/v2.1.1...v2.1.3
+[2.1.1]: https://github.com/omayhemo/APM/compare/v2.1.0...v2.1.1
+[2.1.0]: https://github.com/omayhemo/APM/compare/v2.0.1...v2.1.0
+[2.0.1]: https://github.com/omayhemo/APM/compare/v2.0.0...v2.0.1
+[2.0.0]: https://github.com/omayhemo/APM/compare/v1.2.10...v2.0.0
+[1.2.10]: https://github.com/omayhemo/APM/compare/v1.2.0-rc.2...v1.2.10
+[1.2.0-rc.2]: https://github.com/omayhemo/APM/compare/v1.2.0-rc.1...v1.2.0-rc.2
+[1.2.0-rc.1]: https://github.com/omayhemo/APM/compare/v1.1.0-alpha.2...v1.2.0-rc.1
+[1.1.0-alpha.2]: https://github.com/omayhemo/APM/compare/v1.1.0-alpha...v1.1.0-alpha.2
+[1.1.0-alpha]: https://github.com/omayhemo/APM/compare/v1.0.0...v1.1.0-alpha
+[1.0.0]: https://github.com/omayhemo/APM/releases/tag/v1.0.0

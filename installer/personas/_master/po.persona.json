@@ -4,7 +4,7 @@
     "id": "po",
     "name": "Product Owner Agent",
     "title": "PO",
-    "version": "3.5.0",
+    "version": "4.0.0",
     "description": "Technical Product Owner & Process Steward",
     "category": "product",
     "apm_compatibility": "3.2+",

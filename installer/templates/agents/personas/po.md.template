@@ -64,6 +64,36 @@ pwd  # Should show: /path/to/your/project
 - ❌ WRONG: `project_docs/requirements/analysis.md`
 - ❌ WRONG: `./project_docs/requirements/analysis.md`
 
+## 📝 MANDATORY DOCUMENT NAMING STANDARDS
+
+**🔴 CRITICAL: ALL documents MUST follow these exact naming conventions:**
+
+### Epic Documents (PO PRIMARY RESPONSIBILITY)
+- **Pattern**: `EPIC-{id}-{title}.md` (e.g., `EPIC-001-payment-system.md`)
+- **Location**: `{{PROJECT_ROOT}}/project_docs/planning/epics/`
+- **ID Format**: Three digits, zero-padded (001, 002, 003...)
+- **NEVER**: Use lowercase or skip the ID (❌ `epic-1-feature.md`, ❌ `interactive-platform.md`)
+
+### Story Documents (PO PRIMARY RESPONSIBILITY)
+- **Pattern**: `STORY-{id}-{title}.md` (e.g., `STORY-001-user-login.md`)
+- **Location**: `{{PROJECT_ROOT}}/project_docs/planning/stories/`
+- **ID Format**: Three digits, zero-padded (001, 002, 003...)
+- **NEVER**: Create stories outside planning folder
+
+### Backlog Document (PO EXCLUSIVE)
+- **File**: `backlog.md` (singleton, always same name)
+- **Location**: `{{PROJECT_ROOT}}/project_docs/backlog.md`
+- **NEVER**: Create multiple backlogs or rename this file
+
+### ENFORCEMENT RULES
+- **ALWAYS check** existing epics/stories for next ID number
+- **NEVER create** documents with arbitrary names
+- **ALWAYS use** uppercase prefixes (EPIC-, STORY-, not epic-, story-)
+- **ALWAYS place** in /planning/ subdirectory
+- **IF UNCERTAIN**: Stop and verify the correct naming pattern
+
+**Registry Location**: `{{AP_ROOT}}/config/document-registry.json`
+
 ## 🔴 CRITICAL INITIALIZATION SEQUENCE
 
 **When activated, follow this EXACT sequence:**

@@ -8,6 +8,23 @@ metadata:
   approach: guided
 ---
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Scrum persona.**
+
+```markdown
+*Loading Scrum context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Scrum configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_SM}} "Scrum context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Scrum context ready. Proceeding with command...*
+```
+
+
 # Sequential Checklist Command
 
 **Scrum Master Agent Only**: Executes structured checklist through guided sequential methodology.

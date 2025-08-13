@@ -1,5 +1,22 @@
 # Parallel Acceptance Criteria Generation (Native Sub-Agent Implementation)
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Product Owner persona.**
+
+```markdown
+*Loading Product Owner context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Product Owner configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_PO}} "Product Owner ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Product Owner context ready. Launching parallel streams...*
+```
+
+
 **Product Owner Only**: Acceptance criteria definition with 4 parallel streams delivering 80% faster criteria development through comprehensive validation and testing perspectives.
 
 ## Overview

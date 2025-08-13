@@ -52,9 +52,9 @@ SubAgent4: Documentation Audit
 
 ```parallel
 SubAgent1: Core Version Files
-- Update ${APM_PATH}/VERSION
-- Update ${APM_PATH}/installer/VERSION  
-- Update ${APM_PATH}/installer/templates/*/VERSION
+- Update {{APM_ROOT}}/VERSION
+- Update {{PROJECT_ROOT}}/VERSION  
+- Update configuration version references
 - Synchronize all version references
 
 SubAgent2: Documentation Headers
@@ -209,9 +209,9 @@ The version update process will handle:
 ## Files Updated
 
 ### Core Version Files
-- `${APM_PATH}/VERSION`
-- `${APM_PATH}/installer/VERSION`
-- All template VERSION files
+- `{{APM_ROOT}}/VERSION`
+- `{{PROJECT_ROOT}}/VERSION`
+- All configuration version references
 
 ### Documentation Files
 - `${APM_PATH}/README.md`

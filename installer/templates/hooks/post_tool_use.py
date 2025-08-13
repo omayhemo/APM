@@ -38,9 +38,10 @@ def main():
         logger.info(f"PostToolUse hook triggered: {input_data}")
         
         # Extract tool information
-        tool_name = input_data.get('tool', 'Unknown')
-        parameters = input_data.get('parameters', {})
-        result = input_data.get('result', {})
+        # Claude Code sends 'tool_name' and 'tool_input', not 'tool' and 'parameters'
+        tool_name = input_data.get('tool_name') or input_data.get('tool', 'Unknown')
+        parameters = input_data.get('tool_input') or input_data.get('parameters', {})
+        result = input_data.get('tool_output') or input_data.get('result', {})
         success = input_data.get('success', True)
         context = input_data.get('context', {})
         

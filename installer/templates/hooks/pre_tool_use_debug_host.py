@@ -167,14 +167,16 @@ def main():
         sys.exit(0)
     
     # Check if this is a Bash tool call
-    tool_name = request.get("tool", {}).get("name", "")
+    # Claude Code sends 'tool_name' at the top level, not nested under 'tool'
+    tool_name = request.get("tool_name") or request.get("tool", {}).get("name", "")
     if tool_name != "Bash":
         # Not a bash command, pass through
         json.dump(request, sys.stdout)
         sys.exit(0)
     
     # Get the command
-    parameters = request.get("tool", {}).get("parameters", {})
+    # Claude Code sends 'tool_input' at the top level, not 'tool.parameters'
+    parameters = request.get("tool_input") or request.get("tool", {}).get("parameters", {})
     command = parameters.get("command", "")
     
     # Check if it's a dev server command

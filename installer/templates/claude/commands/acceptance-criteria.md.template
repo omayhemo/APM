@@ -8,6 +8,23 @@ metadata:
   approach: guided
 ---
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Product persona.**
+
+```markdown
+*Loading Product context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Product configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_PO}} "Product context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Product context ready. Proceeding with command...*
+```
+
+
 # Sequential Acceptance-criteria Command
 
 **Product Owner Agent Only**: Executes structured acceptance-criteria through guided sequential methodology.

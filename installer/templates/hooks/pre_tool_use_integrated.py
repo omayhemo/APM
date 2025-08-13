@@ -56,8 +56,9 @@ def main():
         logger.info(f"PreToolUse hook triggered: {input_data}")
         
         # Extract tool information
-        tool_name = input_data.get('tool', 'Unknown')
-        parameters = input_data.get('parameters', {})
+        # Claude Code sends 'tool_name' and 'tool_input', not 'tool' and 'parameters'
+        tool_name = input_data.get('tool_name') or input_data.get('tool', 'Unknown')
+        parameters = input_data.get('tool_input') or input_data.get('parameters', {})
         context = input_data.get('context', {})
         
         # ============================================
@@ -75,13 +76,17 @@ def main():
                 
                 # If parameters were modified, update the input data
                 if modified_params != parameters:
-                    input_data['parameters'] = modified_params
+                    # Update in the correct field name that Claude Code expects
+                    if 'tool_input' in input_data:
+                        input_data['tool_input'] = modified_params
+                    else:
+                        input_data['parameters'] = modified_params
                     logger.info(f"Document location corrected: {modified_params.get('file_path')}")
                     
-                    # Output the modified parameters for Claude to use
+                    # Output the modified parameters in the format Claude Code expects
                     print(json.dumps({
                         'modified': True,
-                        'parameters': modified_params,
+                        'tool_input': modified_params,  # Claude Code expects 'tool_input' not 'parameters'
                         'message': f"✅ Document location corrected to: {modified_params.get('file_path')}"
                     }))
                     

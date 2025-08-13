@@ -4,7 +4,7 @@
     "id": "qa",
     "name": "QA Agent",
     "title": "QA",
-    "version": "3.5.0",
+    "version": "4.0.0",
     "description": "Quality Assurance Lead & Testing Strategy Expert",
     "category": "quality",
     "apm_compatibility": "3.2+",

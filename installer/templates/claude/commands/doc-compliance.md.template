@@ -1,4 +1,21 @@
 # Enhanced Documentation Compliance Agent Command
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for documentation management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for documentation management"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
 **Version 2.0 with Document Registry Integration**
 
 **All Personas**: Enforces documentation structure standards using sophisticated multi-signal detection and pattern-based placement from document-registry.json.
@@ -114,8 +131,8 @@ I'm initializing the Documentation Compliance Agent. Let me load all required st
 
 *Executing parallel initialization tasks:*
 [Execute all 5 tasks in single function_calls block]
-- Task 1: Load documentation standards from {{APM_ROOT}}/rules/doc-standards.yaml
-- Task 2: Load document registry from {{APM_ROOT}}/registry/document-registry.yaml
+- Task 1: Load document registry from {{APM_ROOT}}/config/document-registry.json
+- Task 2: Load backlog management rules from {{APM_ROOT}}/rules/backlog-management.md
 - Task 3: Scan project documentation structure in {{PROJECT_DOCS}}
 - Task 4: Scan APM documentation structure in {{APM_ROOT}}
 - Task 5: Load enforcement history from {{APM_ROOT}}/.cache/compliance-history.json
@@ -153,10 +170,10 @@ I'm initializing the Documentation Compliance Agent. Let me load all required st
 ## Compliance Workflow
 
 ### Phase 1: Discovery & Analysis
-1. **Load Standards**: Parse doc-standards.yaml rules
+1. **Load Registry**: Parse document-registry.json configuration
 2. **Scan Structure**: Recursive scan of all documentation
-3. **Build Registry**: Create/update document registry
-4. **Identify Violations**: Check against all rules
+3. **Update Registry**: Maintain document placement records
+4. **Identify Violations**: Check against registry rules
 5. **Categorize Issues**: Group by severity and fixability
 
 ### Phase 2: Validation & Reporting
@@ -369,7 +386,7 @@ compliance:
 
 | Issue | Cause | Resolution |
 |-------|-------|------------|
-| Cannot load standards | Missing doc-standards.yaml | Restore from template |
+| Cannot load registry | Missing document-registry.json | Restore from template |
 | Registry corruption | Invalid YAML syntax | Rebuild with scan |
 | Permission denied | Insufficient file permissions | Check file ownership |
 | Template sync failed | Version mismatch | Update templates |

@@ -1,5 +1,22 @@
 # QA Framework Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for quality assurance...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_QA}} "QA context loaded for quality assurance"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*QA context ready. Proceeding with command...*
+```
+
+
 This command provides access to the comprehensive QA Framework with AI/ML-powered testing capabilities, security scanning, performance testing, and advanced analytics.
 
 ## Process

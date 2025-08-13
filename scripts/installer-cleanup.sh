@@ -27,9 +27,9 @@ if [ -d "$SCRIPT_DIR/installer" ]; then
     if [ -d "$SCRIPT_DIR/.apm" ] && [ -f "$SCRIPT_DIR/.apm/VERSION" ]; then
         echo -e "${GREEN}✓ APM installation verified${NC}"
         
-        # Check if installer is preserved in .apm/.installer
+        # Check if minimal installer files are preserved in .apm/.installer
         if [ -d "$SCRIPT_DIR/.apm/.installer" ]; then
-            echo -e "${GREEN}✓ Installer preserved in .apm/.installer${NC}"
+            echo -e "${GREEN}✓ Essential update files preserved in .apm/.installer${NC}"
             
             # Remove the original installer folder
             echo ""
@@ -48,7 +48,7 @@ if [ -d "$SCRIPT_DIR/installer" ]; then
                 exit 1
             fi
         else
-            echo -e "${YELLOW}⚠ Installer not preserved in .apm/.installer${NC}"
+            echo -e "${YELLOW}⚠ Essential update files not preserved in .apm/.installer${NC}"
             echo "The installer folder will not be removed for safety."
             exit 1
         fi

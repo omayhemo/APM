@@ -1,6 +1,6 @@
 # Agentic Persona Mapping (APM) Framework
 
-**Version: 3.3.0** - Native Sub-Agent Architecture with Configurable Prompt Enhancement
+**Version: 4.0.0** - Native Sub-Agent Architecture with Configurable Prompt Enhancement
 
 ## ⚠️ CRITICAL REQUIREMENT: SLASH COMMANDS ARE MANDATORY
 
@@ -18,7 +18,7 @@ After installation, you MUST use slash commands to activate agents:
 
 ## What is Agentic Persona Mapping?
 
-APM v3.3.0 delivers **revolutionary native sub-agent architecture** with **configurable prompt enhancement** that transforms AI-powered software development:
+APM v4.0.0 delivers **revolutionary native sub-agent architecture** with **configurable prompt enhancement** that transforms AI-powered software development:
 
 - **🔧 NEW: Configurable Prompt Enhancement**: Automatically append custom context to all prompts
 - **4-8x Performance Improvement**: True parallel execution with native Claude Code sub-agents
@@ -33,12 +33,12 @@ APM v3.3.0 delivers **revolutionary native sub-agent architecture** with **confi
 
 **For Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh
 ```
 
 **For macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ### Installation Options
@@ -49,28 +49,28 @@ Add nothing - the installer will prompt for all configuration options
 **Option 2: Install with Defaults (Skip prompts)**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh --defaults
+wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh --defaults
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh --defaults
+curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh --defaults
 ```
 
 **Option 3: Install to Specific Directory**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh /path/to/your/project
+wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh /path/to/your/project
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh /path/to/your/project
+curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh /path/to/your/project
 ```
 
 **Option 4: Install with Piper TTS Voice Support**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz && tar -xzf apm-v3.3.0.tar.gz && ./installer/install.sh --with-tts
+wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh --with-tts
 
 # macOS
-curl -L https://github.com/omayhemo/APM/releases/download/v3.3.0/apm-v3.3.0.tar.gz | tar -xz && ./installer/install.sh --with-tts
+curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh --with-tts
 ```
 
 ## Key Features
@@ -425,9 +425,9 @@ During installation, you'll be prompted to select a TTS provider. You can also c
 .apm/agents/scripts/configure-tts.sh
 ```
 
-### 🔧 NEW: Prompt Enhancement Configuration (v3.3.0)
+### 🔧 NEW: Prompt Enhancement Configuration (v4.0.0)
 
-APM v3.3.0 introduces **configurable prompt enhancement** that automatically appends custom text to all user prompts:
+APM v4.0.0 introduces **configurable prompt enhancement** that automatically appends custom text to all user prompts:
 
 #### How It Works:
 - **Invisible to Users**: Appended text is processed by Claude but hidden from the UI

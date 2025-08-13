@@ -1,4 +1,4 @@
-# Project Documentation Structure - APM v{{VERSION}}
+# Project Documentation Structure - APM v4.0.0
 
 This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Debug Host integration** for 4-8x faster documentation generation.
 
@@ -38,7 +38,23 @@ Quality assurance documentation:
 ### index.md
 Master index linking all documentation for easy navigation.
 
-## Usage by Agents (v{{VERSION}} - Native Sub-Agent Enhanced)
+## 🚀 What's New in v4.0.0
+
+### Revolutionary Version Management System
+- **✨ `/version` Command**: Automated documentation updates with parallel processing
+- **🏗️ `/release` Command**: Complete release management with GitHub integration
+- **📝 Advanced Documentation Generation**: AI-powered release notes and changelog creation
+- **⚡ 4-8x Faster Updates**: Native sub-agent architecture for documentation management
+- **🔗 Link Validation**: Automatic URL verification and broken link detection
+- **📊 Migration Support**: Automatic migration guide generation for major versions
+
+### Enhanced Command Portfolio
+- **70+ Total Commands**: Comprehensive suite including new release management
+- **Documentation Commands**: Version, release, doc-compliance, update-all-documentation
+- **Build Integration**: Seamless integration with build and distribution processes
+- **Quality Assurance**: Built-in validation and consistency checking
+
+## Usage by Agents (v4.0.0 - Release Management Enhanced)
 
 - **Analyst**: Parallel research and analysis with native sub-agents
 - **PM**: Concurrent PRD generation and epic management (4x speedup)
@@ -51,7 +67,38 @@ Master index linking all documentation for easy navigation.
 
 **Performance Impact**: Documentation generation now 4-8x faster with zero CLI crashes
 
-## MCP Debug Host Integration (v{{VERSION}} - Epic 26)
+## 📦 Release Management (v4.0.0 - New Feature)
+
+### Version Management Commands
+
+APM v4.0.0 introduces comprehensive release management capabilities:
+
+**New Commands:**
+- `/version <version>` - Update all documentation and version references
+- `/release <version>` - Complete release process with GitHub integration
+- `/doc-compliance` - Ensure all documentation meets quality standards
+- `/update-all-documentation` - Comprehensive documentation refresh
+
+**Features:**
+- **Parallel Documentation Updates**: 4-8x faster version updates
+- **Automated Release Notes**: Generated from git history and change analysis
+- **GitHub Integration**: Automatic release creation and package upload
+- **Quality Validation**: Link checking, version consistency, content validation
+- **Migration Guides**: Auto-generated for major version releases
+
+**Example Usage:**
+```bash
+# Update to new version with parallel processing
+/version 4.1.0
+
+# Create complete release with GitHub integration
+/release 4.1.0 --rc
+
+# Validate all documentation
+/doc-compliance
+```
+
+## MCP Debug Host Integration (v3.3.0+ - Epic 26)
 
 ### Development Documentation Requirements
 

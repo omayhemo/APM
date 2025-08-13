@@ -1,5 +1,22 @@
 # Parallel QA Framework Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_QA}} "QA ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*QA context ready. Launching parallel streams...*
+```
+
+
 This command executes all test types simultaneously with 4x speedup, orchestrating comprehensive parallel testing across unit, integration, API, UI, security, and performance test suites.
 
 ## Process

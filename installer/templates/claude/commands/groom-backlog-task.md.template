@@ -1,5 +1,22 @@
 # Groom Backlog Task
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Product Owner persona.**
+
+```markdown
+*Loading Product Owner context for backlog management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Product Owner configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_PO}} "Product Owner context loaded for backlog management"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Product Owner context ready. Proceeding with command...*
+```
+
+
 ## Purpose
 To create and maintain a comprehensive product backlog that serves as the single source of truth for all planned work, ensuring proper epic-story relationships, accurate progress tracking, and clear prioritization following agile methodologies.
 

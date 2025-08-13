@@ -8,6 +8,23 @@ metadata:
   approach: guided
 ---
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Developer persona.**
+
+```markdown
+*Loading Developer context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Developer configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_DEV}} "Developer context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Developer context ready. Proceeding with command...*
+```
+
+
 # Sequential Doc-sharding Command
 
 **Developer Agent Only**: Executes structured doc-sharding through guided sequential methodology.

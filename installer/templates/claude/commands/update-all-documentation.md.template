@@ -1,5 +1,22 @@
 # /update-all-documentation
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for documentation management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for documentation management"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
+
 ## Overview
 
 Comprehensive documentation update command for the APM (Agentic Persona Mapping) framework. This command instructs an AI agent to systematically update ALL documentation across the project to reflect the current state of the APM framework, including Epic 17's native sub-agent migration and all recent enhancements.
@@ -159,7 +176,7 @@ Requirements for each template:
 - `/templates/templates/agents/README.md.template` - Core agents documentation
 - `/templates/templates/agents/scripts/README.md.template` - Scripts guide
 - `/templates/templates/project_documentation/README.md.template` - Project docs template
-- `/templates/templates/agents/.installer/README.md.template` - Installer agent docs
+- `/templates/templates/agents/docs/README.md.template` - Agent documentation
 
 ### 3. EPIC 17 DOCUMENTATION (Verify and Enhance)
 

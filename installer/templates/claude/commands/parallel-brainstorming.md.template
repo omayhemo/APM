@@ -1,5 +1,22 @@
 # Parallel Brainstorming Command
 
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for parallel execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Preparing parallel execution framework
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst ready for parallel execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Launching parallel streams...*
+```
+
+
 **Analyst Agent Only**: Executes structured ideation using native sub-agents for 6 parallel brainstorming techniques with 80% performance improvement.
 
 ## Metadata

@@ -8,9 +8,22 @@ metadata:
   approach: guided
 ---
 
-# Sequential Architecture Design Command
+## 🎭 PERSONA CONTEXT ACTIVATION
 
-**Architect Agent Only**: Executes structured system architecture design through guided sequential methodology for comprehensive technical planning.
+**This command requires the Architect persona.**
+
+```markdown
+*Loading Architect context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Architect configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_ARCHITECT}} "Architect context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Architect context ready. Proceeding with command...*
+```
+
 
 ## Metadata
 - **Name**: architecture

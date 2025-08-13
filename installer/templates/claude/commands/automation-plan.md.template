@@ -8,9 +8,22 @@ metadata:
   approach: guided
 ---
 
-# Sequential Automation-plan Command
+## 🎭 PERSONA CONTEXT ACTIVATION
 
-**QA Agent Only**: Executes structured automation-plan through guided sequential methodology.
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_QA}} "QA context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*QA context ready. Proceeding with command...*
+```
+
 
 ## Metadata
 - **Name**: automation-plan
