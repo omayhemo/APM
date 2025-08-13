@@ -146,6 +146,9 @@ PROJECT_ROOT="$TARGET_DIR"
 APM_ROOT="$PROJECT_ROOT/.apm"
 AP_ROOT="$APM_ROOT/agents"
 
+# Set AP_DOCS early so documentation can be copied during template generation
+AP_DOCS="$APM_ROOT/documentation"
+
 # Set up installation logging
 INSTALL_LOG_DIR="$APM_ROOT/logs"
 INSTALL_LOG_FILE="$INSTALL_LOG_DIR/installer.log"
@@ -520,33 +523,52 @@ if [ "$SKIP_COPY" != "true" ]; then
         # Generate agents directory structure from templates
         generate_agents_from_templates
         
-        # Copy non-template documentation files
-        echo "Copying documentation files..."
+        # Process agent documentation templates
+        echo "Processing agent documentation files..."
         if [ -d "$INSTALLER_DIR/templates/agents/docs" ]; then
             if [ -n "$AP_DOCS" ]; then
                 mkdir -p "$AP_DOCS"
-                cp -r "$INSTALLER_DIR/templates/agents/docs"/* "$AP_DOCS/" 2>/dev/null || true
-                echo "✅ Copied documentation files to $AP_DOCS"
+                for file in "$INSTALLER_DIR/templates/agents/docs"/*; do
+                    if [ -f "$file" ]; then
+                        filename=$(basename "$file")
+                        if [[ "$filename" == *.template ]]; then
+                            # Process template file
+                            output_name="${filename%.template}"
+                            replace_variables "$file" "$AP_DOCS/$output_name"
+                        else
+                            # Copy non-template file directly
+                            cp "$file" "$AP_DOCS/" 2>/dev/null || true
+                        fi
+                    fi
+                done
+                echo "✅ Processed agent documentation files to $AP_DOCS"
             else
                 echo "⚠️  Skipping documentation copy - AP_DOCS path not set"
             fi
         fi
         
-        # Copy command reference documentation
-        if [ -n "$AP_DOCS" ] && [ -d "$INSTALLER_DIR/templates/documentation/command-reference" ]; then
-            mkdir -p "$AP_DOCS/command-reference"
-            cp -r "$INSTALLER_DIR/templates/documentation/command-reference"/* "$AP_DOCS/command-reference/" 2>/dev/null || true
-            echo "✅ Copied APM command reference documentation to $AP_DOCS/command-reference"
-        fi
-        
-        # Copy all documentation categories to .apm/documentation
+        # Process and copy all documentation templates to .apm/documentation
         if [ -n "$AP_DOCS" ] && [ -d "$INSTALLER_DIR/templates/documentation" ]; then
             for doc_dir in "$INSTALLER_DIR/templates/documentation"/*; do
                 if [ -d "$doc_dir" ]; then
                     doc_basename=$(basename "$doc_dir")
                     mkdir -p "$AP_DOCS/$doc_basename"
-                    cp -r "$doc_dir"/* "$AP_DOCS/$doc_basename/" 2>/dev/null || true
-                    echo "✅ Copied $doc_basename documentation to $AP_DOCS/$doc_basename"
+                    
+                    # Process .template files and regular files
+                    for file in "$doc_dir"/*; do
+                        if [ -f "$file" ]; then
+                            filename=$(basename "$file")
+                            if [[ "$filename" == *.template ]]; then
+                                # Process template file
+                                output_name="${filename%.template}"
+                                replace_variables "$file" "$AP_DOCS/$doc_basename/$output_name"
+                            else
+                                # Copy non-template file directly
+                                cp "$file" "$AP_DOCS/$doc_basename/" 2>/dev/null || true
+                            fi
+                        fi
+                    done
+                    echo "✅ Processed $doc_basename documentation to $AP_DOCS/$doc_basename"
                 fi
             done
         fi
@@ -740,7 +762,7 @@ AP_DATA="$AP_ROOT/data"
 AP_PERSONAS="$AP_ROOT/personas"
 AP_TASKS="$AP_ROOT/tasks"
 AP_TEMPLATES="$AP_ROOT/templates"
-AP_DOCS="$AP_ROOT/documentation"
+# AP_DOCS already set earlier for documentation copying
 AP_VOICE="$AP_ROOT/voice"
 AP_PYTHON="$AP_ROOT/python"
 AP_MONITORING="$AP_ROOT/monitoring"
