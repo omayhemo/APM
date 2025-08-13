@@ -22,6 +22,22 @@ if [ "$1" = "--defaults" ] || [ "$1" = "-d" ]; then
     shift # Remove the flag from arguments
 fi
 
+# Check if we have a TTY available for interactive input
+INTERACTIVE_TTY=""
+if [ -t 0 ]; then
+    # stdin is a terminal
+    INTERACTIVE_TTY="stdin"
+elif [ -e /dev/tty ]; then
+    # We can use /dev/tty for input
+    INTERACTIVE_TTY="/dev/tty"
+fi
+
+# If no TTY available and not using defaults, force defaults
+if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
+    echo "No TTY available for interactive input. Using defaults."
+    USE_DEFAULTS=true
+fi
+
 echo "=========================================="
 echo "   APM Framework Installation v4.0.0"
 echo "   Native Sub-Agent Architecture"
@@ -62,7 +78,7 @@ if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ] && [ -d "$DIST_DIR/.apm/
         echo "4) Show manual installation options"
         echo -e "${NC}"
         printf "${YELLOW}Enter choice (1-4) [1]: ${NC}"
-        read CHOICE
+        safe_read CHOICE
         CHOICE="${CHOICE:-1}"
         
         case $CHOICE in
@@ -77,7 +93,7 @@ if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ] && [ -d "$DIST_DIR/.apm/
             2)
                 echo ""
                 printf "${YELLOW}Enter project name [my-project]: ${NC}"
-                read PROJ_NAME
+                safe_read PROJ_NAME
                 PROJ_NAME="${PROJ_NAME:-my-project}"
                 TARGET_DIR="../$PROJ_NAME"
                 
@@ -90,7 +106,7 @@ if [ "$#" -eq 0 ] && [ -f "$INSTALLER_DIR/install.sh" ] && [ -d "$DIST_DIR/.apm/
             3)
                 echo ""
                 printf "${YELLOW}Enter path to existing project: ${NC}"
-                read PROJ_PATH
+                safe_read PROJ_PATH
                 if [ -z "$PROJ_PATH" ]; then
                     echo "Error: No path specified"
                     exit 1
@@ -159,6 +175,15 @@ log_install() {
 }
 
 
+# Helper function for safe reading from TTY
+safe_read() {
+    if [ "$INTERACTIVE_TTY" = "/dev/tty" ]; then
+        read "$@" < /dev/tty
+    else
+        read "$@"
+    fi
+}
+
 # Function to get user input with default
 get_input() {
     local prompt="$1"
@@ -169,7 +194,7 @@ get_input() {
         echo "$default"
     else
         printf "${YELLOW}%s [%s]: ${NC}" "$prompt" "$default" >&2
-        read response
+        safe_read response
         echo "${response:-$default}"
     fi
 }
@@ -508,14 +533,14 @@ if [ "$SKIP_COPY" != "true" ]; then
         fi
         
         # Copy command reference documentation
-        if [ -d "$INSTALLER_DIR/templates/documentation/command-reference" ]; then
+        if [ -n "$AP_DOCS" ] && [ -d "$INSTALLER_DIR/templates/documentation/command-reference" ]; then
             mkdir -p "$AP_DOCS/command-reference"
             cp -r "$INSTALLER_DIR/templates/documentation/command-reference"/* "$AP_DOCS/command-reference/" 2>/dev/null || true
             echo "✅ Copied APM command reference documentation to $AP_DOCS/command-reference"
         fi
         
         # Copy all documentation categories to .apm/documentation
-        if [ -d "$INSTALLER_DIR/templates/documentation" ]; then
+        if [ -n "$AP_DOCS" ] && [ -d "$INSTALLER_DIR/templates/documentation" ]; then
             for doc_dir in "$INSTALLER_DIR/templates/documentation"/*; do
                 if [ -d "$doc_dir" ]; then
                     doc_basename=$(basename "$doc_dir")
@@ -750,6 +775,8 @@ ensure_dir "$PROJECT_DOCS/qa/test-plans"
 
 # Copy project documentation README to APM documentation folder
 if [ -f "$INSTALLER_DIR/templates/project_documentation/README.md.template" ]; then
+    # Ensure the AP_DOCS directory exists before writing to it
+    ensure_dir "$AP_DOCS"
     replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$AP_DOCS/README.md"
 fi
 
@@ -1332,7 +1359,7 @@ else
     echo "Repository: https://github.com/your-org/DebugHostMCP"
     echo ""
     printf "${YELLOW}Will you be using the Debug Host MCP Server? (y/N): ${NC}"
-    read -n 1 -r
+    safe_read -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         USE_DEBUG_HOST_MCP=true
@@ -1438,7 +1465,7 @@ else
         echo -e "${NC}"
         printf "${YELLOW}Select TTS provider (1-5) [1]: ${NC}"
     fi
-    read tts_choice
+    safe_read tts_choice
     
     # Set appropriate default based on OS
     if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -1473,7 +1500,7 @@ else
                         INSTALL_MPG123="y"
                     else
                         printf "${YELLOW}Would you like to install mpg123 for audio playback? (Y/n): ${NC}"
-                        read -n 1 -r
+                        safe_read -n 1 -r
                         echo
                         INSTALL_MPG123="${REPLY:-y}"
                     fi
@@ -1745,12 +1772,12 @@ configure_hook() {
         case "$hook_name" in
             "stop"|"subagent_stop"|"user_prompt_submit"|"pre_compact")
                 printf "${YELLOW}Select option (1-2) [2]: ${NC}"
-                read hook_option
+                safe_read hook_option
                 hook_option="${hook_option:-2}"
                 ;;
             *)
                 printf "${YELLOW}Select option (1-2) [1]: ${NC}"
-                read hook_option
+                safe_read hook_option
                 hook_option="${hook_option:-1}"
                 ;;
         esac
@@ -1772,7 +1799,7 @@ if [ "$USE_DEFAULTS" = true ]; then
     echo "Using default notification configuration (stop, subagent_stop, user_prompt_submit, and pre_compact hooks enabled)"
 else
     printf "${YELLOW}Would you like to setup audible notifications? (Y/n): ${NC}"
-    read -n 1 -r
+    safe_read -n 1 -r
     echo
     if [[ $REPLY =~ ^[Nn]$ ]]; then
         SETUP_NOTIFICATIONS=false
@@ -1799,7 +1826,7 @@ if [ "$SETUP_NOTIFICATIONS" = true ]; then
         echo "3) Cancel notification setup"
         echo -e "${NC}"
         printf "${YELLOW}Select option (1-3) [2]: ${NC}"
-        read install_choice
+        safe_read install_choice
         install_choice="${install_choice:-2}"
         
         case "$install_choice" in
@@ -1966,7 +1993,7 @@ else
     echo "  - Requirements management"
     echo ""
     printf "${YELLOW}Would you like to set up Python support for hooks and scripts? (Y/n): ${NC}"
-    read -n 1 -r
+    safe_read -n 1 -r
     echo
     if [[ $REPLY =~ ^[Nn]$ ]]; then
         SETUP_PYTHON=false
@@ -2020,7 +2047,7 @@ if [[ -f "$ROOT_CLAUDE_MD" ]]; then
     # Offer user choice if intelligent merge is available
     if [[ "$USE_INTELLIGENT_MERGE" = true ]] && [[ "$USE_DEFAULTS" != true ]]; then
         printf "${YELLOW}Use intelligent merge to preserve your customizations? (Y/n): ${NC}"
-        read MERGE_CHOICE
+        safe_read MERGE_CHOICE
         MERGE_CHOICE="${MERGE_CHOICE:-Y}"
         
         if [[ ! "$MERGE_CHOICE" =~ ^[Yy]$ ]]; then
