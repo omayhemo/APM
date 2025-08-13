@@ -75,8 +75,12 @@ echo ""
 if [ -f "$EXTRACTED_DIR/installer/install.sh" ]; then
     cd "$EXTRACTED_DIR"
     # Pass the user's project directory as the first argument, followed by any other arguments
-    # Use /dev/tty for input to allow interactive mode when piped
-    bash installer/install.sh "$USER_PROJECT_DIR" "$@" < /dev/tty
+    # Try to use /dev/tty for input, but fall back to stdin if not available
+    if [ -e /dev/tty ]; then
+        bash installer/install.sh "$USER_PROJECT_DIR" "$@" < /dev/tty
+    else
+        bash installer/install.sh "$USER_PROJECT_DIR" "$@"
+    fi
 else
     echo -e "${RED}Error: Installer not found in package${NC}"
     exit 1
