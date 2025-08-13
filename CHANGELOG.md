@@ -1,5 +1,28 @@
 # Changelog
 
+## [4.0.2] - 2025-08-13
+
+### 🔧 Fixed
+- **CRITICAL**: Pre-tool hook now properly integrates Plopdock MCP interception
+- Fixed agents not being forced to use Plopdock MCP for development server commands
+- Pre-tool hook now checks `PLOPDOCK_MCP_ENABLED` environment variable
+- Added bypass functionality with `BYPASS_MCP=1` prefix
+- Fixed dashboard URL consistency (uses `PLOPDOCK_MCP_URL` environment variable)
+- Comprehensive development server command pattern matching (30+ patterns)
+
+### 🚀 Improved
+- Enhanced pre-tool hook with integrated Plopdock interception logic
+- Better error handling and logging for MCP integration
+- Voice notifications for development server interception
+- Unified hook architecture eliminates need for separate Plopdock hook file
+
+### 🛡️ Security
+- All development server commands now properly managed through Plopdock MCP
+- Prevents direct server execution when MCP integration is enabled
+- Maintains persistent server management across Claude Code sessions
+
+---
+
 ## [4.0.1] - 2025-08-13
 
 ### 🔄 Updated
