@@ -72,7 +72,8 @@ echo ""
 if [ -f "$EXTRACTED_DIR/installer/install.sh" ]; then
     cd "$EXTRACTED_DIR"
     # Pass through any arguments (like --defaults)
-    bash installer/install.sh "$@"
+    # Use /dev/tty for input to allow interactive mode when piped
+    bash installer/install.sh "$@" < /dev/tty
 else
     echo -e "${RED}Error: Installer not found in package${NC}"
     exit 1
