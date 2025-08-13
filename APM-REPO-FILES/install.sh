@@ -75,11 +75,13 @@ echo ""
 if [ -f "$EXTRACTED_DIR/installer/install.sh" ]; then
     cd "$EXTRACTED_DIR"
     # Pass the user's project directory as the first argument, followed by any other arguments
-    # Try to use /dev/tty for input if it's available and writable
-    if [ -t 0 ] || [ -w /dev/tty ] 2>/dev/null; then
+    # Only use /dev/tty if stdin is actually a terminal, not when piped through curl
+    if [ -t 0 ]; then
+        # stdin is a terminal, safe to use /dev/tty
         bash installer/install.sh "$USER_PROJECT_DIR" "$@" < /dev/tty 2>/dev/null || \
         bash installer/install.sh "$USER_PROJECT_DIR" "$@"
     else
+        # stdin is piped (like curl | bash), don't try /dev/tty as it will hang
         bash installer/install.sh "$USER_PROJECT_DIR" "$@"
     fi
 else
