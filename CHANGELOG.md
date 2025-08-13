@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.0.4] - 2025-08-13
+
+### 🔧 Fixed
+- **CRITICAL**: Fixed universal installer TTY detection causing hangs when piped through curl
+- Changed universal installer to only use `/dev/tty` when stdin is actually a terminal
+- Fixed infinite hanging when running `curl | bash` for interactive installation
+- Universal installer now properly handles piped input from curl
+
+### 🎯 Impact
+- Interactive installation via `curl | bash` now works without hanging
+- Removes dependency on `/dev/tty` when stdin is piped through curl
+- Maintains full functionality for terminal-based installations
+
+---
+
 ## [4.0.3] - 2025-08-13
 
 ### 🔧 Fixed
