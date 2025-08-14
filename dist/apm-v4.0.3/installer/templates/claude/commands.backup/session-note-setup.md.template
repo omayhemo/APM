@@ -1,0 +1,13 @@
+---
+name: session-note-setup
+description: Set up session notes structure
+---
+
+# Session Notes Setup
+
+Create the session notes folder structure:
+- Main folder: {{PROJECT_ROOT}}/.apm/session_notes
+- Archive folder: {{PROJECT_ROOT}}/.apm/session_notes/archive
+- Rules folder: {{PROJECT_ROOT}}/.apm/rules
+
+Session note format: YYYY-MM-DD-HH-mm-ss-Description.md

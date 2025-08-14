@@ -115,8 +115,10 @@ EOF
 echo ""
 echo "Creating distribution archive..."
 cd dist
-tar -czf "$DIST_NAME.tar.gz" "$DIST_NAME"
-cd ..
+# Create tar without the version directory wrapper - contents go directly to extraction point
+cd "$DIST_NAME"
+tar -czf "../$DIST_NAME.tar.gz" .
+cd ../..
 
 # No README copied to dist root - users get installer only
 

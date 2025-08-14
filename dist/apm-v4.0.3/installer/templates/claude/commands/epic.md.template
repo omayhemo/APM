@@ -1,0 +1,309 @@
+---
+name: epic
+description: Sequential epic creation with guided methodology for product development
+metadata:
+  version: 1.0.0
+  agent: Product Owner
+  performance: sequential
+  approach: guided
+---
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Product persona.**
+
+```markdown
+*Loading Product context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Product configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_PO}} "Product context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Product context ready. Proceeding with command...*
+```
+
+
+# Sequential Epic Creation Command
+
+**Product Owner Agent Only**: Executes structured epic development through guided sequential methodology for comprehensive product planning.
+
+## Metadata
+- **Name**: epic
+- **Description**: Sequential epic creation with guided methodology
+- **Agent**: Product Owner
+- **Performance**: Sequential (focused development vs parallel streams)
+- **Approach**: Interactive guidance and template-driven
+
+## Overview
+
+The `/epic` command enables the Product Owner to create comprehensive epics through:
+- Sequential development with focused attention on each aspect
+- Interactive guidance through epic components
+- Template-driven structure for consistency
+- Thorough validation and refinement process
+- Strategic alignment verification at each step
+
+## Usage
+
+```
+/epic
+```
+
+## Prerequisites
+
+Before running this command, ensure:
+- [ ] Product Requirements Document (PRD) is available
+- [ ] Business context and objectives are clear
+- [ ] Existing epics reviewed to avoid duplication
+- [ ] Stakeholder requirements understood
+- [ ] Epic numbering convention established
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute initialization:
+
+```
+I'm launching sequential epic creation for comprehensive product development planning.
+
+*Loading epic templates and product context...*
+[Execute initialization tasks in sequence]
+- Load epic template from templates/epic-tmpl.md
+- Review PRD for alignment requirements
+- Check existing epics for consistency
+- Load business context and objectives
+```
+
+## Sequential Epic Development Process
+
+### Phase 1: Epic Foundation (10-15 minutes)
+**Objective**: Establish core epic structure and context
+- **Epic Overview Development**
+  - Craft clear, descriptive title
+  - Assign epic ID following convention
+  - Define product area and scope
+  - Set target release and priority
+
+- **Business Context Definition**
+  - Articulate problem statement clearly
+  - Quantify expected business value
+  - Identify key stakeholders and users
+  - Establish success metrics
+
+### Phase 2: Technical & Functional Requirements (15-20 minutes)
+**Objective**: Define what will be built and how
+- **Functional Requirements**
+  - Core functionality specification
+  - User experience requirements
+  - Integration points identification
+  - Performance and quality standards
+
+- **Technical Considerations**
+  - Architecture implications
+  - Technical dependencies
+  - Infrastructure requirements
+  - Security and compliance needs
+
+### Phase 3: Implementation Planning (10-15 minutes)
+**Objective**: Plan how epic will be delivered
+- **Story Breakdown Strategy**
+  - Identify major user stories
+  - Define story dependencies
+  - Plan incremental delivery approach
+  - Estimate complexity and effort
+
+- **Development Approach**
+  - Define development phases
+  - Identify critical path items
+  - Plan testing and validation strategy
+  - Consider rollout and deployment
+
+### Phase 4: Validation & Refinement (10-12 minutes)
+**Objective**: Ensure epic quality and completeness
+- **Strategic Alignment Check**
+  - Verify alignment with PRD
+  - Confirm business value proposition
+  - Validate against product strategy
+  - Check resource and timeline feasibility
+
+- **Quality Assurance**
+  - Review for completeness and clarity
+  - Validate acceptance criteria
+  - Confirm stakeholder requirements met
+  - Finalize documentation
+
+## Guided Epic Template Structure
+
+### Epic Header
+```markdown
+# Epic: [Clear Descriptive Title]
+
+**Epic ID:** EPIC-XXX  
+**Product Area:** [Core/Feature/Infrastructure]  
+**Target Release:** [Q1 2024 / Version X.X]  
+**Priority:** [P1-Must Have / P2-Should Have / P3-Nice to Have]  
+**Epic Type:** [Feature/Technical Debt/Infrastructure/Research]
+```
+
+### Business Context Section
+- **Problem Statement**: Clear articulation of user/business need
+- **Business Value**: Quantified expected impact and benefits
+- **Success Metrics**: Measurable outcomes and KPIs
+- **Target Users**: Primary and secondary user segments
+
+### Functional Requirements
+- **Core Functionality**: What the epic will deliver
+- **User Experience**: How users will interact with features
+- **Integration Points**: External systems and dependencies
+- **Quality Standards**: Performance, reliability, accessibility
+
+### Implementation Strategy
+- **Development Approach**: Phases and methodology
+- **Story Breakdown**: Major stories and themes
+- **Dependencies**: Internal and external dependencies
+- **Risks and Mitigations**: Potential challenges and solutions
+
+## Interactive Guidance Style
+
+This command emphasizes **collaborative development**:
+- **Guided questioning** to ensure complete coverage
+- **Template-driven structure** for consistency
+- **Validation checkpoints** throughout process
+- **Strategic alignment verification** at each phase
+- **Quality gates** before finalization
+
+## Expected Outcomes
+
+After epic creation:
+- **Complete epic document** following organizational template
+- **Strategic alignment confirmation** with PRD and business goals
+- **Implementation roadmap** with story breakdown strategy
+- **Risk assessment** with identified mitigations
+- **Ready for development** with clear acceptance criteria
+
+## Output Format
+
+```markdown
+# Epic: [Title]
+
+## Epic Overview
+- **Epic ID:** EPIC-XXX
+- **Product Area:** [Area]
+- **Target Release:** [Timeline]
+- **Priority:** [P1/P2/P3]
+- **Epic Type:** [Type]
+
+## Business Context
+### Problem Statement
+[Clear description of problem being solved]
+
+### Business Value
+[Quantified business impact and benefits]
+
+### Success Metrics
+- Metric 1: [Baseline → Target]
+- Metric 2: [Baseline → Target]
+- Metric 3: [Baseline → Target]
+
+### Target Users
+- Primary: [User segment]
+- Secondary: [Additional segments]
+
+## Functional Requirements
+### Core Functionality
+1. [Requirement 1]
+2. [Requirement 2]
+3. [Requirement 3]
+
+### User Experience Requirements
+- [UX requirement 1]
+- [UX requirement 2]
+
+### Integration Requirements
+- [Integration 1]: [Description]
+- [Integration 2]: [Description]
+
+### Quality Standards
+- Performance: [Standards]
+- Reliability: [Requirements]
+- Security: [Compliance needs]
+
+## Implementation Strategy
+### Development Approach
+[Methodology and phasing strategy]
+
+### Story Breakdown
+#### Theme 1: [Name]
+- Story 1.1: [Description]
+- Story 1.2: [Description]
+
+#### Theme 2: [Name]
+- Story 2.1: [Description]
+- Story 2.2: [Description]
+
+### Dependencies
+#### Internal Dependencies
+- [Dependency 1]: [Impact and timeline]
+- [Dependency 2]: [Impact and timeline]
+
+#### External Dependencies
+- [External system]: [Integration requirements]
+
+### Risks and Mitigations
+- **Risk 1**: [Description] → **Mitigation**: [Strategy]
+- **Risk 2**: [Description] → **Mitigation**: [Strategy]
+
+## Acceptance Criteria
+- [ ] All functional requirements implemented
+- [ ] Success metrics achieved or trending positive
+- [ ] Quality standards met
+- [ ] User acceptance validation completed
+- [ ] Documentation updated
+
+## Next Steps
+1. [Immediate next action]
+2. [Story creation and grooming]
+3. [Stakeholder review and approval]
+```
+
+## Integration Points
+
+- **Story Creation**: Use `/parallel-stories` for rapid story development
+- **Requirements Detail**: Use `/requirements` for deeper analysis
+- **Stakeholder Review**: Use `/stakeholder-review` for validation
+- **Backlog Management**: Use `/groom` for epic integration
+
+## Voice Notifications
+
+```bash
+bash {{AP_ROOT}}/voice/speakPo.sh "Sequential epic creation beginning. Launching guided epic development process..."
+```
+
+## Success Metrics
+
+- **Epic Completeness**: All template sections thoroughly completed
+- **Strategic Alignment**: Strong connection to PRD and business goals
+- **Implementation Readiness**: Clear path from epic to stories
+- **Stakeholder Clarity**: Requirements clearly understood by all parties
+- **Quality Standards**: Epic meets organizational standards
+
+## When to Use Sequential vs Parallel
+
+**Use `/epic` when:**
+- Focused development with single epic
+- Interactive refinement desired
+- Complex business context needs exploration
+- Strategic alignment critical
+- Quality over speed prioritized
+
+**Use `/parallel-epic` when:**
+- Multiple epics need rapid creation
+- Time constraints exist
+- Comprehensive coverage required
+- Template structure well understood
+- Speed and efficiency prioritized
+
+---
+
+This command provides thoughtful, guided epic creation with emphasis on strategic alignment, completeness, and implementation readiness.

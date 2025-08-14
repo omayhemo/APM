@@ -1,0 +1,302 @@
+# 📋 BACKLOG MANAGEMENT RULES
+**MANDATORY FOR ALL AGENTS**
+
+## 🔴 CRITICAL ENFORCEMENT
+
+**THIS IS NON-NEGOTIABLE**: Every agent interaction involving stories, epics, tasks, or project work MUST update the backlog.md file immediately upon completion of work.
+
+## 📍 Primary Backlog Location
+- **File Path**: `{{PROJECT_ROOT}}/project_docs/backlog.md`
+- **Format**: Markdown with structured sections for epics, stories, tasks
+- **Update Frequency**: IMMEDIATELY after any work item changes
+
+## ⚡ MANDATORY UPDATE TRIGGERS
+
+### All Agents MUST Update Backlog When:
+
+1. **Story Status Changes**
+   - Moving from "Ready" → "In Progress"
+   - Moving from "In Progress" → "In Review"
+   - Moving from "In Review" → "Done"
+   - Moving to "Blocked" (with blocker description)
+
+2. **Acceptance Criteria Progress**
+   - ✅ Checking off completed acceptance criteria
+   - ❌ Marking criteria as blocked or failed
+   - 📝 Adding clarifications or modifications to criteria
+   - 🔍 Adding test evidence for criteria completion
+
+3. **Epic Progress Updates**
+   - Updating completion percentage
+   - Completing milestones
+   - Adding or removing stories from epic
+   - Changing epic priority or timeline
+
+4. **Task Completion**
+   - Marking development tasks complete
+   - Updating task progress percentages
+   - Recording time spent on tasks
+   - Adding implementation notes
+
+5. **Dependency Management**
+   - Discovering new dependencies
+   - Resolving existing dependencies
+   - Identifying blocking dependencies
+   - Creating dependency chains
+
+6. **Sprint Changes**
+   - Assigning stories to sprints
+   - Moving stories between sprints
+   - Updating sprint capacity
+   - Recording sprint velocity
+
+## 📝 UPDATE FORMAT REQUIREMENTS
+
+### Story Updates
+```markdown
+### STORY-XX: [Story Title]
+**Status**: In Progress → Done
+**Developer**: {{AGENT_NAME}}
+**Progress**: 100%
+**Last Updated**: {{TIMESTAMP}}
+
+**Acceptance Criteria**:
+- [x] Criterion 1 - COMPLETED (evidence: tests/test_feature.py)
+- [x] Criterion 2 - COMPLETED (evidence: src/feature.js:45-67)
+- [x] Criterion 3 - COMPLETED (evidence: docs/feature.md)
+
+**Update Note**: 
+[{{TIMESTAMP}}] {{AGENT_NAME}}: Completed all acceptance criteria, tests passing, ready for review
+```
+
+### Epic Updates
+```markdown
+## EPIC-XX: [Epic Title]
+**Progress**: 45% → 60%
+**Stories Completed**: 3/5
+**Last Updated**: {{TIMESTAMP}}
+
+**Update Note**:
+[{{TIMESTAMP}}] {{AGENT_NAME}}: Completed STORY-12 and STORY-13, updated progress calculation
+```
+
+### Task Updates
+```markdown
+**Task**: [Task Description]
+**Status**: Complete ✅
+**Time Spent**: 2.5 hours
+**Completed By**: {{AGENT_NAME}}
+**Completion Note**: Implemented with optimization for performance
+```
+
+## 🚨 ENFORCEMENT MECHANISMS
+
+### Pre-Session End Checklist
+Every agent MUST execute this checklist before ending a session:
+
+```python
+def pre_session_end_validation():
+    """
+    MANDATORY: Run before any wrap, handoff, or session end
+    """
+    checklist = {
+        "worked_on_stories": False,
+        "worked_on_epics": False,
+        "worked_on_tasks": False,
+        "backlog_updated": False,
+        "acceptance_criteria_tracked": False
+    }
+    
+    # If ANY work was done but backlog NOT updated = VIOLATION
+    if any([checklist["worked_on_stories"], 
+            checklist["worked_on_epics"], 
+            checklist["worked_on_tasks"]]) and not checklist["backlog_updated"]:
+        raise BacklogUpdateRequired("CRITICAL: Must update backlog.md before ending session")
+```
+
+### Update Verification Commands
+```bash
+# Check if backlog was updated in current session
+git diff {{PROJECT_ROOT}}/project_docs/backlog.md
+
+# Verify acceptance criteria tracking
+grep -E "\[[ x]\]" {{PROJECT_ROOT}}/project_docs/backlog.md | wc -l
+
+# Check last update timestamp
+grep "Last Updated:" {{PROJECT_ROOT}}/project_docs/backlog.md | tail -1
+```
+
+## 👥 ROLE-SPECIFIC RESPONSIBILITIES
+
+### Developer Agent
+- **MUST** update story status when starting work
+- **MUST** check off acceptance criteria as completed
+- **MUST** add implementation notes and file references
+- **MUST** update task completion status
+- **MUST** record blockers immediately when encountered
+
+### QA Agent
+- **MUST** update test execution status in backlog
+- **MUST** mark acceptance criteria validation results
+- **MUST** add test evidence references
+- **MUST** update quality metrics in stories
+- **MUST** record defects found during testing
+
+### Product Owner Agent
+- **MUST** maintain epic progress accuracy
+- **MUST** ensure all stories have clear acceptance criteria
+- **MUST** update story priorities based on stakeholder feedback
+- **MUST** track business value delivery metrics
+- **MUST** run `/groom` command weekly for backlog health
+
+### Scrum Master Agent
+- **MUST** update sprint assignments
+- **MUST** track velocity and capacity
+- **MUST** identify and document impediments
+- **MUST** update team metrics and burndown data
+- **MUST** ensure daily backlog accuracy
+
+### Architect Agent
+- **MUST** update technical debt items
+- **MUST** document architectural decisions in epics
+- **MUST** track technical dependencies
+- **MUST** update implementation approach in stories
+
+### Project Manager Agent
+- **MUST** maintain milestone progress
+- **MUST** update project timeline impacts
+- **MUST** track resource allocation
+- **MUST** document risk mitigations
+
+## 🎯 ACCEPTANCE CRITERIA TRACKING
+
+### Critical Requirements
+1. **Never mark story "Done" without ALL criteria checked**
+2. **Always provide evidence for each criterion**
+3. **Document where criterion was implemented**
+4. **Include test references for validation**
+
+### Evidence Format
+```markdown
+- [x] User can login with email
+  - Implementation: src/auth/login.js:23-45
+  - Tests: tests/auth/test_login.py:TestLogin
+  - Validation: Manual testing completed, screenshots in docs/testing/
+```
+
+## ⏰ TIMING REQUIREMENTS
+
+### Immediate Updates (Within 1 minute)
+- Story status changes
+- Blocker identification
+- Critical bug discovery
+- Sprint assignment changes
+
+### Session Updates (Before context switch)
+- Acceptance criteria progress
+- Task completion status
+- Time tracking entries
+- Implementation notes
+
+### Daily Updates (End of day)
+- Epic progress calculation
+- Velocity metrics
+- Burndown updates
+- Team capacity adjustments
+
+## 🔍 COMPLIANCE MONITORING
+
+### Automated Checks
+```yaml
+backlog_compliance:
+  hooks:
+    pre_wrap: check_backlog_updated
+    pre_handoff: verify_acceptance_criteria
+    pre_commit: validate_story_status
+    
+  validations:
+    - stories_have_status: true
+    - acceptance_criteria_tracked: true
+    - updates_have_timestamps: true
+    - updates_have_agent_attribution: true
+```
+
+### Manual Audit Points
+- Weekly PO backlog grooming review
+- Sprint retrospective backlog accuracy check
+- Daily standup update verification
+- Release readiness backlog validation
+
+## ❌ VIOLATIONS & CONSEQUENCES
+
+### Minor Violations
+- Missing timestamp on update
+- Incomplete update note
+- **Action**: Add missing information immediately
+
+### Major Violations
+- Completing work without updating backlog
+- Marking story done without criteria validation
+- **Action**: Immediate backlog update + session note documentation
+
+### Critical Violations
+- Systematic failure to update backlog
+- False status reporting
+- **Action**: Session invalidation + comprehensive backlog audit
+
+## 📊 QUALITY METRICS
+
+### Backlog Health Indicators
+- **Update Frequency**: Updates per story per sprint
+- **Criteria Coverage**: % of stories with complete acceptance criteria
+- **Evidence Quality**: % of criteria with validation evidence
+- **Timeliness**: Average time from work to update
+- **Accuracy**: % of updates requiring correction
+
+### Success Criteria
+- 100% of completed work reflected in backlog
+- 100% of acceptance criteria tracked
+- <1 hour average update latency
+- >95% update accuracy
+- 100% agent attribution
+
+## 🔄 CONTINUOUS IMPROVEMENT
+
+### Weekly Review Questions
+1. Are all agents consistently updating the backlog?
+2. Is acceptance criteria tracking comprehensive?
+3. Are updates timely and accurate?
+4. Is evidence quality sufficient?
+5. Are dependencies properly tracked?
+
+### Optimization Opportunities
+- Automate status transitions where possible
+- Implement real-time backlog synchronization
+- Create agent-specific update templates
+- Build validation dashboards
+- Integrate with CI/CD for automatic updates
+
+## 📚 REFERENCES
+
+- **Backlog Template**: `{{PROJECT_ROOT}}/project_docs/backlog.md`
+- **Update Examples**: `{{AP_ROOT}}/docs/backlog-examples.md`
+- **Grooming Guide**: `{{AP_ROOT}}/docs/backlog-grooming.md`
+- **Acceptance Criteria Guide**: `{{AP_ROOT}}/docs/acceptance-criteria.md`
+
+## 🚀 IMPLEMENTATION ENFORCEMENT
+
+**THIS RULE IS ACTIVE IMMEDIATELY**
+
+All agents must:
+1. Read this rule file at session start
+2. Implement update procedures immediately
+3. Validate compliance before session end
+4. Report any barriers to compliance
+
+**Remember**: The backlog is the single source of truth for project progress. Keeping it updated is not optional—it's essential for project success.
+
+---
+
+*Backlog Management Rules v{{VERSION}}*
+*Effective Date: {{INSTALL_DATE}}*
+*Enforcement Level: MANDATORY*
