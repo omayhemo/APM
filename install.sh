@@ -58,15 +58,11 @@ fi
 
 # Extract
 echo -e "${BLUE}Extracting files...${NC}"
+# Extract directly to temp directory (no version subfolder)
 tar -xzf "$TEMP_DIR/apm.tar.gz" -C "$TEMP_DIR"
 
-# Find the extracted directory (handles version in directory name)
-EXTRACTED_DIR=$(find "$TEMP_DIR" -maxdepth 1 -type d -name "apm-*" | head -1)
-
-if [ -z "$EXTRACTED_DIR" ]; then
-    echo -e "${RED}Error: Could not find extracted directory${NC}"
-    exit 1
-fi
+# The files are now directly in TEMP_DIR
+EXTRACTED_DIR="$TEMP_DIR"
 
 # Run the actual installer
 echo -e "${BLUE}Running APM installer...${NC}"
