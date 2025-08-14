@@ -33,3 +33,13 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+# Session notes (APM infrastructure)
+.apm/session_notes/
+.apm/rules/
+
+# AP Mapping generated files
+.apm/CLAUDE.md
+harmonization.log
+
+# Piper TTS installation (project-local)
+.piper/

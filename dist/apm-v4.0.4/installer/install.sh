@@ -52,8 +52,54 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
     USE_DEFAULTS=true
 fi
 
+# Get version from VERSION file
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VERSION=$(cat "$SCRIPT_DIR/VERSION" 2>/dev/null || echo "4.0.4")
+
+# ============================================
+# CRITICAL FUNCTIONS - Must be defined before use
+# ============================================
+
+# Helper function for safe reading from TTY
+safe_read() {
+    # If stdin is already redirected (like from the universal installer), just use stdin
+    # This prevents hanging when the universal installer has already set up /dev/tty redirection
+    if [ -t 0 ] || [ "$INTERACTIVE_TTY" != "/dev/tty" ]; then
+        read "$@"
+    elif [ "$INTERACTIVE_TTY" = "/dev/tty" ]; then
+        read "$@" < /dev/tty
+    else
+        read "$@"
+    fi
+}
+
+# Function to get user input with default
+get_input() {
+    local prompt="$1"
+    local default="$2"
+    local response
+
+    if [ "$USE_DEFAULTS" = true ]; then
+        echo "$default"
+    else
+        printf "${YELLOW}%s [%s]: ${NC}" "$prompt" "$default" >&2
+        safe_read response
+        echo "${response:-$default}"
+    fi
+}
+
+# Function to show success message
+show_success() {
+    local message="$1"
+    if [ "$USE_DEFAULTS" = false ]; then
+        echo -e "${GREEN}$message${NC}"
+    else
+        echo "$message"
+    fi
+}
+
 echo "=========================================="
-echo "   APM Framework Installation v4.0.3"
+echo "   APM Framework Installation v${VERSION}"
 echo "   Native Sub-Agent Architecture"
 echo "=========================================="
 echo ""
@@ -91,7 +137,7 @@ if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$INSTALLER_DIR/install.sh" ] && [ -d
         SKIP_COPY="true"
     else
         echo "=========================================="
-        echo "APM Framework Quick Setup v3.2.0"
+        echo "APM Framework Quick Setup v${VERSION}"
         echo "=========================================="
         echo ""
         echo "You're running the installer from the extracted distribution."

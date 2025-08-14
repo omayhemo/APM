@@ -9,7 +9,7 @@
   },
   "document_types": {
     "backlog": {
-      "location": "/mnt/c/Code/agentic-persona-mapping/project_docs/backlog.md",
+      "location": "/mnt/c/Code/agentic-persona-mapping/project_docs/planning/backlog.md",
       "type": "singleton",
       "naming": "fixed",
       "detection": {
@@ -253,6 +253,56 @@
         "content_markers": ["Deployment", "Prerequisites", "Steps", "Rollback", "Environment"],
         "agent_hints": ["DevOps", "Developer", "Dev"]
       }
+    },
+    "changelog": {
+      "location": "/mnt/c/Code/agentic-persona-mapping/project_docs/changelogs/",
+      "type": "collection",
+      "naming": {
+        "pattern": "CHANGELOG-{version}.md",
+        "version_format": "v\\d+\\.\\d+\\.\\d+"
+      },
+      "allow_subfolders": false,
+      "detection": {
+        "filename_patterns": ["changelog", "CHANGELOG", "changes"],
+        "content_markers": ["Added", "Changed", "Fixed", "Removed", "Deprecated", "Security"],
+        "agent_hints": ["Developer", "Dev", "PM", "Release Manager"]
+      }
+    },
+    "release_notes": {
+      "location": "/mnt/c/Code/agentic-persona-mapping/project_docs/release-notes/",
+      "type": "collection",
+      "naming": {
+        "pattern": "RELEASE-NOTES-{version}.md",
+        "version_format": "v\\d+\\.\\d+\\.\\d+"
+      },
+      "allow_subfolders": false,
+      "detection": {
+        "filename_patterns": ["release", "RELEASE", "release-notes", "RELEASE_NOTES"],
+        "content_markers": ["Release Notes", "New Features", "Bug Fixes", "Breaking Changes", "Migration Guide"],
+        "agent_hints": ["PM", "Product Manager", "Release Manager"]
+      }
+    },
+    "script": {
+      "location": "/mnt/c/Code/agentic-persona-mapping/project_docs/scripts/",
+      "type": "collection",
+      "naming": {
+        "pattern": "{name}.{ext}",
+        "name_format": "kebab-case",
+        "ext_format": "(sh|bash|py|js|ts|rb|pl|ps1)"
+      },
+      "allow_subfolders": true,
+      "mandatory": true,
+      "detection": {
+        "filename_patterns": ["\\.sh$", "\\.bash$", "\\.py$", "\\.js$", "\\.ts$", "\\.rb$", "\\.pl$", "\\.ps1$"],
+        "content_markers": ["#!/bin/bash", "#!/usr/bin/env", "#!/bin/sh", "function", "def ", "const ", "let ", "var "],
+        "agent_hints": ["Developer", "Dev", "DevOps", "Automation"]
+      },
+      "enforcement": {
+        "level": "strict",
+        "message": "Scripts must be placed in /mnt/c/Code/agentic-persona-mapping/project_docs/scripts/ or subdirectories",
+        "exceptions": ["package.json", "tsconfig.json", ".eslintrc.js", "webpack.config.js", "jest.config.js"],
+        "block_placement_outside": true
+      }
     }
   },
   "uncertain_handling": {
@@ -271,7 +321,8 @@
       {"key": "10", "type": "defect", "label": "Defect/Bug Report"},
       {"key": "11", "type": "meeting_note", "label": "Meeting Notes"},
       {"key": "12", "type": "api_documentation", "label": "API Documentation"},
-      {"key": "13", "type": "general", "label": "General Documentation"}
+      {"key": "13", "type": "script", "label": "Script/Automation File"},
+      {"key": "14", "type": "general", "label": "General Documentation"}
     ],
     "default_location": "/mnt/c/Code/agentic-persona-mapping/project_docs/general/"
   },
@@ -303,5 +354,37 @@
       "uncertain_detection_rate",
       "agent_performance"
     ]
+  },
+  "file_placement_rules": {
+    "scripts": {
+      "rule": "Scripts (*.sh, *.bash, *.py, *.js, *.ts, *.rb, *.pl, *.ps1) MUST be placed in /mnt/c/Code/agentic-persona-mapping/project_docs/scripts/ or its subdirectories",
+      "enforcement": "strict",
+      "violations_action": "block",
+      "allowed_exceptions": [
+        "Configuration files (package.json, tsconfig.json, etc.)",
+        "Build configuration (webpack.config.js, rollup.config.js, etc.)",
+        "Test configuration (jest.config.js, mocha.opts, etc.)",
+        "Linting configuration (.eslintrc.js, .prettierrc.js, etc.)"
+      ],
+      "detection_patterns": {
+        "shell": ["\\.sh$", "\\.bash$"],
+        "python": ["\\.py$"],
+        "javascript": ["\\.js$", "\\.mjs$", "\\.cjs$"],
+        "typescript": ["\\.ts$"],
+        "ruby": ["\\.rb$"],
+        "perl": ["\\.pl$", "\\.pm$"],
+        "powershell": ["\\.ps1$", "\\.psm1$", "\\.psd1$"]
+      }
+    },
+    "documentation": {
+      "rule": "All markdown documentation (*.md) must be placed in appropriate subdirectories, not in project root",
+      "enforcement": "warn",
+      "allowed_in_root": ["README.md", "index.md", "LICENSE.md", "CONTRIBUTING.md", "CODE_OF_CONDUCT.md"]
+    },
+    "configurations": {
+      "rule": "Configuration files should remain in their conventional locations",
+      "enforcement": "allow",
+      "examples": [".gitignore", ".env", "docker-compose.yml", "Dockerfile", "Makefile"]
+    }
   }
 }
