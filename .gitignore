@@ -1,0 +1,21 @@
+# APM Distribution Repository
+# This is a releases-only repository
+# All releases are stored as GitHub Releases, not in the repo
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Don't commit actual release archives to the repo
+*.tar.gz
+*.zip
+apm-*/
+
+# Keep the repo clean - releases go in GitHub Releases only
