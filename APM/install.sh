@@ -79,11 +79,16 @@ if [ -f "$EXTRACTED_DIR/installer/install.sh" ]; then
     else
         # stdin is piped (like curl | bash), don't try /dev/tty as it will hang
         bash installer/install.sh "$USER_PROJECT_DIR" "$@"
+        INSTALLER_EXIT_CODE=$?
     fi
 else
     echo -e "${RED}Error: Installer not found in package${NC}"
     exit 1
 fi
+
+# Wait for installer to fully complete and clear any buffered input
+wait
+sleep 0.1
 
 echo ""
 echo -e "${GREEN}═══════════════════════════════════════════${NC}"
