@@ -1,23 +1,23 @@
-# Session notes (both Obsidian fallback and markdown)
-project_documentation/session_notes/
-session_notes/
+# APM Infrastructure (hidden)
+.apm/session_notes/
+.apm/rules/
+.apm/.claude/hooks/
+
+# Workspace (project-specific ignores)
+workspace/node_modules/
+workspace/.env
+workspace/dist/
+
+# Deliverables (temporary outputs)
+deliverables/temp/
+deliverables/*.tmp
 
 # AP Mapping generated files
-CLAUDE.md.ap-setup
+.apm/CLAUDE.md
 harmonization.log
-
-# APM Infrastructure Directory
-.apm/
 
 # Piper TTS installation (project-local)
 .piper/
-
-# Archive and distribution folders
-archive/
-dist/
-
-# All directories starting with period
-.*/
 
 # Node modules
 node_modules/
@@ -34,5 +34,3 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
-
-
