@@ -1,7 +1,6 @@
 # APM Infrastructure (hidden)
-.apm/session_notes/
-.apm/rules/
-.apm/.claude/hooks/
+.apm/*
+
 
 # Workspace (project-specific ignores)
 workspace/node_modules/
@@ -13,11 +12,11 @@ deliverables/temp/
 deliverables/*.tmp
 
 # AP Mapping generated files
-.apm/CLAUDE.md
 harmonization.log
 
 # Piper TTS installation (project-local)
 .piper/
+.distribution/
 
 # Node modules
 node_modules/

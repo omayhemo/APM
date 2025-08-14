@@ -24,35 +24,52 @@ When you run this command, I will:
    - Check for clean working directory
 
 2. **Update Version References**
-   - Update VERSION files throughout the system
-   - Update download URLs in README.md files
-   - Update installer documentation
+   - Update VERSION files in:
+     - `/mnt/c/Code/agentic-persona-mapping/VERSION`
+     - `/mnt/c/Code/agentic-persona-mapping/installer/VERSION`
+     - `/mnt/c/Code/agentic-persona-mapping/installer/templates/VERSION`
+   - Update version references in README.md files
+   - Update installer documentation with new version
 
-3. **Update All the Documentation**
-   - Update CHANGELOG.md with new version
-   - Update RELEASE_NOTES.md with release notes template
-   - Ensure all documentation reflects the new version
-   - Update releavant readme files with new version information
-   
-4. **Build Distribution Package**
+3. **Update All Documentation**
+   - Create new CHANGELOG entry in `/project_docs/changelogs/CHANGELOG-v{version}.md`
+   - Create release notes in `/project_docs/release-notes/RELEASE-NOTES-v{version}.md`
+   - Update main README.md with new version and release date
+   - Update installer README files with version information
+   - Update quick start guides with new version
+
+4. **Update APM Repository Installer**
+   - Update `/mnt/c/Code/agentic-persona-mapping/APM/install.sh` if needed:
+     - Update download URL pattern if changed
+     - Update version detection logic if modified
+     - Ensure compatibility with new release structure
+
+5. **Build Distribution Package**
    - Run `build-distribution.sh` with new version
-   - Verify distribution package creation
-   - Update archive filename with new version
+   - Verify distribution package creation in `/dist/` folder
+   - Create distribution README in `/dist/README.md`
+   - Place tar.gz file in `/dist/apm-v{version}.tar.gz`
 
-5. **Commit & Tag Release**
-   - Commit all version changes
-   - Create annotated git tag
-   - Generate release notes template
+6. **Commit Changes to Main Repository**
+   - Commit all version updates and documentation changes
+   - Create annotated git tag `v{version}`
+   - Include comprehensive release notes in tag message
 
-6. **Push to APM Repository**
-   - Push commits and tags to APM repo (https://github.com/omayhemo/APM)
-   - Create GitHub release with distribution package
-   - Verify release deployment
+7. **Push to APM Repository (TAG ONLY)**
+   - Clone or update APM repository separately
+   - **CRITICAL**: Do NOT copy project files to APM repo
+   - Only update:
+     - APM/install.sh (if modified)
+     - APM/README.md with new version info
+   - Create and push git tag to APM repository
+   - Create GitHub release with distribution package from `/dist/`
+   - **NEVER** push working project files to APM repository
 
-7. **Post-Release Verification**
-   - Confirm release is accessible
-   - Validate download links
-   - Test update path if applicable
+8. **Post-Release Verification**
+   - Confirm release is accessible on GitHub
+   - Validate download links in APM repository
+   - Test installer download and execution
+   - Verify distribution package integrity
 
 ## Options
 
@@ -68,27 +85,88 @@ When you run this command, I will:
 - APM repository access (https://github.com/omayhemo/APM)
 - Previous version tagged properly (for update testing)
 
-## Implementation
+## Implementation Details
 
-When this command is executed, I will:
+When this command is executed, I will perform the following steps:
 
-1. **Parse Arguments**: Extract version and release type from command arguments
-2. **Execute Release Script**: Run `.claude/scripts/release.sh` with the specified version and options
-3. **Monitor Progress**: Track each step of the automated release process
-4. **Report Results**: Provide final status and verification links
+### Step-by-Step Execution:
 
-The release script will handle:
-- Version validation and updates throughout the system
-- Distribution building with `build-distribution.sh`
-- Git tagging and commits with detailed release notes
-- Automated push to APM repository (https://github.com/omayhemo/APM)
-- GitHub release creation with distribution package
-- Post-release verification steps and testing guidance
+1. **Version Validation**
+   - Validate semantic versioning format
+   - Check git working directory is clean
+   - Verify no uncommitted changes
+
+2. **Version Updates** (in main project repository)
+   - Update all VERSION files
+   - Update README.md files with new version
+   - Update installer documentation
+
+3. **Documentation Updates** (in main project repository)
+   - Create `/project_docs/changelogs/CHANGELOG-v{version}.md`
+   - Create `/project_docs/release-notes/RELEASE-NOTES-v{version}.md`
+   - Update main README with release information
+
+4. **Build Distribution**
+   - Execute `build-distribution.sh`
+   - Verify `/dist/apm-v{version}.tar.gz` created
+   - Create `/dist/README.md` with installation instructions
+
+5. **APM Repository Updates** (SEPARATE from main project)
+   ```bash
+   # Work in APM repository directory
+   cd /mnt/c/Code/agentic-persona-mapping/APM
+   
+   # Update ONLY these files:
+   - install.sh (if installer logic changed)
+   - README.md (version and release date)
+   
+   # NEVER copy project files here
+   ```
+
+6. **Git Operations**
+   ```bash
+   # In main project repository
+   git add -A
+   git commit -m "Release v{version}"
+   git tag -a "v{version}" -m "Release notes..."
+   
+   # In APM repository (separate)
+   cd /mnt/c/Code/agentic-persona-mapping/APM
+   git add install.sh README.md
+   git commit -m "Update installer for v{version}"
+   git tag -a "v{version}" -m "APM Framework v{version}"
+   git push origin main --tags
+   ```
+
+7. **GitHub Release Creation**
+   ```bash
+   # Create release in APM repository
+   gh release create v{version} \
+     ../dist/apm-v{version}.tar.gz \
+     --title "APM Framework v{version}" \
+     --notes-file ../project_docs/release-notes/RELEASE-NOTES-v{version}.md
+   ```
+
+## Critical Safety Rules
+
+### 🚨 NEVER DO THIS:
+- **NEVER** copy `/project_docs/` to APM repository
+- **NEVER** copy `.apm/` directory to APM repository  
+- **NEVER** push working project files to APM repository
+- **NEVER** use `cp -r` to copy entire project to APM
+
+### ✅ ONLY DO THIS:
+- **ONLY** update `APM/install.sh` and `APM/README.md`
+- **ONLY** upload the distribution tar.gz from `/dist/`
+- **ONLY** push tags and minimal installer updates
+- **ONLY** work with distribution packages, not source files
 
 ## Notes
 
-- Automatically pushes to APM repository for distribution
-- Creates GitHub release with distribution package
-- Handles both stable and pre-release versions
-- Always test the update path before releasing
+- The APM repository contains ONLY:
+  - `install.sh` - Universal installer script
+  - `README.md` - Installation instructions
+  - GitHub Releases - Distribution packages
+- Main project repository remains separate and private
+- Distribution packages are self-contained installers
 - Breaking changes require migration guide in RELEASE_NOTES.md
