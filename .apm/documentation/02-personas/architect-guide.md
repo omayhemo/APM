@@ -18,7 +18,7 @@ The System Architect agent is your technical architecture expert, responsible fo
 - **Scalability Planning**: Designing for performance, scale, and maintainability
 - **Integration Architecture**: API design and system integration strategies
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 3.8x performance improvement
 - **Parallel Architecture Analysis**: Multi-stream design evaluation
 - **Pattern Recognition**: Automated best practice application
@@ -506,7 +506,7 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **Architecture Design Speed**: 3.8x faster with parallel execution
 - **Technology Evaluation**: 4.1x faster comprehensive assessments
 - **Documentation Quality**: 96% completeness in architecture documents

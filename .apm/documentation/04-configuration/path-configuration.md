@@ -114,7 +114,7 @@ Create dedicated path configuration at `/mnt/c/Code/agentic-persona-mapping/.apm
 ```json
 {
   "path_configuration": {
-    "version": "4.0.0",
+    "version": "4.1.0",
     "last_updated": "2025-01-15T10:30:00Z",
     "configuration_method": "dedicated_config_file"
   },
@@ -640,8 +640,8 @@ migrate_path_structure() {
         "3.5.0")
             migrate_from_3_5_0
             ;;
-        "4.0.0")
-            echo "No migration needed for v4.0.0"
+        "4.1.0")
+            echo "No migration needed for v4.1.0"
             ;;
         *)
             echo "Unknown version: $from_version"
@@ -651,7 +651,7 @@ migrate_path_structure() {
 }
 
 migrate_from_3_5_0() {
-    echo "Migrating from v3.5.0 to v4.0.0..."
+    echo "Migrating from v3.5.0 to v4.1.0..."
     
     # Move legacy persona files
     if [ -d "/mnt/c/Code/agentic-persona-mapping/.apm/personas/legacy" ]; then

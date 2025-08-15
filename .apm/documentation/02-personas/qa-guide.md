@@ -18,7 +18,7 @@ The QA Engineer agent is your specialized testing and quality assurance expert, 
 - **Security Testing**: SAST/DAST security analysis and vulnerability assessment
 - **Performance Testing**: Load testing, stress testing, and performance validation
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 4.1x performance improvement with parallel testing streams
 - **AI/ML Analytics**: 92% accuracy in bug prediction and 94% precision in anomaly detection
 - **Automated Test Generation**: Intelligent test case generation and maintenance
@@ -669,7 +669,7 @@ bash $SPEAK_QA "Anomaly detection analysis complete - 3 quality issues predicted
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 AI/ML Improvements
+### APM v4.1.0 AI/ML Improvements
 - **Test Optimization**: 63% reduction in test execution time
 - **Bug Prediction**: 92% accuracy in predicting test failures
 - **Anomaly Detection**: 94% precision in identifying quality issues

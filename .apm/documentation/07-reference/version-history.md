@@ -4,7 +4,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 
 ## 📋 Table of Contents
 
-1. [Current Version (v4.0.0)](#current-version-v400)
+1. [Current Version (v4.1.0)](#current-version-v400)
 2. [Version History](#version-history)
 3. [Migration Guides](#migration-guides)
 4. [Breaking Changes](#breaking-changes)
@@ -15,7 +15,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 
 ---
 
-## 🚀 Current Version (v4.0.0)
+## 🚀 Current Version (v4.1.0)
 
 **Release Date**: {{CURRENT_DATE}}  
 **Codename**: "Native Modernization"  
@@ -38,7 +38,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 
 ## 📚 Version History
 
-### 🎯 Version 4.0.0 - "Native Modernization" (2025-01-15)
+### 🎯 Version 4.1.0 - "Native Modernization" (2025-01-15)
 
 #### 🚀 Revolutionary Changes
 - **Complete Task Tool Modernization**: Eliminated all Task-based execution in favor of Claude Code's native sub-agent system
@@ -214,7 +214,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 
 ## 🔄 Migration Guides
 
-### 🚀 Migrating from v3.5.0 to v4.0.0
+### 🚀 Migrating from v3.5.0 to v4.1.0
 
 #### Prerequisites
 - **Backup Current Installation**: Create full backup of `.apm/` directory
@@ -234,8 +234,8 @@ cp -r /mnt/c/Code/agentic-persona-mapping/.claude /mnt/c/Code/agentic-persona-ma
 
 ##### 2. Update APM Framework
 ```bash
-# Download APM v4.0.0
-curl -L https://github.com/apm-framework/releases/v4.0.0/installer.tar.gz | tar -xz
+# Download APM v4.1.0
+curl -L https://github.com/apm-framework/releases/v4.1.0/installer.tar.gz | tar -xz
 
 # Run migration script
 ./installer/scripts/migrate-to-v4.sh --from-version 3.5.0
@@ -281,7 +281,7 @@ echo "parallel-sprint" | claude-code
 - `task_execution.max_tasks` - Replaced by `max_parallel_agents`
 - `compatibility.v2_commands` - No longer supported
 
-#### Breaking Changes in v4.0.0
+#### Breaking Changes in v4.1.0
 
 ##### 1. Task Tool Elimination
 **Before (v3.5.0):**
@@ -291,7 +291,7 @@ task = Task("Execute parallel development")
 await task.execute_parallel()
 ```
 
-**After (v4.0.0):**
+**After (v4.1.0):**
 ```python
 # Native sub-agent execution (NEW)
 sub_agents = native_subagent.create_parallel(count=4)
@@ -306,7 +306,7 @@ await sub_agents.execute_coordinated()
 - Capabilities: coding, testing, review
 ```
 
-**After (v4.0.0):**
+**After (v4.1.0):**
 ```json
 {
   "metadata": {
@@ -385,7 +385,7 @@ Expected improvements after migration:
 
 ## 💥 Breaking Changes
 
-### Version 4.0.0 Breaking Changes
+### Version 4.1.0 Breaking Changes
 
 #### 1. Task Tool System Removed
 **Impact**: High  
@@ -439,7 +439,7 @@ Expected improvements after migration:
 
 | APM Version | Claude Code Version | Python Version | Node.js Version | OS Support |
 |-------------|-------------------|----------------|-----------------|------------|
-| **4.0.0** | 2.1.0+ | 3.8+ | 16+ | Linux, macOS, Windows, WSL |
+| **4.1.0** | 2.1.0+ | 3.8+ | 16+ | Linux, macOS, Windows, WSL |
 | **3.5.0** | 2.0.0+ | 3.7+ | 14+ | Linux, macOS, Windows, WSL |
 | **3.3.0** | 1.9.0+ | 3.7+ | 14+ | Linux, macOS, WSL |
 | **3.2.0** | 1.8.0+ | 3.7+ | 12+ | Linux, macOS, WSL |
@@ -450,7 +450,7 @@ Expected improvements after migration:
 
 ### Feature Compatibility
 
-| Feature | v4.0.0 | v3.5.0 | v3.3.0 | v3.2.0 | v3.1.0 | v3.0.0 |
+| Feature | v4.1.0 | v3.5.0 | v3.3.0 | v3.2.0 | v3.1.0 | v3.0.0 |
 |---------|--------|--------|--------|--------|--------|--------|
 | **Native Sub-Agents** | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **QA Framework** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -467,10 +467,10 @@ Expected improvements after migration:
 
 ## ⏰ Deprecation Schedule
 
-### Current Deprecations (v4.0.0)
+### Current Deprecations (v4.1.0)
 
 #### Immediately Deprecated
-- **Task Tool System**: Removed in v4.0.0, use native sub-agents
+- **Task Tool System**: Removed in v4.1.0, use native sub-agents
 - **Hardcoded Paths**: Use template variables instead
 - **Legacy Command Format**: Update to unified command structure
 
@@ -488,10 +488,10 @@ Expected improvements after migration:
 
 | Deprecation | Announcement | Warning Period | Removal |
 |-------------|-------------|----------------|---------|
-| **Task Tool System** | v3.5.0 | v3.5.0 - v4.0.0 | v4.0.0 ✅ |
+| **Task Tool System** | v3.5.0 | v3.5.0 - v4.1.0 | v4.1.0 ✅ |
 | **v2.x Compatibility** | v3.0.0 | v3.0.0 - v4.1.0 | v4.1.0 |
-| **Legacy Config Format** | v4.0.0 | v4.0.0 - v4.1.0 | v4.1.0 |
-| **Old Session Format** | v4.0.0 | v4.0.0 - v4.2.0 | v4.2.0 |
+| **Legacy Config Format** | v4.1.0 | v4.1.0 - v4.1.0 | v4.1.0 |
+| **Old Session Format** | v4.1.0 | v4.1.0 - v4.2.0 | v4.2.0 |
 
 ---
 
@@ -499,17 +499,17 @@ Expected improvements after migration:
 
 ### Automated Upgrade (Recommended)
 
-#### For v3.5.0 → v4.0.0
+#### For v3.5.0 → v4.1.0
 ```bash
 # Download upgrade script
-curl -L https://apm-framework.dev/upgrade/v4.0.0.sh -o upgrade-v4.sh
+curl -L https://apm-framework.dev/upgrade/v4.1.0.sh -o upgrade-v4.sh
 chmod +x upgrade-v4.sh
 
 # Run automated upgrade
 ./upgrade-v4.sh --from-version 3.5.0 --validate
 
 # Verify upgrade
-apm validate --version 4.0.0
+apm validate --version 4.1.0
 ```
 
 ### Manual Upgrade
@@ -525,11 +525,11 @@ tar -tzf apm-backup-*.tar.gz | head -20
 
 #### Step 2: Download and Extract
 ```bash
-# Download APM v4.0.0
-wget https://github.com/apm-framework/releases/download/v4.0.0/apm-v4.0.0.tar.gz
+# Download APM v4.1.0
+wget https://github.com/apm-framework/releases/download/v4.1.0/apm-v4.1.0.tar.gz
 
 # Extract to temporary location
-tar -xzf apm-v4.0.0.tar.gz -C /tmp/apm-upgrade
+tar -xzf apm-v4.1.0.tar.gz -C /tmp/apm-upgrade
 ```
 
 #### Step 3: Configuration Migration
@@ -588,7 +588,7 @@ apm validate --version 3.5.0
 #### Planned Rollback (> 24 hours)
 ```bash
 # Create rollback configuration
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/create-rollback-point.sh --version 4.0.0
+/mnt/c/Code/agentic-persona-mapping/.apm/scripts/create-rollback-point.sh --version 4.1.0
 
 # Execute rollback to specific version
 /mnt/c/Code/agentic-persona-mapping/.apm/scripts/rollback.sh --to-version 3.5.0 --confirm
@@ -596,7 +596,7 @@ apm validate --version 3.5.0
 
 ### Version-Specific Rollback Procedures
 
-#### v4.0.0 → v3.5.0 Rollback
+#### v4.1.0 → v3.5.0 Rollback
 1. **Restore Task Tool Configurations**: Reinstall Task-based execution configs
 2. **Convert Sub-Agent Sessions**: Migrate active sessions back to Task format
 3. **Revert Persona Definitions**: Convert JSON definitions back to markdown
@@ -614,7 +614,7 @@ apm validate --version 3.5.0
 
 ### Performance Evolution
 
-| Metric | v2.0.0 | v3.0.0 | v3.5.0 | v4.0.0 | Improvement |
+| Metric | v2.0.0 | v3.0.0 | v3.5.0 | v4.1.0 | Improvement |
 |--------|--------|--------|--------|--------|-------------|
 | **Persona Activation** | 5.2s | 3.1s | 2.3s | 0.8s | 6.5x faster |
 | **Parallel Development** | N/A | N/A | 45min | 9.8min | 4.6x faster |
@@ -624,7 +624,7 @@ apm validate --version 3.5.0
 
 ### Feature Evolution
 
-| Feature Category | v2.0.0 | v3.0.0 | v3.5.0 | v4.0.0 |
+| Feature Category | v2.0.0 | v3.0.0 | v3.5.0 | v4.1.0 |
 |------------------|--------|--------|--------|--------|
 | **Core Personas** | 3 | 8 | 8 | 9 |
 | **Parallel Agents** | 0 | 0 | 4 | 8 |

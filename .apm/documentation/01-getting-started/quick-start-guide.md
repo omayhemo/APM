@@ -48,8 +48,12 @@ ap
 ```
 ✓ AP Orchestrator initialized with comprehensive APM system knowledge
 
-Welcome to the Agentic Persona Mapping Framework v{{APM_VERSION}}!
+Welcome to the Agentic Persona Mapping Framework v4.1.0!
 I'm your AP Orchestrator, ready to coordinate your development workflow.
+
+NEW in v4.1.0: Revolutionary Release Management
+- /version <version> - Complete version management
+- /release <version> - End-to-end release automation
 ```
 
 ### Minute 3: Meet Your First Agent
@@ -100,6 +104,8 @@ See what else you can do:
 - `/architect` - Design system architecture
 - `/parallel-stories` - Generate user stories in batch
 - `/qa` - Activate quality assurance
+- `/version 4.1.0` - NEW: Complete version management
+- `/release 4.1.0` - NEW: End-to-end release automation
 
 ---
 
@@ -317,6 +323,11 @@ Now that you're up and running:
 - `/parallel-prd` - 70% faster PRD
 - `/parallel-architecture` - 75% faster design
 - `/parallel-stories` - Batch story creation
+
+### NEW Release Management (v4.1.0)
+- `/version <version>` - Complete version management
+- `/release <version>` - End-to-end release automation
+- `/doc-compliance` - Documentation quality assurance
 
 ### Session Commands
 - `/handoff [agent]` - Switch agents

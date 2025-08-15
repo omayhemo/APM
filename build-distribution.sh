@@ -12,7 +12,7 @@ if [ -f "templates/VERSION" ]; then
 elif [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="4.0.1"
+    VERSION="4.1.0"
 fi
 DIST_NAME="apm-v$VERSION"
 DIST_DIR="dist/$DIST_NAME"
@@ -40,13 +40,13 @@ mkdir -p "$DIST_DIR"
 
 # Generate persona templates from JSON master definitions
 echo "Generating persona templates from JSON definitions..."
-if [ -f "installer/generate-personas.sh" ]; then
+if [ -f "payload/generate-personas.sh" ]; then
     echo "Running production persona generation..."
-    (cd installer && bash generate-personas.sh)
+    (cd payload && bash generate-personas.sh)
     echo "✅ Persona templates verified from JSON master definitions"
-elif [ -f "installer/simple-persona-generator.sh" ]; then
+elif [ -f "payload/simple-persona-generator.sh" ]; then
     echo "Running simple persona generation..."
-    (cd installer && bash simple-persona-generator.sh)
+    (cd payload && bash simple-persona-generator.sh)
     echo "✅ Persona templates generated (simple mode)"
 else
     echo "⚠️ WARNING: Persona generator not found, using existing templates"
@@ -54,11 +54,11 @@ fi
 
 # Validate template system integrity
 echo "Validating template system integrity..."
-# Check if installer/templates directory exists
-if [ -d "installer/templates" ]; then
-    TEMPLATE_COUNT=$(find installer/templates -name "*.template" -type f | wc -l)
+# Check if payload/templates directory exists in distribution
+if [ -d "payload/templates" ]; then
+    TEMPLATE_COUNT=$(find payload/templates -name "*.template" -type f | wc -l)
 else
-    echo "❌ ERROR: installer/templates directory not found"
+    echo "❌ ERROR: payload/templates directory not found"
     exit 1
 fi
 
@@ -80,10 +80,10 @@ echo "No cleanup needed for template-only distribution"
 # Create VERSION file
 echo "$VERSION" > "$DIST_DIR/VERSION"
 
-# Copy installer directory
-echo "Copying installer directory..."
+# Copy payload directory (rename to installer in distribution)
+echo "Copying payload directory as installer..."
 # Use rsync to exclude node_modules and MCP Debug Host files
-rsync -av --exclude='node_modules' --exclude='*.log' --exclude='.git' --exclude='coverage' --exclude='test-reports' --exclude='templates/docs/debug-host-mcp-integration.md.template' installer/ "$DIST_DIR/installer/"
+rsync -av --exclude='node_modules' --exclude='*.log' --exclude='.git' --exclude='coverage' --exclude='test-reports' --exclude='templates/docs/debug-host-mcp-integration.md.template' payload/ "$DIST_DIR/installer/"
 
 # Create LICENSE file
 echo "Creating LICENSE file..."
@@ -155,7 +155,7 @@ else
     echo "✅ Template system integrity: $TEMPLATE_COUNT templates ready for distribution"
 fi
 
-# Validate critical template files exist (updated for v3.5.0 unified persona system)
+# Validate critical template files exist (updated for v4.1.0 installer distribution)
 CRITICAL_TEMPLATES=(
     "installer/templates/claude/commands/groom.md.template"
     "installer/templates/claude/commands/parallel-epic.md.template"

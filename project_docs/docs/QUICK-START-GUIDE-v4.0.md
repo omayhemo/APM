@@ -1,17 +1,17 @@
-# APM Framework v4.0.0 - Quick Start Guide
+# APM Framework v4.1.0 - Quick Start Guide
 
 ## 🚀 5-Minute Setup
 
-### Step 1: Install APM v4.0.0
+### Step 1: Install APM v4.1.0
 
 **Linux/WSL (Recommended):**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz && tar -xzf apm-v4.0.0.tar.gz && ./installer/install.sh
+wget https://github.com/omayhemo/APM/releases/download/v4.1.0/apm-v4.1.0.tar.gz && tar -xzf apm-v4.1.0.tar.gz && ./installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz | tar -xz && ./installer/install.sh
+curl -L https://github.com/omayhemo/APM/releases/download/v4.1.0/apm-v4.1.0.tar.gz | tar -xz && ./installer/install.sh
 ```
 
 ### Step 2: Verify Installation
@@ -27,14 +27,14 @@ Open your project in **Claude Code** and run:
 /ap
 ```
 
-This activates the AP Orchestrator with full v4.0.0 capabilities!
+This activates the AP Orchestrator with full v4.1.0 capabilities!
 
-## 🆕 New v4.0.0 Features Quick Demo
+## 🆕 New v4.1.0 Features Quick Demo
 
 ### Try the New Release Management (30 seconds)
 ```bash
 # See what version management looks like (safe preview)
-/version 4.0.1 --dry-run
+/version 4.1.0 --dry-run
 
 # View available release commands
 /release --help
@@ -61,7 +61,7 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 /analyst      # Activate Research Analyst persona
 ```
 
-### ⭐ NEW v4.0.0 Commands
+### ⭐ NEW v4.1.0 Commands
 ```bash
 /version <ver>            # Automated version management
 /release <ver>            # Complete release automation
@@ -69,7 +69,7 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 /update-all-documentation # Comprehensive doc refresh
 ```
 
-### Parallel Execution (Enhanced in v4.0.0)
+### Parallel Execution (Enhanced in v4.1.0)
 ```bash
 /parallel-sprint          # Multi-developer coordination (4.6x faster)
 /parallel-qa-framework    # Comprehensive testing (4x speedup)
@@ -93,10 +93,10 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 /parallel-sprint          # Start development with multiple agents
 ```
 
-### 2. Release a New Version (2 minutes with v4.0.0!)
+### 2. Release a New Version (2 minutes with v4.1.0!)
 ```bash
 # Old way (v3.5.0): 4-5 hours of manual work
-# New way (v4.0.0): 2 minutes of automation
+# New way (v4.1.0): 2 minutes of automation
 
 /release 4.1.0
 # That's it! Automatically:
@@ -116,7 +116,7 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 /qa-insights             # AI-generated quality insights
 ```
 
-### 4. Documentation Maintenance (30 seconds with v4.0.0!)
+### 4. Documentation Maintenance (30 seconds with v4.1.0!)
 ```bash
 # Comprehensive documentation update
 /update-all-documentation
@@ -128,10 +128,10 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 /version 4.1.0           # Updates everything automatically
 ```
 
-## ⚡ Performance Improvements in v4.0.0
+## ⚡ Performance Improvements in v4.1.0
 
 ### Release Management Speed
-| Task | v3.5.0 | v4.0.0 | Time Saved |
+| Task | v3.5.0 | v4.1.0 | Time Saved |
 |------|--------|--------|------------|
 | Complete release | 4-5 hours | **20 minutes** | **12-15x faster** |
 | Version updates | 30 min manual | **3 min automated** | **10x faster** |
@@ -146,7 +146,7 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 | `/qa-predict` | **92% accuracy** | ML-powered failure prediction |
 | Documentation generation | **4-8x faster** | Native sub-agent parallelism |
 
-## 🎪 Advanced v4.0.0 Features
+## 🎪 Advanced v4.1.0 Features
 
 ### AI-Powered Release Notes
 ```bash
@@ -193,9 +193,9 @@ This activates the AP Orchestrator with full v4.0.0 capabilities!
 
 **Issue: `/version` command not found**
 ```bash
-# Solution: Verify v4.0.0 installation
+# Solution: Verify v4.1.0 installation
 ls -la .claude/commands/version.md
-# If missing, reinstall v4.0.0
+# If missing, reinstall v4.1.0
 ```
 
 **Issue: GitHub integration fails**
@@ -216,7 +216,7 @@ git status  # Ensure clean working directory
 ```bash
 # Solution: Verify native sub-agent architecture
 /ap  # Should mention "native sub-agents" in activation
-# If not, reinstall v4.0.0 to get performance benefits
+# If not, reinstall v4.1.0 to get performance benefits
 ```
 
 ## 📚 Next Steps
@@ -240,7 +240,7 @@ git status  # Ensure clean working directory
 
 ## 🎉 Success Indicators
 
-You'll know APM v4.0.0 is working properly when:
+You'll know APM v4.1.0 is working properly when:
 
 ✅ **Installation**: `/ap` command launches with voice notification  
 ✅ **New Commands**: `/version --help` shows detailed options  
@@ -249,12 +249,12 @@ You'll know APM v4.0.0 is working properly when:
 ✅ **AI Features**: Release notes generate automatically  
 ✅ **Quality Assurance**: Documentation compliance checking works  
 
-## 💡 Pro Tips for v4.0.0
+## 💡 Pro Tips for v4.1.0
 
 1. **Start with Dry Run**: Always use `--dry-run` first to preview changes
 2. **Backup Important Work**: Commit before running `/release` commands
 3. **Use Pre-releases**: Test with `--beta` or `--rc` flags for major versions
 4. **Monitor Output**: Commands provide detailed progress information
-5. **Leverage Automation**: Let v4.0.0 handle documentation while you code
+5. **Leverage Automation**: Let v4.1.0 handle documentation while you code
 
-**Welcome to APM v4.0.0 - Where Release Management Meets AI Automation!** 🚀
+**Welcome to APM v4.1.0 - Where Release Management Meets AI Automation!** 🚀

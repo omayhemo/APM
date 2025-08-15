@@ -1,0 +1,72 @@
+# Base Configuration for Claude Code Sub-Agents
+# Part of APM to Sub-Agents Migration (Epic 16)
+
+# Global Settings
+migration:
+  version: "{{MIGRATION_VERSION}}"
+  source_framework: "APM"
+  target_framework: "Claude Code Sub-Agents"
+  compatibility_mode: "dual"  # dual, native, legacy
+
+# Environment Configuration
+environment:
+  ap_root: "{{AP_ROOT}}"
+  session_notes_path: "{{SESSION_NOTES_PATH}}"
+  archive_path: "{{ARCHIVE_PATH}}"
+  workspace_root: "{{WORKSPACE_ROOT}}"
+
+# Voice Notification System
+voice:
+  enabled: true
+  provider: "{{TTS_PROVIDER}}"
+  script_base_path: "{{AP_ROOT}}/agents/voice"
+  notification_sounds: true
+  
+# Session Management
+session:
+  auto_create_notes: true
+  auto_archive_on_completion: true
+  note_format: "YYYY-MM-DD-HH-mm-ss-{description}.md"
+  archive_format: "YYYY-MM-DD-HH-mm-ss-{agent}-{description}.md"
+
+# Security & Workspace
+security:
+  enforce_workspace_boundaries: true
+  forbidden_paths:
+    - ".apm/"
+    - ".claude/"
+    - "agents/"
+  allowed_reads:
+    - "project_docs/"
+    - "workspace/"
+    - "deliverables/"
+
+# Agent-Specific Overrides
+agents:
+  developer:
+    primary_workspace: "workspace/src/"
+    output_workspace: "deliverables/releases/"
+    
+  architect:
+    primary_workspace: "project_docs/architecture/"
+    output_workspace: "project_docs/architecture/artifacts/"
+    
+  qa:
+    primary_workspace: "workspace/tests/"
+    output_workspace: "project_docs/qa/reports/"
+    
+  orchestrator:
+    primary_workspace: "project_docs/"
+    output_workspace: "project_docs/planning/coordination/"
+
+# Integration Settings
+integration:
+  preserve_apm_commands: true
+  enable_parallel_execution: true
+  native_sub_agent_optimization: true
+  
+# Monitoring & Metrics
+monitoring:
+  track_agent_usage: true
+  performance_metrics: true
+  migration_progress: true

@@ -4,7 +4,7 @@ This guide addresses problems specific to APM agent personas, their activation, 
 
 ## 🤖 Agent System Overview
 
-### APM v4.0.0 Native Sub-Agent Architecture
+### APM v4.1.0 Native Sub-Agent Architecture
 - **Native Integration**: All agents use Claude Code's native sub-agent system
 - **True Parallelism**: Multiple agents can execute concurrently
 - **4-8x Performance**: Massive improvement over Task-based system

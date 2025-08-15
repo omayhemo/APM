@@ -4,7 +4,7 @@ This guide explains how to modify existing personas and create new ones in the A
 
 ## Persona Architecture Overview
 
-APM v4.0.0 uses a **unified persona system** with single-source definitions:
+APM v4.1.0 uses a **unified persona system** with single-source definitions:
 
 - **Master Definitions**: JSON files in `{{INSTALLER_ROOT}}/personas/_master/`
 - **Template Generation**: Automated generation to multiple output formats
@@ -43,7 +43,7 @@ Each persona has a corresponding JSON file:
   "persona": {
     "name": "PersonaName",
     "role": "Role Description",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "Comprehensive description of the persona",
     "created_date": "2025-01-15",
     "updated_date": "2025-01-15"
@@ -143,7 +143,7 @@ nano developer.persona.json
   "persona": {
     "name": "Developer",
     "role": "Full-Stack Software Developer",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "Expert full-stack developer specializing in modern web technologies, API development, and cloud deployment. Focuses on clean code, testing, and agile development practices.",
     "created_date": "2025-01-15",
     "updated_date": "2025-01-15"
@@ -248,7 +248,7 @@ Edit `custom-persona.persona.json`:
   "persona": {
     "name": "DevOpsEngineer",
     "role": "DevOps and Infrastructure Engineer",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "Expert in infrastructure automation, deployment pipelines, and system reliability. Specializes in cloud platforms, containerization, and monitoring solutions.",
     "created_date": "2025-01-15",
     "updated_date": "2025-01-15"

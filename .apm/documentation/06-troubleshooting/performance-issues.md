@@ -6,7 +6,7 @@ This guide addresses performance-related problems in the APM Framework and provi
 
 ### Expected Performance Baselines
 
-**APM v4.0.0 Native Sub-Agent Performance:**
+**APM v4.1.0 Native Sub-Agent Performance:**
 - **Command Execution**: < 2 seconds for simple commands
 - **Persona Activation**: < 3 seconds with voice notifications
 - **Parallel Operations**: 4-8x speedup over sequential execution

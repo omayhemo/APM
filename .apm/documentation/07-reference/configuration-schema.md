@@ -399,7 +399,7 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
     "name": "developer",
     "display_name": "Developer Agent",
     "description": "Full-stack development specialist focused on implementation and code quality",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "category": "development"
   },
   "activation": {
@@ -963,7 +963,7 @@ APM validates all configuration files during startup:
       "voice_scripts": "must_be_executable"
     },
     "version_compatibility": {
-      "min_apm_version": "4.0.0",
+      "min_apm_version": "4.1.0",
       "max_apm_version": "4.999.999",
       "claude_code_compatibility": ">=2.0.0"
     }
@@ -1032,7 +1032,7 @@ APM validates all configuration files during startup:
 {
   "migration": {
     "from_version": "3.5.0",
-    "to_version": "4.0.0",
+    "to_version": "4.1.0",
     "changes": [
       {
         "type": "add_property",

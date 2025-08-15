@@ -18,7 +18,7 @@ The Analyst agent is your specialized research and brainstorming expert, designe
 - **Feasibility Studies**: Technical and business feasibility assessment
 - **Stakeholder Analysis**: Understanding user needs and business contexts
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 4.0x performance improvement
 - **Evidence-Based Research**: "Never Guess, Always Verify" protocols
 - **Parallel Execution**: Multiple concurrent research streams
@@ -427,7 +427,7 @@ bash $SPEAK_ANALYST "Brainstorming session generating multiple solution concepts
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **Research Speed**: 4.0x faster with parallel execution
 - **Data Accuracy**: 94% accuracy with evidence-based protocols
 - **Context Retention**: 96% successful handoffs with preserved context

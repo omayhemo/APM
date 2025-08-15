@@ -18,7 +18,7 @@ The Scrum Master agent is your specialized sprint coordination and agile process
 - **Blocker Resolution**: Proactive identification and resolution of impediments
 - **Team Coaching**: Agile methodology coaching and team development
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 3.7x performance improvement
 - **Parallel Story Generation**: Multi-stream story creation and refinement
 - **Process Analytics**: Data-driven process optimization
@@ -624,7 +624,7 @@ bash $SPEAK_SM "Process improvement analysis complete - 3 optimization opportuni
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **Story Creation Speed**: 3.7x faster with parallel execution
 - **Process Analysis**: 4.0x faster comprehensive process evaluation
 - **Sprint Facilitation Quality**: 94% improvement in sprint goal achievement

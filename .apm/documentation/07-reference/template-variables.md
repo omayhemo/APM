@@ -24,8 +24,8 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 | `/mnt/c/Code/agentic-persona-mapping/.apm` | Root directory of APM installation | `/path/to/project/.apm` | All APM file references |
 | `/mnt/c/Code/agentic-persona-mapping` | Root directory of the project | `/path/to/project` | Project file references |
 | `` | Name of the current project | `my-awesome-project` | Display names, titles |
-| `{{PROJECT_VERSION}}` | Current APM version | `4.0.0` | Version displays, compatibility |
-| `{{APM_VERSION}}` | APM framework version | `4.0.0` | Framework version references |
+| `{{PROJECT_VERSION}}` | Current APM version | `4.1.0` | Version displays, compatibility |
+| `{{APM_VERSION}}` | APM framework version | `4.1.0` | Framework version references |
 
 ### System Architecture
 
@@ -191,16 +191,16 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 |----------|-------------|---------------|-------|
 | `{{BUILD_DATE}}` | Build creation date | `2025-01-15` | Build information |
 | `{{BUILD_TIME}}` | Build creation time | `14:30:25` | Build information |
-| `{{BUILD_VERSION}}` | Build version number | `4.0.0-build.123` | Version tracking |
+| `{{BUILD_VERSION}}` | Build version number | `4.1.0-build.123` | Version tracking |
 | `{{BUILD_HASH}}` | Git commit hash | `abc123def456` | Version identification |
 
 ### Distribution Variables
 
 | Variable | Description | Example Value | Usage |
 |----------|-------------|---------------|-------|
-| `{{INSTALLER_VERSION}}` | Installer version | `4.0.0` | Installation tracking |
+| `{{INSTALLER_VERSION}}` | Installer version | `4.1.0` | Installation tracking |
 | `{{DISTRIBUTION_DATE}}` | Distribution creation date | `2025-01-15` | Release information |
-| `{{TEMPLATE_VERSION}}` | Template system version | `4.0.0` | Template compatibility |
+| `{{TEMPLATE_VERSION}}` | Template system version | `4.1.0` | Template compatibility |
 
 ---
 

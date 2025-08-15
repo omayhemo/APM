@@ -18,7 +18,7 @@ The Product Manager agent is your strategic product expert, responsible for tran
 - **Success Metrics**: KPI definition and measurement frameworks
 - **Stakeholder Management**: Cross-functional communication and alignment
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 3.2x performance improvement
 - **Parallel PRD Generation**: Multi-stream document creation
 - **Strategic Analysis**: Evidence-based product decisions
@@ -494,7 +494,7 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **PRD Creation Speed**: 3.2x faster with parallel execution
 - **Requirements Completeness**: 95% comprehensive coverage
 - **Stakeholder Satisfaction**: 92% approval rate on first review

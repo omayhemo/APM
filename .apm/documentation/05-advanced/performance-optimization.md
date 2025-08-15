@@ -4,7 +4,7 @@ This guide covers advanced performance tuning techniques to maximize APM framewo
 
 ## Overview
 
-APM v4.0.0's native sub-agent architecture delivers unprecedented performance improvements:
+APM v4.1.0's native sub-agent architecture delivers unprecedented performance improvements:
 - **4-12x faster execution** compared to sequential processing
 - **Sub-second response times** for parallel operations  
 - **Zero CLI crashes** with rock-solid native integration
@@ -32,7 +32,7 @@ graph TD
 
 ### Performance Improvements by Version
 
-| Feature | v3.5.0 | v4.0.0 | Improvement |
+| Feature | v3.5.0 | v4.1.0 | Improvement |
 |---------|--------|--------|-------------|
 | Parallel Command Execution | Task-based | Native Sub-Agents | 4.6x faster |
 | Memory Usage | 512MB | 256MB | 50% reduction |

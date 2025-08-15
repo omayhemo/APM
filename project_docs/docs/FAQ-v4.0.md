@@ -1,6 +1,6 @@
-# APM Framework v4.0.0 - Frequently Asked Questions
+# APM Framework v4.1.0 - Frequently Asked Questions
 
-## 🆕 v4.0.0 Release Management Features
+## 🆕 v4.1.0 Release Management Features
 
 ### Q: What's the difference between `/version` and `/release` commands?
 **A: Two distinct but complementary automation tools:**
@@ -31,7 +31,7 @@
 
 Example output:
 ```markdown
-# Release Notes - APM v4.0.0
+# Release Notes - APM v4.1.0
 
 ## 🚀 New Features
 - Revolutionary release management with `/version` and `/release` commands
@@ -62,9 +62,9 @@ Example output:
 4. **Safe Retry**: Fix issues and re-run safely
 5. **Manual Fallback**: Complete manual override capability
 
-## 🔄 Upgrading to v4.0.0
+## 🔄 Upgrading to v4.1.0
 
-### Q: Is v4.0.0 backward compatible with v3.5.0?
+### Q: Is v4.1.0 backward compatible with v3.5.0?
 **A: 100% backward compatible with zero breaking changes:**
 
 - ✅ All existing commands work identically
@@ -74,13 +74,13 @@ Example output:
 - ✅ Configuration files unchanged
 - ✅ Parallel execution enhanced (not changed)
 
-### Q: How do I upgrade from v3.5.0 to v4.0.0?
+### Q: How do I upgrade from v3.5.0 to v4.1.0?
 **A: Simple one-command upgrade:**
 
 ```bash
 # Automatic detection and upgrade
-wget https://github.com/omayhemo/APM/releases/download/v4.0.0/apm-v4.0.0.tar.gz
-tar -xzf apm-v4.0.0.tar.gz
+wget https://github.com/omayhemo/APM/releases/download/v4.1.0/apm-v4.1.0.tar.gz
+tar -xzf apm-v4.1.0.tar.gz
 ./installer/install.sh
 ```
 
@@ -88,7 +88,7 @@ tar -xzf apm-v4.0.0.tar.gz
 - Preserves your existing configuration
 - Maintains all session notes and project documentation
 - Upgrades commands without disruption
-- Adds new v4.0.0 features seamlessly
+- Adds new v4.1.0 features seamlessly
 
 ### Q: Do I need to change my existing workflows?
 **A: No changes required to existing workflows:**
@@ -104,13 +104,13 @@ tar -xzf apm-v4.0.0.tar.gz
 ### Q: How much faster is the documentation generation?
 **A: Dramatic performance improvements across all tasks:**
 
-| Task | v3.5.0 | v4.0.0 | Improvement |
+| Task | v3.5.0 | v4.1.0 | Improvement |
 |------|--------|--------|-------------|
 | Version updates | ~30 min manual | **~3 min automated** | **10x faster** |
 | Release notes | ~60 min manual | **~5 min AI-generated** | **12x faster** |
 | Complete releases | ~4-5 hours | **~20 minutes** | **12-15x faster** |
 
-### Q: Does v4.0.0 require additional dependencies?
+### Q: Does v4.1.0 require additional dependencies?
 **A: No new dependencies required:**
 
 - Uses existing Claude Code native sub-agent architecture
@@ -121,7 +121,7 @@ tar -xzf apm-v4.0.0.tar.gz
 ### Q: Can I customize the release note templates?
 **A: Currently auto-generated, customization planned:**
 
-- **v4.0.0**: AI-generated with professional formatting
+- **v4.1.0**: AI-generated with professional formatting
 - **v4.1.0 (Planned)**: Custom template support
 - **Workaround**: Edit generated notes before GitHub upload
 - **Manual Override**: Skip automation and create manually
@@ -144,7 +144,7 @@ tar -xzf apm-v4.0.0.tar.gz
 - Don't use GitHub releases
 - Have customized release processes
 
-### Q: Is v4.0.0 suitable for enterprise environments?
+### Q: Is v4.1.0 suitable for enterprise environments?
 **A: Designed with enterprise needs in mind:**
 
 ✅ **Compliance Ready**
@@ -167,7 +167,7 @@ tar -xzf apm-v4.0.0.tar.gz
 
 ## 🚀 Advanced Usage
 
-### Q: Can I use v4.0.0 features with custom repositories?
+### Q: Can I use v4.1.0 features with custom repositories?
 **A: Flexible repository support:**
 
 - **GitHub Integration**: Full support with automatic releases
@@ -196,11 +196,11 @@ tar -xzf apm-v4.0.0.tar.gz
 
 ```bash
 # Quick patch release
-/release 4.0.1
+/release 4.1.0
 # Complete process: ~5-10 minutes
 
 # Emergency hotfix
-/version 4.0.1 --minimal  # Version only, skip docs
+/version 4.1.0 --minimal  # Version only, skip docs
 # Then manual git/GitHub steps
 ```
 
@@ -212,7 +212,7 @@ tar -xzf apm-v4.0.0.tar.gz
 1. **Verify Installation**: Check if command exists in `.claude/commands/`
 2. **Git Status**: Ensure working directory is clean
 3. **Permissions**: Verify write access to all documentation files
-4. **Version Format**: Use semantic versioning (e.g., 4.0.1, not v4.0.1)
+4. **Version Format**: Use semantic versioning (e.g., 4.1.0, not v4.1.0)
 
 ### Q: GitHub integration failed. How do I fix it?
 **A: GitHub integration troubleshooting:**
@@ -237,7 +237,7 @@ This shows:
 
 ## 📞 Getting Help
 
-### Q: Where can I get support for v4.0.0?
+### Q: Where can I get support for v4.1.0?
 **A: Multiple support channels:**
 
 - **Documentation**: Complete guides in `project_docs/`
@@ -249,7 +249,7 @@ This shows:
 **A: GitHub Issues with specific information:**
 
 ```markdown
-**APM Version**: 4.0.0
+**APM Version**: 4.1.0
 **Command**: /version 4.1.0
 **Error**: [Specific error message]
 **Expected**: [What you expected to happen]
@@ -258,7 +258,7 @@ This shows:
 
 ---
 
-## 💡 Quick Tips for v4.0.0
+## 💡 Quick Tips for v4.1.0
 
 1. **Start Small**: Try `/version --dry-run` first to see what happens
 2. **Backup First**: Commit current work before running release commands
@@ -266,4 +266,4 @@ This shows:
 4. **Use Pre-releases**: Test with beta/rc versions for major changes
 5. **Read Output**: Commands provide detailed progress and error information
 
-**Remember**: v4.0.0 is designed to make your life easier while maintaining full control when you need it!
+**Remember**: v4.1.0 is designed to make your life easier while maintaining full control when you need it!

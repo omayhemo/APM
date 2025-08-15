@@ -18,7 +18,7 @@ The Product Owner agent is your specialized backlog management and sprint planni
 - **Sprint Planning**: Strategic sprint planning and capacity management
 - **Prioritization**: Value-based backlog prioritization and sequencing
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 4.2x performance improvement
 - **Parallel Story Generation**: Multi-stream epic and story creation
 - **Intelligent Prioritization**: Data-driven prioritization algorithms
@@ -602,7 +602,7 @@ bash $SPEAK_PO "Story grooming completed - all stories now meet Definition of Re
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **Epic Creation Speed**: 4.2x faster with parallel execution
 - **Story Generation**: 4.0x faster comprehensive story creation
 - **Backlog Quality**: 97% of stories meet Definition of Ready on first review

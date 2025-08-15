@@ -104,7 +104,7 @@ export APM_PERFORMANCE_MONITORING=true
 htop  # Look for high CPU/memory usage
 ```
 
-**Performance Standards (APM v4.0.0):**
+**Performance Standards (APM v4.1.0):**
 - **Command Response**: <5 seconds
 - **Parallel Execution**: 4-8x speedup
 - **Memory Usage**: <512MB per persona
@@ -151,9 +151,9 @@ ls -la /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
 
 **Solutions:**
 ```bash
-# Verify APM v4.0.0 native mode
+# Verify APM v4.1.0 native mode
 cat /mnt/c/Code/agentic-persona-mapping/VERSION
-# Should show v4.0.0 or higher
+# Should show v4.1.0 or higher
 
 # Check for deprecated Task dependencies
 find /mnt/c/Code/agentic-persona-mapping/.apm -name "*.md" -exec grep -l "Task tool" {} \;
@@ -216,8 +216,8 @@ A: No. APM personas work with any technology stack - JavaScript, Python, Java, C
 
 ### Technical Questions
 
-**Q: Why are my commands slow in APM v4.0.0?**
-A: APM v4.0.0 uses native sub-agents for 4-8x speedup. Slow performance indicates Task tool dependencies weren't fully removed. Run `grep -r "Task tool" .apm/` to identify remaining dependencies.
+**Q: Why are my commands slow in APM v4.1.0?**
+A: APM v4.1.0 uses native sub-agents for 4-8x speedup. Slow performance indicates Task tool dependencies weren't fully removed. Run `grep -r "Task tool" .apm/` to identify remaining dependencies.
 
 **Q: How do I customize persona behavior?**
 A: Edit persona definitions in `/mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/` and regenerate with `/mnt/c/Code/agentic-persona-mapping/installer/generate-personas.sh`.

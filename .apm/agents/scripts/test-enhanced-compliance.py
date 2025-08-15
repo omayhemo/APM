@@ -225,7 +225,7 @@ class ComplianceTestSuite:
         print(f"✅ Document registry created: {registry_path}")
         
         # Copy the enforcer script
-        enforcer_src = '/mnt/c/Code/agentic-persona-mapping/installer/templates/hooks/pre_tool_use_location_enforcer.py'
+        enforcer_src = '/mnt/c/Code/agentic-persona-mapping/payload/templates/hooks/pre_tool_use_location_enforcer.py'
         enforcer_dst = os.path.join(self.test_dir, '.apm/hooks/pre_tool_use_location_enforcer.py')
         
         try:
@@ -235,7 +235,7 @@ class ComplianceTestSuite:
             print(f"⚠️ Enforcer script not found at {enforcer_src}")
         
         # Copy the compliance integration script
-        compliance_src = '/mnt/c/Code/agentic-persona-mapping/installer/templates/scripts/doc-compliance-registry-integration.py'
+        compliance_src = '/mnt/c/Code/agentic-persona-mapping/payload/templates/scripts/doc-compliance-registry-integration.py'
         compliance_dst = os.path.join(self.test_dir, '.apm/scripts/doc-compliance-registry-integration.py')
         
         os.makedirs(os.path.dirname(compliance_dst), exist_ok=True)

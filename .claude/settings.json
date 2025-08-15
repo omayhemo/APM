@@ -71,7 +71,7 @@
     "HOOK_SUBAGENT_STOP_ENABLED": "true",
     "HOOK_USER_PROMPT_SUBMIT_ENABLED": "true",
     "HOOK_PRE_COMPACT_ENABLED": "true",
-    "PROMPT_APPEND_TEXT": ""
+    "PROMPT_APPEND_TEXT": "Think Deeply"
   },
   "hooks": {
     "PreToolUse": [

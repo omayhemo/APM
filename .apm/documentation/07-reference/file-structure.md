@@ -17,7 +17,7 @@ Complete directory and file organization reference for the Agentic Persona Mappi
 
 ## 🏗️ Overview
 
-APM v4.0.0 follows a unified directory structure optimized for:
+APM v4.1.0 follows a unified directory structure optimized for:
 - **Native Sub-Agent Integration** with Claude Code
 - **Template-Based Generation** with single source of truth
 - **Session Management** with intelligent archiving
@@ -326,7 +326,7 @@ installer/
 
 ### Master Persona System
 
-APM v4.0.0 introduces the unified persona system with single source of truth:
+APM v4.1.0 introduces the unified persona system with single source of truth:
 
 #### JSON Master Definitions
 ```json
@@ -472,7 +472,7 @@ chmod 755 /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/
 
 ## 📊 File System Metrics
 
-### APM v4.0.0 Statistics
+### APM v4.1.0 Statistics
 
 | Category | Count | Size (approx) |
 |----------|-------|---------------|
@@ -484,7 +484,7 @@ chmod 755 /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/
 | **Documentation** | 60+ | 1.2 MB |
 | **Total Installation** | ~200 files | ~7.5 MB |
 
-### Cleanup Impact (v4.0.0)
+### Cleanup Impact (v4.1.0)
 - **Files Removed**: 141 deprecated files
 - **Lines Removed**: 25,599 lines of code
 - **Size Reduction**: 40% smaller installation

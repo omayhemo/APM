@@ -182,10 +182,10 @@ The intelligent tracking and resolution of dependencies between parallel tasks t
 ### **N**
 
 **Native Sub-Agent**
-Claude Code's built-in parallel execution system that APM v4.0.0 uses for true concurrent processing, replacing the legacy Task tool system.
+Claude Code's built-in parallel execution system that APM v4.1.0 uses for true concurrent processing, replacing the legacy Task tool system.
 
 **Native Sub-Agent Architecture**
-APM v4.0.0's modernized execution system that leverages Claude Code's native parallel processing capabilities for maximum performance and stability.
+APM v4.1.0's modernized execution system that leverages Claude Code's native parallel processing capabilities for maximum performance and stability.
 
 ### **P**
 
@@ -199,7 +199,7 @@ An APM command that launches multiple sub-agents concurrently, such as `/paralle
 The system that manages communication and synchronization between multiple concurrent agents.
 
 **Performance Multiplier**
-The speed improvement achieved through parallel execution, with APM v4.0.0 delivering 4-8x average performance gains.
+The speed improvement achieved through parallel execution, with APM v4.1.0 delivering 4-8x average performance gains.
 
 ### **R**
 
@@ -300,7 +300,7 @@ JSON configuration files in `/installer/personas/_master/` that serve as the sin
 Model Context Protocol plopdock integration that manages development servers and provides persistent execution environments.
 
 **Modernization**
-The comprehensive update of APM v4.0.0 that replaced legacy systems with native sub-agent architecture and unified persona definitions.
+The comprehensive update of APM v4.1.0 that replaced legacy systems with native sub-agent architecture and unified persona definitions.
 
 ### **T**
 

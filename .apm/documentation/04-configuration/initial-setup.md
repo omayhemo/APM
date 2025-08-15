@@ -20,7 +20,7 @@ Create or verify `/mnt/c/Code/agentic-persona-mapping/.apm/settings.json`:
 ```json
 {
   "apm": {
-    "version": "4.0.0",
+    "version": "4.1.0",
     "root_path": "/mnt/c/Code/agentic-persona-mapping/.apm",
     "project_root": "/mnt/c/Code/agentic-persona-mapping",
     "installer_root": "{{INSTALLER_ROOT}}"
@@ -56,7 +56,7 @@ Create `/mnt/c/Code/agentic-persona-mapping/.apm/.env` for environment-specific 
 
 ```bash
 # APM Framework Configuration
-APM_VERSION=4.0.0
+APM_VERSION=4.1.0
 APM_ENVIRONMENT=development
 
 # Path Configuration

@@ -1,0 +1,197 @@
+# Claude Code Sub-Agents Infrastructure (v4.1.0)
+
+This directory contains the Claude Code sub-agent templates for APM persona migration with **MCP Plopdock integration**.
+
+## Installation
+
+This infrastructure is installed via the APM installer when the sub-agents migration is enabled.
+
+## Directory Structure
+
+```
+.claude/
+├── agents/
+│   ├── README.md                          # This file
+│   ├── agent-template.md                  # Base template for all sub-agents
+│   ├── parallel-execution-patterns.md     # Core parallel execution patterns
+│   ├── task-coordination.md              # native sub-agent coordination system
+│   ├── synthesis-patterns.md             # Result synthesis approaches
+│   ├── config/
+│   │   └── base-config.yaml             # Shared configuration
+│   ├── migration/
+│   │   ├── tracking.md                  # Migration progress tracking
+│   │   └── rollback.md                  # Rollback procedures
+│   └── personas/
+│       ├── developer.md                 # Developer sub-agent
+│       ├── architect.md                 # Architect sub-agent
+│       ├── qa.md                        # QA sub-agent
+│       ├── orchestrator.md              # Orchestrator sub-agent
+│       ├── pm.md                        # Project Manager sub-agent
+│       ├── po.md                        # Product Owner sub-agent
+│       ├── sm.md                        # Scrum Master sub-agent
+│       └── analyst.md                   # Analyst sub-agent
+```
+
+## Features
+
+- **Native Integration**: Full Claude Code sub-agent compatibility
+- **Preserved Personas**: All APM personas maintain identical behavior
+- **Enhanced Context**: Dedicated context windows per agent
+- **Voice Integration**: Seamless TTS system integration
+- **Session Management**: Improved note creation and archiving
+- **Parallel Execution**: Advanced native sub-agent coordination with 5x performance boost
+- **Synthesis Patterns**: Four specialized result aggregation algorithms
+- **Resource Management**: Intelligent task distribution and monitoring
+- **Error Recovery**: Robust error handling with automatic recovery
+- **Backward Compatibility**: Dual-mode operation with legacy commands
+- **MCP Plopdock Integration**: Persistent development server management (v4.1.0)
+
+## MCP Plopdock Integration (v4.1.0 - Epic 26)
+
+### Development Server Management
+
+All sub-agents MUST use MCP tools for development server management instead of direct bash commands:
+
+**❌ FORBIDDEN Commands:**
+- Direct server startup: `npm run dev`, `python manage.py runserver`, `php artisan serve`
+- Port binding commands: `node server.js`, `python app.py`, `go run main.go`
+- Framework servers: `rails server`, `cargo run`, `flask run`
+
+**✅ REQUIRED: MCP Tools:**
+- `start_dev_server` - Managed server startup with persistence
+- `stop_dev_server` - Graceful shutdown with resource cleanup
+- `server_status` - Real-time server monitoring
+- `server_logs` - Console output streaming
+- `restart_dev_server` - Configuration reload with zero downtime
+
+**Benefits for Sub-Agents:**
+- **Session Persistence**: Servers survive Claude Code restarts
+- **Resource Isolation**: Prevents conflicts between parallel development streams
+- **Real-time Monitoring**: Web dashboard accessible at http://localhost:2601
+- **Intelligent Coordination**: Automatic port allocation for concurrent development
+
+## Parallel Execution Capabilities
+
+### Core Parallel Patterns
+- **Initialization Protocol**: Parallel document loading for 5x faster agent startup
+- **Analysis Execution**: Multi-dimensional parallel analysis with synthesis
+- **Development Coordination**: Multi-stream parallel development orchestration
+- **Resource Optimization**: CPU/IO/Memory-aware task distribution
+
+### Synthesis Patterns
+- **Risk Matrix**: Security analysis, architecture review, threat assessment
+- **Weighted Consensus**: Expert opinions, architectural decisions, feature prioritization  
+- **Priority Ranker**: Backlog management, bug triage, resource allocation
+- **Multi-Source Validator**: Cross-verification, quality assurance, conflict resolution
+
+### Performance Targets
+- **Parallel Efficiency**: {{PARALLEL_EFFICIENCY_TARGET}}x speedup over sequential execution
+- **Task Completion Rate**: >{{COMPLETION_RATE_TARGET}}% successful task completion
+- **Error Recovery**: >95% automatic recovery from task failures
+- **Resource Utilization**: {{RESOURCE_UTILIZATION_TARGET}}% optimal resource usage
+
+## Configuration
+
+Sub-agents are configured via:
+- `config/base-config.yaml` - Shared settings including parallel execution parameters
+- Individual persona files - Agent-specific behavior and parallel patterns
+- Environment variables from main APM system
+- Parallel execution templates with configurable performance tuning
+
+### Parallel Execution Configuration Variables
+
+#### Core Performance
+- `{{PARALLEL_VERSION}}` - Framework version (e.g., "2.4.1")
+- `{{MAX_PARALLEL_TASKS}}` - Maximum concurrent tasks (default: 5-7)
+- `{{TASK_TIMEOUT}}` - Task timeout in seconds (default: 300-600)
+- `{{SYNTHESIS_PATTERNS}}` - Available patterns: "risk_matrix,weighted_consensus,priority_ranker,multi_source_validator"
+
+#### Resource Management  
+- `{{CPU_INTENSIVE_MAX}}` - Max CPU-intensive parallel tasks (default: 3)
+- `{{IO_INTENSIVE_MAX}}` - Max I/O-intensive parallel tasks (default: 8)
+- `{{MEMORY_INTENSIVE_MAX}}` - Max memory-intensive parallel tasks (default: 2)
+- `{{RESOURCE_UTILIZATION_TARGET}}` - Target resource usage % (default: 75)
+
+#### Performance Targets
+- `{{PARALLEL_EFFICIENCY_TARGET}}` - Speedup multiplier target (default: 5.0)
+- `{{COMPLETION_RATE_TARGET}}` - Success rate target % (default: 95)
+- `{{ERROR_RATE_THRESHOLD}}` - Maximum error rate % (default: 5)
+- `{{COORDINATION_OVERHEAD_LIMIT}}` - Max coordination overhead % (default: 15)
+
+#### Synthesis Configuration
+- `{{HIGH_CONFIDENCE_THRESHOLD}}` - High confidence level (default: 0.85)
+- `{{MEDIUM_CONFIDENCE_THRESHOLD}}` - Medium confidence level (default: 0.60)  
+- `{{LOW_CONFIDENCE_THRESHOLD}}` - Low confidence level (default: 0.40)
+- `{{VALIDATION_THRESHOLD}}` - Multi-source validation threshold (default: 0.70)
+
+## Migration Status
+
+This infrastructure supports the APM to Claude Code Sub-Agents migration:
+- Phase 1: Foundation (Developer, Architect, QA, Orchestrator)
+- Phase 2: Management (PM, PO, SM, Analyst, Design Architect)
+- Phase 3: Advanced Features (AI/ML, Parallel Sprint, Agent Chaining)
+- Phase 4: Transition (Dual-mode, Documentation, User Guide)
+
+## Usage
+
+Sub-agents are automatically available after installation. They can be invoked:
+- Directly via Claude Code sub-agent system with parallel execution
+- Through backward-compatible APM commands
+- Via the AP Orchestrator for coordinated workflows
+
+### Parallel Execution Usage Examples
+
+#### Agent Initialization (5x faster startup)
+```markdown
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm initializing as the {{AGENT_ROLE}} agent. Let me load all required context in parallel for optimal performance.
+
+*Executing parallel initialization tasks:*
+[Use native sub-agents - ALL in single function_calls block]
+- Task 1: Load project architecture from {{ARCHITECTURE_PATH}}
+- Task 2: Load current sprint stories from {{SPRINT_PATH}}
+- Task 3: Load coding standards from {{STANDARDS_PATH}}
+- Task 4: Load test strategy from {{TEST_STRATEGY_PATH}}  
+- Task 5: Load definition of done from {{DOD_PATH}}
+```
+```
+
+#### Multi-Dimensional Analysis
+```markdown
+I'll perform comprehensive security analysis using parallel subtasks.
+
+*Executing parallel security analysis:*
+[Use native sub-agents - ALL in single function_calls block]
+- Task 1: SAST analysis focusing on injection vulnerabilities
+- Task 2: DAST analysis of authentication endpoints
+- Task 3: Dependency vulnerability scanning
+- Task 4: Configuration security review
+- Task 5: Access control analysis
+
+### Post-Analysis Synthesis:
+After ALL tasks complete, I'll synthesize findings using multi_source_validator pattern.
+```
+
+#### Parallel Development Coordination
+```markdown
+Launching parallel development streams for sprint execution:
+
+*Executing parallel development coordination:*
+[Use native sub-agents - ALL in single function_calls block]  
+- Task 1: Primary Developer Stream (Stories 1-3)
+- Task 2: Secondary Developer Stream (Stories 4-6)
+- Task 3: Integration Developer Stream (API contracts)
+- Task 4: QA Coordination Stream (Test automation)
+```
+
+### Synthesis Pattern Usage
+- **Risk Analysis**: Use `risk_matrix` for security assessments and threat modeling
+- **Decision Making**: Use `weighted_consensus` for architectural decisions and expert opinions
+- **Prioritization**: Use `priority_ranker` for backlog management and resource allocation
+- **Validation**: Use `multi_source_validator` for cross-verification and quality assurance
+
+For detailed usage instructions, see the main APM documentation and parallel execution pattern templates.

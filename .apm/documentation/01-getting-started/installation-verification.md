@@ -69,7 +69,22 @@ Open Claude Code and test core commands:
 5. Voice notification played
 6. Orchestrator persona activated
 
-**2. Parallel Command Testing**
+**2. NEW v4.1.0 Release Management Commands**
+
+```bash
+# Test version management (dry run)
+/version 4.1.0 --dry-run
+
+# Test documentation compliance
+/doc-compliance --quick
+```
+
+**Expected v4.1.0 Features:**
+- Version command updates all documentation
+- Documentation compliance validation
+- Release automation capabilities
+
+**3. Parallel Command Testing**
 ```bash
 # Test native sub-agent parallelism
 /parallel-sprint
@@ -267,7 +282,7 @@ Run this test to validate optimal performance:
 time /parallel-qa-framework
 ```
 
-**Expected Results (APM v4.0.0):**
+**Expected Results (APM v4.1.0):**
 - **Native Execution**: 4-8x faster than v3.x
 - **Memory Efficiency**: 60% less RAM usage
 - **Concurrent Agents**: 2-4 agents running simultaneously

@@ -18,7 +18,7 @@ The Design Architect agent is your specialized UI/UX and frontend architecture e
 - **Responsive Design**: Multi-device and responsive layout planning
 - **Accessibility Design**: Inclusive and accessible design implementation
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 3.5x performance improvement
 - **Parallel Design Analysis**: Multi-stream design evaluation
 - **Component-First Thinking**: Systematic component architecture
@@ -618,7 +618,7 @@ bash $SPEAK_DESIGN_ARCHITECT "Frontend architecture analysis complete"
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **Design System Creation**: 3.5x faster with parallel execution
 - **Component Documentation**: 4.2x faster comprehensive documentation
 - **UI Specification Quality**: 95% completeness in design specifications

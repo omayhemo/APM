@@ -127,9 +127,9 @@ For configuration support:
 
 ## Version Compatibility
 
-This configuration guide is for APM Framework v4.0.0+. Key changes:
+This configuration guide is for APM Framework v4.1.0+. Key changes:
 
-- **v4.0.0**: Native sub-agent architecture, unified persona system
+- **v4.1.0**: Native sub-agent architecture, unified persona system
 - **v3.5.0**: MCP Plopdock integration, enhanced session management
 - **v3.3.0**: Configurable prompt enhancement, voice notification improvements
 

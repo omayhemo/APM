@@ -393,7 +393,7 @@ parameters:
 
 ### Native Sub-Agent API
 
-APM v4.0.0 uses Claude Code's native sub-agent system for parallel execution:
+APM v4.1.0 uses Claude Code's native sub-agent system for parallel execution:
 
 ```yaml
 endpoint: internal:parallel_execution
@@ -524,7 +524,7 @@ All APIs return errors in this format:
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Performance Improvements
+### APM v4.1.0 Performance Improvements
 
 - **Native Sub-Agent Architecture**: 4-8x performance improvement
 - **Parallel Execution**: True concurrent processing
@@ -533,7 +533,7 @@ All APIs return errors in this format:
 
 ### Benchmarks
 
-| Operation | v3.5.0 | v4.0.0 | Improvement |
+| Operation | v3.5.0 | v4.1.0 | Improvement |
 |-----------|---------|---------|-------------|
 | Persona Activation | 2.3s | 0.8s | 2.9x faster |
 | Parallel Development | 45min | 9.8min | 4.6x faster |

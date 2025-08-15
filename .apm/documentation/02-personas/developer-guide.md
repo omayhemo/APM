@@ -18,7 +18,7 @@ The Developer agent is your specialized code implementation and technical proble
 - **Performance Optimization**: Code efficiency and system performance improvements
 - **Code Quality**: Best practices, patterns, and maintainable code architecture
 
-### ⚡ Performance Features (v4.0.0)
+### ⚡ Performance Features (v4.1.0)
 - **Native Sub-Agent Architecture**: 4.6x performance improvement with parallel development streams
 - **Multi-Developer Coordination**: True concurrent development with intelligent conflict resolution
 - **Automated Testing Integration**: TDD workflows with continuous testing
@@ -582,7 +582,7 @@ bash $SPEAK_DEVELOPER "Code review analysis complete - 2 optimization opportunit
 
 ## 📊 Performance Metrics
 
-### APM v4.0.0 Improvements
+### APM v4.1.0 Improvements
 - **Development Speed**: 4.6x faster with parallel developer coordination
 - **Code Quality**: 95% first-pass code review success rate
 - **Test Coverage**: 94% average test coverage with TDD approach

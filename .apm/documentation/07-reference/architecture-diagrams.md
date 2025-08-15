@@ -139,7 +139,7 @@ graph TB
 
 ## ⚡ Native Sub-Agent Architecture
 
-### APM v4.0.0 Native Sub-Agent System
+### APM v4.1.0 Native Sub-Agent System
 
 ```mermaid
 graph TB
@@ -202,9 +202,9 @@ graph TB
     style MGR fill:#ff9900,stroke:#333,stroke-width:4px
 ```
 
-### Performance Comparison: v3.5.0 vs v4.0.0
+### Performance Comparison: v3.5.0 vs v4.1.0
 
-| Operation | v3.5.0 (Task Tool) | v4.0.0 (Native) | Improvement |
+| Operation | v3.5.0 (Task Tool) | v4.1.0 (Native) | Improvement |
 |-----------|-------------------|------------------|-------------|
 | **Agent Initialization** | 2.3s | 0.8s | 2.9x faster |
 | **Parallel Execution** | 45 min | 9.8 min | 4.6x faster |
