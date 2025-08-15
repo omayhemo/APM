@@ -68,25 +68,25 @@ EXTRACTED_DIR="$TEMP_DIR"
 echo -e "${BLUE}Running APM installer...${NC}"
 echo ""
 
-if [ -f "$EXTRACTED_DIR/installer/install.sh" ]; then
+if [ -f "$EXTRACTED_DIR/payload/install.sh" ]; then
     cd "$EXTRACTED_DIR"
     # Pass the user's project directory as the first argument, followed by any other arguments
     # Only use /dev/tty if stdin is actually a terminal, not when piped through curl
     if [ -t 0 ]; then
         # stdin is a terminal, safe to use /dev/tty
-        bash installer/install.sh "$USER_PROJECT_DIR" "$@" < /dev/tty 2>/dev/null || \
-        bash installer/install.sh "$USER_PROJECT_DIR" "$@"
+        bash payload/install.sh "$USER_PROJECT_DIR" "$@" < /dev/tty 2>/dev/null || \
+        bash payload/install.sh "$USER_PROJECT_DIR" "$@"
     else
         # stdin is piped (like curl | bash), don't try /dev/tty as it will hang
-        bash installer/install.sh "$USER_PROJECT_DIR" "$@"
+        bash payload/install.sh "$USER_PROJECT_DIR" "$@"
         INSTALLER_EXIT_CODE=$?
     fi
 else
-    echo -e "${RED}Error: Installer not found in package${NC}"
+    echo -e "${RED}Error: Payload not found in package${NC}"
     exit 1
 fi
 
-# Wait for installer to fully complete and clear any buffered input
+# Wait for payload to fully complete and clear any buffered input
 wait
 sleep 0.1
 

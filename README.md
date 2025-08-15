@@ -1,6 +1,6 @@
 # 🚀 Agentic Persona Mapping (APM) Framework
 
-[![Version](https://img.shields.io/badge/version-4.0.1-blue.svg)](https://github.com/omayhemo/APM/releases/latest)
+[![Version](https://img.shields.io/badge/version-4.1.0-blue.svg)](https://github.com/omayhemo/APM/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-4--8x_faster-orange.svg)](https://github.com/omayhemo/APM)
 
@@ -14,6 +14,7 @@ APM is a revolutionary framework that orchestrates multiple AI personas to deliv
 - **9 Expert AI Agents** - Each specialized in their domain
 - **85+ Commands** - Complete coverage of the development lifecycle  
 - **Zero Setup Time** - Working team in under 5 minutes
+- **Seamless Claude Code Integration** - Automatic APM Orchestrator output style activation
 - **Production Ready** - Used by teams shipping real products
 
 ## 🎯 Quick Start
@@ -28,7 +29,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.0.1
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.0
 
 # With TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -37,7 +38,10 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 ### Your First Command
 
 ```bash
-# Activate the orchestrator
+# APM Orchestrator automatically activates after installation!
+# Just start Claude Code and the enhanced output style is ready
+
+# Activate the orchestrator manually
 /ap
 
 # Or jump straight to a specialist
@@ -62,6 +66,15 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 | 🎯 **Orchestrator** | `/ap` | Coordination, delegation, workflow |
 
 ## ⚡ Power Features
+
+### Automatic Claude Code Integration
+APM seamlessly integrates with Claude Code:
+```bash
+# APM Orchestrator output style automatically activated
+# Enhanced structured communication patterns
+# Evidence-based decision making protocols
+# Parallel agent coordination built-in
+```
 
 ### Parallel Execution
 Run multiple agents simultaneously for maximum speed:
@@ -115,7 +128,7 @@ The universal installer v2.0 supports flexible command-line options for various 
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--defaults` | `-y` | Non-interactive installation with default settings |
-| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.0.1`) |
+| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.1.0`) |
 | `--path PATH` | `-p` | Custom installation directory |
 | `--with-tts` | `-t` | Enable TTS voice notifications |
 | `--quiet` | `-q` | Minimal output (silent mode) |
@@ -144,7 +157,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.0.1
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.0
 
 # ❓ Show help and all options
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
@@ -172,8 +185,9 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.0.1** - Native Sub-Agent Architecture
+**v4.1.0** - Native Sub-Agent Architecture
 - 4-8x performance improvements
+- **Automatic Claude Code Integration** - APM Orchestrator output style auto-activates
 - Complete modernization with zero CLI crashes
 - 25,000+ lines of code cleanup
 - Enhanced documentation system
