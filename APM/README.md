@@ -185,9 +185,11 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.1.0** - Native Sub-Agent Architecture
-- 4-8x performance improvements
-- **Automatic Claude Code Integration** - APM Orchestrator output style auto-activates
+**v4.1.0** - Native Sub-Agent Architecture with Claude Code Integration
+- 4-8x performance improvements  
+- **🎯 AUTOMATIC CLAUDE CODE INTEGRATION** - APM Orchestrator output style auto-activates
+- **Revolutionary settings management** with correct outputStyle field placement
+- **Safe installation** preserves user permissions while adding APM functionality
 - Complete modernization with zero CLI crashes
 - 25,000+ lines of code cleanup
 - Enhanced documentation system
