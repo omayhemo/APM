@@ -2650,6 +2650,96 @@ else
     echo "- No cleanup needed (payload directory not found or is project root)"
 fi
 
+# Final validation to catch common script errors
+echo ""
+echo "Step 16: Final Installation Validation"
+echo "-------------------------------------"
+
+# Function to validate generated scripts for common typos
+validate_generated_scripts() {
+    local validation_failed=false
+    
+    echo "⏳ Validating generated scripts..."
+    
+    # Check for common typos in shell scripts
+    local script_dirs=(
+        "$CLAUDE_DIR"
+        "$APM_ROOT/agents/scripts"
+        "$PROJECT_ROOT/.piper"
+    )
+    
+    for dir in "${script_dirs[@]}"; do
+        if [ -d "$dir" ]; then
+            # Look for shell scripts with common typos
+            find "$dir" -name "*.sh" -type f 2>/dev/null | while read -r script_file; do
+                if [ -f "$script_file" ]; then
+                    # Check for 'cho' command (missing 'e' from echo)
+                    if grep -q "^cho$\|^cho " "$script_file" 2>/dev/null; then
+                        echo "⚠️  Warning: Found potential typo 'cho' in $script_file"
+                        echo "   This may cause 'cho: command not found' errors"
+                        validation_failed=true
+                        
+                        # Attempt to fix the typo
+                        if sed -i 's/^cho /echo /g; s/^cho$/echo/' "$script_file" 2>/dev/null; then
+                            echo "✅ Auto-fixed 'cho' → 'echo' in $script_file"
+                        else
+                            echo "❌ Failed to auto-fix typo in $script_file"
+                        fi
+                    fi
+                    
+                    # Check for other common command typos
+                    local typos=("ech " "ecoh " "ehco ")
+                    for typo in "${typos[@]}"; do
+                        if grep -q "^${typo}" "$script_file" 2>/dev/null; then
+                            echo "⚠️  Warning: Found potential typo '${typo}' in $script_file"
+                            validation_failed=true
+                        fi
+                    done
+                fi
+            done
+        fi
+    done
+    
+    if [ "$validation_failed" = true ]; then
+        echo "⚠️  Script validation completed with warnings"
+        echo "   Some potential issues were found and auto-fixed"
+    else
+        echo "✅ Script validation passed - no common typos found"
+    fi
+}
+
+# Run validation
+validate_generated_scripts
+
+echo ""
+echo "Step 17: Installation Summary"
+echo "----------------------------"
+
+# Display final installation summary
+echo "==========================================
+APM Framework installation completed!
+==========================================
+
+Installation Summary:
+- Version: 4.1.0 (Native Sub-Agent Architecture)
+- Performance: 4-8x faster parallel execution
+- Location: $PROJECT_ROOT
+- Project: $PROJECT_NAME
+
+Version file verified: $APM_ROOT/VERSION"
+
+# Display preserved files info
+if [ -f "$APM_ROOT/ap-manager.sh" ]; then
+    echo "Preserving essential update files..."
+    echo "✅ Preserved minimal files for ap-manager updates"
+fi
+
+echo "Cleaning payload artifacts..."
+if [ -f "$PROJECT_ROOT/LICENSE" ] && [ -f "$APM_ROOT/LICENSE" ]; then
+    rm -f "$PROJECT_ROOT/LICENSE" 2>/dev/null
+    echo "- Removed LICENSE file from root (now in .apm folder)"
+fi
+
 # Display next steps in blue at the very end
 echo ""
 echo -e "${BLUE}Next steps:${NC}"

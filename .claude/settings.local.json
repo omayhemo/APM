@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git log:*)"
+    ]
+  },
+  "outputStyle": "APM Orchestrator Enhanced"
+}
