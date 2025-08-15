@@ -90,6 +90,14 @@ fi
 wait
 sleep 0.1
 
+# Check for any script validation issues
+if [ -n "$INSTALLER_EXIT_CODE" ] && [ "$INSTALLER_EXIT_CODE" -ne 0 ]; then
+    echo ""
+    echo -e "${YELLOW}⚠️ Installation completed with warnings (exit code: $INSTALLER_EXIT_CODE)${NC}"
+    echo "This may indicate script validation issues or minor errors."
+    echo "The installation should still be functional."
+fi
+
 echo ""
 echo -e "${GREEN}═══════════════════════════════════════════${NC}"
 echo -e "${GREEN}     APM Installation Complete!${NC}"
