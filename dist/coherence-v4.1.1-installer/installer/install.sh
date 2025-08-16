@@ -62,11 +62,11 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
     USE_DEFAULTS=true
 fi
 
-# Source large pinned banner script if available
+# Source fixed banner installer script if available
 LIVE_DISPLAY_AVAILABLE=false
 if [ "$USE_LIVE_MODE" = true ]; then
-    if [ -f "$PAYLOAD_DIR/pinned-coherence-banner.sh" ]; then
-        source "$PAYLOAD_DIR/pinned-coherence-banner.sh"
+    if [ -f "$PAYLOAD_DIR/fixed-banner-installer.sh" ]; then
+        source "$PAYLOAD_DIR/fixed-banner-installer.sh"
         LIVE_DISPLAY_AVAILABLE=true
     else
         echo "COHERENCE banner script not found. Using classic mode."
@@ -2790,8 +2790,8 @@ echo -e "${BLUE}7. Check out the documentation at: .apm/documentation/ (Main ind
 
 # Execute installation with appropriate display mode
 if [ "$USE_LIVE_MODE" = true ] && [ "$LIVE_DISPLAY_AVAILABLE" = true ]; then
-    # Run with large COHERENCE pinned banner
-    run_with_pinned_large_banner "main_installation_process"
+    # Run with COHERENCE fixed banner at top
+    run_with_fixed_banner "main_installation_process"
 else
     # Run directly without live tracking
     if [ "$LIVE_DISPLAY_AVAILABLE" = false ] && [ "$USE_LIVE_MODE" = true ]; then
