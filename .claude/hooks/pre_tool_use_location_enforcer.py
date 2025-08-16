@@ -122,6 +122,10 @@ class DocumentLocationEnforcer:
             r'(.*/)?project_docs/epics/': r'\1project_docs/planning/epics/',
             # Story files in wrong location
             r'(.*/)?project_docs/stories/': r'\1project_docs/planning/stories/',
+            # Transition/handoff notes in project_docs should go to session_notes
+            r'(.*/)?project_docs/handoffs/': r'\1.apm/session_notes/',
+            r'(.*/)?project_docs/transitions/': r'\1.apm/session_notes/',
+            r'(.*/)?project_docs/transfers/': r'\1.apm/session_notes/',
         }
         
         for pattern, replacement in direct_corrections.items():

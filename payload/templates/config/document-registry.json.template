@@ -137,6 +137,36 @@
         "agent_hints": ["*"]
       }
     },
+    "transition_note": {
+      "location": "{{SESSION_NOTES_PATH}}/",
+      "type": "collection",
+      "naming": {
+        "pattern": "{timestamp}-{title}-transition.md",
+        "timestamp_format": "YYYY-MM-DD-HH-mm-ss",
+        "title_format": "kebab-case"
+      },
+      "allow_subfolders": false,
+      "detection": {
+        "filename_patterns": ["transition", "handoff", "transfer", "notes", "complete", "broken"],
+        "content_markers": ["Transition Notes", "Handoff Summary", "Transfer", "Critical Context", "From:", "To:", "Status:", "Priority:", "Executive Summary"],
+        "agent_hints": ["*"]
+      }
+    },
+    "handoff_note": {
+      "location": "{{SESSION_NOTES_PATH}}/",
+      "type": "collection",
+      "naming": {
+        "pattern": "{timestamp}-handoff-{description}.md",
+        "timestamp_format": "YYYY-MM-DD-HH-mm-ss",
+        "description_format": "kebab-case"
+      },
+      "allow_subfolders": false,
+      "detection": {
+        "filename_patterns": ["handoff", "transition", "transfer", "context", "notes"],
+        "content_markers": ["Handoff", "Transfer", "Context", "Transition", "Critical Context", "From Agent", "To Agent", "Work Completed", "Key Decisions"],
+        "agent_hints": ["*"]
+      }
+    },
     "defect": {
       "location": "{{PROJECT_DOCS}}/qa/defects/",
       "type": "collection",

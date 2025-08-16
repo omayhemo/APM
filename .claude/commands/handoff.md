@@ -20,7 +20,7 @@ Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping wit
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 3: Check for work artifacts relevant to target persona
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 4: Prepare transition notes for seamless continuation
+- Task 4: Prepare transition notes for seamless continuation in /mnt/c/Code/agentic-persona-mapping/.apm/session_notes
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 5: Load target persona's required templates and checklists
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -30,7 +30,7 @@ Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping wit
 1. "Summarize current work status, key decisions made, and next steps for the incoming agent"
 2. "Load the full persona configuration including initialization protocol and capabilities"
 3. "Identify and load any work artifacts (stories, designs, code) relevant to the target persona"
-4. "Create transition notes highlighting critical context the new agent needs"
+4. "Create transition notes in session_notes directory highlighting critical context the new agent needs"
 5. "Load the target persona's primary templates and checklists for immediate use"
 
 ### Post-Handoff Protocol:

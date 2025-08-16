@@ -53,7 +53,7 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
 fi
 
 echo "=========================================="
-echo "   APM Framework Installation v4.1.0"
+echo "   APM Framework Installation v4.1.1"
 echo "   Native Sub-Agent Architecture"
 echo "=========================================="
 echo ""
@@ -104,7 +104,7 @@ if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ] && [ -d "
         SKIP_COPY="true"
     else
         echo "=========================================="
-        echo "APM Framework Quick Setup v4.1.0"
+        echo "APM Framework Quick Setup v4.1.1"
         echo "=========================================="
         echo ""
         echo "You're running the payload from the extracted distribution."
@@ -822,7 +822,7 @@ ensure_dir "$PROJECT_DOCS/artifacts"
 ensure_dir "$PROJECT_DOCS/releases"
 ensure_dir "$PROJECT_DOCS/reports"
 
-# Create modern APM structure (v4.1.0)
+# Create modern APM structure (v4.1.1)
 # Stories and epics go under planning/ subdirectory per document registry
 ensure_dir "$PROJECT_DOCS/planning"
 ensure_dir "$PROJECT_DOCS/planning/stories"
@@ -2721,7 +2721,7 @@ APM Framework installation completed!
 ==========================================
 
 Installation Summary:
-- Version: 4.1.0 (Native Sub-Agent Architecture)
+- Version: 4.1.1 (Native Sub-Agent Architecture)
 - Performance: 4-8x faster parallel execution
 - Location: $PROJECT_ROOT
 - Project: $PROJECT_NAME
