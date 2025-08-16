@@ -2,6 +2,12 @@
 
 ## [4.1.1] - 2025-08-16
 
+### Rebranding
+- **Coherence Launch**: Introduced "Coherence - Agentic Persona Mapping" as primary brand
+  - New positioning: "Unified Context Engineering" platform
+  - Enhanced messaging emphasizing orchestrated AI intelligence
+  - Maintains full backward compatibility with APM terminology
+
 ### Fixed
 - **Critical Installer Script Error**: Resolved `bash: line 87: cho: command not found` error that appeared at end of installations
   - Added comprehensive script validation system with auto-fix capability
