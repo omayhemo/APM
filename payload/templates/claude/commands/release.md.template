@@ -2,6 +2,21 @@
 
 Create a new release of the AP Mapping following the documented release process.
 
+## 🚨 CRITICAL REPOSITORY RULES 🚨
+
+### 🔴 APM REPOSITORY UPDATES
+**ONLY THESE FILES MAY BE UPDATED IN APM REPOSITORY:**
+- ✅ `APM/install.sh` - Universal installer script ONLY
+- ✅ `APM/README.md` - Installation instructions ONLY  
+- ❌ **NOTHING ELSE** - NO project files, NO documentation, NO source code
+
+### 🔴 GITHUB RELEASES DESTINATION
+**ALL RELEASES MUST GO TO APM REPOSITORY:**
+- ✅ `gh release create --repo omayhemo/APM` - **ALWAYS USE THIS**
+- ❌ `omayhemo/agentic-persona-mapping` - **NEVER RELEASE HERE**
+
+**VIOLATION OF THESE RULES BREAKS INSTALLATION FOR ALL USERS**
+
 ## Usage
 ```
 /release <version> [--beta|--rc|--alpha]
@@ -113,14 +128,16 @@ When this command is executed, I will perform the following steps:
 
 5. **APM Repository Updates** (SEPARATE from main project)
    ```bash
-   # Work in APM repository directory
+   # 🚨 CRITICAL: WORK IN APM REPOSITORY DIRECTORY ONLY
    cd /mnt/c/Code/agentic-persona-mapping/APM
    
-   # Update ONLY these files:
-   - install.sh (if installer logic changed)
-   - README.md (version and release date)
+   # ✅ ONLY UPDATE THESE 2 FILES (NOTHING ELSE):
+   - install.sh (ONLY if installer logic changed)
+   - README.md (ONLY version and release date updates)
    
-   # NEVER copy project files here
+   # ❌ NEVER COPY ANY PROJECT FILES HERE
+   # ❌ NEVER COPY .apm/, project_docs/, payload/, etc.
+   # ❌ NEVER USE cp -r OR BULK COPY OPERATIONS
    ```
 
 6. **Git Operations**
@@ -138,28 +155,44 @@ When this command is executed, I will perform the following steps:
    git push origin main --tags
    ```
 
-7. **GitHub Release Creation**
+7. **GitHub Release Creation** 
    ```bash
-   # Create release in APM repository
+   # 🚨 CRITICAL: MUST CREATE RELEASE IN APM REPOSITORY 🚨
+   # ALWAYS use --repo omayhemo/APM flag
+   
+   cd /mnt/c/Code/agentic-persona-mapping/APM
    gh release create v{version} \
-     ../dist/apm-v{version}.tar.gz \
+     ../dist/coherence-v{version}-installer.tar.gz \
      --title "APM Framework v{version}" \
-     --notes-file ../project_docs/release-notes/RELEASE-NOTES-v{version}.md
+     --notes-file ../project_docs/release-notes/RELEASE-NOTES-v{version}.md \
+     --repo omayhemo/APM
+   
+   # ❌ NEVER USE: gh release create (without --repo flag)
+   # ❌ NEVER USE: --repo omayhemo/agentic-persona-mapping
    ```
 
 ## Critical Safety Rules
 
-### 🚨 NEVER DO THIS:
+### 🚨 REPOSITORY VIOLATIONS (WILL BREAK ALL INSTALLATIONS):
+
+#### ❌ NEVER UPDATE THESE FILES IN APM REPOSITORY:
 - **NEVER** copy `/project_docs/` to APM repository
 - **NEVER** copy `.apm/` directory to APM repository  
 - **NEVER** push working project files to APM repository
 - **NEVER** use `cp -r` to copy entire project to APM
+- **NEVER** commit any files except install.sh and README.md
 
-### ✅ ONLY DO THIS:
-- **ONLY** update `APM/install.sh` and `APM/README.md`
-- **ONLY** upload the distribution tar.gz from `/dist/`
-- **ONLY** push tags and minimal installer updates
-- **ONLY** work with distribution packages, not source files
+#### ❌ NEVER CREATE RELEASES IN WRONG REPOSITORY:
+- **NEVER** use `gh release create` without `--repo omayhemo/APM`
+- **NEVER** create releases in `omayhemo/agentic-persona-mapping`
+- **NEVER** use default repository for GitHub operations
+
+### ✅ ONLY ALLOWED APM REPOSITORY OPERATIONS:
+- **ONLY** update `APM/install.sh` (installer script changes only)
+- **ONLY** update `APM/README.md` (version info and installation instructions only)
+- **ONLY** create GitHub releases with `--repo omayhemo/APM` flag
+- **ONLY** upload distribution tar.gz packages to APM releases
+- **ONLY** push tags to APM repository
 
 ## Notes
 
@@ -170,3 +203,15 @@ When this command is executed, I will perform the following steps:
 - Main project repository remains separate and private
 - Distribution packages are self-contained installers
 - Breaking changes require migration guide in RELEASE_NOTES.md
+
+---
+
+## 🚨 FINAL REPOSITORY WARNING 🚨
+
+**BEFORE EXECUTING ANY RELEASE COMMAND:**
+
+1. **APM Repository File Updates**: ONLY `install.sh` and `README.md` - NOTHING ELSE
+2. **GitHub Release Destination**: ALWAYS `--repo omayhemo/APM` - NEVER agentic-persona-mapping
+3. **Violation Impact**: Wrong repository = broken installations for ALL users
+
+**IF IN DOUBT, RE-READ THE CRITICAL REPOSITORY RULES SECTION ABOVE**
