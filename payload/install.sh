@@ -2721,6 +2721,20 @@ validate_generated_scripts() {
                         fi
                     fi
                     
+                    # Check for 'Wait' command (capitalized 'wait')
+                    if grep -q "^Wait$\|^Wait " "$script_file" 2>/dev/null; then
+                        echo "⚠️  Warning: Found potential typo 'Wait' in $script_file"
+                        echo "   This may cause 'Wait: command not found' errors"
+                        validation_failed=true
+                        
+                        # Attempt to fix the typo
+                        if sed -i 's/^Wait /wait /g; s/^Wait$/wait/' "$script_file" 2>/dev/null; then
+                            echo "✅ Auto-fixed 'Wait' → 'wait' in $script_file"
+                        else
+                            echo "❌ Failed to auto-fix typo in $script_file"
+                        fi
+                    fi
+                    
                     # Check for other common command typos
                     local typos=("ech " "ecoh " "ehco ")
                     for typo in "${typos[@]}"; do
