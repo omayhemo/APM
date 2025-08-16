@@ -984,6 +984,9 @@ echo "⏳ Installing APM commands (replacing APM commands, preserving user comma
 # Create ap_orchestrator.md command (primary)
 replace_variables "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" "$CLAUDE_COMMANDS_DIR/ap_orchestrator.md"
 
+# Create coherence.md command (primary orchestrator command)
+replace_variables "$INSTALLER_DIR/templates/claude/commands/coherence.md.template" "$CLAUDE_COMMANDS_DIR/coherence.md"
+
 # Create ap.md command (alias)
 replace_variables "$INSTALLER_DIR/templates/claude/commands/ap.md.template" "$CLAUDE_COMMANDS_DIR/ap.md"
 
@@ -2376,25 +2379,25 @@ if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then
         # Use proper parameters for each audio player
         case "$WAV_PLAYER" in
             paplay)
-                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     paplay --raw --rate=22050 --format=s16le --channels=1 2>/dev/null
                 ;;
             aplay)
-                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     aplay -q -r 22050 -f S16_LE -t raw -c 1 - 2>/dev/null
                 ;;
             play)
-                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     play -q -t raw -r 22050 -e signed -b 16 -c 1 - 2>/dev/null
                 ;;
             *)
-                echo "Welcome to Agentic Persona Mapping Framework." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     $WAV_PLAYER $WAV_PLAYER_ARGS 2>/dev/null
@@ -2692,6 +2695,7 @@ echo "-------------------------------------"
 # Function to validate generated scripts for common typos
 validate_generated_scripts() {
     local validation_failed=false
+    local validation_temp_file="/tmp/validation_results.$$"
     
     echo "⏳ Validating generated scripts..."
     
@@ -2700,13 +2704,20 @@ validate_generated_scripts() {
         "$CLAUDE_DIR"
         "$APM_ROOT/agents/scripts"
         "$PROJECT_ROOT/.piper"
+        "$PROJECT_ROOT"  # Also check project root for any generated scripts
     )
     
     for dir in "${script_dirs[@]}"; do
         if [ -d "$dir" ]; then
-            # Look for shell scripts with common typos
-            find "$dir" -name "*.sh" -type f 2>/dev/null | while read -r script_file; do
+            echo "  Checking directory: $dir"
+            # Look for shell scripts with common typos - fix subshell issue
+            local script_files
+            script_files=$(find "$dir" -maxdepth 2 -name "*.sh" -type f 2>/dev/null)
+            
+            for script_file in $script_files; do
                 if [ -f "$script_file" ]; then
+                    echo "    Validating: $script_file"
+                    
                     # Check for 'cho' command (missing 'e' from echo)
                     if grep -q "^cho$\|^cho " "$script_file" 2>/dev/null; then
                         echo "⚠️  Warning: Found potential typo 'cho' in $script_file"
@@ -2736,7 +2747,7 @@ validate_generated_scripts() {
                     fi
                     
                     # Check for other common command typos
-                    local typos=("ech " "ecoh " "ehco ")
+                    local typos=("ech " "ecoh " "ehco " "wiat" "Wiat" "WAIT")
                     for typo in "${typos[@]}"; do
                         if grep -q "^${typo}" "$script_file" 2>/dev/null; then
                             echo "⚠️  Warning: Found potential typo '${typo}' in $script_file"
@@ -2748,12 +2759,22 @@ validate_generated_scripts() {
         fi
     done
     
+    # Also check for any files that contain 'Wait' in the project root
+    echo "  Checking for any remaining 'Wait' commands in project..."
+    if grep -r "^Wait$\|^Wait " "$PROJECT_ROOT" --include="*.sh" 2>/dev/null | grep -v "/test-" | head -5; then
+        echo "⚠️  Found additional 'Wait' commands - please check manually"
+        validation_failed=true
+    fi
+    
     if [ "$validation_failed" = true ]; then
         echo "⚠️  Script validation completed with warnings"
         echo "   Some potential issues were found and auto-fixed"
     else
         echo "✅ Script validation passed - no common typos found"
     fi
+    
+    # Clean up temp files
+    rm -f "$validation_temp_file" 2>/dev/null
 }
 
 # Run validation
