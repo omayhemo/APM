@@ -27,16 +27,16 @@ Coherence is the AI context engineering platform that brings order to complexity
 
 ```bash
 # Quick install with defaults (non-interactive)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
 # Or interactive installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --version 4.1.4
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.4
 
 # With TTS voice notifications
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
 ```
 
 ### Your First Command
@@ -143,28 +143,28 @@ The universal installer v2.0 supports flexible command-line options for various 
 
 ```bash
 # 🚀 Quick install with defaults (recommended for automation)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 
 # 📍 Install to specific directory
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --path /opt/apm --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --defaults
 
 # 🎯 Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --version 3.5.0 --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 3.5.0 --defaults
 
 # 🔊 Install with TTS voice notifications
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
 
 # 🤫 Silent installation (CI/CD friendly)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults --quiet
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --quiet
 
 # 🔍 Debug installation issues
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults --verbose
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.4
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.4
 
 # ❓ Show help and all options
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --help
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
 ```
 
 ### Interactive vs Non-Interactive
@@ -172,7 +172,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/ma
 - **Interactive Mode** (default): Prompts for configuration options
   ```bash
   # ✅ NOW WORKS! Fixed in v2.0 - accepts user input even when piped
-  curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash
+  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
   ```
   You'll be prompted for:
   - Project name
@@ -183,7 +183,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/ma
 
 - **Non-Interactive Mode**: Perfect for automation and scripts
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults
+  curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
   ```
   Uses defaults for all options - no prompts
 
@@ -222,7 +222,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ```bash
 # Get started in 30 seconds (non-interactive)
-curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 ```
 
 *Built for developers who ship.*
