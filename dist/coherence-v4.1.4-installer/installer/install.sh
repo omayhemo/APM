@@ -2379,25 +2379,25 @@ if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then
         # Use proper parameters for each audio player
         case "$WAV_PLAYER" in
             paplay)
-                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     paplay --raw --rate=22050 --format=s16le --channels=1 2>/dev/null
                 ;;
             aplay)
-                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     aplay -q -r 22050 -f S16_LE -t raw -c 1 - 2>/dev/null
                 ;;
             play)
-                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     play -q -t raw -r 22050 -e signed -b 16 -c 1 - 2>/dev/null
                 ;;
             *)
-                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     $WAV_PLAYER $WAV_PLAYER_ARGS 2>/dev/null
