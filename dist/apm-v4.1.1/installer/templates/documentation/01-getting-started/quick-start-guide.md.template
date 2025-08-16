@@ -1,6 +1,6 @@
-# Quick Start Guide - APM Framework
+# Quick Start Guide - Coherence - Agentic Persona Mapping
 
-Welcome! This guide will have you productive with APM in just 5 minutes.
+Welcome! This guide will have you productive with Coherence in just 5 minutes through unified context engineering.
 
 ---
 
@@ -17,10 +17,10 @@ Before starting, ensure you have:
 
 ### Minute 1: Verify Your Installation
 
-Check that APM is properly installed:
+Check that Coherence is properly installed:
 
 ```bash
-# List the APM directory structure
+# List the Coherence directory structure
 ls -la .apm/
 
 # You should see:
@@ -30,26 +30,26 @@ ls -la .apm/
 # - rules/        (operational guidelines)
 ```
 
-### Minute 2: Activate the AP Orchestrator
+### Minute 2: Activate the Coherence Orchestrator
 
-The AP Orchestrator is your central command center. Activate it:
+The Coherence Orchestrator is your central command center for unified context engineering. Activate it:
 
 ```bash
-ap
+coherence
 ```
 
 **What happens:**
-- The Orchestrator initializes the APM system
+- The Orchestrator initializes the Coherence system
 - Loads all 9 agent personas
 - Prepares parallel execution capabilities
 - You'll hear a voice notification (if TTS is enabled)
 
 **Expected response:**
 ```
-✓ AP Orchestrator initialized with comprehensive APM system knowledge
+✓ Coherence Orchestrator initialized with comprehensive unified context engineering system knowledge
 
-Welcome to the Agentic Persona Mapping Framework v{{APM_VERSION}}!
-I'm your AP Orchestrator, ready to coordinate your development workflow.
+Welcome to Coherence - Agentic Persona Mapping v{{APM_VERSION}}!
+I'm your Coherence Orchestrator, ready to coordinate your development workflow through unified context engineering.
 ```
 
 ### Minute 3: Meet Your First Agent
@@ -103,10 +103,10 @@ See what else you can do:
 
 ---
 
-## 🎯 What Just Happened?
+## 🎯 What Just Happened? (Unified Context Engineering)
 
 You've successfully:
-1. ✅ Verified your APM installation
+1. ✅ Verified your Coherence installation
 2. ✅ Activated the central Orchestrator
 3. ✅ Used your first specialized agent
 4. ✅ Experienced parallel execution
@@ -116,7 +116,7 @@ You've successfully:
 
 ## 📚 Understanding the Basics
 
-### What Are Agents?
+### What Are Coherence Agents?
 Agents are specialized AI personas, each expert in their domain:
 - **Analyst** - Research and discovery
 - **PM** - Product management
@@ -124,13 +124,13 @@ Agents are specialized AI personas, each expert in their domain:
 - **Developer** - Code implementation
 - And 5 more specialists!
 
-### Why Use APM?
-- **4-8x Faster Development** - Parallel execution
+### Why Use Coherence?
+- **4-8x Faster Development** - Parallel execution through unified context engineering
 - **Higher Quality** - Specialized expertise
 - **Better Organization** - Structured workflows
-- **Reduced Errors** - AI-powered validation
+- **Reduced Errors** - AI-powered validation through coherent workflow
 
-### The APM Workflow
+### The Coherence Workflow
 ```
 Idea → Analyst → PM → Architect → Developer → QA → Deployment
          ↓        ↓        ↓           ↓        ↓
@@ -139,7 +139,7 @@ Idea → Analyst → PM → Architect → Developer → QA → Deployment
 
 ---
 
-## 🎪 Your First Project - Complete Example
+## 🎪 Your First Project - Complete Coherence Example
 
 Let's build something real - a simple todo application:
 
@@ -197,27 +197,27 @@ Let's build something real - a simple todo application:
 
 ## 💡 Pro Tips for New Users
 
-### 1. Use the Right Agent
+### 1. Use the Right Coherence Agent
 Each agent specializes in specific tasks:
 - **Confused about requirements?** → Use `/analyst`
 - **Need a PRD?** → Use `/pm`
 - **Designing the system?** → Use `/architect`
 - **Writing code?** → Use `/dev`
 
-### 2. Leverage Parallel Commands
+### 2. Leverage Parallel Commands (Unified Context Engineering)
 Parallel commands are 4-8x faster:
 - `/parallel-prd` instead of `/pm` for faster PRD
 - `/parallel-architecture` for rapid design
 - `/parallel-qa-framework` for comprehensive testing
 
-### 3. Maintain Context
-APM maintains context between agents:
+### 3. Maintain Context (Coherent Workflow)
+Coherence maintains context between agents through unified context engineering:
 - Agents share session notes
 - Work transfers seamlessly
 - No need to repeat information
 
-### 4. Trust the Process
-Follow the APM workflow:
+### 4. Trust the Coherence Process
+Follow the Coherence workflow:
 1. Research with Analyst
 2. Plan with PM
 3. Design with Architect
@@ -235,15 +235,15 @@ Voice announcements help track progress:
 # Set "audioEnabled": true
 ```
 
-### Adjust Parallel Execution
+### Adjust Parallel Execution (Unified Context Engineering)
 Configure parallel task limits:
 ```bash
 # In settings.json
 "parallelTasks": 4  # Adjust based on your system
 ```
 
-### Session Management
-APM tracks your work automatically:
+### Coherence Session Management
+Coherence tracks your work automatically through unified context engineering:
 - Session notes in `.apm/session_notes/`
 - Automatic context preservation
 - Seamless agent handoffs
@@ -252,18 +252,18 @@ APM tracks your work automatically:
 
 ## 📊 What to Expect
 
-### Performance Gains
+### Coherence Performance Gains
 - **Sequential Development:** 1 task at a time
-- **APM Parallel:** 4-8 tasks simultaneously
+- **Coherence Parallel:** 4-8 tasks simultaneously through unified context engineering
 - **Result:** 4-8x faster delivery
 
-### Quality Improvements
-- **Without APM:** Generic AI responses
-- **With APM:** Specialized expert guidance
+### Coherence Quality Improvements
+- **Without Coherence:** Generic AI responses
+- **With Coherence:** Specialized expert guidance through unified context engineering
 - **Result:** Professional-grade outputs
 
 ### Example Metrics
-| Task | Traditional | With APM | Improvement |
+| Task | Traditional | With Coherence | Improvement |
 |------|------------|----------|-------------|
 | PRD Creation | 2 hours | 30 mins | 4x faster |
 | Architecture Design | 4 hours | 1 hour | 4x faster |
@@ -274,14 +274,14 @@ APM tracks your work automatically:
 
 ## 🚨 Common Issues & Solutions
 
-### "Command not recognized"
+### "Coherence Command not recognized"
 **Solution:** Make sure you're using the exact command:
 - ✅ `/analyst` (correct)
 - ❌ `analyst` (missing slash)
 
-### "Agent not responding as expected"
+### "Coherence Agent not responding as expected"
 **Solution:** Ensure proper activation:
-1. First run `ap` to initialize
+1. First run `coherence` to initialize (legacy `ap` still supported)
 2. Then use agent commands
 
 ### "Parallel commands seem slow"
@@ -293,10 +293,10 @@ APM tracks your work automatically:
 
 ## 📚 Next Steps
 
-Now that you're up and running:
+Now that you're up and running with unified context engineering:
 
-1. **Read** [`understanding-apm.md`](understanding-apm.md) - Deep dive into concepts
-2. **Try** [`first-project-tutorial.md`](first-project-tutorial.md) - Complete walkthrough
+1. **Read** [`understanding-apm.md`](understanding-apm.md) - Deep dive into unified context engineering concepts
+2. **Try** [`first-project-tutorial.md`](first-project-tutorial.md) - Complete Coherence walkthrough
 3. **Explore** [`../02-personas/persona-selection-guide.md`](../02-personas/persona-selection-guide.md) - Choose the right agent
 4. **Master** [`../03-workflows/parallel-development.md`](../03-workflows/parallel-development.md) - Maximum speed
 
@@ -304,15 +304,15 @@ Now that you're up and running:
 
 ## 🎯 Quick Command Reference
 
-### Essential Commands
-- `ap` - Start AP Orchestrator
+### Essential Coherence Commands
+- `coherence` - Start Coherence Orchestrator (legacy `ap` still supported)
 - `/analyst` - Research & requirements
 - `/pm` - Product management
 - `/architect` - System design
 - `/dev` - Development
 - `/qa` - Quality assurance
 
-### Parallel Commands (Faster)
+### Parallel Commands (Faster through Unified Context Engineering)
 - `/parallel-brainstorming` - 4x faster ideation
 - `/parallel-prd` - 70% faster PRD
 - `/parallel-architecture` - 75% faster design
@@ -335,14 +335,14 @@ Now that you're up and running:
 
 ## 🎉 Congratulations!
 
-You're now ready to use APM for accelerated development. Remember:
-- Start with `ap` to initialize
+You're now ready to use Coherence for accelerated development. Remember:
+- Start with `coherence` to initialize (legacy `ap` still supported)
 - Use the right agent for each task
 - Leverage parallel commands for speed
 - Follow the workflow for best results
 
-**Happy building with APM!**
+**Happy building with Coherence!**
 
 ---
 
-*Next: [`understanding-apm.md`](understanding-apm.md) - Learn the core concepts behind APM*
+*Next: [`understanding-apm.md`](understanding-apm.md) - Learn the core unified context engineering concepts behind Coherence*

@@ -1,11 +1,19 @@
 ---
 name: ap_orchestrator
-description: Launch AP Orchestrator (primary command)
+description: Launch Coherence Orchestrator (legacy alias - use /coherence for enhanced features)
 ---
 
-# AP ORCHESTRATOR ACTIVATION
+# 🔄 LEGACY COMMAND REDIRECT
 
-## 🚨 CRITICAL ACTIVATION SEQUENCE
+**⚠️ DEPRECATED**: This command is maintained for backward compatibility.
+
+**✅ NEW COMMAND**: Please use `/coherence` for the full Unified Context Engineering experience.
+
+The AP Orchestrator has evolved into the **Coherence Orchestrator** with enhanced unified context engineering capabilities, orchestrated AI intelligence, and improved coordination patterns.
+
+**Redirecting to Coherence Orchestrator...**
+
+/coherence
 
 **YOU MUST FOLLOW THIS EXACT SEQUENCE:**
 

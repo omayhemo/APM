@@ -1,6 +1,6 @@
 #!/bin/bash
 # {{PERSONA_NAME}} Voice Script Template
-# This template provides the standard voice script structure for APM agent personas
+# This template provides the standard voice script structure for Coherence agent personas
 # Generated from voice-script-template.sh.template
 
 # Voice script for {{PERSONA_DESCRIPTION}} using TTS manager
@@ -148,8 +148,8 @@ format_message() {
     case "$PERSONA" in
         "orchestrator")
             # Add authoritative prefix if not present
-            if [[ ! "$formatted_message" =~ ^(AP|Orchestrator|System) ]]; then
-                formatted_message="AP Orchestrator: $formatted_message"
+            if [[ ! "$formatted_message" =~ ^(Coherence|Orchestrator|System) ]]; then
+                formatted_message="Coherence Orchestrator: $formatted_message"
             fi
             ;;
         "developer")
@@ -161,13 +161,13 @@ format_message() {
         "qa")
             # Add quality context
             if [[ "$formatted_message" =~ (test|testing) ]]; then
-                formatted_message="QA Framework: $formatted_message"
+                formatted_message="Coherence QA: $formatted_message"
             fi
             ;;
         "pm")
             # Add project management context
             if [[ "$formatted_message" =~ (sprint|story|task) ]]; then
-                formatted_message="Project Manager: $formatted_message"
+                formatted_message="Coherence PM: $formatted_message"
             fi
             ;;
         *)

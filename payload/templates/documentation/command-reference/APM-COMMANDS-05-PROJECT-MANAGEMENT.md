@@ -1,7 +1,7 @@
-# APM Project Management Commands
-## Planning, Tracking, and Coordination
+# Coherence Project Management Commands
+## Planning, Tracking, and Coordination with Unified Context Engineering
 
-The Project Management commands provide comprehensive tools for planning, tracking, and coordinating software development projects using the APM framework.
+The Project Management commands provide comprehensive tools for planning, tracking, and coordinating software development projects using the Coherence framework with orchestrated intelligence.
 
 ---
 
@@ -788,5 +788,5 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-*APM Project Management Commands - v4.1.0*
-*Comprehensive Planning and Coordination Tools*
+*Coherence Project Management Commands - v4.1.0*
+*Comprehensive Planning and Coordination Tools with Unified Context Engineering*

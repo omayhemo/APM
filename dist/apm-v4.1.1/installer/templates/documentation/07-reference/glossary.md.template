@@ -1,6 +1,6 @@
-# APM Glossary
+# Coherence Glossary
 
-Comprehensive terminology and definitions for the Agentic Persona Mapping (APM) framework.
+Comprehensive terminology and definitions for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -22,14 +22,14 @@ Comprehensive terminology and definitions for the Agentic Persona Mapping (APM) 
 **Agent**
 A software entity that acts autonomously to perform tasks. In APM, agents are implemented as persona-specific AI assistants that handle different aspects of software development.
 
-**Agentic Persona Mapping (APM)**
+**Coherence - Agentic Persona Mapping**
 A framework that maps distinct AI personas to specific roles in software development teams, enabling specialized and coordinated development workflows.
 
-**AP Orchestrator**
-The central coordination agent that manages persona activation, task delegation, and workflow orchestration. Activated via `/ap` or `/ap_orchestrator` commands.
+**Coherence Orchestrator**
+The central coordination agent that manages persona activation, task delegation, and workflow orchestration. Activated via `/coherence` command.
 
-**APM Root (`{{APM_ROOT}}`)**
-The base directory containing all APM framework files, typically located at `{{PROJECT_ROOT}}/.apm`.
+**Coherence Root (`{{APM_ROOT}}`)**
+The base directory containing all Coherence framework files, typically located at `{{PROJECT_ROOT}}/.apm`.
 
 **Acceptance Criteria**
 Specific conditions that must be met for a user story to be considered complete. APM agents automatically track and update acceptance criteria progress in the backlog.
@@ -423,7 +423,7 @@ The use of APM to automate repetitive development tasks and enforce consistent p
 | Acronym | Full Form | Definition |
 |---------|-----------|------------|
 | **APM** | Agentic Persona Mapping | The core framework for AI persona-based development |
-| **AP** | Agent Persona | Prefix for APM agent roles (AP Orchestrator, AP Developer, etc.) |
+| **CO** | Coherence Orchestrator | Prefix for Coherence agent roles (Coherence Orchestrator, etc.) |
 | **AI/ML** | Artificial Intelligence/Machine Learning | Advanced analytics capabilities in QA framework |
 | **CLI** | Command Line Interface | Text-based interface for system interaction |
 | **CI/CD** | Continuous Integration/Continuous Deployment | Automated build and deployment pipeline |
@@ -447,7 +447,7 @@ The use of APM to automate repetitive development tasks and enforce consistent p
 - **Activation Commands**: `/persona-name` (e.g., `/developer`, `/qa`)
 - **Parallel Commands**: `/parallel-command` (e.g., `/parallel-sprint`)
 - **Session Commands**: `/handoff`, `/switch`, `/wrap`
-- **Framework Commands**: `/qa-framework`, `/ap_orchestrator`
+- **Framework Commands**: `/qa-framework`, `/coherence`
 
 ### File Patterns
 - **Session Notes**: `YYYY-MM-DD-HH-mm-ss-Description.md`

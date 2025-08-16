@@ -1,23 +1,23 @@
-# AP Knowledge Base
+# Coherence Knowledge Base
 
 ## INDEX OF TOPICS
 
 - [AP Knowledge Base](#ap-knowledge-base)
   - [INDEX OF TOPICS](#index-of-topics)
-  - [AP MAPPING - CORE PHILOSOPHY](#ap-mapping---core-philosophy)
-  - [AP MAPPING - AGILE METHODOLOGIES OVERVIEW](#ap-mapping---agile-methodologies-overview)
+  - [COHERENCE - CORE PHILOSOPHY](#coherence---core-philosophy)
+  - [COHERENCE - AGILE METHODOLOGIES OVERVIEW](#coherence---agile-methodologies-overview)
     - [CORE PRINCIPLES OF AGILE](#core-principles-of-agile)
     - [KEY PRACTICES IN AGILE](#key-practices-in-agile)
     - [BENEFITS OF AGILE](#benefits-of-agile)
-  - [AP MAPPING - ANALOGIES WITH AGILE PRINCIPLES](#ap-method---analogies-with-agile-principles)
-  - [AP MAPPING - TOOLING AND RESOURCE LOCATIONS](#ap-method---tooling-and-resource-locations)
+  - [COHERENCE - ANALOGIES WITH AGILE PRINCIPLES](#coherence-method---analogies-with-agile-principles)
+  - [COHERENCE - TOOLING AND RESOURCE LOCATIONS](#coherence-method---tooling-and-resource-locations)
     - [Licensing](#licensing)
-  - [AP MAPPING - ETHOS \& BEST PRACTICES](#ap-method---ethos--best-practices)
+  - [COHERENCE - ETHOS \& BEST PRACTICES](#coherence-method---ethos--best-practices)
   - [AGENT ROLES AND RESPONSIBILITIES](#agent-roles-and-responsibilities)
-  - [NAVIGATING THE AP WORKFLOW - INITIAL GUIDANCE](#navigating-the-ap-workflow---initial-guidance)
+  - [NAVIGATING THE COHERENCE WORKFLOW - INITIAL GUIDANCE](#navigating-the-coherence-workflow---initial-guidance)
     - [STARTING YOUR PROJECT - ANALYST OR PM?](#starting-your-project---analyst-or-pm)
     - [UNDERSTANDING EPICS - SINGLE OR MULTIPLE?](#understanding-epics---single-or-multiple)
-  - [GETTING STARTED WITH AP](#getting-started-with-ap)
+  - [GETTING STARTED WITH COHERENCE](#getting-started-with-coherence)
     - [Initial Project Setup](#initial-project-setup)
     - [Document Sharding](#document-sharding)
     - [Utilizing Dedicated IDE Agents (SM and Dev)](#utilizing-dedicated-ide-agents-sm-and-dev)
@@ -32,9 +32,9 @@
     - [PURPOSE OF IDE TASKS](#purpose-of-ide-tasks)
     - [EXAMPLES OF TASK FUNCTIONALITY](#examples-of-task-functionality)
 
-## AP MAPPING - CORE PHILOSOPHY
+## COHERENCE - CORE PHILOSOPHY
 
-**STATEMENT:** "Context Engineering" is about embracing the chaos, thinking like a CTO with unlimited resources and a singular vision, and leveraging AI as your high-powered team to achieve ambitious goals rapidly. The AP Mapping (Agentic Persona Mapping), with the integrated "AP Agent", elevates "Context Coding" to advanced project planning, providing a structured yet flexible framework to plan, execute, and manage software projects using a team of specialized AI agents.
+**STATEMENT:** "Unified Context Engineering" is about embracing the chaos, thinking like a CTO with unlimited resources and a singular vision, and leveraging AI as your high-powered team to achieve ambitious goals rapidly. The Coherence framework, with integrated "Coherence Agent", elevates "Context Coding" to advanced project planning, providing a structured yet flexible framework to plan, execute, and manage software projects using a team of specialized AI agents with orchestrated intelligence.
 
 **DETAILS:**
 
@@ -42,7 +42,7 @@
 - Utilize AI as a force multiplier.
 - Adapt and overcome obstacles with a proactive mindset.
 
-## AP MAPPING - AGILE METHODOLOGIES OVERVIEW
+## COHERENCE - AGILE METHODOLOGIES OVERVIEW
 
 ### CORE PRINCIPLES OF AGILE
 
@@ -67,11 +67,11 @@
 - Enhanced Stakeholder Engagement: Close collaboration with users/clients.
 - Higher Team Morale: Empowered and self-organizing teams.
 
-## AP MAPPING - ANALOGIES WITH AGILE PRINCIPLES
+## COHERENCE - ANALOGIES WITH AGILE PRINCIPLES
 
-The AP Mapping, while distinct in its "Context Engineering" approach with AI, shares foundational parallels with Agile methodologies:
+The Coherence framework, while distinct in its "Unified Context Engineering" approach with AI, shares foundational parallels with Agile methodologies:
 
-- **Individuals and Interactions over Processes and Tools (Agile) vs. Context Engineering & AI Team (AP):**
+- **Individuals and Interactions over Processes and Tools (Agile) vs. Unified Context Engineering & AI Team (Coherence):**
 
   - **Agile:** Emphasizes the importance of skilled individuals and effective communication.
   - **AP:** The "Context Engineer" (you) actively directs and interacts with AI agents, treating them as a high-powered team. The quality of this interaction and clear instruction ("CLEAR_INSTRUCTIONS", "KNOW_YOUR_AGENTS") is paramount, echoing Agile's focus on human elements.

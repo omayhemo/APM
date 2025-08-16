@@ -1,6 +1,6 @@
 # Story 16.1: Create Sub-Agent Infrastructure Templates
 
-**Epic**: EPIC-016 APM to Claude Code Sub-Agents Migration  
+**Epic**: EPIC-016 Coherence to Claude Code Sub-Agents Migration  
 **Story Points**: 3  
 **Priority**: High  
 **Status**: {{STORY_STATUS}}  
@@ -9,14 +9,14 @@
 
 ## User Story
 
-As a **Product Owner**, I want **sub-agent infrastructure templates created for the installer** so that **the APM to Sub-Agents migration can be deployed without modifying the APM framework directly**.
+As a **Product Owner**, I want **sub-agent infrastructure templates created for the installer with unified context engineering** so that **the Coherence to Sub-Agents migration can be deployed without modifying the Coherence framework directly**.
 
 ## Business Value
 
-- **APM Protection**: Ensures APM framework integrity by using template-based deployment
+- **Coherence Protection**: Ensures Coherence framework integrity by using template-based deployment
 - **Safe Migration**: Installer templates allow controlled, reversible migration
-- **Infrastructure Foundation**: Provides the base structure for all agent templates
-- **Risk Mitigation**: Template approach prevents accidental APM corruption
+- **Infrastructure Foundation**: Provides the base structure for all agent templates with unified context engineering
+- **Risk Mitigation**: Template approach prevents accidental Coherence corruption
 
 ## Acceptance Criteria
 
@@ -30,7 +30,7 @@ As a **Product Owner**, I want **sub-agent infrastructure templates created for 
 - [x] Create `templates/templates/claude/agents/agent-template.md.template`
 - [x] Provide base template for all agent personas
 - [x] Include template variables for dynamic configuration
-- [x] Preserve APM compatibility patterns
+- [x] Preserve Coherence compatibility patterns with unified context engineering
 
 ### AC3: Configuration Template System
 - [x] Create `templates/templates/claude/agents/config/base-config.yaml.template`
@@ -54,7 +54,8 @@ As a **Product Owner**, I want **sub-agent infrastructure templates created for 
 - [x] **CRITICAL**: Zero modifications to `.apm/` directory
 - [x] All files created in `templates/templates/claude/agents/`
 - [x] Template structure validated for installer compatibility
-- [x] APM protection protocol documented
+- [x] Coherence protection protocol documented
+- [x] **NEW**: Unified context engineering patterns implemented
 
 ## Technical Requirements
 
@@ -75,46 +76,50 @@ templates/templates/claude/agents/
 Templates must include placeholders for:
 - `{{AGENT_NAME}}` - Agent persona name
 - `{{MIGRATION_VERSION}}` - Migration version
-- `{{AP_ROOT}}` - APM root directory
+- `{{AP_ROOT}}` - Coherence root directory
 - `{{TTS_PROVIDER}}` - Text-to-speech provider
 - `{{SESSION_NOTES_PATH}}` - Session notes directory
+- `{{CONTEXT_ENGINEERING_MODE}}` - Unified context engineering configuration
 
 ### Security Requirements
-- **No APM Modifications**: Never touch `.apm/` directory
+- **No Coherence Modifications**: Never touch `.apm/` directory
 - **Template Isolation**: All work in `templates/templates/claude/agents/`
 - **Installer Integration**: Templates must work with existing installer
-- **Backward Compatibility**: Preserve all APM command functionality
+- **Backward Compatibility**: Preserve all Coherence command functionality
+- **Context Engineering Security**: Implement secure unified context sharing patterns
 
 ## Implementation Notes
 
 ### Critical Incident Resolution
-**APM Protection Violation Detected**: Initial implementation incorrectly created `.claude/agents/` directory, violating the fundamental rule of never modifying APM infrastructure.
+**Coherence Protection Violation Detected**: Initial implementation incorrectly created `.claude/agents/` directory, violating the fundamental rule of never modifying Coherence infrastructure.
 
 **Resolution Actions Taken**:
 1. **Immediate Halt**: Stopped all work on incorrect implementation
-2. **APM Restoration**: Removed all `.claude/agents/` modifications with `rm -rf`
-3. **Template Creation**: Recreated all work as proper installer templates
-4. **Process Enhancement**: Added APM protection monitoring to prevent future violations
+2. **Coherence Restoration**: Removed all `.claude/agents/` modifications with `rm -rf`
+3. **Template Creation**: Recreated all work as proper installer templates with unified context engineering
+4. **Process Enhancement**: Added Coherence protection monitoring to prevent future violations
 
 **Lessons Learned**:
-- APM protection must be enforced at the start of every story
-- Template-first approach is non-negotiable
+- Coherence protection must be enforced at the start of every story
+- Template-first approach with unified context engineering is non-negotiable
 - Continuous verification needed during implementation
-- Team education on APM protection critical
+- Team education on Coherence protection and unified context patterns critical
 
 ### Template Design Principles
-1. **Preservation First**: All APM capabilities preserved in template format
+1. **Preservation First**: All Coherence capabilities preserved in template format with unified context engineering
 2. **Variable-Driven**: Dynamic configuration through template variables
 3. **Installer-Ready**: Compatible with existing installer infrastructure
 4. **Rollback-Enabled**: Support for complete migration reversal
+5. **Context-Engineered**: Unified context sharing and coordination patterns
 
 ## Definition of Done
 
 - [x] All 6 acceptance criteria completed
 - [x] Templates created in correct `templates/templates/claude/agents/` location
-- [x] Zero modifications made to APM framework
+- [x] Zero modifications made to Coherence framework
 - [x] Template structure validated for installer compatibility
-- [x] APM protection protocol implemented and documented
+- [x] Coherence protection protocol implemented and documented
+- [x] Unified context engineering patterns validated
 - [x] Code review completed (template structure validation)
 - [x] Template variables properly defined
 - [x] Installer integration verified
@@ -125,7 +130,7 @@ Templates must include placeholders for:
 - **Structure Test**: Verify all templates in correct directory
 - **Variable Test**: Confirm all template variables defined
 - **Installer Test**: Validate compatibility with installer system
-- **APM Test**: Verify no APM modifications made
+- **Coherence Test**: Verify no Coherence modifications made
 
 ### Integration Testing
 - **Template Processing**: Test installer template processing
@@ -136,8 +141,9 @@ Templates must include placeholders for:
 
 ### Upstream Dependencies
 - Existing installer template system
-- APM framework v4.1.0 (READ ONLY)
+- Coherence framework v4.1.0 (READ ONLY)
 - Template processing infrastructure
+- Unified context engineering framework
 
 ### Downstream Dependencies
 - Story 16.2: Create Developer Agent Template
@@ -148,26 +154,29 @@ Templates must include placeholders for:
 ## Risk Assessment
 
 ### High Risk Items
-- **APM Framework Corruption**: Mitigated by templates-only approach
+- **Coherence Framework Corruption**: Mitigated by templates-only approach
 - **Template Incompatibility**: Mitigated by installer integration testing
 - **Missing Variables**: Mitigated by comprehensive template variable definition
+- **Context Engineering Complexity**: Mitigated by unified pattern implementation
 
 ### Risk Mitigation
-- **APM Protection Monitoring**: Continuous verification of no APM changes
-- **Template Validation**: Automated checking of template structure
+- **Coherence Protection Monitoring**: Continuous verification of no Coherence changes
+- **Template Validation**: Automated checking of template structure with unified context patterns
 - **Rollback Readiness**: Complete rollback procedures templated
 
 ## Success Metrics
 
 ### Functional Metrics
 - **Templates Created**: 5/5 (100%)
-- **APM Violations**: 0/0 (0% - Target achieved after correction)
+- **Coherence Violations**: 0/0 (0% - Target achieved after correction)
 - **Template Variables**: 100% defined
+- **Unified Context Engineering**: 100% implemented
 - **Installer Compatibility**: 100%
 
 ### Quality Metrics
 - **Code Review**: Passed (template structure validation)
-- **APM Protection**: Passed (after incident resolution)
+- **Coherence Protection**: Passed (after incident resolution)
+- **Unified Context Engineering**: Passed (pattern validation)
 - **Documentation**: Complete (comprehensive README)
 - **Testing**: Passed (template validation)
 
@@ -180,11 +189,11 @@ Templates must include placeholders for:
 - **Completion Date**: {{COMPLETION_DATE}}
 
 ### Key Milestones
-- [x] **Incident Response**: APM violation corrected immediately
-- [x] **Template Foundation**: Base infrastructure templates created
+- [x] **Incident Response**: Coherence violation corrected immediately
+- [x] **Template Foundation**: Base infrastructure templates with unified context engineering created
 - [x] **Configuration System**: Shared configuration template established
 - [x] **Migration Support**: Tracking and rollback templates completed
-- [x] **Validation Complete**: All templates verified for installer compatibility
+- [x] **Validation Complete**: All templates verified for installer compatibility with unified context patterns
 
 ## Post-Implementation
 
@@ -195,11 +204,11 @@ Templates must include placeholders for:
 4. **Story 16.5**: Use infrastructure to create Orchestrator template
 
 ### Continuous Improvement
-- Enhanced APM protection monitoring for future stories
-- Template validation automation
-- Team training on template-first approach
-- Documentation of APM protection protocols
+- Enhanced Coherence protection monitoring for future stories
+- Template validation automation with unified context engineering
+- Team training on template-first approach with unified context patterns
+- Documentation of Coherence protection protocols
 
 ---
 
-**Critical Success Factor**: This story establishes the foundation for the entire migration while maintaining absolute APM framework protection through the template-based approach.
+**Critical Success Factor**: This story establishes the foundation for the entire migration while maintaining absolute Coherence framework protection through the template-based approach with unified context engineering patterns.

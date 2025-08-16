@@ -1,15 +1,15 @@
-# APM Initial Setup Configuration Guide
+# Coherence Initial Setup Configuration Guide
 
-This guide walks you through the complete first-time configuration of the Agentic Persona Mapping (APM) framework.
+This guide walks you through the complete first-time configuration of **Coherence - Agentic Persona Mapping**, the unified context engineering framework for orchestrated intelligence.
 
 ## Prerequisites
 
 Before starting configuration:
 
-- [ ] APM framework installed via `./install.sh`
+- [ ] Coherence framework installed via `./install.sh`
 - [ ] Claude Code CLI installed and configured
 - [ ] Project directory structure in place
-- [ ] Basic understanding of APM concepts
+- [ ] Basic understanding of Coherence and unified context engineering concepts
 
 ## Step 1: Core Configuration Files
 
@@ -19,11 +19,14 @@ Create or verify `{{APM_ROOT}}/settings.json`:
 
 ```json
 {
-  "apm": {
+  "coherence": {
     "version": "4.1.0",
+    "framework_name": "Coherence - Agentic Persona Mapping",
     "root_path": "{{APM_ROOT}}",
     "project_root": "{{PROJECT_ROOT}}",
-    "installer_root": "{{INSTALLER_ROOT}}"
+    "installer_root": "{{INSTALLER_ROOT}}",
+    "unified_context_engineering": true,
+    "orchestrated_intelligence": true
   },
   "session_management": {
     "auto_create_notes": true,
@@ -45,7 +48,9 @@ Create or verify `{{APM_ROOT}}/settings.json`:
   "parallel_execution": {
     "native_subagents_enabled": true,
     "max_concurrent_agents": 4,
-    "coordination_timeout_seconds": 300
+    "coordination_timeout_seconds": 300,
+    "orchestrated_intelligence_mode": true,
+    "seamless_integration": true
   }
 }
 ```
@@ -322,7 +327,7 @@ Test core APM functionality:
 
 ```bash
 # In Claude Code, run these commands one by one:
-# /ap
+# /coherence (or /ap for backward compatibility)
 # /handoff dev
 # /wrap
 ```
@@ -338,6 +343,7 @@ Test each persona:
 # /developer
 # /pm
 # /qa
+# Note: All personas now powered by Coherence orchestrated intelligence
 ```
 
 ### 6.3 Parallel Execution Test
@@ -436,13 +442,15 @@ After completing initial setup:
 
 ## Configuration Complete
 
-Your APM framework is now configured and ready for use. Test with:
+Your Coherence framework is now configured and ready for use with unified context engineering. Test with:
 
 ```
-/ap
+/coherence
 ```
 
-This should activate the AP Orchestrator with full voice notifications and session management.
+(Also available as `/ap` for backward compatibility)
+
+This should activate the Coherence Orchestrator with full voice notifications and session management, powered by unified context engineering.
 
 ---
 

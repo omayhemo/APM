@@ -1,6 +1,6 @@
-# Project Documentation Structure - APM v{{VERSION}}
+# Project Documentation Structure - Coherence v{{VERSION}}
 
-This directory contains all project-specific documentation generated and used by the APM Framework agents with **native sub-agent architecture** and **MCP Plopdock integration** for 4-8x faster documentation generation.
+This directory contains all project-specific documentation generated and used by the Coherence - Agentic Persona Mapping Framework agents with **native sub-agent architecture**, **unified context engineering**, and **MCP Plopdock integration** for 4-8x faster documentation generation.
 
 ## Directory Structure
 
@@ -40,16 +40,16 @@ Master index linking all documentation for easy navigation.
 
 ## Usage by Agents (v{{VERSION}} - Native Sub-Agent Enhanced)
 
-- **Analyst**: Parallel research and analysis with native sub-agents
-- **PM**: Concurrent PRD generation and epic management (4x speedup)
-- **Architect**: `/parallel-architecture-review` for system-wide analysis
-- **Design Architect**: Parallel component and UI/UX analysis
-- **PO**: `/groom` with 18 native sub-agents for backlog optimization
-- **SM**: `/parallel-sprint` coordinating 2-4 Developer sub-agents
-- **Developer**: `/parallel-review` for concurrent code analysis
-- **QA**: `/parallel-test` with AI/ML analytics (92% accuracy)
+- **Analyst**: Parallel research and analysis with native sub-agents and unified context engineering
+- **PM**: Concurrent PRD generation and epic management (4x speedup) with Coherence methodology
+- **Architect**: `/parallel-architecture-review` for system-wide analysis using unified context patterns
+- **Design Architect**: Parallel component and UI/UX analysis with Coherence design principles
+- **PO**: `/groom` with 18 native sub-agents for backlog optimization using unified context engineering
+- **SM**: `/parallel-sprint` coordinating 2-4 Developer sub-agents with Coherence coordination patterns
+- **Developer**: `/parallel-review` for concurrent code analysis with unified context sharing
+- **QA**: `/parallel-test` with AI/ML analytics (92% accuracy) and Coherence validation frameworks
 
-**Performance Impact**: Documentation generation now 4-8x faster with zero CLI crashes
+**Performance Impact**: Documentation generation now 4-8x faster with zero CLI crashes through Coherence optimization and unified context engineering
 
 ## MCP Plopdock Integration (v{{VERSION}} - Epic 26)
 

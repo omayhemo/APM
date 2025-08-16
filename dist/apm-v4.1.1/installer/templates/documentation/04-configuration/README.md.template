@@ -1,16 +1,18 @@
-# APM Configuration Guide
+# Coherence Configuration Guide
 
-This directory contains comprehensive configuration guides for the Agentic Persona Mapping (APM) framework.
+This directory contains comprehensive configuration guides for **Coherence - Agentic Persona Mapping**, the unified context engineering framework for orchestrated intelligence.
 
 ## Configuration Overview
 
-The APM framework provides extensive configuration options to customize:
+**Coherence - Agentic Persona Mapping** provides extensive configuration options for unified context engineering and orchestrated intelligence:
 
 - **Environment Variables**: Control behavior, paths, and integrations
 - **Persona Definitions**: Modify agent behaviors and capabilities
 - **Voice Notifications**: Configure audio alerts and notifications
 - **Path Structures**: Customize directory layouts and file locations
 - **Development Integration**: Configure MCP Plopdock and development tools
+- **Unified Context Engineering**: Configure seamless integration and context preservation
+- **Orchestrated Intelligence**: Set up coordinated multi-agent workflows
 
 ## Configuration File Locations
 
@@ -18,6 +20,7 @@ The APM framework provides extensive configuration options to customize:
 - **Settings**: `{{APM_ROOT}}/settings.json`
 - **Environment**: `{{APM_ROOT}}/.env` (optional)
 - **Claude Configuration**: `{{APM_ROOT}}/CLAUDE.md`
+- **Coherence Configuration**: Unified context engineering settings
 
 ### Persona Configuration
 - **Master Definitions**: `{{INSTALLER_ROOT}}/personas/_master/*.persona.json`
@@ -35,7 +38,7 @@ The APM framework provides extensive configuration options to customize:
 ## Configuration Guides
 
 ### 📋 [Initial Setup Guide](./initial-setup.md)
-Complete first-time configuration walkthrough for new APM installations.
+Complete first-time configuration walkthrough for new Coherence installations with unified context engineering setup.
 
 ### 🔧 [Environment Variables Guide](./environment-variables.md)
 Comprehensive reference for all environment variables and their effects.
@@ -56,26 +59,26 @@ Customize directory structures and file locations.
 - [ ] Configure `{{APM_ROOT}}/settings.json` with your preferences
 - [ ] Set up voice notifications (optional but recommended)
 - [ ] Verify persona definitions are correctly generated
-- [ ] Test configuration with `/ap` command
+- [ ] Test configuration with `/coherence` command (also available as `/ap` for backward compatibility)
 
 ### Advanced Configuration
 - [ ] Set up MCP Plopdock integration
 - [ ] Configure custom environment variables
-- [ ] Customize persona behaviors
-- [ ] Set up session management preferences
-- [ ] Configure project-specific paths
+- [ ] Customize persona behaviors for orchestrated intelligence
+- [ ] Set up session management preferences with unified context engineering
+- [ ] Configure project-specific paths for seamless integration
 
 ## Configuration Validation
 
 To validate your configuration:
 
 ```bash
-# Test basic APM functionality
+# Test basic Coherence functionality
 cd {{PROJECT_ROOT}}
-# In Claude Code, run: /ap
+# In Claude Code, run: /coherence (or /ap for backward compatibility)
 
 # Verify voice notifications
-{{APM_ROOT}}/agents/voice/speakOrchestrator.sh "Configuration test"
+{{APM_ROOT}}/agents/voice/speakOrchestrator.sh "Coherence configuration test"
 
 # Check persona generation
 {{INSTALLER_ROOT}}/generate-personas.sh
@@ -127,11 +130,12 @@ For configuration support:
 
 ## Version Compatibility
 
-This configuration guide is for APM Framework v4.1.0+. Key changes:
+This configuration guide is for **Coherence - Agentic Persona Mapping** v4.1.0+. Key changes:
 
-- **v4.1.0**: Native sub-agent architecture, unified persona system
-- **v4.1.0**: MCP Plopdock integration, enhanced session management
+- **v4.1.0**: Native sub-agent architecture, unified persona system with orchestrated intelligence
+- **v4.1.0**: MCP Plopdock integration, enhanced session management with unified context engineering
 - **v4.1.0**: Configurable prompt enhancement, voice notification improvements
+- **v4.1.0**: Coherence Orchestrator (replaces AP Orchestrator) with seamless integration capabilities
 
 ---
 

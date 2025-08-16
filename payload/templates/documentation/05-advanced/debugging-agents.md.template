@@ -1,10 +1,10 @@
 # Debugging and Monitoring Agent Behavior
 
-This guide covers comprehensive debugging, monitoring, and troubleshooting techniques for APM agents and their interactions.
+This guide covers comprehensive debugging, monitoring, and troubleshooting techniques for Coherence agents and their interactions.
 
 ## Overview
 
-Advanced debugging and monitoring capabilities in APM provide:
+Advanced debugging and monitoring capabilities in Coherence provide:
 - **Real-time Agent Behavior Analysis** with detailed execution traces
 - **Performance Profiling** for identifying bottlenecks and optimization opportunities
 - **Session Debugging** with step-by-step execution analysis
@@ -80,7 +80,7 @@ graph TB
 
 ```python
 class AgentExecutionTracer:
-    """Comprehensive execution tracing for APM agents"""
+    """Comprehensive execution tracing for Coherence agents"""
     
     def __init__(self, config):
         self.trace_config = config
@@ -213,7 +213,7 @@ class AgentExecutionTracer:
 
 ```python
 class AgentPerformanceProfiler:
-    """Advanced performance profiling for APM agents"""
+    """Advanced performance profiling for Coherence agents"""
     
     def __init__(self):
         self.cpu_profiler = CPUProfiler()
@@ -708,7 +708,7 @@ class ProactiveIssuePreventor:
 
 ```python
 class StructuredLogger:
-    """Advanced structured logging for APM agents"""
+    """Advanced structured logging for Coherence agents"""
     
     def __init__(self, config):
         self.log_config = config
@@ -791,8 +791,8 @@ class StructuredLogger:
 ### 2. Analytics and Insights
 
 ```python
-class APMAnalytics:
-    """Advanced analytics for APM agent behavior and performance"""
+class CoherenceAnalytics:
+    """Advanced analytics for Coherence agent behavior and performance"""
     
     def __init__(self, config):
         self.analytics_engine = AnalyticsEngine(config)
@@ -1044,4 +1044,4 @@ debugging:
 
 ---
 
-This completes the advanced APM documentation templates covering custom personas, performance optimization, enterprise deployment, integration patterns, AI/ML features, parallel orchestration, and debugging/monitoring capabilities.
+This completes the advanced Coherence documentation templates covering custom personas, performance optimization, enterprise deployment, integration patterns, AI/ML features, parallel orchestration, and debugging/monitoring capabilities.

@@ -1,6 +1,6 @@
-# APM Reference Documentation
+# Coherence Reference Documentation
 
-This directory contains comprehensive technical reference documentation for the Agentic Persona Mapping (APM) framework.
+This directory contains comprehensive technical reference documentation for the Coherence - Agentic Persona Mapping framework.
 
 ## 📚 Reference Documentation Index
 
@@ -19,16 +19,16 @@ This directory contains comprehensive technical reference documentation for the 
 ## 🎯 Purpose
 
 This reference documentation provides:
-- **Complete Technical Specifications** for all APM components
+- **Complete Technical Specifications** for all Coherence components
 - **API Contracts** and interface definitions
 - **Schema Definitions** for configuration and data structures
 - **Architecture Documentation** with diagrams and flow charts
 - **Migration Procedures** for version upgrades
-- **Comprehensive Glossary** of APM terminology
+- **Comprehensive Glossary** of Coherence terminology
 
 ## 🔧 For Developers
 
-If you're extending or customizing APM:
+If you're extending or customizing Coherence:
 1. Start with [Architecture Diagrams](architecture-diagrams.md) to understand system design
 2. Review [API Reference](api-reference.md) for integration points
 3. Check [Configuration Schema](configuration-schema.md) for customization options
@@ -57,4 +57,4 @@ For deployment and configuration:
 
 ---
 
-**Note**: This documentation is generated from templates during APM installation. All template variables ({{VARIABLE}}) are automatically replaced with project-specific values.
+**Note**: This documentation is generated from templates during Coherence installation. All template variables ({{VARIABLE}}) are automatically replaced with project-specific values.

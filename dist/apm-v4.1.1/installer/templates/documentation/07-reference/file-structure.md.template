@@ -1,6 +1,6 @@
-# APM File Structure Reference
+# Coherence File Structure Reference
 
-Complete directory and file organization reference for the Agentic Persona Mapping (APM) framework.
+Complete directory and file organization reference for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -17,7 +17,7 @@ Complete directory and file organization reference for the Agentic Persona Mappi
 
 ## 🏗️ Overview
 
-APM v4.1.0 follows a unified directory structure optimized for:
+Coherence v4.1.0 follows a unified directory structure optimized for:
 - **Native Sub-Agent Integration** with Claude Code
 - **Template-Based Generation** with single source of truth
 - **Session Management** with intelligent archiving
@@ -36,7 +36,7 @@ APM v4.1.0 follows a unified directory structure optimized for:
 
 ```
 {{PROJECT_ROOT}}/
-├── .apm/                           # APM Framework Installation
+├── .apm/                           # Coherence Framework Installation
 ├── .claude/                        # Claude Code Configuration
 ├── project_docs/                   # Project Documentation
 ├── payload/                        # APM Installation System
@@ -61,9 +61,9 @@ APM v4.1.0 follows a unified directory structure optimized for:
 
 ---
 
-## 🎯 APM Directory (.apm)
+## 🎯 Coherence Directory (.apm)
 
-The `.apm` directory contains the complete APM framework installation:
+The `.apm` directory contains the complete Coherence framework installation:
 
 ```
 {{APM_ROOT}}/
@@ -102,12 +102,12 @@ The `.apm` directory contains the complete APM framework installation:
 │   ├── pre_tool_use.py
 │   ├── post_tool_use.py
 │   └── user_prompt_submit.py
-├── CLAUDE.md                       # APM-Specific Instructions
-├── README.md                       # APM Framework Overview
-└── VERSION                         # APM Framework Version
+├── CLAUDE.md                       # Coherence-Specific Instructions
+├── README.md                       # Coherence Framework Overview
+└── VERSION                         # Coherence Framework Version
 ```
 
-### APM Subdirectories
+### Coherence Subdirectories
 
 #### `/agents/personas/`
 Contains persona definition files generated from master JSON definitions.
@@ -128,7 +128,7 @@ Voice notification scripts for audio feedback.
 
 | Script | Persona | Platform |
 |--------|---------|----------|
-| `speakOrchestrator.sh` | AP Orchestrator | Linux/macOS/WSL |
+| `speakOrchestrator.sh` | Coherence Orchestrator | Linux/macOS/WSL |
 | `speakAnalyst.sh` | Business Analyst | Linux/macOS/WSL |
 | `speakArchitect.sh` | System Architect | Linux/macOS/WSL |
 | `speakDeveloper.sh` | Developer | Linux/macOS/WSL |
@@ -159,7 +159,7 @@ Behavioral and operational rules for APM agents.
 
 | File | Purpose | Scope |
 |------|---------|-------|
-| `orchestrator-rules.md` | AP Orchestrator behavior | Coordination, delegation |
+| `orchestrator-rules.md` | Coherence Orchestrator behavior | Coordination, delegation |
 | `session-management-rules.md` | Session handling | Note-taking, transitions |
 | `backlog-management-rules.md` | Backlog updates | Story tracking, acceptance criteria |
 | `parallel-execution-rules.md` | Parallel processing | Sub-agent coordination |
@@ -236,7 +236,7 @@ The `.claude` directory integrates APM with Claude Code:
 ```
 {{CLAUDE_ROOT}}/
 ├── commands/                       # Claude Commands
-│   ├── ap.md                      # AP Orchestrator Command
+│   ├── coherence.md              # Coherence Orchestrator Command
 │   ├── analyst.md                 # Analyst Activation
 │   ├── architect.md               # Architect Activation
 │   ├── developer.md               # Developer Activation
@@ -383,7 +383,7 @@ APM v4.1.0 introduces the unified persona system with single source of truth:
 ### Command Files
 - **Format**: `{command-name}.md`
 - **Examples**:
-  - `ap.md` (AP Orchestrator)
+  - `coherence.md` (Coherence Orchestrator)
   - `parallel-sprint.md` (Parallel development)
   - `qa-framework.md` (QA Framework)
 

@@ -1,14 +1,16 @@
-# Agentic Persona Mapping (APM) Framework
+# Coherence - Agentic Persona Mapping
 
-**v4.1.1** - Revolutionary AI-powered framework with **unified persona system**, **complete native sub-agent modernization**, **massive codebase cleanup**, and **configurable prompt enhancement** delivering **4-8x performance improvement** in software development workflows.
+**Unified Context Engineering**
+
+**v4.1.1** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
 
 ## ⚠️ CRITICAL: ALWAYS USE SLASH COMMANDS
 
-**THE APM FRAMEWORK REQUIRES SLASH COMMANDS FOR AGENT ACTIVATION**
+**COHERENCE REQUIRES SLASH COMMANDS FOR PRECISE PERSONA ORCHESTRATION**
 
 ### ✅ CORRECT Usage:
 ```
-/analyst   /pm   /architect   /dev   /qa   /ap
+/analyst   /pm   /architect   /dev   /qa   /coherence
 ```
 
 ### ❌ INCORRECT Usage:
@@ -37,9 +39,9 @@ wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.
 curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/apm-v4.1.1.tar.gz | tar -xz && ./payload/install.sh
 ```
 
-## What is Agentic Persona Mapping?
+## What is Coherence?
 
-APM v4.1.1 delivers **revolutionary release management automation**, **AI-powered documentation generation**, **unified persona management**, and **complete modernization** that enables true parallel AI agent execution with professional release capabilities:
+Coherence v4.1.1 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
 
 - **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
 - **⚡ Native Sub-Agent Architecture**: Complete Task tool modernization with 4-8x performance improvement
@@ -55,6 +57,22 @@ APM v4.1.1 delivers **revolutionary release management automation**, **AI-powere
 - **🎯 Unified System**: Single JSON-based persona definitions eliminate 3x template duplication
 - **Audio Notifications**: TTS system with persona-specific voices
 - **Session Management**: Automatic documentation and archival
+
+## 🎭 Coherence Core Principles
+
+### **Unity from Multiplicity**
+Transform multiple AI personas into coherent, coordinated output. Each persona maintains its expertise while contributing to a unified workflow.
+
+### **Orchestrated Intelligence** 
+Not just AI, but coordinated AI. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly in harmony.
+
+### **Precision Context Control**
+Engineering-grade persona management with seamless transitions, context preservation, and intelligent handoff protocols.
+
+### **Seamless Integration**
+Different voices, smooth transitions. Experience effortless workflow coordination across all development phases.
+
+---
 
 ## Key Features
 
@@ -150,7 +168,7 @@ APM v4.1.1 delivers **revolutionary release management automation**, **AI-powere
 - **📁 Better Organization**: LICENSE and VERSION files now in `.apm` folder
 
 ### 🔧 **v2.1.4 - Critical AP Command Fixes**
-- **🛠️ Fixed AP Activation**: Resolved remaining "File does not exist" errors when running `/ap` commands
+- **🛠️ Fixed Coherence Activation**: Resolved remaining "File does not exist" errors when running `/coherence` (and legacy `/ap`) commands
 - **📁 LICENSE/VERSION Relocation**: Moved LICENSE and VERSION files to `.apm` folder for better organization
 - **🔍 Claude Code Compatibility**: Created required files that Claude Code expects during AP command activation
 - **📦 Installer Improvements**: Enhanced installer to prevent file read errors on fresh installations
@@ -262,7 +280,7 @@ your-project/
 │       └── integration/     # CI/CD integrations
 ├── .claude/                  # Claude Code configuration
 │   ├── settings.json        # Project settings
-│   └── commands/            # Custom commands (/ap, /handoff, etc.)
+│   └── commands/            # Custom commands (/coherence, /handoff, etc.)
 │       └── qa-framework/    # QA Framework commands
 └── project_documentation/   # Your project docs
     ├── session_notes/       # Auto-generated session logs
@@ -289,15 +307,16 @@ your-project/
 After installation:
 
 1. **Start**: Open your project in Claude Code
-2. **Activate**: Run `/ap` to launch the AP Orchestrator
+2. **Activate**: Run `/coherence` to launch the Coherence Orchestrator (or legacy `/ap`)
 3. **Begin**: Start with Analyst for project brief creation
 4. **Develop**: Use personas and parallel commands for development
 5. **🆕 Release**: Use `/version` and `/release` for automated releases
 
 ### New v4.1.1 Release Workflow
 ```bash
-# Traditional development workflow (unchanged)
-/ap              # Launch AP Orchestrator
+# Unified Context Engineering workflow
+/coherence       # Launch Coherence Orchestrator (new primary command)
+# /ap            # Legacy command (still works, redirects to /coherence)
 /analyst         # Create project brief
 /pm              # Generate PRD
 /architect       # Design architecture

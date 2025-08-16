@@ -1,6 +1,6 @@
-# APM Version History & Migration Guide
+# Coherence Version History & Migration Guide
 
-Comprehensive version history, changelog, and migration procedures for the Agentic Persona Mapping (APM) framework.
+Comprehensive version history, changelog, and migration procedures for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -166,7 +166,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 - **Command Integration**: Full Claude Code command system
 
 #### 👥 Personas Introduced
-- **AP Orchestrator**: Central coordination
+- **Coherence Orchestrator**: Central coordination
 - **Analyst**: Requirements and user story creation
 - **Architect**: System design and technical specifications
 - **Developer**: Code implementation and testing
@@ -232,7 +232,7 @@ cp -r {{PROJECT_ROOT}}/.apm {{PROJECT_ROOT}}/.apm.backup.v4.1.0
 cp -r {{PROJECT_ROOT}}/.claude {{PROJECT_ROOT}}/.claude.backup.v4.1.0
 ```
 
-##### 2. Update APM Framework
+##### 2. Update Coherence Framework
 ```bash
 # Download APM v4.1.0
 curl -L https://github.com/apm-framework/releases/v4.1.0/installer.tar.gz | tar -xz
@@ -435,9 +435,9 @@ Expected improvements after migration:
 
 ## 🔄 Compatibility Matrix
 
-### APM Framework Compatibility
+### Coherence Framework Compatibility
 
-| APM Version | Claude Code Version | Python Version | Node.js Version | OS Support |
+| Coherence Version | Claude Code Version | Python Version | Node.js Version | OS Support |
 |-------------|-------------------|----------------|-----------------|------------|
 | **4.1.0** | 2.1.0+ | 3.8+ | 16+ | Linux, macOS, Windows, WSL |
 | **3.5.0** | 2.0.0+ | 3.7+ | 14+ | Linux, macOS, Windows, WSL |
@@ -636,4 +636,4 @@ apm validate --version 3.5.0
 
 **Version History Document Version**: {{PROJECT_VERSION}}  
 **Last Updated**: {{CURRENT_DATE}}  
-**Migration Support**: Contact support@apm-framework.dev for assistance
+**Migration Support**: Contact support@coherence-framework.dev for assistance

@@ -1,5 +1,5 @@
 #!/bin/bash
-# AP Mapping Manager - Update, uninstall, and manage AP Mapping installation
+# Coherence Manager - Update, uninstall, and manage Coherence installation
 
 set -e
 
@@ -34,13 +34,13 @@ PROJECT_ROOT="$(dirname "$APM_ROOT")"  # Get project root from .apm directory
 # Show usage
 usage() {
     cat << EOF
-AP Mapping Manager v1.0.0
+Coherence Manager v1.0.0
 
 Usage: $(basename "$0") <command> [options]
 
 Commands:
     update                    Check for and install updates
-    uninstall                 Remove AP Mapping from project
+    uninstall                 Remove Coherence from project
     verify                    Verify installation integrity
     repair                    Repair corrupted installation
     rollback                  Rollback to previous version
@@ -194,7 +194,7 @@ create_backup() {
 
 # Verify installation
 verify_installation() {
-    echo -e "${BLUE}Verifying AP Mapping installation...${NC}"
+    echo -e "${BLUE}Verifying Coherence installation...${NC}"
     
     if [ -f "$INSTALLER_DIR/integrity-checker.sh" ]; then
         "$INSTALLER_DIR/integrity-checker.sh"
@@ -233,9 +233,9 @@ verify_installation() {
     fi
 }
 
-# Uninstall AP Mapping
+# Uninstall Coherence
 uninstall_ap_method() {
-    echo -e "${YELLOW}Warning: This will remove AP Mapping from your project${NC}"
+    echo -e "${YELLOW}Warning: This will remove Coherence from your project${NC}"
     
     # Check for --keep-settings flag
     local keep_settings=false
@@ -244,7 +244,7 @@ uninstall_ap_method() {
         echo "Settings and session notes will be preserved"
     fi
     
-    read -p "Are you sure you want to uninstall AP Mapping? (y/N): " -n 1 -r
+    read -p "Are you sure you want to uninstall Coherence? (y/N): " -n 1 -r
     echo
     
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -319,7 +319,7 @@ uninstall_ap_method() {
 # Show version
 show_version() {
     local version=$(get_current_version)
-    echo "AP Mapping version: $version"
+    echo "Coherence version: $version"
     
     if [ -f "$AP_ROOT/.templates/manifest.txt" ]; then
         local install_date=$(stat -c %y "$AP_ROOT/.templates/manifest.txt" 2>/dev/null | cut -d' ' -f1)
@@ -329,7 +329,7 @@ show_version() {
     fi
 }
 
-# Uninstall AP Mapping
+# Uninstall Coherence
 uninstall_ap_method() {
     local force_mode="$1"
     

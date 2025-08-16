@@ -1,32 +1,32 @@
-# APM Workflow Patterns Overview
+# Coherence Workflow Patterns Overview
 
 ## Introduction
 
-The Agentic Persona Mapping (APM) framework provides structured workflows for software development, project management, and team collaboration. This directory contains comprehensive workflow documentation for maximizing APM effectiveness.
+Coherence - Agentic Persona Mapping provides unified context engineering workflows for software development, project management, and team collaboration. This directory contains comprehensive workflow documentation for maximizing Coherence methodology effectiveness through orchestrated intelligence.
 
 ## Available Workflow Patterns
 
 ### 📋 Core Development Workflows
-- **[Typical Project Flow](typical-project-flow.md)** - Standard software development lifecycle
-- **[Idea to Implementation](idea-to-implementation.md)** - Complete journey from concept to deployed code
-- **[Parallel Development](parallel-development.md)** - Leveraging native sub-agents for 4-8x performance gains
+- **[Unified Context Engineering Workflow](typical-project-flow.md)** - Coherent software development lifecycle
+- **[Idea to Implementation](idea-to-implementation.md)** - Complete unified context engineering journey from concept to deployed code
+- **[Parallel Development](parallel-development.md)** - Leveraging native sub-agents for 4-8x performance gains through coherent orchestration
 
 ### 🔄 Session & Continuity Management
-- **[Session Management](session-management.md)** - Work session handling, notes, and context preservation
-- **[Handoff Patterns](handoff-patterns.md)** - Agent transition protocols and best practices
+- **[Session Management](session-management.md)** - Work session handling with unified context preservation and seamless integration
+- **[Handoff Patterns](handoff-patterns.md)** - Agent transition protocols with coherent transitions and best practices
 
 ### 📊 Project Management Workflows
-- **[Backlog Workflow](backlog-workflow.md)** - Backlog management patterns and maintenance
-- **[Team Collaboration](team-collaboration.md)** - Multi-user coordination and communication patterns
+- **[Backlog Workflow](backlog-workflow.md)** - Unified context engineering backlog management patterns
+- **[Team Collaboration](team-collaboration.md)** - Multi-user coordination with orchestrated intelligence and communication patterns
 
 ## Workflow Selection Guide
 
 ### Choose Your Workflow Based On:
 
 **Project Size:**
-- **Small Projects (1-4 weeks)**: Use Typical Project Flow
-- **Medium Projects (1-6 months)**: Use Idea to Implementation + Session Management
-- **Large Projects (6+ months)**: Combine all patterns with Team Collaboration
+- **Small Projects (1-4 weeks)**: Use Unified Context Engineering Workflow
+- **Medium Projects (1-6 months)**: Use Idea to Implementation + Session Management with coherent workflow
+- **Large Projects (6+ months)**: Combine all patterns with Team Collaboration using orchestrated intelligence
 
 **Team Size:**
 - **Solo Developer**: Focus on Session Management + Parallel Development
@@ -41,7 +41,7 @@ The Agentic Persona Mapping (APM) framework provides structured workflows for so
 ## Performance Optimization Strategy
 
 ### Native Sub-Agent Architecture (v4.1.0)
-APM v4.1.0 delivers revolutionary performance through native sub-agent parallelism:
+Coherence v4.1.0 delivers revolutionary performance through native sub-agent parallelism with unified context engineering:
 
 - **4-8x Performance Improvement**: Native execution eliminates CLI bottlenecks
 - **True Concurrency**: Multiple personas execute simultaneously
@@ -61,21 +61,21 @@ APM v4.1.0 delivers revolutionary performance through native sub-agent paralleli
 - **Backlog Abandonment**: Not updating backlog.md after story work
 - **Sequential Bias**: Using single personas when parallel execution is available
 - **Context Loss**: Switching personas without proper handoff protocols
-- **Over-Orchestration**: Using AP Orchestrator for simple single-persona tasks
+- **Over-Orchestration**: Using Coherence Orchestrator for simple single-persona tasks
 
 ### ✅ Do This Instead
-- **Continuous Documentation**: Update session notes every 10-15 minutes
-- **Backlog Discipline**: Update backlog.md immediately after any story work
-- **Parallel Thinking**: Default to parallel patterns for multi-component work
-- **Structured Handoffs**: Follow handoff protocols for context preservation
-- **Right-Sized Orchestration**: Use direct persona activation for focused work
+- **Continuous Documentation**: Update session notes every 10-15 minutes with unified context preservation
+- **Backlog Discipline**: Update backlog.md immediately after any story work using coherent workflow principles
+- **Parallel Thinking**: Default to parallel patterns for multi-component work with orchestrated intelligence
+- **Structured Handoffs**: Follow coherent transition protocols for seamless integration
+- **Right-Sized Orchestration**: Use Coherence Orchestrator for focused work coordination
 
 ## Getting Started
 
-1. **New to APM**: Start with [Typical Project Flow](typical-project-flow.md)
-2. **Performance Focus**: Jump to [Parallel Development](parallel-development.md)
-3. **Team Environment**: Begin with [Team Collaboration](team-collaboration.md)
-4. **Complex Project**: Use [Idea to Implementation](idea-to-implementation.md)
+1. **New to Coherence**: Start with [Unified Context Engineering Workflow](typical-project-flow.md)
+2. **Performance Focus**: Jump to [Parallel Development](parallel-development.md) with orchestrated intelligence
+3. **Team Environment**: Begin with [Team Collaboration](team-collaboration.md) using coherent workflow patterns
+4. **Complex Project**: Use [Idea to Implementation](idea-to-implementation.md) unified context engineering journey
 
 ## Workflow Integration Examples
 
@@ -88,13 +88,13 @@ Performance: 4-6x faster than sequential execution
 ### Example 2: Bug Investigation
 ```
 /qa → Investigate → /analyst → Root cause → /dev → Fix → /qa → Verify
-Session Management: Continuous notes preserve debugging context
+Session Management: Unified context engineering preserves debugging context with seamless integration
 ```
 
 ### Example 3: Architecture Planning
 ```
-/ap → Plan → /architect → Design → /design-architect → UI → /parallel-validation
-Coordination: Orchestrator ensures alignment across design disciplines
+/coherence → Plan → /architect → Design → /design-architect → UI → /parallel-validation
+Coordination: Coherence Orchestrator ensures alignment across design disciplines
 ```
 
 ## Success Metrics
@@ -116,8 +116,8 @@ Coordination: Orchestrator ensures alignment across design disciplines
 - **Command Reference**: `/installer/templates/documentation/command-reference/`
 - **Persona Guides**: `/installer/templates/documentation/02-personas/`
 - **Getting Started**: `/installer/templates/documentation/01-getting-started/`
-- **Live Support**: Use `/ap` to access AP Orchestrator for workflow guidance
+- **Live Support**: Use `/coherence` to access Coherence Orchestrator for unified context engineering workflow guidance
 
 ---
 
-*APM Framework v4.1.0 - Workflow patterns for maximum development velocity*
+*Coherence - Agentic Persona Mapping v4.1.0 - Unified context engineering workflow patterns for maximum development velocity*

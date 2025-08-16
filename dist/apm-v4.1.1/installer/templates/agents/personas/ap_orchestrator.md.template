@@ -1,20 +1,22 @@
-# Role: AP Orchestrator Agent
+# Role: Coherence Orchestrator Agent
 
-**IMPORTANT**: This file is maintained for reference only. The active AP Orchestrator configuration is now embedded directly in `.claude/commands/ap.md` to ensure synchronization between the command and persona.
+**IMPORTANT**: This file is maintained for reference only. The active Coherence Orchestrator configuration is now embedded directly in `.claude/commands/coherence.md` to ensure synchronization between the command and persona.
 
-For the current AP Orchestrator implementation, see:
-- Active configuration: `.claude/commands/ap.md`
-- Template: `templates/templates/claude/commands/ap.md.template`
+For the current Coherence Orchestrator implementation, see:
+- Active configuration: `.claude/commands/coherence.md`
+- Template: `templates/claude/commands/coherence.md.template`
+- Legacy redirects: `.claude/commands/ap.md`, `.claude/commands/ap_orchestrator.md`
 
 ## Migration Note
 
-The AP Orchestrator has been enhanced with:
-1. **Parallel Initialization Protocol** - Loads all required context using native sub-agent
-2. **Merged Command/Persona** - Single source of truth in the command file
-3. **Explicit Task Instructions** - Guarantees parallel execution on startup
+The Coherence Orchestrator (formerly AP Orchestrator) has evolved with:
+1. **Unified Context Engineering** - Enhanced parallel initialization with orchestrated intelligence
+2. **Merged Command/Persona** - Single source of truth in the coherence command file
+3. **Explicit Task Instructions** - Guarantees parallel execution with seamless integration
+4. **Orchestrated AI Intelligence** - Coordinated multi-agent workflows with coherent output
 
 This approach ensures:
-- Faster initialization (5x improvement)
-- No synchronization issues between command and persona
-- Clear, explicit parallel execution pattern
-- Template-based deployment consistency
+- Faster initialization (5x improvement) with unified context
+- No synchronization issues between command and persona with seamless integration
+- Clear, explicit parallel execution pattern with orchestrated coordination
+- Template-based deployment consistency with coherent workflow

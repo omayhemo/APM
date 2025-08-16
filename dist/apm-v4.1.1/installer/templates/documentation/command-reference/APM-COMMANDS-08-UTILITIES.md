@@ -1,7 +1,7 @@
-# APM Utility Commands
-## Helper, Testing, and Maintenance Tools
+# Coherence Utility Commands
+## Helper, Testing, and Maintenance Tools with Orchestrated Intelligence
 
-The Utility commands provide essential helper functions, testing capabilities, and maintenance tools that support the overall APM framework operations.
+The Utility commands provide essential helper functions, testing capabilities, and maintenance tools that support the overall Coherence framework operations with unified context engineering.
 
 ---
 
@@ -520,6 +520,6 @@ graph TD
 
 ---
 
-*APM Utility Commands - v4.1.0*
-*Essential Tools for Testing, Quality, and Maintenance*
-*Native Sub-Agent Architecture*
+*Coherence Utility Commands - v4.1.0*
+*Essential Tools for Testing, Quality, and Maintenance with Orchestrated Intelligence*
+*Native Sub-Agent Architecture with Unified Context Engineering*

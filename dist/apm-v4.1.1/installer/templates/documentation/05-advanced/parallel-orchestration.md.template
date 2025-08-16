@@ -1,10 +1,10 @@
 # Advanced Parallel Orchestration
 
-This guide covers sophisticated parallel execution patterns, coordination strategies, and optimization techniques for maximum APM performance.
+This guide covers sophisticated parallel execution patterns, coordination strategies, and optimization techniques for maximum Coherence performance.
 
 ## Overview
 
-Advanced parallel orchestration in APM v4.1.0 provides:
+Advanced parallel orchestration in Coherence v4.1.0 provides:
 - **Native Sub-Agent Coordination** with 8-12x performance improvements
 - **Intelligent Resource Management** with dynamic allocation
 - **Advanced Dependency Resolution** for complex task graphs

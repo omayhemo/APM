@@ -1,6 +1,6 @@
 ---
 name: "{{AGENT_NAME}}"
-description: "{{AGENT_DESCRIPTION}} - migrated from APM framework"
+description: "{{AGENT_DESCRIPTION}} - migrated from unified context engineering framework"
 version: "{{MIGRATION_VERSION}}"
 created_date: "{{CREATION_DATE}}"
 tools:
@@ -47,9 +47,9 @@ migration_info:
 
 ## Agent Overview
 
-This is a Claude Code sub-agent migrated from the APM framework. It maintains full compatibility with the original persona while providing enhanced integration with Claude Code's native features.
+This is a Coherence sub-agent migrated from the unified context engineering framework. It maintains full compatibility with the original persona while providing enhanced integration with Coherence's native features.
 
-**Original Persona**: .apm/agents/personas/{{AGENT_NAME_LOWER}}.md  
+**Original Persona**: .coherence/agents/personas/{{AGENT_NAME_LOWER}}.md  
 **Migration Date**: {{MIGRATION_DATE}}  
 **Compatibility Mode**: dual
 
@@ -105,11 +105,11 @@ After ALL tasks complete:
 
 ## Migration Notes
 
-### Changes from APM
+### Changes from Unified Context Engineering
 - Converted from command-based activation to native sub-agent
-- Enhanced tool permissions and workspace boundaries
+- Enhanced tool permissions and workspace boundaries with unified context engineering
 - Improved session management and context preservation
-- More robust voice notification system
+- More robust voice notification system with orchestrated intelligence
 
 ### Preserved Features
 - All original persona behaviors and responses ({{PERSONA_STYLE}})
@@ -120,15 +120,15 @@ After ALL tasks complete:
 - {{PRESERVED_FEATURES}}
 
 ### Enhanced Features
-- Native Claude Code integration
-- Improved context window management
+- Native Coherence integration with unified context engineering
+- Improved context window management with orchestrated intelligence
 - Better error handling and recovery
-- Enhanced parallel execution capabilities
+- Enhanced parallel execution capabilities with seamless coordination
 
 ## 🔄 Backward Compatibility
 
-This agent maintains full backward compatibility with the original `/{{AGENT_NAME_LOWER}}` command and all existing APM infrastructure while operating as a Claude Code sub-agent. All existing workflows, voice notifications, and tool permissions remain unchanged.
+This agent maintains full backward compatibility with the original `/{{AGENT_NAME_LOWER}}` command and all existing unified infrastructure while operating as a Coherence sub-agent. All existing workflows, voice notifications, and tool permissions remain unchanged.
 
 ---
 
-*This sub-agent is part of the APM to Claude Code Sub-Agents Migration (Epic 16). For support, see the migration documentation or contact the development team.*
+*This sub-agent is part of the Unified Context Engineering to Coherence Sub-Agents Migration (Epic 16). For support, see the migration documentation or contact the development team.*

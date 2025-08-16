@@ -1,7 +1,7 @@
-# APM Commands Quick Reference Guide
-## Version 4.1.0 - At-a-Glance Command Summary
+# Coherence Commands Quick Reference Guide
+## Version 4.1.0 - At-a-Glance Command Summary with Unified Context Engineering
 
-Quick lookup for all APM commands with essential information. For detailed documentation, see the comprehensive guides.
+Quick lookup for all Coherence commands with essential information. For detailed documentation, see the comprehensive guides.
 
 ---
 
@@ -11,7 +11,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 |----------|----------|-------------|
 | [Core Orchestrator](#core-orchestrator) | 6 | Central control & coordination |
 | [Persona Activation](#persona-activation) | 9 | Specialized agent activation |
-| [Parallel Execution](#parallel-execution) | 25 | 4-8x performance boost |
+| [Parallel Execution](#parallel-execution) | 25 | 4-8x performance boost with orchestrated intelligence |
 | [QA Framework](#qa-framework) | 11 | AI/ML-powered testing |
 | [Project Management](#project-management) | 15 | Planning & tracking |
 | [Development](#development) | 8 | Implementation & coding |
@@ -24,7 +24,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | Command | Purpose | Key Options | Performance |
 |---------|---------|-------------|-------------|
-| `/ap` or `/ap_orchestrator` | Launch central orchestrator | `--resume`, `--status` | 2.3s init |
+| `/coherence` or `/coherence_orchestrator` | Launch central orchestrator | `--resume`, `--status` | 2.3s init |
 | `/handoff <persona>` | Direct agent transition | `--notes`, `--task` | 0.8s |
 | `/switch <persona>` | Switch with compaction | `--compact-level` | 1.5s |
 | `/wrap` | Complete session | `--summary-level` | 1.2s |
@@ -49,7 +49,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ---
 
-## Parallel Execution (Native Sub-Agents)
+## Parallel Execution (Orchestrated Intelligence)
 
 ### Requirements & Research
 | Command | Sub-Agents | Speedup | Use Case |
@@ -189,12 +189,12 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ### New Project Start
 ```bash
-/ap → /analyst → /pm → /architect → /po → /sm → /dev → /qa
+/coherence → /analyst → /pm → /architect → /po → /sm → /dev → /qa
 ```
 
-### Sprint Execution (Parallel)
+### Sprint Execution (Parallel with Orchestrated Intelligence)
 ```bash
-/ap → /parallel-sprint --agents=4
+/coherence → /parallel-sprint --agents=4
 ```
 
 ### PRD Creation (Fast)
@@ -207,7 +207,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 /qa → /qa-framework → /qa-predict → /run-tests → /qa-insights
 ```
 
-### Document Processing
+### Document Processing (Unified Context Engineering)
 ```bash
 /parallel-doc-sharding --chunks=auto → /parallel-library-indexing
 ```
@@ -237,7 +237,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | If you need to... | Use this command | Alternative |
 |-------------------|------------------|-------------|
-| Start APM session | `/ap` | `/ap_orchestrator` |
+| Start Coherence session | `/coherence` | `/ap` (legacy) |
 | Create requirements | `/analyst` + `/requirements` | `/parallel-requirements` |
 | Design system | `/architect` | `/parallel-architecture` |
 | Create PRD | `/pm` + `/prd` | `/parallel-prd` |
@@ -271,12 +271,12 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ## 🔑 Essential Options
 
-### Most Used Options
-- `--parallel=true` - Enable parallelization
-- `--agents=4` - Set sub-agent count
-- `--detailed=true` - Verbose output
-- `--format=markdown` - Output format
-- `--strategy=balanced` - Execution strategy
+### Most Used Options with Orchestrated Intelligence
+- `--parallel=true` - Enable parallelization with unified context
+- `--agents=4` - Set sub-agent count with intelligent coordination
+- `--detailed=true` - Verbose output with context preservation
+- `--format=markdown` - Output format with orchestrated intelligence
+- `--strategy=balanced` - Execution strategy with context-aware optimization
 
 ### Performance Options
 - `--priority=velocity` - Speed focus
@@ -316,9 +316,9 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ## 🎓 Getting Started Checklist
 
-- [ ] Install APM: `./payload/install.sh`
+- [ ] Install Coherence: `./payload/install.sh`
 - [ ] Initialize session: `/session-note-setup`
-- [ ] Launch orchestrator: `/ap`
+- [ ] Launch orchestrator: `/coherence`
 - [ ] List personas: `/personas --detailed`
 - [ ] Try parallel command: `/parallel-brainstorming`
 - [ ] Check QA capabilities: `/qa-framework`
@@ -326,6 +326,6 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ---
 
-*APM Commands Quick Reference - v4.1.0*
-*Native Sub-Agent Architecture | AI/ML-Powered*
+*Coherence Commands Quick Reference - v4.1.0*
+*Native Sub-Agent Architecture with Orchestrated Intelligence | AI/ML-Powered | Unified Context Engineering*
 *For detailed documentation, see comprehensive guides*

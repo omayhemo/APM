@@ -1,10 +1,10 @@
 # AI/ML Features
 
-This guide covers advanced artificial intelligence and machine learning capabilities built into the APM framework for intelligent automation and predictive analytics.
+This guide covers advanced artificial intelligence and machine learning capabilities built into the Coherence framework for intelligent automation and predictive analytics.
 
 ## Overview
 
-APM's AI/ML features provide:
+Coherence's AI/ML features provide:
 - **Predictive Analytics** for project outcomes and risk assessment
 - **Intelligent Task Routing** based on complexity and team capabilities
 - **Anomaly Detection** for quality and performance issues
@@ -69,8 +69,8 @@ graph TB
 ### Model Architecture
 
 ```python
-class APMMLFramework:
-    """Core AI/ML framework for APM intelligence"""
+class CoherenceMLFramework:
+    """Core AI/ML framework for Coherence intelligence"""
     
     def __init__(self, config):
         self.model_registry = ModelRegistry(config['models'])

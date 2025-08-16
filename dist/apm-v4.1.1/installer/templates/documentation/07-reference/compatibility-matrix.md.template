@@ -1,16 +1,16 @@
-# APM Framework v4.1.0 Compatibility Matrix
+# Coherence v4.1.0 Compatibility Matrix
 
 ## Overview
 
-This document provides comprehensive compatibility information for APM Framework v4.1.0, including supported platforms, dependencies, and migration paths.
+This document provides comprehensive compatibility information for Coherence v4.1.0, including supported platforms, dependencies, and migration paths.
 
 ---
 
 ## 🎯 Version Compatibility
 
-### APM Framework Versions
+### Coherence Framework Versions
 
-| APM Version | Status | Compatibility | Migration Required |
+| Coherence Version | Status | Compatibility | Migration Required |
 |-------------|--------|---------------|-------------------|
 | v4.1.0 | **Current** | ✅ Full | N/A |
 | v4.0.x | Legacy | ✅ Compatible | Minor updates |
@@ -20,7 +20,7 @@ This document provides comprehensive compatibility information for APM Framework
 
 ### Claude Code Compatibility
 
-| Claude Code Version | APM v4.1.0 Support | Features |
+| Claude Code Version | Coherence v4.1.0 Support | Features |
 |-------------------|-------------------|----------|
 | Latest | ✅ Full Support | Native sub-agents, Output styles |
 | v1.2+ | ✅ Full Support | All features |
@@ -233,6 +233,6 @@ When reporting compatibility issues, please include:
 
 ---
 
-*APM Framework v4.1.0 Compatibility Matrix*  
+*Coherence v4.1.0 Compatibility Matrix*  
 *Last Updated: 2025-08-15*  
 *Document Version: 1.0*

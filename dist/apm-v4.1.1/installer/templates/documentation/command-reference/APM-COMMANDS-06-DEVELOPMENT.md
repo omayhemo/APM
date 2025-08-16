@@ -1,7 +1,7 @@
-# APM Development Commands
-## Implementation, Coding, and Technical Execution
+# Coherence Development Commands
+## Implementation, Coding, and Technical Execution with Orchestrated Intelligence
 
-The Development commands provide comprehensive tools for code implementation, technical architecture, and software construction within the APM framework.
+The Development commands provide comprehensive tools for code implementation, technical architecture, and software construction within the Coherence framework with unified context engineering.
 
 ---
 
@@ -552,6 +552,6 @@ graph LR
 
 ---
 
-*APM Development Commands - v4.1.0*
-*Comprehensive Implementation and Technical Tools*
-*Native Sub-Agent Architecture*
+*Coherence Development Commands - v4.1.0*
+*Comprehensive Implementation and Technical Tools with Orchestrated Intelligence*
+*Native Sub-Agent Architecture with Unified Context Engineering*

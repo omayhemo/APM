@@ -1,4 +1,4 @@
-# EPIC-016: APM to Claude Code Sub-Agents Migration
+# EPIC-016: Coherence to Claude Code Sub-Agents Migration
 
 **Epic Owner**: Product Owner  
 **Status**: {{EPIC_STATUS}}  
@@ -8,14 +8,14 @@
 
 ## Business Objective
 
-Transform the APM framework from command-based personas to native Claude Code sub-agents while preserving all existing functionality, improving performance, and addressing user experience issues (particularly TTS configuration).
+Transform the Coherence - Agentic Persona Mapping framework from command-based personas to native Claude Code sub-agents while preserving all existing functionality, improving performance, and addressing user experience issues (particularly TTS configuration). This migration incorporates unified context engineering principles for enhanced agent coordination.
 
 ## Business Value
 
 - **Native Integration**: Leverage Claude Code's built-in sub-agent system for better performance
 - **Improved Context**: Each agent gets dedicated context window (no shared memory limits)
 - **Automatic Routing**: Context-aware agent selection reduces user cognitive load
-- **Template-Based Deployment**: Installer templates protect APM framework integrity
+- **Template-Based Deployment**: Installer templates protect Coherence framework integrity
 - **Enhanced Reliability**: Native implementation reduces command parsing errors
 - **TTS Fix**: More robust configuration prevents accidental disabling
 
@@ -29,22 +29,24 @@ Transform the APM framework from command-based personas to native Claude Code su
 - ✅ Backward compatibility maintained (dual-mode operation)
 - ✅ Zero feature regression
 - ✅ TTS configuration more robust and user-friendly
-- ✅ **CRITICAL**: APM framework never directly modified during migration
+- ✅ **CRITICAL**: Coherence framework never directly modified during migration
+- ✅ **NEW**: Unified context engineering patterns implemented for enhanced agent coordination
 
 ## Technical Approach
 
 1. **Template-First Strategy**: All sub-agent artifacts created as installer templates
-2. **APM Protection**: Never modify `.apm/` directory - only create `templates/` files
+2. **Coherence Protection**: Never modify `.apm/` directory - only create `templates/` files
 3. **Phased Migration**: 4-week implementation across 4 phases
 4. **Preservation Strategy**: Direct content migration preserving all behaviors
 5. **Dual-Mode Operation**: Both `/ap` commands and sub-agent mentions work
 6. **Incremental Rollout**: Core agents first, then specialized agents
 7. **Continuous Validation**: Test each phase before proceeding
+8. **Unified Context Engineering**: Implement enhanced context sharing and coordination patterns
 
 ## Dependencies
 
 - Claude Code v1.0+ with sub-agent support
-- Existing APM framework (v4.1.0) - **READ ONLY**
+- Existing Coherence framework (v4.1.0) - **READ ONLY**
 - Voice notification scripts
 - Session management system
 - Installer template system
@@ -53,7 +55,7 @@ Transform the APM framework from command-based personas to native Claude Code su
 
 | Risk | Impact | Mitigation |
 |------|--------|------------|
-| APM Framework Corruption | Critical | Templates-only approach, never modify APM directly |
+| Coherence Framework Corruption | Critical | Templates-only approach, never modify Coherence directly |
 | User adoption resistance | Medium | Dual-mode operation allows gradual transition |
 | Feature regression | High | Comprehensive testing at each phase |
 | Context window limitations | Medium | Dedicated windows per agent improve capacity |
@@ -94,11 +96,12 @@ Transform the APM framework from command-based personas to native Claude Code su
 
 ## Critical Implementation Notes
 
-### APM Protection Protocol
+### Coherence Protection Protocol
 - **NEVER** modify any file in `.apm/` directory
 - **ONLY** create files in `templates/templates/claude/agents/`
 - **ALWAYS** use `.template` suffix for installer processing
-- **VERIFY** templates before creation to avoid APM violations
+- **VERIFY** templates before creation to avoid Coherence violations
+- **IMPLEMENT** unified context engineering patterns in all templates
 
 ### Template Structure Requirements
 ```
@@ -119,11 +122,11 @@ templates/templates/claude/agents/
 ### Quality Gates
 
 #### Phase 1 Gates
-- [ ] Templates created without APM violations
+- [ ] Templates created without Coherence violations
 - [ ] 4 core agent templates validated
 - [ ] Voice notification integration preserved
 - [ ] Basic parallel execution templated
-- [ ] No regression in APM functionality
+- [ ] No regression in Coherence functionality
 
 #### Phase 2 Gates
 - [ ] All 8 agent templates created
@@ -151,7 +154,7 @@ templates/templates/claude/agents/
 For this epic to be considered complete:
 - [ ] All 18 stories completed successfully
 - [ ] All templates created in proper installer structure
-- [ ] Zero modifications made to APM framework
+- [ ] Zero modifications made to Coherence framework
 - [ ] All agent behaviors preserved in templates
 - [ ] Voice notifications templated and tested
 - [ ] Session management templates functional
@@ -196,4 +199,4 @@ For this epic to be considered complete:
 
 ---
 
-**Critical Success Factor**: This epic's success depends on creating comprehensive installer templates without ever modifying the APM framework directly. All work must be template-based to preserve APM integrity and enable safe installation.
+**Critical Success Factor**: This epic's success depends on creating comprehensive installer templates without ever modifying the Coherence framework directly. All work must be template-based to preserve Coherence integrity and enable safe installation while implementing unified context engineering principles for enhanced agent coordination.

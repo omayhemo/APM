@@ -155,6 +155,7 @@ Stories are done when they have:
 **Completed Epics Archived**:
 - Claude.md Merge System (Epics 1-7): 94 story points ✅
 - QA Framework (Epics 8-15): 93 story points ✅
+- Enhanced with Coherence methodology and unified context engineering
 
 **Archive Location**: `/{{PROJECT_ROOT}}/project_docs/archives/completed-epics/`
 
@@ -196,8 +197,8 @@ Features: All QA framework commands (/qa-framework, /qa-predict, /qa-optimize, /
 
 ### Violation Response Procedure
 1. **Stop Work**: Immediately halt current activity
-2. **Assess Damage**: Identify APM modifications made
-3. **Restore APM**: Remove all APM changes, restore original state
+2. **Assess Damage**: Identify Coherence modifications made
+3. **Restore Coherence**: Remove all Coherence changes, restore original state
 5. **Create Templates**: Recreate work as proper installer templates
 6. **Document Incident**: Record violation and correction in backlog
 7. **Update Process**: Enhance protection measures to prevent recurrence
@@ -212,5 +213,5 @@ Features: All QA framework commands (/qa-framework, /qa-predict, /qa-optimize, /
 ---
 
 *Active backlog created by PO Agent on {{CREATION_DATE}}*  
-*Focus: APM to Sub-Agents Migration (Epic 16) through installer templates*  
-*Critical Success Factor: Zero APM framework modifications*
+*Focus: Coherence to Sub-Agents Migration (Epic 16) through installer templates with unified context engineering*  
+*Critical Success Factor: Zero Coherence framework modifications*

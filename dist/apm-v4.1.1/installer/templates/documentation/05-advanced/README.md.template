@@ -1,14 +1,14 @@
-# Advanced APM Topics
+# Advanced Coherence Topics
 
-Welcome to the Advanced APM Topics section. This documentation covers sophisticated use cases, performance optimization, enterprise deployment, and advanced features for power users and organizations.
+Welcome to the Advanced Coherence Topics section. This documentation covers sophisticated use cases, unified context engineering optimization, enterprise deployment, and advanced features for power users and organizations.
 
 ## Overview
 
 The Advanced section provides comprehensive guidance for:
 - **Enterprise-scale deployments** with hundreds of developers
-- **Performance optimization** for maximum throughput
-- **Custom persona development** and specialization
-- **Advanced integration patterns** with existing workflows
+- **Unified context engineering optimization** for maximum throughput
+- **Unified context engineering personas** development and specialization
+- **Orchestrated intelligence integration** with existing workflows
 - **AI/ML features** and intelligent automation
 - **Monitoring and observability** for production environments
 - **Security and compliance** considerations
@@ -23,19 +23,19 @@ The Advanced section provides comprehensive guidance for:
    - Voice script customization
    - Behavioral rule development
 
-2. **[Performance Optimization](performance-optimization.md)** - Maximum throughput configuration
+2. **[Unified Context Engineering Optimization](performance-optimization.md)** - Maximum throughput configuration
    - Native sub-agent tuning for 8x+ performance
    - Memory optimization and resource management
    - Parallel execution patterns
    - Benchmark analysis and metrics
 
-3. **[Enterprise Deployment](enterprise-deployment.md)** - Large-scale organizational rollouts
+3. **[Coherence Enterprise Deployment](enterprise-deployment.md)** - Large-scale organizational rollouts
    - Multi-team coordination strategies
    - Governance and compliance frameworks
    - Centralized configuration management
    - Security and audit requirements
 
-4. **[Integration Patterns](integration-patterns.md)** - Existing workflow integration
+4. **[Orchestrated Intelligence Integration](integration-patterns.md)** - Existing workflow integration
    - CI/CD pipeline integration
    - Project management tool connections
    - Version control system hooks
@@ -62,7 +62,7 @@ The Advanced section provides comprehensive guidance for:
 ## Prerequisites
 
 Before diving into advanced topics, ensure you have:
-- ✅ Completed basic APM setup and configuration
+- ✅ Completed basic Coherence setup and configuration
 - ✅ Experience with fundamental persona operations
 - ✅ Understanding of session management concepts
 - ✅ Familiarity with command-line operations
@@ -70,7 +70,7 @@ Before diving into advanced topics, ensure you have:
 
 ## Performance Expectations
 
-Advanced APM configurations can achieve:
+Advanced Coherence configurations can achieve:
 - **8-12x performance improvement** over sequential execution
 - **Sub-second response times** for parallel operations
 - **Zero CLI crashes** with native sub-agent architecture
@@ -94,11 +94,11 @@ For advanced topic support:
 
 ## Next Steps
 
-1. **Start with [Custom Personas](custom-personas.md)** if you need specialized agents
-2. **Review [Performance Optimization](performance-optimization.md)** for maximum throughput
-3. **Explore [Enterprise Deployment](enterprise-deployment.md)** for organizational rollouts
-4. **Check [Integration Patterns](integration-patterns.md)** for existing workflow connection
+1. **Start with [Unified Context Engineering Personas](custom-personas.md)** if you need specialized agents
+2. **Review [Unified Context Engineering Optimization](performance-optimization.md)** for maximum throughput
+3. **Explore [Coherence Enterprise Deployment](enterprise-deployment.md)** for organizational rollouts
+4. **Check [Orchestrated Intelligence Integration](integration-patterns.md)** for existing workflow connection
 
 ---
 
-**Note**: Advanced features require APM v4.1.0+ with native sub-agent architecture.
+**Note**: Advanced features require Coherence v4.1.0+ with unified context engineering architecture.

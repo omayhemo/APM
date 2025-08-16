@@ -1,8 +1,8 @@
-# Typical Project Flow - Software Development Lifecycle
+# Unified Context Engineering Workflow - Coherent Software Development Lifecycle
 
 ## Overview
 
-This document outlines the standard software development lifecycle using the APM framework, from initial requirements gathering through deployment and maintenance.
+This document outlines the unified context engineering software development lifecycle using the Coherence methodology, from initial requirements gathering through deployment and maintenance with orchestrated intelligence.
 
 ## 🔄 Complete Project Lifecycle
 
@@ -10,20 +10,20 @@ This document outlines the standard software development lifecycle using the APM
 
 #### 1.1 Requirements Gathering
 ```
-/ap → Project analysis → /analyst → Requirements discovery
+/coherence → Unified context analysis → /analyst → Requirements discovery
 ```
 
 **Process:**
-1. **Launch AP Orchestrator**: `/ap` for project coordination
-2. **Business Analysis**: `/analyst` to gather and document requirements
-3. **Stakeholder Review**: `/stakeholder-review` for requirement validation
-4. **Requirements Documentation**: Create comprehensive requirements.md
+1. **Launch Coherence Orchestrator**: `/coherence` for unified context engineering coordination
+2. **Business Analysis**: `/analyst` to gather and document requirements with orchestrated intelligence
+3. **Stakeholder Review**: `/stakeholder-review` for requirement validation through seamless integration
+4. **Requirements Documentation**: Create comprehensive requirements.md using coherent workflow
 
 **Deliverables:**
-- ✅ Requirements document with acceptance criteria
-- ✅ Stakeholder sign-off
-- ✅ Success metrics definition
-- ✅ Risk assessment and mitigation plan
+- ✅ Requirements document with acceptance criteria using unified context engineering
+- ✅ Stakeholder sign-off through coherent workflow
+- ✅ Success metrics definition with orchestrated intelligence
+- ✅ Risk assessment and mitigation plan using seamless integration
 
 #### 1.2 Architecture & Design Planning
 ```
@@ -225,7 +225,7 @@ Production deployment → Monitoring setup → Support handoff
 **Solution**:
 - Continuous session note updates
 - Regular backlog.md maintenance
-- Use `/ap` for project coordination and status updates
+- Use `/coherence` for unified context engineering coordination and status updates
 
 ## 📊 Success Metrics
 
@@ -249,7 +249,7 @@ Production deployment → Monitoring setup → Support handoff
 ### Essential APM Commands for Each Phase
 
 **Planning Phase:**
-- `/ap` - Project coordination
+- `/coherence` - Unified context engineering coordination
 - `/analyst` - Requirements gathering
 - `/architect` - System design
 - `/pm` - Project planning
@@ -279,4 +279,4 @@ Production deployment → Monitoring setup → Support handoff
 
 ---
 
-*Follow this workflow for consistent, high-quality software delivery using APM framework capabilities.*
+*Follow this unified context engineering workflow for consistent, high-quality software delivery using Coherence methodology capabilities.*

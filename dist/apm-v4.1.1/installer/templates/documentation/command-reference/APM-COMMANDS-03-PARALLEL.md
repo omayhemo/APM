@@ -1,18 +1,18 @@
-# APM Parallel Execution Commands
-## Native Sub-Agent Architecture for 4-8x Performance
+# Coherence Parallel Execution Commands
+## Native Sub-Agent Architecture with Orchestrated Intelligence for 4-8x Performance
 
-All parallel commands leverage Claude Code's native sub-agent system, delivering unprecedented performance improvements through true concurrent execution. These commands represent the pinnacle of APM v4.1.0's modernization.
+All parallel commands leverage Claude Code's native sub-agent system with unified context engineering, delivering unprecedented performance improvements through true concurrent execution with orchestrated intelligence. These commands represent the pinnacle of Coherence v4.1.0's modernization.
 
 ---
 
 ## 🚀 Performance Overview
 
-### Native Sub-Agent Architecture Benefits
-- **True Parallelism**: 2-8 concurrent sub-agents per command
-- **Zero CLI Crashes**: Rock-solid native integration
-- **Smart Coordination**: Intelligent dependency management
-- **Resource Efficiency**: Optimized memory and CPU usage
-- **Real-time Aggregation**: Live result synthesis
+### Native Sub-Agent Architecture with Orchestrated Intelligence Benefits
+- **True Parallelism**: 2-8 concurrent sub-agents per command with unified context
+- **Zero CLI Crashes**: Rock-solid native integration with context preservation
+- **Smart Coordination**: Intelligent dependency management with orchestrated intelligence
+- **Resource Efficiency**: Optimized memory and CPU usage with context-aware allocation
+- **Real-time Aggregation**: Live result synthesis with unified context engineering
 
 ### Average Performance Gains
 | Task Category | Sequential Time | Parallel Time | Speedup | Sub-Agents |
@@ -30,14 +30,14 @@ All parallel commands leverage Claude Code's native sub-agent system, delivering
 ### `/parallel-sprint`
 **Epic 17 Flagship - Native Parallel Development Orchestration**
 
-**Purpose**: Launch multiple native Developer sub-agents for concurrent sprint execution with 4.6x performance improvement.
+**Purpose**: Launch multiple native Developer sub-agents with orchestrated intelligence for concurrent sprint execution with 4.6x performance improvement and unified context preservation.
 
 **What it does**:
-1. Analyzes sprint backlog and dependencies
-2. Allocates stories to 2-4 Developer sub-agents
-3. Manages real-time coordination and integration
-4. Resolves conflicts automatically
-5. Aggregates progress and delivers unified output
+1. Analyzes sprint backlog and dependencies with unified context engineering
+2. Allocates stories to 2-4 Developer sub-agents with orchestrated intelligence
+3. Manages real-time coordination and integration with context preservation
+4. Resolves conflicts automatically using intelligent context analysis
+5. Aggregates progress and delivers unified output with seamless context flow
 
 **Sub-Agent Allocation**:
 - **Primary Developer**: Core features and architecture
@@ -688,7 +688,7 @@ All parallel commands leverage Claude Code's native sub-agent system, delivering
 **Result aggregation issues**:
 ```bash
 # Manual aggregation
-/ap --aggregate-results --manual
+/coherence --aggregate-results --manual
 
 # Retry with different strategy
 /parallel-prd --sections="exec,req" --sequential-merge
@@ -705,6 +705,6 @@ All parallel commands leverage Claude Code's native sub-agent system, delivering
 
 ---
 
-*APM Parallel Execution Commands - v4.1.0*
-*100% Native Sub-Agent Architecture*
+*Coherence Parallel Execution Commands - v4.1.0*
+*100% Native Sub-Agent Architecture with Orchestrated Intelligence*
 *4-8x Average Performance Improvement*

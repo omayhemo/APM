@@ -1,5 +1,5 @@
 #!/bin/bash
-# APM Framework Universal Installer
+# Coherence Universal Installer - Unified Context Engineering
 # Downloads and installs the latest APM release
 
 set -e
@@ -18,7 +18,7 @@ INSTALL_DIR="${APM_INSTALL_DIR:-$HOME/.apm-framework}"
 USER_PROJECT_DIR="$(pwd)"
 
 echo -e "${BLUE}═══════════════════════════════════════════${NC}"
-echo -e "${BLUE}     APM Framework Installer v2.0${NC}"
+echo -e "${BLUE}     Coherence Installer v2.0 - Unified Context Engineering${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════${NC}"
 echo ""
 

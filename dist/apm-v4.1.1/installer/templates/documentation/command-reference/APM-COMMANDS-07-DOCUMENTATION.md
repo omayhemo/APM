@@ -1,7 +1,7 @@
-# APM Documentation Commands
-## Document Processing, Management, and Knowledge Organization
+# Coherence Documentation Commands
+## Document Processing, Management, and Knowledge Organization with Orchestrated Intelligence
 
-The Documentation commands provide advanced tools for document processing, knowledge management, and information organization within the APM framework.
+The Documentation commands provide advanced tools for document processing, knowledge management, and information organization within the Coherence framework with unified context engineering.
 
 ---
 
@@ -518,6 +518,6 @@ Documentation commands leverage AI for:
 
 ---
 
-*APM Documentation Commands - v4.1.0*
-*Advanced Document Processing and Knowledge Management*
-*Native Sub-Agent Architecture with AI Enhancement*
+*Coherence Documentation Commands - v4.1.0*
+*Advanced Document Processing and Knowledge Management with Orchestrated Intelligence*
+*Native Sub-Agent Architecture with Unified Context Engineering*

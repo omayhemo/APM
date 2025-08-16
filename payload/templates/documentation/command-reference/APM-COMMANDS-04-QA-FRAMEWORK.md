@@ -1,7 +1,7 @@
-# APM QA Framework Commands
-## AI/ML-Powered Quality Assurance with Native Sub-Agent Architecture
+# Coherence QA Framework Commands
+## AI/ML-Powered Quality Assurance with Native Sub-Agent Architecture and Orchestrated Intelligence
 
-The QA Framework represents the cutting edge of APM's quality assurance capabilities, combining AI/ML analytics with native sub-agent parallelism for unprecedented testing efficiency and intelligence.
+The QA Framework represents the cutting edge of Coherence's quality assurance capabilities, combining AI/ML analytics with native sub-agent parallelism and unified context engineering for unprecedented testing efficiency and intelligence.
 
 ---
 
@@ -15,11 +15,11 @@ The QA Framework represents the cutting edge of APM's quality assurance capabili
 | Anomaly Detection | 94% | <100ms | 45% earlier detection |
 | Quality Insights | 88% | On-demand | 3.2x decision speed |
 
-### Native Performance
-- **4x faster** test execution with parallel sub-agents
-- **Zero CLI crashes** with native integration
-- **Real-time** analytics and reporting
-- **Smart** dependency and conflict resolution
+### Native Performance with Orchestrated Intelligence
+- **4x faster** test execution with parallel sub-agents and unified context
+- **Zero CLI crashes** with native integration and context preservation
+- **Real-time** analytics and reporting with orchestrated intelligence
+- **Smart** dependency and conflict resolution with context-aware analysis
 
 ---
 
@@ -29,11 +29,11 @@ The QA Framework represents the cutting edge of APM's quality assurance capabili
 **Purpose**: Access the comprehensive QA framework with all testing capabilities, analytics, and automation tools.
 
 **What it does**:
-1. Initializes complete testing environment
-2. Loads AI/ML models for predictive analytics
-3. Configures test automation frameworks
-4. Enables parallel test execution
-5. Activates real-time monitoring
+1. Initializes complete testing environment with unified context engineering
+2. Loads AI/ML models for predictive analytics with orchestrated intelligence
+3. Configures test automation frameworks with context preservation
+4. Enables parallel test execution with context-aware coordination
+5. Activates real-time monitoring with intelligent context flow
 
 **Core Capabilities**:
 - **Test Execution**: Run any test type
@@ -636,6 +636,6 @@ The framework maintains and updates ML models:
 
 ---
 
-*APM QA Framework Commands - v4.1.0*
-*AI/ML-Powered with Native Sub-Agent Architecture*
-*92% Prediction Accuracy | 4x Parallel Performance*
+*Coherence QA Framework Commands - v4.1.0*
+*AI/ML-Powered with Native Sub-Agent Architecture and Orchestrated Intelligence*
+*92% Prediction Accuracy | 4x Parallel Performance | Unified Context Engineering*

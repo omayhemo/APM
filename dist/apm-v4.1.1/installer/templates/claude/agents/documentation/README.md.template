@@ -1,15 +1,15 @@
-# APM Documentation System {{DOCUMENTATION_VERSION}}
+# Coherence Documentation System {{DOCUMENTATION_VERSION}}
 
 ## Overview
 
-The Agentic Persona Mapping (APM) documentation system provides comprehensive guidance for installing, configuring, and operating the APM Sub-Agent framework in {{INSTALLATION_ENVIRONMENT}} environments.
+The Coherence documentation system provides comprehensive guidance for installing, configuring, and operating the Coherence Sub-Agent framework with unified context engineering in {{INSTALLATION_ENVIRONMENT}} environments.
 
 ## Documentation Structure
 
 ### Core Documentation Templates
 
 #### 1. Installation Guide (`installation-guide.md.template`)
-**Purpose**: Comprehensive installation procedures for APM Sub-Agent system
+**Purpose**: Comprehensive installation procedures for Coherence Sub-Agent system
 **Key Variables**: 
 - `{{DOCUMENTATION_VERSION}}` - Current documentation version
 - `{{INSTALLATION_ENVIRONMENT}}` - Target environment (development, staging, production)
@@ -58,7 +58,7 @@ The Agentic Persona Mapping (APM) documentation system provides comprehensive gu
 ## Key Features
 
 ### Revolutionary Parallel Development
-The APM system introduces breakthrough capabilities for parallel development coordination:
+The Coherence system introduces breakthrough capabilities for parallel development coordination with unified context engineering:
 - **Multiple Developer Agents**: 2-4 developers working simultaneously on different sprint stories
 - **60-80% Sprint Acceleration**: Through true parallel story development
 - **Real-time Dependency Management**: Intelligent conflict prevention and resolution
@@ -73,7 +73,7 @@ Advanced QA capabilities with machine learning integration:
 
 ### Intelligent Agent Coordination
 Seamless collaboration between specialized personas:
-- **AP Orchestrator**: Central coordination and delegation hub
+- **Coherence Orchestrator**: Central coordination and delegation hub with orchestrated intelligence
 - **Specialized Agents**: Developer, QA, Architect, Product Owner, Scrum Master
 - **Session Management**: Context preservation and intelligent handoffs
 - **Voice Notifications**: Audio feedback system for enhanced user experience
@@ -133,13 +133,13 @@ sm              # Activate Scrum Master Agent
 ### System Components
 
 #### Core Infrastructure
-- **APM Framework**: Located in `.apm/` directory with complete agent infrastructure
+- **Coherence Framework**: Located in `.coherence/` directory with complete agent infrastructure and unified context engineering
 - **Session Management**: Intelligent context preservation and handoff capabilities
 - **Voice System**: Audio notification system for enhanced user experience
 - **Configuration Management**: Environment-specific settings and optimization
 
 #### Agent Personas
-- **AP Orchestrator**: Central coordination and delegation hub
+- **Coherence Orchestrator**: Central coordination and delegation hub with orchestrated intelligence
 - **Developer Agents**: Code development with parallel execution support
 - **QA Agent**: AI/ML-powered testing and quality assurance
 - **Architect Agents**: System and design architecture management
@@ -154,7 +154,7 @@ sm              # Activate Scrum Master Agent
 ### Data Flow Architecture
 
 ```
-User Input → AP Orchestrator → Agent Activation → Parallel Execution → Results Synthesis
+User Input → Coherence Orchestrator → Agent Activation → Parallel Execution → Results Synthesis
      ↓              ↓                 ↓                    ↓                 ↓
 Session Notes   Voice Alerts    Context Loading    Coordination      Archive System
 ```

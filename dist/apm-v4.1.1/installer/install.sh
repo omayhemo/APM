@@ -5,6 +5,12 @@
 
 set -e
 
+# Get the directory where this script is located (payload dir) - early for banner
+PAYLOAD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source the animated banner script early
+source "$PAYLOAD_DIR/coherence-banner.sh"
+
 # Script identification for cleanup
 INSTALLER_SIGNATURE="AP Mapping Installation Script - Template-based payload"
 
@@ -52,10 +58,10 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
     USE_DEFAULTS=true
 fi
 
-echo "=========================================="
-echo "   APM Framework Installation v4.1.1"
-echo "   Native Sub-Agent Architecture"
-echo "=========================================="
+# Display animated banner
+print_animated_banner
+echo ""
+echo -e "${CYAN}  Installation Mode: ${RESET}${BOLD}${WHITE}v4.1.1 Native Sub-Agent Architecture${RESET}"
 echo ""
 
 # Debug output for defaults mode
@@ -69,8 +75,7 @@ else
     echo ""
 fi
 
-# Get the directory where this script is located (payload dir)
-PAYLOAD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Set distribution directory (PAYLOAD_DIR was set earlier for banner)
 DIST_DIR="$(dirname "$PAYLOAD_DIR")"
 
 # Get target directory (default to current directory)
@@ -103,13 +108,13 @@ if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ] && [ -d "
         TARGET_DIR="$DIST_DIR"
         SKIP_COPY="true"
     else
-        echo "=========================================="
-        echo "APM Framework Quick Setup v4.1.1"
-        echo "=========================================="
+        # Display animated banner for quick setup
+        print_animated_banner
+        echo -e "${CYAN}  Setup Mode: ${RESET}${BOLD}${WHITE}Quick Installation${RESET}"
         echo ""
         echo "You're running the payload from the extracted distribution."
         echo ""
-        echo -e "${GREEN}Where would you like to install APM Framework?${NC}"
+        echo -e "${GREEN}Where would you like to install Coherence?${NC}"
         echo -e "${BLUE}"
         echo "1) Use this directory as the project (quick start)"
         echo "2) Create new project in parent directory"
@@ -723,7 +728,7 @@ cp "$INSTALLER_DIR/templates/voice"/*.sh "$AP_ROOT/voice/"
 chmod +x "$AP_ROOT/voice"/*.sh
 
 # Install ap-manager.sh
-echo "⏳ Installing APM Framework Manager..."
+echo "⏳ Installing Coherence Framework Manager..."
 if [ -f "$INSTALLER_DIR/templates/scripts/ap-manager.sh" ]; then
     cp "$INSTALLER_DIR/templates/scripts/ap-manager.sh" "$AP_ROOT/scripts/"
     chmod +x "$AP_ROOT/scripts/ap-manager.sh"
@@ -2475,7 +2480,7 @@ echo "- Notification system (TTS and webhooks)"
 
 echo ""
 echo "=========================================="
-echo "APM Framework installation completed!"
+echo "Coherence installation completed!"
 echo "=========================================="
 echo ""
 echo "Installation Summary:"
@@ -2594,10 +2599,10 @@ echo "For more information, see:"
 echo "- Main instructions: $CLAUDE_MD"
 echo "- Agents directory: $AP_ROOT"
 echo ""
-echo "Enjoy using the APM Framework v$VERSION with 4-8x performance!"
+echo "Enjoy using Coherence v$VERSION - Unified Context Engineering with 4-8x performance!"
 
 # Log final installation summary
-log_install "=== APM Framework Installation Summary ===" "INFO"
+log_install "=== Coherence Installation Summary ===" "INFO"
 log_install "Version: $VERSION (Native Sub-Agent Architecture)" "INFO"
 log_install "Location: $PROJECT_ROOT" "INFO"
 log_install "Project: $PROJECT_NAME" "INFO"
@@ -2717,7 +2722,7 @@ echo "----------------------------"
 
 # Display final installation summary
 echo "==========================================
-APM Framework installation completed!
+Coherence installation completed!
 ==========================================
 
 Installation Summary:

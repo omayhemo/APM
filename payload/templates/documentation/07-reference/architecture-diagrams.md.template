@@ -1,6 +1,6 @@
-# APM Architecture Diagrams & Technical Specifications
+# Coherence Architecture Diagrams & Technical Specifications
 
-System architecture diagrams, data flow visualizations, and technical explanations for the Agentic Persona Mapping (APM) framework.
+System architecture diagrams, data flow visualizations, and technical explanations for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -26,8 +26,8 @@ graph TB
         USER[User Commands]
     end
 
-    subgraph "APM Framework Core"
-        ORCH[AP Orchestrator]
+    subgraph "Coherence Framework Core"
+        ORCH[Coherence Orchestrator]
         CMD[Command Router]
         SESS[Session Manager]
         VOICE[Voice System]
@@ -108,8 +108,8 @@ graph TB
 - **Claude Code CLI**: Primary interface for user interaction
 - **Command Recognition**: Interprets user commands and routes to appropriate handlers
 
-#### 2. APM Framework Core
-- **AP Orchestrator**: Central coordination and delegation engine
+#### 2. Coherence Framework Core
+- **Coherence Orchestrator**: Central coordination and delegation engine
 - **Command Router**: Routes commands to appropriate persona or system function
 - **Session Manager**: Handles session lifecycle and context preservation
 - **Voice System**: Provides audio feedback and notifications
@@ -139,7 +139,7 @@ graph TB
 
 ## ⚡ Native Sub-Agent Architecture
 
-### APM v4.1.0 Native Sub-Agent System
+### Coherence v4.1.0 Native Sub-Agent System
 
 ```mermaid
 graph TB
@@ -150,7 +150,7 @@ graph TB
         EXEC[Execution Context]
     end
 
-    subgraph "APM Sub-Agent Management"
+    subgraph "Coherence Sub-Agent Management"
         MGR[Sub-Agent Manager]
         POOL[Agent Pool]
         SCHED[Task Scheduler]
@@ -202,7 +202,7 @@ graph TB
     style MGR fill:#ff9900,stroke:#333,stroke-width:4px
 ```
 
-### Performance Comparison: v4.1.0 vs v4.1.0
+### Performance Comparison: Legacy vs v4.1.0
 
 | Operation | v4.1.0 (Task Tool) | v4.1.0 (Native) | Improvement |
 |-----------|-------------------|------------------|-------------|
@@ -231,7 +231,7 @@ sequenceDiagram
     participant User
     participant CLI as Claude Code CLI
     participant Router as Command Router
-    participant Orch as AP Orchestrator
+    participant Orch as Coherence Orchestrator
     participant Session as Session Manager
     participant Voice as Voice System
     participant Persona as Target Persona
@@ -883,7 +883,7 @@ graph TD
 ```mermaid
 graph LR
     subgraph "Local Environment"
-        APM[APM Framework]
+        COHERENCE[Coherence Framework]
         CLAUDE[Claude Code]
         MCP[MCP Plopdock:8080]
         DEV[Dev Server:3000]

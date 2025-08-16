@@ -1,33 +1,35 @@
-# APM Core Orchestrator Commands
-## Central Control and Coordination
+# Coherence Core Orchestrator Commands
+## Central Control and Coordination with Unified Context Engineering
 
-The Orchestrator commands form the backbone of the APM framework, providing central control, session management, and agent coordination capabilities.
+The Orchestrator commands form the backbone of the Coherence framework, providing central control, session management, and agent coordination capabilities with advanced unified context engineering.
 
 ---
 
-## 🎯 `/ap` or `/ap_orchestrator`
-### Launch AP Orchestrator - Central Command Hub
+## 🎯 `/coherence` or `/coherence_orchestrator`
+### Launch Coherence Orchestrator - Central Command Hub with Unified Context Engineering
 
-**Purpose**: Activates the central AP Orchestrator persona that coordinates all other agents and provides access to the complete APM ecosystem.
+**Purpose**: Activates the central Coherence Orchestrator persona that coordinates all other agents and provides access to the complete Coherence ecosystem with unified context engineering.
+
+**Legacy Compatibility**: Also responds to `/ap` and `/ap_orchestrator` for backward compatibility.
 
 **What it does**:
-1. Initializes APM framework with full system context
-2. Loads all agent configurations and personas
-3. Establishes session management
-4. Provides central coordination for multi-agent workflows
-5. Executes 5 parallel initialization tasks for rapid startup
+1. Initializes Coherence framework with unified context engineering
+2. Loads all agent configurations and personas with context preservation
+3. Establishes session management with intelligent context flow
+4. Provides central coordination for multi-agent workflows with orchestrated intelligence
+5. Executes 5 parallel initialization tasks for rapid startup with context synchronization
 
 **Initialization Sequence**:
 - Lists and reads session notes for context continuity
 - Lists rules directory for behavioral guidelines
-- Creates timestamped session note
+- Creates timestamped session note with unified context
 - Executes voice announcement
-- Runs 5 parallel initialization tasks:
-  - Load AP knowledge base
-  - Load orchestrator configuration
-  - Load communication standards
-  - Check project documentation
-  - Catalog available personas
+- Runs 5 parallel initialization tasks with context engineering:
+  - Load Coherence knowledge base
+  - Load orchestrator configuration with unified context
+  - Load communication standards and context flow protocols
+  - Check project documentation with intelligent indexing
+  - Catalog available personas with context mapping
 
 **Options**:
 - `--silent` - Skip voice announcements
@@ -35,22 +37,25 @@ The Orchestrator commands form the backbone of the APM framework, providing cent
 - `--status` - Show current system status
 
 **Suggested Use Cases**:
-- Starting any APM work session
-- Coordinating multi-agent workflows
-- Getting overview of project status
-- Accessing any specialized persona
-- Managing complex development tasks
+- Starting any Coherence work session with unified context
+- Coordinating multi-agent workflows with orchestrated intelligence
+- Getting overview of project status with intelligent analysis
+- Accessing any specialized persona with context preservation
+- Managing complex development tasks with seamless context flow
 
 **Example**:
 ```bash
 # Basic activation
-/ap
+/coherence
 
-# Resume previous session
-/ap --resume
+# Resume previous session with context
+/coherence --resume
 
 # Check status without full activation
-/ap --status
+/coherence --status
+
+# Legacy compatibility
+/ap  # Still works for backward compatibility
 ```
 
 **Output**: 
@@ -343,7 +348,7 @@ The Orchestrator optimizes workflows by:
 
 ### Project Initialization
 ```bash
-/ap
+/coherence
 /session-note-setup
 /personas --detailed=true
 /handoff analyst
@@ -357,7 +362,7 @@ The Orchestrator optimizes workflows by:
 
 ### Multi-Agent Coordination
 ```bash
-/ap
+/coherence
 /parallel-sprint --agents=4
 /wrap --update-backlog=true
 ```
@@ -385,7 +390,7 @@ The Orchestrator optimizes workflows by:
 - Solution: Use `/session-note-setup --reset=true`
 
 **Agent activation failures**:
-- Solution: Check with `/ap --status` first
+- Solution: Check with `/coherence --status` first
 
 **Context loss during handoff**:
 - Solution: Use `--notes` parameter explicitly
@@ -398,11 +403,12 @@ The Orchestrator optimizes workflows by:
 ## 🔗 Related Commands
 
 - **Persona Commands**: `/analyst`, `/dev`, `/qa`, etc.
-- **Parallel Commands**: `/parallel-*` commands
-- **Project Commands**: `/project-brief`, `/prd`, `/epic`
+- **Parallel Commands**: `/parallel-*` commands with orchestrated intelligence
+- **Project Commands**: `/project-brief`, `/prd`, `/epic` with unified context
 - **Utility Commands**: `/version`, `/buildit`
 
 ---
 
-*APM Core Orchestrator Commands - v4.1.0*
-*Native Sub-Agent Architecture*
+*Coherence Core Orchestrator Commands - v4.1.0*
+*Native Sub-Agent Architecture with Unified Context Engineering*
+*Legacy compatibility maintained for `/ap` commands*

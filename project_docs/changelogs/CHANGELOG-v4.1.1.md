@@ -1,4 +1,6 @@
-# APM Framework v4.1.1 - Critical Bug Fixes and Improvements
+# Coherence v4.1.1 - Critical Bug Fixes and Improvements
+
+**Unified Context Engineering Platform**
 
 **Release Date**: August 16, 2025  
 **Version**: 4.1.1  
@@ -88,6 +90,6 @@ This release maintains full backward compatibility with v4.1.0:
 
 ## 🎉 Summary
 
-APM Framework v4.1.1 delivers critical bug fixes that improve installation reliability and document organization. While maintaining full backward compatibility, this release enhances the user experience by eliminating installer errors and ensuring proper file organization for session management.
+Coherence v4.1.1 delivers critical bug fixes that improve installation reliability and document organization. While maintaining full backward compatibility, this release enhances the unified context engineering experience by eliminating installer errors and ensuring proper file organization for session management.
 
-**Key Improvements**: Installer reliability, document organization, error prevention, and enhanced user feedback.
+**Key Improvements**: Installer reliability, document organization, error prevention, and enhanced user feedback for unified AI persona coordination.
