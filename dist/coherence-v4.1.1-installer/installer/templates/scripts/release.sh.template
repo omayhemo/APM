@@ -159,12 +159,12 @@ This distribution contains the APM Framework installer and templates.
 
 1. Extract the archive:
    \`\`\`bash
-   tar -xzf apm-v${VERSION}.tar.gz
+   tar -xzf coherence-v${VERSION}-installer.tar.gz
    \`\`\`
 
 2. Run the installer:
    \`\`\`bash
-   cd apm-v${VERSION}
+   cd coherence-v${VERSION}-installer
    ./payload/install.sh
    \`\`\`
 
@@ -238,7 +238,7 @@ cd "$APM_REPO_PATH"
 # Check if gh CLI is available
 if command -v gh &> /dev/null; then
     gh release create "v${VERSION}" \
-        "${DIST_DIR}/apm-v${VERSION}.tar.gz" \
+        "${DIST_DIR}/coherence-v${VERSION}-installer.tar.gz" \
         --title "APM Framework v${VERSION}" \
         --notes-file "${RELEASE_NOTES_FILE}" \
         --target main
@@ -247,7 +247,7 @@ else
     echo -e "${YELLOW}GitHub CLI not found. Please create release manually:${NC}"
     echo "1. Go to https://github.com/omayhemo/APM/releases/new"
     echo "2. Tag: v${VERSION}"
-    echo "3. Upload: ${DIST_DIR}/apm-v${VERSION}.tar.gz"
+    echo "3. Upload: ${DIST_DIR}/coherence-v${VERSION}-installer.tar.gz"
     echo "4. Use release notes from: ${RELEASE_NOTES_FILE}"
 fi
 
@@ -261,7 +261,7 @@ echo "Release Summary:"
 echo "- Version files updated"
 echo "- Changelog created: ${CHANGELOG_FILE}"
 echo "- Release notes created: ${RELEASE_NOTES_FILE}"
-echo "- Distribution built: ${DIST_DIR}/apm-v${VERSION}.tar.gz"
+echo "- Distribution built: ${DIST_DIR}/coherence-v${VERSION}-installer.tar.gz"
 echo "- Git tag created: v${VERSION}"
 echo "- APM repository updated (installer only)"
 echo "- GitHub release created/pending"

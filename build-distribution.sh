@@ -14,7 +14,7 @@ elif [ -f "VERSION" ]; then
 else
     VERSION="4.1.0"
 fi
-DIST_NAME="apm-v$VERSION"
+DIST_NAME="coherence-v$VERSION-installer"
 DIST_DIR="dist/$DIST_NAME"
 
 echo "=========================================="
@@ -115,10 +115,9 @@ EOF
 echo ""
 echo "Creating distribution archive..."
 cd dist
-# Create tar without the version directory wrapper - contents go directly to extraction point
-cd "$DIST_NAME"
-tar -czf "../$DIST_NAME.tar.gz" .
-cd ../..
+# Create tar with installer directory at root - no version wrapper
+tar -czf "$DIST_NAME.tar.gz" -C "$DIST_NAME" installer LICENSE VERSION
+cd ..
 
 # No README copied to dist root - users get installer only
 

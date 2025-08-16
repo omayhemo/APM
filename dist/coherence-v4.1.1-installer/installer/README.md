@@ -33,12 +33,12 @@ APM v4.1.0 delivers **revolutionary native sub-agent architecture** with **confi
 
 **For Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz && tar -xzf apm-v4.1.0.tar.gz && ./payload/install.sh
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz && tar -xzf coherence-v4.1.1-installer.tar.gz && ./payload/install.sh
 ```
 
 **For macOS:**
 ```bash
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz | tar -xz && ./payload/install.sh
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz | tar -xz && ./payload/install.sh
 ```
 
 ### Installation Options
@@ -49,28 +49,28 @@ Add nothing - the installer will prompt for all configuration options
 **Option 2: Install with Defaults (Skip prompts)**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz && tar -xzf apm-v4.1.0.tar.gz && ./payload/install.sh --defaults
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz && tar -xzf coherence-v4.1.1-installer.tar.gz && ./payload/install.sh --defaults
 
 # macOS
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz | tar -xz && ./payload/install.sh --defaults
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz | tar -xz && ./payload/install.sh --defaults
 ```
 
 **Option 3: Install to Specific Directory**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz && tar -xzf apm-v4.1.0.tar.gz && ./payload/install.sh /path/to/your/project
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz && tar -xzf coherence-v4.1.1-installer.tar.gz && ./payload/install.sh /path/to/your/project
 
 # macOS
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz | tar -xz && ./payload/install.sh /path/to/your/project
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz | tar -xz && ./payload/install.sh /path/to/your/project
 ```
 
 **Option 4: Install with Piper TTS Voice Support**
 ```bash
 # Linux/WSL
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz && tar -xzf apm-v4.1.0.tar.gz && ./payload/install.sh --with-tts
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz && tar -xzf coherence-v4.1.1-installer.tar.gz && ./payload/install.sh --with-tts
 
 # macOS
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.0/apm-v4.1.0.tar.gz | tar -xz && ./payload/install.sh --with-tts
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/coherence-v4.1.1-installer.tar.gz | tar -xz && ./payload/install.sh --with-tts
 ```
 
 ## Key Features

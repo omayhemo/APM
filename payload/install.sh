@@ -25,12 +25,16 @@ NC='\033[0m' # No Color
 ORIGINAL_ARGS="$@"
 ORIGINAL_ARG_COUNT=$#
 
-# Check for --defaults flag
+# Check for flags
 USE_DEFAULTS=false
+USE_LIVE_MODE=true  # Default to live mode (fixed display conflicts)
 for arg in "$@"; do
     if [ "$arg" = "--defaults" ] || [ "$arg" = "-d" ]; then
         USE_DEFAULTS=true
-        break
+    elif [ "$arg" = "--no-live" ] || [ "$arg" = "--classic" ]; then
+        USE_LIVE_MODE=false
+    elif [ "$arg" = "--live" ]; then
+        USE_LIVE_MODE=true
     fi
 done
 
@@ -58,11 +62,29 @@ if [ -z "$INTERACTIVE_TTY" ] && [ "$USE_DEFAULTS" = false ]; then
     USE_DEFAULTS=true
 fi
 
-# Display animated banner
-print_animated_banner
-echo ""
-echo -e "${CYAN}  Installation Mode: ${RESET}${BOLD}${WHITE}v4.1.1 Native Sub-Agent Architecture${RESET}"
-echo ""
+# Source large pinned banner script if available
+LIVE_DISPLAY_AVAILABLE=false
+if [ "$USE_LIVE_MODE" = true ]; then
+    if [ -f "$PAYLOAD_DIR/pinned-coherence-banner.sh" ]; then
+        source "$PAYLOAD_DIR/pinned-coherence-banner.sh"
+        LIVE_DISPLAY_AVAILABLE=true
+    else
+        echo "COHERENCE banner script not found. Using classic mode."
+        USE_LIVE_MODE=false
+    fi
+fi
+
+# Display banner based on mode
+if [ "$USE_LIVE_MODE" = true ] && [ "$LIVE_DISPLAY_AVAILABLE" = true ]; then
+    # COHERENCE banner mode - banner will be shown by the execution section
+    echo "🎨 COHERENCE banner mode activated"
+else
+    # Classic animated banner mode
+    print_animated_banner
+    echo ""
+    echo -e "${CYAN}  Installation Mode: ${RESET}${BOLD}${WHITE}v4.1.1 Native Sub-Agent Architecture${RESET}"
+    echo ""
+fi
 
 # Debug output for defaults mode
 if [ "$USE_DEFAULTS" = true ]; then
@@ -108,9 +130,13 @@ if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ] && [ -d "
         TARGET_DIR="$DIST_DIR"
         SKIP_COPY="true"
     else
-        # Display animated banner for quick setup
-        print_animated_banner
-        echo -e "${CYAN}  Setup Mode: ${RESET}${BOLD}${WHITE}Quick Installation${RESET}"
+        # Display banner for quick setup based on mode
+        if [ "$USE_LIVE_MODE" = true ] && [ "$LIVE_DISPLAY_AVAILABLE" = true ]; then
+            echo "🎨 COHERENCE quick setup mode"
+        else
+            print_animated_banner
+            echo -e "${CYAN}  Setup Mode: ${RESET}${BOLD}${WHITE}Quick Installation${RESET}"
+        fi
         echo ""
         echo "You're running the payload from the extracted distribution."
         echo ""
@@ -540,6 +566,9 @@ generate_agents_from_templates() {
     
     echo "✅ Generated agents directory from templates"
 }
+
+# Main installation process function
+main_installation_process() {
 
 echo ""
 echo "Step 1: Generating Agents Directory from Templates"
@@ -2756,3 +2785,18 @@ echo -e "${BLUE}4. Explore AI/ML commands: /qa-predict, /qa-optimize, /qa-anomal
 echo -e "${BLUE}5. Try parallel testing: /parallel-qa-framework, /parallel-regression-suite${NC}"
 echo -e "${BLUE}6. Organize documentation: /doc-compliance organize --dry-run${NC}"
 echo -e "${BLUE}7. Check out the documentation at: .apm/documentation/ (Main index: .apm/README.md)${NC}"
+
+}
+
+# Execute installation with appropriate display mode
+if [ "$USE_LIVE_MODE" = true ] && [ "$LIVE_DISPLAY_AVAILABLE" = true ]; then
+    # Run with large COHERENCE pinned banner
+    run_with_pinned_large_banner "main_installation_process"
+else
+    # Run directly without live tracking
+    if [ "$LIVE_DISPLAY_AVAILABLE" = false ] && [ "$USE_LIVE_MODE" = true ]; then
+        echo "⚠️  COHERENCE banner script not found. Running standard installation."
+        echo ""
+    fi
+    main_installation_process
+fi
