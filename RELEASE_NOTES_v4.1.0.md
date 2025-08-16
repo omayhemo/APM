@@ -37,7 +37,7 @@ APM Framework v4.1.0 introduces **seamless integration with Claude Code** throug
 ### **Quick Install (Recommended)**
 ```bash
 # Zero-setup installation with automatic Claude Code integration
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/agentic-persona-mapping/master/APM/install.sh | bash -s -- --defaults
 ```
 
 **Ready to revolutionize your development workflow?** Install APM v4.1.0 and experience the power of automatic Claude Code integration.

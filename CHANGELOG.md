@@ -1,5 +1,51 @@
 # Changelog
 
+## [4.1.4] - 2025-08-16
+
+### Fixed
+- **Enhanced Wait Command Validation**: Resolved persistent "Wait: command not found" errors at end of installations
+  - Improved subshell variable propagation in validation system
+  - Extended directory scanning to catch typos in all script locations
+  - Enhanced auto-correction logic for bash command case sensitivity issues
+  - Comprehensive script validation across Claude, APM, and Piper components
+
+### Improved
+- **Coherence Branding Integration**: Complete TTS system update for new brand identity
+  - Updated all audio test messages from "Welcome to Agentic Persona Mapping Framework" to "Coherence - Orchestrate AI"
+  - Consistent branding across all TTS providers (Piper, ElevenLabs, Discord, System)
+  - Enhanced user experience with unified Coherence messaging
+- **Primary Command Integration**: Added missing coherence command template processing
+  - Fixed installer script to properly process coherence.md command template
+  - Ensures coherence command is available immediately after installation
+  - Template variable substitution for session notes paths and voice scripts
+- **Installation Reliability**: Enhanced script validation and error prevention
+  - Improved error detection and auto-correction for bash command typos
+  - Better user feedback during validation processes
+  - Strengthened installer robustness against script generation errors
+
+## [4.1.3] - 2025-08-16
+
+### Fixed
+- **Enhanced Installer Script Validation**: Resolves "Wait: command not found" errors that appeared at end of installations
+  - Advanced validation system automatically detects and corrects capitalized "Wait" commands
+  - Auto-correction uses sed commands to automatically correct detected typos
+  - Transparent operation with clear feedback about validation results and corrections applied
+  - Prevention system blocks future similar bash command typos that could cause installation failures
+
+### Improved
+- **Extended Validation Framework**: Built on proven v4.1.1 validation system to include "Wait" command detection
+  - Automated fixing ensures installation proceeds normally after corrections
+  - Comprehensive scanning validates all generated scripts in Claude, APM, and Piper directories
+  - Zero user impact with validation running transparently during installation
+
+## [4.1.2] - 2025-08-16
+
+### Improved
+- **Release Management Integration**: Enhanced version control and release automation
+  - Automated release workflow with comprehensive documentation generation
+  - Integrated QA validation during version updates
+  - Streamlined distribution building and GitHub release management
+
 ## [4.1.1] - 2025-08-16
 
 ### Rebranding
@@ -643,7 +689,7 @@ Welcome to the era of Parallel Agent Development! 🎉
 
 ### Enhanced
 - **APM Repository Integration**: Complete automation of release deployment
-  - Automatic pushing to APM repository (https://github.com/omayhemo/APM)
+  - Automatic pushing to APM repository (https://github.com/omayhemo/agentic-persona-mapping)
   - GitHub release creation with distribution packages
   - Pre-release flagging for RC/beta/alpha versions
   - Error handling and fallback options
@@ -767,24 +813,27 @@ Welcome to the era of Parallel Agent Development! 🎉
 - Configurable environment settings
 - Git-aware installation process
 
-[4.1.1]: https://github.com/omayhemo/APM/compare/v4.1.0...v4.1.1
-[4.1.0]: https://github.com/omayhemo/APM/compare/v4.0.1...v4.1.0
-[4.0.1]: https://github.com/omayhemo/APM/compare/v4.0.0...v4.0.1
-[4.0.0]: https://github.com/omayhemo/APM/compare/v3.5.0...v4.0.0
-[3.2.0]: https://github.com/omayhemo/APM/compare/v2.4.1...v3.2.0
-[2.4.1]: https://github.com/omayhemo/APM/compare/v2.4.0...v2.4.1
-[2.4.0]: https://github.com/omayhemo/APM/compare/v2.3.0...v2.4.0
-[2.3.0]: https://github.com/omayhemo/APM/compare/v2.2.0...v2.3.0
-[2.2.0]: https://github.com/omayhemo/APM/compare/v2.1.4...v2.2.0
-[2.1.4]: https://github.com/omayhemo/APM/compare/v2.1.3...v2.1.4
-[2.1.3]: https://github.com/omayhemo/APM/compare/v2.1.1...v2.1.3
-[2.1.1]: https://github.com/omayhemo/APM/compare/v2.1.0...v2.1.1
-[2.1.0]: https://github.com/omayhemo/APM/compare/v2.0.1...v2.1.0
-[2.0.1]: https://github.com/omayhemo/APM/compare/v2.0.0...v2.0.1
-[2.0.0]: https://github.com/omayhemo/APM/compare/v1.2.10...v2.0.0
-[1.2.10]: https://github.com/omayhemo/APM/compare/v1.2.0-rc.2...v1.2.10
-[1.2.0-rc.2]: https://github.com/omayhemo/APM/compare/v1.2.0-rc.1...v1.2.0-rc.2
-[1.2.0-rc.1]: https://github.com/omayhemo/APM/compare/v1.1.0-alpha.2...v1.2.0-rc.1
-[1.1.0-alpha.2]: https://github.com/omayhemo/APM/compare/v1.1.0-alpha...v1.1.0-alpha.2
-[1.1.0-alpha]: https://github.com/omayhemo/APM/compare/v1.0.0...v1.1.0-alpha
-[1.0.0]: https://github.com/omayhemo/APM/releases/tag/v1.0.0
+[4.1.4]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.3...v4.1.4
+[4.1.3]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.2...v4.1.3
+[4.1.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.1...v4.1.2
+[4.1.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.0...v4.1.1
+[4.1.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.0.1...v4.1.0
+[4.0.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.0.0...v4.0.1
+[4.0.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v3.5.0...v4.0.0
+[3.2.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.4.1...v3.2.0
+[2.4.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.4.0...v2.4.1
+[2.4.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.3.0...v2.4.0
+[2.3.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.2.0...v2.3.0
+[2.2.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.1.4...v2.2.0
+[2.1.4]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.1.3...v2.1.4
+[2.1.3]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.1.1...v2.1.3
+[2.1.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.1.0...v2.1.1
+[2.1.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.0.1...v2.1.0
+[2.0.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v2.0.0...v2.0.1
+[2.0.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v1.2.10...v2.0.0
+[1.2.10]: https://github.com/omayhemo/agentic-persona-mapping/compare/v1.2.0-rc.2...v1.2.10
+[1.2.0-rc.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v1.2.0-rc.1...v1.2.0-rc.2
+[1.2.0-rc.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v1.1.0-alpha.2...v1.2.0-rc.1
+[1.1.0-alpha.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v1.1.0-alpha...v1.1.0-alpha.2
+[1.1.0-alpha]: https://github.com/omayhemo/agentic-persona-mapping/compare/v1.0.0...v1.1.0-alpha
+[1.0.0]: https://github.com/omayhemo/agentic-persona-mapping/releases/tag/v1.0.0
