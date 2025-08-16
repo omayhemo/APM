@@ -1,5 +1,28 @@
 # Changelog
 
+## [4.1.4] - 2025-08-16
+
+### Fixed
+- **Enhanced Wait Command Validation**: Resolved persistent "Wait: command not found" errors at end of installations
+  - Improved subshell variable propagation in validation system
+  - Extended directory scanning to catch typos in all script locations
+  - Enhanced auto-correction logic for bash command case sensitivity issues
+  - Comprehensive script validation across Claude, APM, and Piper components
+
+### Improved
+- **Coherence Branding Integration**: Complete TTS system update for new brand identity
+  - Updated all audio test messages from "Welcome to Agentic Persona Mapping Framework" to "Coherence, orchestrate your AI"
+  - Consistent branding across all TTS providers (Piper, ElevenLabs, Discord, System)
+  - Enhanced user experience with unified Coherence messaging
+- **Primary Command Integration**: Added missing coherence command template processing
+  - Fixed installer script to properly process coherence.md command template
+  - Ensures coherence command is available immediately after installation
+  - Template variable substitution for session notes paths and voice scripts
+- **Installation Reliability**: Enhanced script validation and error prevention
+  - Improved error detection and auto-correction for bash command typos
+  - Better user feedback during validation processes
+  - Strengthened installer robustness against script generation errors
+
 ## [4.1.1] - 2025-08-16
 
 ### Rebranding
