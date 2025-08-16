@@ -11,7 +11,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # Configuration
-REPO="omayhemo/agentic-persona-mapping"
+REPO="omayhemo/APM"
 INSTALL_DIR="${APM_INSTALL_DIR:-$HOME/.apm-framework}"
 
 # Capture the user's current directory (where they ran the curl command)
