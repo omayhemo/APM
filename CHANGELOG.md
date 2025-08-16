@@ -1,5 +1,28 @@
 # Changelog
 
+## [4.1.1] - 2025-08-16
+
+### Fixed
+- **Critical Installer Script Error**: Resolved `bash: line 87: cho: command not found` error that appeared at end of installations
+  - Added comprehensive script validation system with auto-fix capability
+  - Enhanced error reporting and exit code handling for installation issues
+  - Prevention system validates generated scripts and auto-corrects common typos
+- **Document Organization Issues**: Fixed transition notes incorrectly placed in `project_docs/handoffs/`
+  - Enhanced location enforcer automatically redirects transition notes to `session_notes` directory
+  - Added `transition_note` and `handoff_note` document types to registry
+  - Updated handoff command templates to explicitly specify session_notes paths
+  - Cleaned up existing misplaced transition notes and removed empty directories
+
+### Improved
+- **Installation Reliability**: Enhanced validation system prevents future script errors
+  - Auto-detection and fixing of script typos across Claude, APM, and Piper components
+  - Transparent user feedback on validation results and corrections applied
+  - Self-healing installation process with comprehensive error prevention
+- **Document Management**: Consistent file organization for better session management
+  - Automatic path correction for handoff/transition documents
+  - Enhanced document registry with comprehensive detection patterns
+  - Improved command templates with explicit path specifications
+
 ## [4.1.0] - 2025-08-15
 
 ### Added
@@ -738,6 +761,7 @@ Welcome to the era of Parallel Agent Development! 🎉
 - Configurable environment settings
 - Git-aware installation process
 
+[4.1.1]: https://github.com/omayhemo/APM/compare/v4.1.0...v4.1.1
 [4.1.0]: https://github.com/omayhemo/APM/compare/v4.0.1...v4.1.0
 [4.0.1]: https://github.com/omayhemo/APM/compare/v4.0.0...v4.0.1
 [4.0.0]: https://github.com/omayhemo/APM/compare/v3.5.0...v4.0.0
