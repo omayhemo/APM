@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-**v4.1.1** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
+**v4.1.2** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
 
 ## ⚠️ CRITICAL: ALWAYS USE SLASH COMMANDS
 
@@ -25,23 +25,23 @@
 
 ## 🚀 Quick Start
 
-**Latest Release:** v4.1.1 ⚡ *Major Update: Revolutionary Release Management + AI-Powered Documentation*
+**Latest Release:** v4.1.2 ⚡ *Major Update: Professional Fixed Banner Installation Display*
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/apm-v4.1.1.tar.gz && tar -xzf apm-v4.1.1.tar.gz && ./payload/install.sh
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.2/coherence-v4.1.2-installer.tar.gz && tar -xzf coherence-v4.1.2-installer.tar.gz && ./coherence-v4.1.2-installer/installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.1/apm-v4.1.1.tar.gz | tar -xz && ./payload/install.sh
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.2/coherence-v4.1.2-installer.tar.gz | tar -xz && ./coherence-v4.1.2-installer/installer/install.sh
 ```
 
 ## What is Coherence?
 
-Coherence v4.1.1 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
+Coherence v4.1.2 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
 
 - **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
 - **⚡ Native Sub-Agent Architecture**: Complete Task tool modernization with 4-8x performance improvement
@@ -76,27 +76,28 @@ Different voices, smooth transitions. Experience effortless workflow coordinatio
 
 ## Key Features
 
-### 🔧 **What's New in v4.1.1 - Revolutionary Release Management**
+### 🔧 **What's New in v4.1.2 - Professional Fixed Banner Installation**
+
+**🎨 Enterprise-Grade Installation Experience:**
+- **Fixed Banner Display**: COHERENCE logo stays permanently visible during installation
+- **Terminal Control**: Advanced scrolling regions using `tput csr` for reliable positioning
+- **Visual Excellence**: Burgundy to purple gradient with large ASCII art branding
+- **Perfect Positioning**: 3 rows of padding above banner for optimal visual balance
+- **Cross-Platform**: Works seamlessly on WSL, Mac, and Linux environments
+
+**⚡ Technical Implementation:**
+- **Scrolling Regions**: Dedicated output area with banner always visible at top
+- **Color Support**: ANSI 256-color codes for beautiful gradient effects
+- **Clean Architecture**: Separation between banner display and installation logic
+- **Fallback Support**: Graceful degradation to classic mode if features unavailable
+
+### 🔧 **Previous Release - v4.1.1 Revolutionary Release Management**
 
 **🚀 Automated Release Management:**
 - **`/version <version>`**: Complete version management with parallel documentation updates
 - **`/release <version>`**: End-to-end release automation with GitHub integration
 - **AI-Generated Release Notes**: Professional documentation from git analysis
 - **12-15x Faster Releases**: Complete process in 20 minutes vs 4-5 hours manual
-- **Quality Validation**: Built-in link checking and content validation
-- **Migration Guides**: Automatic generation for major version updates
-
-**📚 Enhanced Documentation System:**
-- **Parallel Processing**: 4-8x faster documentation updates
-- **Content Validation**: `/doc-compliance` for quality assurance
-- **Automated Maintenance**: `/update-all-documentation` command
-- **Professional Output**: Consistent formatting and structure
-
-### 🔧 **Previous Release - v3.5.0 Unified Persona System**
-
-**🎯 JSON-Based Persona Management:**
-- **Single Source of Truth**: All personas defined in JSON format
-- **Automatic Template Generation**: Build process generates all templates
 - **50% Maintenance Reduction**: Eliminated 3x template duplication
 - **Structured Definitions**: Consistent schema across all personas
 - **Build-Time Generation**: Templates created during distribution build
@@ -228,9 +229,9 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 /qa-anomaly    # Detect quality issues with 94% precision
 /qa-insights   # Generate AI-powered quality insights
 
-# NEW v4.1.1: Release Management Integration
-/version 4.1.1           # Update version with QA validation
-/release 4.1.1           # Complete release with automated QA
+# NEW v4.1.2: Release Management Integration
+/version 4.1.2           # Update version with QA validation
+/release 4.1.2           # Complete release with automated QA
 /doc-compliance          # Documentation quality assurance
 ```
 
@@ -248,9 +249,9 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 # Optimize test execution
 /qa-optimize --strategy fail-fast --apply
 
-# NEW v4.1.1: Integrated release workflow
-/version 4.1.1 --dry-run  # Preview version update with QA checks
-/release 4.1.1            # Complete release with automated testing
+# NEW v4.1.2: Integrated release workflow
+/version 4.1.2 --dry-run  # Preview version update with QA checks
+/release 4.1.2            # Complete release with automated testing
 ```
 
 ### Key Metrics
@@ -302,7 +303,7 @@ your-project/
 
 ## Usage
 
-### v4.1.1 Enhanced Workflow
+### v4.1.2 Enhanced Workflow
 
 After installation:
 
@@ -312,7 +313,7 @@ After installation:
 4. **Develop**: Use personas and parallel commands for development
 5. **🆕 Release**: Use `/version` and `/release` for automated releases
 
-### New v4.1.1 Release Workflow
+### New v4.1.2 Release Workflow
 ```bash
 # Unified Context Engineering workflow
 /coherence       # Launch Coherence Orchestrator (new primary command)
@@ -323,8 +324,8 @@ After installation:
 /parallel-sprint # Coordinate development
 
 # NEW: Professional release management
-/version 4.1.1   # Update all documentation (3 minutes)
-/release 4.1.1   # Complete GitHub release (20 minutes total)
+/version 4.1.2   # Update all documentation (3 minutes)
+/release 4.1.2   # Complete GitHub release (20 minutes total)
 ```
 
 ## Management Commands
@@ -408,7 +409,7 @@ agentic-persona-mapping/
 
 - **Documentation**: Comprehensive guides included with installation
 - **Issues**: GitHub Issues for bug reports and feature requests
-- **Version**: v4.1.1 (Native Sub-Agent Architecture)
+- **Version**: v4.1.2 (Native Sub-Agent Architecture)
 
 ## License
 

@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-[![Version](https://img.shields.io/badge/version-4.1.1-blue.svg)](https://github.com/omayhemo/APM/releases/latest)
+[![Version](https://img.shields.io/badge/version-4.1.2-blue.svg)](https://github.com/omayhemo/APM/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-4--8x_faster-orange.svg)](https://github.com/omayhemo/APM)
 
@@ -33,7 +33,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.1
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.2
 
 # With TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -132,7 +132,7 @@ The universal installer v2.0 supports flexible command-line options for various 
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--defaults` | `-y` | Non-interactive installation with default settings |
-| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.1.1`) |
+| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.1.2`) |
 | `--path PATH` | `-p` | Custom installation directory |
 | `--with-tts` | `-t` | Enable TTS voice notifications |
 | `--quiet` | `-q` | Minimal output (silent mode) |
@@ -161,7 +161,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.1
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.2
 
 # ❓ Show help and all options
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
@@ -189,7 +189,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.1.1** - Native Sub-Agent Architecture with Claude Code Integration
+**v4.1.2** - Native Sub-Agent Architecture with Claude Code Integration
 - 4-8x performance improvements  
 - **🎯 AUTOMATIC CLAUDE CODE INTEGRATION** - APM Orchestrator output style auto-activates
 - **Revolutionary settings management** with correct outputStyle field placement
