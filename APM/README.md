@@ -189,14 +189,14 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.1.2** - Native Sub-Agent Architecture with Claude Code Integration
-- 4-8x performance improvements  
-- **🎯 AUTOMATIC CLAUDE CODE INTEGRATION** - APM Orchestrator output style auto-activates
-- **Revolutionary settings management** with correct outputStyle field placement
-- **Safe installation** preserves user permissions while adding APM functionality
-- Complete modernization with zero CLI crashes
-- 25,000+ lines of code cleanup
-- Enhanced documentation system
+**v4.1.2** - Professional Fixed Banner Installation Display
+- **🎨 Enterprise-grade installation interface** with fixed banner display
+- **Fixed banner positioning** - COHERENCE logo stays visible throughout installation
+- **Advanced terminal control** using scrolling regions for cross-platform reliability
+- **Beautiful gradient colors** - Burgundy to purple with large ASCII art branding
+- **Perfect visual balance** with 3 rows of padding above banner
+- **Universal compatibility** - Works seamlessly on WSL, Mac, and Linux
+- **Graceful fallback** to classic mode if terminal features unavailable
 
 [View all releases](https://github.com/omayhemo/APM/releases)
 
