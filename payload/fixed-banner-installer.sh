@@ -10,10 +10,11 @@ if [ -f "$SCRIPT_DIR/coherence-banner.sh" ]; then
 fi
 
 # Terminal dimensions
+TOP_PADDING=3    # Rows of padding above banner
 BANNER_HEIGHT=8  # Height needed for banner
 TERM_HEIGHT=$(tput lines)
 TERM_WIDTH=$(tput cols)
-OUTPUT_START_ROW=$((BANNER_HEIGHT + 1))
+OUTPUT_START_ROW=$((TOP_PADDING + BANNER_HEIGHT + 1))
 
 # Initialize fixed banner display
 init_fixed_banner() {
@@ -23,8 +24,8 @@ init_fixed_banner() {
     # Hide cursor during setup
     tput civis
     
-    # Draw the banner at the top
-    tput cup 0 0
+    # Draw the banner with padding from top
+    tput cup $TOP_PADDING 0
     print_banner
     
     # Set scrolling region to start below banner
@@ -53,8 +54,8 @@ redraw_banner() {
     local current_row current_col
     current_row=$(tput cup)
     
-    # Draw banner at top
-    tput cup 0 0
+    # Draw banner with padding from top
+    tput cup $TOP_PADDING 0
     print_banner
     
     # Restore scrolling region
