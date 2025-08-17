@@ -1,0 +1,276 @@
+---
+name: parallel-research-prompt
+description: Generate comprehensive research prompts with 4 parallel domains (75% faster)
+metadata:
+  version: 1.0.0
+  agent: Analyst
+  performance: parallel
+  speedup: 75%
+---
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
+
+# PARALLEL RESEARCH PROMPT GENERATION
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm launching parallel research prompt generation with 4 native sub-agents for comprehensive research planning.
+
+*Executing parallel initialization tasks:*
+[Use native sub-agents - ALL in single function_calls block]
+- Task 1: Load Analyst persona from {{AP_ROOT}}/personas/analyst.md
+- Task 2: Load existing research context from {{PROJECT_ROOT}}/project_docs/research/
+- Task 3: Load deep research prompt template from {{AP_ROOT}}/tasks/create-deep-research-prompt.md
+- Task 4: Check for project brief and requirements documentation
+- Task 5: Load market research and competitive analysis frameworks
+```
+
+### Initialization Task Prompts:
+1. "Read analyst research methodologies and prompt engineering best practices"
+2. "Scan existing research documents for context and gaps"
+3. "Load research prompt templates and structure guidelines"
+4. "Extract project context, goals, and key questions from documentation"
+5. "Load research frameworks for market, competitive, and user analysis"
+
+### Post-Initialization:
+After ALL tasks complete:
+1. Voice announcement: bash {{AP_ROOT}}/voice/speakAnalyst.sh "Parallel research prompt generation initialized with 4 domain experts"
+2. Launch parallel prompt generation sub-agents
+
+## 🚀 PARALLEL PROMPT GENERATION
+
+### Research Domain Streams (4 Parallel Sub-Agents)
+```
+*Launching research prompt generation sub-agents:*
+[Use native sub-agents - ALL in single function_calls block]
+- Sub-Agent 1: Research Objectives & Methodology
+  Prompt: "Define clear research objectives, questions, hypotheses, and methodologies. Specify data collection methods, analysis frameworks, and validation criteria. Include success metrics."
+
+- Sub-Agent 2: Information Sources & Data Requirements
+  Prompt: "Identify all potential information sources including primary research, secondary sources, databases, APIs, expert interviews, and user research. Define data quality requirements."
+
+- Sub-Agent 3: Analysis Framework & Output Structure
+  Prompt: "Design analysis frameworks, evaluation criteria, comparison matrices, and output templates. Define how findings will be structured, visualized, and presented."
+
+- Sub-Agent 4: Validation & Quality Control
+  Prompt: "Establish validation methods, fact-checking protocols, bias mitigation strategies, and quality assurance criteria. Define confidence levels and uncertainty handling."
+```
+
+## 📊 RESEARCH PROMPT OUTPUT FORMAT
+
+### Comprehensive Research Directive
+```markdown
+# Research Prompt: [Topic/Question]
+Generated: [Timestamp]
+Methodology: 4-Domain Parallel Analysis
+
+## 1. RESEARCH OBJECTIVES
+### Primary Research Question
+[Clear, focused question]
+
+### Secondary Questions
+1. [Supporting question]
+2. [Supporting question]
+3. [Supporting question]
+
+### Hypotheses to Test
+- H1: [Hypothesis]
+- H2: [Hypothesis]
+
+### Success Criteria
+- [Measurable outcome]
+- [Measurable outcome]
+
+## 2. RESEARCH METHODOLOGY
+### Approach
+- Type: [Qualitative/Quantitative/Mixed]
+- Method: [Specific methodology]
+- Timeline: [Duration]
+
+### Data Collection
+1. **Primary Research**
+   - Method: [Interviews/Surveys/Observations]
+   - Sample: [Size and criteria]
+   - Tools: [Specific tools]
+
+2. **Secondary Research**
+   - Sources: [Databases/Reports/Studies]
+   - Scope: [Geographic/Temporal/Domain]
+   - Validation: [Verification methods]
+
+## 3. INFORMATION SOURCES
+### Priority 1 Sources
+- [Source]: [Why critical]
+- [Source]: [Why critical]
+
+### Priority 2 Sources
+- [Source]: [Value proposition]
+- [Source]: [Value proposition]
+
+### Expert Consultations
+- Domain: [Expert type needed]
+- Questions: [Key questions]
+
+## 4. ANALYSIS FRAMEWORK
+### Evaluation Criteria
+| Criterion | Weight | Measurement |
+|-----------|--------|-------------|
+| [Criterion] | [%] | [Method] |
+
+### Comparison Framework
+- Dimensions: [List]
+- Scoring: [Method]
+- Visualization: [Type]
+
+### Output Templates
+1. Executive Summary
+2. Detailed Findings
+3. Recommendations
+4. Implementation Roadmap
+
+## 5. QUALITY CONTROL
+### Validation Methods
+- Triangulation: [Approach]
+- Peer Review: [Process]
+- Expert Validation: [Method]
+
+### Bias Mitigation
+- Identified Biases: [List]
+- Mitigation Strategies: [Approaches]
+
+### Confidence Levels
+- High Confidence: [Criteria]
+- Medium Confidence: [Criteria]
+- Low Confidence: [Criteria]
+
+## 6. DELIVERABLES
+### Reports
+1. [Report Type]: [Audience, Format, Length]
+2. [Report Type]: [Audience, Format, Length]
+
+### Presentations
+- Format: [Type]
+- Duration: [Time]
+- Audience: [Stakeholders]
+
+### Raw Data
+- Format: [Type]
+- Documentation: [Level]
+- Access: [Method]
+
+## RESEARCH EXECUTION PLAN
+### Phase 1: Preparation (Day 1-2)
+- [ ] Finalize research questions
+- [ ] Set up data collection tools
+- [ ] Identify and contact sources
+
+### Phase 2: Data Collection (Day 3-7)
+- [ ] Conduct primary research
+- [ ] Gather secondary data
+- [ ] Initial data validation
+
+### Phase 3: Analysis (Day 8-10)
+- [ ] Apply analysis frameworks
+- [ ] Generate insights
+- [ ] Validate findings
+
+### Phase 4: Reporting (Day 11-12)
+- [ ] Create deliverables
+- [ ] Peer review
+- [ ] Final presentation
+```
+
+## 🔄 PROMPT GENERATION WORKFLOW
+
+### Step 1: Context Gathering
+- Understand research needs
+- Identify key questions
+- Define scope and constraints
+
+### Step 2: Parallel Generation
+- Launch 4 domain sub-agents
+- Generate comprehensive prompts
+- Ensure coverage of all aspects
+
+### Step 3: Integration & Refinement
+- Merge insights from all domains
+- Resolve any conflicts
+- Optimize for clarity
+
+### Step 4: Validation
+- Check completeness
+- Verify feasibility
+- Confirm alignment with objectives
+
+## 🎯 PERFORMANCE METRICS
+
+- **Generation Time**: ~2 minutes (vs 8 minutes sequential)
+- **Coverage**: 100% of research dimensions
+- **Parallel Domains**: 4 simultaneous analyses
+- **Output Quality**: Publication-ready research prompts
+
+## 📋 DELIVERABLES
+
+After execution, this command provides:
+- Complete research prompt document
+- Methodology framework
+- Data collection plan
+- Analysis templates
+- Quality control checklist
+- Timeline and milestones
+- Budget estimation (if applicable)
+- Risk assessment
+
+## 🔗 INTEGRATION POINTS
+
+### Use with Research Execution:
+```
+# After prompt generation, execute research
+The generated prompt can be used with:
+- External research teams
+- AI research agents
+- Manual research processes
+```
+
+### Handoff to PM:
+```
+/handoff pm
+"Research prompt complete for [topic]. Ready for approval and resource allocation."
+```
+
+### Follow-up Analysis:
+```
+After research execution, use:
+/parallel-requirements - To analyze findings
+/parallel-brainstorming - To generate solutions
+```
+
+## Available After Activation:
+- Comprehensive research prompts
+- Methodology frameworks
+- Data collection plans
+- Analysis templates
+- Quality criteria
+- Timeline planning
+- Resource requirements
+- Success metrics
+
+This command accelerates research prompt generation by 75% through parallel domain analysis, ensuring comprehensive and actionable research directives.

@@ -1,0 +1,342 @@
+# Plopdock MCP Integration
+
+## Overview
+
+The APM Framework includes optional integration with the Plopdock MCP Server, providing intelligent interception and management of development servers across Claude Code sessions.
+
+## Features
+
+When enabled, the Plopdock MCP integration provides:
+
+### 1. Automatic Command Interception
+- Intercepts all development server commands (`npm run dev`, `python manage.py runserver`, etc.)
+- Redirects to MCP server for persistent management
+- Prevents duplicate server instances
+
+### 2. Persistent Server Management
+- Servers continue running across Claude Code sessions
+- No need to restart servers when switching projects
+- Centralized process lifecycle management
+
+### 3. Real-time Monitoring
+- Web dashboard at http://localhost:2601
+- Live console output streaming
+- Performance metrics and resource usage
+- Multi-server management interface
+
+### 4. Voice Notifications
+- Audible alerts when commands are intercepted
+- Framework-specific announcements
+- Integration with APM TTS system
+
+## Installation
+
+### During APM Installation
+
+When running the APM installer, you'll be prompted:
+
+```
+Will you be using the Plopdock MCP Server? (y/N):
+```
+
+Select **Y** to enable the integration.
+
+### Manual Installation
+
+If you skipped during initial setup, manually install the hook:
+
+```bash
+# Copy the hook file
+cp {{INSTALLER_DIR}}/templates/hooks/pre_tool_use_debug_host.py \
+   {{CLAUDE_DIR}}/hooks/
+
+# Make executable
+chmod +x {{CLAUDE_DIR}}/hooks/pre_tool_use_debug_host.py
+
+# Update settings
+jq '.env.HOOK_PRE_TOOL_USE_ENABLED = "true" | 
+    .env.PLOPDOCK_MCP_ENABLED = "true"' \
+    {{SETTINGS_FILE}} > temp.json && mv temp.json {{SETTINGS_FILE}}
+```
+
+## Plopdock MCP Server Setup
+
+The integration requires the Plopdock MCP Server to be installed separately:
+
+### Quick Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-org/PlopdockMCP
+cd PlopdockMCP
+
+# Run installer
+./install-mcp-host.sh
+
+# Configure Claude Code
+claude mcp add -s user
+```
+
+### Configuration
+
+Add to your Claude Code MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "debug-host": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["~/.debug-host-mcp/src/index.js"],
+      "env": {
+        "PORT": "2601",
+        "DASHBOARD_ENABLED": "true"
+      }
+    }
+  }
+}
+```
+
+## How It Works
+
+### Command Interception Flow
+
+1. **User runs dev command**: `npm run dev`
+2. **Hook intercepts**: `pre_tool_use_debug_host.py` catches the command
+3. **Framework detection**: Identifies project type (React, Django, etc.)
+4. **MCP redirection**: Converts to `server:start` MCP tool
+5. **Server management**: Plopdock MCP manages the process
+6. **Dashboard update**: Real-time status at http://localhost:2601
+
+### Supported Commands
+
+The hook intercepts common development server commands:
+
+#### Node.js/JavaScript
+- `npm run dev/start/serve`
+- `yarn dev/start/serve`
+- `pnpm dev/start/serve`
+- `next dev`
+- `vite dev`
+- `react-scripts start`
+
+#### Python
+- `python manage.py runserver`
+- `flask run`
+- `uvicorn app:app`
+- `streamlit run`
+
+#### PHP
+- `php artisan serve`
+- `symfony server:start`
+
+#### Other Frameworks
+- `rails server`
+- `dotnet run`
+- `cargo run`
+- `go run`
+
+## Configuration
+
+### Environment Variables
+
+Set in `{{SETTINGS_FILE}}`:
+
+```json
+{
+  "env": {
+    "HOOK_PRE_TOOL_USE_ENABLED": "true",
+    "PLOPDOCK_MCP_ENABLED": "true",
+    "PLOPDOCK_MCP_URL": "http://localhost:2601"
+  }
+}
+```
+
+### Bypassing Interception
+
+To run a command without interception:
+
+```bash
+# Prefix with BYPASS_MCP=1
+BYPASS_MCP=1 npm run dev
+
+# Or use direct node execution
+node server.js
+```
+
+### Disabling Integration
+
+To temporarily disable:
+
+```bash
+# Edit settings
+jq '.env.PLOPDOCK_MCP_ENABLED = "false"' {{SETTINGS_FILE}} > temp.json
+mv temp.json {{SETTINGS_FILE}}
+```
+
+To permanently remove:
+
+```bash
+# Remove hook file
+rm {{CLAUDE_DIR}}/hooks/pre_tool_use_debug_host.py
+
+# Update settings
+jq 'del(.env.PLOPDOCK_MCP_ENABLED)' {{SETTINGS_FILE}} > temp.json
+mv temp.json {{SETTINGS_FILE}}
+```
+
+## Troubleshooting
+
+### Hook Not Working
+
+1. **Check hook is executable**:
+```bash
+ls -la {{CLAUDE_DIR}}/hooks/pre_tool_use_debug_host.py
+# Should show: -rwxr-xr-x
+```
+
+2. **Verify settings**:
+```bash
+jq '.env.HOOK_PRE_TOOL_USE_ENABLED' {{SETTINGS_FILE}}
+# Should output: "true"
+```
+
+3. **Test hook manually**:
+```bash
+echo '{"tool":{"name":"Bash","parameters":{"command":"npm run dev"}}}' | \
+  python {{CLAUDE_DIR}}/hooks/pre_tool_use_debug_host.py
+```
+
+### Server Not Appearing in Dashboard
+
+1. **Check MCP server is running**:
+```bash
+# Check if process is running
+ps aux | grep debug-host-mcp
+
+# Check MCP configuration
+claude mcp list
+```
+
+2. **Verify dashboard access**:
+```bash
+curl http://localhost:2601/api/health
+```
+
+3. **Check logs**:
+```bash
+# Linux
+journalctl -u debug-host-mcp -f
+
+# macOS
+tail -f ~/.debug-host-mcp/logs/server.log
+```
+
+### Command Still Running Directly
+
+1. **Verify hook is enabled**:
+```bash
+jq '.env.PLOPDOCK_MCP_ENABLED' {{SETTINGS_FILE}}
+```
+
+2. **Check command pattern**:
+   - Hook might not recognize the command
+   - Check `DEV_SERVER_PATTERNS` in hook file
+   - Add custom patterns if needed
+
+3. **Framework detection**:
+   - Ensure project has recognizable files (package.json, requirements.txt, etc.)
+
+## Benefits
+
+### For Development Workflow
+
+1. **No More Lost Servers**
+   - Servers persist when Claude Code restarts
+   - No zombie processes
+   - Clean shutdown management
+
+2. **Multi-Project Support**
+   - Run multiple projects simultaneously
+   - Switch between projects without stopping servers
+   - Port conflict prevention
+
+3. **Enhanced Debugging**
+   - Centralized log aggregation
+   - Real-time performance metrics
+   - Historical log retention
+
+### For Team Collaboration
+
+1. **Standardized Environment**
+   - Consistent server management
+   - Reproducible development setup
+   - Shared configuration
+
+2. **Visibility**
+   - Team dashboard view
+   - Process ownership tracking
+   - Resource usage monitoring
+
+## Advanced Usage
+
+### Custom Interception Rules
+
+Edit the hook to add custom patterns:
+
+```python
+# In pre_tool_use_debug_host.py
+DEV_SERVER_PATTERNS = [
+    # Add your custom pattern
+    r'my-custom-server\s+start',
+    # ... existing patterns
+]
+```
+
+### Integration with APM Personas
+
+The Plopdock MCP works seamlessly with APM personas:
+
+- **Developer**: Automatic server management during coding
+- **QA**: Test server isolation and management
+- **DevOps**: Production-like server orchestration
+
+### Monitoring Multiple Projects
+
+```bash
+# Start multiple projects
+cd project1 && npm run dev  # Intercepted -> Session 1
+cd project2 && yarn start    # Intercepted -> Session 2
+cd project3 && flask run     # Intercepted -> Session 3
+
+# All visible at http://localhost:2601
+```
+
+## Security Considerations
+
+1. **Local Only**: Dashboard binds to localhost only
+2. **No External Access**: Firewall blocks external connections
+3. **Process Isolation**: Each server runs in its own process space
+4. **Clean Shutdown**: Proper signal handling for graceful stops
+
+## Roadmap
+
+Future enhancements planned:
+
+- [ ] Docker container support
+- [ ] Remote server management
+- [ ] CI/CD pipeline integration
+- [ ] Performance profiling
+- [ ] Auto-scaling capabilities
+- [ ] Team collaboration features
+
+## Support
+
+- **Documentation**: https://github.com/your-org/PlopdockMCP
+- **Issues**: https://github.com/your-org/PlopdockMCP/issues
+- **APM Integration**: See APM documentation
+
+---
+
+*Plopdock MCP Integration v1.0*
+*Part of the APM Framework {{VERSION}}*

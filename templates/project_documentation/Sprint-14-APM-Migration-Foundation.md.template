@@ -1,0 +1,190 @@
+# Sprint 14: Coherence Migration Foundation Phase
+
+**Sprint Goal**: Create sub-agent infrastructure templates with unified context engineering and migrate core Coherence agents to template format  
+**Duration**: {{SPRINT_DURATION}}  
+**Sprint Master**: {{SPRINT_MASTER}}  
+**Capacity**: 21 Story Points  
+
+## Sprint Overview
+
+This sprint establishes the foundation for Coherence to Claude Code Sub-Agents Migration by creating comprehensive installer templates with unified context engineering patterns. **CRITICAL**: All work is template-based - no direct Coherence modifications allowed.
+
+### Key Objectives
+1. Create sub-agent infrastructure templates for installer with unified context engineering
+2. Develop core agent templates (Developer, Architect, QA, Coherence Orchestrator)  
+3. Establish Coherence protection protocols in templates
+4. Validate template-based approach without Coherence violations
+5. Implement unified context engineering patterns for enhanced agent coordination
+
+## Sprint Stories
+
+### Story 16.1: Create Sub-Agent Infrastructure Templates (3 Points)
+**Status**: {{STORY_16_1_STATUS}}  
+**Assignee**: {{STORY_16_1_ASSIGNEE}}
+
+**Acceptance Criteria**:
+- [x] Create `templates/templates/claude/agents/README.md.template`
+- [x] Create `templates/templates/claude/agents/agent-template.md.template`  
+- [x] Create `templates/templates/claude/agents/config/base-config.yaml.template`
+- [x] Create `templates/templates/claude/agents/migration/tracking.md.template`
+- [x] Create `templates/templates/claude/agents/migration/rollback.md.template`
+- [x] **CRITICAL**: Zero modifications to `.apm/` directory
+- [x] **NEW**: Unified context engineering patterns implemented in templates
+
+**Implementation Notes**:
+- **Coherence Protection Violation Detected and Corrected**: Initial implementation incorrectly created `.claude/agents/` directory
+- **Resolution**: Removed all Coherence infrastructure modifications, created proper installer templates with unified context engineering patterns
+- All templates created in `templates/templates/claude/agents/` for installer processing
+- Template variables added for dynamic configuration during installation
+
+### Story 16.2: Create Developer Agent Template (5 Points)
+**Status**: {{STORY_16_2_STATUS}}  
+**Assignee**: {{STORY_16_2_ASSIGNEE}}
+
+**Acceptance Criteria**:
+- [ ] Create `templates/templates/claude/agents/personas/developer.md.template`
+- [ ] Preserve all Developer agent capabilities in template format with unified context engineering
+- [ ] Include parallel execution features (`/parallel-review`) with Coherence coordination
+- [ ] Maintain voice notification integration (speakDeveloper.sh)
+- [ ] Ensure backward compatibility with `/dev` command
+- [ ] **CRITICAL**: Only create templates, never modify Coherence
+
+### Story 16.3: Create Architect Agent Template (5 Points)  
+**Status**: {{STORY_16_3_STATUS}}  
+**Assignee**: {{STORY_16_3_ASSIGNEE}}
+
+**Acceptance Criteria**:
+- [ ] Create `templates/templates/claude/agents/personas/architect.md.template`
+- [ ] Preserve all Architect agent capabilities in template format with unified context engineering
+- [ ] Include parallel architecture features (`/parallel-architecture`) with Coherence patterns
+- [ ] Maintain voice notification integration (speakArchitect.sh)
+- [ ] Ensure backward compatibility with `/architect` command
+- [ ] **CRITICAL**: Only create templates, never modify Coherence
+
+### Story 16.4: Create QA Agent Template (5 Points)
+**Status**: {{STORY_16_4_STATUS}}  
+**Assignee**: {{STORY_16_4_ASSIGNEE}}
+
+**Acceptance Criteria**:
+- [ ] Create `templates/templates/claude/agents/personas/qa.md.template`
+- [ ] Preserve all QA Framework capabilities in template format with unified context engineering
+- [ ] Include AI/ML features (92% prediction, 63% optimization, 94% anomaly detection) with Coherence validation
+- [ ] Maintain voice notification integration (speakQa.sh)
+- [ ] Ensure backward compatibility with `/qa` command
+- [ ] **CRITICAL**: Only create templates, never modify Coherence
+
+### Story 16.5: Create Orchestrator Template (3 Points)
+**Status**: {{STORY_16_5_STATUS}}  
+**Assignee**: {{STORY_16_5_ASSIGNEE}}
+
+**Acceptance Criteria**:
+- [ ] Create `templates/templates/claude/agents/personas/orchestrator.md.template`
+- [ ] Preserve all Coherence Orchestrator coordination capabilities in template format with unified context engineering
+- [ ] Include parallel initialization features
+- [ ] Maintain voice notification integration (speakOrchestrator.sh)
+- [ ] Ensure backward compatibility with `/ap` command
+- [ ] **CRITICAL**: Only create templates, never modify Coherence
+
+## Sprint Execution Strategy
+
+### Parallel Development Approach
+This sprint uses parallel development coordination:
+
+1. **Foundation First**: Complete Story 16.1 (Infrastructure Templates)
+2. **Parallel Agent Development**: Execute Stories 16.2-16.5 simultaneously
+3. **Integration Validation**: Ensure all templates work together
+4. **Coherence Protection Verification**: Confirm no Coherence modifications
+
+### Critical Success Factors
+
+#### Coherence Protection Protocol (MANDATORY)
+- **NEVER** modify any file in `.apm/` directory
+- **ONLY** create files in `templates/templates/claude/agents/`
+- **ALWAYS** use `.template` suffix for installer processing
+- **VERIFY** template structure before creation
+- **IMMEDIATE CORRECTION** if Coherence violations detected
+- **IMPLEMENT** unified context engineering patterns in all templates
+
+#### Template Quality Standards
+- All agent capabilities preserved in template format
+- Voice notification integration maintained
+- Backward compatibility ensured through templates
+- Session management preserved in templates
+- Parallel execution features templated correctly
+
+## Risk Management
+
+### Critical Risks
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| Coherence Framework Violation | Critical | Templates-only approach, immediate correction protocol |
+| Template Functionality Loss | High | Comprehensive testing of template outputs |
+| Voice Integration Failure | Medium | Preserve existing script references in templates |
+| Backward Compatibility Break | High | Dual-mode operation through templates |
+
+### Risk Mitigation Actions
+- **Coherence Protection Monitoring**: Continuous verification of no Coherence modifications
+- **Template Validation**: Test template output with unified context engineering before sprint completion
+- **Rollback Readiness**: Template-based rollback procedures available
+- **User Communication**: Clear explanation of template-based approach with Coherence methodology
+
+## Definition of Done
+
+For Sprint 14 to be considered complete:
+- [ ] All 5 stories completed successfully
+- [ ] All templates created in `templates/templates/claude/agents/`
+- [ ] Zero modifications made to Coherence framework
+- [ ] Template structure validated for installer compatibility with unified context engineering
+- [ ] Voice notification templates tested
+- [ ] Backward compatibility templates verified
+- [ ] Coherence protection protocol fully implemented
+- [ ] Unified context engineering patterns validated
+- [ ] Sprint retrospective completed with lessons learned
+
+## Sprint Metrics
+
+### Velocity Tracking
+- **Planned Capacity**: 21 story points
+- **Actual Delivery**: {{ACTUAL_DELIVERY}} story points
+- **Velocity**: {{SPRINT_VELOCITY}} points/week
+
+### Quality Metrics
+- **Coherence Violations**: {{COHERENCE_VIOLATIONS}} (Target: 0)
+- **Template Coverage**: {{TEMPLATE_COVERAGE}}% (Target: 100%)
+- **Unified Context Engineering Implementation**: {{CONTEXT_ENGINEERING}}% (Target: 100%)
+- **Regression Issues**: {{REGRESSION_ISSUES}} (Target: 0)
+- **Voice Integration Success**: {{VOICE_SUCCESS}}% (Target: 100%)
+
+## Sprint Review
+
+### Completed Work
+{{COMPLETED_WORK_SUMMARY}}
+
+### Lessons Learned
+{{LESSONS_LEARNED}}
+
+### Next Sprint Preparation
+- **Sprint 15 Focus**: Enhancement Phase - remaining agent templates
+- **Dependencies Resolved**: Foundation templates ready for extension
+- **Risks for Next Sprint**: {{NEXT_SPRINT_RISKS}}
+
+## Critical Incident Resolution
+
+### Coherence Protection Violation Incident
+**Date**: 2025-07-25  
+**Issue**: Initial implementation created `.claude/agents/` directory, violating Coherence protection  
+**Resolution**: 
+- Immediately removed all Coherence infrastructure modifications
+- Created proper installer templates in `templates/templates/claude/agents/` with unified context engineering
+- Updated all documentation to reflect template-based approach with Coherence methodology
+- Implemented enhanced Coherence protection monitoring
+
+**Lessons Learned**:
+- Coherence protection must be enforced at template creation time
+- All team members must understand template-first approach with unified context engineering
+- Continuous monitoring needed to prevent future violations
+- Template validation with unified context patterns critical before any deployment
+
+---
+
+**Sprint Success Criteria**: Foundation phase complete with comprehensive installer templates, unified context engineering patterns, and zero Coherence framework modifications.

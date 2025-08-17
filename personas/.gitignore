@@ -1,0 +1,16 @@
+# Ignore generated files - only track master definitions
+_output/
+*.generated.md
+*.tmp
+
+# Keep backups for comparison
+!*.backup
+
+# Always track master definitions
+!_master/*.json
+
+# Always track build scripts
+!_build/*.sh
+
+# Always track schemas
+!_schemas/*.json

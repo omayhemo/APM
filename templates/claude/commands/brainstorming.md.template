@@ -1,0 +1,227 @@
+---
+name: brainstorming
+description: Sequential brainstorming for creative ideation and concept development
+metadata:
+  version: 1.0.0
+  agent: Analyst
+  performance: sequential
+  approach: guided
+---
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for optimal command execution...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant templates and frameworks  
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for command execution"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
+
+## Metadata
+- **Name**: brainstorming
+- **Description**: Sequential brainstorming with guided methodology
+- **Agent**: Analyst
+- **Performance**: Sequential (focused depth vs parallel breadth)
+- **Approach**: Interactive guidance
+
+## Overview
+
+The `/brainstorming` command enables the Analyst to execute creative ideation through:
+- Sequential exploration of ideas with focused depth
+- Interactive questioning and concept refinement
+- Traditional brainstorming techniques with human guidance
+- Organic development from kernels to full concepts
+- Thoughtful convergence after divergent thinking
+
+## Usage
+
+```
+/brainstorming
+```
+
+## Prerequisites
+
+Before running this command, ensure:
+- [ ] Problem or challenge is clearly defined
+- [ ] Context and constraints are understood
+- [ ] Goal or desired outcome is established
+- [ ] Open mindset for creative exploration
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute initialization:
+
+```
+I'm launching sequential brainstorming for creative ideation and concept development.
+
+*Loading brainstorming context and methodologies...*
+[Execute initialization tasks in sequence]
+- Load brainstorming methodologies and techniques
+- Review problem context and objectives
+- Prepare creative thinking frameworks
+- Set up ideation and evaluation processes
+```
+
+## Sequential Brainstorming Process
+
+### Phase 1: Problem Understanding (5-10 minutes)
+**Objective**: Deeply understand the challenge and context
+- Explore the problem space through open-ended questions
+- Identify constraints, opportunities, and success criteria
+- Clarify assumptions and gather relevant background
+- Define the scope and boundaries for ideation
+
+### Phase 2: Divergent Thinking (15-25 minutes)
+**Objective**: Generate diverse ideas without judgment
+- Apply "Yes And..." techniques to build on concepts
+- Encourage wild ideas and unconventional approaches
+- Use creative prompts and lateral thinking triggers
+- Explore multiple perspectives and scenarios
+- Capture all ideas without immediate evaluation
+
+### Phase 3: Idea Development (10-15 minutes)
+**Objective**: Expand promising concepts into fuller ideas
+- Select interesting kernels from initial generation
+- Develop ideas through guided questioning
+- Add detail, context, and potential implementation paths
+- Explore variations and combinations of concepts
+- Document emerging themes and patterns
+
+### Phase 4: Convergent Evaluation (10-15 minutes)
+**Objective**: Assess and prioritize ideas thoughtfully
+- Evaluate ideas against established criteria
+- Consider feasibility, impact, and alignment
+- Identify most promising concepts for further development
+- Note ideas requiring additional research or validation
+- Create actionable next steps
+
+## Brainstorming Techniques Available
+
+### Creative Ideation Methods
+- **Free Association**: Stream-of-consciousness idea generation
+- **Mind Mapping**: Visual exploration of concept relationships
+- **SCAMPER**: Systematic creativity through guided questions
+- **Random Stimulus**: Using unexpected triggers for new ideas
+- **Role Playing**: Exploring ideas from different perspectives
+
+### Problem Reframing
+- **5 Whys**: Deep exploration of root causes
+- **Assumption Challenging**: Questioning fundamental beliefs
+- **Perspective Shifting**: Viewing from different stakeholder angles
+- **Constraint Removal**: Imagining without limitations
+- **Analogy Thinking**: Drawing inspiration from other domains
+
+### Evaluation Frameworks
+- **Impact vs Effort**: Simple prioritization matrix
+- **Feasibility Assessment**: Technical and resource evaluation
+- **Strategic Alignment**: Fit with goals and values
+- **Risk Analysis**: Potential downsides and mitigation
+- **Innovation Potential**: Uniqueness and breakthrough possibility
+
+## Interactive Guidance Style
+
+This command emphasizes **collaborative exploration**:
+- **Socratic questioning** to unlock deeper insights
+- **Building on user input** rather than generating independently  
+- **Encouraging exploration** of adjacent possibilities
+- **Providing frameworks** while maintaining creative freedom
+- **Balancing structure** with organic idea development
+
+## Expected Outcomes
+
+After brainstorming session:
+- **Comprehensive idea inventory** with documented concepts
+- **Developed concepts** with initial detail and context
+- **Evaluation summary** with prioritized opportunities
+- **Action plan** for pursuing most promising ideas
+- **Creative foundation** for continued development
+
+## Output Format
+
+```markdown
+# Brainstorming Session Results
+
+## Session Overview
+- **Challenge**: [Problem or opportunity explored]
+- **Duration**: [Time invested]
+- **Approach**: Sequential guided brainstorming
+
+## Ideas Generated
+### High-Potential Concepts
+1. **[Idea Name]**
+   - Description: [Concept overview]
+   - Potential Impact: [Expected value]
+   - Next Steps: [How to advance]
+
+2. **[Idea Name]**
+   - Description: [Concept overview]
+   - Potential Impact: [Expected value]  
+   - Next Steps: [How to advance]
+
+### Additional Ideas for Future Consideration
+- [Idea]: [Brief description]
+- [Idea]: [Brief description]
+- [Idea]: [Brief description]
+
+## Key Insights
+- [Pattern or theme discovered]
+- [Unexpected connection identified]
+- [Assumption challenged]
+
+## Recommended Next Steps
+1. [Immediate action for top idea]
+2. [Research or validation needed]
+3. [Additional brainstorming sessions planned]
+
+## Creative Notes
+[Capture interesting tangents, creative sparks, or ideas that need more development]
+```
+
+## Integration Points
+
+- **Follow-up Analysis**: Use `/parallel-requirements` to develop top concepts
+- **Research Planning**: Use `/research-prompt` for validation planning  
+- **Stakeholder Input**: Use `/stakeholder-review` to gather feedback
+- **Project Development**: Transition to `/epic` or `/prd` for implementation
+
+## Voice Notifications
+
+```bash
+bash {{AP_ROOT}}/voice/speakAnalyst.sh "Sequential brainstorming session beginning. Ready for creative exploration and guided ideation..."
+```
+
+## Success Metrics
+
+- **Idea Quality**: Depth and development of concepts generated
+- **Creative Coverage**: Breadth of problem space explored
+- **User Engagement**: Level of collaborative participation
+- **Actionability**: Clear next steps for promising ideas
+- **Foundation Building**: Strong base for continued development
+
+## When to Use Sequential vs Parallel
+
+**Use `/brainstorming` when:**
+- Deep exploration of complex problems
+- Interactive collaboration desired
+- Quality over quantity approach
+- Building understanding alongside ideation
+- Human creativity and intuition emphasized
+
+**Use `/parallel-brainstorming` when:**
+- Rapid idea generation needed
+- Comprehensive coverage required
+- Multiple perspectives simultaneously
+- Time constraints exist
+- Maximum creative output desired
+
+---
+
+This command provides thoughtful, guided brainstorming with emphasis on depth, interaction, and quality idea development.
