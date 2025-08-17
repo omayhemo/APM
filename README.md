@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-**v4.1.4** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
+**v4.1.5** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
 
 ## ⚠️ CRITICAL: ALWAYS USE SLASH COMMANDS
 
@@ -25,23 +25,23 @@
 
 ## 🚀 Quick Start
 
-**Latest Release:** v4.1.4 ⚡ *Critical Fixes: Installer Reliability & Coherence Branding*
+**Latest Release:** v4.1.5 ⚡ *Enhanced TTS Audio Experience*
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.4/coherence-v4.1.4-installer.tar.gz && tar -xzf coherence-v4.1.4-installer.tar.gz && ./coherence-v4.1.4-installer/installer/install.sh
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.5/coherence-v4.1.5-installer.tar.gz && tar -xzf coherence-v4.1.5-installer.tar.gz && ./coherence-v4.1.5-installer/installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.4/coherence-v4.1.4-installer.tar.gz | tar -xz && ./coherence-v4.1.4-installer/installer/install.sh
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.5/coherence-v4.1.5-installer.tar.gz | tar -xz && ./coherence-v4.1.5-installer/installer/install.sh
 ```
 
 ## What is Coherence?
 
-Coherence v4.1.4 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
+Coherence v4.1.5 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
 
 - **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
 - **⚡ Native Sub-Agent Architecture**: Complete Task tool modernization with 4-8x performance improvement
@@ -76,7 +76,7 @@ Different voices, smooth transitions. Experience effortless workflow coordinatio
 
 ## Key Features
 
-### 🔧 **What's New in v4.1.4 - Critical Fixes & Coherence Branding**
+### 🔧 **What's New in v4.1.5 - Enhanced TTS Audio Experience**
 
 **🛠️ Critical Installation Reliability Fixes:**
 - **Resolved persistent "Wait: command not found" errors**: Enhanced validation system with improved subshell variable handling
@@ -243,8 +243,8 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 /qa-insights   # Generate AI-powered quality insights
 
 # NEW v4.1.2: Release Management Integration
-/version 4.1.4           # Update version with QA validation
-/release 4.1.4           # Complete release with automated QA
+/version 4.1.5           # Update version with QA validation
+/release 4.1.5           # Complete release with automated QA
 /doc-compliance          # Documentation quality assurance
 ```
 
@@ -263,8 +263,8 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 /qa-optimize --strategy fail-fast --apply
 
 # NEW v4.1.2: Integrated release workflow
-/version 4.1.4 --dry-run  # Preview version update with QA checks
-/release 4.1.4            # Complete release with automated testing
+/version 4.1.5 --dry-run  # Preview version update with QA checks
+/release 4.1.5            # Complete release with automated testing
 ```
 
 ### Key Metrics
@@ -337,8 +337,8 @@ After installation:
 /parallel-sprint # Coordinate development
 
 # NEW: Professional release management
-/version 4.1.4   # Update all documentation (3 minutes)
-/release 4.1.4   # Complete GitHub release (20 minutes total)
+/version 4.1.5   # Update all documentation (3 minutes)
+/release 4.1.5   # Complete GitHub release (20 minutes total)
 ```
 
 ## Management Commands
@@ -422,7 +422,7 @@ agentic-persona-mapping/
 
 - **Documentation**: Comprehensive guides included with installation
 - **Issues**: GitHub Issues for bug reports and feature requests
-- **Version**: v4.1.4 (Critical Fixes & Coherence Branding)
+- **Version**: v4.1.5 (Enhanced TTS Audio Experience)
 
 ## License
 

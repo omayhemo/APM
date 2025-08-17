@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-[![Version](https://img.shields.io/badge/version-4.1.4-blue.svg)](https://github.com/omayhemo/agentic-persona-mapping/releases/latest)
+[![Version](https://img.shields.io/badge/version-4.1.5-blue.svg)](https://github.com/omayhemo/agentic-persona-mapping/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-4--8x_faster-orange.svg)](https://github.com/omayhemo/agentic-persona-mapping)
 
@@ -33,7 +33,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.4
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.5
 
 # With TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -132,7 +132,7 @@ The universal installer v2.0 supports flexible command-line options for various 
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--defaults` | `-y` | Non-interactive installation with default settings |
-| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.1.4`) |
+| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.1.5`) |
 | `--path PATH` | `-p` | Custom installation directory |
 | `--with-tts` | `-t` | Enable TTS voice notifications |
 | `--quiet` | `-q` | Minimal output (silent mode) |
@@ -161,7 +161,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.4
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.5
 
 # ❓ Show help and all options
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
@@ -189,16 +189,15 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.1.4** - Critical Fixes & Coherence Branding
-- **🔧 Critical bug fix** - Eliminates "Wait: command not found" installation errors
-- **Enhanced validation system** - Automatically detects and corrects bash command typos
-- **Auto-correction capability** - Uses sed commands to fix capitalized "Wait" commands
-- **Transparent operation** - Clear feedback about validation results and fixes applied
-- **Prevention framework** - Blocks future similar bash command case sensitivity issues
-- **Zero user impact** - Validation runs seamlessly during installation process
-- **Critical installation fixes** - Resolves persistent "Wait: command not found" errors
-- **Complete Coherence branding** - Updated TTS messaging and consistent brand experience
-- **Missing command integration** - Added coherence command template processing
+**v4.1.5** - Enhanced TTS Audio Experience
+- **🎤 Natural speech delivery** - Added sentence silence timing for professional audio experience
+- **Enhanced TTS messaging** - Centralized speech variable for consistent "Coherence. Orchestrate YOUR AI" delivery
+- **Professional audio quality** - Natural pause between phrases creates engaging user interaction
+- **Multi-provider optimization** - Enhanced timing across PulseAudio, ALSA, SoX, and generic audio players
+- **Brand reinforcement** - Professional speech delivery that reinforces Coherence identity
+- **Zero configuration** - Enhanced audio experience delivered automatically during installation
+- **Cross-platform consistency** - Identical professional audio experience across all supported systems
+- **Improved first impression** - Natural speech timing creates more engaging initial user interaction
 
 [View all releases](https://github.com/omayhemo/agentic-persona-mapping/releases)
 
