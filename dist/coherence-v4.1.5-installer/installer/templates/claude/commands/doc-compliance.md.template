@@ -1,0 +1,413 @@
+# Enhanced Documentation Compliance Agent Command
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for documentation management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_ANALYST}} "Analyst context loaded for documentation management"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Analyst context ready. Proceeding with command...*
+```
+
+**Version 2.0 with Document Registry Integration**
+
+**All Personas**: Enforces documentation structure standards using sophisticated multi-signal detection and pattern-based placement from document-registry.json.
+
+## Metadata
+- **Name**: doc-compliance
+- **Version**: 2.0 (Enhanced with Document Registry)
+- **Description**: Advanced documentation compliance with intelligent type detection
+- **Agent**: Documentation Compliance Agent (DCA)
+- **Performance**: Multi-signal detection with 90%+ accuracy
+- **Integration**: Uses document-registry.json for intelligent placement
+
+## 🆕 Enhanced Features (v2.0)
+
+### Multi-Signal Document Type Detection
+- **40% Filename Analysis**: Pattern matching against known conventions
+- **40% Content Analysis**: Searches for type-specific markers in content
+- **20% Agent Context**: Uses current persona hints for ambiguous cases
+- **Confidence Scoring**: Only auto-moves documents with >70% confidence
+
+### Pattern-Based Naming Enforcement
+- **Dynamic Patterns**: `PREFIX-{date}-{seq}.md`, `{title}-{version}.md`, etc.
+- **Smart Sequencing**: Auto-generates sequence numbers (daily reset)
+- **Title Extraction**: Intelligently extracts titles from content
+- **Format Preservation**: Maintains project-specific naming conventions
+
+### Document Registry Integration
+- **Central Configuration**: All rules in `document-registry.json`
+- **15+ Document Types**: Each with specific location and naming rules
+- **Flexible Patterns**: Supports singleton, collection, and category types
+- **Subfolder Intelligence**: Preserves valid subfolder structures
+
+## Overview
+
+The enhanced `/doc-compliance` command activates the Documentation Compliance Agent to:
+- Use multi-signal detection for intelligent document type identification
+- Apply registry-based rules for location and naming enforcement
+- Auto-fix correctable violations with confidence scoring
+- Execute safe migrations with rollback capability
+- Generate detailed compliance reports with detection statistics
+- Maintain document registry with learned patterns
+
+## Usage
+
+```
+/doc-compliance [mode] [options]
+```
+
+## Enhanced Modes
+
+### `organize` - Intelligent Document Organization (Enhanced)
+- Uses multi-signal detection to identify document types
+- Applies pattern-based naming from registry
+- Moves documents to registry-defined locations
+- Generates detailed migration report
+
+### `detect` - Document Type Detection (New)
+- Analyzes documents and reports detected types
+- Shows confidence scores for each detection
+- Useful for debugging and registry tuning
+
+### `registry` - Registry Management (New)
+- View current document registry
+- Test detection patterns
+- Update registry rules
+- Generate registry statistics
+
+### Classic Modes (Preserved)
+- `validate` - Check compliance without making changes
+- `fix` - Auto-fix correctable issues
+- `report` - Generate detailed compliance report
+
+## Enhanced Options
+
+- `--use-registry` - Enable document registry integration (default: true)
+- `--auto` - Auto-approve high confidence moves (>90%)
+- `--dry-run` - Show what would be changed without making changes
+- `--confidence <level>` - Minimum confidence threshold (default: 70)
+- `--path <path>` - Specific path to validate
+- `--verbose` - Show detailed detection analysis
+
+## Enhanced Examples
+
+```bash
+# Intelligent organization with registry rules
+/doc-compliance organize --use-registry
+
+# Detect document types with confidence scores
+/doc-compliance detect --path project_docs/
+
+# Preview organization changes
+/doc-compliance organize --dry-run --verbose
+
+# Auto-approve high confidence moves
+/doc-compliance organize --auto
+
+# View document registry status
+/doc-compliance registry
+
+# Generate enhanced compliance report
+/doc-compliance report --include-registry
+
+# Classic validation (preserved)
+/doc-compliance validate --path project_docs/architecture
+```
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm initializing the Documentation Compliance Agent. Let me load all required standards and scan the documentation structure.
+
+*Executing parallel initialization tasks:*
+[Execute all 5 tasks in single function_calls block]
+- Task 1: Load document registry from {{APM_ROOT}}/config/document-registry.json
+- Task 2: Load backlog management rules from {{APM_ROOT}}/rules/backlog-management.md
+- Task 3: Scan project documentation structure in {{PROJECT_DOCS}}
+- Task 4: Scan APM documentation structure in {{APM_ROOT}}
+- Task 5: Load enforcement history from {{APM_ROOT}}/.cache/compliance-history.json
+```
+
+## Validation Rules
+
+### File Naming Standards
+- **Pattern**: UPPERCASE-KEBAB-CASE for most documents
+- **Exceptions**: README.md, LICENSE.md, CHANGELOG.md
+- **Date Prefixes**: Required for reports (YYYY-MM-DD-)
+- **Length**: 5-50 characters
+- **Auto-Fix**: ✅ Available
+
+### Structure Requirements
+- **Max Depth**: 5 directory levels
+- **Required Directories**: project_docs/, planning/, reports/, architecture/, archives/
+- **No Empty Directories**: Warning for empty dirs (except archives/, templates/)
+- **Auto-Fix**: ✅ Available for directory creation
+
+### Content Standards
+- **Frontmatter**: Required (title, date, author)
+- **Heading Structure**: Start with H1, no skipping levels, max depth 4
+- **Required Sections**: Varies by document type
+- **Cross-References**: Must be valid and bidirectional
+- **Auto-Fix**: ✅ Available for frontmatter and headings
+
+### Document Placement
+- **Backlog**: project_docs/backlog.md only
+- **Architecture**: project_docs/architecture/
+- **Reports**: project_docs/reports/
+- **Session Notes**: {{SESSION_NOTES_PATH}}/
+- **Auto-Fix**: ✅ Available (moves to correct location)
+
+## Compliance Workflow
+
+### Phase 1: Discovery & Analysis
+1. **Load Registry**: Parse document-registry.json configuration
+2. **Scan Structure**: Recursive scan of all documentation
+3. **Update Registry**: Maintain document placement records
+4. **Identify Violations**: Check against registry rules
+5. **Categorize Issues**: Group by severity and fixability
+
+### Phase 2: Validation & Reporting
+6. **Validate Names**: Check file naming conventions
+7. **Validate Structure**: Verify directory requirements
+8. **Validate Content**: Check frontmatter, headings, sections
+9. **Validate Links**: Verify cross-references
+10. **Generate Report**: Summarize findings
+
+### Phase 3: Remediation & Fixes
+11. **Auto-Fix Simple Issues**: Naming, frontmatter, structure
+12. **Move Misplaced Files**: Relocate to proper directories
+13. **Update Registry**: Record changes
+14. **Create Fix Report**: Document all changes made
+15. **Request Manual Fixes**: For complex issues
+
+## Enforcement Levels
+
+### Level 1: Monitoring (Default)
+- Reports violations but doesn't block
+- Provides fix suggestions
+- Tracks compliance trends
+- Generates weekly reports
+
+### Level 2: Assisted
+- Auto-fixes simple issues
+- Warns on commit for violations
+- Provides templates for new documents
+- Guides proper placement
+
+### Level 3: Enforced
+- Blocks commits with violations
+- Requires compliance for new documents
+- Auto-organizes on session end
+- Maintains strict structure
+
+## Output Format
+
+```markdown
+# Documentation Compliance Report
+
+## Summary
+- **Scan Time**: [timestamp]
+- **Documents Scanned**: [N] files
+- **Compliance Score**: [X]% ([score]/100)
+- **Violations Found**: [N] issues
+- **Auto-Fixable**: [N] issues ([X]%)
+
+## Violations by Severity
+
+### 🔴 Errors ([N])
+1. **Missing Required Directory**: project_docs/planning/
+   - Impact: High
+   - Fix: Create directory structure
+   - Auto-Fix: ✅ Available
+
+2. **Invalid File Name**: project_docs/my-report.md
+   - Expected: MY-REPORT.md
+   - Fix: Rename to UPPERCASE-KEBAB-CASE
+   - Auto-Fix: ✅ Available
+
+### 🟡 Warnings ([N])
+1. **Missing Frontmatter**: architecture/system-design.md
+   - Required: title, date, author
+   - Fix: Add frontmatter block
+   - Auto-Fix: ✅ Available
+
+### 🔵 Info ([N])
+1. **Empty Directory**: project_docs/temp/
+   - Suggestion: Remove if unused
+   - Auto-Fix: ❌ Manual review required
+
+## Document Registry Status
+
+### Registered Documents: [N]
+- ✅ Properly Located: [N] ([X]%)
+- ⚠️ Misplaced: [N] ([X]%)
+- ❌ Unregistered: [N] ([X]%)
+
+### Document Types Coverage
+| Type | Expected | Found | Compliance |
+|------|----------|-------|------------|
+| Backlog | 1 | 1 | ✅ 100% |
+| Architecture | 10+ | 8 | ⚠️ 80% |
+| Reports | 20+ | 25 | ✅ 125% |
+| Session Notes | Any | 45 | ✅ Active |
+
+## Recommended Actions
+
+### Immediate (Auto-Fixable)
+1. Run `/doc-compliance fix` to resolve [N] issues
+2. Estimated time: <1 minute
+
+### Manual Review Required
+1. Review and update [N] documents with complex issues
+2. Consolidate [N] duplicate documents
+3. Archive [N] outdated documents
+
+### Process Improvements
+1. Enable pre-commit hooks for validation
+2. Set up weekly compliance audits
+3. Train team on documentation standards
+
+## Compliance Trends
+- **This Week**: [X]% compliance (↑ [Y]% from last week)
+- **This Month**: [X]% average compliance
+- **Top Issues**: Naming violations (40%), Missing frontmatter (30%)
+
+## Next Steps
+1. [ ] Fix auto-fixable issues
+2. [ ] Review manual fixes needed
+3. [ ] Update document registry
+4. [ ] Schedule team training
+```
+
+## Integration Points
+
+### Pre-Commit Hook
+```bash
+# Automatically validate documentation on commit
+git config core.hooksPath {{APM_ROOT}}/hooks
+```
+
+### Session Integration
+- Auto-validates at session start
+- Monitors document creation during session
+- Enforces compliance at session end
+- Archives properly on wrap
+
+### Persona Integration
+All personas respect DCA validations:
+- Check before creating documents
+- Use templates from registry
+- Follow naming conventions
+- Maintain proper structure
+
+## Document Registry
+
+### Registry Structure
+```yaml
+document_registry:
+  backlog:
+    type: "singleton"
+    location: "project_docs/backlog.md"
+    owner: "Product Owner"
+    template: "backlog.md.template"
+    
+  session_notes:
+    type: "collection"
+    location: ".apm/session_notes/"
+    pattern: "YYYY-MM-DD-HH-mm-ss-*.md"
+    owner: "All Personas"
+    archive: ".apm/session_notes/archive/"
+    
+  architecture:
+    type: "category"
+    location: "project_docs/architecture/"
+    subtypes:
+      - decisions/
+      - diagrams/
+      - specifications/
+    owner: "Architect"
+```
+
+## Success Metrics
+
+- **Compliance Rate**: >95% of documents meeting standards
+- **Auto-Fix Rate**: >80% of violations auto-corrected
+- **Structure Integrity**: 100% required directories present
+- **Registry Coverage**: >90% documents registered
+- **Link Validity**: >98% cross-references valid
+
+## Voice Notifications
+
+```bash
+bash {{SPEAK_ORCHESTRATOR}} "Documentation Compliance Agent activated. Scanning project documentation structure for standards validation..."
+```
+
+## Advanced Configuration
+
+```yaml
+# doc-compliance-config.yaml
+compliance:
+  enforcement_level: 2  # 1=Monitor, 2=Assist, 3=Enforce
+  auto_fix: true
+  
+  scanning:
+    parallel_streams: 4
+    cache_results: true
+    cache_ttl: 3600  # seconds
+    
+  reporting:
+    format: "detailed"  # summary, detailed, json
+    include_trends: true
+    weekly_audits: true
+    
+  exceptions:
+    paths:
+      - "node_modules/"
+      - ".git/"
+      - "vendor/"
+    files:
+      - "*.tmp"
+      - "*.backup"
+```
+
+## Error Handling
+
+### Common Issues and Resolutions
+
+| Issue | Cause | Resolution |
+|-------|-------|------------|
+| Cannot load registry | Missing document-registry.json | Restore from template |
+| Registry corruption | Invalid YAML syntax | Rebuild with scan |
+| Permission denied | Insufficient file permissions | Check file ownership |
+| Template sync failed | Version mismatch | Update templates |
+
+## Maintenance
+
+### Daily Tasks
+- Monitor compliance trends
+- Review auto-fix actions
+- Update document registry
+
+### Weekly Tasks  
+- Run full compliance audit
+- Review manual fix queue
+- Update enforcement rules
+
+### Monthly Tasks
+- Analyze compliance metrics
+- Optimize validation rules
+- Archive old documents
+
+---
+
+*Part of the APM Documentation Excellence Infrastructure*

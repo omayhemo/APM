@@ -1,0 +1,202 @@
+# Documentation Organization System Configuration
+# This file controls the behavior of the /organize-docs command
+
+organize_docs:
+  # Path configuration
+  paths:
+    # Primary documentation directory
+    project_docs: "./project_docs"
+    
+    # Central index file name
+    index_file: "index.md"
+    
+    # Patterns to ignore during scanning
+    ignore_patterns:
+      - "*.tmp"
+      - ".draft*"
+      - "*.bak"
+      - "archive/**"
+      - "_archive/**"
+      - ".git/**"
+      - "node_modules/**"
+    
+    # Allowed file extensions
+    allowed_extensions:
+      - ".md"
+      - ".markdown"
+    
+  # Validation rules
+  rules:
+    # Ensure all documents are reachable from index.md
+    enforce_index_connectivity: true
+    
+    # Maximum allowed percentage of orphaned documents
+    max_orphan_percentage: 0
+    
+    # Require bidirectional links between parent and child
+    require_bidirectional_links: true
+    
+    # Minimum word count for documents
+    min_word_count: 50
+    
+    # Maximum directory depth
+    max_directory_depth: 5
+    
+    # Naming conventions
+    naming_conventions:
+      # File naming pattern (regex)
+      file_pattern: "^[a-z0-9-]+\\.md$"
+      
+      # Directory naming pattern (regex)
+      directory_pattern: "^[a-z0-9-]+$"
+      
+      # Enforce lowercase
+      enforce_lowercase: true
+    
+  # Link management
+  links:
+    # Automatically fix simple broken links
+    auto_fix_broken: true
+    
+    # Create bidirectional links when missing
+    create_bidirectional: true
+    
+    # Add breadcrumb navigation
+    add_breadcrumbs: false
+    
+    # Link validation timeout (seconds)
+    validation_timeout: 30
+    
+    # External link checking
+    check_external_links: false
+    
+  # Automation settings
+  automation:
+    # Run weekly health checks
+    weekly_health_check: true
+    
+    # Automatically fix broken links
+    auto_fix_broken_links: true
+    
+    # Generate missing index files
+    generate_missing_indexes: true
+    
+    # Create backups before changes
+    create_backups: true
+    
+    # Backup retention days
+    backup_retention_days: 30
+    
+  # Organization strategies
+  strategies:
+    # Default reorganization strategy
+    default: "topic-based"
+    
+    # Available strategies
+    available:
+      - "topic-based"      # Group by subject matter
+      - "audience-based"   # Organize by user type
+      - "lifecycle-based"  # Arrange by document status
+      - "chronological"    # Order by date
+      - "flat"            # Minimize directory depth
+      - "hierarchical"    # Maximize structure
+    
+  # Report settings
+  reports:
+    # Default report format
+    default_format: "markdown"
+    
+    # Available formats
+    formats:
+      - "markdown"
+      - "json"
+      - "html"
+      - "pdf"
+    
+    # Report output directory
+    output_directory: "./project_docs/reports"
+    
+    # Include visualizations
+    include_graphs: true
+    
+    # Graph settings
+    graphs:
+      format: "png"
+      max_depth: 3
+      show_orphans: true
+      highlight_broken: true
+    
+  # Performance settings
+  performance:
+    # Enable parallel processing
+    parallel_processing: true
+    
+    # Maximum parallel workers
+    max_workers: 4
+    
+    # Cache parsed documents
+    enable_cache: true
+    
+    # Cache TTL (seconds)
+    cache_ttl: 3600
+    
+    # Memory limit (MB)
+    memory_limit: 512
+    
+  # Integration settings
+  integration:
+    # APM voice notifications
+    voice_notifications: true
+    
+    # Use APM session management
+    session_management: true
+    
+    # Generate tasks for PM
+    generate_pm_tasks: true
+    
+    # Git integration
+    git:
+      # Track changes in git
+      track_changes: true
+      
+      # Commit message template
+      commit_template: "docs: {action} - {description}"
+      
+      # Auto-commit changes
+      auto_commit: false
+    
+  # Health check thresholds
+  health:
+    # Score thresholds
+    thresholds:
+      critical: 60
+      warning: 80
+      good: 90
+    
+    # Metrics weights
+    weights:
+      orphaned_documents: 30
+      broken_links: 20
+      missing_index: 20
+      naming_violations: 15
+      structure_depth: 15
+    
+  # Advanced settings
+  advanced:
+    # Enable debug logging
+    debug: false
+    
+    # Log file location
+    log_file: "./logs/organize-docs.log"
+    
+    # Dry run by default
+    dry_run_default: true
+    
+    # Confirmation prompts
+    require_confirmation: true
+    
+    # Custom rules directory
+    custom_rules_dir: "./rules/documentation"
+    
+    # Plugin directory
+    plugins_dir: "./plugins/organize-docs"

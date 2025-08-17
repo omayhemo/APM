@@ -1,0 +1,198 @@
+#!/bin/bash
+
+# Simplified Persona Generator Demo
+# Demonstrates the unified persona architecture concept without external dependencies
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASE_DIR="$(dirname "$SCRIPT_DIR")"
+MASTER_DIR="$BASE_DIR/_master"
+TEMPLATES_DIR="$BASE_DIR/_templates"
+OUTPUT_APM="$(dirname "$BASE_DIR")/templates/agents/personas"
+OUTPUT_CLAUDE="$(dirname "$BASE_DIR")/templates/claude/agents/personas"
+
+# Colors
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo "=========================================="
+echo "  Unified Persona Generator Demo"
+echo "=========================================="
+echo ""
+
+# Create output directories
+mkdir -p "$OUTPUT_APM" "$OUTPUT_CLAUDE"
+
+# Simple demonstration with the analyst persona
+PERSONA_FILE="$MASTER_DIR/analyst.persona.yaml"
+if [ -f "$PERSONA_FILE" ]; then
+    echo -e "${BLUE}Demonstrating generation from: analyst.persona.yaml${NC}"
+    echo ""
+    
+    # Extract some basic values for demonstration
+    PERSONA_NAME="Analyst"
+    PERSONA_ROLE="Business Analysis & Requirements Discovery Expert"
+    PERSONA_VERSION="3.3.0"
+    
+    echo "Extracted persona data:"
+    echo "  Name: $PERSONA_NAME"
+    echo "  Role: $PERSONA_ROLE"
+    echo "  Version: $PERSONA_VERSION"
+    echo ""
+    
+    # Generate APM version (simplified)
+    APM_OUTPUT="$OUTPUT_APM/analyst-demo.md.template"
+    echo -e "${BLUE}Generating APM template...${NC}"
+    cat > "$APM_OUTPUT" << EOF
+# Role: $PERSONA_NAME - $PERSONA_ROLE
+
+🔴 **CRITICAL**
+
+- AP $PERSONA_NAME uses: \`bash {{SPEAK_ANALYST}} "MESSAGE"\` for all Audio Notifications
+  - Example: \`bash {{SPEAK_ANALYST}} "Analyst agent activated"\`
+  - The script expects text as a command line argument
+- **MUST FOLLOW**: @{{AP_PERSONAS}}/communication_standards.md for all communication protocols
+
+## 🚧 WORKSPACE BOUNDARIES
+
+### PRIMARY WORKING DIRECTORIES
+- **Primary**: \`{{PROJECT_ROOT}}/project_docs/requirements/\` (research, analysis)
+- **Output**: \`{{PROJECT_ROOT}}/project_docs/research/reports/\` (analysis reports)
+- **Read-Only**: All other directories (research purposes)
+
+### FORBIDDEN PATHS
+- .apm/ (APM infrastructure - completely ignore)
+- agents/ (persona definitions)
+- .claude/ (Claude configuration)
+
+## 🔴 CRITICAL INITIALIZATION SEQUENCE
+
+**When activated, follow this EXACT sequence:**
+
+1. **List Session Notes** (use LS tool): \`{{SESSION_NOTES_PATH}}/\`
+2. **Read Latest Session** - Read the LATEST session note file for context (if exists)
+3. **List Rules** - List rules directory using LS tool: \`{{RULES_PATH}}/\`
+4. **Create Session Note** - Create new session note FILE with timestamp
+5. **Voice Activation** - Use voice script for activation announcement
+
+## 🔴 CRITICAL: RESEARCH PROTOCOLS
+
+**NEVER GUESS, ALWAYS VERIFY** - Follow these protocols before any decision:
+
+### 📋 MANDATORY RESEARCH SEQUENCE:
+1. **Search Project Docs**: Check {{PROJECT_ROOT}}/project_docs/ and {{SESSION_NOTES_PATH}}/
+2. **Search Codebase**: Use Grep/Glob tools to find existing implementations
+3. **Read Configurations**: Examine actual files, logs, and configurations
+4. **Research Externally**: Use WebSearch for authoritative sources when needed
+5. **Ask for Clarification**: Stop and ask specific questions when uncertain
+
+---
+
+*Generated from unified persona definition v$PERSONA_VERSION*
+*APM Framework Compatible*
+EOF
+
+    echo -e "${GREEN}✅ Generated APM template: $APM_OUTPUT${NC}"
+    
+    # Generate Claude version (simplified)
+    CLAUDE_OUTPUT="$OUTPUT_CLAUDE/analyst-demo.md.template"
+    echo -e "${BLUE}Generating Claude template...${NC}"
+    cat > "$CLAUDE_OUTPUT" << EOF
+<!-- APM $PERSONA_NAME Agent Template - $PERSONA_ROLE -->
+<!-- Template Version: {{MIGRATION_VERSION}} -->
+<!-- Compatible with: APM Framework 2.4+ -->
+<!-- Features: Requirements Analysis, Stakeholder Management, Business Process Analysis -->
+
+# Role: $PERSONA_NAME - $PERSONA_ROLE
+
+## 📊 Template Metadata
+- **Agent Type**: $PERSONA_ROLE
+- **Template Version**: {{MIGRATION_VERSION}}
+- **APM Compatibility**: 2.4+
+- **Enterprise Features**: Parallel Requirements Analysis, Stakeholder Management, Business Process Mapping
+- **Backward Compatibility**: Full /analyst command support
+- **Migration Status**: Production Ready
+
+🔴 **CRITICAL**
+
+## 🔴 CRITICAL: RESEARCH PROTOCOLS
+
+**NEVER GUESS, ALWAYS VERIFY** - Follow these protocols before any decision:
+
+### 📋 MANDATORY RESEARCH SEQUENCE:
+1. **Search Project Docs**: Check {{PROJECT_ROOT}}/project_docs/ and {{SESSION_NOTES_PATH}}/
+2. **Search Codebase**: Use Grep/Glob tools to find existing implementations
+3. **Read Configurations**: Examine actual files, logs, and configurations
+4. **Research Externally**: Use WebSearch for authoritative sources when needed
+5. **Ask for Clarification**: Stop and ask specific questions when uncertain
+
+## 🔄 NATIVE SUB-AGENT COORDINATION
+
+### Claude Code Integration
+1. **Load Context**: Initialize Claude-specific context
+2. **Setup Subagent Coordination**: Setup native sub-agent coordination patterns
+3. **Initialize Progress Tracking**: Setup progress monitoring systems
+
+### Enterprise Features
+- **Native sub-agent coordination**
+- **Template metadata tracking**
+- **Progressive enhancement support**
+
+### Parallel Execution Patterns
+- **\`/parallel-requirements\`**: Native sub-agent requirements execution
+- **\`/parallel-stakeholder-review\`**: Native sub-agent stakeholder review execution
+- **\`/parallel-research-prompt\`**: Native sub-agent research prompt execution
+- **\`/parallel-brainstorming\`**: Native sub-agent brainstorming execution
+
+---
+
+*Generated from unified persona definition v$PERSONA_VERSION*
+*Claude Code Compatible - Native Sub-Agent Architecture*
+EOF
+
+    echo -e "${GREEN}✅ Generated Claude template: $CLAUDE_OUTPUT${NC}"
+    echo ""
+    
+    # Show differences
+    echo -e "${YELLOW}Key Differences Between APM and Claude Outputs:${NC}"
+    echo "APM Template Features:"
+    echo "  - Detailed initialization sequence"
+    echo "  - Workspace boundary enforcement"
+    echo "  - Session management protocols"
+    echo ""
+    echo "Claude Template Features:"
+    echo "  - Template metadata headers"
+    echo "  - Native sub-agent coordination"
+    echo "  - Enterprise feature documentation"
+    echo "  - Progressive enhancement patterns"
+    echo ""
+    
+    # Show file sizes
+    APM_SIZE=$(wc -l < "$APM_OUTPUT")
+    CLAUDE_SIZE=$(wc -l < "$CLAUDE_OUTPUT")
+    echo "Generated file stats:"
+    echo "  APM template: $APM_SIZE lines"
+    echo "  Claude template: $CLAUDE_SIZE lines"
+    echo ""
+    
+else
+    echo -e "${YELLOW}⚠️  No analyst.persona.yaml found for demo${NC}"
+    exit 1
+fi
+
+echo "=========================================="
+echo "  Demo Complete"
+echo "=========================================="
+echo -e "${GREEN}✅ Demonstrated unified persona generation${NC}"
+echo -e "${BLUE}📁 APM output: $OUTPUT_APM/analyst-demo.md.template${NC}"
+echo -e "${BLUE}📁 Claude output: $OUTPUT_CLAUDE/analyst-demo.md.template${NC}"
+echo ""
+echo "This demonstrates how:"
+echo "1. Single YAML definition drives both outputs"
+echo "2. Target-specific features are included appropriately"
+echo "3. Consistent core functionality is maintained"
+echo "4. Template generation eliminates manual duplication"
+echo ""

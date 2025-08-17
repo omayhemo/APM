@@ -1,0 +1,396 @@
+#!/bin/bash
+# {{PERSONA_NAME}} Voice Script Template
+# This template provides the standard voice script structure for Coherence agent personas
+# Generated from voice-script-template.sh.template
+
+# Voice script for {{PERSONA_DESCRIPTION}} using TTS manager
+#
+# Usage:
+#   {{VOICE_SCRIPT_PATH}}/speak{{PERSONA_NAME_CAPITALIZED}}.sh "Message text"
+#   echo "Message text" | {{VOICE_SCRIPT_PATH}}/speak{{PERSONA_NAME_CAPITALIZED}}.sh
+#
+# Environment Variables:
+#   TTS_ENABLED - Enable/disable TTS (default: true)
+#   TTS_PROVIDER - TTS provider to use (default: auto)
+#   TTS_VOICE_{{PERSONA_NAME_UPPER}}_{{PROVIDER_UPPER}} - Voice mapping for this persona
+#
+# Examples:
+#   # Basic usage
+#   ./speak{{PERSONA_NAME_CAPITALIZED}}.sh "{{PERSONA_NAME_CAPITALIZED}} persona activated"
+#   
+#   # Piped input
+#   echo "Analysis complete" | ./speak{{PERSONA_NAME_CAPITALIZED}}.sh
+#   
+#   # With custom voice provider
+#   TTS_PROVIDER=elevenlabs ./speak{{PERSONA_NAME_CAPITALIZED}}.sh "Using cloud TTS"
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+# Get the script directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Source the base script for common functionality
+# This provides check_tts_manager(), synthesize_speech(), and handle_input()
+BASE_SCRIPT="$SCRIPT_DIR/speakBase.sh"
+if [ -f "$BASE_SCRIPT" ]; then
+    source "$BASE_SCRIPT"
+else
+    # Fallback if base script not found - provide minimal functionality
+    echo "Warning: Base voice script not found at $BASE_SCRIPT" >&2
+    
+    # Minimal fallback implementation
+    handle_input() {
+        local persona="$1"
+        shift
+        local text="$*"
+        
+        # If no text from args, try to read from stdin
+        if [ -z "$text" ] && [ ! -t 0 ]; then
+            text=$(cat)
+        fi
+        
+        # If still no text, exit silently
+        if [ -z "$text" ]; then
+            exit 0
+        fi
+        
+        # Try to find and use TTS manager
+        local tts_manager="$(dirname "$(dirname "$SCRIPT_DIR")")/scripts/tts-manager.sh"
+        if [ -f "$tts_manager" ] && [ -x "$tts_manager" ]; then
+            "$tts_manager" speak "$persona" "$text" 2>/dev/null || true
+        fi
+        
+        return 0
+    }
+fi
+
+# =============================================================================
+# PERSONA CONFIGURATION
+# =============================================================================
+
+# Set the persona identifier for this script
+# This should match the persona name used in voice mappings
+PERSONA="{{PERSONA_NAME}}"
+
+# Persona-specific configuration
+PERSONA_DISPLAY_NAME="{{PERSONA_DISPLAY_NAME}}"
+PERSONA_DESCRIPTION="{{PERSONA_DESCRIPTION}}"
+
+# Voice characteristics for this persona (used by some TTS providers)
+VOICE_TONE="{{VOICE_TONE}}"           # e.g., "professional", "friendly", "authoritative"
+VOICE_PACE="{{VOICE_PACE}}"           # e.g., "slow", "normal", "fast"
+VOICE_STYLE="{{VOICE_STYLE}}"         # e.g., "formal", "casual", "technical"
+
+# =============================================================================
+# PERSONA-SPECIFIC FUNCTIONS
+# =============================================================================
+
+# Get persona-specific voice settings
+get_persona_voice_settings() {
+    local provider="$1"
+    local settings=""
+    
+    # Add persona-specific voice settings based on provider
+    case "$provider" in
+        "elevenlabs")
+            # ElevenLabs-specific settings for this persona
+            settings="stability={{ELEVENLABS_STABILITY}},similarity_boost={{ELEVENLABS_SIMILARITY}}"
+            ;;
+        "piper")
+            # Piper-specific settings for this persona
+            settings="speed={{PIPER_SPEED}},pitch={{PIPER_PITCH}}"
+            ;;
+        "system")
+            # System TTS settings for this persona
+            settings="rate={{SYSTEM_RATE}},pitch={{SYSTEM_PITCH}}"
+            ;;
+    esac
+    
+    echo "$settings"
+}
+
+# Validate persona-specific message content
+validate_message() {
+    local message="$1"
+    
+    # Basic validation
+    if [ -z "$message" ]; then
+        return 1
+    fi
+    
+    # Persona-specific message validation
+    case "$PERSONA" in
+        "orchestrator")
+            # Orchestrator messages should be authoritative and clear
+            ;;
+        "developer")
+            # Developer messages can include technical terms
+            ;;
+        "qa")
+            # QA messages should be precise and methodical
+            ;;
+        *)
+            # Default validation for other personas
+            ;;
+    esac
+    
+    return 0
+}
+
+# Format message for persona-specific delivery
+format_message() {
+    local raw_message="$1"
+    local formatted_message="$raw_message"
+    
+    # Apply persona-specific message formatting
+    case "$PERSONA" in
+        "orchestrator")
+            # Add authoritative prefix if not present
+            if [[ ! "$formatted_message" =~ ^(Coherence|Orchestrator|System) ]]; then
+                formatted_message="Coherence Orchestrator: $formatted_message"
+            fi
+            ;;
+        "developer")
+            # Add development context if appropriate
+            if [[ "$formatted_message" =~ (complete|done|finished) ]]; then
+                formatted_message="$formatted_message Ready for code review."
+            fi
+            ;;
+        "qa")
+            # Add quality context
+            if [[ "$formatted_message" =~ (test|testing) ]]; then
+                formatted_message="Coherence QA: $formatted_message"
+            fi
+            ;;
+        "pm")
+            # Add project management context
+            if [[ "$formatted_message" =~ (sprint|story|task) ]]; then
+                formatted_message="Coherence PM: $formatted_message"
+            fi
+            ;;
+        *)
+            # Default formatting - add persona identifier
+            formatted_message="{{PERSONA_DISPLAY_NAME}}: $formatted_message"
+            ;;
+    esac
+    
+    echo "$formatted_message"
+}
+
+# =============================================================================
+# LOGGING AND DEBUGGING
+# =============================================================================
+
+# Log voice script activity (if debugging enabled)
+log_voice_activity() {
+    local level="$1"
+    local message="$2"
+    
+    # Check if voice logging is enabled
+    if [ "${TTS_DEBUG:-false}" = "true" ]; then
+        local timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+        local log_file="{{PROJECT_ROOT}}/.cache/tts/voice.log"
+        
+        # Create log directory if it doesn't exist
+        mkdir -p "$(dirname "$log_file")" 2>/dev/null || true
+        
+        # Write log entry
+        echo "[$timestamp] [$level] [{{PERSONA_NAME}}] $message" >> "$log_file" 2>/dev/null || true
+    fi
+}
+
+# =============================================================================
+# ENHANCED INPUT HANDLING
+# =============================================================================
+
+# Enhanced input handling with persona-specific processing
+handle_persona_input() {
+    log_voice_activity "DEBUG" "Starting input handling"
+    
+    local text=""
+    
+    # Check if text is provided as arguments
+    if [ $# -gt 0 ]; then
+        text="$*"
+        log_voice_activity "DEBUG" "Input from arguments: ${#text} characters"
+    else
+        # Read from stdin if available
+        if [ ! -t 0 ]; then
+            text=$(cat)
+            log_voice_activity "DEBUG" "Input from stdin: ${#text} characters"
+        else
+            log_voice_activity "DEBUG" "No input provided"
+            exit 0
+        fi
+    fi
+    
+    # Validate message
+    if ! validate_message "$text"; then
+        log_voice_activity "ERROR" "Message validation failed"
+        exit 0
+    fi
+    
+    # Format message for persona
+    local formatted_message=$(format_message "$text")
+    log_voice_activity "INFO" "Formatted message: $formatted_message"
+    
+    # Check if TTS is enabled globally
+    local tts_enabled="${TTS_ENABLED:-true}"
+    if [ "$tts_enabled" != "true" ]; then
+        log_voice_activity "INFO" "TTS disabled globally, skipping speech synthesis"
+        exit 0
+    fi
+    
+    # Check persona-specific TTS override
+    local persona_tts_var="TTS_ENABLED_$(echo "$PERSONA" | tr '[:lower:]' '[:upper:]')"
+    local persona_tts_enabled="${!persona_tts_var:-true}"
+    if [ "$persona_tts_enabled" != "true" ]; then
+        log_voice_activity "INFO" "TTS disabled for persona $PERSONA, skipping speech synthesis"
+        exit 0
+    fi
+    
+    # Synthesize and play speech using base functionality
+    if command -v synthesize_speech >/dev/null 2>&1; then
+        log_voice_activity "INFO" "Using base synthesize_speech function"
+        synthesize_speech "$PERSONA" "$formatted_message"
+    else
+        log_voice_activity "INFO" "Using fallback TTS manager"
+        # Fallback to direct TTS manager call
+        local tts_manager="$(dirname "$(dirname "$SCRIPT_DIR")")/scripts/tts-manager.sh"
+        if [ -f "$tts_manager" ] && [ -x "$tts_manager" ]; then
+            "$tts_manager" speak "$PERSONA" "$formatted_message" 2>/dev/null || true
+        fi
+    fi
+    
+    log_voice_activity "INFO" "Speech synthesis completed"
+}
+
+# =============================================================================
+# TESTING AND VALIDATION
+# =============================================================================
+
+# Test function for this voice script
+test_voice_script() {
+    echo "Testing {{PERSONA_NAME}} voice script..."
+    echo "Persona: $PERSONA_DISPLAY_NAME"
+    echo "Description: $PERSONA_DESCRIPTION"
+    echo "Voice characteristics: Tone=$VOICE_TONE, Pace=$VOICE_PACE, Style=$VOICE_STYLE"
+    echo ""
+    
+    # Test message formatting
+    local test_message="This is a test message for the {{PERSONA_NAME}} persona."
+    local formatted=$(format_message "$test_message")
+    echo "Original: $test_message"
+    echo "Formatted: $formatted"
+    echo ""
+    
+    # Test voice synthesis
+    echo "Testing voice synthesis..."
+    handle_persona_input "Testing {{PERSONA_DISPLAY_NAME}} voice script functionality."
+    
+    echo "Voice script test completed."
+}
+
+# Show help for this voice script
+show_help() {
+    cat << EOF
+{{PERSONA_NAME_CAPITALIZED}} Voice Script - {{PERSONA_DESCRIPTION}}
+
+Usage:
+    $0 [MESSAGE]                    # Speak message as {{PERSONA_NAME}}
+    echo "MESSAGE" | $0             # Speak message from stdin
+    $0 --test                       # Test voice script functionality
+    $0 --help                       # Show this help
+
+Environment Variables:
+    TTS_ENABLED                     # Enable/disable TTS globally (default: true)
+    TTS_PROVIDER                    # TTS provider to use (default: auto)
+    TTS_DEBUG                       # Enable voice script debugging (default: false)
+    TTS_ENABLED_{{PERSONA_NAME_UPPER}}              # Enable/disable TTS for this persona (default: true)
+    TTS_VOICE_{{PERSONA_NAME_UPPER}}_[PROVIDER]     # Voice mapping for this persona and provider
+
+Configuration:
+    Persona: $PERSONA_DISPLAY_NAME
+    Description: $PERSONA_DESCRIPTION
+    Voice Tone: $VOICE_TONE
+    Voice Pace: $VOICE_PACE
+    Voice Style: $VOICE_STYLE
+
+Examples:
+    # Basic usage
+    $0 "{{PERSONA_NAME_CAPITALIZED}} persona ready for work"
+    
+    # Piped input
+    echo "Task completed successfully" | $0
+    
+    # With debugging
+    TTS_DEBUG=true $0 "Debug message"
+    
+    # Disable TTS for this persona
+    TTS_ENABLED_{{PERSONA_NAME_UPPER}}=false $0 "This will not be spoken"
+    
+    # Use specific TTS provider
+    TTS_PROVIDER=elevenlabs $0 "Using cloud TTS"
+
+Files:
+    Base Script: $BASE_SCRIPT
+    TTS Manager: $(dirname "$(dirname "$SCRIPT_DIR")")/scripts/tts-manager.sh
+    Log File: {{PROJECT_ROOT}}/.cache/tts/voice.log
+
+EOF
+}
+
+# =============================================================================
+# MAIN EXECUTION
+# =============================================================================
+
+# Handle command line options
+case "${1:-}" in
+    --test)
+        test_voice_script
+        exit 0
+        ;;
+    --help|-h)
+        show_help
+        exit 0
+        ;;
+    --version)
+        echo "{{PERSONA_NAME_CAPITALIZED}} Voice Script v{{VERSION}} (Template {{TEMPLATE_VERSION}})"
+        exit 0
+        ;;
+    *)
+        # Normal operation - handle input and speak
+        handle_persona_input "$@"
+        ;;
+esac
+
+# =============================================================================
+# TEMPLATE METADATA
+# =============================================================================
+
+# Template Information (for maintenance and tracking)
+# Template: voice-script-template.sh.template
+# Version: {{TEMPLATE_VERSION}}
+# Generated: {{GENERATION_TIMESTAMP}}
+# Persona: {{PERSONA_NAME}}
+# Description: {{PERSONA_DESCRIPTION}}
+#
+# Customization Points:
+# - PERSONA configuration
+# - Voice characteristics (tone, pace, style)
+# - Message validation logic
+# - Message formatting rules
+# - Persona-specific TTS settings
+# - Logging and debugging behavior
+#
+# Integration Requirements:
+# - speakBase.sh must be present in same directory
+# - TTS manager must be available at ../scripts/tts-manager.sh
+# - Settings must be configured in {{PROJECT_ROOT}}/.claude/settings.json
+#
+# Testing:
+# - Run with --test flag for comprehensive testing
+# - Set TTS_DEBUG=true for detailed logging
+# - Check voice.log file for debugging information

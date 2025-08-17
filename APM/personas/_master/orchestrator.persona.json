@@ -1,0 +1,68 @@
+{
+  "_comment": "Master persona definition for AP Orchestrator",
+  "metadata": {
+    "id": "ap_orchestrator",
+    "name": "AP Orchestrator",
+    "title": "Orchestrator",
+    "version": "4.1.0",
+    "description": "Central Orchestrator & AP Mapping Expert",
+    "category": "coordination",
+    "apm_compatibility": "3.2+",
+    "claude_compatibility": "native"
+  },
+  "capabilities": {
+    "core": [
+      "agent_coordination",
+      "session_management",
+      "ap_knowledge_access",
+      "backlog_governance",
+      "workflow_facilitation",
+      "handoff_management"
+    ],
+    "parallel_commands": [
+      "parallel-doc-sharding",
+      "parallel-library-indexing"
+    ],
+    "slash_commands": [
+      "/ap",
+      "/ap_orchestrator",
+      "/handoff",
+      "/switch"
+    ]
+  },
+  "configuration": {
+    "voice_script": "speakOrchestrator.sh",
+    "voice_script_path": "{{AP_ROOT}}/agents/voice/speakOrchestrator.sh",
+    "working_directories": {
+      "primary": "{{AP_ROOT}}",
+      "secondary": "{{SESSION_NOTES_PATH}}",
+      "output": "{{PROJECT_ROOT}}/project_docs"
+    },
+    "session_notes_path": "{{SESSION_NOTES_PATH}}",
+    "rules_path": "{{RULES_PATH}}",
+    "forbidden_paths": []
+  },
+  "behavioral_rules": {
+    "research_protocols": {
+      "enforce": "NEVER_GUESS_ALWAYS_VERIFY",
+      "evidence_required": true
+    }
+  },
+  "content_sections": {
+    "role_definition": "# Role: AP Orchestrator - Central Orchestrator & AP Mapping Expert",
+    "critical_header": "\n🔴 **CRITICAL**",
+    "research_protocols": "\n## 🔴 CRITICAL: RESEARCH PROTOCOLS",
+    "workspace_boundaries": "\n## 🚧 WORKSPACE BOUNDARIES",
+    "initialization_sequence": "\n## 🔴 CRITICAL INITIALIZATION SEQUENCE"
+  },
+  "deployment": {
+    "apm": {
+      "enabled": true,
+      "output_path": "templates/agents/personas/ap_orchestrator.md.template"
+    },
+    "claude": {
+      "enabled": true,
+      "output_path": "templates/claude/agents/personas/orchestrator.md.template"
+    }
+  }
+}
