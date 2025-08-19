@@ -1,7 +1,30 @@
-# APM Command Documentation Master Index
-## Version 4.1.0 - Complete Native Sub-Agent Architecture
+# Coherence Command Documentation Master Index
+## Version 4.1.0 - Complete Native Sub-Agent Architecture with Unified Context Engineering
 
-This master documentation provides comprehensive details for all APM (Agentic Persona Mapping) framework commands. All commands leverage Claude Code's native sub-agent system for maximum performance and reliability.
+This master documentation provides comprehensive details for all Coherence framework commands. Coherence represents the evolution of APM (Agentic Persona Mapping) with advanced unified context engineering. All commands leverage Claude Code's native sub-agent system for maximum performance and reliability.
+
+---
+
+## 🔄 Legacy Compatibility & Migration
+
+### Command Evolution: APM → Coherence
+Coherence represents the evolution of APM (Agentic Persona Mapping) with advanced unified context engineering. All legacy APM commands continue to work for backward compatibility.
+
+**Primary Command Changes:**
+- `/ap` → `/coherence` (primary orchestrator command)
+- `/ap_orchestrator` → `/coherence_orchestrator` (alternative syntax)
+
+**Legacy Support:**
+- All existing `/ap` commands continue to function
+- No breaking changes to existing workflows
+- Gradual migration recommended
+- Full compatibility maintained
+
+**New Capabilities:**
+- **Unified Context Engineering**: Seamless context flow between agents
+- **Orchestrated Intelligence**: Enhanced coordination between parallel agents
+- **Context Preservation**: Intelligent context retention across handoffs
+- **Smart Context Mapping**: Automatic context distribution to relevant agents
 
 ---
 
@@ -24,8 +47,8 @@ This master documentation provides comprehensive details for all APM (Agentic Pe
 ## 🎯 Command Categories
 
 ### 1. Core Orchestrator Commands (6 commands)
-Central control, session management, and agent coordination
-- `/ap` or `/ap_orchestrator` - Launch AP Orchestrator 
+Central control, session management, and agent coordination with unified context engineering
+- `/coherence` or `/coherence_orchestrator` - Launch Coherence Orchestrator (legacy: `/ap`)
 - `/handoff` - Direct agent transition
 - `/switch` - Agent switching with context
 - `/wrap` - Session completion
@@ -70,40 +93,40 @@ Comprehensive testing and quality assurance
 
 ### 5. Project Management Commands (15 commands)
 Planning, tracking, and coordination
-- `/project-brief` - Project initialization
-- `/prd` - Product Requirements Document
-- `/epic` - Epic creation and management
-- `/stories` - User story generation
-- `/groom` - Backlog grooming
+- `/planning-project-brief` - Project initialization
+- `/planning-prd` - Product Requirements Document
+- `/planning-epic` - Epic creation and management
+- `/planning-stories` - User story generation
+- `/planning-groom` - Backlog grooming
 - `/prioritization` - Feature prioritization
-- `/acceptance-criteria` - AC definition
-- `/validation` - Story validation
+- `/qa-acceptance-criteria` - AC definition
+- `/planning-validation` - Story validation
 - `/next-story` - Story progression
-- `/checklist` - Task checklists
+- `/planning-checklist` - Task checklists
 - `/course-correction` - Agile adjustments
-- `/requirements` - Requirements gathering
-- `/stakeholder-review` - Stakeholder feedback
-- `/ux-spec` - UX specifications
-- `/release` - Release management
+- `/planning-requirements` - Requirements gathering
+- `/planning-stakeholder-review` - Stakeholder feedback
+- `/planning-ux-spec` - UX specifications
+- `/distribution-release` - Release management
 
 ### 6. Development Commands (8 commands)
 Code implementation and technical work
-- `/architecture` - System design
+- `/planning-architecture` - System design
 - `/frontend-architecture` - UI architecture
-- `/automation-plan` - Automation strategy
+- `/qa-automation-plan` - Automation strategy
 - `/ai-prompt` - AI integration prompts
-- `/git-commit-all` - Version control
-- `/buildit` - Build distribution
+- `/distribution-commit` - Version control
+- `/distribution-build` - Build distribution
 - `/version` - Version management
 - `/update-all-documentation` - Doc updates
 
 ### 7. Documentation Commands (6 commands)
 Document processing and management
-- `/doc-sharding` - Document segmentation
-- `/library-indexing` - Knowledge indexing
+- `/documentation-shard` - Document segmentation
+- `/implementation-implementation-library-indexing` - Knowledge indexing
 - `/doc-compliance` - Compliance checking
-- `/doc-compliance-enhanced` - Advanced compliance
-- `/organize-docs` - Document organization
+- `/documentation-compliance` - Advanced compliance
+- `/documentation-organize` - Document organization
 - `/research-prompt` - Research documentation
 
 ---
@@ -121,20 +144,20 @@ Document processing and management
 #### Single Agent Commands
 ```
 User: /dev
-Result: Activates Developer persona for sequential work
+Result: Activates Developer persona with unified context for sequential work
 ```
 
-#### Parallel Commands (Native Sub-Agents)
+#### Parallel Commands (Orchestrated Intelligence)
 ```
 User: /parallel-sprint
-Result: Launches 4 native Developer sub-agents working concurrently
-Performance: 4.6x faster completion
+Result: Launches 4 native Developer sub-agents with coordinated intelligence
+Performance: 4.6x faster completion with context preservation
 ```
 
-#### Command Chaining
+#### Command Chaining (Unified Context Engineering)
 ```
 User: /analyst → /pm → /architect → /dev → /qa
-Result: Complete development lifecycle workflow
+Result: Complete development lifecycle with seamless context flow
 ```
 
 ---
@@ -181,7 +204,7 @@ Result: Complete development lifecycle workflow
 /dev
 
 # With parameters
-/stories --count=5 --type=user
+/planning-stories --count=5 --type=user
 
 # Parallel execution
 /parallel-sprint --agents=4
@@ -225,18 +248,18 @@ Result: Complete development lifecycle workflow
 
 ### First Time Setup
 ```bash
-1. Install APM: ./installer/install.sh
+1. Install Coherence: ./payload/install.sh
 2. Initialize: /session-note-setup
-3. Launch: /ap
+3. Launch: /coherence
 4. Select persona: /dev
-5. Begin work!
+5. Begin work with unified context!
 ```
 
 ### Common Workflows
 
 #### New Project
 ```
-/ap → /analyst → /pm → /architect → /po → /sm → /dev → /qa
+/coherence → /analyst → /pm → /architect → /po → /sm → /dev → /qa
 ```
 
 #### Sprint Development
@@ -246,7 +269,7 @@ Result: Complete development lifecycle workflow
 
 #### Document Processing
 ```
-/parallel-doc-sharding --file=requirements.pdf --chunks=10
+/parallel-documentation-shard --file=requirements.pdf --chunks=10
 ```
 
 ---
@@ -255,11 +278,11 @@ Result: Complete development lifecycle workflow
 
 - **Command Help**: `/<command> --help`
 - **List Commands**: `/personas`
-- **View Status**: `/ap status`
+- **View Status**: `/coherence status`
 - **Documentation**: This guide and linked files
 - **Support**: Create issue in project repository
 
 ---
 
-*Generated by APM Framework v4.1.0 - Native Sub-Agent Architecture*
-*Last Updated: 2025-08-08*
+*Generated by Coherence Framework v4.1.0 - Native Sub-Agent Architecture with Unified Context Engineering*
+*Last Updated: 2025-08-16*

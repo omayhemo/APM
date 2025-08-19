@@ -1,6 +1,6 @@
-# APM Installation Issues and Solutions
+# Coherence Installation Issues and Solutions
 
-This guide addresses problems encountered during APM Framework installation and initial setup.
+This guide addresses problems encountered during Coherence - Agentic Persona Mapping installation and initial setup.
 
 ## 🚀 Pre-Installation Requirements
 
@@ -58,9 +58,9 @@ Permission denied: ./install.sh
 ls -la | grep install.sh
 
 # If missing, download the installer
-curl -O https://example.com/apm/install.sh
+curl -O https://example.com/coherencem/install.sh
 # or
-wget https://example.com/apm/install.sh
+wget https://example.com/coherencem/install.sh
 
 # Make executable
 chmod +x install.sh
@@ -72,7 +72,7 @@ chmod +x install.sh
 **Alternative Installation:**
 ```bash
 # Manual installation
-git clone https://github.com/example/apm-framework.git
+git clone https://github.com/example/coherencem-framework.git
 cd apm-framework/installer/
 chmod +x install.sh
 ./install.sh
@@ -84,7 +84,7 @@ chmod +x install.sh
 
 **Symptoms:**
 ```
-mkdir: cannot create directory '/mnt/c/Code/agentic-persona-mapping/.apm': Permission denied
+mkdir: cannot create directory '{{Coherence_ROOT}}': Permission denied
 cp: cannot create regular file: Permission denied
 Installation failed: insufficient permissions
 ```
@@ -96,7 +96,7 @@ Installation failed: insufficient permissions
 **Option 1: User Directory Installation (Recommended)**
 ```bash
 # Install to user home directory
-export APM_ROOT="$HOME/.apm"
+export Coherence_ROOT="$HOME/.apm"
 ./install.sh --user-install
 
 # Or specify custom location
@@ -107,11 +107,11 @@ export APM_ROOT="$HOME/.apm"
 ```bash
 # Check current permissions
 ls -ld /mnt/c/Code/agentic-persona-mapping
-ls -ld $(dirname /mnt/c/Code/agentic-persona-mapping/.apm)
+ls -ld $(dirname {{Coherence_ROOT}})
 
 # Create directory with correct permissions
-mkdir -p /mnt/c/Code/agentic-persona-mapping/.apm
-chmod 755 /mnt/c/Code/agentic-persona-mapping/.apm
+mkdir -p {{Coherence_ROOT}}
+chmod 755 {{Coherence_ROOT}}
 
 # Re-run installer
 ./install.sh
@@ -123,7 +123,7 @@ chmod 755 /mnt/c/Code/agentic-persona-mapping/.apm
 sudo ./install.sh --system-install
 
 # Fix ownership after sudo installation
-sudo chown -R $USER:$USER /mnt/c/Code/agentic-persona-mapping/.apm
+sudo chown -R $USER:$USER {{Coherence_ROOT}}
 ```
 
 ---
@@ -134,7 +134,7 @@ sudo chown -R $USER:$USER /mnt/c/Code/agentic-persona-mapping/.apm
 ```
 Installation appears successful but commands don't work
 Missing files or directories after installation
-"APM not properly configured" errors
+"Coherence not properly configured" errors
 ```
 
 **Root Cause:** Partial installation due to interrupted process or missing dependencies.
@@ -142,19 +142,19 @@ Missing files or directories after installation
 **Solution:**
 ```bash
 # Check installation completeness
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/agents/
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/config/
+ls -la {{Coherence_ROOT}}/
+ls -la {{Coherence_ROOT}}/agents/
+ls -la {{Coherence_ROOT}}/config/
 ls -la /mnt/c/Code/agentic-persona-mapping/.claude/commands/
 
 # Identify missing components
-if [ ! -d "/mnt/c/Code/agentic-persona-mapping/.apm/agents" ]; then
+if [ ! -d "{{Coherence_ROOT}}/agents" ]; then
     echo "Missing: Agent definitions"
 fi
-if [ ! -d "/mnt/c/Code/agentic-persona-mapping/.apm/session_notes" ]; then
+if [ ! -d "{{Coherence_ROOT}}/session_notes" ]; then
     echo "Missing: Session management"
 fi
-if [ ! -f "/mnt/c/Code/agentic-persona-mapping/.claude/commands/ap.md" ]; then
+if [ ! -f "/mnt/c/Code/agentic-persona-mapping/.claude/commands/coherence.md" ]; then
     echo "Missing: Command definitions"
 fi
 
@@ -162,7 +162,7 @@ fi
 ./install.sh --force --clean-install
 
 # Verify installation
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/verify-installation.sh
+{{Coherence_ROOT}}/scripts/verify-installation.sh
 ```
 
 ---
@@ -171,7 +171,7 @@ fi
 
 **Symptoms:**
 ```
-APM_ROOT or PROJECT_ROOT not set correctly
+Coherence_ROOT or PROJECT_ROOT not set correctly
 Commands reference wrong paths
 "Configuration path not found" errors
 ```
@@ -181,20 +181,20 @@ Commands reference wrong paths
 **Solution:**
 ```bash
 # Check current environment
-echo "APM_ROOT: ${APM_ROOT:-'NOT SET'}"
+echo "Coherence_ROOT: ${Coherence_ROOT:-'NOT SET'}"
 echo "PROJECT_ROOT: ${PROJECT_ROOT:-'NOT SET'}"
 
 # Set correct paths
-export APM_ROOT="/mnt/c/Code/agentic-persona-mapping/.apm"
+export Coherence_ROOT="{{Coherence_ROOT}}"
 export PROJECT_ROOT="/mnt/c/Code/agentic-persona-mapping"
 
 # Make permanent (add to shell profile)
-echo 'export APM_ROOT="/mnt/c/Code/agentic-persona-mapping/.apm"' >> ~/.bashrc
+echo 'export Coherence_ROOT="{{Coherence_ROOT}}"' >> ~/.bashrc
 echo 'export PROJECT_ROOT="/mnt/c/Code/agentic-persona-mapping"' >> ~/.bashrc
 source ~/.bashrc
 
 # Alternative: Use installer with explicit paths
-./install.sh --apm-root "/mnt/c/Code/agentic-persona-mapping/.apm" --project-root "/mnt/c/Code/agentic-persona-mapping"
+./install.sh --apm-root "{{Coherence_ROOT}}" --project-root "/mnt/c/Code/agentic-persona-mapping"
 ```
 
 ---
@@ -203,8 +203,8 @@ source ~/.bashrc
 
 **Symptoms:**
 ```
-APM installs but Claude Code doesn't recognize commands
-/ap command not found in Claude Code
+Coherence installs but Claude Code doesn't recognize commands
+/coherence command not found in Claude Code
 Commands exist but don't execute properly
 ```
 
@@ -219,7 +219,7 @@ cat ~/.claude/config.json | grep -A 5 -B 5 commands
 ls -la /mnt/c/Code/agentic-persona-mapping/.claude/commands/
 
 # Check command file format
-head -5 /mnt/c/Code/agentic-persona-mapping/.claude/commands/ap.md
+head -5 /mnt/c/Code/agentic-persona-mapping/.claude/commands/coherence.md
 
 # Reinstall Claude Code integration
 ./install.sh --claude-integration-only
@@ -279,31 +279,31 @@ sudo apt-get install espeak
 
 **Symptoms:**
 ```
-"Incompatible APM version" warnings
+"Incompatible Coherence version" warnings
 Mixed version files after upgrade
 Commands behave inconsistently
 ```
 
-**Root Cause:** Previous APM installation not properly removed before new installation.
+**Root Cause:** Previous Coherence installation not properly removed before new installation.
 
 **Solution:**
 ```bash
 # Backup existing configuration
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/config /mnt/c/Code/agentic-persona-mapping/.apm/config.backup
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/session_notes /mnt/c/Code/agentic-persona-mapping/.apm/session_notes.backup
+cp -r {{Coherence_ROOT}}/config {{Coherence_ROOT}}/config.backup
+cp -r {{Coherence_ROOT}}/session_notes {{Coherence_ROOT}}/session_notes.backup
 
 # Complete uninstall
 ./uninstall.sh --complete-removal
 # or manually:
-rm -rf /mnt/c/Code/agentic-persona-mapping/.apm
-rm -rf /mnt/c/Code/agentic-persona-mapping/.claude/commands/ap*.md
+rm -rf {{Coherence_ROOT}}
+rm -rf /mnt/c/Code/agentic-persona-mapping/.claude/commands/coherence*.md
 rm -rf /mnt/c/Code/agentic-persona-mapping/.claude/commands/parallel*.md
 
 # Clean install
 ./install.sh --clean-install
 
 # Restore configuration if needed
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/config.backup/* /mnt/c/Code/agentic-persona-mapping/.apm/config/
+cp -r {{Coherence_ROOT}}/config.backup/* {{Coherence_ROOT}}/config/
 ```
 
 ---
@@ -330,13 +330,13 @@ echo "HTTP_PROXY: ${HTTP_PROXY:-'not set'}"
 echo "HTTPS_PROXY: ${HTTPS_PROXY:-'not set'}"
 
 # Download manually if automated download fails
-wget https://github.com/example/apm-framework/archive/main.zip
+wget https://github.com/example/coherencem-framework/archive/main.zip
 unzip main.zip
 cd apm-framework-main/installer/
 ./install.sh --offline-install
 
 # Or use local installation
-git clone https://github.com/example/apm-framework.git
+git clone https://github.com/example/coherencem-framework.git
 cd apm-framework/installer/
 ./install.sh --local-install
 ```
@@ -348,10 +348,10 @@ cd apm-framework/installer/
 ### Automatic Verification
 ```bash
 # Run built-in verification script
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/verify-installation.sh
+{{Coherence_ROOT}}/scripts/verify-installation.sh
 
 # Check installation health
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh
+{{Coherence_ROOT}}/scripts/health-check.sh
 ```
 
 ### Manual Verification Checklist
@@ -359,43 +359,43 @@ cd apm-framework/installer/
 **Directory Structure:**
 ```bash
 # Required directories exist
-[ -d "/mnt/c/Code/agentic-persona-mapping/.apm" ] && echo "✓ APM root exists" || echo "✗ APM root missing"
-[ -d "/mnt/c/Code/agentic-persona-mapping/.apm/agents" ] && echo "✓ Agents directory exists" || echo "✗ Agents directory missing"
-[ -d "/mnt/c/Code/agentic-persona-mapping/.apm/session_notes" ] && echo "✓ Session notes directory exists" || echo "✗ Session notes directory missing"
-[ -d "/mnt/c/Code/agentic-persona-mapping/.apm/config" ] && echo "✓ Config directory exists" || echo "✗ Config directory missing"
+[ -d "{{Coherence_ROOT}}" ] && echo "✓ Coherence root exists" || echo "✗ Coherence root missing"
+[ -d "{{Coherence_ROOT}}/agents" ] && echo "✓ Agents directory exists" || echo "✗ Agents directory missing"
+[ -d "{{Coherence_ROOT}}/session_notes" ] && echo "✓ Session notes directory exists" || echo "✗ Session notes directory missing"
+[ -d "{{Coherence_ROOT}}/config" ] && echo "✓ Config directory exists" || echo "✗ Config directory missing"
 ```
 
 **Command Integration:**
 ```bash
 # Claude Code commands installed
-[ -f "/mnt/c/Code/agentic-persona-mapping/.claude/commands/ap.md" ] && echo "✓ AP command installed" || echo "✗ AP command missing"
+[ -f "/mnt/c/Code/agentic-persona-mapping/.claude/commands/coherence.md" ] && echo "✓ AP command installed" || echo "✗ AP command missing"
 [ -f "/mnt/c/Code/agentic-persona-mapping/.claude/commands/dev.md" ] && echo "✓ Developer command installed" || echo "✗ Developer command missing"
 ```
 
 **Permissions:**
 ```bash
 # Executable permissions
-[ -x "/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh" ] && echo "✓ Voice scripts executable" || echo "✗ Voice scripts not executable"
-[ -w "/mnt/c/Code/agentic-persona-mapping/.apm/session_notes" ] && echo "✓ Session notes writable" || echo "✗ Session notes not writable"
+[ -x "{{Coherence_ROOT}}/agents/voice/speakOrchestrator.sh" ] && echo "✓ Voice scripts executable" || echo "✗ Voice scripts not executable"
+[ -w "{{Coherence_ROOT}}/session_notes" ] && echo "✓ Session notes writable" || echo "✗ Session notes not writable"
 ```
 
 **Configuration:**
 ```bash
 # Valid configuration files
-python3 -m json.tool /mnt/c/Code/agentic-persona-mapping/.apm/config/apm.json >/dev/null 2>&1 && echo "✓ Configuration valid" || echo "✗ Configuration invalid"
+python3 -m json.tool {{Coherence_ROOT}}/config/coherencem.json >/dev/null 2>&1 && echo "✓ Configuration valid" || echo "✗ Configuration invalid"
 ```
 
 ### Test Installation
 ```bash
-# Test basic APM functionality
+# Test basic Coherence functionality
 cd /mnt/c/Code/agentic-persona-mapping
-echo "Testing basic APM activation..."
+echo "Testing basic Coherence activation..."
 
 # This should work without errors
-/ap --test-mode
+/coherence --test-mode
 
 # Check for proper session creation
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ | tail -3
+ls -la {{Coherence_ROOT}}/session_notes/ | tail -3
 ```
 
 ---
@@ -406,32 +406,32 @@ ls -la /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ | tail -3
 If installation is severely corrupted:
 
 ```bash
-# 1. Stop all APM processes
+# 1. Stop all Coherence processes
 pkill -f apm
 
 # 2. Backup user data
-mkdir -p ~/apm-backup/$(date +%Y%m%d)
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/session_notes ~/apm-backup/$(date +%Y%m%d)/
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/config ~/apm-backup/$(date +%Y%m%d)/
+mkdir -p ~/coherencem-backup/$(date +%Y%m%d)
+cp -r {{Coherence_ROOT}}/session_notes ~/coherencem-backup/$(date +%Y%m%d)/
+cp -r {{Coherence_ROOT}}/config ~/coherencem-backup/$(date +%Y%m%d)/
 
 # 3. Complete removal
-rm -rf /mnt/c/Code/agentic-persona-mapping/.apm
-rm -rf /mnt/c/Code/agentic-persona-mapping/.claude/commands/ap*.md
+rm -rf {{Coherence_ROOT}}
+rm -rf /mnt/c/Code/agentic-persona-mapping/.claude/commands/coherence*.md
 rm -rf /mnt/c/Code/agentic-persona-mapping/.claude/commands/parallel*.md
 
 # 4. Fresh installation
 ./install.sh --clean-install --force
 
 # 5. Restore user data (optional)
-cp -r ~/apm-backup/$(date +%Y%m%d)/session_notes/* /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
-cp ~/apm-backup/$(date +%Y%m%d)/config/user-config.json /mnt/c/Code/agentic-persona-mapping/.apm/config/
+cp -r ~/coherencem-backup/$(date +%Y%m%d)/session_notes/* {{Coherence_ROOT}}/session_notes/
+cp ~/coherencem-backup/$(date +%Y%m%d)/config/user-config.json {{Coherence_ROOT}}/config/
 ```
 
 ---
 
 ## 📋 Pre-Installation Checklist
 
-Before installing APM, verify:
+Before installing Coherence, verify:
 
 - [ ] Claude Code is installed and working
 - [ ] You have write permissions in the target directory
@@ -481,4 +481,4 @@ sudo ./install.sh --system-install --shared-config
 ---
 
 *Last Updated: {{TIMESTAMP}}*
-*APM Framework v{{VERSION}}*
+*Coherence - Agentic Persona Mapping v{{VERSION}}*

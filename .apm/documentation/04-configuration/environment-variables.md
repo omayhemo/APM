@@ -1,30 +1,30 @@
-# APM Environment Variables Configuration Guide
+# Coherence Environment Variables Configuration Guide
 
-This guide provides comprehensive documentation for all environment variables used in the Agentic Persona Mapping (APM) framework.
+This guide provides comprehensive documentation for all environment variables used in **Coherence - Agentic Persona Mapping**, the unified context engineering framework for orchestrated intelligence.
 
 ## Environment Variable Overview
 
-APM supports environment variables through multiple mechanisms:
+**Coherence - Agentic Persona Mapping** supports environment variables through multiple mechanisms for unified context engineering:
 
 1. **System Environment Variables**: Set in your shell or system configuration
-2. **`.env` Files**: Local environment files in APM root directory
+2. **`.env` Files**: Local environment files in Coherence root directory
 3. **Settings.json**: JSON-based configuration with environment variable references
 4. **Claude Code Integration**: Variables that affect Claude Code behavior
 
 ## Core Framework Variables
 
 ### APM_ROOT
-**Description**: Root directory path for APM installation  
+**Description**: Root directory path for Coherence installation  
 **Default**: Auto-detected during installation  
 **Example**: `/home/user/project/.apm`  
-**Usage**: Used by all APM components to locate configuration files, personas, and resources  
+**Usage**: Used by all Coherence components to locate configuration files, personas, and resources for unified context engineering  
 
 ```bash
 export APM_ROOT="/path/to/project/.apm"
 ```
 
 ### PROJECT_ROOT
-**Description**: Root directory of the project using APM  
+**Description**: Root directory of the project using Coherence  
 **Default**: Auto-detected as parent of APM_ROOT  
 **Example**: `/home/user/project`  
 **Usage**: Referenced in templates and path resolution  
@@ -34,7 +34,7 @@ export PROJECT_ROOT="/path/to/project"
 ```
 
 ### INSTALLER_ROOT
-**Description**: Directory containing APM installer and templates  
+**Description**: Directory containing Coherence installer and templates  
 **Default**: Auto-detected relative to installation location  
 **Example**: `/home/user/project/installer`  
 **Usage**: Used for persona generation and template processing  
@@ -46,10 +46,10 @@ export INSTALLER_ROOT="/path/to/project/installer"
 ## Feature Control Variables
 
 ### APM_ENVIRONMENT
-**Description**: Deployment environment designation  
+**Description**: Coherence deployment environment designation for orchestrated intelligence  
 **Values**: `development`, `staging`, `production`  
 **Default**: `development`  
-**Usage**: Controls logging levels, debug features, and performance optimizations  
+**Usage**: Controls logging levels, debug features, and performance optimizations for seamless integration  
 
 ```bash
 # Development environment with debug features
@@ -63,7 +63,7 @@ export APM_ENVIRONMENT="production"
 **Description**: Global toggle for voice notification system  
 **Values**: `true`, `false`  
 **Default**: `true`  
-**Usage**: Enables/disables all voice feedback from APM personas  
+**Usage**: Enables/disables all voice feedback from Coherence personas in orchestrated intelligence workflows  
 
 ```bash
 # Enable voice notifications
@@ -91,7 +91,7 @@ export PARALLEL_EXECUTION_ENABLED="false"
 **Description**: Enable detailed debug logging  
 **Values**: `true`, `false`  
 **Default**: `false`  
-**Usage**: Controls verbosity of APM logging output  
+**Usage**: Controls verbosity of Coherence logging output for unified context engineering  
 
 ```bash
 # Enable debug logging
@@ -264,7 +264,7 @@ export COORDINATION_TIMEOUT_SECONDS="600"
 **Description**: Enable pre-tool-use hooks  
 **Values**: `true`, `false`  
 **Default**: `true`  
-**Usage**: Enables APM pre-processing of Claude Code tool usage  
+**Usage**: Enables Coherence pre-processing of Claude Code tool usage for seamless integration  
 
 ```bash
 export HOOK_PRE_TOOL_USE_ENABLED="true"
@@ -274,7 +274,7 @@ export HOOK_PRE_TOOL_USE_ENABLED="true"
 **Description**: Enable post-tool-use hooks  
 **Values**: `true`, `false`  
 **Default**: `true`  
-**Usage**: Enables APM post-processing of Claude Code tool results  
+**Usage**: Enables Coherence post-processing of Claude Code tool results for unified context engineering  
 
 ```bash
 export HOOK_POST_TOOL_USE_ENABLED="true"
@@ -284,7 +284,7 @@ export HOOK_POST_TOOL_USE_ENABLED="true"
 **Description**: Enable user prompt submission hooks  
 **Values**: `true`, `false`  
 **Default**: `false`  
-**Usage**: Enables automatic prompt enhancement (v3.3.0+)  
+**Usage**: Enables automatic prompt enhancement (v4.1.0+)  
 
 ```bash
 export HOOK_USER_PROMPT_SUBMIT_ENABLED="true"
@@ -313,7 +313,7 @@ export ENABLE_PERFORMANCE_MONITORING="true"
 ```
 
 ### MEMORY_LIMIT_MB
-**Description**: Memory limit for APM operations  
+**Description**: Memory limit for Coherence operations and orchestrated intelligence  
 **Values**: Positive integer (MB)  
 **Default**: `1024`  
 **Usage**: Controls memory usage limits  
@@ -323,7 +323,7 @@ export MEMORY_LIMIT_MB="2048"
 ```
 
 ### CACHE_ENABLED
-**Description**: Enable APM caching systems  
+**Description**: Enable Coherence caching systems for enhanced performance  
 **Values**: `true`, `false`  
 **Default**: `true`  
 **Usage**: Enables persona and template caching  
@@ -335,7 +335,7 @@ export CACHE_ENABLED="true"
 ## Security Variables
 
 ### APM_SECURITY_MODE
-**Description**: Security mode for APM operations  
+**Description**: Security mode for Coherence operations and unified context engineering  
 **Values**: `strict`, `standard`, `permissive`  
 **Default**: `standard`  
 **Usage**: Controls security checks and validations  
@@ -372,7 +372,7 @@ export DEBUG_LOGGING_ENABLED="false"
 Create `/mnt/c/Code/agentic-persona-mapping/.apm/.env`:
 
 ```bash
-# APM Framework Configuration
+# Coherence Framework Configuration
 APM_ENVIRONMENT=development
 VOICE_NOTIFICATIONS_ENABLED=true
 PARALLEL_EXECUTION_ENABLED=true
@@ -469,9 +469,9 @@ Create `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-env.sh`:
 
 ```bash
 #!/bin/bash
-# APM Environment Variable Validation Script
+# Coherence Environment Variable Validation Script
 
-echo "=== APM Environment Variable Validation ==="
+echo "=== Coherence Environment Variable Validation ==="
 
 # Required variables
 required_vars=("APM_ROOT" "PROJECT_ROOT" "INSTALLER_ROOT")
@@ -497,7 +497,7 @@ echo -e "\n✅ Environment validation complete"
 
 ### Runtime Validation
 
-APM performs runtime validation of critical environment variables:
+Coherence performs runtime validation of critical environment variables for unified context engineering:
 
 - **Path Variables**: Validates that paths exist and are accessible
 - **Boolean Variables**: Ensures boolean values are valid (`true`/`false`)
@@ -533,7 +533,7 @@ APM performs runtime validation of critical environment variables:
 - Check audio permissions and system volume
 
 #### Issue: Performance issues
-**Symptoms**: Slow APM operations
+**Symptoms**: Slow Coherence operations
 **Solutions**:
 - Increase `MAX_CONCURRENT_AGENTS` for better parallel performance
 - Disable `DEBUG_LOGGING_ENABLED` in production
@@ -559,9 +559,9 @@ export COORDINATION_TIMEOUT_SECONDS="300"
 
 ```bash
 #!/bin/bash
-# Migrate environment variables to v4.0
+# Migrate environment variables to v4.1
 
-echo "Migrating APM environment variables to v4.0..."
+echo "Migrating Coherence environment variables to v4.1..."
 
 # Remove deprecated variables
 unset TASK_TOOL_ENABLED

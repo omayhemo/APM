@@ -1,16 +1,16 @@
 # Installation Verification Guide
 
-Ensure your APM framework installation is complete and optimized for maximum performance. This guide provides comprehensive validation steps and troubleshooting solutions.
+Ensure your Coherence framework installation is complete and optimized for maximum performance. This guide provides comprehensive validation steps and troubleshooting solutions.
 
 ## 🚀 Quick Verification Checklist
 
-Run through this checklist to verify your APM installation:
+Run through this checklist to verify your Coherence installation:
 
 ### ✅ Core Installation Check
 
-**1. APM Directory Structure**
+**1. Coherence Directory Structure**
 ```bash
-# Verify APM installation directory exists
+# Verify Coherence installation directory exists
 ls -la /mnt/c/Code/agentic-persona-mapping/.apm/
 ```
 
@@ -20,7 +20,7 @@ ls -la /mnt/c/Code/agentic-persona-mapping/.apm/
 ├── agents/           # Core persona definitions and voice scripts
 ├── session_notes/    # Session management directory
 ├── rules/           # Behavioral rules and guidelines  
-├── CLAUDE.md        # APM-specific instructions
+├── CLAUDE.md        # Coherence-specific instructions
 └── config/          # Configuration files
 ```
 
@@ -69,22 +69,7 @@ Open Claude Code and test core commands:
 5. Voice notification played
 6. Orchestrator persona activated
 
-**2. NEW v4.1.0 Release Management Commands**
-
-```bash
-# Test version management (dry run)
-/version 4.1.0 --dry-run
-
-# Test documentation compliance
-/doc-compliance --quick
-```
-
-**Expected v4.1.0 Features:**
-- Version command updates all documentation
-- Documentation compliance validation
-- Release automation capabilities
-
-**3. Parallel Command Testing**
+**2. Parallel Command Testing**
 ```bash
 # Test native sub-agent parallelism
 /parallel-sprint
@@ -115,7 +100,7 @@ Open Claude Code and test core commands:
 
 **Test Sequence:**
 ```bash
-1. /ap                    # Start orchestrator
+1. /coherence             # Start orchestrator (legacy /ap still supported)
 2. /handoff developer     # Transition to developer
 3. /switch architect      # Switch to architect with session compaction
 4. /wrap                  # Archive session with summary
@@ -144,7 +129,7 @@ cat /mnt/c/Code/agentic-persona-mapping/.apm/config/tts-config.yaml
 
 ### Issue: Command Not Found
 
-**Symptom:** `/ap` command not recognized
+**Symptom:** `/coherence` command not recognized (legacy `/ap` command also available)
 
 **Solutions:**
 
@@ -157,7 +142,7 @@ ls -la ~/.claude/commands/
 2. **Reinstall Commands**
 ```bash
 # Re-run installer
-/mnt/c/Code/agentic-persona-mapping/installer/install.sh
+/mnt/c/Code/agentic-persona-mapping/payload/install.sh
 ```
 
 3. **Manual Command Registration**
@@ -192,7 +177,7 @@ cp /mnt/c/Code/agentic-persona-mapping/.claude/commands/* ~/.claude/commands/
 
 ### Issue: Slow Performance
 
-**Symptom:** APM commands take longer than expected
+**Symptom:** Coherence commands take longer than expected
 
 **Solutions:**
 
@@ -205,13 +190,13 @@ grep -r "Task tool" /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/
 2. **Enable Debug Mode**
 ```bash
 # Add to environment
-export APM_DEBUG_MODE=true
-export APM_PERFORMANCE_MONITORING=true
+export COHERENCE_DEBUG_MODE=true
+export COHERENCE_PERFORMANCE_MONITORING=true
 ```
 
 3. **Check Resource Usage**
 ```bash
-# Monitor during APM execution
+# Monitor during Coherence execution
 htop # or Activity Monitor on macOS
 ```
 
@@ -236,7 +221,7 @@ chmod 755 /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
 
 3. **Verify Path Configuration**
 ```bash
-# Check APM configuration paths
+# Check Coherence configuration paths
 cat /mnt/c/Code/agentic-persona-mapping/.apm/config/paths.json
 ```
 
@@ -268,9 +253,9 @@ cat /mnt/c/Code/agentic-persona-mapping/.apm/config/paths.json
 **3. Environment Variables**
 ```bash
 # Add to shell profile
-export APM_NATIVE_MODE=true
-export APM_PARALLEL_OPTIMIZATION=true  
-export APM_VOICE_ENABLED=true
+export COHERENCE_NATIVE_MODE=true
+export COHERENCE_PARALLEL_OPTIMIZATION=true  
+export COHERENCE_VOICE_ENABLED=true
 ```
 
 ### Performance Benchmarks
@@ -282,7 +267,7 @@ Run this test to validate optimal performance:
 time /parallel-qa-framework
 ```
 
-**Expected Results (APM v4.1.0):**
+**Expected Results (Coherence v4.1.0):**
 - **Native Execution**: 4-8x faster than v3.x
 - **Memory Efficiency**: 60% less RAM usage
 - **Concurrent Agents**: 2-4 agents running simultaneously
@@ -324,7 +309,7 @@ npm run dev
 Complete this checklist to confirm successful installation:
 
 ### Core Components
-- [ ] APM directory structure present
+- [ ] Coherence directory structure present
 - [ ] All essential personas available
 - [ ] Voice system configured and functional
 - [ ] Session management working properly
@@ -349,7 +334,7 @@ Complete this checklist to confirm successful installation:
 
 ## 🎯 Success Indicators
 
-**Your APM installation is optimal when:**
+**Your Coherence installation is optimal when:**
 
 ✅ **Commands respond instantly** with native sub-agent execution  
 ✅ **Voice notifications** provide context-aware feedback  
@@ -360,16 +345,16 @@ Complete this checklist to confirm successful installation:
 ## 🛣️ Next Steps
 
 **Installation Verified?** ✅ 
-Proceed to [First Project Tutorial](./first-project-tutorial.md) to build your first APM-powered application.
+Proceed to [First Project Tutorial](./first-project-tutorial.md) to build your first Coherence-powered application.
 
 **Issues Found?** ⚠️
 - Review the [troubleshooting section](#-troubleshooting-common-issues) above
 - Consult [Getting Help](./getting-help.md) for additional support resources
-- Consider re-running the installer: `/mnt/c/Code/agentic-persona-mapping/installer/install.sh`
+- Consider re-running the installer: `/mnt/c/Code/agentic-persona-mapping/payload/install.sh`
 
 ---
 
-**🎯 Goal**: Confirm APM framework is properly installed and optimized for 4-8x development acceleration.
+**🎯 Goal**: Confirm Coherence framework is properly installed and optimized for 4-8x development acceleration.
 
 **⚡ Performance Standard**: Native sub-agent execution with zero crashes and optimal resource utilization.
 

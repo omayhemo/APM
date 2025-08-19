@@ -1,7 +1,7 @@
-# APM Command Reference Documentation
-## Version 4.1.0 - Complete Native Sub-Agent Architecture
+# Coherence Command Reference Documentation
+## Version 4.1.0 - Complete Native Sub-Agent Architecture with Unified Context Engineering
 
-This directory contains comprehensive documentation for all APM Framework commands.
+This directory contains comprehensive documentation for all Coherence Framework commands.
 
 ## 📚 Documentation Files
 
@@ -25,7 +25,7 @@ This directory contains comprehensive documentation for all APM Framework comman
 ## 🚀 Quick Start
 
 ### For New Users
-Start with **APM-COMMANDS-QUICK-REFERENCE.md** for a quick overview of all available commands.
+Start with **APM-COMMANDS-QUICK-REFERENCE.md** for a quick overview of all available Coherence commands.
 
 ### For Detailed Information
 Navigate to **APM-COMMAND-DOCUMENTATION-MASTER.md** for the complete documentation index.
@@ -46,11 +46,11 @@ Navigate to **APM-COMMAND-DOCUMENTATION-MASTER.md** for the complete documentati
 
 ## 🎯 Key Features Documented
 
-### Native Sub-Agent Architecture
-- True parallel execution with 2-8 concurrent sub-agents
-- Zero CLI crashes with native integration
-- Smart dependency management
-- Real-time result aggregation
+### Native Sub-Agent Architecture with Orchestrated Intelligence
+- True parallel execution with 2-8 concurrent sub-agents and unified context
+- Zero CLI crashes with native integration and context preservation
+- Smart dependency management with orchestrated intelligence
+- Real-time result aggregation with unified context engineering
 
 ### AI/ML Capabilities
 - Test failure prediction (92% accuracy)
@@ -75,19 +75,19 @@ Navigate to **APM-COMMAND-DOCUMENTATION-MASTER.md** for the complete documentati
 
 ## 🔗 Installation Location
 
-After APM installation, this documentation will be available at:
+After Coherence installation, this documentation will be available at:
 - **Primary**: `.apm/agents/docs/command-reference/`
 - **Fallback**: `project_docs/command-reference/`
 
 ## 📝 Documentation Maintenance
 
-This documentation is maintained as part of the APM Framework v4.1.0.
-- Last Updated: 2025-08-08
-- Architecture: 100% Native Sub-Agent
-- Performance: 4-8x average improvement
+This documentation is maintained as part of the Coherence Framework v4.1.0.
+- Last Updated: 2025-08-16
+- Architecture: 100% Native Sub-Agent with Orchestrated Intelligence
+- Performance: 4-8x average improvement with unified context engineering
 
 ---
 
-*APM Command Reference Documentation*
+*Coherence Command Reference Documentation*
 *Comprehensive guides for 85+ commands*
-*Native Sub-Agent Architecture with AI/ML Integration*
+*Native Sub-Agent Architecture with AI/ML Integration and Unified Context Engineering*

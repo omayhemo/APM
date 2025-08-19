@@ -1,4 +1,4 @@
-# Test Metrics Command
+# QA Test Metrics Command
 
 ## 🎭 PERSONA CONTEXT ACTIVATION
 
@@ -17,35 +17,35 @@ Quick Context Load (1-2 seconds):
 ```
 
 
-**Command**: `test metrics`  
+**Command**: `qa test metrics`  
 **Description**: Collect comprehensive test execution metrics and analytics  
 **Version**: {{VERSION}}
 
 ## Overview
 
-The `test metrics` command provides comprehensive collection and analysis of test execution data, enabling data-driven quality insights and strategic decision making.
+The `qa test metrics` command provides comprehensive collection and analysis of test execution data, enabling data-driven quality insights and strategic decision making.
 
 ## Usage
 
 ```bash
 # Collect all metrics
-test metrics
+qa test metrics
 
 # Export in specific format
-test metrics --export csv
-test metrics --export json
-test metrics --export yaml
+qa test metrics --export csv
+qa test metrics --export json
+qa test metrics --export yaml
 
 # Collect specific metric types
-test metrics --metrics process
-test metrics --metrics coverage
-test metrics --metrics qa-framework
+qa test metrics --metrics process
+qa test metrics --metrics coverage
+qa test metrics --metrics qa-framework
 
 # Generate summary report only
-test metrics --summary
+qa test metrics --summary
 
 # Clean old metrics
-test metrics --clean
+qa test metrics --clean
 ```
 
 ## Metric Types
@@ -132,13 +132,13 @@ test metrics --clean
 
 ```bash
 # Daily metrics collection
-test metrics --summary
+qa test metrics --summary
 
 # Weekly comprehensive analysis
-test metrics --export csv --output weekly-report.csv
+qa test metrics --export csv --output weekly-report.csv
 
 # Real-time monitoring integration
-test metrics --metrics process --export json
+qa test metrics --metrics process --export json
 ```
 
-Execute this command by typing `test metrics` in your Claude Code session.
+Execute this command by typing `qa test metrics` in your Claude Code session.

@@ -1,10 +1,10 @@
-# Performance Optimization
+# Unified Context Engineering Optimization
 
-This guide covers advanced performance tuning techniques to maximize APM framework throughput and efficiency.
+This guide covers advanced unified context engineering optimization techniques to maximize Coherence framework throughput and efficiency.
 
 ## Overview
 
-APM v4.1.0's native sub-agent architecture delivers unprecedented performance improvements:
+Coherence v4.1.0's unified context engineering architecture delivers unprecedented performance improvements:
 - **4-12x faster execution** compared to sequential processing
 - **Sub-second response times** for parallel operations  
 - **Zero CLI crashes** with rock-solid native integration
@@ -16,7 +16,7 @@ APM v4.1.0's native sub-agent architecture delivers unprecedented performance im
 
 ```mermaid
 graph TD
-    A[User Request] --> B[AP Orchestrator]
+    A[User Request] --> B[Coherence Orchestrator]
     B --> C[Native Sub-Agent Pool]
     C --> D[Developer Agent]
     C --> E[Architect Agent]
@@ -32,7 +32,7 @@ graph TD
 
 ### Performance Improvements by Version
 
-| Feature | v3.5.0 | v4.1.0 | Improvement |
+| Feature | Legacy | v4.1.0 | Improvement |
 |---------|--------|--------|-------------|
 | Parallel Command Execution | Task-based | Native Sub-Agents | 4.6x faster |
 | Memory Usage | 512MB | 256MB | 50% reduction |
@@ -96,10 +96,10 @@ sub_agents:
 
 ```bash
 # Memory optimization settings
-export APM_MEMORY_OPTIMIZATION=true
-export APM_CACHE_SIZE_MB=1024
-export APM_BUFFER_SIZE_KB=64
-export APM_GC_INTERVAL_SEC=30
+export COHERENCE_MEMORY_OPTIMIZATION=true
+export COHERENCE_CACHE_SIZE_MB=1024
+export COHERENCE_BUFFER_SIZE_KB=64
+export COHERENCE_GC_INTERVAL_SEC=30
 
 # JVM tuning for Java-based components
 export JAVA_OPTS="-Xms256m -Xmx2g -XX:+UseG1GC -XX:MaxGCPauseMillis=100"
@@ -315,8 +315,8 @@ network:
 
 ```python
 # Real-time performance monitoring
-class APMPerformanceMonitor:
-    """Real-time APM performance monitoring and alerting"""
+class CoherencePerformanceMonitor:
+    """Real-time Coherence performance monitoring and alerting"""
     
     def __init__(self):
         self.metrics = {}
@@ -364,7 +364,7 @@ class APMPerformanceMonitor:
 profile_cpu() {
     echo "Starting CPU profiling..."
     perf record -g -F 1000 --call-graph dwarf \
-        python3 -m apm.orchestrator --profile-mode &
+        python3 -m coherence.orchestrator --profile-mode &
     PROFILE_PID=$!
     
     sleep 300  # Profile for 5 minutes
@@ -377,7 +377,7 @@ profile_cpu() {
 profile_memory() {
     echo "Starting memory profiling..."
     valgrind --tool=massif --heap=yes \
-        python3 -m apm.orchestrator --profile-mode
+        python3 -m coherence.orchestrator --profile-mode
     
     ms_print massif.out.* > memory_profile_$(date +%Y%m%d_%H%M%S).txt
 }
@@ -387,7 +387,7 @@ profile_io() {
     echo "Starting I/O profiling..."
     iotop -a -o -d 1 -n 300 > io_profile_$(date +%Y%m%d_%H%M%S).txt &
     
-    python3 -m apm.orchestrator --profile-mode
+    python3 -m coherence.orchestrator --profile-mode
 }
 
 # Network profiling
@@ -396,7 +396,7 @@ profile_network() {
     netstat -i 1 > network_profile_$(date +%Y%m%d_%H%M%S).txt &
     NETSTAT_PID=$!
     
-    python3 -m apm.orchestrator --profile-mode
+    python3 -m coherence.orchestrator --profile-mode
     kill $NETSTAT_PID
 }
 
@@ -426,7 +426,7 @@ performance_tests:
       concurrent_users: 10
       duration_minutes: 30
       operations:
-        - "/ap_orchestrator"
+        - "/coherence"
         - "/parallel-sprint"
         - "/qa-framework"
       success_criteria:
@@ -519,7 +519,7 @@ sysctl -p
 ```python
 # Fast startup configuration
 class FastStartupManager:
-    """Optimize APM startup time"""
+    """Optimize Coherence startup time"""
     
     def __init__(self):
         self.startup_cache = {}
@@ -535,10 +535,10 @@ class FastStartupManager:
     def _preload_critical_modules(self):
         """Preload frequently used modules"""
         critical_modules = [
-            'apm.orchestrator',
-            'apm.personas',
-            'apm.parallel_execution',
-            'apm.session_management'
+            'coherence.orchestrator',
+            'coherence.personas',
+            'coherence.parallel_execution',
+            'coherence.session_management'
         ]
         
         for module in critical_modules:
@@ -700,7 +700,7 @@ generate_performance_report() {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>APM Performance Report</title>
+    <title>Coherence Performance Report</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         .metric { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
@@ -710,7 +710,7 @@ generate_performance_report() {
     </style>
 </head>
 <body>
-    <h1>APM Performance Report</h1>
+    <h1>Coherence Performance Report</h1>
     <div class="metric good">
         <h3>System Resources</h3>
         <pre>$(free -h)</pre>
@@ -800,4 +800,4 @@ class IntelligentLoadBalancer:
 
 ---
 
-**Next Steps**: Review [Enterprise Deployment](enterprise-deployment.md) for large-scale performance considerations.
+**Next Steps**: Review [Coherence Enterprise Deployment](enterprise-deployment.md) for large-scale performance considerations.

@@ -1,11 +1,11 @@
-# Task Coordination Patterns for AP Mapping System
+# Task Coordination Patterns for Coherence System
 # Version: {{PARALLEL_VERSION}}
 # Max Parallel Tasks: {{MAX_PARALLEL_TASKS}}
 # Task Timeout: {{TASK_TIMEOUT}}
 
 ## 🎯 Task Coordination Architecture
 
-The native sub-agent coordination system enables seamless parallel execution across all AP Mapping agents with intelligent task distribution, resource management, and result synthesis.
+The native sub-agent coordination system enables seamless parallel execution across all Coherence agents with intelligent task distribution, resource management, and result synthesis through unified context engineering.
 
 ## 🚀 Core Coordination Principles
 
@@ -264,15 +264,15 @@ class CoordinationMetrics:
 
 ## 🎭 Agent-Specific Coordination Patterns
 
-### AP Orchestrator Coordination
+### Coherence Orchestrator Coordination
 ```yaml
 orchestrator_coordination:
   pattern: "multi_agent_launch"
   responsibilities:
     - agent_initialization: "parallel_agent_startup"
-    - context_distribution: "shared_context_management"
-    - result_aggregation: "cross_agent_synthesis"
-    - session_coordination: "session_state_management"
+    - context_distribution: "unified_context_management"
+    - result_aggregation: "cross_agent_synthesis_with_orchestrated_intelligence"
+    - session_coordination: "session_state_management_with_coherent_transitions"
 
 coordination_tasks:
   - task: "Initialize Developer Agent"

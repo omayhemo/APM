@@ -1,17 +1,17 @@
-# APM Agent-Specific Issues and Solutions
+# Coherence Agent-Specific Issues and Solutions
 
-This guide addresses problems specific to APM agent personas, their activation, behavior, and interactions.
+This guide addresses problems specific to Coherence agent personas, their activation, behavior, and interactions.
 
 ## 🤖 Agent System Overview
 
-### APM v4.1.0 Native Sub-Agent Architecture
+### Coherence v4.1.0 Native Sub-Agent Architecture
 - **Native Integration**: All agents use Claude Code's native sub-agent system
 - **True Parallelism**: Multiple agents can execute concurrently
 - **4-8x Performance**: Massive improvement over Task-based system
 - **Zero CLI Crashes**: Rock-solid integration with native architecture
 
 ### Available Agents
-- **AP Orchestrator** (`/ap`): Central coordination and delegation
+- **Coherence Orchestrator** (`/coherence`): Central coordination and delegation
 - **Developer** (`/dev`): Code implementation and technical tasks
 - **Architect** (`/architect`): System architecture and design
 - **Design Architect** (`/design-architect`): UI/UX architecture
@@ -45,26 +45,26 @@ Agent doesn't follow persona-specific behavior patterns
 
 **Immediate Diagnosis:**
 ```bash
-# Check if APM is properly initialized
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
+# Check if Coherence is properly initialized
+ls -la {{Coherence_ROOT}}/session_notes/
 
 # Verify persona configuration exists
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/
+ls -la {{Coherence_ROOT}}/agents/personas/
 
 # Test voice system
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDeveloper.sh "Test message"
+bash {{Coherence_ROOT}}/agents/voice/speakDeveloper.sh "Test message"
 
 # Check session state
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/state/
+ls -la {{Coherence_ROOT}}/state/
 ```
 
 **Resolution Steps:**
 ```bash
-# 1. Initialize APM properly
-/ap  # This MUST be run first
+# 1. Initialize Coherence properly
+/coherence  # This MUST be run first
 
 # 2. Verify session creation
-ls -lt /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ | head -3
+ls -lt {{Coherence_ROOT}}/session_notes/ | head -3
 
 # 3. Then activate specific agent
 /dev  # or other agent command
@@ -74,9 +74,9 @@ ls -lt /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ | head -3
 ```
 
 **Prevention:**
-- Always use `/ap` first in new sessions
+- Always use `/coherence` first in new sessions
 - Don't skip the initialization sequence
-- Verify voice system during APM setup
+- Verify voice system during Coherence setup
 
 ---
 
@@ -99,14 +99,14 @@ Session state confusion between agents
 **Immediate Action:**
 ```bash
 # Clear session state
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/state/*.lock
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/current_session.md
+rm -f {{Coherence_ROOT}}/state/*.lock
+rm -f {{Coherence_ROOT}}/session_notes/current_session.md
 
 # Force session cleanup
 /wrap --force
 
 # Start fresh with single agent
-/ap
+/coherence
 /handoff dev  # Single agent activation
 ```
 
@@ -143,26 +143,26 @@ Agent switches behavior mid-conversation
 **Verify Persona Configuration:**
 ```bash
 # Check persona definition files
-cat /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/developer.json
-cat /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/architect.json
+cat {{Coherence_ROOT}}/agents/personas/developer.json
+cat {{Coherence_ROOT}}/agents/personas/architect.json
 
 # Validate JSON configuration
-python3 -m json.tool /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/developer.json
+python3 -m json.tool {{Coherence_ROOT}}/agents/personas/developer.json
 
 # Check for configuration corruption
-find /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/ -name "*.json" -exec python3 -m json.tool {} \; > /dev/null
+find {{Coherence_ROOT}}/agents/personas/ -name "*.json" -exec python3 -m json.tool {} \; > /dev/null
 ```
 
 **Reset Agent Configuration:**
 ```bash
 # Backup current configuration
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas.backup
+cp -r {{Coherence_ROOT}}/agents/personas {{Coherence_ROOT}}/agents/personas.backup
 
 # Restore default configuration
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/config/default/personas/* /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/
+cp -r {{Coherence_ROOT}}/config/default/personas/* {{Coherence_ROOT}}/agents/personas/
 
 # Test agent activation
-/ap
+/coherence
 /dev --test-mode
 ```
 
@@ -190,17 +190,17 @@ Wrong agent voice plays for different personas
 espeak "Testing voice system" 2>/dev/null || say "Testing voice system" 2>/dev/null
 
 # Check voice script permissions
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/*.sh
+ls -la {{Coherence_ROOT}}/agents/voice/*.sh
 
 # Test specific agent voice
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDeveloper.sh "Developer test"
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakArchitect.sh "Architect test"
+bash {{Coherence_ROOT}}/agents/voice/speakDeveloper.sh "Developer test"
+bash {{Coherence_ROOT}}/agents/voice/speakArchitect.sh "Architect test"
 ```
 
 **Voice System Repair:**
 ```bash
 # Fix voice script permissions
-chmod +x /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/*.sh
+chmod +x {{Coherence_ROOT}}/agents/voice/*.sh
 
 # Install/update TTS system
 # Linux:
@@ -208,7 +208,7 @@ sudo apt-get install espeak espeak-data
 # macOS: Built-in say command should work
 
 # Test voice configuration
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-voice-system.sh
+{{Coherence_ROOT}}/scripts/test-voice-system.sh
 ```
 
 **Alternative Solutions:**
@@ -217,7 +217,7 @@ sudo apt-get install espeak espeak-data
 export VOICE_ENABLED=false
 
 # Use visual notifications instead
-echo "NOTIFICATION_MODE=visual" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/voice.conf
+echo "NOTIFICATION_MODE=visual" >> {{Coherence_ROOT}}/config/voice.conf
 
 # Enable debug mode for voice issues
 export VOICE_DEBUG=true
@@ -246,26 +246,26 @@ New agent doesn't have previous conversation context
 **Handoff Diagnosis:**
 ```bash
 # Check session notes directory
-ls -la /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
+ls -la {{Coherence_ROOT}}/session_notes/
 
 # Check session file sizes
-find /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ -name "*.md" -exec ls -lh {} \;
+find {{Coherence_ROOT}}/session_notes/ -name "*.md" -exec ls -lh {} \;
 
 # Verify write permissions
-touch /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/test-write.md && rm /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/test-write.md
+touch {{Coherence_ROOT}}/session_notes/test-write.md && rm {{Coherence_ROOT}}/session_notes/test-write.md
 ```
 
 **Handoff Repair:**
 ```bash
 # Use proper handoff sequence
-/ap  # Start with orchestrator
+/coherence  # Start with orchestrator
 /handoff dev  # Explicit handoff
 
 # For problematic handoffs, use switch with compaction
 /switch architect --compact-session
 
 # If handoffs consistently fail, archive large sessions
-mv /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/*.md /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/
+mv {{Coherence_ROOT}}/session_notes/*.md {{Coherence_ROOT}}/session_notes/archive/
 ```
 
 ---
@@ -289,13 +289,13 @@ Context appears incomplete or corrupted
 **Context Analysis:**
 ```bash
 # Check session note integrity
-tail -20 /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/*.md
+tail -20 {{Coherence_ROOT}}/session_notes/*.md
 
 # Check for session file corruption
-find /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ -name "*.md" -exec head -1 {} \; | grep -v "^#"
+find {{Coherence_ROOT}}/session_notes/ -name "*.md" -exec head -1 {} \; | grep -v "^#"
 
 # Verify context size
-wc -c /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/*.md
+wc -c {{Coherence_ROOT}}/session_notes/*.md
 ```
 
 **Context Repair:**
@@ -305,7 +305,7 @@ wc -c /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/*.md
 
 # Or create fresh context summary
 /wrap --create-summary
-/ap
+/coherence
 ```
 
 ---
@@ -344,11 +344,11 @@ top -p $(pgrep -f claude)
 **Parallel Optimization:**
 ```bash
 # Adjust parallel worker count
-export APM_PARALLEL_WORKERS=$(nproc)
+export Coherence_PARALLEL_WORKERS=$(nproc)
 
 # Reduce parallel load for resource-constrained systems
-export APM_PARALLEL_WORKERS=2
-export APM_WORKER_MEMORY=50M
+export Coherence_PARALLEL_WORKERS=2
+export Coherence_WORKER_MEMORY=50M
 
 # Test optimized parallel operation
 /parallel-architecture --workers=2
@@ -375,25 +375,25 @@ Sub-agents don't properly merge results
 **Coordination Analysis:**
 ```bash
 # Check coordination logs
-tail -f /mnt/c/Code/agentic-persona-mapping/.apm/logs/coordination.log
+tail -f {{Coherence_ROOT}}/logs/coordination.log
 
 # Test sub-agent communication
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-subagent-coordination.sh
+{{Coherence_ROOT}}/scripts/test-subagent-coordination.sh
 
 # Verify result merging capability
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-result-merging.sh
+{{Coherence_ROOT}}/scripts/test-result-merging.sh
 ```
 
 **Coordination Repair:**
 ```bash
 # Reset coordination state
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/state/coordination/*.lock
+rm -f {{Coherence_ROOT}}/state/coordination/*.lock
 
 # Use explicit coordination
 /parallel-development --explicit-coordination
 
 # Fall back to sequential mode if needed
-export APM_FORCE_SEQUENTIAL=true
+export Coherence_FORCE_SEQUENTIAL=true
 ```
 
 ---
@@ -412,7 +412,7 @@ Agent doesn't integrate with project structure
 **Solutions:**
 ```bash
 # Update developer persona configuration
-cat > /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/developer-custom.json << 'EOF'
+cat > {{Coherence_ROOT}}/agents/personas/developer-custom.json << 'EOF'
 {
   "persona": "developer",
   "coding_standards": "project-specific",
@@ -437,8 +437,8 @@ Agent doesn't maintain architectural consistency
 **Solutions:**
 ```bash
 # Configure architect for high-level focus
-echo "ARCHITECT_FOCUS=high-level" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/personas.conf
-echo "ARCHITECT_CONSISTENCY=strict" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/personas.conf
+echo "ARCHITECT_FOCUS=high-level" >> {{Coherence_ROOT}}/config/personas.conf
+echo "ARCHITECT_CONSISTENCY=strict" >> {{Coherence_ROOT}}/config/personas.conf
 
 # Load project constraints
 /architect --load-constraints project-constraints.json
@@ -459,7 +459,7 @@ QA framework integration fails
 /qa --load-test-standards project-test-standards.json
 
 # Update QA framework configuration
-cat > /mnt/c/Code/agentic-persona-mapping/.apm/config/qa-framework.json << 'EOF'
+cat > {{Coherence_ROOT}}/config/qa-framework.json << 'EOF'
 {
   "test_types": ["unit", "integration", "e2e"],
   "frameworks": ["jest", "pytest", "selenium"],
@@ -477,12 +477,12 @@ EOF
 **Built-in Diagnostics:**
 ```bash
 # Run complete agent health check
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/agent-health-check.sh
+{{Coherence_ROOT}}/scripts/agent-health-check.sh
 
 # Test individual agent activation
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-agent-activation.sh developer
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-agent-activation.sh architect
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-agent-activation.sh qa
+{{Coherence_ROOT}}/scripts/test-agent-activation.sh developer
+{{Coherence_ROOT}}/scripts/test-agent-activation.sh architect
+{{Coherence_ROOT}}/scripts/test-agent-activation.sh qa
 ```
 
 **Custom Diagnostic Commands:**
@@ -493,7 +493,7 @@ EOF
 /qa --test-persona --verbose
 
 # Test agent handoff capabilities
-/ap --test-handoffs --verbose
+/coherence --test-handoffs --verbose
 
 # Test parallel agent coordination
 /parallel-test --test-coordination --verbose
@@ -517,13 +517,13 @@ time /parallel-development --benchmark
 **Resource Usage Analysis:**
 ```bash
 # Monitor agent resource consumption
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/monitor-agent-resources.sh
+{{Coherence_ROOT}}/scripts/monitor-agent-resources.sh
 
 # Analyze agent memory usage
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-agent-memory.sh
+{{Coherence_ROOT}}/scripts/analyze-agent-memory.sh
 
 # Check agent CPU usage patterns
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-agent-cpu.sh
+{{Coherence_ROOT}}/scripts/analyze-agent-cpu.sh
 ```
 
 ---
@@ -539,14 +539,14 @@ pkill -f apm
 pkill -f claude
 
 # Clear agent state
-rm -rf /mnt/c/Code/agentic-persona-mapping/.apm/state/agents/
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/state/*.lock
+rm -rf {{Coherence_ROOT}}/state/agents/
+rm -f {{Coherence_ROOT}}/state/*.lock
 
 # Reset session management
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/current_session.md
+rm -f {{Coherence_ROOT}}/session_notes/current_session.md
 
-# Restart APM system
-/ap --recovery-mode
+# Restart Coherence system
+/coherence --recovery-mode
 ```
 
 ### Individual Agent Reset
@@ -554,8 +554,8 @@ rm -f /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/current_session.md
 **Reset Specific Agent:**
 ```bash
 # Reset developer agent
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/state/agents/developer.state
-cp /mnt/c/Code/agentic-persona-mapping/.apm/config/default/personas/developer.json /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/
+rm -f {{Coherence_ROOT}}/state/agents/developer.state
+cp {{Coherence_ROOT}}/config/default/personas/developer.json {{Coherence_ROOT}}/agents/personas/
 
 # Test agent reset
 /dev --test-mode --verbose
@@ -566,13 +566,13 @@ cp /mnt/c/Code/agentic-persona-mapping/.apm/config/default/personas/developer.js
 **Configuration Rollback:**
 ```bash
 # Backup current configuration
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas.backup.$(date +%Y%m%d)
+cp -r {{Coherence_ROOT}}/agents/personas {{Coherence_ROOT}}/agents/personas.backup.$(date +%Y%m%d)
 
 # Restore from backup
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas.backup.YYYYMMDD/* /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/
+cp -r {{Coherence_ROOT}}/agents/personas.backup.YYYYMMDD/* {{Coherence_ROOT}}/agents/personas/
 
 # Test restored configuration
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-all-agents.sh
+{{Coherence_ROOT}}/scripts/test-all-agents.sh
 ```
 
 ---
@@ -584,32 +584,32 @@ cp -r /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas.backup.YYYYMMDD/*
 **Behavioral Tests:**
 ```bash
 # Test agent persona adherence
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-persona-adherence.sh
+{{Coherence_ROOT}}/scripts/test-persona-adherence.sh
 
 # Validate agent response patterns
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-agent-responses.sh
+{{Coherence_ROOT}}/scripts/validate-agent-responses.sh
 
 # Check agent knowledge consistency
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-agent-knowledge.sh
+{{Coherence_ROOT}}/scripts/test-agent-knowledge.sh
 ```
 
 **Integration Tests:**
 ```bash
 # Test agent integration with project
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-project-integration.sh
+{{Coherence_ROOT}}/scripts/test-project-integration.sh
 
 # Test agent collaboration
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-agent-collaboration.sh
+{{Coherence_ROOT}}/scripts/test-agent-collaboration.sh
 
 # Test agent workflow compatibility
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-workflow-compatibility.sh
+{{Coherence_ROOT}}/scripts/test-workflow-compatibility.sh
 ```
 
 ---
 
 ## 📚 Related Resources
 
-- [Common Issues](common-issues.md) - General APM troubleshooting
+- [Common Issues](common-issues.md) - General Coherence troubleshooting
 - [Performance Issues](performance-issues.md) - Agent performance optimization
 - [Diagnostic Tools](diagnostic-tools.md) - Advanced debugging utilities
 - [Persona Guide](../02-personas/README.md) - Understanding agent personas
@@ -617,4 +617,4 @@ cp -r /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas.backup.YYYYMMDD/*
 ---
 
 *Last Updated: {{TIMESTAMP}}*
-*APM Framework v{{VERSION}}*
+*Coherence - Agentic Persona Mapping v{{VERSION}}*

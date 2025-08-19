@@ -1,10 +1,10 @@
 # Voice Notification System Integration Guide
 
-This document provides comprehensive instructions for integrating the APM Voice Notification system into your project.
+This document provides comprehensive instructions for integrating the Coherence Voice Notification system into your project.
 
 ## Overview
 
-The APM Voice Notification system provides text-to-speech capabilities for all agent personas, supporting multiple TTS providers with automatic fallback and dynamic configuration.
+The Coherence Voice Notification system provides text-to-speech capabilities for all agent personas, supporting multiple TTS providers with automatic fallback and dynamic configuration.
 
 ## Key Features
 
@@ -22,7 +22,7 @@ The APM Voice Notification system provides text-to-speech capabilities for all a
 ├── agents/
 │   ├── voice/
 │   │   ├── speakBase.sh              # Base voice functionality
-│   │   ├── speakOrchestrator.sh      # AP Orchestrator voice
+│   │   ├── speakOrchestrator.sh      # Coherence Orchestrator voice
 │   │   ├── speakDeveloper.sh         # Developer agent voice
 │   │   ├── speakArchitect.sh         # Architect agent voice
 │   │   ├── speakAnalyst.sh           # Analyst agent voice
@@ -120,8 +120,8 @@ export TTS_VOICE_DEVELOPER_ELEVENLABS="{{ELEVENLABS_VOICE_ID_2}}"
 Each agent persona uses its dedicated voice script:
 
 ```bash
-# AP Orchestrator voice notification
-{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "AP Orchestrator activated. Loading configuration..."
+# Coherence Orchestrator voice notification
+{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "Coherence Orchestrator activated. Loading configuration..."
 
 # Developer agent voice notification
 {{VOICE_SCRIPT_PATH}}/speakDeveloper.sh "Developer persona ready. Beginning implementation work."
@@ -159,13 +159,13 @@ export TTS_FALLBACK_PROVIDER="piper"
 
 ## Agent Integration Examples
 
-### AP Orchestrator Integration
+### Coherence Orchestrator Integration
 ```bash
 #!/bin/bash
-# AP Orchestrator activation with voice
+# Coherence Orchestrator activation with voice
 
 # Voice notification
-{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "AP Orchestrator activated. Loading system configuration and available personas."
+{{VOICE_SCRIPT_PATH}}/speakOrchestrator.sh "Coherence Orchestrator activated. Loading system configuration and available personas."
 
 # Continue with orchestrator logic...
 ```

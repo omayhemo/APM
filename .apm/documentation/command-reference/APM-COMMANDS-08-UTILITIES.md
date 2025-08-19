@@ -1,7 +1,7 @@
-# APM Utility Commands
-## Helper, Testing, and Maintenance Tools
+# Coherence Utility Commands
+## Helper, Testing, and Maintenance Tools with Orchestrated Intelligence
 
-The Utility commands provide essential helper functions, testing capabilities, and maintenance tools that support the overall APM framework operations.
+The Utility commands provide essential helper functions, testing capabilities, and maintenance tools that support the overall Coherence framework operations with unified context engineering.
 
 ---
 
@@ -103,7 +103,7 @@ The Utility commands provide essential helper functions, testing capabilities, a
 
 ---
 
-## 👁️ `/review`
+## 👁️ `/planning-review`
 ### Code and Documentation Review
 
 **Purpose**: Conduct comprehensive reviews of code, documentation, and project artifacts.
@@ -122,7 +122,7 @@ The Utility commands provide essential helper functions, testing capabilities, a
 - `--suggest-fixes=true|false` - Provide fix suggestions
 
 **Parallel Version Available**:
-- `/parallel-review` - Conduct parallel reviews
+- `/parallel-planning-review` - Conduct parallel reviews
 
 **Suggested Use Cases**:
 - Pull request reviews
@@ -134,13 +134,13 @@ The Utility commands provide essential helper functions, testing capabilities, a
 **Example Usage**:
 ```bash
 # Standard code review
-/review --target=code
+/planning-review --target=code
 
 # Thorough documentation review
-/review --target=docs --depth=thorough
+/planning-review --target=docs --depth=thorough
 
 # Complete review with suggestions
-/review --target=both --suggest-fixes=true
+/planning-review --target=both --suggest-fixes=true
 ```
 
 **Output**:
@@ -152,7 +152,7 @@ The Utility commands provide essential helper functions, testing capabilities, a
 
 ---
 
-## 🏆 `/quality-review`
+## 🏆 `/qa-quality-review`
 ### Comprehensive Quality Assessment
 
 **Purpose**: Perform multi-dimensional quality reviews across code, tests, documentation, and processes.
@@ -183,13 +183,13 @@ The Utility commands provide essential helper functions, testing capabilities, a
 **Example Usage**:
 ```bash
 # Complete quality review
-/quality-review --dimensions="code,test,docs,process"
+/qa-quality-review --dimensions="code,test,docs,process"
 
 # Executive summary with industry benchmark
-/quality-review --benchmark=industry --report=executive
+/qa-quality-review --benchmark=industry --report=executive
 
 # Detailed technical review
-/quality-review --report=technical --scoring=weighted
+/qa-quality-review --report=technical --scoring=weighted
 ```
 
 **Output**:
@@ -359,7 +359,7 @@ graph TD
 ```bash
 # Development cycle
 /test --type=unit  # During development
-/review --target=code  # Before commit
+/planning-review --target=code  # Before commit
 /test --type=integration  # After merge
 /regression-suite --suite=core  # Nightly
 ```
@@ -367,14 +367,14 @@ graph TD
 ### Quality Gates
 ```bash
 # Pre-release quality gates
-/quality-review --dimensions="all"
+/qa-quality-review --dimensions="all"
 /regression-suite --suite=full
 /test --type=e2e --environment=staging
 ```
 
 ### Review Workflow
-1. Automated `/review` on PR creation
-2. `/quality-review` for milestone completion
+1. Automated `/planning-review` on PR creation
+2. `/qa-quality-review` for milestone completion
 3. Regular `/regression-suite` execution
 4. Continuous monitoring and adjustment
 
@@ -392,7 +392,7 @@ graph TD
 /parallel-test --type=integration
 
 # 3. Review quality
-/quality-review --report=detailed
+/qa-quality-review --report=detailed
 
 # 4. Run regression
 /regression-suite --suite=core
@@ -407,7 +407,7 @@ graph TD
 /parallel-quality-review --benchmark=industry
 
 # 3. Final review
-/review --target=both --depth=thorough
+/planning-review --target=both --depth=thorough
 
 # 4. Sign-off tests
 /test --type=e2e --environment=staging
@@ -417,8 +417,8 @@ graph TD
 ```bash
 # Automated pipeline
 /test --parallel=true
-/review --suggest-fixes=true
-/quality-review --scoring=weighted
+/planning-review --suggest-fixes=true
+/qa-quality-review --scoring=weighted
 /regression-suite --optimization=time
 ```
 
@@ -441,13 +441,13 @@ graph TD
 ### Quality Issues
 ```bash
 # Detailed quality analysis
-/quality-review --dimensions="all" --report=technical
+/qa-quality-review --dimensions="all" --report=technical
 
 # Focus on specific areas
-/review --target=code --depth=thorough
+/planning-review --target=code --depth=thorough
 
 # Improvement tracking
-/quality-review --benchmark=custom
+/qa-quality-review --benchmark=custom
 ```
 
 ### Performance Problems
@@ -459,7 +459,7 @@ graph TD
 /regression-suite --optimization=risk --priority=critical
 
 # Speed up reviews
-/parallel-review --depth=quick
+/parallel-planning-review --depth=quick
 ```
 
 ---
@@ -487,10 +487,10 @@ graph TD
 ## 🔗 Related Commands
 
 - **Testing**: `/qa`, `/qa-framework`, `/run-tests`
-- **Quality**: `/qa-insights`, `/validation`
-- **Development**: `/dev`, `/architecture`
+- **Quality**: `/qa-insights`, `/planning-validation`
+- **Development**: `/dev`, `/planning-architecture`
 - **Documentation**: `/doc-compliance`, `/update-all-documentation`
-- **Project Management**: `/release`, `/course-correction`
+- **Project Management**: `/distribution-release`, `/course-correction`
 
 ---
 
@@ -500,7 +500,7 @@ graph TD
 
 **New Feature Development**:
 ```bash
-/test-strategy → /test → /review → /quality-review
+/test-strategy → /test → /planning-review → /qa-quality-review
 ```
 
 **Bug Fix Validation**:
@@ -510,16 +510,16 @@ graph TD
 
 **Release Preparation**:
 ```bash
-/quality-review → /regression-suite --suite=full → /test --type=e2e
+/qa-quality-review → /regression-suite --suite=full → /test --type=e2e
 ```
 
 **Continuous Integration**:
 ```bash
-/test --parallel=true → /review --quick → /regression-suite --core
+/test --parallel=true → /planning-review --quick → /regression-suite --core
 ```
 
 ---
 
-*APM Utility Commands - v4.1.0*
-*Essential Tools for Testing, Quality, and Maintenance*
-*Native Sub-Agent Architecture*
+*Coherence Utility Commands - v4.1.0*
+*Essential Tools for Testing, Quality, and Maintenance with Orchestrated Intelligence*
+*Native Sub-Agent Architecture with Unified Context Engineering*

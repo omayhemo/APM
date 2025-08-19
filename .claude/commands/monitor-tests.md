@@ -62,7 +62,7 @@ This command integrates seamlessly with:
 
 ## Technical Details
 
-- **Script Location**: `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-monitoring/monitor-tests.sh`
+- **Script Location**: `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/test-monitoring/qa-monitor-tests.sh`
 - **Configuration**: `/mnt/c/Code/agentic-persona-mapping/.apm/config/test-monitoring.yaml`
 - **Output Directory**: `/mnt/c/Code/agentic-persona-mapping/project_docs/qa/metrics/`
 

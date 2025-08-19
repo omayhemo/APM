@@ -1,8 +1,8 @@
-# Typical Project Flow - Software Development Lifecycle
+# Unified Context Engineering Workflow - Coherent Software Development Lifecycle
 
 ## Overview
 
-This document outlines the standard software development lifecycle using the APM framework, from initial requirements gathering through deployment and maintenance.
+This document outlines the unified context engineering software development lifecycle using the Coherence methodology, from initial requirements gathering through deployment and maintenance with orchestrated intelligence.
 
 ## 🔄 Complete Project Lifecycle
 
@@ -10,20 +10,20 @@ This document outlines the standard software development lifecycle using the APM
 
 #### 1.1 Requirements Gathering
 ```
-/ap → Project analysis → /analyst → Requirements discovery
+/coherence → Unified context analysis → /analyst → Requirements discovery
 ```
 
 **Process:**
-1. **Launch AP Orchestrator**: `/ap` for project coordination
-2. **Business Analysis**: `/analyst` to gather and document requirements
-3. **Stakeholder Review**: `/stakeholder-review` for requirement validation
-4. **Requirements Documentation**: Create comprehensive requirements.md
+1. **Launch Coherence Orchestrator**: `/coherence` for unified context engineering coordination
+2. **Business Analysis**: `/analyst` to gather and document requirements with orchestrated intelligence
+3. **Stakeholder Review**: `/planning-stakeholder-review` for requirement validation through seamless integration
+4. **Requirements Documentation**: Create comprehensive requirements.md using coherent workflow
 
 **Deliverables:**
-- ✅ Requirements document with acceptance criteria
-- ✅ Stakeholder sign-off
-- ✅ Success metrics definition
-- ✅ Risk assessment and mitigation plan
+- ✅ Requirements document with acceptance criteria using unified context engineering
+- ✅ Stakeholder sign-off through coherent workflow
+- ✅ Success metrics definition with orchestrated intelligence
+- ✅ Risk assessment and mitigation plan using seamless integration
 
 #### 1.2 Architecture & Design Planning
 ```
@@ -33,7 +33,7 @@ This document outlines the standard software development lifecycle using the APM
 **Process:**
 1. **System Architecture**: `/architect` for technical design
 2. **Design Architecture**: `/design-architect` for user experience
-3. **Architecture Review**: `/parallel-architecture` for comprehensive validation
+3. **Architecture Review**: `/parallel-planning-architecture` for comprehensive validation
 4. **Technology Stack**: Finalize frameworks, databases, deployment strategy
 
 **Deliverables:**
@@ -64,11 +64,11 @@ This document outlines the standard software development lifecycle using the APM
 
 #### 2.1 Sprint Setup & Story Grooming
 ```
-/po → Backlog grooming → /groom → Story refinement
+/po → Backlog grooming → /planning-groom → Story refinement
 ```
 
 **Weekly Process:**
-1. **Backlog Grooming**: `/groom` for story refinement
+1. **Backlog Grooming**: `/planning-groom` for story refinement
 2. **Story Estimation**: Size stories with story points
 3. **Acceptance Criteria**: Define clear completion criteria
 4. **Sprint Planning**: Assign stories to sprints based on capacity
@@ -81,11 +81,11 @@ This document outlines the standard software development lifecycle using the APM
 
 #### 2.2 Parallel Development Execution
 ```
-/parallel-sprint → Multiple dev streams → /parallel-test-plan → Quality assurance
+/parallel-implementation-sprint → Multiple dev streams → /parallel-test-plan → Quality assurance
 ```
 
 **High-Performance Development:**
-1. **Parallel Sprint Launch**: `/parallel-sprint` for 4-6x speedup
+1. **Parallel Sprint Launch**: `/parallel-implementation-sprint` for 4-6x speedup
 2. **Multiple Dev Streams**: Frontend, Backend, Database work in parallel
 3. **Continuous Integration**: Regular code integration and testing
 4. **Quality Gates**: Automated testing at each integration point
@@ -116,7 +116,7 @@ This document outlines the standard software development lifecycle using the APM
 
 #### 3.1 System Integration
 ```
-/architect → Integration review → /parallel-validation → End-to-end testing
+/architect → Integration review → /parallel-planning-validation → End-to-end testing
 ```
 
 **Integration Process:**
@@ -202,14 +202,14 @@ Production deployment → Monitoring setup → Support handoff
 ### Pitfall 1: Requirements Drift
 **Problem**: Requirements change during development
 **Solution**: 
-- Use `/stakeholder-review` at each sprint boundary
+- Use `/planning-stakeholder-review` at each sprint boundary
 - Maintain traceability from requirements to code
 - Regular `/analyst` reviews for requirement validation
 
 ### Pitfall 2: Integration Hell
 **Problem**: Components don't integrate smoothly
 **Solution**:
-- Use `/parallel-validation` at each integration point
+- Use `/parallel-planning-validation` at each integration point
 - Continuous integration with automated testing
 - Regular `/architect` reviews for integration planning
 
@@ -225,7 +225,7 @@ Production deployment → Monitoring setup → Support handoff
 **Solution**:
 - Continuous session note updates
 - Regular backlog.md maintenance
-- Use `/ap` for project coordination and status updates
+- Use `/coherence` for unified context engineering coordination and status updates
 
 ## 📊 Success Metrics
 
@@ -249,19 +249,19 @@ Production deployment → Monitoring setup → Support handoff
 ### Essential APM Commands for Each Phase
 
 **Planning Phase:**
-- `/ap` - Project coordination
+- `/coherence` - Unified context engineering coordination
 - `/analyst` - Requirements gathering
 - `/architect` - System design
 - `/pm` - Project planning
 
 **Development Phase:**
-- `/parallel-sprint` - High-performance development
+- `/parallel-implementation-sprint` - High-performance development
 - `/dev` - Individual development work
 - `/qa-framework` - Comprehensive testing
-- `/groom` - Backlog management
+- `/planning-groom` - Backlog management
 
 **Deployment Phase:**
-- `/parallel-validation` - End-to-end testing
+- `/parallel-planning-validation` - End-to-end testing
 - `/security-scan` - Security validation
 - `/monitor-tests` - Deployment monitoring
 
@@ -279,4 +279,4 @@ Production deployment → Monitoring setup → Support handoff
 
 ---
 
-*Follow this workflow for consistent, high-quality software delivery using APM framework capabilities.*
+*Follow this unified context engineering workflow for consistent, high-quality software delivery using Coherence methodology capabilities.*

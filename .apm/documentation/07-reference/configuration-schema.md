@@ -1,6 +1,6 @@
-# APM Configuration Schema Reference
+# Coherence Configuration Schema Reference
 
-Comprehensive JSON schemas and configuration specifications for the Agentic Persona Mapping (APM) framework.
+Comprehensive JSON schemas and configuration specifications for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -17,20 +17,20 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
 
 ## 🏗️ Core Configuration Schemas
 
-### APM System Configuration
+### Coherence System Configuration
 
-**File**: `/mnt/c/Code/agentic-persona-mapping/.apm/config/apm-config.json`
+**File**: `/mnt/c/Code/agentic-persona-mapping/.apm/config/coherence-config.json`
 
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM System Configuration",
+  "title": "Coherence System Configuration",
   "type": "object",
   "properties": {
     "version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "description": "APM framework version (semantic versioning)"
+      "description": "Coherence framework version (semantic versioning)"
     },
     "system": {
       "type": "object",
@@ -60,9 +60,9 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
     "paths": {
       "type": "object",
       "properties": {
-        "apm_root": {
+        "coherence_root": {
           "type": "string",
-          "description": "APM installation root directory"
+          "description": "Coherence installation root directory"
         },
         "project_root": {
           "type": "string", 
@@ -153,7 +153,7 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Project Configuration",
+  "title": "Coherence Project Configuration",
   "type": "object",
   "properties": {
     "project": {
@@ -248,7 +248,7 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Persona Definition",
+  "title": "Coherence Persona Definition",
   "type": "object",
   "properties": {
     "metadata": {
@@ -467,7 +467,7 @@ Comprehensive JSON schemas and configuration specifications for the Agentic Pers
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Hook System Configuration",
+  "title": "Coherence Hook System Configuration",
   "type": "object",
   "properties": {
     "hooks": {
@@ -559,7 +559,7 @@ Each hook script can have its own configuration:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Voice Notification Configuration",
+  "title": "Coherence Voice Notification Configuration",
   "type": "object",
   "properties": {
     "voice_system": {
@@ -647,7 +647,7 @@ Each hook script can have its own configuration:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Session Management Configuration",
+  "title": "Coherence Session Management Configuration",
   "type": "object",
   "properties": {
     "session_management": {
@@ -712,7 +712,7 @@ Each hook script can have its own configuration:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Session Note Structure",
+  "title": "Coherence Session Note Structure",
   "type": "object",
   "properties": {
     "metadata": {
@@ -774,7 +774,7 @@ Each hook script can have its own configuration:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "APM Parallel Execution Configuration",
+  "title": "Coherence Parallel Execution Configuration",
   "type": "object",
   "properties": {
     "parallel_execution": {
@@ -842,10 +842,10 @@ Each hook script can have its own configuration:
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Claude Code Settings with APM Integration", 
+  "title": "Claude Code Settings with Coherence Integration", 
   "type": "object",
   "properties": {
-    "apm": {
+    "coherence": {
       "type": "object",
       "properties": {
         "enabled": {"type": "boolean", "default": true},

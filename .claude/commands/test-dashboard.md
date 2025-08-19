@@ -1,4 +1,4 @@
-# Test Dashboard Command
+# QA Test Dashboard Command
 
 ## 🎭 PERSONA CONTEXT ACTIVATION
 
@@ -17,29 +17,29 @@ Quick Context Load (1-2 seconds):
 ```
 
 
-**Command**: `test dashboard`  
+**Command**: `qa test dashboard`  
 **Description**: Launch web-based test monitoring dashboard with auto-refresh  
 **Version**: {{VERSION}}
 
 ## Overview
 
-The `test dashboard` command launches a modern, web-based monitoring dashboard that provides real-time visibility into test execution status, metrics, and quality analytics through your browser.
+The `qa test dashboard` command launches a modern, web-based monitoring dashboard that provides real-time visibility into test execution status, metrics, and quality analytics through your browser.
 
 ## Usage
 
 ```bash
 # Launch dashboard on default port (2601)
-test dashboard
+qa test dashboard
 
 # Launch on custom port
-test dashboard --port 3000
+qa test dashboard --port 3000
 
 # Launch in specific mode
-test dashboard --mode executive
-test dashboard --mode metrics
+qa test dashboard --mode executive
+qa test dashboard --mode metrics
 
 # Generate HTML file only (no server)
-test dashboard --generate
+qa test dashboard --generate
 ```
 
 ## Dashboard Modes
@@ -99,4 +99,4 @@ Once launched, access your dashboard at:
 - **Local**: http://localhost:2601 (or custom port)
 - **Network**: Dashboard binds to 127.0.0.1 (local only)
 
-Execute this command by typing `test dashboard` in your Claude Code session.
+Execute this command by typing `qa test dashboard` in your Claude Code session.

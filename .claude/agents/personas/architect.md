@@ -96,5 +96,5 @@
 
 ---
 
-*Generated from unified persona definition v3.3.0*
+*Generated from unified persona definition v4.1.0*
 *Claude Code Compatible - Native Sub-Agent Architecture*

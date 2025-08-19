@@ -119,13 +119,9 @@ class DocumentLocationEnforcer:
         # This catches when agents try to create files in wrong locations
         direct_corrections = {
             # Epic files in wrong location
-            r'(.*/)?project_docs/epics/': r'\1project_docs/planning/epics/',
+            r'(.*/)?project_docs/planning-epics/': r'\1project_docs/planning/planning-epics/',
             # Story files in wrong location
-            r'(.*/)?project_docs/stories/': r'\1project_docs/planning/stories/',
-            # Transition/handoff notes in project_docs should go to session_notes
-            r'(.*/)?project_docs/handoffs/': r'\1.apm/session_notes/',
-            r'(.*/)?project_docs/transitions/': r'\1.apm/session_notes/',
-            r'(.*/)?project_docs/transfers/': r'\1.apm/session_notes/',
+            r'(.*/)?project_docs/planning-stories/': r'\1project_docs/planning/planning-stories/',
         }
         
         for pattern, replacement in direct_corrections.items():
@@ -598,7 +594,7 @@ class DocumentLocationEnforcer:
         Process Bash commands to prevent directory creation in wrong locations
         
         Specifically targets:
-        - mkdir commands creating epics/stories folders in wrong locations
+        - mkdir commands creating epics/planning-stories folders in wrong locations
         - Direct folder creation that violates document structure
         """
         
@@ -611,20 +607,20 @@ class DocumentLocationEnforcer:
         # Define incorrect patterns and their corrections
         corrections = {
             # Epics folder in wrong location
-            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/epics/?(["\']?)': 
-                r'mkdir \1\2\3project_docs/planning/epics/\4',
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/planning-epics/?(["\']?)': 
+                r'mkdir \1\2\3project_docs/planning/planning-epics/\4',
             
             # Stories folder in wrong location  
-            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/stories/?(["\']?)':
-                r'mkdir \1\2\3project_docs/planning/stories/\4',
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/planning-stories/?(["\']?)':
+                r'mkdir \1\2\3project_docs/planning/planning-stories/\4',
             
             # Epic file creation in wrong location (when creating parent dirs)
-            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/epics/':
-                r'mkdir \1\2\3project_docs/planning/epics/',
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/planning-epics/':
+                r'mkdir \1\2\3project_docs/planning/planning-epics/',
             
             # Story file creation in wrong location (when creating parent dirs)
-            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/stories/':
-                r'mkdir \1\2\3project_docs/planning/stories/',
+            r'mkdir\s+(-p\s+)?(["\']?)(.*/)?project_docs/planning-stories/':
+                r'mkdir \1\2\3project_docs/planning/planning-stories/',
         }
         
         original_command = command
@@ -640,12 +636,12 @@ class DocumentLocationEnforcer:
         # Also check for file operations that might create directories
         file_corrections = {
             # Files being created in wrong epic location
-            r'([>]+|touch|echo.*>+)\s*(["\']?)(.*/)?project_docs/epics/':
-                r'\1 \2\3project_docs/planning/epics/',
+            r'([>]+|touch|echo.*>+)\s*(["\']?)(.*/)?project_docs/planning-epics/':
+                r'\1 \2\3project_docs/planning/planning-epics/',
             
             # Files being created in wrong story location
-            r'([>]+|touch|echo.*>+)\s*(["\']?)(.*/)?project_docs/stories/':
-                r'\1 \2\3project_docs/planning/stories/',
+            r'([>]+|touch|echo.*>+)\s*(["\']?)(.*/)?project_docs/planning-stories/':
+                r'\1 \2\3project_docs/planning/planning-stories/',
         }
         
         for pattern, replacement in file_corrections.items():

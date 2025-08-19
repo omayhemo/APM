@@ -1,6 +1,6 @@
-# APM API Reference
+# Coherence API Reference
 
-Complete API documentation for the Agentic Persona Mapping (APM) framework.
+Complete API documentation for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -17,14 +17,14 @@ Complete API documentation for the Agentic Persona Mapping (APM) framework.
 
 ## 🏗️ Core APIs
 
-### APM Initialization API
+### Coherence Initialization API
 
-#### `/ap_orchestrator` Command
+#### `/coherence` Command
 ```yaml
-endpoint: /ap_orchestrator
-aliases: [/ap, /agents, /apm]
+endpoint: /coherence
+aliases: [/coherence_orchestrator]
 type: command
-description: Initialize APM Orchestrator with full system activation
+description: Initialize Coherence Orchestrator with full system activation
 ```
 
 **Process Flow:**
@@ -38,7 +38,7 @@ description: Initialize APM Orchestrator with full system activation
 ```json
 {
   "status": "activated",
-  "persona": "ap_orchestrator",
+  "persona": "coherence_orchestrator",
   "session_id": "YYYY-MM-DD-HH-mm-ss-description",
   "voice_script": "/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh",
   "capabilities": [
@@ -55,13 +55,13 @@ description: Initialize APM Orchestrator with full system activation
 ```yaml
 endpoint: /status
 type: internal
-description: Check APM system health and configuration
+description: Check Coherence system health and configuration
 ```
 
 **Response Schema:**
 ```json
 {
-  "apm_version": "{{PROJECT_VERSION}}",
+  "coherence_version": "{{PROJECT_VERSION}}",
   "root_path": "/mnt/c/Code/agentic-persona-mapping/.apm",
   "personas_loaded": 9,
   "active_session": "session_filename.md",
@@ -524,7 +524,7 @@ All APIs return errors in this format:
 
 ## 📊 Performance Metrics
 
-### APM v4.1.0 Performance Improvements
+### Coherence v4.1.0 Performance Improvements
 
 - **Native Sub-Agent Architecture**: 4-8x performance improvement
 - **Parallel Execution**: True concurrent processing
@@ -533,7 +533,7 @@ All APIs return errors in this format:
 
 ### Benchmarks
 
-| Operation | v3.5.0 | v4.1.0 | Improvement |
+| Operation | v4.1.0 | v4.1.0 | Improvement |
 |-----------|---------|---------|-------------|
 | Persona Activation | 2.3s | 0.8s | 2.9x faster |
 | Parallel Development | 45min | 9.8min | 4.6x faster |
@@ -546,7 +546,7 @@ All APIs return errors in this format:
 
 ### Claude Code Integration
 
-APM integrates with Claude Code through:
+Coherence integrates with Claude Code through:
 - **Native Sub-Agent System**: Direct API integration
 - **Command Pipeline**: Claude Code command processing
 - **File System Access**: Unified file operation handling
@@ -554,7 +554,7 @@ APM integrates with Claude Code through:
 
 ### External Tool Integration
 
-APM supports integration with:
+Coherence supports integration with:
 - **Version Control**: Git integration for session tracking
 - **CI/CD Systems**: Automated testing and deployment
 - **Project Management**: Backlog and issue tracking
@@ -564,4 +564,4 @@ APM supports integration with:
 
 **Version**: {{PROJECT_VERSION}}  
 **Last Updated**: {{CURRENT_DATE}}  
-**APM Root**: /mnt/c/Code/agentic-persona-mapping/.apm
+**Coherence Root**: /mnt/c/Code/agentic-persona-mapping/.apm

@@ -1,23 +1,23 @@
-# Team Collaboration - Multi-User Coordination & Communication
+# Team Collaboration - Multi-User Coordination with Orchestrated Intelligence
 
 ## Overview
 
-Effective team collaboration using the APM framework requires coordination across multiple developers, clear communication protocols, and shared understanding of progress and priorities. This workflow ensures seamless teamwork while maximizing the benefits of APM's persona-based approach.
+Effective team collaboration using the Coherence methodology requires coordination across multiple developers, clear communication protocols, and shared understanding of progress and priorities. This workflow ensures seamless teamwork while maximizing the benefits of Coherence's persona-based approach through orchestrated intelligence.
 
 ## 🤝 Team Collaboration Philosophy
 
 ### Core Principles
-1. **Unified Context**: All team members share the same project context and understanding
-2. **Clear Ownership**: Defined responsibilities and accountability for each team member
-3. **Continuous Communication**: Regular updates and transparent progress sharing
-4. **Conflict Resolution**: Structured approaches to resolve disagreements or conflicts
-5. **Collective Ownership**: Shared responsibility for project success and quality
+1. **Unified Context**: All team members share the same project context and understanding through coherent workflow
+2. **Clear Ownership**: Defined responsibilities and accountability for each team member with orchestrated intelligence
+3. **Continuous Communication**: Regular updates and transparent progress sharing with seamless integration
+4. **Conflict Resolution**: Structured approaches to resolve disagreements through coherent transitions
+5. **Collective Ownership**: Shared responsibility for project success and quality using unified context engineering
 
 ### Collaboration Models
 
 #### Model 1: Persona-Based Team Structure
 ```
-Team Lead (AP Orchestrator) 
+Team Lead (Coherence Orchestrator) 
 ├── Frontend Developer (Developer Persona)
 ├── Backend Developer (Developer Persona)  
 ├── QA Engineer (QA Persona)
@@ -27,9 +27,9 @@ Team Lead (AP Orchestrator)
 
 #### Model 2: Rotating Persona Leadership
 ```
-Sprint 1: Developer leads with /parallel-sprint
+Sprint 1: Developer leads with /parallel-implementation-sprint
 Sprint 2: QA leads with /qa-framework focus
-Sprint 3: Architect leads with /parallel-architecture
+Sprint 3: Architect leads with /parallel-planning-architecture
 Sprint 4: Product Owner leads with /prioritization
 ```
 
@@ -46,11 +46,11 @@ Complex Feature: All team members collaborate using different personas
 
 ### Workflow 1: Coordinated Sprint Development
 ```
-Team Lead: /ap → Project coordination
-├── Developer 1: /parallel-sprint (Frontend stream)
-├── Developer 2: /parallel-sprint (Backend stream)  
+Team Lead: /coherence → Unified context engineering coordination
+├── Developer 1: /parallel-implementation-sprint (Frontend stream)
+├── Developer 2: /parallel-implementation-sprint (Backend stream)  
 ├── QA Engineer: /parallel-test-plan (Testing stream)
-└── Architect: /parallel-architecture (Review stream)
+└── Architect: /parallel-planning-architecture (Review stream)
 ```
 
 **Coordination Mechanisms:**
@@ -65,7 +65,7 @@ Feature Lead: /po → Requirements and priorities
 ├── Frontend Dev: /design-architect → UI/UX implementation
 ├── Backend Dev: /dev → API and business logic
 ├── QA Engineer: /qa-framework → Testing strategy
-└── DevOps: /parallel-automation-plan → CI/CD setup
+└── DevOps: /qa-automation-plan --parallel → CI/CD setup
 ```
 
 **Success Factors:**
@@ -79,8 +79,8 @@ Feature Lead: /po → Requirements and priorities
 Problem Identified: Critical production issue
 ├── Developer: /qa-anomaly → Issue investigation
 ├── Architect: /parallel-course-correction → System analysis  
-├── QA: /parallel-validation → Impact assessment
-└── PM: /stakeholder-review → Communication management
+├── QA: /parallel-planning-validation → Impact assessment
+└── PM: /planning-stakeholder-review → Communication management
 ```
 
 **Rapid Response Features:**
@@ -321,17 +321,17 @@ Team members work on areas of expertise with cross-collaboration
 ## 🛠️ APM Commands for Team Collaboration
 
 ### Coordination Commands
-- `/ap` - Team lead coordination and orchestration
-- `/stakeholder-review` - Include stakeholders in team decisions
+- `/coherence` - Team lead coordination and orchestration with unified context engineering
+- `/planning-stakeholder-review` - Include stakeholders in team decisions
 - `/parallel-*` - Multiple team members working on related tasks
 
 ### Communication Commands
 - `/session-note-setup` - Establish team session note standards
-- `/groom` - Team-based backlog grooming and planning
+- `/planning-groom` - Team-based backlog grooming and planning
 - `/prioritization` - Collaborative priority setting
 
 ### Quality Assurance Commands
-- `/parallel-validation` - Team-based quality validation
+- `/parallel-planning-validation` - Team-based quality validation
 - `/qa-framework` - Establish team quality standards
 - `/parallel-course-correction` - Team-based problem resolution
 
@@ -366,27 +366,27 @@ Team members work on areas of expertise with cross-collaboration
 ## 📚 Integration with Other Workflows
 
 ### Integration with Session Management
-- **Shared Session Notes**: Team members can read each other's session notes
-- **Context Handoffs**: Structured handoffs between team members
-- **Work Continuity**: Team members can continue each other's work
+- **Shared Session Notes**: Team members can read each other's session notes with unified context preservation
+- **Context Handoffs**: Structured handoffs between team members using coherent transitions
+- **Work Continuity**: Team members can continue each other's work through seamless integration
 
 ### Integration with Backlog Management
-- **Multi-User Updates**: Multiple team members updating backlog.md
-- **Shared Progress Tracking**: Team-wide visibility into project progress
-- **Collaborative Planning**: Team-based sprint and release planning
+- **Multi-User Updates**: Multiple team members updating backlog.md with unified context engineering
+- **Shared Progress Tracking**: Team-wide visibility into project progress through orchestrated intelligence
+- **Collaborative Planning**: Team-based sprint and release planning using coherent workflow
 
 ### Integration with Parallel Development
-- **Team Parallel Patterns**: Multiple team members executing parallel development
-- **Coordinated Streams**: Coordination between parallel development streams
-- **Shared Resources**: Team sharing of development resources and expertise
+- **Team Parallel Patterns**: Multiple team members executing parallel development with orchestrated intelligence
+- **Coordinated Streams**: Coordination between parallel development streams through unified context engineering
+- **Shared Resources**: Team sharing of development resources and expertise with seamless integration
 
 ## 📚 Related Documentation
 
-- **[Session Management](session-management.md)** - Individual work documentation within team context
-- **[Backlog Workflow](backlog-workflow.md)** - Shared project tracking and progress management
-- **[Parallel Development](parallel-development.md)** - Team-based parallel development patterns
-- **[Handoff Patterns](handoff-patterns.md)** - Structured transitions between team members
+- **[Session Management](session-management.md)** - Individual work documentation within team context using unified context preservation
+- **[Backlog Workflow](backlog-workflow.md)** - Shared project tracking and progress management through coherent workflow
+- **[Parallel Development](parallel-development.md)** - Team-based parallel development patterns with orchestrated intelligence
+- **[Handoff Patterns](handoff-patterns.md)** - Structured transitions between team members using coherent transitions
 
 ---
 
-*Build high-performing development teams through structured collaboration, clear communication, and shared responsibility for project success.*
+*Build high-performing development teams through structured collaboration with orchestrated intelligence, clear communication with unified context engineering, and shared responsibility for project success.*

@@ -18,7 +18,7 @@ I'm initializing as the Product Owner agent. Let me load all required context in
 [Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load PO persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/po.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 2: Load PRD from /mnt/c/Code/agentic-persona-mapping/project_docs/requirements/prd.md
+- Task 2: Load PRD from /mnt/c/Code/agentic-persona-mapping/project_docs/planning-requirements/planning-prd.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 3: Load backlog template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/product-backlog-template.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -79,6 +79,6 @@ The Product Owner agent ensures the team builds the right things in the right or
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

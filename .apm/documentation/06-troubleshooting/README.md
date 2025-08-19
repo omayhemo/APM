@@ -1,6 +1,6 @@
-# APM Troubleshooting Guide
+# Coherence Troubleshooting Guide
 
-This section provides comprehensive troubleshooting resources for the Agentic Persona Mapping (APM) Framework. If you're experiencing issues, start here to find solutions quickly.
+This section provides comprehensive troubleshooting resources for Coherence - Agentic Persona Mapping. If you're experiencing issues, start here to find solutions quickly.
 
 ## 📚 Available Troubleshooting Resources
 
@@ -50,7 +50,7 @@ Built-in diagnostic and debugging tools:
 Run these commands to gather basic system information:
 
 ```bash
-# Check APM installation
+# Check Coherence installation
 ls -la /mnt/c/Code/agentic-persona-mapping/.apm
 
 # Verify directory structure
@@ -73,7 +73,7 @@ Navigate to the most relevant troubleshooting guide:
 ### Information to Gather
 Before troubleshooting, collect:
 - **Operating System**: Windows, macOS, Linux (distribution)
-- **APM Version**: Found in `/mnt/c/Code/agentic-persona-mapping/.apm/VERSION`
+- **Coherence Version**: Found in `/mnt/c/Code/agentic-persona-mapping/.apm/VERSION`
 - **Project Path**: Your current working directory
 - **Error Messages**: Complete error text, not just snippets
 - **Recent Changes**: Any recent installations or configuration changes
@@ -99,7 +99,7 @@ stat /mnt/c/Code/agentic-persona-mapping/.apm
 ### 1. Quick Fixes (2 minutes)
 - Restart your terminal/command prompt
 - Check if files exist in the expected locations
-- Verify basic APM structure: `ls /mnt/c/Code/agentic-persona-mapping/.apm`
+- Verify basic Coherence structure: `ls /mnt/c/Code/agentic-persona-mapping/.apm`
 
 ### 2. Common Solutions (5 minutes)
 - Review [Common Issues](common-issues.md) for your specific problem
@@ -131,7 +131,7 @@ Contact support when:
 - Security-related issues are identified
 
 ### Information to Include in Support Requests
-- **APM Version**: `cat /mnt/c/Code/agentic-persona-mapping/.apm/VERSION`
+- **Coherence Version**: `cat /mnt/c/Code/agentic-persona-mapping/.apm/VERSION`
 - **Operating System**: Full version information
 - **Error Messages**: Complete, unedited error text
 - **Steps to Reproduce**: Exact sequence that triggers the problem
@@ -145,7 +145,7 @@ If APM becomes completely unresponsive:
 
 1. **Stop all processes**:
    ```bash
-   pkill -f "apm"
+   pkill -f "coherence"
    pkill -f "claude"
    ```
 
@@ -163,7 +163,7 @@ If APM becomes completely unresponsive:
 4. **Restart cleanly**:
    ```bash
    cd /mnt/c/Code/agentic-persona-mapping
-   /ap
+   /coherence
    ```
 
 ### Backup and Recovery
@@ -182,4 +182,4 @@ If APM becomes completely unresponsive:
 ---
 
 *Last Updated: {{TIMESTAMP}}*
-*APM Framework v{{VERSION}}*
+*Coherence v{{VERSION}}*

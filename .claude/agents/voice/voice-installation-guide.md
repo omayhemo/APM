@@ -1,10 +1,10 @@
-# APM Voice Notification System Installation Guide
+# Coherence Voice Notification System Installation Guide
 
-This guide provides step-by-step instructions for installing and configuring the complete APM Voice Notification system.
+This guide provides step-by-step instructions for installing and configuring the complete Coherence Voice Notification system.
 
 ## Overview
 
-The APM Voice Notification system provides text-to-speech capabilities for all agent personas with:
+The Coherence Voice Notification system provides text-to-speech capabilities for all agent personas with:
 - **Multi-provider support** (Piper, ElevenLabs, System TTS, Discord, Silent)
 - **Automatic fallback** when primary TTS provider fails
 - **Persona-specific voices** with customizable mappings
@@ -363,7 +363,7 @@ curl -H "xi-api-key: $TTS_ELEVENLABS_API_KEY" \
 
 ```bash
 # Test individual persona scripts
-/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "AP Orchestrator test message"
+/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "Coherence Orchestrator test message"
 /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDeveloper.sh "Developer persona test"
 /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakQa.sh "QA framework test notification"
 

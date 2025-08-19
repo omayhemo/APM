@@ -28,7 +28,7 @@ Quick Context Load (1-2 seconds):
 
 ## Overview
 
-The `/run-tests` command enables the Developer to execute comprehensive test suites by:
+The `/qa-run-tests` command enables the Developer to execute comprehensive test suites by:
 - Analyzing current code changes to determine optimal test selection
 - Executing tests with intelligent parallelization and resource optimization
 - Providing real-time test execution monitoring and feedback
@@ -39,7 +39,7 @@ The `/run-tests` command enables the Developer to execute comprehensive test sui
 ## Usage
 
 ```
-/run-tests [options]
+/qa-run-tests [options]
 ```
 
 ## Options
@@ -57,22 +57,22 @@ The `/run-tests` command enables the Developer to execute comprehensive test sui
 
 ```bash
 # Run affected tests based on code changes
-/run-tests
+/qa-run-tests
 
 # Run all unit and integration tests
-/run-tests --type unit,integration --scope full
+/qa-run-tests --type unit,integration --scope full
 
 # Run tests in watch mode for development
-/run-tests --watch --type unit
+/qa-run-tests --watch --type unit
 
 # Run full test suite with coverage
-/run-tests --type all --coverage --verbose
+/qa-run-tests --type all --coverage --verbose
 
 # Run tests for specific branch changes
-/run-tests --scope branch --parallel 4
+/qa-run-tests --scope branch --parallel 4
 
 # Fast feedback - bail on first failure
-/run-tests --type unit --bail --timeout 5
+/qa-run-tests --type unit --bail --timeout 5
 ```
 
 ## Prerequisites
@@ -328,7 +328,7 @@ I'm initializing the Test Execution process. Let me load all required context in
 - **Release Validation**: Comprehensive testing before deployment
 
 ### Quality Assurance
-- **Test Strategy Alignment**: Coordinate with `/parallel-test-strategy`
+- **Test Strategy Alignment**: Coordinate with `/qa-test-strategy --parallel`
 - **Quality Metrics**: Feed into QA dashboard and reporting
 - **Defect Tracking**: Link test failures to issue management
 - **Coverage Analysis**: Support quality improvement initiatives

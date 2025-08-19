@@ -1,6 +1,6 @@
-# Common APM Issues and Solutions
+# Common Coherence Issues and Solutions
 
-This guide covers the most frequently encountered problems when using the Agentic Persona Mapping (APM) Framework and their proven solutions.
+This guide covers the most frequently encountered problems when using Coherence - Agentic Persona Mapping and their proven solutions.
 
 ## 🚨 Most Common Issues
 
@@ -13,11 +13,11 @@ bash: /ap: command not found
 /ap: No such file or directory
 ```
 
-**Root Cause:** APM commands are not properly installed or configured.
+**Root Cause:** Coherence commands are not properly installed or configured.
 
 **Solution:**
 ```bash
-# Check APM installation
+# Check Coherence installation
 ls -la /mnt/c/Code/agentic-persona-mapping/.apm/
 
 # Verify command files exist
@@ -28,7 +28,7 @@ source ~/.bashrc  # or ~/.zshrc for zsh
 ```
 
 **Prevention:**
-- Always run the APM installer from the correct directory
+- Always run the Coherence installer from the correct directory
 - Ensure `.claude/commands/` directory exists in your project
 
 ---
@@ -61,7 +61,7 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDeveloper.sh "Te
 ```
 
 **Prevention:**
-- Always use `/ap` first to initialize the system
+- Always use `/coherence` first to initialize the system
 - Don't manually delete session files while agents are active
 
 ---
@@ -75,7 +75,7 @@ bash: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speak*.sh: Permissio
 Cannot create file: Operation not permitted
 ```
 
-**Root Cause:** Incorrect file permissions on APM directories or files.
+**Root Cause:** Incorrect file permissions on Coherence directories or files.
 
 **Solution:**
 ```bash
@@ -92,7 +92,7 @@ chmod 755 /mnt/c/Code/agentic-persona-mapping/.apm/
 ```
 
 **Prevention:**
-- Run the APM installer with appropriate permissions
+- Run the Coherence installer with appropriate permissions
 - Don't use `sudo` unless specifically required
 
 ---
@@ -163,10 +163,10 @@ mkdir -p /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/
 ls -la /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
 
 # Create initial session note
-echo "# APM Session Recovery - $(date)" > /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/recovery-session.md
+echo "# Coherence Session Recovery - $(date)" > /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/recovery-session.md
 
 # Test session creation
-/ap
+/coherence
 ```
 
 **Prevention:**
@@ -193,7 +193,7 @@ rm -f /mnt/c/Code/agentic-persona-mapping/.apm/state/*.lock
 rm -f /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/current_session.md
 
 # Start fresh session
-/ap
+/coherence
 
 # Use proper handoff sequence
 /handoff dev
@@ -231,9 +231,9 @@ find /mnt/c/Code/agentic-persona-mapping/.apm/logs/ -size +10M -delete
 # Archive old sessions
 mv /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/*.md /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/
 
-# Restart APM cleanly
+# Restart Coherence cleanly
 /wrap
-/ap
+/coherence
 ```
 
 **Prevention:**
@@ -389,6 +389,44 @@ tail -n 20 /mnt/c/Code/agentic-persona-mapping/.apm/logs/voice.log
 
 ---
 
+### 11. Legacy Command Redirects
+
+**Symptoms:**
+```
+/ap command not found after Coherence upgrade
+Legacy documentation references /ap commands
+Old scripts fail with command not found errors
+```
+
+**Root Cause:** Coherence v4.1.0+ uses `/coherence` as the primary command, with legacy redirects for compatibility.
+
+**Solution:**
+```bash
+# Use new Coherence command
+/coherence
+
+# Legacy command support (if configured)
+/ap  # Should redirect to /coherence
+
+# Update scripts to use new command
+sed -i 's|/ap|/coherence|g' your-script.sh
+
+# Check if legacy redirects are enabled
+ls -la /mnt/c/Code/agentic-persona-mapping/.claude/commands/ap*
+```
+
+**Migration:**
+- **Immediate**: Use `/coherence` for all new workflows
+- **Gradual**: Update existing scripts when convenient
+- **Legacy Support**: Available for backward compatibility
+
+**Prevention:**
+- Update documentation and training materials
+- Use `/coherence` in all new integrations
+- Set up linting to catch legacy command usage
+
+---
+
 ## 🆘 When to Escalate
 
 Contact support or check advanced troubleshooting if:
@@ -410,4 +448,4 @@ Contact support or check advanced troubleshooting if:
 ---
 
 *Last Updated: {{TIMESTAMP}}*
-*APM Framework v{{VERSION}}*
+*Coherence - Agentic Persona Mapping v{{VERSION}}*

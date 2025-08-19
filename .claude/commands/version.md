@@ -9,11 +9,11 @@ Update all documentation and version references throughout the APM framework for
 
 ## Examples
 ```
-/version 4.0.0                   # Major version update
+/version 4.1.0                   # Major version update
 /version 3.6.1                   # Patch version update  
 /version 3.7.0-beta.1 --beta     # Beta pre-release
-/version 4.0.0-rc.1 --rc         # Release candidate
-/version v4.0.0                  # With 'v' prefix (auto-stripped)
+/version 4.1.0-rc.1 --rc         # Release candidate
+/version v4.1.0                  # With 'v' prefix (auto-stripped)
 ```
 
 ## 🚀 Automated Parallel Execution
@@ -266,4 +266,4 @@ If any step fails:
 ## Example Output
 
 ```
-User: /version 4.0.0
+User: /version 4.1.0

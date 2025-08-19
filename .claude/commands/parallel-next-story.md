@@ -1,257 +1,194 @@
-# Parallel Next Story Creation (Native Sub-Agent Implementation)
+---
+name: planning-next-story
+description: Sequential story creation with guided development with parallel execution option
+metadata:
+  version: 2.0.0
+  agent: Scrum Master
+  parallel_support: true
+  modes: [sequential, parallel]
+---
 
 ## 🎭 PERSONA CONTEXT ACTIVATION
 
 **This command requires the Scrum Master persona.**
 
 ```markdown
-*Loading Scrum Master context for parallel execution...*
+*Loading Scrum Master context for next-story...*
 
 Quick Context Load (1-2 seconds):
 - Loading Scrum Master configuration and expertise
-- Preparing parallel execution framework
-- Voice notification: bash $/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Scrum Master ready for parallel execution"
+- Loading relevant templates and frameworks
+- PARALLEL_MODE: Preparing parallel execution framework
+- SEQUENTIAL_MODE: Standard context loading
 - Workspace validation: Ensuring execution from /mnt/c/Code/agentic-persona-mapping
 
-*Scrum Master context ready. Launching parallel streams...*
+*Context ready. Choose execution mode...*
 ```
 
+## Command Overview
 
-**Scrum Master Only**: Advanced story creation with 5 parallel streams delivering 75% faster story generation through comprehensive analysis and validation.
+This command supports both sequential and parallel execution:
 
-## Overview
+**Sequential Mode (Default):**
+- Focused, guided methodology with deep analysis
+- Interactive stakeholder engagement
+- Systematic validation and documentation
+- Quality-focused approach
 
-The `/parallel-next-story` command enables the Scrum Master to create high-quality user stories through parallel processing:
-- Analyzing current epic and backlog context simultaneously
-- Generating story components through 5 parallel streams
-- Validating acceptance criteria and dependencies in real-time
-- Ensuring story completeness and sprint readiness
-- Updating backlog with integrated story information
+**Parallel Mode (--parallel flag):**
+- Multiple native sub-agents working simultaneously  
+- 75% performance improvement
+- Comprehensive parallel coverage
+- Speed-optimized execution
 
 ## Usage
 
 ```
-/parallel-next-story
+/planning-next-story [--parallel]
+```
+
+**Parameters:**
+- `--parallel`: Execute with parallel sub-agents for faster completion
+- Default: Sequential execution with guided methodology
+
+## SEQUENTIAL_MODE: Sequential Process
+
+```
+/planning-next-story
 ```
 
 ## Prerequisites
 
 Before running this command, ensure:
-- [ ] Current epic is identified and documented in backlog.md
-- [ ] Story templates are available in .apm/agents/templates/
-- [ ] Team velocity and capacity data is current
-- [ ] Dependencies and blockers are documented
-- [ ] Definition of Done criteria are established
+- [ ] Context and objectives are clearly understood
+- [ ] Stakeholder requirements are identified
+- [ ] Existing documentation has been reviewed
+- [ ] Success criteria are established
+- [ ] Resources and constraints are known
 
-## Native Implementation Architecture
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
 
-This command uses native sub-agents for parallel story creation:
+**CRITICAL**: Upon activation, you MUST immediately execute initialization:
 
-### Phase 1: Context Analysis (5 Parallel Tasks)
-1. **Epic Context Analysis**: Parse current epic and identify story opportunities
-2. **Backlog Priority Analysis**: Review backlog priorities and capacity constraints
-3. **Dependency Mapping**: Identify technical and business dependencies
-4. **Team Capacity Check**: Analyze current sprint capacity and velocity
-5. **Story Template Loading**: Load all relevant templates and standards
+```
+I'm launching sequential next-story for comprehensive development and analysis.
 
-### Phase 2: Story Generation (5 Parallel Streams)
-6. **User Value Stream**: Focus on user needs and business value
-7. **Technical Requirements Stream**: Define technical implementation needs
-8. **Acceptance Criteria Stream**: Create comprehensive acceptance criteria
-9. **Testing Strategy Stream**: Define testability and validation approaches
-10. **Integration Planning Stream**: Identify integration points and dependencies
+*Loading next-story templates and methodologies...*
+[Execute initialization tasks in sequence]
+- Load next-story templates and frameworks
+- Review context and requirements
+- Prepare systematic methodology
+- Set up validation and documentation processes
+```
 
-### Phase 3: Validation & Integration (3 Parallel Tasks)
-11. **Story Completeness Validation**: Verify all required elements are present
-12. **Priority and Effort Estimation**: Assign story points and priority ranking
-13. **Backlog Integration**: Update backlog.md with new story information
+## Sequential Next-story Process
+
+### Phase 1: Foundation & Context (10-15 minutes)
+**Objective**: Establish foundation and understand requirements
+- Context analysis and requirement gathering
+- Stakeholder identification and needs assessment
+- Success criteria definition and scope establishment
+- Constraint identification and planning considerations
+
+### Phase 2: Development & Analysis (20-30 minutes) 
+**Objective**: Execute core next-story activities
+- Systematic development following proven methodologies
+- Interactive refinement and stakeholder engagement
+- Quality validation and completeness checking
+- Iterative improvement based on feedback
+
+### Phase 3: Validation & Refinement (10-15 minutes)
+**Objective**: Ensure quality and completeness
+- Comprehensive validation against requirements
+- Stakeholder review and feedback incorporation
+- Quality assurance and standards compliance
+- Final documentation and deliverable preparation
 
 ## Expected Outcomes
 
-- **Complete User Story**: Fully detailed story with all required components
-- **Acceptance Criteria**: Comprehensive, testable acceptance criteria
-- **Story Points Estimation**: Accurate effort estimation based on team velocity
-- **Dependency Documentation**: Clear identification of blockers and dependencies
-- **Sprint Ready**: Story meets Definition of Ready criteria
-
-## Parallel Generation Benefits
-
-- **Comprehensive Analysis**: Multiple perspectives analyzed simultaneously
-- **Quality Assurance**: Parallel validation ensures story completeness
-- **Time Efficiency**: 75% reduction in story creation time
-- **Consistency**: Template-driven approach ensures standard formatting
-- **Integration**: Seamless backlog updates with real-time validation
-
-## Integration Points
-
-- **Product Owner**: Leverages epic definitions and business requirements
-- **Developer Team**: Incorporates technical feasibility and implementation insights
-- **QA Team**: Ensures testability and validation criteria are included
-- **Architecture**: Validates technical dependencies and system integration
-
-## Success Metrics
-
-- **Story Creation Time**: Target 5-7 minutes vs traditional 20-25 minutes
-- **Story Quality Score**: > 90% completeness on Definition of Ready checklist
-- **Acceptance Criteria Coverage**: 95%+ testable criteria inclusion
-- **Dependency Identification**: 100% of technical dependencies documented
-- **Sprint Integration**: 0 story refinement needed during sprint planning
-
-## Native Sub-Agent Activation
-
-When you run `/parallel-next-story`, I will:
-
-1. **Context Loading** (5 parallel tasks in single function_calls block):
-   - Load current epic and backlog context
-   - Analyze team velocity and capacity data
-   - Review story templates and standards
-   - Check dependency mapping and blockers
-   - Load Definition of Ready checklist
-
-2. **Story Generation** (5 parallel streams):
-   ```markdown
-   # User Value Analyst Activation:
-   "I need a Business Analyst sub-agent to focus on user value and business requirements.
-    Story Context:
-    - Epic: [Current Epic Name]
-    - User Personas: [Target Users]
-    - Business Value: [Expected Outcomes]
-    - Success Metrics: [KPIs and Measurements]
-    Please analyze user needs and define the 'As a [user]... I want... So that...' statement."
-
-   # Technical Requirements Analyst Activation:
-   "I need a Technical Analyst sub-agent to define technical implementation needs.
-    Technical Context:
-    - System Architecture: [Current System State]
-    - Integration Points: [API, Database, Services]
-    - Technical Constraints: [Platform, Security, Performance]
-    - Implementation Approach: [Recommended Technical Solution]
-    Please define technical requirements and implementation considerations."
-
-   # Acceptance Criteria Specialist Activation:
-   "I need an Acceptance Criteria Specialist sub-agent for comprehensive criteria definition.
-    Criteria Context:
-    - User Scenarios: [Primary and Edge Cases]
-    - Validation Requirements: [What constitutes 'done']
-    - Testing Approaches: [Manual and Automated Testing]
-    - Performance Criteria: [Response Times, Reliability]
-    Please create detailed, testable acceptance criteria."
-
-   # Testing Strategy Analyst Activation:
-   "I need a Testing Strategy sub-agent to define validation approaches.
-    Testing Context:
-    - Test Types: [Unit, Integration, UI, Performance]
-    - Test Data Requirements: [Scenarios, Edge Cases]
-    - Automation Opportunities: [Regression, Performance]
-    - Quality Gates: [Coverage, Performance Benchmarks]
-    Please design comprehensive testing strategy."
-
-   # Integration Planning Specialist Activation:
-   "I need an Integration Planning sub-agent for dependency analysis.
-    Integration Context:
-    - System Dependencies: [Services, APIs, Databases]
-    - Team Dependencies: [Other Teams, External Resources]
-    - Technical Dependencies: [Libraries, Frameworks]
-    - Timeline Dependencies: [Prerequisite Stories, Milestones]
-    Please map all dependencies and integration requirements."
-   ```
-
-3. **Story Assembly and Validation**: Synthesize all parallel outputs into cohesive story
-4. **Backlog Integration**: Update backlog.md with new story and dependencies
-5. **Quality Assurance**: Validate story meets Definition of Ready criteria
-
-## Performance Improvements
-
-### Traditional Sequential Approach:
-- Context Analysis → 5 minutes
-- Story Writing → 8 minutes
-- Acceptance Criteria → 7 minutes
-- Validation → 5 minutes
-- **Total Time: 25 minutes**
-
-### Native Parallel Approach:
-- All activities simultaneous → 6-7 minutes
-- **Performance Improvement: 75% faster**
-- **Quality Improvement: 40% more comprehensive**
+After next-story completion:
+- **Comprehensive deliverables** meeting all requirements
+- **Quality assurance** with validation completed
+- **Stakeholder alignment** with approval obtained
+- **Clear documentation** with rationale and decisions
+- **Implementation readiness** with next steps defined
 
 ## Output Format
 
 ```markdown
-# User Story: [Story Title]
+# Next-story Results
 
-## Story Statement
-As a [user type]
-I want [functionality]
-So that [business value]
+## Overview
+- **Next-story Type**: [Type/Category]
+- **Agent**: Scrum Master
+- **Completion Date**: [Date]
+- **Status**: [Complete/In Progress]
 
-## Story Details
-- **Epic**: [Epic Name]
-- **Priority**: [High/Medium/Low]
-- **Story Points**: [Estimated Points]
-- **Sprint Assignment**: [Target Sprint]
-- **Dependencies**: [List of Dependencies]
+## Context
+- **Objective**: [Primary goal]
+- **Scope**: [What's included]
+- **Stakeholders**: [Key stakeholders]
+- **Success Criteria**: [How success measured]
 
-## Acceptance Criteria
-- [ ] [Criterion 1 - Specific and Testable]
-- [ ] [Criterion 2 - Specific and Testable]
-- [ ] [Criterion 3 - Specific and Testable]
+## Deliverables
+### Primary Deliverable
+[Main output description and details]
 
-## Technical Requirements
-- [Technical Requirement 1]
-- [Technical Requirement 2]
-- [Integration Points]
+### Supporting Documentation
+- [Supporting item 1]
+- [Supporting item 2]
+- [Supporting item 3]
 
-## Testing Strategy
-- **Unit Tests**: [Test Coverage Requirements]
-- **Integration Tests**: [Integration Test Requirements]
-- **UI Tests**: [User Interface Test Requirements]
-- **Performance Tests**: [Performance Criteria]
+## Validation Summary
+- **Requirements Met**: [Yes/Partial/No]
+- **Stakeholder Approval**: [Status]
+- **Quality Standards**: [Met/Needs work]
 
-## Definition of Done
-- [ ] All acceptance criteria met
-- [ ] Code review completed
-- [ ] Tests pass with >80% coverage
-- [ ] Documentation updated
-- [ ] Performance criteria met
-
-## Dependencies
-### Technical Dependencies:
-- [System/Service Dependencies]
-
-### Team Dependencies:
-- [Cross-team Dependencies]
-
-### Timeline Dependencies:
-- [Prerequisite Work Items]
-
-## Risks and Mitigations
-- **Risk**: [Identified Risk]
-  **Mitigation**: [Mitigation Strategy]
-
-## Notes
-[Additional context, assumptions, or clarifications]
+## Next Steps
+1. [Immediate next action]
+2. [Follow-up activities]
+3. [Implementation planning]
 ```
 
-## Integration with APM Commands
+## Integration Points
 
-```bash
-# Generate next story in current epic
-/parallel-next-story
-
-# Follow up with story validation
-/parallel-checklist --story-id [new-story-id]
-
-# Integrate with sprint planning
-/parallel-sprint --include-new-stories
-
-# Quality assurance validation
-/qa-framework --focus story-validation
-```
+- **Requirements**: Use `/planning-requirements` for detailed analysis
+- **Planning**: Use `/planning-epic` or `/planning-prd` for comprehensive planning
+- **Validation**: Use `/planning-stakeholder-review` for validation
+- **Implementation**: Use parallel versions for rapid execution
 
 ## Voice Notifications
 
 ```bash
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Launching parallel next story creation. Activating 5 specialized analysis streams for comprehensive story development..."
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Sequential next-story beginning. Launching guided development process..."
 ```
 
-This command transforms story creation from a sequential, time-intensive process into a parallel, comprehensive analysis that delivers higher quality stories in 75% less time.
+## Success Metrics
+
+- **Completeness**: All aspects systematically covered
+- **Quality**: High standards met throughout process  
+- **Stakeholder Satisfaction**: Requirements accurately addressed
+- **Implementation Readiness**: Clear path forward established
+- **Validation Success**: All criteria met and approved
+
+## When to Use Sequential vs Parallel
+
+**Use `/planning-next-story` when:**
+- Focused development with single deliverable
+- Interactive refinement and collaboration desired
+- Quality and thoroughness over speed
+- Complex requirements need careful analysis
+- Stakeholder engagement throughout process important
+
+**Use `/parallel-next-story` when:**
+- Multiple deliverables needed simultaneously
+- Time constraints require rapid execution
+- Comprehensive coverage across domains
+- Well-understood process and templates
+- Speed and efficiency prioritized
+
+---
+
+This command provides thoughtful, systematic next-story with emphasis on quality, stakeholder collaboration, and comprehensive coverage.
+
+## PARALLEL_MODE: Parallel Process

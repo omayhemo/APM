@@ -1,12 +1,12 @@
-# APM Performance Issues and Optimization
+# Coherence Performance Issues and Optimization
 
-This guide addresses performance-related problems in the APM Framework and provides optimization strategies.
+This guide addresses performance-related problems in the Coherence - Agentic Persona Mapping and provides optimization strategies.
 
 ## ⚡ Performance Overview
 
 ### Expected Performance Baselines
 
-**APM v4.1.0 Native Sub-Agent Performance:**
+**Coherence v4.1.0 Native Sub-Agent Performance:**
 - **Command Execution**: < 2 seconds for simple commands
 - **Persona Activation**: < 3 seconds with voice notifications
 - **Parallel Operations**: 4-8x speedup over sequential execution
@@ -43,29 +43,29 @@ Timeout errors during command processing
 ```bash
 # Check system resources
 top -p $(pgrep -f claude)
-df -h /mnt/c/Code/agentic-persona-mapping/.apm
+df -h {{Coherence_ROOT}}
 
 # Archive large session files
-find /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ -size +5M -exec mv {} /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/ \;
+find {{Coherence_ROOT}}/session_notes/ -size +5M -exec mv {} {{Coherence_ROOT}}/session_notes/archive/ \;
 
 # Clear temporary files
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/temp/*
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/logs/*.tmp
+rm -f {{Coherence_ROOT}}/temp/*
+rm -f {{Coherence_ROOT}}/logs/*.tmp
 
 # Restart with clean session
 /wrap
-/ap
+/coherence
 ```
 
 **Long-term Optimization:**
 ```bash
 # Configure automatic session archiving
-echo "MAX_SESSION_SIZE=1000000" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf
-echo "AUTO_ARCHIVE=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf
+echo "MAX_SESSION_SIZE=1000000" >> {{Coherence_ROOT}}/config/performance.conf
+echo "AUTO_ARCHIVE=true" >> {{Coherence_ROOT}}/config/performance.conf
 
 # Set up log rotation
-echo "LOG_ROTATE_SIZE=10M" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/logging.conf
-echo "LOG_KEEP_DAYS=7" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/logging.conf
+echo "LOG_ROTATE_SIZE=10M" >> {{Coherence_ROOT}}/config/logging.conf
+echo "LOG_KEEP_DAYS=7" >> {{Coherence_ROOT}}/config/logging.conf
 ```
 
 ---
@@ -77,7 +77,7 @@ echo "LOG_KEEP_DAYS=7" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/loggin
 Gradually increasing memory usage
 System swap usage increasing
 "Out of memory" errors
-System becomes unresponsive during APM operations
+System becomes unresponsive during Coherence operations
 ```
 
 **Root Causes:**
@@ -89,30 +89,30 @@ System becomes unresponsive during APM operations
 
 **Memory Analysis:**
 ```bash
-# Monitor APM memory usage
-ps aux | grep -E "(claude|apm)" | awk '{sum+=$6} END {print "Total APM Memory: " sum/1024 " MB"}'
+# Monitor Coherence memory usage
+ps aux | grep -E "(claude|apm)" | awk '{sum+=$6} END {print "Total Coherence Memory: " sum/1024 " MB"}'
 
 # Check for memory leaks
 top -p $(pgrep -f claude) -b -n 1 | tail -n +8
 
 # Analyze session file sizes
-find /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ -name "*.md" -exec ls -lh {} \; | sort -k5 -hr | head -10
+find {{Coherence_ROOT}}/session_notes/ -name "*.md" -exec ls -lh {} \; | sort -k5 -hr | head -10
 ```
 
 **Memory Optimization:**
 ```bash
 # Enable memory-efficient mode
-export APM_MEMORY_MODE=efficient
+export Coherence_MEMORY_MODE=efficient
 
 # Limit session context size
-echo "MAX_CONTEXT_SIZE=50000" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "MAX_CONTEXT_SIZE=50000" >> {{Coherence_ROOT}}/config/session.conf
 
 # Configure automatic cleanup
-echo "SESSION_CLEANUP_INTERVAL=3600" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf
+echo "SESSION_CLEANUP_INTERVAL=3600" >> {{Coherence_ROOT}}/config/performance.conf
 
 # Restart with memory constraints
 /wrap --compact-memory
-/ap --memory-limit 100M
+/coherence --memory-limit 100M
 ```
 
 **Advanced Memory Management:**
@@ -121,10 +121,10 @@ echo "SESSION_CLEANUP_INTERVAL=3600" >> /mnt/c/Code/agentic-persona-mapping/.apm
 /switch --compact-session
 
 # Archive old sessions
-mv /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/*.md /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/
+mv {{Coherence_ROOT}}/session_notes/*.md {{Coherence_ROOT}}/session_notes/archive/
 
 # Clear caches
-rm -rf /mnt/c/Code/agentic-persona-mapping/.apm/cache/*
+rm -rf {{Coherence_ROOT}}/cache/*
 ```
 
 ---
@@ -156,8 +156,8 @@ top -b -n 1 | grep "Cpu(s)"
 /parallel-test --benchmark --verbose
 
 # Tune parallel execution
-echo "MAX_PARALLEL_AGENTS=4" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/parallel.conf
-echo "PARALLEL_TIMEOUT=30" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/parallel.conf
+echo "MAX_PARALLEL_AGENTS=4" >> {{Coherence_ROOT}}/config/parallel.conf
+echo "PARALLEL_TIMEOUT=30" >> {{Coherence_ROOT}}/config/parallel.conf
 ```
 
 **I/O Optimization:**
@@ -166,23 +166,23 @@ echo "PARALLEL_TIMEOUT=30" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/pa
 iostat -x 1 3
 
 # Use faster storage for session notes (if available)
-export APM_FAST_STORAGE="/tmp/apm-session"
-mkdir -p $APM_FAST_STORAGE
-ln -sf $APM_FAST_STORAGE /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/active
+export Coherence_FAST_STORAGE="/tmp/coherencem-session"
+mkdir -p $Coherence_FAST_STORAGE
+ln -sf $Coherence_FAST_STORAGE {{Coherence_ROOT}}/session_notes/active
 
 # Enable asynchronous I/O
-echo "ASYNC_IO=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf
+echo "ASYNC_IO=true" >> {{Coherence_ROOT}}/config/performance.conf
 ```
 
 **Parallel Agent Tuning:**
 ```bash
 # Optimize for your system
-export APM_PARALLEL_WORKERS=$(nproc)
-export APM_WORKER_MEMORY="50M"
+export Coherence_PARALLEL_WORKERS=$(nproc)
+export Coherence_WORKER_MEMORY="50M"
 
 # Use conservative settings for resource-constrained systems
-export APM_PARALLEL_WORKERS=2
-export APM_WORKER_TIMEOUT=60
+export Coherence_PARALLEL_WORKERS=2
+export Coherence_WORKER_TIMEOUT=60
 ```
 
 ---
@@ -206,13 +206,13 @@ Context preservation taking excessive time
 **Session Optimization:**
 ```bash
 # Enable session streaming
-echo "SESSION_STREAM_MODE=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "SESSION_STREAM_MODE=true" >> {{Coherence_ROOT}}/config/session.conf
 
 # Limit context preservation
-echo "CONTEXT_PRESERVE_LIMIT=1000" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "CONTEXT_PRESERVE_LIMIT=1000" >> {{Coherence_ROOT}}/config/session.conf
 
 # Use incremental session updates
-echo "SESSION_INCREMENTAL=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "SESSION_INCREMENTAL=true" >> {{Coherence_ROOT}}/config/session.conf
 
 # Test session performance
 /session-benchmark --verbose
@@ -221,13 +221,13 @@ echo "SESSION_INCREMENTAL=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/conf
 **Context Management:**
 ```bash
 # Compress large contexts
-echo "CONTEXT_COMPRESSION=gzip" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "CONTEXT_COMPRESSION=gzip" >> {{Coherence_ROOT}}/config/session.conf
 
 # Use smart context filtering
-echo "CONTEXT_SMART_FILTER=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "CONTEXT_SMART_FILTER=true" >> {{Coherence_ROOT}}/config/session.conf
 
 # Enable context caching
-echo "CONTEXT_CACHE=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/session.conf
+echo "CONTEXT_CACHE=true" >> {{Coherence_ROOT}}/config/session.conf
 ```
 
 ---
@@ -254,23 +254,23 @@ Voice notifications blocking other operations
 time espeak "Performance test" 2>/dev/null || time say "Performance test" 2>/dev/null
 
 # Use faster TTS settings
-echo "TTS_SPEED=200" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/voice.conf
-echo "TTS_QUALITY=low" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/voice.conf
+echo "TTS_SPEED=200" >> {{Coherence_ROOT}}/config/voice.conf
+echo "TTS_QUALITY=low" >> {{Coherence_ROOT}}/config/voice.conf
 
 # Enable asynchronous voice notifications
-echo "VOICE_ASYNC=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/voice.conf
+echo "VOICE_ASYNC=true" >> {{Coherence_ROOT}}/config/voice.conf
 ```
 
 **Alternative Voice Solutions:**
 ```bash
 # Use pre-generated audio files
-echo "VOICE_PREGENERATED=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/voice.conf
+echo "VOICE_PREGENERATED=true" >> {{Coherence_ROOT}}/config/voice.conf
 
 # Disable voice in performance-critical scenarios
 export VOICE_ENABLED=false
 
 # Use visual notifications instead
-echo "NOTIFICATION_MODE=visual" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/voice.conf
+echo "NOTIFICATION_MODE=visual" >> {{Coherence_ROOT}}/config/voice.conf
 ```
 
 ---
@@ -279,16 +279,16 @@ echo "NOTIFICATION_MODE=visual" >> /mnt/c/Code/agentic-persona-mapping/.apm/conf
 
 ### Built-in Performance Tools
 
-**APM Performance Monitor:**
+**Coherence Performance Monitor:**
 ```bash
 # Real-time performance monitoring
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/performance-monitor.sh
+{{Coherence_ROOT}}/scripts/performance-monitor.sh
 
 # Performance benchmarking
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/benchmark-apm.sh --full
+{{Coherence_ROOT}}/scripts/benchmark-apm.sh --full
 
 # Resource usage tracking
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/resource-tracker.sh --start
+{{Coherence_ROOT}}/scripts/resource-tracker.sh --start
 ```
 
 **Command-specific Benchmarks:**
@@ -320,13 +320,13 @@ nethogs -p $(pgrep -f claude)
 **Performance Logging:**
 ```bash
 # Enable performance logging
-echo "PERF_LOGGING=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/logging.conf
+echo "PERF_LOGGING=true" >> {{Coherence_ROOT}}/config/logging.conf
 
 # Monitor performance logs
-tail -f /mnt/c/Code/agentic-persona-mapping/.apm/logs/performance.log
+tail -f {{Coherence_ROOT}}/logs/performance.log
 
 # Analyze performance trends
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-performance.sh --last-week
+{{Coherence_ROOT}}/scripts/analyze-performance.sh --last-week
 ```
 
 ---
@@ -340,7 +340,7 @@ tail -f /mnt/c/Code/agentic-persona-mapping/.apm/logs/performance.log
 # Set CPU governor for performance
 echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
-# Disable CPU throttling during APM operations
+# Disable CPU throttling during Coherence operations
 echo 0 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
 
 # Use all available cores
@@ -365,13 +365,13 @@ echo deadline | sudo tee /sys/block/*/queue/scheduler
 echo 128 | sudo tee /sys/block/*/queue/nr_requests
 ```
 
-### 2. APM-Specific Optimizations
+### 2. Coherence-Specific Optimizations
 
 **Configuration Tuning:**
 ```bash
 # Create performance-optimized config
-cat > /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf << 'EOF'
-# APM Performance Configuration
+cat > {{Coherence_ROOT}}/config/performance.conf << 'EOF'
+# Coherence Performance Configuration
 MAX_SESSION_SIZE=500000
 SESSION_CLEANUP_INTERVAL=1800
 CONTEXT_PRESERVE_LIMIT=2000
@@ -383,17 +383,17 @@ LOG_LEVEL=WARN
 EOF
 
 # Apply configuration
-source /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf
+source {{Coherence_ROOT}}/config/performance.conf
 ```
 
 **Resource Allocation:**
 ```bash
-# Allocate dedicated resources for APM
-nice -n -10 /ap  # Higher priority
+# Allocate dedicated resources for Coherence
+nice -n -10 /coherence  # Higher priority
 ionice -c 1 -n 4  # Real-time I/O scheduling
 
 # Use memory mapping for large files
-echo "MEMORY_MAP_SESSIONS=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/performance.conf
+echo "MEMORY_MAP_SESSIONS=true" >> {{Coherence_ROOT}}/config/performance.conf
 ```
 
 ### 3. Workflow Optimizations
@@ -401,7 +401,7 @@ echo "MEMORY_MAP_SESSIONS=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/conf
 **Session Management:**
 ```bash
 # Use efficient session patterns
-/ap --quick-start  # Skip verbose initialization
+/coherence --quick-start  # Skip verbose initialization
 /dev --fast-mode   # Reduce context loading
 /handoff architect --minimal-context  # Faster handoffs
 ```
@@ -424,7 +424,7 @@ echo "MEMORY_MAP_SESSIONS=true" >> /mnt/c/Code/agentic-persona-mapping/.apm/conf
 ```bash
 # Basic command performance
 echo "=== Basic Command Performance ===" > performance-report.txt
-(time /ap --test-mode) 2>> performance-report.txt
+(time /coherence --test-mode) 2>> performance-report.txt
 (time /dev --test-mode) 2>> performance-report.txt
 (time /architect --test-mode) 2>> performance-report.txt
 
@@ -448,13 +448,13 @@ echo "=== Session Management Performance ===" >> performance-report.txt
 **Automated Performance Tests:**
 ```bash
 # Run comprehensive performance test suite
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/performance-test-suite.sh
+{{Coherence_ROOT}}/scripts/performance-test-suite.sh
 
 # Compare with baseline
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/compare-performance.sh baseline.json current.json
+{{Coherence_ROOT}}/scripts/compare-performance.sh baseline.json current.json
 
 # Generate performance report
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-perf-report.sh > performance-analysis.html
+{{Coherence_ROOT}}/scripts/generate-perf-report.sh > performance-analysis.html
 ```
 
 ---
@@ -483,13 +483,13 @@ For each issue type:
 ### Step 3: Advanced Performance Analysis
 ```bash
 # Generate detailed performance profile
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/profile-apm.sh --detailed
+{{Coherence_ROOT}}/scripts/profile-apm.sh --detailed
 
 # Analyze system bottlenecks
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/bottleneck-analysis.sh
+{{Coherence_ROOT}}/scripts/bottleneck-analysis.sh
 
 # Create performance improvement plan
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/optimization-planner.sh
+{{Coherence_ROOT}}/scripts/optimization-planner.sh
 ```
 
 ---
@@ -498,34 +498,34 @@ For each issue type:
 
 ### Emergency Performance Recovery
 ```bash
-# Stop all APM processes
+# Stop all Coherence processes
 pkill -f apm
 pkill -f claude
 
 # Clear all caches and temporary files
-rm -rf /mnt/c/Code/agentic-persona-mapping/.apm/cache/*
-rm -rf /mnt/c/Code/agentic-persona-mapping/.apm/temp/*
-rm -f /mnt/c/Code/agentic-persona-mapping/.apm/logs/*.tmp
+rm -rf {{Coherence_ROOT}}/cache/*
+rm -rf {{Coherence_ROOT}}/temp/*
+rm -f {{Coherence_ROOT}}/logs/*.tmp
 
 # Archive large session files
-find /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ -size +1M -exec mv {} /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/archive/ \;
+find {{Coherence_ROOT}}/session_notes/ -size +1M -exec mv {} {{Coherence_ROOT}}/session_notes/archive/ \;
 
 # Restart with minimal configuration
-export APM_MINIMAL_MODE=true
-/ap --recovery-mode
+export Coherence_MINIMAL_MODE=true
+/coherence --recovery-mode
 ```
 
 ### Performance Reset
 ```bash
 # Reset all performance configurations to defaults
-cp /mnt/c/Code/agentic-persona-mapping/.apm/config/default/* /mnt/c/Code/agentic-persona-mapping/.apm/config/
+cp {{Coherence_ROOT}}/config/default/* {{Coherence_ROOT}}/config/
 
 # Clear performance logs
-truncate -s 0 /mnt/c/Code/agentic-persona-mapping/.apm/logs/performance.log
+truncate -s 0 {{Coherence_ROOT}}/logs/performance.log
 
-# Restart APM with fresh session
+# Restart Coherence with fresh session
 /wrap --force
-/ap --clean-start
+/coherence --clean-start
 ```
 
 ---
@@ -539,4 +539,4 @@ truncate -s 0 /mnt/c/Code/agentic-persona-mapping/.apm/logs/performance.log
 ---
 
 *Last Updated: {{TIMESTAMP}}*
-*APM Framework v{{VERSION}}*
+*Coherence - Agentic Persona Mapping v{{VERSION}}*

@@ -1,0 +1,79 @@
+# Organize Documentation System
+name: documentation-organize
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Analyst persona.**
+
+```markdown
+*Loading Analyst context for documentation management...*
+
+Quick Context Load (1-2 seconds):
+- Loading Analyst configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash $/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakAnalyst.sh "Analyst context loaded for documentation management"
+- Workspace validation: Ensuring execution from /mnt/c/Code/agentic-persona-mapping
+
+*Analyst context ready. Proceeding with command...*
+```
+
+
+**Command**: `/documentation-organize`
+
+## Description
+
+A comprehensive documentation organization system that analyzes, validates, and reorganizes project documentation to ensure proper structure and connectivity.
+
+## Overview
+
+The documentation-organize system helps maintain clean, well-structured documentation by:
+- Finding orphaned documents not linked from any index
+- Detecting and fixing broken links
+- Creating comprehensive index files
+- Generating documentation dependency graphs
+- Safely reorganizing documentation with rollback capability
+
+## Usage
+
+```bash
+/documentation-organize [subcommand] [options]
+```
+
+## Core Functionality
+
+The system is implemented as:
+- Main script: `${AP_ROOT}/scripts/documentation-organize/documentation-organize.sh`
+- Python parser: `${AP_ROOT}/scripts/documentation-organize/doc-parser.py`
+- Configuration: `${AP_ROOT}/config/documentation-organize.yaml`
+
+## Quick Start
+
+1. **Scan documentation**:
+   ```bash
+   /documentation-organize scan --verbose
+   ```
+
+2. **Check and fix issues**:
+   ```bash
+   /documentation-organize scan --check-links --fix
+   ```
+
+3. **Generate health report**:
+   ```bash
+   /documentation-organize health
+   ```
+
+## Implementation
+
+When this command is invoked:
+
+1. Execute the documentation-organize script with provided arguments
+2. The script will analyze the project_docs directory
+3. Results will be displayed with actionable recommendations
+
+```bash
+bash ${AP_ROOT}/scripts/documentation-organize/documentation-organize.sh "$@"
+```
+
+---
+*Part of the APM Documentation Organization System*

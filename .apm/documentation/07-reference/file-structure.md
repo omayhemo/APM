@@ -1,6 +1,6 @@
-# APM File Structure Reference
+# Coherence File Structure Reference
 
-Complete directory and file organization reference for the Agentic Persona Mapping (APM) framework.
+Complete directory and file organization reference for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -17,7 +17,7 @@ Complete directory and file organization reference for the Agentic Persona Mappi
 
 ## 🏗️ Overview
 
-APM v4.1.0 follows a unified directory structure optimized for:
+Coherence v4.1.0 follows a unified directory structure optimized for:
 - **Native Sub-Agent Integration** with Claude Code
 - **Template-Based Generation** with single source of truth
 - **Session Management** with intelligent archiving
@@ -25,7 +25,7 @@ APM v4.1.0 follows a unified directory structure optimized for:
 
 ### Key Principles
 
-- **Unified Persona System**: All personas defined in JSON at `/installer/personas/_master/`
+- **Unified Persona System**: All personas defined in JSON at `/payload/personas/_master/`
 - **Template Generation**: Templates auto-generated from JSON during build
 - **Path Variables**: All paths use template variables (no hardcoded paths)
 - **Modular Organization**: Clear separation between framework, project, and user content
@@ -36,10 +36,10 @@ APM v4.1.0 follows a unified directory structure optimized for:
 
 ```
 /mnt/c/Code/agentic-persona-mapping/
-├── .apm/                           # APM Framework Installation
+├── .apm/                           # Coherence Framework Installation
 ├── .claude/                        # Claude Code Configuration
 ├── project_docs/                   # Project Documentation
-├── installer/                      # APM Installation System
+├── payload/                        # APM Installation System
 ├── src/                           # Project Source Code
 ├── tests/                         # Test Suites
 ├── CHANGELOG.md                   # Change History
@@ -61,9 +61,9 @@ APM v4.1.0 follows a unified directory structure optimized for:
 
 ---
 
-## 🎯 APM Directory (.apm)
+## 🎯 Coherence Directory (.apm)
 
-The `.apm` directory contains the complete APM framework installation:
+The `.apm` directory contains the complete Coherence framework installation:
 
 ```
 /mnt/c/Code/agentic-persona-mapping/.apm/
@@ -102,33 +102,33 @@ The `.apm` directory contains the complete APM framework installation:
 │   ├── pre_tool_use.py
 │   ├── post_tool_use.py
 │   └── user_prompt_submit.py
-├── CLAUDE.md                       # APM-Specific Instructions
-├── README.md                       # APM Framework Overview
-└── VERSION                         # APM Framework Version
+├── CLAUDE.md                       # Coherence-Specific Instructions
+├── README.md                       # Coherence Framework Overview
+└── VERSION                         # Coherence Framework Version
 ```
 
-### APM Subdirectories
+### Coherence Subdirectories
 
 #### `/agents/personas/`
 Contains persona definition files generated from master JSON definitions.
 
 | File | Persona | Generated From |
 |------|---------|----------------|
-| `analyst.persona.md` | Business Analyst | `installer/personas/_master/analyst.persona.json` |
-| `architect.persona.md` | System Architect | `installer/personas/_master/architect.persona.json` |
-| `developer.persona.md` | Developer | `installer/personas/_master/developer.persona.json` |
-| `pm.persona.md` | Project Manager | `installer/personas/_master/pm.persona.json` |
-| `po.persona.md` | Product Owner | `installer/personas/_master/po.persona.json` |
-| `qa.persona.md` | QA Engineer | `installer/personas/_master/qa.persona.json` |
-| `sm.persona.md` | Scrum Master | `installer/personas/_master/sm.persona.json` |
-| `design-architect.persona.md` | Design Architect | `installer/personas/_master/design-architect.persona.json` |
+| `analyst.persona.md` | Business Analyst | `payload/personas/_master/analyst.persona.json` |
+| `architect.persona.md` | System Architect | `payload/personas/_master/architect.persona.json` |
+| `developer.persona.md` | Developer | `payload/personas/_master/developer.persona.json` |
+| `pm.persona.md` | Project Manager | `payload/personas/_master/pm.persona.json` |
+| `po.persona.md` | Product Owner | `payload/personas/_master/po.persona.json` |
+| `qa.persona.md` | QA Engineer | `payload/personas/_master/qa.persona.json` |
+| `sm.persona.md` | Scrum Master | `payload/personas/_master/sm.persona.json` |
+| `design-architect.persona.md` | Design Architect | `payload/personas/_master/design-architect.persona.json` |
 
 #### `/agents/voice/`
 Voice notification scripts for audio feedback.
 
 | Script | Persona | Platform |
 |--------|---------|----------|
-| `speakOrchestrator.sh` | AP Orchestrator | Linux/macOS/WSL |
+| `speakOrchestrator.sh` | Coherence Orchestrator | Linux/macOS/WSL |
 | `speakAnalyst.sh` | Business Analyst | Linux/macOS/WSL |
 | `speakArchitect.sh` | System Architect | Linux/macOS/WSL |
 | `speakDeveloper.sh` | Developer | Linux/macOS/WSL |
@@ -159,7 +159,7 @@ Behavioral and operational rules for APM agents.
 
 | File | Purpose | Scope |
 |------|---------|-------|
-| `orchestrator-rules.md` | AP Orchestrator behavior | Coordination, delegation |
+| `orchestrator-rules.md` | Coherence Orchestrator behavior | Coordination, delegation |
 | `session-management-rules.md` | Session handling | Note-taking, transitions |
 | `backlog-management-rules.md` | Backlog updates | Story tracking, acceptance criteria |
 | `parallel-execution-rules.md` | Parallel processing | Sub-agent coordination |
@@ -194,7 +194,7 @@ The `project_docs` directory contains comprehensive project documentation:
 │   ├── qa-metrics-report.md
 │   └── sprint-velocity-report.md
 └── archive/                        # Historical Documentation
-    ├── v3.5.0-documentation/
+    ├── v4.1.0-documentation/
     └── legacy-architecture/
 ```
 
@@ -236,7 +236,7 @@ The `.claude` directory integrates APM with Claude Code:
 ```
 {{CLAUDE_ROOT}}/
 ├── commands/                       # Claude Commands
-│   ├── ap.md                      # AP Orchestrator Command
+│   ├── coherence.md              # Coherence Orchestrator Command
 │   ├── analyst.md                 # Analyst Activation
 │   ├── architect.md               # Architect Activation
 │   ├── developer.md               # Developer Activation
@@ -280,12 +280,12 @@ Brief description of the command.
 
 ---
 
-## 🛠️ Installer Structure
+## 🛠️ Payload Structure
 
-The installer system manages APM deployment and updates:
+The payload system manages APM deployment and updates:
 
 ```
-installer/
+payload/
 ├── personas/
 │   └── _master/                    # Master Persona Definitions
 │       ├── analyst.persona.json
@@ -352,9 +352,9 @@ APM v4.1.0 introduces the unified persona system with single source of truth:
 ```
 
 #### Template Generation Flow
-1. **Master Definition**: `/installer/personas/_master/developer.persona.json`
-2. **APM Template**: Generated to `/installer/templates/agents/personas/developer.persona.md.template`
-3. **Claude Template**: Generated to `/installer/templates/claude/commands/developer.md.template`
+1. **Master Definition**: `/payload/personas/_master/developer.persona.json`
+2. **APM Template**: Generated to `/payload/templates/agents/personas/developer.persona.md.template`
+3. **Claude Template**: Generated to `/payload/templates/claude/commands/developer.md.template`
 4. **Installation**: Deployed to `/mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/developer.persona.md`
 
 ---
@@ -383,7 +383,7 @@ APM v4.1.0 introduces the unified persona system with single source of truth:
 ### Command Files
 - **Format**: `{command-name}.md`
 - **Examples**:
-  - `ap.md` (AP Orchestrator)
+  - `coherence.md` (Coherence Orchestrator)
   - `parallel-sprint.md` (Parallel development)
   - `qa-framework.md` (QA Framework)
 

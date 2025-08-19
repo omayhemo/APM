@@ -1,10 +1,10 @@
-# Enterprise Deployment Guide
+# Coherence Enterprise Deployment Guide
 
-This guide covers large-scale APM deployment strategies for organizations with hundreds of developers and complex governance requirements.
+This guide covers large-scale Coherence deployment strategies for organizations with hundreds of developers and complex governance requirements.
 
 ## Overview
 
-Enterprise APM deployment addresses:
+Coherence enterprise deployment addresses:
 - **Multi-team coordination** across departments and business units
 - **Centralized governance** with decentralized execution
 - **Security and compliance** at organizational scale
@@ -13,12 +13,12 @@ Enterprise APM deployment addresses:
 
 ## Architecture Overview
 
-### Enterprise APM Architecture
+### Coherence Enterprise Architecture
 
 ```mermaid
 graph TB
     subgraph "Enterprise Control Plane"
-        A[APM Management Console]
+        A[Coherence Management Console]
         B[Central Configuration Store]
         C[Governance Engine]
         D[Audit & Compliance]
@@ -60,13 +60,13 @@ graph TB
 ### Deployment Models
 
 #### 1. Centralized Deployment
-- **Single APM instance** serving entire organization
+- **Single Coherence instance** serving entire organization
 - **Shared resources** and centralized management
 - **Simplified governance** but potential scalability limits
 - **Best for**: Organizations with standardized processes
 
 #### 2. Federated Deployment
-- **Multiple APM instances** per business unit/team
+- **Multiple Coherence instances** per business unit/team
 - **Centralized policies** with decentralized execution
 - **Balanced governance** and team autonomy
 - **Best for**: Large organizations with diverse needs
@@ -84,7 +84,7 @@ graph TB
 #### Infrastructure Preparation
 
 ```yaml
-# enterprise-infrastructure.yaml
+# coherence-enterprise-infrastructure.yaml
 infrastructure:
   compute:
     kubernetes_cluster:
@@ -97,7 +97,7 @@ infrastructure:
     
   storage:
     persistent_volumes:
-      - name: "apm-config"
+      - name: "coherence-config"
         size: "100Gi"
         storage_class: "fast-ssd"
       - name: "session-data"
@@ -110,7 +110,7 @@ infrastructure:
       ssl_termination: true
       health_checks: true
     ingress:
-      domain: "apm.enterprise.com"
+      domain: "coherence.enterprise.com"
       tls_cert: "enterprise-wildcard"
     
   security:
@@ -174,12 +174,12 @@ onboard_team() {
     echo "Onboarding team: ${team_name}"
     
     # Create team namespace
-    kubectl create namespace "apm-${team_name}"
+    kubectl create namespace "coherence-${team_name}"
     
     # Apply team-specific RBAC
     apply_team_rbac "${team_name}" "${team_lead}"
     
-    # Deploy team APM instance
+    # Deploy team Coherence instance
     deploy_team_apm "${team_name}" "${business_unit}"
     
     # Configure team personas
@@ -202,7 +202,7 @@ apply_team_rbac() {
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  namespace: apm-${team_name}
+  namespace: coherence-${team_name}
   name: ${team_name}-admin
 subjects:
 - kind: User
@@ -210,7 +210,7 @@ subjects:
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
-  name: apm-team-admin
+  name: coherence-team-admin
   apiGroup: rbac.authorization.k8s.io
 EOF
 }
@@ -264,7 +264,7 @@ persona_distribution:
 
 ```python
 class EnterprisePolicyManager:
-    """Centralized policy management for enterprise APM"""
+    """Centralized policy management for enterprise Coherence"""
     
     def __init__(self):
         self.policies = {}
@@ -321,19 +321,19 @@ class EnterprisePolicyManager:
 #### Audit and Compliance Framework
 
 ```yaml
-# Enterprise audit configuration
+# Coherence enterprise audit configuration
 audit:
   logging:
     level: "comprehensive"
     destinations:
       - type: "elasticsearch"
         endpoint: "https://logs.enterprise.com:9200"
-        index_pattern: "apm-audit-*"
+        index_pattern: "coherence-audit-*"
       - type: "splunk"
         endpoint: "https://splunk.enterprise.com:8088"
-        sourcetype: "apm:audit"
+        sourcetype: "coherence:audit"
       - type: "file"
-        path: "/var/log/apm/audit.log"
+        path: "/var/log/coherence/audit.log"
         rotation: "daily"
         retention_days: 2555
         
@@ -379,7 +379,7 @@ audit:
 # High availability deployment
 high_availability:
   replication:
-    apm_orchestrator:
+    coherence_orchestrator:
       replicas: 3
       anti_affinity: "strict"
       rolling_update:
@@ -458,11 +458,11 @@ identity_management:
     - type: "active_directory"
       endpoint: "ldaps://ad.enterprise.com"
       base_dn: "DC=enterprise,DC=com"
-      user_filter: "(&(objectClass=user)(memberOf=CN=APM-Users,OU=Groups,DC=enterprise,DC=com))"
+      user_filter: "(&(objectClass=user)(memberOf=CN=Coherence-Users,OU=Groups,DC=enterprise,DC=com))"
       
     - type: "okta"
       endpoint: "https://enterprise.okta.com"
-      app_id: "apm-enterprise"
+      app_id: "coherence-enterprise"
       scopes: ["openid", "profile", "groups"]
       
   authorization:
@@ -471,7 +471,7 @@ identity_management:
     fine_grained_permissions: true
     
   role_definitions:
-    - name: "apm_admin"
+    - name: "coherence_admin"
       permissions: ["*"]
       members: ["platform-team"]
       
@@ -494,7 +494,7 @@ identity_management:
 
 ```python
 class EnterpriseDataProtection:
-    """Enterprise data protection and privacy controls"""
+    """Enterprise data protection and privacy controls for Coherence"""
     
     def __init__(self):
         self.encryption_config = self._load_encryption_config()
@@ -538,7 +538,7 @@ class EnterpriseDataProtection:
 
 ```python
 class ComplianceMonitor:
-    """Continuous compliance monitoring and reporting"""
+    """Continuous compliance monitoring and reporting for Coherence"""
     
     def __init__(self):
         self.compliance_frameworks = self._load_frameworks()
@@ -614,10 +614,10 @@ monitoring:
       cluster_size: 5
       retention: "1y"
       indices:
-        - pattern: "apm-application-*"
+        - pattern: "coherence-application-*"
           shards: 3
           replicas: 1
-        - pattern: "apm-audit-*"
+        - pattern: "coherence-audit-*"
           shards: 5
           replicas: 2
           
@@ -649,7 +649,7 @@ monitoring:
 
 ```python
 class EnterpriseAnalytics:
-    """Enterprise-scale performance analytics"""
+    """Enterprise-scale performance analytics for Coherence"""
     
     def __init__(self):
         self.data_sources = self._initialize_data_sources()
@@ -687,7 +687,7 @@ class EnterpriseAnalytics:
         }
         
     def generate_roi_report(self):
-        """Generate APM return on investment report"""
+        """Generate Coherence return on investment report"""
         metrics = {
             'development_velocity': self._measure_velocity_improvement(),
             'defect_reduction': self._calculate_defect_reduction(),
@@ -723,17 +723,17 @@ stages:
 apm_validate:
   stage: validate
   script:
-    - apm-cli validate --config .apm/personas/
-    - apm-cli security-scan --personas all
-    - apm-cli compliance-check --framework SOC2
+    - coherence-cli validate --config .coherence/personas/
+    - coherence-cli security-scan --personas all
+    - coherence-cli compliance-check --framework SOC2
   rules:
     - if: '$CI_MERGE_REQUEST_ID'
     
 apm_test:
   stage: test
   script:
-    - apm-cli test --parallel --coverage
-    - apm-cli performance-test --load 50
+    - coherence-cli test --parallel --coverage
+    - coherence-cli performance-test --load 50
   artifacts:
     reports:
       junit: test-results.xml
@@ -743,19 +743,19 @@ apm_test:
 apm_deploy:
   stage: deploy
   script:
-    - apm-cli deploy --environment $CI_ENVIRONMENT_NAME
-    - apm-cli health-check --timeout 300
+    - coherence-cli deploy --environment $CI_ENVIRONMENT_NAME
+    - coherence-cli health-check --timeout 300
   environment:
     name: $CI_ENVIRONMENT_NAME
-    url: https://apm-$CI_ENVIRONMENT_NAME.enterprise.com
+    url: https://coherence-$CI_ENVIRONMENT_NAME.enterprise.com
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
     
 apm_monitor:
   stage: monitor
   script:
-    - apm-cli monitor --alerts-webhook $SLACK_WEBHOOK
-    - apm-cli compliance-monitor --continuous
+    - coherence-cli monitor --alerts-webhook $SLACK_WEBHOOK
+    - coherence-cli compliance-monitor --continuous
   when: always
 ```
 
@@ -766,7 +766,7 @@ apm_monitor:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: apm-routing
+  name: coherence-routing
 spec:
   http:
   - match:
@@ -775,7 +775,7 @@ spec:
           exact: "platform"
     route:
     - destination:
-        host: apm-platform
+        host: coherence-platform
         subset: v1
       weight: 100
   - match:
@@ -784,29 +784,29 @@ spec:
           exact: "product"
     route:
     - destination:
-        host: apm-product
+        host: coherence-product
         subset: v1
       weight: 80
     - destination:
-        host: apm-product
+        host: coherence-product
         subset: v2
       weight: 20
   - route:
     - destination:
-        host: apm-default
+        host: coherence-default
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: apm-rbac
+  name: coherence-rbac
 spec:
   selector:
     matchLabels:
-      app: apm
+      app: coherence
   rules:
   - from:
     - source:
-        principals: ["cluster.local/ns/apm/sa/apm-service"]
+        principals: ["cluster.local/ns/coherence/sa/coherence-service"]
     to:
     - operation:
         methods: ["GET", "POST"]
@@ -821,7 +821,7 @@ spec:
 
 ```python
 class DataLakeIntegration:
-    """Integration with enterprise data lake for analytics"""
+    """Integration with enterprise data lake for Coherence analytics"""
     
     def __init__(self):
         self.data_lake_client = self._initialize_data_lake()
@@ -839,20 +839,20 @@ class DataLakeIntegration:
         
         # Upload to data lake
         self.data_lake_client.upload(
-            dataset='apm_session_analytics',
+            dataset='coherence_session_analytics',
             data=transformed_data,
             partition_by='date'
         )
         
     def integrate_business_metrics(self):
-        """Integrate APM data with business metrics"""
-        apm_metrics = self._get_apm_performance_data()
+        """Integrate Coherence data with business metrics"""
+        coherence_metrics = self._get_coherence_performance_data()
         business_metrics = self.data_lake_client.query(
             "SELECT * FROM business_kpis WHERE date >= current_date - interval '30 days'"
         )
         
         correlation_analysis = self._correlate_metrics(
-            apm_metrics, 
+            coherence_metrics, 
             business_metrics
         )
         
@@ -865,7 +865,7 @@ class DataLakeIntegration:
 
 ```python
 class EnterpriseCostOptimizer:
-    """Enterprise cost optimization for APM deployments"""
+    """Enterprise cost optimization for Coherence deployments"""
     
     def __init__(self):
         self.cost_models = self._load_cost_models()
@@ -1033,7 +1033,7 @@ assess_system_status() {
     echo "Assessing system status..."
     
     # Check primary site availability
-    if ! curl -f "https://apm.enterprise.com/health" >/dev/null 2>&1; then
+    if ! curl -f "https://coherence.enterprise.com/health" >/dev/null 2>&1; then
         echo "❌ Primary site unavailable"
         PRIMARY_SITE_STATUS="down"
     else
@@ -1084,4 +1084,4 @@ esac
 
 ---
 
-**Next Steps**: Review [Integration Patterns](integration-patterns.md) for connecting APM with existing enterprise workflows and systems.
+**Next Steps**: Review [Orchestrated Intelligence Integration](integration-patterns.md) for connecting Coherence with existing enterprise workflows and systems.

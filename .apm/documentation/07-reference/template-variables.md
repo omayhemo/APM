@@ -1,6 +1,6 @@
-# APM Template Variables Reference
+# Coherence Template Variables Reference
 
-Complete reference for all template variables used in the Agentic Persona Mapping (APM) framework.
+Complete reference for all template variables used in the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -21,11 +21,11 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 
 | Variable | Description | Example Value | Usage |
 |----------|-------------|---------------|-------|
-| `/mnt/c/Code/agentic-persona-mapping/.apm` | Root directory of APM installation | `/path/to/project/.apm` | All APM file references |
+| `/mnt/c/Code/agentic-persona-mapping/.apm` | Root directory of Coherence installation | `/path/to/project/.apm` | All Coherence file references |
 | `/mnt/c/Code/agentic-persona-mapping` | Root directory of the project | `/path/to/project` | Project file references |
 | `` | Name of the current project | `my-awesome-project` | Display names, titles |
 | `{{PROJECT_VERSION}}` | Current APM version | `4.1.0` | Version displays, compatibility |
-| `{{APM_VERSION}}` | APM framework version | `4.1.0` | Framework version references |
+| `{{APM_VERSION}}` | Coherence framework version | `4.1.0` | Framework version references |
 
 ### System Architecture
 
@@ -40,11 +40,11 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 
 ## 📁 Path Variables
 
-### APM Directory Structure
+### Coherence Directory Structure
 
 | Variable | Description | Full Path Example |
 |----------|-------------|-------------------|
-| `/mnt/c/Code/agentic-persona-mapping/.apm` | APM installation root | `/path/to/project/.apm` |
+| `/mnt/c/Code/agentic-persona-mapping/.apm` | Coherence installation root | `/path/to/project/.apm` |
 | `{{APM_AGENTS_PATH}}` | Agents directory | `/mnt/c/Code/agentic-persona-mapping/.apm/agents` |
 | `{{APM_PERSONAS_PATH}}` | Personas directory | `/mnt/c/Code/agentic-persona-mapping/.apm/agents/personas` |
 | `{{APM_VOICE_PATH}}` | Voice scripts directory | `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice` |
@@ -102,7 +102,7 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 
 | Variable | Description | Persona Name | Voice Script |
 |----------|-------------|--------------|--------------|
-| `{{ORCHESTRATOR_PERSONA}}` | AP Orchestrator | `ap_orchestrator` | `speakOrchestrator.sh` |
+| `{{ORCHESTRATOR_PERSONA}}` | Coherence Orchestrator | `coherence_orchestrator` | `speakOrchestrator.sh` |
 | `{{ANALYST_PERSONA}}` | Business Analyst | `analyst` | `speakAnalyst.sh` |
 | `{{ARCHITECT_PERSONA}}` | System Architect | `architect` | `speakArchitect.sh` |
 | `{{DEVELOPER_PERSONA}}` | Developer | `developer` | `speakDeveloper.sh` |
@@ -156,7 +156,7 @@ Complete reference for all template variables used in the Agentic Persona Mappin
 
 ## ⚙️ Configuration Variables
 
-### APM Configuration
+### Coherence Configuration
 
 | Variable | Description | Example Value | Config Section |
 |----------|-------------|---------------|----------------|
@@ -307,9 +307,9 @@ These variables are generated dynamically during session execution:
 
 ### Required Variables
 
-These variables must be present for APM to function:
+These variables must be present for Coherence to function:
 
-- `/mnt/c/Code/agentic-persona-mapping/.apm` - APM installation path
+- `/mnt/c/Code/agentic-persona-mapping/.apm` - Coherence installation path
 - `/mnt/c/Code/agentic-persona-mapping` - Project directory
 - `{{APM_VERSION}}` - Framework version
 - `{{CURRENT_DATE}}` - Current date

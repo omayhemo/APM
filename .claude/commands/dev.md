@@ -18,9 +18,9 @@ I'm initializing as the Developer agent. Let me load all required context in par
 [Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load developer persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/dev.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 2: Load project architecture from /mnt/c/Code/agentic-persona-mapping/project_docs/architecture/architecture.md
+- Task 2: Load project architecture from /mnt/c/Code/agentic-persona-mapping/project_docs/planning-architecture/planning-architecture.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 3: Load current sprint stories from /mnt/c/Code/agentic-persona-mapping/project_docs/planning/stories/current-sprint.md
+- Task 3: Load current sprint stories from /mnt/c/Code/agentic-persona-mapping/project_docs/planning/planning-stories/current-sprint.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 4: Load test strategy from /mnt/c/Code/agentic-persona-mapping/project_docs/qa/test-strategy.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -79,6 +79,6 @@ The Developer agent implements high-quality, maintainable code following best pr
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

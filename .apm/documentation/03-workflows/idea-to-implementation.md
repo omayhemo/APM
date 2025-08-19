@@ -1,27 +1,27 @@
-# Idea to Implementation - Complete Journey Workflow
+# Idea to Implementation - Unified Context Engineering Journey
 
 ## Overview
 
-This comprehensive workflow guides you from initial concept through deployed, production-ready software using the full power of the APM framework. Perfect for complex projects requiring thorough planning and execution.
+This comprehensive unified context engineering workflow guides you from initial concept through deployed, production-ready software using the full power of the Coherence methodology. Perfect for complex projects requiring thorough planning and execution through orchestrated intelligence.
 
-## 🌟 The Complete Journey Map
+## 🌟 The Unified Context Engineering Journey Map
 
 ```
-💡 IDEA → 📋 ANALYSIS → 🏗️ ARCHITECTURE → 🚀 DEVELOPMENT → ✅ VALIDATION → 🌐 DEPLOYMENT → 📊 OPTIMIZATION
+💡 IDEA → 📋 UNIFIED ANALYSIS → 🏗️ COHERENT ARCHITECTURE → 🚀 ORCHESTRATED DEVELOPMENT → ✅ SEAMLESS VALIDATION → 🌐 DEPLOYMENT → 📊 COHERENT OPTIMIZATION
 ```
 
 ## Phase 1: Concept & Discovery 💡
 
 ### 1.1 Idea Capture & Initial Analysis
 ```
-User describes idea → /ap → /analyst → Concept analysis
+User describes idea → /coherence → /analyst → Unified context concept analysis
 ```
 
-**Discovery Process:**
-1. **Idea Documentation**: Capture the core concept and vision
-2. **Market Analysis**: `/analyst` to research similar solutions
-3. **Feasibility Assessment**: Technical and business viability
-4. **Stakeholder Identification**: Who cares about this solution?
+**Unified Context Engineering Discovery Process:**
+1. **Idea Documentation**: Capture the core concept and vision with unified context
+2. **Market Analysis**: `/analyst` to research similar solutions with orchestrated intelligence
+3. **Feasibility Assessment**: Technical and business viability through coherent analysis
+4. **Stakeholder Identification**: Who cares about this solution with seamless integration planning?
 
 **Key Questions to Answer:**
 - What problem does this solve?
@@ -39,7 +39,7 @@ User describes idea → /ap → /analyst → Concept analysis
 
 ### 1.2 Business Case Development
 ```
-/pm → Business planning → /po → Value proposition → /stakeholder-review
+/pm → Business planning → /po → Value proposition → /planning-stakeholder-review
 ```
 
 **Business Planning:**
@@ -58,20 +58,20 @@ User describes idea → /ap → /analyst → Concept analysis
 
 ### 2.1 Deep Requirements Analysis
 ```
-/analyst → Requirements discovery → /parallel-requirements → Comprehensive analysis
+/analyst → Unified context requirements discovery → /parallel-planning-requirements → Coherent comprehensive analysis
 ```
 
-**Requirements Engineering:**
-1. **Functional Requirements**: What the system must do
-2. **Non-Functional Requirements**: Performance, security, usability
-3. **Constraints**: Technology, budget, time limitations
-4. **Assumptions**: What we're assuming to be true
+**Unified Context Engineering Requirements:**
+1. **Functional Requirements**: What the system must do with coherent workflow integration
+2. **Non-Functional Requirements**: Performance, security, usability with orchestrated intelligence
+3. **Constraints**: Technology, budget, time limitations with seamless integration considerations
+4. **Assumptions**: What we're assuming to be true with unified context validation
 
-**Advanced Analysis:**
-- **User Journey Mapping**: End-to-end user experience
-- **Edge Case Identification**: What could go wrong?
-- **Integration Requirements**: How does this fit with existing systems?
-- **Compliance Requirements**: Legal, regulatory, industry standards
+**Advanced Unified Context Analysis:**
+- **User Journey Mapping**: End-to-end user experience with coherent workflow transitions
+- **Edge Case Identification**: What could go wrong with orchestrated intelligence prevention?
+- **Integration Requirements**: How does this fit with existing systems through seamless integration?
+- **Compliance Requirements**: Legal, regulatory, industry standards with unified context compliance
 
 **Deliverables:**
 - ✅ Comprehensive requirements document
@@ -100,7 +100,7 @@ User describes idea → /ap → /analyst → Concept analysis
 
 ### 3.1 System Architecture Design
 ```
-/architect → System design → /parallel-architecture → Comprehensive architecture
+/architect → System design → /parallel-planning-architecture → Comprehensive architecture
 ```
 
 **Architecture Layers:**
@@ -145,7 +145,7 @@ User describes idea → /ap → /analyst → Concept analysis
 
 ### 4.1 Development Environment Setup
 ```
-/dev → Environment setup → /parallel-automation-plan → CI/CD pipeline
+/dev → Environment setup → /qa-automation-plan --parallel → CI/CD pipeline
 ```
 
 **Environment Preparation:**
@@ -156,7 +156,7 @@ User describes idea → /ap → /analyst → Concept analysis
 
 ### 4.2 Parallel Development Execution
 ```
-/parallel-sprint → Multi-stream development → Real-time coordination
+/parallel-implementation-sprint → Multi-stream development → Real-time coordination
 ```
 
 **High-Performance Development Strategy:**
@@ -172,7 +172,7 @@ User describes idea → /ap → /analyst → Concept analysis
 
 ### 4.3 Iterative Development Cycles
 ```
-Sprint Planning → /parallel-stories → /parallel-test-plan → /parallel-validation
+Sprint Planning → /parallel-planning-stories → /parallel-test-plan → /parallel-planning-validation
 ```
 
 **Development Sprint Structure:**
@@ -203,7 +203,7 @@ Sprint Planning → /parallel-stories → /parallel-test-plan → /parallel-vali
 
 ### 5.2 User Validation & Feedback
 ```
-/stakeholder-review → User testing → Feedback incorporation → /parallel-course-correction
+/planning-stakeholder-review → User testing → Feedback incorporation → /parallel-course-correction
 ```
 
 **Validation Process:**
@@ -252,7 +252,7 @@ Production monitoring → /qa-anomaly → Issue detection → /parallel-course-c
 
 ### 7.2 Continuous Improvement
 ```
-/po → Feature planning → /parallel-brainstorming → Innovation pipeline
+/po → Feature planning → /parallel-planning-brainstorming → Innovation pipeline
 ```
 
 **Evolution Strategy:**
@@ -345,50 +345,50 @@ Production monitoring → /qa-anomaly → Issue detection → /parallel-course-c
 - **Documentation Quality**: Currency and completeness
 - **Stakeholder Satisfaction**: Engagement and feedback quality
 
-## 🛠️ Essential APM Commands by Phase
+## 🛠️ Essential Coherence Commands by Phase
 
 ### Phase 1 (Concept)
-- `/ap` - Project orchestration
-- `/analyst` - Market and feasibility analysis
-- `/research-prompt` - Competitive intelligence
+- `/coherence` - Unified context engineering orchestration
+- `/analyst` - Market and feasibility analysis with orchestrated intelligence
+- `/research-prompt` - Competitive intelligence through coherent analysis
 
 ### Phase 2 (Requirements)  
-- `/parallel-requirements` - Comprehensive requirements analysis
-- `/po` - Product ownership and prioritization
-- `/stakeholder-review` - Requirement validation
+- `/parallel-planning-requirements` - Comprehensive requirements analysis with unified context
+- `/po` - Product ownership and prioritization through coherent workflow
+- `/planning-stakeholder-review` - Requirement validation with seamless integration
 
 ### Phase 3 (Architecture)
-- `/parallel-architecture` - Multi-faceted architecture design
-- `/design-architect` - User experience design
-- `/architect` - System architecture
+- `/parallel-planning-architecture` - Multi-faceted architecture design with unified context engineering
+- `/design-architect` - User experience design through orchestrated intelligence
+- `/architect` - System architecture with coherent workflow integration
 
 ### Phase 4 (Development)
-- `/parallel-sprint` - High-performance development
-- `/parallel-stories` - Multi-story development
-- `/parallel-automation-plan` - CI/CD setup
+- `/parallel-implementation-sprint` - High-performance development with orchestrated intelligence
+- `/parallel-planning-stories` - Multi-story development through coherent workflow
+- `/qa-automation-plan --parallel` - CI/CD setup with seamless integration
 
 ### Phase 5 (Testing)
-- `/qa-framework` - Comprehensive testing
-- `/qa-predict` - ML-powered test optimization
-- `/parallel-validation` - End-to-end validation
+- `/qa-framework` - Comprehensive testing with unified context engineering
+- `/qa-predict` - ML-powered test optimization through orchestrated intelligence
+- `/parallel-planning-validation` - End-to-end validation with coherent workflow
 
 ### Phase 6 (Deployment)
-- `/monitor-tests` - Deployment monitoring
-- `/parallel-course-correction` - Issue resolution
-- `/security-scan` - Final security validation
+- `/monitor-tests` - Deployment monitoring with seamless integration
+- `/parallel-course-correction` - Issue resolution through orchestrated intelligence
+- `/security-scan` - Final security validation with unified context
 
 ### Phase 7 (Optimization)
-- `/qa-anomaly` - Performance monitoring
-- `/parallel-brainstorming` - Innovation planning
-- `/analyst` - Usage analysis
+- `/qa-anomaly` - Performance monitoring with coherent workflow
+- `/parallel-planning-brainstorming` - Innovation planning through orchestrated intelligence
+- `/analyst` - Usage analysis with unified context engineering
 
 ## 📚 Related Workflows
 
-- **[Typical Project Flow](typical-project-flow.md)** - For standard development projects
-- **[Parallel Development](parallel-development.md)** - For performance optimization
-- **[Session Management](session-management.md)** - For context continuity
-- **[Team Collaboration](team-collaboration.md)** - For multi-user coordination
+- **[Unified Context Engineering Workflow](typical-project-flow.md)** - For coherent development projects
+- **[Parallel Development](parallel-development.md)** - For performance optimization with orchestrated intelligence
+- **[Session Management](session-management.md)** - For unified context continuity and seamless integration
+- **[Team Collaboration](team-collaboration.md)** - For multi-user coordination through coherent workflow
 
 ---
 
-*Transform your ideas into production-ready software with this comprehensive APM-powered journey.*
+*Transform your ideas into production-ready software with this comprehensive Coherence unified context engineering journey.*

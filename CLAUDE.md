@@ -1,5 +1,8 @@
 # Coherence Claude.md Template
 
+
+# Coherence Claude.md Template
+
 <BEGIN-APM-CLAUDE-MERGE>
 
 ## 🎭 COHERENCE - AGENTIC PERSONA MAPPING

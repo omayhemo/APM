@@ -25,7 +25,7 @@ Execute these 6 tasks in parallel using the native sub-agent:
    **Prompt**: "Read the QA checklists file at /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/qa-test-strategy-checklist.md and load all QA checklists including strategy, execution, and automation"
 
 5. **Task Name**: Load_Requirements
-   **Prompt**: "Read the PRD file at /mnt/c/Code/agentic-persona-mapping/project_docs/requirements/prd.md and extract testable requirements and quality criteria"
+   **Prompt**: "Read the PRD file at /mnt/c/Code/agentic-persona-mapping/project_docs/planning-requirements/planning-prd.md and extract testable requirements and quality criteria"
 
 6. **Task Name**: Load_Mandatory_Rules
    **Prompt**: "Read ALL rule files in the rules directory at /mnt/c/Code/agentic-persona-mapping/.apm/agents/rules/ and extract mandatory requirements, enforcement policies, and compliance standards that MUST be followed"
@@ -72,6 +72,6 @@ The QA agent ensures comprehensive quality through systematic testing approaches
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

@@ -300,8 +300,8 @@ The monitoring framework integrates seamlessly with the APM QA agent:
 
 # Within QA session
 monitor tests
-test dashboard
-test metrics
+qa test dashboard
+qa test metrics
 ```
 
 ## Documentation
@@ -392,7 +392,7 @@ show_post_install_info() {
     echo -e "${BLUE}Integration with QA Agent:${NC}"
     echo -e "  ${GREEN}/qa${NC}                 - Activate QA agent"
     echo -e "  ${GREEN}monitor tests${NC}       - Start monitoring from QA agent"
-    echo -e "  ${GREEN}test dashboard${NC}      - Launch dashboard from QA agent"
+    echo -e "  ${GREEN}qa test dashboard${NC}      - Launch dashboard from QA agent"
     echo ""
     echo -e "${BLUE}Configuration:${NC}"
     echo -e "  Config file: ${YELLOW}$APM_ROOT/config/test-monitoring.yaml${NC}"

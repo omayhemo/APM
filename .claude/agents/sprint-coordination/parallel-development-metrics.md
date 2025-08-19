@@ -23,8 +23,8 @@ This template provides the comprehensive metrics system that tracks the revoluti
 ```bash
 # Sprint Velocity Acceleration
 SPRINT_VELOCITY_METRICS:
-  baseline_sequential_velocity: "{{BASELINE_VELOCITY}} points/sprint"
-  parallel_development_velocity: "{{PARALLEL_VELOCITY}} points/sprint"
+  baseline_sequential_velocity: "{{BASELINE_VELOCITY}} points/implementation-sprint"
+  parallel_development_velocity: "{{PARALLEL_VELOCITY}} points/implementation-sprint"
   acceleration_percentage: "((parallel_velocity / baseline_velocity) - 1) * 100"
   target_acceleration: "{{SPRINT_ACCELERATION_TARGET}}%"
   acceleration_achievement: "actual_acceleration / target_acceleration * 100"

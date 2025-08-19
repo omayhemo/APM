@@ -1,7 +1,7 @@
-# APM Persona Activation Commands
-## Specialized Agent Activation and Management
+# Coherence Persona Activation Commands
+## Specialized Agent Activation and Management with Unified Context Engineering
 
-Each persona represents a specialized agent with unique capabilities, behavioral patterns, and domain expertise. These commands directly activate specific personas for focused work.
+Each persona represents a specialized agent with unique capabilities, behavioral patterns, and domain expertise enhanced with unified context engineering. These commands directly activate specific personas for focused work with intelligent context preservation.
 
 ---
 
@@ -18,11 +18,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Risk assessment and mitigation planning
 
 **What it does**:
-1. Loads analyst-specific knowledge base
-2. Activates research-oriented toolsets
-3. Initializes requirements tracking
-4. Enables deep analysis workflows
-5. Sets up stakeholder communication patterns
+1. Loads analyst-specific knowledge base with unified context
+2. Activates research-oriented toolsets with context preservation
+3. Initializes requirements tracking with intelligent indexing
+4. Enables deep analysis workflows with orchestrated intelligence
+5. Sets up stakeholder communication patterns with context flow
 
 **Options**:
 - `--domain=technical|business|market` - Analysis focus area
@@ -79,11 +79,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Market positioning and strategy
 
 **What it does**:
-1. Loads product management frameworks
-2. Initializes PRD templates
-3. Sets up prioritization matrices
-4. Enables roadmap visualization
-5. Activates stakeholder communication protocols
+1. Loads product management frameworks with unified context
+2. Initializes PRD templates with intelligent context mapping
+3. Sets up prioritization matrices with orchestrated intelligence
+4. Enables roadmap visualization with context-aware planning
+5. Activates stakeholder communication protocols with context flow
 
 **Options**:
 - `--focus=strategy|execution|metrics` - PM focus area
@@ -142,11 +142,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Scalability planning
 
 **What it does**:
-1. Loads architecture patterns and frameworks
-2. Initializes design documentation tools
-3. Sets up technology evaluation criteria
-4. Enables architecture diagramming
-5. Activates technical decision records
+1. Loads architecture patterns and frameworks with unified context
+2. Initializes design documentation tools with context preservation
+3. Sets up technology evaluation criteria with orchestrated intelligence
+4. Enables architecture diagramming with context-aware design
+5. Activates technical decision records with intelligent tracking
 
 **Options**:
 - `--style=microservices|monolithic|serverless|hybrid` - Architecture style
@@ -204,11 +204,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - User journey mapping
 
 **What it does**:
-1. Loads design patterns and systems
-2. Initializes UI/UX frameworks
-3. Sets up component architecture
-4. Enables design tooling
-5. Activates user research protocols
+1. Loads design patterns and systems with unified context
+2. Initializes UI/UX frameworks with context preservation
+3. Sets up component architecture with orchestrated intelligence
+4. Enables design tooling with context-aware workflows
+5. Activates user research protocols with intelligent insights
 
 **Options**:
 - `--framework=react|vue|angular|native` - Frontend framework
@@ -266,11 +266,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Value delivery optimization
 
 **What it does**:
-1. Loads backlog management tools
-2. Initializes story templates
-3. Sets up prioritization frameworks
-4. Enables sprint planning workflows
-5. Activates value tracking metrics
+1. Loads backlog management tools with unified context
+2. Initializes story templates with context preservation
+3. Sets up prioritization frameworks with orchestrated intelligence
+4. Enables sprint planning workflows with context-aware planning
+5. Activates value tracking metrics with intelligent analysis
 
 **Options**:
 - `--sprint-length=1|2|3|4` - Sprint duration in weeks
@@ -330,11 +330,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Team coaching
 
 **What it does**:
-1. Loads agile frameworks and practices
-2. Initializes ceremony templates
-3. Sets up velocity tracking
-4. Enables impediment tracking
-5. Activates team collaboration tools
+1. Loads agile frameworks and practices with unified context
+2. Initializes ceremony templates with context preservation
+3. Sets up velocity tracking with orchestrated intelligence
+4. Enables impediment tracking with context-aware monitoring
+5. Activates team collaboration tools with intelligent coordination
 
 **Options**:
 - `--ceremony=planning|daily|review|retro` - Ceremony focus
@@ -395,11 +395,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Bug fixing
 
 **What it does**:
-1. Loads development frameworks and tools
-2. Initializes coding standards
-3. Sets up development environment
-4. Enables code generation workflows
-5. Activates testing frameworks
+1. Loads development frameworks and tools with unified context
+2. Initializes coding standards with context preservation
+3. Sets up development environment with orchestrated intelligence
+4. Enables code generation workflows with context-aware implementation
+5. Activates testing frameworks with intelligent validation
 
 **Options**:
 - `--language=javascript|python|java|go|rust` - Primary language
@@ -457,11 +457,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Quality metrics
 
 **What it does**:
-1. Loads testing frameworks and tools
-2. Initializes test templates
-3. Sets up quality metrics
-4. Enables test automation
-5. Activates bug tracking systems
+1. Loads testing frameworks and tools with unified context
+2. Initializes test templates with context preservation
+3. Sets up quality metrics with orchestrated intelligence
+4. Enables test automation with context-aware execution
+5. Activates bug tracking systems with intelligent analysis
 
 **Options**:
 - `--focus=functional|performance|security|accessibility` - Testing focus
@@ -529,11 +529,11 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 - Resource allocation
 
 **What it does**:
-1. Loads task breakdown structures
-2. Initializes dependency tracking
-3. Sets up estimation frameworks
-4. Enables progress monitoring
-5. Activates resource planning
+1. Loads task breakdown structures with unified context
+2. Initializes dependency tracking with context preservation
+3. Sets up estimation frameworks with orchestrated intelligence
+4. Enables progress monitoring with context-aware tracking
+5. Activates resource planning with intelligent optimization
 
 **Options**:
 - `--complexity=simple|moderate|complex` - Task complexity
@@ -644,5 +644,5 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 
 ---
 
-*APM Persona Activation Commands - v4.1.0*
-*Native Sub-Agent Architecture*
+*Coherence Persona Activation Commands - v4.1.0*
+*Native Sub-Agent Architecture with Unified Context Engineering*

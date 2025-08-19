@@ -1,0 +1,521 @@
+---
+name: qa-qa-automation-plan
+description: Sequential test automation planning and framework design with parallel execution option
+metadata:
+  version: 2.0.0
+  agent: QA
+  parallel_support: true
+  modes: [sequential, parallel]
+---
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for qa-qa-automation-plan...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant templates and frameworks
+- PARALLEL_MODE: Preparing parallel execution framework
+- SEQUENTIAL_MODE: Standard context loading
+- Workspace validation: Ensuring execution from /mnt/c/Code/agentic-persona-mapping
+
+*Context ready. Choose execution mode...*
+```
+
+## Command Overview
+
+This command supports both sequential and parallel execution:
+
+**Sequential Mode (Default):**
+- Focused, guided methodology with deep analysis
+- Interactive stakeholder engagement
+- Systematic validation and documentation
+- Quality-focused approach
+
+**Parallel Mode (--parallel flag):**
+- Multiple native sub-agents working simultaneously  
+- 70% performance improvement
+- Comprehensive parallel coverage
+- Speed-optimized execution
+
+## Usage
+
+```
+/qa-qa-automation-plan [--parallel]
+```
+
+**Parameters:**
+- `--parallel`: Execute with parallel sub-agents for faster completion
+- Default: Sequential execution with guided methodology
+
+## SEQUENTIAL_MODE: Sequential Process
+
+```
+/qa-qa-automation-plan
+```
+
+## Prerequisites
+
+Before running this command, ensure:
+- [ ] Context and objectives are clearly understood
+- [ ] Stakeholder requirements are identified
+- [ ] Existing documentation has been reviewed
+- [ ] Success criteria are established
+- [ ] Resources and constraints are known
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute initialization:
+
+```
+I'm launching sequential qa-automation-plan for comprehensive development and analysis.
+
+*Loading qa-automation-plan templates and methodologies...*
+[Execute initialization tasks in sequence]
+- Load qa-automation-plan templates and frameworks
+- Review context and requirements
+- Prepare systematic methodology
+- Set up validation and documentation processes
+```
+
+## Sequential Automation-plan Process
+
+### Phase 1: Foundation & Context (10-15 minutes)
+**Objective**: Establish foundation and understand requirements
+- Context analysis and requirement gathering
+- Stakeholder identification and needs assessment
+- Success criteria definition and scope establishment
+- Constraint identification and planning considerations
+
+### Phase 2: Development & Analysis (20-30 minutes) 
+**Objective**: Execute core qa-automation-plan activities
+- Systematic development following proven methodologies
+- Interactive refinement and stakeholder engagement
+- Quality validation and completeness checking
+- Iterative improvement based on feedback
+
+### Phase 3: Validation & Refinement (10-15 minutes)
+**Objective**: Ensure quality and completeness
+- Comprehensive validation against requirements
+- Stakeholder review and feedback incorporation
+- Quality assurance and standards compliance
+- Final documentation and deliverable preparation
+
+## Expected Outcomes
+
+After qa-automation-plan completion:
+- **Comprehensive deliverables** meeting all requirements
+- **Quality assurance** with validation completed
+- **Stakeholder alignment** with approval obtained
+- **Clear documentation** with rationale and decisions
+- **Implementation readiness** with next steps defined
+
+## Output Format
+
+```markdown
+# Automation-plan Results
+
+## Overview
+- **Automation-plan Type**: [Type/Category]
+- **Agent**: QA
+- **Completion Date**: [Date]
+- **Status**: [Complete/In Progress]
+
+## Context
+- **Objective**: [Primary goal]
+- **Scope**: [What's included]
+- **Stakeholders**: [Key stakeholders]
+- **Success Criteria**: [How success measured]
+
+## Deliverables
+### Primary Deliverable
+[Main output description and details]
+
+### Supporting Documentation
+- [Supporting item 1]
+- [Supporting item 2]
+- [Supporting item 3]
+
+## Validation Summary
+- **Requirements Met**: [Yes/Partial/No]
+- **Stakeholder Approval**: [Status]
+- **Quality Standards**: [Met/Needs work]
+
+## Next Steps
+1. [Immediate next action]
+2. [Follow-up activities]
+3. [Implementation planning]
+```
+
+## Integration Points
+
+- **Requirements**: Use `/planning-requirements` for detailed analysis
+- **Planning**: Use `/planning-epic` or `/planning-prd` for comprehensive planning
+- **Validation**: Use `/planning-stakeholder-review` for validation
+- **Implementation**: Use parallel versions for rapid execution
+
+## Voice Notifications
+
+```bash
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakQA.sh "Sequential qa-automation-plan beginning. Launching guided development process..."
+```
+
+## Success Metrics
+
+- **Completeness**: All aspects systematically covered
+- **Quality**: High standards met throughout process  
+- **Stakeholder Satisfaction**: Requirements accurately addressed
+- **Implementation Readiness**: Clear path forward established
+- **Validation Success**: All criteria met and approved
+
+## When to Use Sequential vs Parallel
+
+**Use `/qa-qa-automation-plan` when:**
+- Focused development with single deliverable
+- Interactive refinement and collaboration desired
+- Quality and thoroughness over speed
+- Complex requirements need careful analysis
+- Stakeholder engagement throughout process important
+
+**Use `/qa-qa-automation-plan --parallel` when:**
+- Multiple deliverables needed simultaneously
+- Time constraints require rapid execution
+- Comprehensive coverage across domains
+- Well-understood process and templates
+- Speed and efficiency prioritized
+
+---
+
+This command provides thoughtful, systematic qa-automation-plan with emphasis on quality, stakeholder collaboration, and comprehensive coverage.
+
+## PARALLEL_MODE: Parallel Process
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm initializing the Parallel Automation Plan process. Let me load all required context in parallel for optimal performance.
+
+*Executing parallel initialization tasks:*
+[Execute all 5 tasks in single function_calls block]
+- Task 1: Load automation standards from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/automation-standards.md
+- Task 2: Load current test documentation from /mnt/c/Code/agentic-persona-mapping/project_docs/testing/
+- Task 3: Load application architecture from /mnt/c/Code/agentic-persona-mapping/project_docs/planning-architecture/
+- Task 4: Load automation patterns from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/automation-patterns.md
+- Task 5: Load CI/CD requirements from /mnt/c/Code/agentic-persona-mapping/project_docs/cicd/
+```
+
+## Parallel Automation Planning Streams
+
+### Stream 1: Test Framework Architecture & Strategy (10-15 minutes)
+- **Focus**: Testing framework selection, test architecture design, strategy definition
+- **Deliverables**: Framework architecture, testing strategy, tool recommendations
+- **Dependencies**: Application architecture, technology stack, performance requirements
+- **Integration**: Tool compatibility, framework integration, reporting alignment
+
+### Stream 2: UI/E2E Automation Design (12-18 minutes)
+- **Focus**: End-to-end testing, UI automation, cross-browser testing, visual regression
+- **Deliverables**: E2E test architecture, UI automation framework, browser test strategy
+- **Dependencies**: Frontend architecture, user workflows, browser requirements
+- **Integration**: Test data management, environment coordination, reporting integration
+
+### Stream 3: API & Integration Test Automation (8-14 minutes)
+- **Focus**: API testing, service integration, contract testing, data validation
+- **Deliverables**: API test framework, integration test suite, contract validation
+- **Dependencies**: API specifications, service architecture, data formats
+- **Integration**: Test data synchronization, environment management, monitoring
+
+### Stream 4: Performance & Load Testing Automation (10-16 minutes)
+- **Focus**: Performance testing, load testing, stress testing, monitoring integration
+- **Deliverables**: Performance test framework, load test scenarios, monitoring setup
+- **Dependencies**: Performance requirements, infrastructure capacity, monitoring tools
+- **Integration**: Environment scaling, data management, reporting dashboards
+
+### Stream 5: CI/CD Integration & Pipeline Automation (9-13 minutes)
+- **Focus**: Pipeline integration, automated deployment testing, quality gates
+- **Deliverables**: CI/CD integration plan, pipeline automation, quality gate configuration
+- **Dependencies**: Deployment architecture, CI/CD tools, quality standards
+- **Integration**: Test orchestration, artifact management, notification systems
+
+## Native Implementation Architecture
+
+This command uses native sub-agent parallelism to spawn QA automation specialists:
+
+### Phase 1: Automation Context Loading (5 tasks in parallel)
+1. **Load Automation Standards**: Best practices and automation principles
+2. **Analyze Current Testing**: Existing test infrastructure and gaps
+3. **Extract Architecture Requirements**: Application structure and testing needs
+4. **Load Automation Patterns**: Proven automation frameworks and patterns
+5. **Load CI/CD Requirements**: Pipeline integration and deployment needs
+
+### Phase 2: Native Stream Agent Spawning
+6. **Spawn Framework Architecture Agent**: Test framework and strategy specialist
+7. **Spawn UI Automation Agent**: End-to-end and UI testing specialist
+8. **Spawn API Testing Agent**: API and integration testing specialist
+9. **Spawn Performance Testing Agent**: Performance and load testing specialist
+10. **Spawn CI/CD Integration Agent**: Pipeline and deployment testing specialist
+
+### Phase 3: Real-Time Coordination
+11. **Monitor Integration Points**: Track framework compatibility and data flow
+12. **Coordinate Dependencies**: Facilitate handoffs between automation streams
+13. **Synthesize Framework**: Aggregate results into unified automation architecture
+14. **Update Documentation**: Real-time updates to automation documentation and guides
+
+## Expected Outcomes
+
+- **Parallel Automation Streams**: 5 QA automation agents working simultaneously
+- **Coordinated Framework**: Seamless integration of all automation testing aspects
+- **Accelerated Planning**: 70% reduction in sequential automation design time
+- **Comprehensive Coverage**: Full automation strategy across all testing types
+- **Implementation Readiness**: Production-ready automation frameworks and tooling
+
+## Parallel Planning Benefits
+
+- **Specialized Expertise**: Focused development on each automation domain
+- **Reduced Planning Time**: Parallel design of automation frameworks
+- **Better Integration**: Proactive coordination prevents framework conflicts
+- **Quality Focus**: Comprehensive coverage of all testing aspects
+- **Scalable Architecture**: Reusable automation patterns and frameworks
+
+## Output Format
+
+```markdown
+# Automation Framework Plan - Parallel Execution Results
+
+## Framework Overview
+- Primary Framework: [Selenium/Playwright/Cypress/TestCafe]
+- Test Architecture: [Page Object Model/Component-based/Hybrid]
+- Language & Tools: [JavaScript/Python/Java + supporting tools]
+
+## Stream Results Summary
+
+### 1. Test Framework Architecture & Strategy
+- Framework Selection: [Primary testing framework]
+- Architecture Pattern: [Page Object/Component/Custom]
+- Strategy Alignment: [Complete/Partial/In-Progress]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 2. UI/E2E Automation Design
+- E2E Coverage: [N] critical user journeys
+- Browser Support: [Chrome/Firefox/Safari/Edge coverage]
+- Visual Testing: [Enabled/Planned/Not-needed]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 3. API & Integration Test Automation
+- API Coverage: [N] endpoints
+- Contract Testing: [Implemented/Planned/Not-needed]
+- Data Validation: [Complete/Partial/In-Progress]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 4. Performance & Load Testing Automation
+- Performance Framework: [JMeter/K6/Artillery/Custom]
+- Load Scenarios: [N] performance test cases
+- Monitoring Integration: [APM/Custom/Manual]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 5. CI/CD Integration & Pipeline Automation
+- Pipeline Integration: [Jenkins/GitHub Actions/GitLab CI]
+- Quality Gates: [N] automated checkpoints
+- Deployment Testing: [Blue-Green/Canary/Rolling]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+## Integration Matrix
+[Cross-stream automation dependencies and data flow]
+
+## Framework Architecture Decisions
+[Key automation architectural decisions with rationale]
+
+## Tool Recommendations
+### Primary Tools
+- **UI Automation**: [Tool] - [Rationale]
+- **API Testing**: [Tool] - [Rationale]  
+- **Performance Testing**: [Tool] - [Rationale]
+- **Test Management**: [Tool] - [Rationale]
+
+### Supporting Tools
+- **Test Data Management**: [Tool/Strategy]
+- **Environment Management**: [Tool/Strategy]
+- **Reporting & Analytics**: [Tool/Strategy]
+- **CI/CD Integration**: [Tool/Strategy]
+
+## Implementation Roadmap
+### Phase 1: Foundation (Weeks 1-2)
+- [ ] Framework setup and configuration
+- [ ] Base test architecture implementation
+- [ ] CI/CD pipeline integration
+
+### Phase 2: Core Automation (Weeks 3-4)
+- [ ] UI automation test development
+- [ ] API test suite implementation
+- [ ] Test data management setup
+
+### Phase 3: Advanced Features (Weeks 5-6)
+- [ ] Performance testing implementation
+- [ ] Visual regression testing
+- [ ] Advanced reporting and analytics
+
+### Phase 4: Optimization (Weeks 7-8)
+- [ ] Test execution optimization
+- [ ] Parallel execution setup
+- [ ] Monitoring and alerting integration
+
+## Next Steps
+- [ ] Tool procurement and setup
+- [ ] Framework implementation and configuration
+- [ ] Test development team training
+- [ ] Initial test suite development
+- [ ] CI/CD pipeline integration testing
+```
+
+## Workflow Steps
+
+1. **Context Loading**: Load all automation context in parallel (5 tasks)
+2. **Stream Analysis**: Analyze requirements for each automation domain
+3. **Agent Spawning**: Launch 5 specialized QA automation agents
+4. **Parallel Execution**: Execute all streams simultaneously with coordination
+5. **Integration Monitoring**: Track dependencies and framework compatibility
+6. **Results Synthesis**: Aggregate all stream results into unified automation plan
+7. **Documentation Update**: Update automation documentation with results
+8. **Validation**: Validate automation plan completeness and feasibility
+
+## Performance Metrics
+
+- **Baseline Planning Time**: 45-60 minutes (sequential)
+- **Parallel Planning Time**: 13-18 minutes (parallel streams)
+- **Performance Improvement**: 70% faster execution
+- **Stream Coverage**: 100% comprehensive automation coverage
+- **Integration Success**: >90% successful cross-stream framework alignment
+
+## Integration Points
+
+- **Developer Agents**: Provides application architecture and testing requirements
+- **System Architect**: Coordinates with system architecture and deployment strategies
+- **DevOps/Infrastructure**: Receives CI/CD integration and environment requirements
+- **Product Owner**: Gets testing strategy alignment with business objectives
+
+## Available Capabilities
+
+- **Framework Design**: Test automation architecture and tool selection
+- **UI Automation**: End-to-end testing and visual regression strategies
+- **API Testing**: Service integration and contract testing frameworks
+- **Performance Testing**: Load testing and performance monitoring automation
+- **CI/CD Integration**: Pipeline automation and quality gate implementation
+- **Test Data Management**: Data provisioning and environment management
+- **Reporting & Analytics**: Test execution monitoring and quality metrics
+- **Training & Documentation**: Team enablement and knowledge transfer
+
+## Success Metrics
+
+- **Streams Completed in Parallel**: Target 5 simultaneous planning streams
+- **Framework Coverage**: 100% comprehensive automation framework design
+- **Planning Velocity**: 70% improvement over sequential planning
+- **Implementation Readiness**: >95% actionable automation recommendations
+- **Integration Success Rate**: Seamless framework and tool integration
+
+## Voice Notifications
+
+```bash
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakQa.sh "Parallel automation planning launching. Initiating 5 simultaneous framework design streams for 70% automation planning acceleration..."
+```
+
+## Native Sub-Agent Activation
+
+When you run `/qa-qa-automation-plan --parallel`, I will:
+
+1. **Automation Context**: Load all automation standards and current testing state
+2. **Stream Allocation**: Launch 5 specialized QA automation agents
+3. **Natural Language Spawning**: Activate each agent with specific automation context:
+
+```markdown
+# Framework Architecture Agent Activation:
+"I need a Test Framework Architecture specialist to design automation strategy.
+ Automation Context:
+ - Application Stack: [Technology stack and architecture patterns]
+ - Testing Requirements: [Quality standards and coverage expectations]
+ - Focus Areas: Framework selection, test architecture, strategy definition
+ - Integration Points: Tool compatibility, framework integration alignment
+ - Deliverables: Framework architecture, testing strategy, tool recommendations
+ Please design comprehensive test automation framework following best practices."
+
+# UI Automation Agent Activation:
+"I need a UI/E2E Testing specialist to design end-to-end automation.
+ Automation Context:
+ - Frontend Architecture: [UI framework and component structure]
+ - User Workflows: [Critical user journeys and interaction patterns]
+ - Focus Areas: E2E testing, UI automation, cross-browser compatibility
+ - Integration Points: Test data management, environment coordination
+ - Deliverables: E2E test architecture, UI automation framework
+ Please design efficient UI automation framework with comprehensive coverage."
+```
+
+4. **Real-Time Coordination**: Monitor progress, facilitate framework integration
+5. **Results Synthesis**: Aggregate comprehensive automation framework plan
+
+## Advanced Configuration
+
+```yaml
+# parallel-qa-automation-plan-config.yaml
+parallel_automation_plan:
+  streams: 5
+  max_parallel_streams: 7
+  stream_timeout: 18  # minutes
+  
+  coordination:
+    framework_compatibility_monitoring: true
+    integration_tracking: true
+    real_time_synthesis: true
+    
+  output:
+    detailed_framework_specs: true
+    implementation_roadmaps: true
+    tool_recommendations: true
+    training_materials: true
+```
+
+## Framework Integration Examples
+
+### Playwright + API Testing
+```javascript
+// Combined UI and API testing framework
+import { test, expect, request } from '@playwright/test';
+
+test.describe('User Journey with API Validation', () => {
+  test('Complete user registration flow', async ({ page, request }) => {
+    // API: Verify user doesn't exist
+    const apiResponse = await request.get('/api/users/check');
+    
+    // UI: Complete registration
+    await page.goto('/register');
+    await page.fill('#email', 'user@example.com');
+    
+    // API: Verify user was created
+    const createdUser = await request.get('/api/users/current');
+    expect(createdUser.ok()).toBeTruthy();
+  });
+});
+```
+
+### Performance Integration
+```yaml
+# Performance testing integration
+performance_tests:
+  load_scenarios:
+    - name: "Registration Load Test"
+      virtual_users: 100
+      duration: "5m"
+      ramp_up: "30s"
+      
+  integration:
+    triggers:
+      - on_deploy: "staging"
+      - on_schedule: "nightly"
+    thresholds:
+      response_time_95th: "2000ms"
+      error_rate: "1%"
+```
+
+---
+*Part of the APM High-Performance Test Automation Infrastructure*

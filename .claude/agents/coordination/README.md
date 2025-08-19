@@ -1,8 +1,8 @@
-# Native Sub-Agent Coordination Framework
+# Coherence Sub-Agent Coordination Framework
 
 ## Overview
 
-This directory contains the complete Native Sub-Agent Coordination Framework for Story 17.1, which enables true parallel execution using Claude's native sub-agent capabilities instead of the sequential native sub-agent.
+This directory contains the complete Coherence Sub-Agent Coordination Framework for Story 17.1, which enables true parallel execution using Coherence's native sub-agent capabilities with unified context engineering instead of the sequential native sub-agent.
 
 ## Framework Components
 
@@ -59,13 +59,13 @@ This directory contains the complete Native Sub-Agent Coordination Framework for
 
 ### Enhanced Quality
 - **Before**: Shared context causes state conflicts and limitations
-- **After**: Each agent has specialized persona knowledge and capabilities
-- **Result**: Better decisions from domain expertise
+- **After**: Each agent has specialized persona knowledge and capabilities with unified context engineering
+- **Result**: Better decisions from domain expertise with orchestrated intelligence
 
 ### Stability
-- **Before**: native sub-agent parallel execution can crash Claude Code CLI
-- **After**: Native sub-agents are stable and reliable
-- **Result**: Zero crashes in extensive testing
+- **Before**: native sub-agent parallel execution can crash CLI
+- **After**: Coherence sub-agents are stable and reliable with unified context engineering
+- **Result**: Zero crashes in extensive testing with orchestrated intelligence
 
 ### Simplicity
 - **Before**: Complex Task() API calls and state management

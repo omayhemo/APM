@@ -18,7 +18,7 @@ GENERATION_TIMESTAMP="$(date '+%Y-%m-%d %H:%M:%S')"
 
 # Persona definitions with detailed characteristics
 declare -A PERSONAS=(
-    ["orchestrator"]="AP Orchestrator|Central coordination and delegation persona|authoritative|measured|professional"
+    ["orchestrator"]="Coherence Orchestrator|Central coordination and delegation persona|authoritative|measured|professional"
     ["developer"]="Developer Agent|Implementation and coding persona|focused|steady|technical"
     ["architect"]="System Architect|Design and architecture persona|thoughtful|deliberate|strategic"
     ["analyst"]="System Analyst|Analysis and research persona|analytical|methodical|detailed"

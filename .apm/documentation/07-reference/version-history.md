@@ -1,6 +1,6 @@
-# APM Version History & Migration Guide
+# Coherence Version History & Migration Guide
 
-Comprehensive version history, changelog, and migration procedures for the Agentic Persona Mapping (APM) framework.
+Comprehensive version history, changelog, and migration procedures for the Coherence - Agentic Persona Mapping framework.
 
 ## 📋 Table of Contents
 
@@ -166,7 +166,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 - **Command Integration**: Full Claude Code command system
 
 #### 👥 Personas Introduced
-- **AP Orchestrator**: Central coordination
+- **Coherence Orchestrator**: Central coordination
 - **Analyst**: Requirements and user story creation
 - **Architect**: System design and technical specifications
 - **Developer**: Code implementation and testing
@@ -214,7 +214,7 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 
 ## 🔄 Migration Guides
 
-### 🚀 Migrating from v3.5.0 to v4.1.0
+### 🚀 Migrating from v4.1.0 to v4.1.0
 
 #### Prerequisites
 - **Backup Current Installation**: Create full backup of `.apm/` directory
@@ -226,13 +226,13 @@ Comprehensive version history, changelog, and migration procedures for the Agent
 ##### 1. Backup Current Installation
 ```bash
 # Create backup of current APM installation
-cp -r /mnt/c/Code/agentic-persona-mapping/.apm /mnt/c/Code/agentic-persona-mapping/.apm.backup.v3.5.0
+cp -r /mnt/c/Code/agentic-persona-mapping/.apm /mnt/c/Code/agentic-persona-mapping/.apm.backup.v4.1.0
 
 # Backup Claude Code configuration
-cp -r /mnt/c/Code/agentic-persona-mapping/.claude /mnt/c/Code/agentic-persona-mapping/.claude.backup.v3.5.0
+cp -r /mnt/c/Code/agentic-persona-mapping/.claude /mnt/c/Code/agentic-persona-mapping/.claude.backup.v4.1.0
 ```
 
-##### 2. Update APM Framework
+##### 2. Update Coherence Framework
 ```bash
 # Download APM v4.1.0
 curl -L https://github.com/apm-framework/releases/v4.1.0/installer.tar.gz | tar -xz
@@ -284,7 +284,7 @@ echo "parallel-sprint" | claude-code
 #### Breaking Changes in v4.1.0
 
 ##### 1. Task Tool Elimination
-**Before (v3.5.0):**
+**Before (v4.1.0):**
 ```python
 # Old Task-based execution (REMOVED)
 task = Task("Execute parallel development")
@@ -299,7 +299,7 @@ await sub_agents.execute_coordinated()
 ```
 
 ##### 2. Persona Definition Format
-**Before (v3.5.0):**
+**Before (v4.1.0):**
 ```markdown
 # Developer Persona
 - Role: Full-stack developer
@@ -343,7 +343,7 @@ Expected improvements after migration:
 
 ---
 
-### 🔧 Migrating from v3.0.0 to v3.5.0
+### 🔧 Migrating from v3.0.0 to v4.1.0
 
 #### Major Changes
 - Introduction of QA Framework with AI/ML capabilities
@@ -435,9 +435,9 @@ Expected improvements after migration:
 
 ## 🔄 Compatibility Matrix
 
-### APM Framework Compatibility
+### Coherence Framework Compatibility
 
-| APM Version | Claude Code Version | Python Version | Node.js Version | OS Support |
+| Coherence Version | Claude Code Version | Python Version | Node.js Version | OS Support |
 |-------------|-------------------|----------------|-----------------|------------|
 | **4.1.0** | 2.1.0+ | 3.8+ | 16+ | Linux, macOS, Windows, WSL |
 | **3.5.0** | 2.0.0+ | 3.7+ | 14+ | Linux, macOS, Windows, WSL |
@@ -488,7 +488,7 @@ Expected improvements after migration:
 
 | Deprecation | Announcement | Warning Period | Removal |
 |-------------|-------------|----------------|---------|
-| **Task Tool System** | v3.5.0 | v3.5.0 - v4.1.0 | v4.1.0 ✅ |
+| **Task Tool System** | v4.1.0 | v4.1.0 - v4.1.0 | v4.1.0 ✅ |
 | **v2.x Compatibility** | v3.0.0 | v3.0.0 - v4.1.0 | v4.1.0 |
 | **Legacy Config Format** | v4.1.0 | v4.1.0 - v4.1.0 | v4.1.0 |
 | **Old Session Format** | v4.1.0 | v4.1.0 - v4.2.0 | v4.2.0 |
@@ -499,7 +499,7 @@ Expected improvements after migration:
 
 ### Automated Upgrade (Recommended)
 
-#### For v3.5.0 → v4.1.0
+#### For v4.1.0 → v4.1.0
 ```bash
 # Download upgrade script
 curl -L https://apm-framework.dev/upgrade/v4.1.0.sh -o upgrade-v4.sh
@@ -596,11 +596,11 @@ apm validate --version 3.5.0
 
 ### Version-Specific Rollback Procedures
 
-#### v4.1.0 → v3.5.0 Rollback
+#### v4.1.0 → v4.1.0 Rollback
 1. **Restore Task Tool Configurations**: Reinstall Task-based execution configs
 2. **Convert Sub-Agent Sessions**: Migrate active sessions back to Task format
 3. **Revert Persona Definitions**: Convert JSON definitions back to markdown
-4. **Update Claude Commands**: Restore v3.5.0 command structure
+4. **Update Claude Commands**: Restore v4.1.0 command structure
 
 #### Data Preservation During Rollback
 - **Session Notes**: Automatically preserved in archive
@@ -636,4 +636,4 @@ apm validate --version 3.5.0
 
 **Version History Document Version**: {{PROJECT_VERSION}}  
 **Last Updated**: {{CURRENT_DATE}}  
-**Migration Support**: Contact support@apm-framework.dev for assistance
+**Migration Support**: Contact support@coherence-framework.dev for assistance

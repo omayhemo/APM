@@ -1,12 +1,12 @@
-# APM Path Configuration Guide
+# Coherence Path Configuration Guide
 
-This guide covers the configuration and customization of directory structures and file paths in the Agentic Persona Mapping (APM) framework.
+This guide covers the configuration and customization of directory structures and file paths in **Coherence - Agentic Persona Mapping**, the unified context engineering framework for orchestrated intelligence.
 
 ## Path Architecture Overview
 
-APM uses a sophisticated path system to organize:
+**Coherence - Agentic Persona Mapping** uses a sophisticated path system for unified context engineering to organize:
 
-- **Framework Components**: Core APM infrastructure and personas
+- **Framework Components**: Core Coherence infrastructure and personas for orchestrated intelligence
 - **Project Integration**: Project-specific configurations and data
 - **Session Management**: Session notes, archives, and temporary files
 - **Templates and Generation**: Source templates and generated content
@@ -14,11 +14,11 @@ APM uses a sophisticated path system to organize:
 
 ## Core Path Structure
 
-### Standard APM Directory Layout
+### Standard Coherence Directory Layout
 
 ```
 /mnt/c/Code/agentic-persona-mapping/
-├── .apm/                           # APM framework root
+├── .apm/                           # Coherence framework root
 │   ├── agents/                     # Agent-related files
 │   │   ├── personas/               # Generated persona templates
 │   │   ├── voice/                  # Voice notification scripts
@@ -31,23 +31,23 @@ APM uses a sophisticated path system to organize:
 │   ├── rules/                      # Behavioral rules
 │   ├── logs/                       # System logs
 │   ├── temp/                       # Temporary files
-│   ├── settings.json               # Main APM settings
-│   └── CLAUDE.md                   # APM-specific Claude instructions
-├── installer/                      # APM installer and templates
+│   ├── settings.json               # Main Coherence settings
+│   └── CLAUDE.md                   # Coherence-specific Claude instructions
+├── installer/                      # Coherence installer and templates
 │   ├── personas/_master/           # Master persona definitions
 │   ├── templates/                  # Template source files
 │   └── scripts/                    # Installation and utility scripts
 ├── project_docs/                   # Project documentation
 └── .claude/                        # Claude Code configuration
-    ├── commands/                   # Generated APM commands
+    ├── commands/                   # Generated Coherence commands
     └── settings.json               # Claude Code settings
 ```
 
 ### Path Variables and Resolution
 
-APM uses template variables for dynamic path resolution:
+**Coherence** uses template variables for dynamic path resolution and seamless integration:
 
-- `/mnt/c/Code/agentic-persona-mapping/.apm` - Root directory of APM installation
+- `/mnt/c/Code/agentic-persona-mapping/.apm` - Root directory of Coherence installation
 - `/mnt/c/Code/agentic-persona-mapping` - Root directory of the project
 - `{{INSTALLER_ROOT}}` - Directory containing installer and templates
 - `{{PERSONA_ROOT}}` - Directory containing persona definitions
@@ -121,7 +121,7 @@ Create dedicated path configuration at `/mnt/c/Code/agentic-persona-mapping/.apm
   "core_paths": {
     "apm_root": {
       "path": "/mnt/c/Code/agentic-persona-mapping/.apm",
-      "description": "Root directory of APM framework installation",
+      "description": "Root directory of Coherence framework installation",
       "required": true,
       "auto_create": false,
       "permissions": "755"
@@ -400,12 +400,12 @@ Create `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-paths.sh`:
 
 ```bash
 #!/bin/bash
-# APM Path Validation Script
+# Coherence Path Validation Script
 
 CONFIG_FILE="/mnt/c/Code/agentic-persona-mapping/.apm/config/path-config.json"
 ERRORS=0
 
-echo "=== APM Path Validation ==="
+echo "=== Coherence Path Validation ==="
 
 # Load path configuration
 if [ ! -f "$CONFIG_FILE" ]; then
@@ -484,11 +484,11 @@ Create `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/setup-paths.sh`:
 
 ```bash
 #!/bin/bash
-# APM Path Setup Script
+# Coherence Path Setup Script
 
 CONFIG_FILE="/mnt/c/Code/agentic-persona-mapping/.apm/config/path-config.json"
 
-echo "=== APM Path Setup ==="
+echo "=== Coherence Path Setup ==="
 
 # Function to create path with proper permissions
 create_path() {
@@ -626,13 +626,13 @@ Handle path structure changes between versions:
 
 ```bash
 #!/bin/bash
-# APM Path Migration Script
+# Coherence Path Migration Script
 
 migrate_path_structure() {
     local from_version="$1"
     local to_version="$2"
     
-    echo "=== Migrating APM Path Structure ==="
+    echo "=== Migrating Coherence Path Structure ==="
     echo "From version: $from_version"
     echo "To version: $to_version"
     
@@ -651,13 +651,13 @@ migrate_path_structure() {
 }
 
 migrate_from_3_5_0() {
-    echo "Migrating from v3.5.0 to v4.1.0..."
+    echo "Migrating from v4.1.0 to v4.1.0..."
     
     # Move legacy persona files
     if [ -d "/mnt/c/Code/agentic-persona-mapping/.apm/personas/legacy" ]; then
         echo "Moving legacy personas to archive..."
-        mkdir -p "/mnt/c/Code/agentic-persona-mapping/.apm/archive/v3.5.0/personas"
-        mv "/mnt/c/Code/agentic-persona-mapping/.apm/personas/legacy"/* "/mnt/c/Code/agentic-persona-mapping/.apm/archive/v3.5.0/personas/"
+        mkdir -p "/mnt/c/Code/agentic-persona-mapping/.apm/archive/v4.1.0/personas"
+        mv "/mnt/c/Code/agentic-persona-mapping/.apm/personas/legacy"/* "/mnt/c/Code/agentic-persona-mapping/.apm/archive/v4.1.0/personas/"
     fi
     
     # Update path references in configuration files
@@ -670,7 +670,7 @@ migrate_from_3_5_0() {
         mv "/mnt/c/Code/agentic-persona-mapping/.apm/sessions" "/mnt/c/Code/agentic-persona-mapping/.apm/session_notes"
     fi
     
-    echo "Migration from v3.5.0 complete"
+    echo "Migration from v4.1.0 complete"
 }
 ```
 
@@ -678,12 +678,12 @@ migrate_from_3_5_0() {
 
 ```bash
 #!/bin/bash
-# APM Path Cleanup and Maintenance
+# Coherence Path Cleanup and Maintenance
 
 cleanup_paths() {
     local config_file="/mnt/c/Code/agentic-persona-mapping/.apm/config/path-config.json"
     
-    echo "=== APM Path Cleanup ==="
+    echo "=== Coherence Path Cleanup ==="
     
     # Cleanup temporary files
     echo "Cleaning temporary files..."
@@ -808,7 +808,7 @@ jq empty "/mnt/c/Code/agentic-persona-mapping/.apm/config/path-config.json"
 # Comprehensive path system diagnostics
 
 diagnose_path_system() {
-    echo "=== APM Path System Diagnostics ==="
+    echo "=== Coherence Path System Diagnostics ==="
     
     echo "1. Core Path Variables:"
     echo "   APM_ROOT: ${APM_ROOT:-NOT SET}"

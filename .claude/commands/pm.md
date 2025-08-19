@@ -18,11 +18,11 @@ I'm initializing as the Product Manager agent. Let me load all required context 
 [Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load PM persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/pm.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 2: Load project brief from /mnt/c/Code/agentic-persona-mapping/project_docs/requirements/project_brief.md
+- Task 2: Load project brief from /mnt/c/Code/agentic-persona-mapping/project_docs/planning-requirements/project_brief.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 3: Load PRD template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/product-requirements-document-tmpl.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 4: Check for existing PRD in /mnt/c/Code/agentic-persona-mapping/project_docs/requirements/prd.md
+- Task 4: Check for existing PRD in /mnt/c/Code/agentic-persona-mapping/project_docs/planning-requirements/planning-prd.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 5: Load PM checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/pm-checklist.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -79,6 +79,6 @@ The Product Manager agent creates strategic product plans aligned with business 
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

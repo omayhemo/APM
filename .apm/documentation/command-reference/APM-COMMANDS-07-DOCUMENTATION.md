@@ -1,11 +1,11 @@
-# APM Documentation Commands
-## Document Processing, Management, and Knowledge Organization
+# Coherence Documentation Commands
+## Document Processing, Management, and Knowledge Organization with Orchestrated Intelligence
 
-The Documentation commands provide advanced tools for document processing, knowledge management, and information organization within the APM framework.
+The Documentation commands provide advanced tools for document processing, knowledge management, and information organization within the Coherence framework with unified context engineering.
 
 ---
 
-## 📄 `/doc-sharding`
+## 📄 `/documentation-shard`
 ### Advanced Document Segmentation and Processing
 
 **Purpose**: Process large documents through intelligent sharding for efficient analysis and transformation.
@@ -24,7 +24,7 @@ The Documentation commands provide advanced tools for document processing, knowl
 - `--preserve-formatting=true|false` - Maintain original formatting
 
 **Parallel Version Available**:
-- `/parallel-doc-sharding` - Process documents 6.7x faster
+- `/parallel-documentation-shard` - Process documents 6.7x faster
 
 **Suggested Use Cases**:
 - Large document processing
@@ -36,13 +36,13 @@ The Documentation commands provide advanced tools for document processing, knowl
 **Example Usage**:
 ```bash
 # Auto-shard large document
-/doc-sharding --chunks=auto
+/documentation-shard --chunks=auto
 
 # Semantic sharding for analysis
-/doc-sharding --strategy=semantic --chunks=10
+/documentation-shard --strategy=semantic --chunks=10
 
 # Structure-based with JSON output
-/doc-sharding --strategy=structure --format=json
+/documentation-shard --strategy=structure --format=json
 ```
 
 **Output**:
@@ -60,7 +60,7 @@ The Documentation commands provide advanced tools for document processing, knowl
 
 ---
 
-## 📚 `/library-indexing`
+## 📚 `/implementation-implementation-library-indexing`
 ### Comprehensive Knowledge Base Indexing
 
 **Purpose**: Index and categorize large knowledge bases for efficient search and retrieval.
@@ -79,7 +79,7 @@ The Documentation commands provide advanced tools for document processing, knowl
 - `--update=incremental|full` - Update strategy
 
 **Parallel Version Available**:
-- `/parallel-library-indexing` - Index libraries 7.1x faster
+- `/parallel-implementation-library-indexing` - Index libraries 7.1x faster
 
 **Suggested Use Cases**:
 - Knowledge base creation
@@ -91,13 +91,13 @@ The Documentation commands provide advanced tools for document processing, knowl
 **Example Usage**:
 ```bash
 # Deep indexing with AI search
-/library-indexing --depth=deep --search=ai
+/implementation-implementation-library-indexing --depth=deep --search=ai
 
 # Incremental update with auto-categories
-/library-indexing --update=incremental --categories=auto
+/implementation-implementation-library-indexing --update=incremental --categories=auto
 
 # Standard indexing with custom categories
-/library-indexing --depth=standard --categories=custom
+/implementation-implementation-library-indexing --depth=standard --categories=custom
 ```
 
 **Output**:
@@ -167,7 +167,7 @@ The Documentation commands provide advanced tools for document processing, knowl
 
 ---
 
-## 🔍 `/doc-compliance-enhanced`
+## 🔍 `/documentation-compliance`
 ### Advanced Documentation Compliance with AI
 
 **Purpose**: Enhanced compliance checking using AI for context-aware validation and recommendations.
@@ -195,13 +195,13 @@ The Documentation commands provide advanced tools for document processing, knowl
 **Example Usage**:
 ```bash
 # Advanced AI compliance check
-/doc-compliance-enhanced --ai-model=advanced
+/documentation-compliance --ai-model=advanced
 
 # Legal context with auto-remediation
-/doc-compliance-enhanced --context=legal --remediate=auto
+/documentation-compliance --context=legal --remediate=auto
 
 # High confidence technical validation
-/doc-compliance-enhanced --context=technical --confidence=high
+/documentation-compliance --context=technical --confidence=high
 ```
 
 **Output**:
@@ -219,7 +219,7 @@ The Documentation commands provide advanced tools for document processing, knowl
 
 ---
 
-## 📁 `/organize-docs`
+## 📁 `/documentation-organize`
 ### Document Organization and Structure Management
 
 **Purpose**: Organize documentation with intelligent categorization and structure optimization.
@@ -247,13 +247,13 @@ The Documentation commands provide advanced tools for document processing, knowl
 **Example Usage**:
 ```bash
 # Hierarchical organization with cleanup
-/organize-docs --structure=hierarchical --cleanup=true
+/documentation-organize --structure=hierarchical --cleanup=true
 
 # Semantic naming with auto-navigation
-/organize-docs --naming=semantic --navigation=auto
+/documentation-organize --naming=semantic --navigation=auto
 
 # Hybrid structure for large projects
-/organize-docs --structure=hybrid
+/documentation-organize --structure=hybrid
 ```
 
 **Output**:
@@ -378,24 +378,24 @@ Documentation commands leverage AI for:
 ## 💡 Best Practices
 
 ### Document Processing
-1. Use `/doc-sharding` for documents >50 pages
+1. Use `/documentation-shard` for documents >50 pages
 2. Apply parallel processing for multiple documents
 3. Validate with `/doc-compliance` before publishing
-4. Index with `/library-indexing` for searchability
+4. Index with `/implementation-implementation-library-indexing` for searchability
 
 ### Knowledge Management
-1. Regular `/library-indexing` updates (weekly)
-2. Use `/organize-docs` for structure maintenance
-3. Apply `/doc-compliance-enhanced` for critical docs
+1. Regular `/implementation-implementation-library-indexing` updates (weekly)
+2. Use `/documentation-organize` for structure maintenance
+3. Apply `/documentation-compliance` for critical docs
 4. Generate `/research-prompt` for investigations
 
 ### Workflow Integration
 ```bash
 # Complete documentation workflow
-/doc-sharding --chunks=auto
-/organize-docs --structure=hierarchical
+/documentation-shard --chunks=auto
+/documentation-organize --structure=hierarchical
 /doc-compliance --standard=internal
-/library-indexing --depth=deep
+/implementation-implementation-library-indexing --depth=deep
 ```
 
 ### Performance Optimization
@@ -411,22 +411,22 @@ Documentation commands leverage AI for:
 ### Large Document Migration
 ```bash
 # 1. Shard large documents
-/parallel-doc-sharding --chunks=auto --strategy=semantic
+/parallel-documentation-shard --chunks=auto --strategy=semantic
 
 # 2. Process and transform
 /doc-compliance --fix=true
 
 # 3. Organize structure
-/organize-docs --structure=hierarchical
+/documentation-organize --structure=hierarchical
 
 # 4. Create searchable index
-/parallel-library-indexing --depth=deep
+/parallel-implementation-library-indexing --depth=deep
 ```
 
 ### Compliance Audit
 ```bash
 # 1. Enhanced compliance check
-/doc-compliance-enhanced --ai-model=advanced
+/documentation-compliance --ai-model=advanced
 
 # 2. Generate remediation report
 /doc-compliance --report=detailed
@@ -438,10 +438,10 @@ Documentation commands leverage AI for:
 ### Knowledge Base Creation
 ```bash
 # 1. Organize existing docs
-/organize-docs --cleanup=true
+/documentation-organize --cleanup=true
 
 # 2. Index for search
-/library-indexing --search=ai
+/implementation-implementation-library-indexing --search=ai
 
 # 3. Generate research frameworks
 /research-prompt --domain=technical
@@ -454,22 +454,22 @@ Documentation commands leverage AI for:
 ### Processing Issues
 ```bash
 # Memory issues with large documents
-/doc-sharding --chunks=20  # Increase chunks
+/documentation-shard --chunks=20  # Increase chunks
 
 # Slow indexing
-/library-indexing --depth=shallow --update=incremental
+/implementation-implementation-library-indexing --depth=shallow --update=incremental
 
 # Compliance failures
-/doc-compliance-enhanced --confidence=low --remediate=suggest
+/documentation-compliance --confidence=low --remediate=suggest
 ```
 
 ### Quality Problems
 ```bash
 # Poor categorization
-/organize-docs --structure=flat --naming=custom
+/documentation-organize --structure=flat --naming=custom
 
 # Index search issues
-/library-indexing --search=advanced --categories=custom
+/implementation-implementation-library-indexing --search=advanced --categories=custom
 
 # Compliance false positives
 /doc-compliance --severity=error  # Focus on critical only
@@ -478,14 +478,14 @@ Documentation commands leverage AI for:
 ### Performance Optimization
 ```bash
 # Use parallel processing
-/parallel-doc-sharding --chunks=auto
-/parallel-library-indexing --update=incremental
+/parallel-documentation-shard --chunks=auto
+/parallel-implementation-library-indexing --update=incremental
 
 # Optimize chunk size
-/doc-sharding --strategy=size --chunks=15
+/documentation-shard --strategy=size --chunks=15
 
 # Incremental updates
-/library-indexing --update=incremental
+/implementation-implementation-library-indexing --update=incremental
 ```
 
 ---
@@ -510,14 +510,14 @@ Documentation commands leverage AI for:
 
 ## 🔗 Related Commands
 
-- **Content Creation**: `/prd`, `/stories`, `/requirements`
-- **Quality Assurance**: `/qa`, `/validation`
+- **Content Creation**: `/planning-prd`, `/planning-stories`, `/planning-requirements`
+- **Quality Assurance**: `/qa`, `/planning-validation`
 - **Development**: `/update-all-documentation`
-- **Project Management**: `/project-brief`, `/release`
+- **Project Management**: `/planning-project-brief`, `/distribution-release`
 - **Parallel Processing**: All commands have `/parallel-*` variants
 
 ---
 
-*APM Documentation Commands - v4.1.0*
-*Advanced Document Processing and Knowledge Management*
-*Native Sub-Agent Architecture with AI Enhancement*
+*Coherence Documentation Commands - v4.1.0*
+*Advanced Document Processing and Knowledge Management with Orchestrated Intelligence*
+*Native Sub-Agent Architecture with Unified Context Engineering*

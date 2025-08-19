@@ -49,7 +49,7 @@ The test monitoring framework is automatically installed with the APM framework:
 
 ```bash
 # Standard APM installation includes test monitoring
-./installer/install.sh
+./payload/install.sh
 
 # Verify monitoring installation
 ./scripts/test-monitoring/monitor-tests.sh --help
@@ -316,7 +316,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup APM Test Monitoring
         run: |
-          ./installer/install.sh
+          ./payload/install.sh
           ./scripts/test-monitoring/monitor-tests.sh --once --report
 ```
 

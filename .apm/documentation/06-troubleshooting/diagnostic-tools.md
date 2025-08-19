@@ -1,27 +1,27 @@
-# APM Diagnostic Tools and Debugging Utilities
+# Coherence Diagnostic Tools and Debugging Utilities
 
-This guide covers the built-in diagnostic tools, debugging utilities, and advanced troubleshooting techniques for the APM Framework.
+This guide covers the built-in diagnostic tools, debugging utilities, and advanced troubleshooting techniques for the Coherence - Agentic Persona Mapping.
 
 ## 🔧 Built-in Diagnostic Suite
 
-### APM Health Check System
+### Coherence Health Check System
 
 **Primary Health Check:**
 ```bash
 # Comprehensive system health check
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh
+{{Coherence_ROOT}}/scripts/health-check.sh
 
 # Quick health assessment
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh --quick
+{{Coherence_ROOT}}/scripts/health-check.sh --quick
 
 # Detailed health report with recommendations
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh --detailed --report-file health-report.html
+{{Coherence_ROOT}}/scripts/health-check.sh --detailed --report-file health-report.html
 ```
 
 **Health Check Output Example:**
 ```
-=== APM Health Check Report ===
-✓ APM Installation: OK
+=== Coherence Health Check Report ===
+✓ Coherence Installation: OK
 ✓ Directory Structure: OK
 ✓ File Permissions: OK
 ✓ Voice System: OK
@@ -42,17 +42,17 @@ Recommendations: 3
 
 ### 1. Installation Verification Tool
 
-**Purpose:** Verify APM installation integrity and completeness.
+**Purpose:** Verify Coherence installation integrity and completeness.
 
 ```bash
 # Basic installation check
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/verify-installation.sh
+{{Coherence_ROOT}}/scripts/verify-installation.sh
 
 # Verbose installation verification
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/verify-installation.sh --verbose --check-permissions
+{{Coherence_ROOT}}/scripts/verify-installation.sh --verbose --check-permissions
 
 # Installation repair mode
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/verify-installation.sh --repair --backup
+{{Coherence_ROOT}}/scripts/verify-installation.sh --repair --backup
 ```
 
 **Verification Checks:**
@@ -65,13 +65,13 @@ Recommendations: 3
 
 **Sample Output:**
 ```bash
-=== APM Installation Verification ===
+=== Coherence Installation Verification ===
 
 Directory Structure:
-✓ /mnt/c/Code/agentic-persona-mapping/.apm/ exists and accessible
-✓ /mnt/c/Code/agentic-persona-mapping/.apm/agents/ contains all required subdirectories
-✓ /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/ writable
-✓ /mnt/c/Code/agentic-persona-mapping/.apm/config/ contains valid configurations
+✓ {{Coherence_ROOT}}/ exists and accessible
+✓ {{Coherence_ROOT}}/agents/ contains all required subdirectories
+✓ {{Coherence_ROOT}}/session_notes/ writable
+✓ {{Coherence_ROOT}}/config/ contains valid configurations
 
 File Permissions:
 ✓ Voice scripts executable (755)
@@ -96,17 +96,17 @@ Issues Found: 0 critical, 1 warning
 
 ### 2. Configuration Validator
 
-**Purpose:** Validate and troubleshoot APM configuration files.
+**Purpose:** Validate and troubleshoot Coherence configuration files.
 
 ```bash
 # Validate all configuration files
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-config.sh
+{{Coherence_ROOT}}/scripts/validate-config.sh
 
 # Validate specific configuration
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-config.sh --config apm.json
+{{Coherence_ROOT}}/scripts/validate-config.sh --config apm.json
 
 # Configuration repair and optimization
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-config.sh --repair --optimize
+{{Coherence_ROOT}}/scripts/validate-config.sh --repair --optimize
 ```
 
 **Configuration Checks:**
@@ -148,17 +148,17 @@ Recommendations: 4 optimizations available
 
 ### 3. Performance Profiler
 
-**Purpose:** Analyze APM performance characteristics and identify bottlenecks.
+**Purpose:** Analyze Coherence performance characteristics and identify bottlenecks.
 
 ```bash
 # Basic performance profiling
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/profile-apm.sh
+{{Coherence_ROOT}}/scripts/profile-apm.sh
 
 # Detailed performance analysis
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/profile-apm.sh --detailed --duration 60
+{{Coherence_ROOT}}/scripts/profile-apm.sh --detailed --duration 60
 
 # Real-time performance monitoring
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/profile-apm.sh --monitor --interval 5
+{{Coherence_ROOT}}/scripts/profile-apm.sh --monitor --interval 5
 ```
 
 **Performance Metrics:**
@@ -171,10 +171,10 @@ Recommendations: 4 optimizations available
 
 **Sample Output:**
 ```bash
-=== APM Performance Profile ===
+=== Coherence Performance Profile ===
 
 Command Execution Times (average over 10 runs):
-/ap activation: 1.2s (baseline: <2s) ✓
+/coherence activation: 1.2s (baseline: <2s) ✓
 /dev activation: 0.8s (baseline: <3s) ✓
 /handoff operation: 2.1s (baseline: <1s) ⚠
 /parallel-test: 3.4s (4.2x speedup vs sequential) ✓
@@ -204,13 +204,13 @@ Optimization Opportunities:
 
 ```bash
 # Check all agents
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/agent-health-check.sh
+{{Coherence_ROOT}}/scripts/agent-health-check.sh
 
 # Check specific agent
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/agent-health-check.sh --agent developer
+{{Coherence_ROOT}}/scripts/agent-health-check.sh --agent developer
 
 # Continuous agent monitoring
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/agent-health-check.sh --monitor --interval 30
+{{Coherence_ROOT}}/scripts/agent-health-check.sh --monitor --interval 30
 ```
 
 **Agent Health Metrics:**
@@ -229,13 +229,13 @@ Optimization Opportunities:
 
 ```bash
 # Analyze current session
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-session.sh
+{{Coherence_ROOT}}/scripts/analyze-session.sh
 
 # Session history analysis
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-session.sh --history --days 7
+{{Coherence_ROOT}}/scripts/analyze-session.sh --history --days 7
 
 # Session corruption detection
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-session.sh --check-corruption --repair
+{{Coherence_ROOT}}/scripts/analyze-session.sh --check-corruption --repair
 ```
 
 **Session Analysis Output:**
@@ -276,43 +276,43 @@ Recommendations:
 
 ```bash
 # Enable global debug mode
-export APM_DEBUG=true
-export APM_VERBOSE=true
+export Coherence_DEBUG=true
+export Coherence_VERBOSE=true
 
 # Enable specific debug categories
-export APM_DEBUG_AGENTS=true
-export APM_DEBUG_SESSION=true
-export APM_DEBUG_VOICE=true
-export APM_DEBUG_PARALLEL=true
+export Coherence_DEBUG_AGENTS=true
+export Coherence_DEBUG_SESSION=true
+export Coherence_DEBUG_VOICE=true
+export Coherence_DEBUG_PARALLEL=true
 
 # Run commands with debug output
-/ap --debug
+/coherence --debug
 /dev --verbose --debug
 ```
 
 **Debug Categories:**
-- `APM_DEBUG_AGENTS`: Agent activation and behavior
-- `APM_DEBUG_SESSION`: Session management operations
-- `APM_DEBUG_VOICE`: Voice notification system
-- `APM_DEBUG_PARALLEL`: Parallel operation coordination
-- `APM_DEBUG_CONFIG`: Configuration loading and validation
-- `APM_DEBUG_PERFORMANCE`: Performance metrics collection
+- `Coherence_DEBUG_AGENTS`: Agent activation and behavior
+- `Coherence_DEBUG_SESSION`: Session management operations
+- `Coherence_DEBUG_VOICE`: Voice notification system
+- `Coherence_DEBUG_PARALLEL`: Parallel operation coordination
+- `Coherence_DEBUG_CONFIG`: Configuration loading and validation
+- `Coherence_DEBUG_PERFORMANCE`: Performance metrics collection
 
 ---
 
 ### 7. Log Analysis Tools
 
-**Purpose:** Analyze APM logs for patterns, errors, and performance issues.
+**Purpose:** Analyze Coherence logs for patterns, errors, and performance issues.
 
 ```bash
 # Analyze all logs
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-logs.sh
+{{Coherence_ROOT}}/scripts/analyze-logs.sh
 
 # Focus on error patterns
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-logs.sh --errors --last-24h
+{{Coherence_ROOT}}/scripts/analyze-logs.sh --errors --last-24h
 
 # Performance log analysis
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-logs.sh --performance --chart
+{{Coherence_ROOT}}/scripts/analyze-logs.sh --performance --chart
 ```
 
 **Log Analysis Features:**
@@ -352,17 +352,17 @@ Recommendations:
 
 ### 8. Network Diagnostics (for Remote Operations)
 
-**Purpose:** Diagnose network-related issues in distributed APM setups.
+**Purpose:** Diagnose network-related issues in distributed Coherence setups.
 
 ```bash
 # Network connectivity check
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/network-diagnostics.sh
+{{Coherence_ROOT}}/scripts/network-diagnostics.sh
 
-# Remote APM server diagnostics
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/network-diagnostics.sh --server apm-server.example.com
+# Remote Coherence server diagnostics
+{{Coherence_ROOT}}/scripts/network-diagnostics.sh --server apm-server.example.com
 
 # Network performance testing
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/network-diagnostics.sh --performance-test
+{{Coherence_ROOT}}/scripts/network-diagnostics.sh --performance-test
 ```
 
 ---
@@ -371,17 +371,17 @@ Recommendations:
 
 ### 9. Integration Test Suite
 
-**Purpose:** Comprehensive testing of APM functionality.
+**Purpose:** Comprehensive testing of Coherence functionality.
 
 ```bash
 # Run full integration test suite
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/integration-tests.sh
+{{Coherence_ROOT}}/scripts/integration-tests.sh
 
 # Quick smoke tests
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/integration-tests.sh --smoke
+{{Coherence_ROOT}}/scripts/integration-tests.sh --smoke
 
 # Regression testing
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/integration-tests.sh --regression --baseline baseline.json
+{{Coherence_ROOT}}/scripts/integration-tests.sh --regression --baseline baseline.json
 ```
 
 **Test Categories:**
@@ -396,17 +396,17 @@ Recommendations:
 
 ### 10. Stress Testing Tools
 
-**Purpose:** Test APM behavior under load and stress conditions.
+**Purpose:** Test Coherence behavior under load and stress conditions.
 
 ```bash
 # Agent stress testing
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/stress-test.sh --agents --concurrent 10
+{{Coherence_ROOT}}/scripts/stress-test.sh --agents --concurrent 10
 
 # Session management stress test
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/stress-test.sh --sessions --duration 300
+{{Coherence_ROOT}}/scripts/stress-test.sh --sessions --duration 300
 
 # Memory stress testing
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/stress-test.sh --memory --limit 500MB
+{{Coherence_ROOT}}/scripts/stress-test.sh --memory --limit 500MB
 ```
 
 ---
@@ -415,17 +415,17 @@ Recommendations:
 
 ### 11. Health Dashboard
 
-**Purpose:** Visual dashboard for APM system health and performance.
+**Purpose:** Visual dashboard for Coherence system health and performance.
 
 ```bash
 # Generate health dashboard
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-dashboard.sh
+{{Coherence_ROOT}}/scripts/generate-dashboard.sh
 
 # Real-time dashboard (web interface)
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/dashboard-server.sh --port 8080
+{{Coherence_ROOT}}/scripts/dashboard-server.sh --port 8080
 
 # Export dashboard data
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-dashboard.sh --export dashboard-data.json
+{{Coherence_ROOT}}/scripts/generate-dashboard.sh --export dashboard-data.json
 ```
 
 **Dashboard Features:**
@@ -444,13 +444,13 @@ Recommendations:
 
 ```bash
 # Generate comprehensive diagnostic report
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-diagnostic-report.sh
+{{Coherence_ROOT}}/scripts/generate-diagnostic-report.sh
 
 # Include performance data
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-diagnostic-report.sh --include-performance
+{{Coherence_ROOT}}/scripts/generate-diagnostic-report.sh --include-performance
 
 # Anonymized report for support
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-diagnostic-report.sh --anonymize --support
+{{Coherence_ROOT}}/scripts/generate-diagnostic-report.sh --anonymize --support
 ```
 
 **Report Contents:**
@@ -470,14 +470,14 @@ Recommendations:
 **Template for Custom Diagnostic Script:**
 ```bash
 #!/bin/bash
-# Custom APM Diagnostic Script Template
+# Custom Coherence Diagnostic Script Template
 
-# Load APM environment
-source /mnt/c/Code/agentic-persona-mapping/.apm/scripts/common/apm-environment.sh
+# Load Coherence environment
+source {{Coherence_ROOT}}/scripts/common/coherencem-environment.sh
 
 # Your diagnostic logic here
 function custom_diagnostic() {
-    echo "=== Custom APM Diagnostic ==="
+    echo "=== Custom Coherence Diagnostic ==="
     
     # Check specific condition
     if [ -condition ]; then
@@ -491,13 +491,13 @@ function custom_diagnostic() {
 custom_diagnostic
 ```
 
-**Integration with APM Diagnostic Suite:**
+**Integration with Coherence Diagnostic Suite:**
 ```bash
 # Add custom diagnostic to health check
-echo "source /mnt/c/Code/agentic-persona-mapping/custom-diagnostic.sh" >> /mnt/c/Code/agentic-persona-mapping/.apm/config/custom-diagnostics.conf
+echo "source /mnt/c/Code/agentic-persona-mapping/custom-diagnostic.sh" >> {{Coherence_ROOT}}/config/custom-diagnostics.conf
 
 # Run health check with custom diagnostics
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh --include-custom
+{{Coherence_ROOT}}/scripts/health-check.sh --include-custom
 ```
 
 ---
@@ -506,21 +506,21 @@ echo "source /mnt/c/Code/agentic-persona-mapping/custom-diagnostic.sh" >> /mnt/c
 
 ### Emergency System Analysis
 
-**When APM is completely non-functional:**
+**When Coherence is completely non-functional:**
 
 ```bash
 # Emergency diagnostic script (minimal dependencies)
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/emergency-diagnostic.sh
+{{Coherence_ROOT}}/scripts/emergency-diagnostic.sh
 
-# Core system check (no APM dependencies)
+# Core system check (no Coherence dependencies)
 bash -c "
-echo '=== Emergency APM Diagnostic ==='
+echo '=== Emergency Coherence Diagnostic ==='
 echo 'Timestamp: $(date)'
 echo 'User: $(whoami)'
 echo 'System: $(uname -a)'
-echo 'APM Root: /mnt/c/Code/agentic-persona-mapping/.apm'
-echo 'Permissions: $(ls -ld /mnt/c/Code/agentic-persona-mapping/.apm)'
-echo 'Disk Space: $(df -h /mnt/c/Code/agentic-persona-mapping/.apm)'
+echo 'Coherence Root: {{Coherence_ROOT}}'
+echo 'Permissions: $(ls -ld {{Coherence_ROOT}})'
+echo 'Disk Space: $(df -h {{Coherence_ROOT}})'
 echo 'Processes: $(ps aux | grep -E \"claude|apm\" | wc -l)'
 "
 ```
@@ -531,13 +531,13 @@ echo 'Processes: $(ps aux | grep -E \"claude|apm\" | wc -l)'
 
 ```bash
 # Recover session data
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/recover-session-data.sh
+{{Coherence_ROOT}}/scripts/recover-session-data.sh
 
 # Validate recovered data
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-recovered-data.sh
+{{Coherence_ROOT}}/scripts/validate-recovered-data.sh
 
 # Rebuild session index
-/mnt/c/Code/agentic-persona-mapping/.apm/scripts/rebuild-session-index.sh
+{{Coherence_ROOT}}/scripts/rebuild-session-index.sh
 ```
 
 ---
@@ -548,19 +548,19 @@ echo 'Processes: $(ps aux | grep -E \"claude|apm\" | wc -l)'
 
 Before reporting issues, run:
 
-- [ ] `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh`
-- [ ] `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/verify-installation.sh`
-- [ ] `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/validate-config.sh`
-- [ ] `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/analyze-logs.sh --errors`
-- [ ] Check disk space: `df -h /mnt/c/Code/agentic-persona-mapping/.apm`
-- [ ] Check permissions: `ls -la /mnt/c/Code/agentic-persona-mapping/.apm`
-- [ ] Test basic functionality: `/ap --test-mode`
+- [ ] `{{Coherence_ROOT}}/scripts/health-check.sh`
+- [ ] `{{Coherence_ROOT}}/scripts/verify-installation.sh`
+- [ ] `{{Coherence_ROOT}}/scripts/validate-config.sh`
+- [ ] `{{Coherence_ROOT}}/scripts/analyze-logs.sh --errors`
+- [ ] Check disk space: `df -h {{Coherence_ROOT}}`
+- [ ] Check permissions: `ls -la {{Coherence_ROOT}}`
+- [ ] Test basic functionality: `/coherence --test-mode`
 
 ### Post-Fix Validation Checklist
 
 After applying fixes:
 
-- [ ] `/mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh --detailed`
+- [ ] `{{Coherence_ROOT}}/scripts/health-check.sh --detailed`
 - [ ] Test affected functionality
 - [ ] Monitor for 10 minutes with `--monitor` mode
 - [ ] Generate diagnostic report for baseline
@@ -575,19 +575,19 @@ After applying fixes:
 **Daily Health Check:**
 ```bash
 # Add to crontab for daily health monitoring
-0 9 * * * /mnt/c/Code/agentic-persona-mapping/.apm/scripts/health-check.sh --daily-report >> /mnt/c/Code/agentic-persona-mapping/.apm/logs/daily-health.log
+0 9 * * * {{Coherence_ROOT}}/scripts/health-check.sh --daily-report >> {{Coherence_ROOT}}/logs/daily-health.log
 ```
 
 **Weekly Performance Analysis:**
 ```bash
 # Weekly performance report
-0 9 * * 1 /mnt/c/Code/agentic-persona-mapping/.apm/scripts/profile-apm.sh --weekly-report >> /mnt/c/Code/agentic-persona-mapping/.apm/logs/weekly-performance.log
+0 9 * * 1 {{Coherence_ROOT}}/scripts/profile-apm.sh --weekly-report >> {{Coherence_ROOT}}/logs/weekly-performance.log
 ```
 
 **Monthly Comprehensive Analysis:**
 ```bash
 # Monthly comprehensive diagnostic
-0 9 1 * * /mnt/c/Code/agentic-persona-mapping/.apm/scripts/generate-diagnostic-report.sh --monthly >> /mnt/c/Code/agentic-persona-mapping/.apm/logs/monthly-diagnostic.log
+0 9 1 * * {{Coherence_ROOT}}/scripts/generate-diagnostic-report.sh --monthly >> {{Coherence_ROOT}}/logs/monthly-diagnostic.log
 ```
 
 ---
@@ -602,4 +602,4 @@ After applying fixes:
 ---
 
 *Last Updated: {{TIMESTAMP}}*
-*APM Framework v{{VERSION}}*
+*Coherence - Agentic Persona Mapping v{{VERSION}}*

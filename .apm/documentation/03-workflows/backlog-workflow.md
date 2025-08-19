@@ -134,14 +134,14 @@ The backlog workflow ensures systematic tracking of all project work, from epic 
 - Groom upcoming stories for readiness
 - Prioritize stories based on business value
 - Work with stakeholders on requirement clarification
-- Run `/groom` command weekly for comprehensive backlog analysis
+- Run `/planning-groom` command weekly for comprehensive backlog analysis
 
 **Update Pattern:**
 ```markdown
 **[YYYY-MM-DD HH:MM] - PO**: [Backlog management action]
 Action: Groomed Sprint 4 stories, updated priorities based on stakeholder feedback
 Stories Affected: USER-001, USER-003, PAY-002
-Metrics: Team velocity holding steady at 22 points/sprint
+Metrics: Team velocity holding steady at 22 points/implementation-sprint
 Health: 2 sprints of ready stories available, no critical blockers
 ```
 
@@ -218,7 +218,7 @@ Mitigation: Parallel work on other epics if payment blocked
 
 ### Pattern 1: Epic Planning & Breakdown
 ```
-/po → Epic creation → /architect → Technical analysis → /parallel-stories → Story breakdown
+/po → Epic creation → /architect → Technical analysis → /parallel-planning-stories → Story breakdown
 ```
 
 **Process:**
@@ -230,7 +230,7 @@ Mitigation: Parallel work on other epics if payment blocked
 
 ### Pattern 2: Sprint Planning & Execution
 ```
-/pm → Sprint planning → /groom → Story refinement → /parallel-sprint → Execution
+/pm → Sprint planning → /planning-groom → Story refinement → /parallel-implementation-sprint → Execution
 ```
 
 **Process:**
@@ -242,7 +242,7 @@ Mitigation: Parallel work on other epics if payment blocked
 
 ### Pattern 3: Continuous Grooming & Refinement
 ```
-Weekly: /groom → Backlog analysis → Story refinement → /prioritization → Updated priorities
+Weekly: /planning-groom → Backlog analysis → Story refinement → /prioritization → Updated priorities
 ```
 
 **Process:**
@@ -310,16 +310,16 @@ Weekly: /groom → Backlog analysis → Story refinement → /prioritization →
 - **Requirements Clarity**: 95% of next sprint stories fully defined
 ```
 
-## 🛠️ APM Commands for Backlog Management
+## 🛠️ Coherence Commands for Backlog Management
 
 ### Primary Backlog Commands
 
-#### `/groom` - Comprehensive Backlog Analysis
+#### `/planning-groom` - Comprehensive Backlog Analysis
 **Purpose**: Complete backlog health assessment and grooming
 **Frequency**: Weekly
 **Output**: Updated backlog.md with health metrics and recommendations
 
-#### `/groom-backlog-task` - Specific Story Grooming  
+#### `/planning-groom-backlog-task` - Specific Story Grooming  
 **Purpose**: Detailed analysis and refinement of specific stories
 **Use Case**: When stories need deeper analysis or clarification
 **Output**: Refined story with clear acceptance criteria
@@ -331,12 +331,12 @@ Weekly: /groom → Backlog analysis → Story refinement → /prioritization →
 
 ### Supporting Commands
 
-#### `/stakeholder-review` - Business Validation
+#### `/planning-stakeholder-review` - Business Validation
 **Purpose**: Review backlog items with business stakeholders
 **Use Case**: Epic completion, major milestone reviews
 **Output**: Stakeholder feedback and approval documentation
 
-#### `/parallel-stories` - Multi-Story Development
+#### `/parallel-planning-stories` - Multi-Story Development
 **Purpose**: Develop multiple stories simultaneously  
 **Performance**: 3-5x speedup for related stories
 **Output**: Parallel progress on multiple backlog items
@@ -407,11 +407,11 @@ Weekly: /groom → Backlog analysis → Story refinement → /prioritization →
 
 ## 📚 Related Documentation
 
-- **[Session Management](session-management.md)** - Linking work sessions to backlog items
-- **[Team Collaboration](team-collaboration.md)** - Multi-user backlog management
-- **[Parallel Development](parallel-development.md)** - Accelerating backlog completion
-- **[Typical Project Flow](typical-project-flow.md)** - Backlog role in project lifecycle
+- **[Session Management](session-management.md)** - Linking work sessions to backlog items with unified context preservation
+- **[Team Collaboration](team-collaboration.md)** - Multi-user backlog management with orchestrated intelligence
+- **[Parallel Development](parallel-development.md)** - Accelerating backlog completion through coherent workflow
+- **[Unified Context Engineering Workflow](typical-project-flow.md)** - Backlog role in project lifecycle using seamless integration
 
 ---
 
-*Maintain accurate, real-time project tracking through disciplined backlog management and continuous progress updates.*
+*Maintain accurate, real-time project tracking through disciplined unified context engineering backlog management and continuous progress updates with orchestrated intelligence.*

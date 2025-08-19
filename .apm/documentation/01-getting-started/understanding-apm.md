@@ -1,19 +1,19 @@
-# Understanding APM: Core Concepts and Philosophy
+# Understanding Coherence: Core Concepts and Unified Context Engineering Philosophy
 
-**Agentic Persona Mapping (APM)** represents a paradigm shift in software development, transforming how teams collaborate through specialized AI personas that deliver **4-8x development acceleration**.
+**Coherence - Agentic Persona Mapping** represents a paradigm shift in software development through unified context engineering, transforming how teams collaborate through specialized AI personas that deliver **4-8x development acceleration**.
 
-## 🧠 The APM Philosophy
+## 🧠 The Coherence Philosophy
 
 ### Beyond Traditional AI Assistance
 
-Traditional AI tools provide generic help. APM creates a **specialized development ecosystem** where each AI persona brings deep expertise in their domain:
+Traditional AI tools provide generic help. Coherence creates a **specialized development ecosystem** through unified context engineering where each AI persona brings deep expertise in their domain:
 
 - **🎯 Domain Expertise**: Each persona is optimized for specific roles (Development, Architecture, QA, etc.)
 - **🤝 Intelligent Collaboration**: Personas work together with seamless context sharing
 - **📈 Exponential Productivity**: Parallel execution eliminates sequential bottlenecks
 - **🎪 Continuous Learning**: System evolves with your project's patterns and preferences
 
-### The Three Pillars of APM
+### The Three Pillars of Coherence
 
 #### 1. **Native Sub-Agent Architecture** 🚀
 - **True Parallelism**: Multiple personas execute tasks concurrently
@@ -33,7 +33,7 @@ Traditional AI tools provide generic help. APM creates a **specialized developme
 - **Progress Synthesis**: Real-time aggregation of parallel work streams
 - **Historical Intelligence**: Learn from previous sessions and decisions
 
-## 🏗️ How APM Accelerates Development
+## 🏗️ How Coherence Accelerates Development through Unified Context Engineering
 
 ### Traditional Development Bottlenecks
 
@@ -44,7 +44,7 @@ Requirements → Design → Development → Testing → Deployment
 ```
 **Time**: 4-6 weeks per feature | **Efficiency**: 20-30%
 
-### APM Parallel Development
+### Coherence Parallel Development
 
 **Concurrent Problem Solving:**
 ```
@@ -57,9 +57,9 @@ Requirements → Design → Development → Testing → Deployment
 
 ### Real Performance Gains
 
-Based on APM v4.1.0 metrics:
+Based on Coherence v4.1.0 metrics through unified context engineering:
 
-| Capability | Traditional | APM Framework | Improvement |
+| Capability | Traditional | Coherence Framework | Improvement |
 |------------|-------------|---------------|-------------|
 | **Feature Development** | 5-8 days | 1-2 days | **4-6x faster** |
 | **Architecture Design** | 2-3 days | 4-6 hours | **8-12x faster** |
@@ -67,11 +67,11 @@ Based on APM v4.1.0 metrics:
 | **Code Reviews** | 1-2 days | 2-4 hours | **6-12x faster** |
 | **Documentation** | 2-4 days | Continuous | **10x+ faster** |
 
-## 🎭 The APM Persona Ecosystem
+## 🎭 The Coherence Persona Ecosystem
 
 ### Core Development Personas
 
-#### **AP Orchestrator** - The Conductor 🎼
+#### **Coherence Orchestrator** - The Conductor 🎼
 - **Role**: Project coordination and resource optimization
 - **Capabilities**: Sprint planning, persona coordination, progress synthesis
 - **Specialization**: Identifying optimal workflows and eliminating bottlenecks
@@ -128,16 +128,16 @@ User Request: "Build a user authentication system"
 → Synthesis: Complete auth system in 6 hours vs 3 days traditional
 ```
 
-## 🚀 APM v4.1.0: The Native Revolution
+## 🚀 Coherence v4.1.0: The Native Revolution
 
 ### Complete Task Tool Modernization
 
-**Previous APM** relied on external task coordination:
+**Previous Coherence** relied on external task coordination:
 - Task tool dependencies caused bottlenecks
 - Sequential execution patterns
 - 25% efficiency overhead
 
-**APM v4.1.0** uses native Claude Code sub-agents:
+**Coherence v4.1.0** uses native Claude Code sub-agents through unified context engineering:
 - Direct integration with Claude's core systems
 - True parallel execution
 - Zero external dependencies
@@ -145,21 +145,21 @@ User Request: "Build a user authentication system"
 
 ### Massive Infrastructure Cleanup
 
-The largest modernization effort in APM history:
+The largest modernization effort in Coherence history:
 - **🧹 25,599 Lines Removed**: Eliminated all deprecated templates
 - **📁 141 Files Cleaned**: Comprehensive removal of redundant components  
 - **🎯 Template Consolidation**: Unified system eliminates 3x duplication
 - **🔧 Dynamic Path Variables**: 100% removal of hardcoded references
 
-## 🎯 Success Patterns and Anti-Patterns
+## 🎯 Coherence Success Patterns and Anti-Patterns
 
-### ✅ APM Success Patterns
+### ✅ Coherence Success Patterns
 
 **1. Start with the Orchestrator**
 ```bash
-/ap  # Always begin with orchestrator activation
+/coherence  # Always begin with orchestrator activation (legacy /ap still supported)
 ```
-**Why**: Orchestrator provides optimal workflow planning and persona coordination.
+**Why**: Orchestrator provides optimal workflow planning and persona coordination through unified context engineering.
 
 **2. Leverage Parallel Commands**
 ```bash
@@ -201,11 +201,11 @@ The largest modernization effort in APM history:
 - **Problem**: Using single persona for all tasks
 - **Solution**: Leverage specialized personas for optimal results
 
-## 🌟 APM's Competitive Advantages
+## 🌟 Coherence's Competitive Advantages
 
 ### vs. Traditional AI Assistants
 
-| Aspect | Traditional AI | APM Framework |
+| Aspect | Traditional AI | Coherence Framework |
 |--------|----------------|---------------|
 | **Specialization** | Generic responses | Domain-specific expertise |
 | **Collaboration** | Single-agent interactions | Multi-persona coordination |
@@ -215,7 +215,7 @@ The largest modernization effort in APM history:
 
 ### vs. Human Development Teams
 
-**APM doesn't replace human developers** - it **amplifies human productivity**:
+**Coherence doesn't replace human developers** - it **amplifies human productivity through unified context engineering**:
 
 - **🚀 Speed**: 4-8x faster implementation cycles  
 - **🎯 Consistency**: Standardized quality and processes
@@ -223,7 +223,7 @@ The largest modernization effort in APM history:
 - **⚡ Availability**: 24/7 development capacity without fatigue
 - **🔄 Learning**: Continuous improvement from project patterns
 
-## 🛣️ Next Steps: Making APM Work for You
+## 🛣️ Next Steps: Making Coherence Work for You
 
 ### Immediate Actions
 
@@ -233,15 +233,15 @@ The largest modernization effort in APM history:
 
 ### Long-term Mastery
 
-1. **🎭 Master Each Persona**: Understand specialized capabilities
+1. **🎭 Master Each Persona**: Understand specialized capabilities through unified context engineering
 2. **⚡ Optimize Workflows**: Discover your project's ideal patterns
-3. **🔧 Customize Systems**: Extend APM for your specific needs
+3. **🔧 Customize Systems**: Extend Coherence for your specific needs
 4. **📈 Measure Impact**: Track your productivity improvements
 
 ---
 
-**🎯 Key Takeaway**: APM transforms development from a series of sequential tasks into an orchestrated symphony of specialized AI personas working in parallel to deliver exceptional results.
+**🎯 Key Takeaway**: Coherence transforms development from a series of sequential tasks into an orchestrated symphony of specialized AI personas working in parallel through unified context engineering to deliver exceptional results.
 
-**⚡ Performance Promise**: Experience 4-8x development acceleration through intelligent collaboration and native parallel execution.
+**⚡ Performance Promise**: Experience 4-8x development acceleration through unified context engineering, intelligent collaboration and native parallel execution.
 
-**🌟 Philosophy**: The best AI doesn't replace human creativity - it amplifies human potential through specialized expertise and seamless collaboration.
+**🌟 Philosophy**: The best AI doesn't replace human creativity - it amplifies human potential through specialized expertise, seamless collaboration, and unified context engineering.

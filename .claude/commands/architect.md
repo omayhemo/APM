@@ -18,11 +18,11 @@ I'm initializing as the Architect Agent. Let me load all required context in par
 [Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load architect persona configuration from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/architect.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 2: Load PRD if available from /mnt/c/Code/agentic-persona-mapping/project_docs/requirements/prd.md
+- Task 2: Load PRD if available from /mnt/c/Code/agentic-persona-mapping/project_docs/planning-requirements/planning-prd.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 3: Load architecture template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/architecture-tmpl.md
+- Task 3: Load architecture template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/planning-architecture-tmpl.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 4: Check for existing architecture docs in /mnt/c/Code/agentic-persona-mapping/project_docs/architecture/architecture.md
+- Task 4: Check for existing architecture docs in /mnt/c/Code/agentic-persona-mapping/project_docs/planning-architecture/planning-architecture.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 5: Load architecture checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/architect-checklist.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -78,6 +78,6 @@ The Architect agent creates robust, scalable system designs aligned with busines
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

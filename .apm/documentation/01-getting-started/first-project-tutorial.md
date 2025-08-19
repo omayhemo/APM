@@ -1,6 +1,6 @@
 # First Project Tutorial: Build a Task Management App
 
-Experience APM's power by building a complete task management application from concept to deployment. This tutorial demonstrates **4-8x development acceleration** through intelligent persona collaboration.
+Experience Coherence's power by building a complete task management application from concept to deployment. This tutorial demonstrates **4-8x development acceleration** through unified context engineering and intelligent persona collaboration.
 
 ## 🎯 Tutorial Overview
 
@@ -8,7 +8,7 @@ Experience APM's power by building a complete task management application from c
 A full-featured task management application with user authentication, real-time updates, and mobile-responsive design.
 
 **What You'll Learn:**
-- APM orchestrator coordination
+- Coherence orchestrator coordination
 - Parallel persona execution
 - Context-aware handoffs
 - Continuous session management
@@ -16,32 +16,32 @@ A full-featured task management application with user authentication, real-time 
 
 **Time Investment:**
 - **Traditional Development**: 2-3 weeks
-- **With APM Framework**: 4-6 hours
+- **With Coherence - Agentic Persona Mapping**: 4-6 hours
 
 ## 📋 Prerequisites
 
 Before starting, ensure:
-- ✅ APM framework installed and verified
+- ✅ Coherence framework installed and verified
 - ✅ Node.js 18+ or Python 3.9+ environment
 - ✅ Git repository initialized
 - ✅ Database system available (PostgreSQL/MongoDB)
 
 ## 🚀 Phase 1: Project Initialization (15 minutes)
 
-### Step 1: Launch the AP Orchestrator
+### Step 1: Launch the Coherence Orchestrator
 
 ```bash
-/ap
+/coherence
 ```
 
 **Expected Response:**
 ```
-🎼 AP Orchestrator: Initializing project coordination system...
+🎼 Coherence Orchestrator: Initializing unified context engineering system...
 
 Session established: 2024-01-15-14-30-00-TaskApp-Tutorial.md
 Available personas loaded: Developer, Architect, QA, PM, PO, SM
 
-Ready for project orchestration. How can I coordinate your development effort?
+Ready for coherent workflow orchestration. How can I coordinate your development effort through unified context engineering?
 ```
 
 ### Step 2: Define Project Requirements
@@ -210,7 +210,7 @@ REAL-TIME EVENTS:
 
 ### Step 6: Development Progress Monitoring
 
-**APM provides real-time synthesis:**
+**Coherence provides real-time synthesis:**
 
 ```
 🎼 Development Synthesis Update [45 minutes elapsed]:
@@ -311,7 +311,7 @@ PERFORMANCE METRICS:
 
 **Session Summary:**
 ```
-🎼 AP Orchestrator: Project completion summary...
+🎼 Coherence Orchestrator: Project completion summary...
 
 PROJECT DELIVERED: Task Management Application
 
@@ -339,11 +339,11 @@ ARCHITECTURE ACHIEVEMENTS:
 - Security best practices
 ```
 
-## 📊 Tutorial Results: APM vs Traditional Development
+## 📊 Tutorial Results: Coherence vs Traditional Development
 
 ### Time Comparison
 
-| Phase | Traditional | APM Framework | Improvement |
+| Phase | Traditional | Coherence Framework | Improvement |
 |-------|-------------|---------------|-------------|
 | **Planning & Design** | 2-3 days | 20 minutes | **21x faster** |
 | **Backend Development** | 5-7 days | 90 minutes | **56x faster** |
@@ -356,7 +356,7 @@ ARCHITECTURE ACHIEVEMENTS:
 
 ### Quality Metrics
 
-| Aspect | Traditional | APM Result |
+| Aspect | Traditional | Coherence Result |
 |--------|-------------|-------------|
 | **Test Coverage** | 60-70% | 85% |
 | **Code Quality** | Variable | Production-ready |
@@ -366,10 +366,10 @@ ARCHITECTURE ACHIEVEMENTS:
 
 ## 🎓 Key Learning Outcomes
 
-After completing this tutorial, you've mastered:
+After completing this tutorial, you've mastered unified context engineering through:
 
-### ✅ APM Orchestration
-- Starting projects with `/ap` orchestrator
+### ✅ Coherence Orchestration
+- Starting projects with `/coherence` orchestrator (legacy `/ap` still supported)
 - Coordinating multiple specialized personas
 - Real-time progress monitoring and synthesis
 
@@ -388,13 +388,13 @@ After completing this tutorial, you've mastered:
 - Automated testing and CI/CD
 - Production-ready deployment strategies
 
-## 🚀 Next Steps: Advanced APM Mastery
+## 🚀 Next Steps: Advanced Coherence Mastery
 
 ### Immediate Extensions
 
 **1. Add Advanced Features**
 ```bash
-/ap
+/coherence
 "Add advanced features: task dependencies, time tracking, and team workspaces"
 ```
 
@@ -422,7 +422,7 @@ After completing this tutorial, you've mastered:
 - `/parallel-regression-suite` - Automated regression testing
 - `/parallel-requirements` - Stakeholder requirement analysis
 
-**3. Advanced APM Patterns**
+**3. Advanced Coherence Patterns**
 - Custom persona development
 - Workflow optimization for your domain
 - Integration with enterprise tools
@@ -430,19 +430,19 @@ After completing this tutorial, you've mastered:
 ## 📚 Additional Resources
 
 ### Command References
-- [APM Command Documentation](../command-reference/)
+- [Coherence Command Documentation](../command-reference/)
 - [Persona-Specific Guides](../02-personas/)
 - [Advanced Features Guide](../03-advanced-features/)
 
 ### Community and Support
 - [Getting Help](./getting-help.md) - Support resources and troubleshooting
-- APM Community Discord: [{{COMMUNITY_DISCORD_URL}}]
+- Coherence Community Discord: [{{COMMUNITY_DISCORD_URL}}]
 - GitHub Issues: [{{GITHUB_ISSUES_URL}}]
 
 ---
 
-**🎯 Congratulations!** You've successfully built a complete application using APM framework, experiencing **8.5x development acceleration** through intelligent AI collaboration.
+**🎯 Congratulations!** You've successfully built a complete application using Coherence framework, experiencing **8.5x development acceleration** through unified context engineering and intelligent AI collaboration.
 
 **⚡ Performance Achievement**: Delivered a production-ready application in 4.25 hours instead of 15-20 days.
 
-**🌟 Next Challenge**: Apply APM to your real projects and experience consistent 4-8x productivity improvements in your daily development workflow.
+**🌟 Next Challenge**: Apply Coherence to your real projects and experience consistent 4-8x productivity improvements through unified context engineering in your daily development workflow.

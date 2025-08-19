@@ -1,12 +1,12 @@
-# Parallel Execution Patterns for AP Mapping Agents
+# Parallel Execution Patterns for Coherence Agents
 # Version: {{PARALLEL_VERSION}}
-# Generated from: APM Framework Migration
+# Generated from: Unified Context Engineering Framework Migration
 
 ## 🚀 CRITICAL PARALLEL EXECUTION PRINCIPLES
 
 **FUNDAMENTAL RULE**: ALL native sub-agent invocations MUST be in a SINGLE response to execute in parallel.
 
-This is the foundation of all parallel execution in the AP Mapping system. Claude Code's native sub-agent executes in parallel ONLY when multiple Task invocations are in the same function_calls block.
+This is the foundation of all parallel execution in the Coherence system. Coherence's native sub-agent executes in parallel ONLY when multiple Task invocations are in the same function_calls block with unified context engineering.
 
 ## 🔧 Core Parallel Patterns
 
@@ -361,4 +361,4 @@ When transferring between agents with parallel handoff:
 
 **Remember**: The key to parallel execution is keeping all Task invocations in a single response with appropriate synthesis patterns for result aggregation.
 
-**Critical Success Factor**: Always use the correct synthesis pattern for your use case - risk_matrix for risk assessment, weighted_consensus for expert opinions, priority_ranker for prioritization, and multi_source_validator for verification.
+**Critical Success Factor**: Always use the correct synthesis pattern for your use case - risk_matrix for risk assessment, weighted_consensus for expert opinions, priority_ranker for prioritization, and multi_source_validator for verification with orchestrated intelligence.

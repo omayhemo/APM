@@ -1,23 +1,23 @@
-# Session Management - Context Continuity & Knowledge Preservation
+# Session Management - Unified Context Preservation & Seamless Integration
 
 ## Overview
 
-Effective session management is crucial for maintaining context, preserving work progress, and ensuring seamless collaboration across personas and time. This workflow ensures no information is lost and every session builds upon previous work.
+Effective session management is crucial for maintaining unified context, preserving work progress, and ensuring seamless integration across personas and time through coherent workflow. This workflow ensures no information is lost and every session builds upon previous work using orchestrated intelligence.
 
 ## 🧠 Session Management Philosophy
 
 ### Core Principles
-1. **Continuous Documentation**: Every significant action is documented in real-time
-2. **Context Preservation**: Work context is maintained across sessions and persona transitions
-3. **Knowledge Transfer**: Information flows seamlessly between personas and team members
-4. **Progress Tracking**: All work progress is visible and trackable
-5. **Recovery Capability**: Ability to resume work from any point without information loss
+1. **Continuous Documentation**: Every significant action is documented in real-time with unified context engineering
+2. **Context Preservation**: Work context is maintained across sessions and persona transitions through coherent workflow
+3. **Knowledge Transfer**: Information flows seamlessly between personas and team members with orchestrated intelligence
+4. **Progress Tracking**: All work progress is visible and trackable using unified context preservation
+5. **Recovery Capability**: Ability to resume work from any point without information loss through seamless integration
 
 ### Session Types
-- **Work Sessions**: Active development, analysis, or planning work
-- **Handoff Sessions**: Transitions between personas or team members
-- **Review Sessions**: Progress review, stakeholder updates, quality assurance
-- **Planning Sessions**: Sprint planning, architecture design, strategy sessions
+- **Work Sessions**: Active development, analysis, or planning work with unified context engineering
+- **Handoff Sessions**: Coherent transitions between personas or team members with seamless integration
+- **Review Sessions**: Progress review, stakeholder updates, quality assurance using orchestrated intelligence
+- **Planning Sessions**: Sprint planning, architecture design, strategy sessions with coherent workflow
 
 ## 📋 Session Note Structure & Standards
 
@@ -106,7 +106,7 @@ Session Type: [Work/Handoff/Review/Planning]
 3. **Objective Setting**: Define clear objectives for the session
 4. **Previous Work Review**: Understand what was accomplished previously
 
-**APM Session Initialization Pattern:**
+**Coherence Session Initialization Pattern:**
 ```bash
 # 1. Check for existing session context
 LS /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/
@@ -316,24 +316,24 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speak[Persona].sh "St
 
 ## 🛠️ Tools & Automation
 
-### APM Session Management Tools
+### Coherence Session Management Tools
 - **Session Note Templates**: Standardized templates for different session types
 - **Context Search**: Tools to find relevant previous sessions
 - **Progress Tracking**: Integration with backlog.md and project tracking
 - **Handoff Automation**: Automated handoff documentation generation
 
-### Integration with APM Commands
-- **Automatic Documentation**: APM commands automatically update session notes
+### Integration with Coherence Commands
+- **Automatic Documentation**: Coherence commands automatically update session notes with unified context engineering
 - **Context Awareness**: Commands check previous session context
 - **Progress Tracking**: Commands update project progress automatically
 - **Voice Notifications**: Audio feedback for session management actions
 
 ## 📚 Related Workflows
 
-- **[Handoff Patterns](handoff-patterns.md)** - Specific patterns for persona transitions
-- **[Team Collaboration](team-collaboration.md)** - Multi-user session management
-- **[Backlog Workflow](backlog-workflow.md)** - Integration with project tracking
-- **[Parallel Development](parallel-development.md)** - Managing multiple concurrent sessions
+- **[Handoff Patterns](handoff-patterns.md)** - Specific patterns for coherent persona transitions with seamless integration
+- **[Team Collaboration](team-collaboration.md)** - Multi-user session management with orchestrated intelligence
+- **[Backlog Workflow](backlog-workflow.md)** - Integration with project tracking using unified context engineering
+- **[Parallel Development](parallel-development.md)** - Managing multiple concurrent sessions through coherent workflow
 
 ## 📖 Session Management Checklist
 
@@ -362,4 +362,4 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speak[Persona].sh "St
 
 ---
 
-*Master session management to ensure no context is lost and every session builds upon previous achievements.*
+*Master unified context preservation session management to ensure seamless integration and every session builds upon previous achievements through coherent workflow.*

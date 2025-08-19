@@ -117,7 +117,7 @@ The command provides color-coded status indicators:
 ## Related Commands
 
 - `monitor tests` - Full real-time monitoring
-- `test dashboard` - Web-based detailed view
-- `test metrics` - Comprehensive data collection
+- `qa test dashboard` - Web-based detailed view
+- `qa test metrics` - Comprehensive data collection
 
 Execute this command by typing `show test status` in your Claude Code session for an instant test environment health check.

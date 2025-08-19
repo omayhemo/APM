@@ -74,23 +74,23 @@ The Product Manager follows strategic product development principles:
 /pm "Develop feature specifications for payment system"
 ```
 
-#### `/parallel-prd` ⚡
+#### `/parallel-planning-prd` ⚡
 **Purpose**: Multi-stream PRD creation with native sub-agents  
 **Performance**: 3.2x faster than sequential PRD development  
 **Best For**: Comprehensive PRDs, complex products, time-sensitive documentation
 
 ```bash
 # Parallel PRD creation
-/parallel-prd "E-commerce platform with user management, product catalog, and payment processing"
+/parallel-planning-prd "E-commerce platform with user management, product catalog, and payment processing"
 
 # Complex product scenarios
-/parallel-prd "SaaS dashboard with analytics, reporting, user management, and billing"
-/parallel-prd "Mobile app with social features, content creation, and monetization"
+/parallel-planning-prd "SaaS dashboard with analytics, reporting, user management, and billing"
+/parallel-planning-prd "Mobile app with social features, content creation, and monetization"
 ```
 
 ### Specialized PM Commands
 
-#### `/prd`
+#### `/planning-prd`
 **Purpose**: Focused PRD creation for specific features or products  
 **Best For**: Single feature PRDs, product updates, focused specifications
 
@@ -98,7 +98,7 @@ The Product Manager follows strategic product development principles:
 **Purpose**: Feature prioritization and roadmap planning  
 **Best For**: Backlog prioritization, roadmap development, resource allocation
 
-#### `/project-brief`
+#### `/planning-project-brief`
 **Purpose**: High-level project overview and scope definition  
 **Best For**: Project initialization, stakeholder alignment, scope setting
 
@@ -167,7 +167,7 @@ The Product Manager follows strategic product development principles:
    └─ /pm "Define product vision and strategy"
    
 3. Comprehensive PRD
-   └─ /parallel-prd "Create complete PRD with all sections"
+   └─ /parallel-planning-prd "Create complete PRD with all sections"
    
 4. Stakeholder Review
    └─ /pm "Review PRD with stakeholders and incorporate feedback"
@@ -188,7 +188,7 @@ The Product Manager follows strategic product development principles:
    └─ /pm "Define enhancement strategy and goals"
    
 3. Feature Specification
-   └─ /prd "Create detailed feature enhancement PRD"
+   └─ /planning-prd "Create detailed feature enhancement PRD"
    
 4. Prioritization
    └─ /prioritization "Prioritize enhancements against other features"
@@ -224,10 +224,10 @@ Leverage parallel execution for complete product documentation:
 
 ```bash
 # Full product specification
-/parallel-prd "Complete product specification including user flows, technical requirements, success metrics, competitive analysis, and go-to-market strategy"
+/parallel-planning-prd "Complete product specification including user flows, technical requirements, success metrics, competitive analysis, and go-to-market strategy"
 
 # Multi-platform product
-/parallel-prd "Cross-platform product with web app, mobile app, API, and admin dashboard components"
+/parallel-planning-prd "Cross-platform product with web app, mobile app, API, and admin dashboard components"
 ```
 
 ### Strategic Analysis
@@ -246,7 +246,7 @@ Focus on measurable outcomes:
 
 ```bash
 # Metrics-driven PRD
-/parallel-prd "Create PRD with emphasis on success metrics, user engagement KPIs, and business impact measurement"
+/parallel-planning-prd "Create PRD with emphasis on success metrics, user engagement KPIs, and business impact measurement"
 
 # A/B testing strategy
 /pm "Develop A/B testing strategy for new feature rollout with hypothesis, success criteria, and measurement plan"
@@ -526,7 +526,7 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 **Solution**: Use detailed specification approaches
 ```bash
 # Focus on specific, measurable requirements
-/parallel-prd "Create PRD with detailed acceptance criteria and measurable success metrics"
+/parallel-planning-prd "Create PRD with detailed acceptance criteria and measurable success metrics"
 
 # Include user story mapping
 /pm "Develop detailed user stories with acceptance criteria for each feature"
@@ -536,7 +536,7 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 **Solution**: Include comprehensive stakeholder analysis
 ```bash
 # Stakeholder-focused PRD
-/parallel-prd "PRD with stakeholder analysis, communication plan, and approval process"
+/parallel-planning-prd "PRD with stakeholder analysis, communication plan, and approval process"
 
 # Follow-up validation
 /pm "Create stakeholder validation plan with feedback integration process"
@@ -557,15 +557,15 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 #### For Complex Products
 ```bash
 # Break into focused streams
-/parallel-prd "Core product features and user flows"
-/parallel-prd "Integration requirements and technical specifications"
-/parallel-prd "Success metrics and analytics requirements"
+/parallel-planning-prd "Core product features and user flows"
+/parallel-planning-prd "Integration requirements and technical specifications"
+/parallel-planning-prd "Success metrics and analytics requirements"
 ```
 
 #### For Stakeholder Alignment
 ```bash
 # Multi-perspective PRD
-/parallel-prd "PRD addressing engineering, design, business, and support stakeholder needs"
+/parallel-planning-prd "PRD addressing engineering, design, business, and support stakeholder needs"
 
 # Communication planning
 /pm "Develop stakeholder communication plan with PRD review process"
@@ -612,7 +612,7 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 - **[Analyst Guide](analyst-guide.md)** - Research and requirements partner
 - **[Product Owner Guide](po-guide.md)** - Backlog creation destination
 - **[System Architect Guide](architect-guide.md)** - Technical design partner
-- **[PRD Templates](../templates/prd/)** - Standardized PRD formats
+- **[PRD Templates](../templates/planning-prd/)** - Standardized PRD formats
 - **[Strategy Frameworks](../frameworks/strategy.md)** - Strategic planning tools
 
 ---
@@ -621,12 +621,12 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 
 ### Strategic Product Planning
 ```bash
-/parallel-prd "Long-term product strategy with 12-month roadmap, competitive positioning, and success metrics"
+/parallel-planning-prd "Long-term product strategy with 12-month roadmap, competitive positioning, and success metrics"
 ```
 
 ### Multi-Platform Products
 ```bash
-/parallel-prd "Cross-platform product specification with web, mobile, and API components"
+/parallel-planning-prd "Cross-platform product specification with web, mobile, and API components"
 ```
 
 ### Data-Driven Requirements
@@ -636,7 +636,7 @@ bash $SPEAK_PM "Feature prioritization completed - roadmap updated"
 
 ### Stakeholder-Aligned Specifications
 ```bash
-/parallel-prd "Comprehensive PRD addressing technical, business, design, and support stakeholder requirements"
+/parallel-planning-prd "Comprehensive PRD addressing technical, business, design, and support stakeholder requirements"
 ```
 
 ---

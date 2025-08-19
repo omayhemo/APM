@@ -1,54 +1,60 @@
 ---
-name: course-correction
-description: Sequential course correction analysis and planning
+name: planning-course-correction
+description: Sequential course correction analysis and planning with parallel execution option
 metadata:
-  version: 1.0.0
+  version: 2.0.0
   agent: Scrum Master
-  performance: sequential
-  approach: guided
+  parallel_support: true
+  modes: [sequential, parallel]
 ---
 
 ## 🎭 PERSONA CONTEXT ACTIVATION
 
-**This command requires the Scrum persona.**
+**This command requires the Scrum Master persona.**
 
 ```markdown
-*Loading Scrum context for optimal command execution...*
+*Loading Scrum Master context for course-correction...*
 
 Quick Context Load (1-2 seconds):
-- Loading Scrum configuration and expertise
-- Loading relevant templates and frameworks  
-- Voice notification: bash $/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Scrum context loaded for command execution"
+- Loading Scrum Master configuration and expertise
+- Loading relevant templates and frameworks
+- PARALLEL_MODE: Preparing parallel execution framework
+- SEQUENTIAL_MODE: Standard context loading
 - Workspace validation: Ensuring execution from /mnt/c/Code/agentic-persona-mapping
 
-*Scrum context ready. Proceeding with command...*
+*Context ready. Choose execution mode...*
 ```
 
+## Command Overview
 
-# Sequential Course-correction Command
+This command supports both sequential and parallel execution:
 
-**Scrum Master Agent Only**: Executes structured course-correction through guided sequential methodology.
+**Sequential Mode (Default):**
+- Focused, guided methodology with deep analysis
+- Interactive stakeholder engagement
+- Systematic validation and documentation
+- Quality-focused approach
 
-## Metadata
-- **Name**: course-correction
-- **Description**: Sequential course correction analysis and planning
-- **Agent**: Scrum Master
-- **Performance**: Sequential (focused approach vs parallel streams)
-- **Approach**: Interactive guidance and systematic methodology
-
-## Overview
-
-The `/course-correction` command enables the Scrum Master to execute course-correction through:
-- Sequential development with focused attention on each aspect
-- Interactive guidance through course-correction components  
-- Systematic methodology ensuring comprehensive coverage
-- Thorough validation and refinement process
-- Clear documentation with detailed rationale
+**Parallel Mode (--parallel flag):**
+- Multiple native sub-agents working simultaneously  
+- 65% performance improvement
+- Comprehensive parallel coverage
+- Speed-optimized execution
 
 ## Usage
 
 ```
-/course-correction
+/planning-course-correction [--parallel]
+```
+
+**Parameters:**
+- `--parallel`: Execute with parallel sub-agents for faster completion
+- Default: Sequential execution with guided methodology
+
+## SEQUENTIAL_MODE: Sequential Process
+
+```
+/planning-course-correction
 ```
 
 ## Prerequisites
@@ -146,9 +152,9 @@ After course-correction completion:
 
 ## Integration Points
 
-- **Requirements**: Use `/requirements` for detailed analysis
-- **Planning**: Use `/epic` or `/prd` for comprehensive planning
-- **Validation**: Use `/stakeholder-review` for validation
+- **Requirements**: Use `/planning-requirements` for detailed analysis
+- **Planning**: Use `/planning-epic` or `/planning-prd` for comprehensive planning
+- **Validation**: Use `/planning-stakeholder-review` for validation
 - **Implementation**: Use parallel versions for rapid execution
 
 ## Voice Notifications
@@ -167,7 +173,7 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Sequentia
 
 ## When to Use Sequential vs Parallel
 
-**Use `/course-correction` when:**
+**Use `/planning-course-correction` when:**
 - Focused development with single deliverable
 - Interactive refinement and collaboration desired
 - Quality and thoroughness over speed
@@ -184,3 +190,5 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSM.sh "Sequentia
 ---
 
 This command provides thoughtful, systematic course-correction with emphasis on quality, stakeholder collaboration, and comprehensive coverage.
+
+## PARALLEL_MODE: Parallel Process

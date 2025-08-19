@@ -1,23 +1,23 @@
-# APM Voice Notifications Configuration Guide
+# Coherence Voice Notifications Configuration Guide
 
-This guide covers the configuration and customization of the voice notification system in the Agentic Persona Mapping (APM) framework.
+This guide covers the configuration and customization of the voice notification system in **Coherence - Agentic Persona Mapping**, the unified context engineering framework for orchestrated intelligence.
 
 ## Voice System Overview
 
-APM's voice notification system provides:
+**Coherence's** voice notification system provides enhanced audio feedback for orchestrated intelligence:
 
 - **Persona-Specific Voices**: Different audio characteristics for each persona
 - **Context-Aware Notifications**: Intelligent audio feedback based on actions
 - **Multi-Platform Support**: Works across Windows, macOS, and Linux
 - **Customizable Settings**: Adjustable speed, volume, and voice selection
-- **Integration Points**: Seamless integration with all APM personas
+- **Integration Points**: Seamless integration with all Coherence personas for unified context engineering
 
 ## Voice System Architecture
 
 ```
 Voice Trigger → Voice Script → TTS Engine → Audio Output
      ↓              ↓            ↓           ↓
-APM Command    speakPersona.sh  System TTS  Speakers/Headphones
+Coherence Command    speakPersona.sh  System TTS  Speakers/Headphones
 ```
 
 ### Components
@@ -25,7 +25,7 @@ APM Command    speakPersona.sh  System TTS  Speakers/Headphones
 1. **Voice Scripts**: Shell scripts for each persona (`speakPersona.sh`)
 2. **Voice Engine**: Text-to-speech system (system, espeak, festival)
 3. **Configuration**: Settings for voice characteristics and behavior
-4. **Integration**: Hooks into APM persona activation and responses
+4. **Integration**: Hooks into Coherence persona activation and responses for orchestrated intelligence
 
 ## Voice Script Locations
 
@@ -33,7 +33,7 @@ All voice scripts are located in: `/mnt/c/Code/agentic-persona-mapping/.apm/agen
 
 ### Default Voice Scripts
 
-- `speakOrchestrator.sh` - AP Orchestrator voice
+- `speakOrchestrator.sh` - Coherence Orchestrator voice (formerly AP Orchestrator)
 - `speakDeveloper.sh` - Developer persona voice
 - `speakArchitect.sh` - System Architect voice
 - `speakDesignArchitect.sh` - Design Architect voice
@@ -187,7 +187,7 @@ export MACOS_DEFAULT_VOICE="Alex"
 say -v "?"
 
 # Test specific voices
-say -v "Alex" "AP Orchestrator activated"
+say -v "Alex" "Coherence Orchestrator activated"
 say -v "Samantha" "Developer ready for coding tasks"
 say -v "Tom" "System architecture review complete"
 ```
@@ -223,7 +223,7 @@ export VOICE_ENGINE="festival"
 export FESTIVAL_VOICE="kal_diphone"
 
 # Test festival
-echo "APM voice test" | festival --tts
+echo "Coherence voice test" | festival --tts
 ```
 
 ### Windows/WSL Configuration
@@ -332,7 +332,7 @@ if [ "${VOICE_NOTIFICATIONS_ENABLED:-true}" = "true" ]; then
 fi
 
 # Always log the message
-echo "[AP $PERSONA] $MESSAGE" >> /mnt/c/Code/agentic-persona-mapping/.apm/logs/voice-notifications.log
+echo "[Coherence $PERSONA] $MESSAGE" >> /mnt/c/Code/agentic-persona-mapping/.apm/logs/voice-notifications.log
 ```
 
 ### Dynamic Voice Selection
@@ -384,7 +384,7 @@ Triggered when personas are activated:
 
 ```bash
 # Example activation messages
-"AP Orchestrator activated. Loading configuration and persona network."
+"Coherence Orchestrator activated. Loading unified context engineering and persona network."
 "Developer ready. Current project: . Sprint: {{SPRINT_NAME}}."
 "System Architect online. Architecture review mode active."
 ```
@@ -448,7 +448,7 @@ Triggered during persona transitions:
     "volume": 0.9,
     "characteristics": "authoritative, clear",
     "message_templates": {
-      "activation": "AP Orchestrator online. Coordinating {{ACTIVE_AGENTS}} agents. System ready.",
+      "activation": "Coherence Orchestrator online. Coordinating {{ACTIVE_AGENTS}} agents with orchestrated intelligence. System ready.",
       "delegation": "Delegating {{TASK_TYPE}} to {{TARGET_PERSONA}}. Context transferred.",
       "completion": "Coordination complete. {{TASKS_COMPLETED}} tasks finished successfully.",
       "error": "System issue detected. {{ERROR_TYPE}}. Initiating recovery procedures."
@@ -525,7 +525,7 @@ test_voice_system() {
     
     # Test 1: Basic voice functionality
     echo "Testing basic voice functionality..."
-    if /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "Voice system test" >/dev/null 2>&1; then
+    if /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "Coherence voice system test" >/dev/null 2>&1; then
         echo "✅ Basic voice functionality working"
     else
         echo "❌ Basic voice functionality failed"
@@ -536,7 +536,7 @@ test_voice_system() {
     echo "Testing all persona voices..."
     local personas=("Orchestrator" "Developer" "Architect" "Analyst" "Qa" "Pm" "Po" "Sm")
     for persona in "${personas[@]}"; do
-        if /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speak${persona}.sh "Testing $persona voice" >/dev/null 2>&1; then
+        if /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speak${persona}.sh "Testing Coherence $persona voice" >/dev/null 2>&1; then
             echo "✅ $persona voice working"
         else
             echo "❌ $persona voice failed"
@@ -572,7 +572,7 @@ test_voice_performance() {
     echo "=== Voice Performance Testing ==="
     
     local start_time=$(date +%s.%N)
-    /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "Performance test message"
+    /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakOrchestrator.sh "Coherence performance test message"
     local end_time=$(date +%s.%N)
     
     local duration=$(echo "$end_time - $start_time" | bc)
@@ -828,4 +828,4 @@ coordinate_parallel_voices() {
 
 ---
 
-**Next Steps**: After configuring voice notifications, review [Path Configuration](./path-configuration.md) to complete your APM setup, or return to the [Configuration Overview](./README.md) for other configuration options.
+**Next Steps**: After configuring voice notifications for orchestrated intelligence, review [Path Configuration](./path-configuration.md) to complete your Coherence setup with unified context engineering, or return to the [Configuration Overview](./README.md) for other configuration options.

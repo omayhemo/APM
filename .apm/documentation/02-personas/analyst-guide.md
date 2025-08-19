@@ -78,23 +78,23 @@ The Analyst will stop and ask for clarification when:
 /analyst "Brainstorm features for fitness tracking app"
 ```
 
-#### `/parallel-brainstorming` ⚡
+#### `/parallel-planning-brainstorming` ⚡
 **Purpose**: Multi-stream brainstorming with native sub-agents  
 **Performance**: 4.0x faster than sequential  
 **Best For**: Comprehensive ideation, multiple perspective analysis, rapid concept exploration
 
 ```bash
 # Parallel brainstorming activation
-/parallel-brainstorming "Explore mobile app monetization strategies"
+/parallel-planning-brainstorming "Explore mobile app monetization strategies"
 
 # Complex brainstorming scenarios
-/parallel-brainstorming "Generate feature ideas for project management tool"
-/parallel-brainstorming "Brainstorm solutions for user onboarding challenges"
+/parallel-planning-brainstorming "Generate feature ideas for project management tool"
+/parallel-planning-brainstorming "Brainstorm solutions for user onboarding challenges"
 ```
 
 ### Specialized Research Commands
 
-#### `/parallel-requirements` ⚡
+#### `/parallel-planning-requirements` ⚡
 **Purpose**: Multi-stream requirements gathering  
 **Performance**: 3.8x faster for comprehensive requirements  
 **Best For**: Complex system requirements, multiple stakeholder perspectives
@@ -104,7 +104,7 @@ The Analyst will stop and ask for clarification when:
 **Performance**: 4.2x faster for deep research  
 **Best For**: Market analysis, competitive research, technology investigation
 
-#### `/parallel-stakeholder-review` ⚡
+#### `/parallel-planning-stakeholder-review` ⚡
 **Purpose**: Multi-perspective stakeholder analysis  
 **Performance**: 3.5x faster for stakeholder mapping  
 **Best For**: User persona development, stakeholder impact analysis
@@ -168,16 +168,16 @@ The Analyst will stop and ask for clarification when:
 ### 🚀 New Project Analysis Workflow
 ```
 1. Initial Brainstorming
-   └─ /parallel-brainstorming "Explore [project concept]"
+   └─ /parallel-planning-brainstorming "Explore [project concept]"
    
 2. Market Research
    └─ /parallel-research-prompt "Research [market/industry] trends"
    
 3. Requirements Gathering
-   └─ /parallel-requirements "Define system requirements for [project]"
+   └─ /parallel-planning-requirements "Define system requirements for [project]"
    
 4. Stakeholder Analysis
-   └─ /parallel-stakeholder-review "Analyze stakeholders for [project]"
+   └─ /parallel-planning-stakeholder-review "Analyze stakeholders for [project]"
    
 5. Feasibility Assessment
    └─ /analyst "Assess technical/business feasibility"
@@ -198,7 +198,7 @@ The Analyst will stop and ask for clarification when:
    └─ /parallel-research-prompt "Research technical approaches for [feature]"
    
 4. Requirements Definition
-   └─ /parallel-requirements "Define requirements for [feature]"
+   └─ /parallel-planning-requirements "Define requirements for [feature]"
    
 5. Handoff to Architect
    └─ /handoff architect "Transfer requirements for technical design"
@@ -210,7 +210,7 @@ The Analyst will stop and ask for clarification when:
    └─ /analyst "Analyze [problem] and root causes"
    
 2. Solution Brainstorming
-   └─ /parallel-brainstorming "Generate solutions for [problem]"
+   └─ /parallel-planning-brainstorming "Generate solutions for [problem]"
    
 3. Solution Research
    └─ /parallel-research-prompt "Research best practices for [problem domain]"
@@ -234,7 +234,7 @@ Leverage parallel commands for comprehensive coverage:
 /parallel-research-prompt "E-commerce platform analysis - market trends, user behavior, technical requirements, competitive landscape"
 
 # Multi-angle brainstorming
-/parallel-brainstorming "Mobile app features - user experience, monetization, engagement, retention strategies"
+/parallel-planning-brainstorming "Mobile app features - user experience, monetization, engagement, retention strategies"
 ```
 
 ### Evidence-Based Analysis
@@ -245,7 +245,7 @@ Always provide concrete evidence for findings:
 /analyst "Research payment gateway options with specific focus on Stripe, PayPal, and Square APIs - include pricing, features, and integration complexity"
 
 # Requirements with validation
-/parallel-requirements "Define authentication requirements with evidence from industry standards (OAuth 2.0, SAML) and security best practices"
+/parallel-planning-requirements "Define authentication requirements with evidence from industry standards (OAuth 2.0, SAML) and security best practices"
 ```
 
 ### Stakeholder-Driven Research
@@ -253,7 +253,7 @@ Focus on stakeholder needs and perspectives:
 
 ```bash
 # Multi-stakeholder analysis
-/parallel-stakeholder-review "Analyze requirements from developer, end-user, business owner, and support team perspectives"
+/parallel-planning-stakeholder-review "Analyze requirements from developer, end-user, business owner, and support team perspectives"
 
 # User-centric research
 /parallel-research-prompt "Research user onboarding best practices with focus on mobile apps, SaaS platforms, and e-commerce sites"
@@ -406,7 +406,7 @@ Analyst: [Name]
 ## 🔧 Configuration & Customization
 
 ### Working Directories
-- **Primary**: `/mnt/c/Code/agentic-persona-mapping/project_docs/requirements/`
+- **Primary**: `/mnt/c/Code/agentic-persona-mapping/project_docs/planning-requirements/`
 - **Secondary**: `/mnt/c/Code/agentic-persona-mapping/project_docs/research/`
 - **Reports**: `/mnt/c/Code/agentic-persona-mapping/project_docs/research/reports/`
 
@@ -464,13 +464,13 @@ bash $SPEAK_ANALYST "Brainstorming session generating multiple solution concepts
 #### "Requirements seem incomplete"
 **Solution**: Use comprehensive requirements gathering
 ```bash
-/parallel-requirements "System requirements with functional, non-functional, and business aspects"
+/parallel-planning-requirements "System requirements with functional, non-functional, and business aspects"
 ```
 
 #### "Brainstorming too narrow"
 **Solution**: Use structured parallel brainstorming
 ```bash
-/parallel-brainstorming "Multi-perspective ideation covering user needs, technical possibilities, and business opportunities"
+/parallel-planning-brainstorming "Multi-perspective ideation covering user needs, technical possibilities, and business opportunities"
 ```
 
 ### Performance Optimization
@@ -486,9 +486,9 @@ bash $SPEAK_ANALYST "Brainstorming session generating multiple solution concepts
 #### For Complex Requirements
 ```bash
 # Use phased approach
-1. /parallel-stakeholder-review
-2. /parallel-requirements "Functional requirements"
-3. /parallel-requirements "Non-functional requirements"
+1. /parallel-planning-stakeholder-review
+2. /parallel-planning-requirements "Functional requirements"
+3. /parallel-planning-requirements "Non-functional requirements"
 4. /analyst "Requirements validation and consolidation"
 ```
 
@@ -532,7 +532,7 @@ bash $SPEAK_ANALYST "Brainstorming session generating multiple solution concepts
 
 - **[Product Manager Guide](pm-guide.md)** - Natural handoff destination
 - **[System Architect Guide](architect-guide.md)** - Technical design partner
-- **[Requirements Templates](../templates/requirements/)** - Standardized formats
+- **[Requirements Templates](../templates/planning-requirements/)** - Standardized formats
 - **[Research Methodologies](../methodologies/research.md)** - Proven approaches
 
 ---
@@ -541,7 +541,7 @@ bash $SPEAK_ANALYST "Brainstorming session generating multiple solution concepts
 
 ### Multi-Perspective Analysis
 ```bash
-/parallel-stakeholder-review "Analyze from developer, user, business, and support perspectives"
+/parallel-planning-stakeholder-review "Analyze from developer, user, business, and support perspectives"
 ```
 
 ### Competitive Intelligence
@@ -556,7 +556,7 @@ bash $SPEAK_ANALYST "Brainstorming session generating multiple solution concepts
 
 ### User Journey Mapping
 ```bash
-/parallel-brainstorming "User journey ideation covering awareness, consideration, onboarding, usage, and retention"
+/parallel-planning-brainstorming "User journey ideation covering awareness, consideration, onboarding, usage, and retention"
 ```
 
 ---

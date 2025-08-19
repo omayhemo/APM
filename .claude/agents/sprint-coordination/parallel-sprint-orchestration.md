@@ -210,10 +210,10 @@ Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping wit
 ### Core Coordination Commands
 ```bash
 # Launch parallel sprint orchestration
-/parallel-sprint
+/parallel-implementation-sprint
 
 # Monitor active parallel streams
-/sprint-status
+/implementation-sprint-status
 
 # Coordinate integration between streams  
 /coordinate-integration
@@ -249,7 +249,7 @@ Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping wit
 /quality-checkpoint
 
 # Generate sprint health report
-/sprint-health-report
+/implementation-sprint-health-report
 
 # Optimize parallel coordination
 /optimize-coordination
@@ -359,7 +359,7 @@ improve_dependency_resolution_time()
 - **Template Version**: {{MIGRATION_VERSION}}
 - **Agent Name**: {{AGENT_NAME}}
 - **APM Compatibility**: 2.4+
-- **Backward Compatibility**: Full `/parallel-sprint` command support
+- **Backward Compatibility**: Full `/parallel-implementation-sprint` command support
 
 ### Environment Variables
 ```bash

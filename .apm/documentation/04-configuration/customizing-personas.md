@@ -1,10 +1,10 @@
-# APM Persona Customization Guide
+# Coherence Persona Customization Guide
 
-This guide explains how to modify existing personas and create new ones in the Agentic Persona Mapping (APM) framework.
+This guide explains how to modify existing personas and create new ones in **Coherence - Agentic Persona Mapping**, the unified context engineering framework for orchestrated intelligence.
 
 ## Persona Architecture Overview
 
-APM v4.1.0 uses a **unified persona system** with single-source definitions:
+**Coherence - Agentic Persona Mapping** v4.1.0 uses a **unified persona system** with single-source definitions for orchestrated intelligence:
 
 - **Master Definitions**: JSON files in `{{INSTALLER_ROOT}}/personas/_master/`
 - **Template Generation**: Automated generation to multiple output formats
@@ -15,7 +15,7 @@ APM v4.1.0 uses a **unified persona system** with single-source definitions:
 ```
 Master JSON Definition → Template Generator → Generated Templates → Runtime Execution
      ↓                        ↓                    ↓                   ↓
-*.persona.json         generate-personas.sh    Multiple formats    Native sub-agents
+*.persona.json         generate-personas.sh    Multiple formats    Orchestrated Intelligence
 ```
 
 ## Master Persona Definitions
@@ -26,7 +26,7 @@ Master persona definitions are stored in:
 `{{INSTALLER_ROOT}}/personas/_master/`
 
 Each persona has a corresponding JSON file:
-- `orchestrator.persona.json` - AP Orchestrator
+- `orchestrator.persona.json` - Coherence Orchestrator (formerly AP Orchestrator)
 - `analyst.persona.json` - Business Analyst
 - `architect.persona.json` - System Architect
 - `design-architect.persona.json` - Design Architect
@@ -304,7 +304,7 @@ Edit `custom-persona.persona.json`:
   },
   "voice_characteristics": {
     "communication_style": "Infrastructure-focused with operational precision. Emphasizes system reliability, security, and performance metrics. Provides actionable operational guidance.",
-    "greeting_style": "AP DevOps Engineer activated. Checking system health and deployment status. Infrastructure monitoring active. Ready for operational tasks.",
+    "greeting_style": "Coherence DevOps Engineer activated. Checking system health and deployment status. Infrastructure monitoring active. Ready for operational tasks.",
     "status_reporting": "Provides system health metrics, deployment status, performance indicators, and operational recommendations. Highlights any infrastructure concerns or optimization opportunities.",
     "error_handling": "Systematic operational analysis with focus on root cause identification, impact assessment, and recovery procedures. Always includes monitoring and prevention measures.",
     "handoff_protocol": "Comprehensive operational handoff including system status, active deployments, monitoring alerts, pending maintenance tasks, and infrastructure recommendations."
@@ -355,7 +355,7 @@ Create the command file at `{{INSTALLER_ROOT}}/templates/claude/commands/devops-
 ```markdown
 # /devops-engineer - Activate DevOps Engineer Agent
 
-You are now the **AP DevOps Engineer** agent in the APM framework.
+You are now the **Coherence DevOps Engineer** agent in **Coherence - Agentic Persona Mapping**.
 
 ## Immediate Actions
 
@@ -364,7 +364,7 @@ You are now the **AP DevOps Engineer** agent in the APM framework.
    - Read latest session note for context (if exists)
    - List rules directory: /mnt/c/Code/agentic-persona-mapping/.apm/rules/
    - Create session note: /mnt/c/Code/agentic-persona-mapping/.apm/session_notes/YYYY-MM-DD-HH-mm-ss-DevOps-Engineer-Session.md
-   - Voice notification: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDevOpsEngineer.sh "AP DevOps Engineer activated. Checking infrastructure status..."
+   - Voice notification: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDevOpsEngineer.sh "Coherence DevOps Engineer activated. Checking infrastructure status..."
 
 ## Agent Persona: DevOps Engineer
 
@@ -444,7 +444,7 @@ if [ "${VOICE_NOTIFICATIONS_ENABLED:-true}" = "true" ]; then
 fi
 
 # Always echo the message for logging
-echo "[AP DevOps Engineer] $MESSAGE"
+echo "[Coherence DevOps Engineer] $MESSAGE"
 ```
 
 Make the script executable:
@@ -593,7 +593,7 @@ Create `{{INSTALLER_ROOT}}/scripts/validate-personas.sh`:
 PERSONAS_DIR="{{INSTALLER_ROOT}}/personas/_master"
 ERRORS=0
 
-echo "=== APM Persona Validation ==="
+echo "=== Coherence Persona Validation ==="
 
 for persona_file in "$PERSONAS_DIR"/*.persona.json; do
     echo "Validating $(basename "$persona_file")..."
@@ -753,4 +753,4 @@ git tag persona-v1.0.0
 
 ---
 
-**Next Steps**: After customizing personas, review [Voice Notifications Configuration](./voice-notifications.md) and [Path Configuration](./path-configuration.md) to complete your APM setup.
+**Next Steps**: After customizing personas, review [Voice Notifications Configuration](./voice-notifications.md) and [Path Configuration](./path-configuration.md) to complete your Coherence setup with unified context engineering.

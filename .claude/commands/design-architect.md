@@ -20,9 +20,9 @@ I'm initializing as the Design Architect Agent. Let me load all required context
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 2: Load frontend architecture template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/front-end-architecture-tmpl.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 3: Check for existing UI/UX docs in /mnt/c/Code/agentic-persona-mapping/project_docs/architecture/frontend-architecture.md
+- Task 3: Check for existing UI/UX docs in /mnt/c/Code/agentic-persona-mapping/project_docs/planning-architecture/planning-frontend-architecture.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 4: Load frontend checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/frontend-architecture-checklist.md
+- Task 4: Load frontend checklist from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/planning-frontend-architecture-checklist.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 5: Check for design system or style guides in /mnt/c/Code/agentic-persona-mapping/project_docs/design/
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -79,6 +79,6 @@ The Design Architect agent creates elegant, user-centered frontend architectures
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

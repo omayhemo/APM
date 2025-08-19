@@ -1,54 +1,60 @@
 ---
-name: frontend-architecture
-description: Sequential frontend architecture design process
+name: planning-frontend-architecture
+description: Sequential frontend architecture design process with parallel execution option
 metadata:
-  version: 1.0.0
-  agent: Design Architect
-  performance: sequential
-  approach: guided
+  version: 2.0.0
+  agent: Architect
+  parallel_support: true
+  modes: [sequential, parallel]
 ---
 
 ## 🎭 PERSONA CONTEXT ACTIVATION
 
-**This command requires the Design persona.**
+**This command requires the Architect persona.**
 
 ```markdown
-*Loading Design context for optimal command execution...*
+*Loading Architect context for frontend-architecture...*
 
 Quick Context Load (1-2 seconds):
-- Loading Design configuration and expertise
-- Loading relevant templates and frameworks  
-- Voice notification: bash $/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Design context loaded for command execution"
+- Loading Architect configuration and expertise
+- Loading relevant templates and frameworks
+- PARALLEL_MODE: Preparing parallel execution framework
+- SEQUENTIAL_MODE: Standard context loading
 - Workspace validation: Ensuring execution from /mnt/c/Code/agentic-persona-mapping
 
-*Design context ready. Proceeding with command...*
+*Context ready. Choose execution mode...*
 ```
 
+## Command Overview
 
-# Sequential Frontend-architecture Command
+This command supports both sequential and parallel execution:
 
-**Design Architect Agent Only**: Executes structured frontend-architecture through guided sequential methodology.
+**Sequential Mode (Default):**
+- Focused, guided methodology with deep analysis
+- Interactive stakeholder engagement
+- Systematic validation and documentation
+- Quality-focused approach
 
-## Metadata
-- **Name**: frontend-architecture
-- **Description**: Sequential frontend architecture design process
-- **Agent**: Design Architect
-- **Performance**: Sequential (focused approach vs parallel streams)
-- **Approach**: Interactive guidance and systematic methodology
-
-## Overview
-
-The `/frontend-architecture` command enables the Design Architect to execute frontend-architecture through:
-- Sequential development with focused attention on each aspect
-- Interactive guidance through frontend-architecture components  
-- Systematic methodology ensuring comprehensive coverage
-- Thorough validation and refinement process
-- Clear documentation with detailed rationale
+**Parallel Mode (--parallel flag):**
+- Multiple native sub-agents working simultaneously  
+- 80% performance improvement
+- Comprehensive parallel coverage
+- Speed-optimized execution
 
 ## Usage
 
 ```
-/frontend-architecture
+/planning-frontend-architecture [--parallel]
+```
+
+**Parameters:**
+- `--parallel`: Execute with parallel sub-agents for faster completion
+- Default: Sequential execution with guided methodology
+
+## SEQUENTIAL_MODE: Sequential Process
+
+```
+/planning-frontend-architecture
 ```
 
 ## Prerequisites
@@ -146,9 +152,9 @@ After frontend-architecture completion:
 
 ## Integration Points
 
-- **Requirements**: Use `/requirements` for detailed analysis
-- **Planning**: Use `/epic` or `/prd` for comprehensive planning
-- **Validation**: Use `/stakeholder-review` for validation
+- **Requirements**: Use `/planning-requirements` for detailed analysis
+- **Planning**: Use `/planning-epic` or `/planning-prd` for comprehensive planning
+- **Validation**: Use `/planning-stakeholder-review` for validation
 - **Implementation**: Use parallel versions for rapid execution
 
 ## Voice Notifications
@@ -167,7 +173,7 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.
 
 ## When to Use Sequential vs Parallel
 
-**Use `/frontend-architecture` when:**
+**Use `/planning-frontend-architecture` when:**
 - Focused development with single deliverable
 - Interactive refinement and collaboration desired
 - Quality and thoroughness over speed
@@ -184,3 +190,275 @@ bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.
 ---
 
 This command provides thoughtful, systematic frontend-architecture with emphasis on quality, stakeholder collaboration, and comprehensive coverage.
+
+## PARALLEL_MODE: Parallel Process
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm initializing the Parallel Frontend Architecture Design process. Let me load all required context in parallel for optimal performance.
+
+*Executing parallel initialization tasks:*
+[Execute all 5 tasks in single function_calls block]
+- Task 1: Load design system standards from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/design-system-standards.md
+- Task 2: Load current frontend documentation from /mnt/c/Code/agentic-persona-mapping/project_docs/frontend/
+- Task 3: Load UX requirements from /mnt/c/Code/agentic-persona-mapping/project_docs/ux/
+- Task 4: Load component patterns from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/component-patterns.md
+- Task 5: Load accessibility guidelines from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/accessibility-guidelines.md
+```
+
+## Parallel Architecture Domains
+
+### Domain 1: Component Architecture & Design System (10-15 minutes)
+- **Focus**: Reusable components, design tokens, component library structure
+- **Deliverables**: Component architecture, design system blueprint, component hierarchy
+- **Dependencies**: Brand guidelines, design requirements, accessibility standards
+- **Integration**: Shared components, design tokens, styling frameworks
+
+### Domain 2: State Management & Data Flow (8-12 minutes)
+- **Focus**: Frontend state architecture, data flow patterns, API integration
+- **Deliverables**: State management architecture, data flow diagrams, API contracts
+- **Dependencies**: Backend APIs, data requirements, performance constraints
+- **Integration**: Component state, global state, API layer integration
+
+### Domain 3: Responsive Design & Layout Architecture (10-14 minutes)
+- **Focus**: Responsive breakpoints, grid systems, adaptive layouts
+- **Deliverables**: Responsive architecture, layout system, breakpoint strategy
+- **Dependencies**: Device requirements, performance targets, content strategy
+- **Integration**: Component responsiveness, layout consistency
+
+### Domain 4: Performance & Optimization Architecture (12-18 minutes)
+- **Focus**: Bundle optimization, lazy loading, caching strategies, performance monitoring
+- **Deliverables**: Performance architecture, optimization plan, monitoring strategy
+- **Dependencies**: Performance requirements, user experience goals, infrastructure
+- **Integration**: Component loading, asset optimization, runtime performance
+
+### Domain 5: Accessibility & Inclusive Design (9-13 minutes)
+- **Focus**: WCAG compliance, keyboard navigation, screen reader support, inclusive patterns
+- **Deliverables**: Accessibility architecture, compliance checklist, inclusive design patterns
+- **Dependencies**: Accessibility requirements, regulatory compliance, user needs
+- **Integration**: Component accessibility, navigation patterns, content structure
+
+### Domain 6: Testing & Quality Architecture (8-12 minutes)
+- **Focus**: Frontend testing strategy, visual regression, user testing frameworks
+- **Deliverables**: Testing architecture, quality gates, automation strategy
+- **Dependencies**: Quality requirements, testing tools, CI/CD pipeline
+- **Integration**: Component testing, integration testing, E2E testing
+
+## Native Implementation Architecture
+
+This command uses native sub-agent parallelism to spawn Design Architect domain specialists:
+
+### Phase 1: Frontend Context Loading (5 tasks in parallel)
+1. **Load Design System Standards**: Component patterns and design principles
+2. **Analyze Current Frontend**: Existing architecture and constraints
+3. **Extract UX Requirements**: User experience and interface requirements
+4. **Load Component Patterns**: Reusable component templates and guidelines
+5. **Load Accessibility Guidelines**: WCAG standards and inclusive design principles
+
+### Phase 2: Native Domain Agent Spawning
+6. **Spawn Component Architecture Agent**: Design system and component specialist
+7. **Spawn State Management Agent**: Data flow and state architecture specialist
+8. **Spawn Responsive Design Agent**: Layout and responsive design specialist
+9. **Spawn Performance Agent**: Frontend optimization and performance specialist
+10. **Spawn Accessibility Agent**: Inclusive design and compliance specialist
+11. **Spawn Testing Architecture Agent**: Frontend quality and testing specialist
+
+### Phase 3: Real-Time Coordination
+12. **Monitor Integration Points**: Track component contracts and design consistency
+13. **Coordinate Dependencies**: Facilitate handoffs between architecture domains
+14. **Synthesize Architecture**: Aggregate results into unified frontend design
+15. **Update Documentation**: Real-time updates to frontend architecture docs
+
+## Expected Outcomes
+
+- **Parallel Architecture Streams**: 6 Design Architect domain agents working simultaneously
+- **Coordinated Design**: Seamless integration of all frontend architectural domains
+- **Accelerated Delivery**: 80% reduction in sequential architecture design time
+- **Design Consistency**: Unified design system and component architecture
+- **Frontend Excellence**: Comprehensive coverage of all frontend architecture aspects
+
+## Parallel Architecture Benefits
+
+- **Domain Expertise**: Specialized focus on each frontend architectural area
+- **Reduced Design Time**: Parallel development of architecture streams
+- **Better Integration**: Proactive coordination prevents design inconsistencies
+- **Performance Optimization**: Dedicated performance and optimization focus
+- **Quality Assurance**: Built-in accessibility and testing architecture
+
+## Output Format
+
+```markdown
+# Frontend Architecture Design - Parallel Execution Results
+
+## Architecture Overview
+- Frontend Framework: [React/Vue/Angular/Svelte]
+- Design System: [Material/Chakra/Custom/Hybrid]
+- State Management: [Redux/Zustand/Context/MobX]
+
+## Domain Results Summary
+
+### 1. Component Architecture & Design System
+- Component Count: [N] reusable components
+- Design Token System: [Complete/Partial/Planned]
+- Component Hierarchy: [N] levels deep
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 2. State Management & Data Flow
+- State Pattern: [Centralized/Distributed/Hybrid]
+- API Integration: [REST/GraphQL/WebSocket]
+- Data Flow Complexity: [Simple/Moderate/Complex]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 3. Responsive Design & Layout Architecture
+- Breakpoint Strategy: [Mobile-first/Desktop-first/Container-queries]
+- Grid System: [CSS Grid/Flexbox/Hybrid]
+- Layout Patterns: [N] responsive patterns
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 4. Performance & Optimization Architecture
+- Bundle Strategy: [Code-splitting/Lazy-loading/Tree-shaking]
+- Performance Budget: [Size/Speed targets]
+- Optimization Level: [Basic/Advanced/Comprehensive]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 5. Accessibility & Inclusive Design
+- WCAG Level: [A/AA/AAA compliance]
+- Accessibility Patterns: [N] inclusive patterns
+- Testing Coverage: [Manual/Automated/Hybrid]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 6. Testing & Quality Architecture
+- Testing Strategy: [Unit/Integration/E2E coverage]
+- Visual Regression: [Enabled/Planned/Not-needed]
+- Quality Gates: [N] automated checks
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+## Integration Matrix
+[Cross-domain integration points and design system consistency]
+
+## Architecture Decisions
+[Key frontend architectural decisions with design rationale]
+
+## Performance Targets
+- First Contentful Paint: [Target time]
+- Largest Contentful Paint: [Target time]  
+- Cumulative Layout Shift: [Target score]
+- First Input Delay: [Target time]
+
+## Next Steps
+- [ ] Design system implementation
+- [ ] Component library development
+- [ ] Performance optimization setup
+- [ ] Accessibility compliance validation
+- [ ] Frontend testing framework setup
+```
+
+## Workflow Steps
+
+1. **Context Loading**: Load all frontend architecture context in parallel (5 tasks)
+2. **Domain Analysis**: Analyze requirements for each frontend architectural domain
+3. **Agent Spawning**: Launch 6 specialized Design Architect domain agents
+4. **Parallel Execution**: Execute all domains simultaneously with coordination
+5. **Integration Monitoring**: Track dependencies and design consistency
+6. **Results Synthesis**: Aggregate all domain results into unified frontend architecture
+7. **Documentation Update**: Update frontend architecture documentation with results
+8. **Validation**: Validate architecture consistency and design system cohesion
+
+## Performance Metrics
+
+- **Baseline Architecture Time**: 50-65 minutes (sequential)
+- **Parallel Architecture Time**: 10-15 minutes (parallel domains)
+- **Performance Improvement**: 80% faster execution
+- **Domain Coverage**: 100% comprehensive frontend coverage
+- **Integration Success**: >95% successful cross-domain design alignment
+
+## Integration Points
+
+- **UX Designer**: Provides user experience requirements and design specifications
+- **Developer Agents**: Receives frontend architecture and implementation guidance
+- **QA Agent**: Gets frontend architecture for testing strategy and validation
+- **System Architect**: Coordinates with backend architecture and API design
+
+## Available Capabilities
+
+- **Component Design**: Reusable component architecture and design systems
+- **State Management**: Frontend data flow and state architecture patterns
+- **Responsive Design**: Multi-device layout and adaptive design systems
+- **Performance Architecture**: Frontend optimization and performance monitoring
+- **Accessibility Design**: WCAG compliance and inclusive design patterns
+- **Testing Architecture**: Frontend quality assurance and testing strategies
+- **Design System Documentation**: Component libraries and usage guidelines
+- **Technology Selection**: Frontend stack evaluation and recommendations
+
+## Success Metrics
+
+- **Domains Completed in Parallel**: Target 6 simultaneous architecture streams
+- **Design Consistency**: >95% design system compliance across components
+- **Architecture Velocity**: 80% improvement over sequential design
+- **Performance Targets**: All Core Web Vitals in green range
+- **Accessibility Score**: WCAG AA compliance minimum
+
+## Voice Notifications
+
+```bash
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Parallel frontend architecture design launching. Initiating 6 simultaneous domain specialists for 80% frontend architecture acceleration..."
+```
+
+## Native Sub-Agent Activation
+
+When you run `/parallel-frontend-architecture`, I will:
+
+1. **Frontend Context**: Load all design standards and current frontend state
+2. **Domain Allocation**: Launch 6 specialized design architect domain agents
+3. **Natural Language Spawning**: Activate each agent with specific domain context:
+
+```markdown
+# Component Architecture Agent Activation:
+"I need a Component Architecture specialist to design the component system.
+ Frontend Context:
+ - Design Requirements: [UI/UX specifications and brand guidelines]
+ - Current Components: [Existing component inventory and gaps]
+ - Focus Areas: Component library, design tokens, reusability patterns
+ - Integration Points: Design system consistency, component contracts
+ - Deliverables: Component architecture, design system blueprint
+ Please design comprehensive component architecture following best practices."
+
+# State Management Agent Activation:
+"I need a State Management specialist to design data flow architecture.
+ Frontend Context:
+ - Data Requirements: [API contracts and data flow patterns]
+ - Performance Needs: [State update frequency and complexity]
+ - Focus Areas: Global state, local state, API integration patterns
+ - Integration Points: Component state binding, data synchronization
+ - Deliverables: State architecture, data flow diagrams
+ Please design efficient state management architecture."
+```
+
+4. **Real-Time Coordination**: Monitor progress, facilitate design integration
+5. **Results Synthesis**: Aggregate comprehensive frontend architecture design
+
+## Advanced Configuration
+
+```yaml
+# parallel-frontend-architecture-config.yaml
+parallel_frontend_architecture:
+  domains: 6
+  max_parallel_domains: 8
+  domain_timeout: 18  # minutes
+  
+  coordination:
+    design_consistency_monitoring: true
+    component_integration_tracking: true
+    real_time_synthesis: true
+    
+  output:
+    detailed_component_specs: true
+    design_system_documentation: true
+    implementation_guidance: true
+    accessibility_compliance: true
+```
+
+---
+*Part of the APM High-Performance Frontend Design Architecture Infrastructure*

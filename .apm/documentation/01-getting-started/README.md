@@ -1,25 +1,25 @@
-# Getting Started with APM Framework
+# Getting Started with Coherence - Agentic Persona Mapping
 
-Welcome to the **Agentic Persona Mapping (APM)** framework - a revolutionary approach to software development that leverages specialized AI personas for accelerated project delivery.
+Welcome to **Coherence - Agentic Persona Mapping** - a revolutionary unified context engineering framework that leverages specialized AI personas for accelerated project delivery through orchestrated intelligence.
 
 ## 🚀 What You'll Learn
 
-This section provides comprehensive guides to help you master APM from concept to implementation:
+This section provides comprehensive guides to help you master Coherence from concept to implementation through seamless integration patterns:
 
 ### 📖 Core Documentation
 
 | Guide | Description | Time |
 |-------|-------------|------|
-| [Understanding APM](./understanding-apm.md) | Core concepts, philosophy, and development acceleration principles | 15 min |
+| [Understanding Coherence](./understanding-apm.md) | Core concepts, unified context engineering, and development acceleration principles | 15 min |
 | [Installation Verification](./installation-verification.md) | Post-install validation and troubleshooting steps | 10 min |
 | [First Project Tutorial](./first-project-tutorial.md) | Complete walkthrough from idea to deployed application | 45 min |
 | [Getting Help](./getting-help.md) | Support resources, community, and troubleshooting guide | 5 min |
 
 ## 🎯 Quick Start Path
 
-**New to APM?** Follow this recommended sequence:
+**New to Coherence?** Follow this recommended sequence for optimal unified context engineering:
 
-1. **📚 Learn the Concepts** → [Understanding APM](./understanding-apm.md)
+1. **📚 Learn the Concepts** → [Understanding Coherence](./understanding-apm.md)
 2. **✅ Verify Installation** → [Installation Verification](./installation-verification.md)  
 3. **🛠️ Build Your First App** → [First Project Tutorial](./first-project-tutorial.md)
 4. **🔍 Explore Advanced Features** → [Command Reference](../command-reference/)
@@ -28,22 +28,15 @@ This section provides comprehensive guides to help you master APM from concept t
 
 After completing this section, you'll be able to:
 
-- ✅ Understand APM's core philosophy and benefits
+- ✅ Understand Coherence's core philosophy and unified context engineering benefits
 - ✅ Activate and coordinate multiple AI personas
-- ✅ Build a complete application using APM workflow
+- ✅ Build a complete application using Coherence workflow
 - ✅ Achieve 4-8x development acceleration
-- ✅ Navigate the APM ecosystem confidently
+- ✅ Navigate the Coherence ecosystem confidently
 
-## 🌟 APM at a Glance
+## 🌟 Coherence at a Glance
 
-**APM Framework v4.1.0** transforms development through:
-
-### Revolutionary Release Management (NEW in v4.1.0)
-- **📦 `/version` Command**: Complete version management with parallel documentation updates
-- **🚀 `/release` Command**: End-to-end release automation with GitHub integration
-- **🤖 AI-Generated Release Notes**: Professional documentation from git analysis
-- **⚡ 12-15x Faster Releases**: Complete process in 20 minutes vs 4-5 hours manual
-- **✅ Quality Validation**: Built-in link checking and content validation
+**Coherence - Agentic Persona Mapping v{{APM_VERSION}}** transforms development through unified context engineering:
 
 ### Native Sub-Agent Architecture
 - **🚀 4-8x Performance**: Native sub-agent execution eliminates bottlenecks
@@ -60,13 +53,13 @@ After completing this section, you'll be able to:
 - **🎪 MCP Plopdock Integration**: Persistent development servers across sessions
 - **🔧 Configurable Automation**: Custom prompts, hooks, and workflow optimization
 
-## 🎭 Meet Your AI Team
+## 🎭 Meet Your Coherent AI Team
 
-APM provides specialized AI personas, each optimized for specific development roles:
+Coherence provides specialized AI personas through unified context engineering, each optimized for specific development roles with seamless integration:
 
 | Persona | Primary Focus | Key Capabilities |
 |---------|---------------|------------------|
-| **AP Orchestrator** | Project coordination | Sprint planning, resource allocation, progress tracking |
+| **Coherence Orchestrator** | Project coordination | Sprint planning, resource allocation, progress tracking |
 | **Developer** | Code implementation | Feature development, debugging, code reviews |
 | **Architect** | System design | Architecture decisions, technical strategy, scalability |
 | **QA Engineer** | Quality assurance | Test automation, performance analysis, defect prevention |
@@ -76,17 +69,17 @@ APM provides specialized AI personas, each optimized for specific development ro
 
 ## 🛣️ Next Steps
 
-**Ready to begin?** Start with [Understanding APM](./understanding-apm.md) to learn the foundational concepts that power accelerated development.
+**Ready to begin?** Start with [Understanding Coherence](./understanding-apm.md) to learn the foundational unified context engineering concepts that power accelerated development.
 
-**Already familiar with APM?** Jump directly to:
+**Already familiar with Coherence?** Jump directly to:
 - [Installation Verification](./installation-verification.md) - Ensure your setup is optimal
 - [First Project Tutorial](./first-project-tutorial.md) - Build something amazing
 - [Command Reference](../command-reference/) - Explore advanced capabilities
 
 ---
 
-**🎯 Goal**: Master APM fundamentals and experience 4-8x development acceleration through intelligent AI collaboration.
+**🎯 Goal**: Master Coherence fundamentals and experience 4-8x development acceleration through unified context engineering and intelligent AI collaboration.
 
 **⏱️ Time Investment**: 75 minutes to complete all getting started guides.
 
-**🏆 Outcome**: Confident APM practitioner ready for enterprise-scale development projects.
+**🏆 Outcome**: Confident Coherence practitioner ready for enterprise-scale development projects through orchestrated intelligence.

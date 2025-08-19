@@ -93,7 +93,7 @@ The Design Architect follows proven UX/UI design principles:
 **Purpose**: Focused frontend architecture planning  
 **Best For**: Component architecture, frontend technology planning, performance optimization
 
-#### `/ux-spec`
+#### `/planning-ux-spec`
 **Purpose**: User experience specification and flow design  
 **Best For**: User journey mapping, interaction design, usability planning
 

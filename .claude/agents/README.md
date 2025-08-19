@@ -1,10 +1,10 @@
-# Claude Code Sub-Agents Infrastructure (v3.3.0)
+# Coherence Sub-Agents Infrastructure (v4.1.0)
 
-This directory contains the Claude Code sub-agent templates for APM persona migration with **MCP Plopdock integration**.
+This directory contains the Coherence sub-agent templates for unified context engineering with **MCP Plopdock integration**.
 
 ## Installation
 
-This infrastructure is installed via the APM installer when the sub-agents migration is enabled.
+This infrastructure is installed via the Coherence installer when the sub-agents migration is enabled.
 
 ## Directory Structure
 
@@ -34,19 +34,19 @@ This infrastructure is installed via the APM installer when the sub-agents migra
 
 ## Features
 
-- **Native Integration**: Full Claude Code sub-agent compatibility
-- **Preserved Personas**: All APM personas maintain identical behavior
-- **Enhanced Context**: Dedicated context windows per agent
+- **Native Integration**: Full Coherence sub-agent compatibility
+- **Preserved Personas**: All unified personas maintain identical behavior
+- **Enhanced Context**: Dedicated context windows per agent with unified context engineering
 - **Voice Integration**: Seamless TTS system integration
 - **Session Management**: Improved note creation and archiving
-- **Parallel Execution**: Advanced native sub-agent coordination with 5x performance boost
+- **Parallel Execution**: Advanced native sub-agent coordination with orchestrated intelligence
 - **Synthesis Patterns**: Four specialized result aggregation algorithms
 - **Resource Management**: Intelligent task distribution and monitoring
 - **Error Recovery**: Robust error handling with automatic recovery
 - **Backward Compatibility**: Dual-mode operation with legacy commands
-- **MCP Plopdock Integration**: Persistent development server management (v3.3.0)
+- **MCP Plopdock Integration**: Persistent development server management (v4.1.0)
 
-## MCP Plopdock Integration (v3.3.0 - Epic 26)
+## MCP Plopdock Integration (v4.1.0 - Epic 26)
 
 ### Development Server Management
 
@@ -126,7 +126,7 @@ Sub-agents are configured via:
 
 ## Migration Status
 
-This infrastructure supports the APM to Claude Code Sub-Agents migration:
+This infrastructure supports the unified context engineering to Coherence Sub-Agents migration:
 - Phase 1: Foundation (Developer, Architect, QA, Orchestrator)
 - Phase 2: Management (PM, PO, SM, Analyst, Design Architect)
 - Phase 3: Advanced Features (AI/ML, Parallel Sprint, Agent Chaining)
@@ -135,9 +135,9 @@ This infrastructure supports the APM to Claude Code Sub-Agents migration:
 ## Usage
 
 Sub-agents are automatically available after installation. They can be invoked:
-- Directly via Claude Code sub-agent system with parallel execution
-- Through backward-compatible APM commands
-- Via the AP Orchestrator for coordinated workflows
+- Directly via Coherence sub-agent system with orchestrated intelligence
+- Through backward-compatible unified commands
+- Via the Coherence Orchestrator for coordinated workflows
 
 ### Parallel Execution Usage Examples
 
@@ -194,4 +194,4 @@ Launching parallel development streams for sprint execution:
 - **Prioritization**: Use `priority_ranker` for backlog management and resource allocation
 - **Validation**: Use `multi_source_validator` for cross-verification and quality assurance
 
-For detailed usage instructions, see the main APM documentation and parallel execution pattern templates.
+For detailed usage instructions, see the main Coherence documentation and unified context engineering pattern templates.

@@ -1,10 +1,10 @@
-# Integration Patterns
+# Orchestrated Intelligence Integration
 
-This guide covers advanced patterns for integrating APM with existing enterprise workflows, tools, and systems.
+This guide covers advanced patterns for integrating Coherence with existing enterprise workflows, tools, and systems.
 
 ## Overview
 
-APM integration patterns enable seamless connection with:
+Coherence orchestrated intelligence integration enables seamless connection with:
 - **Development Tools** (IDEs, version control, CI/CD pipelines)
 - **Project Management** (Jira, Azure DevOps, Monday.com)
 - **Communication Platforms** (Slack, Microsoft Teams, Discord)
@@ -18,8 +18,8 @@ APM integration patterns enable seamless connection with:
 
 ```mermaid
 graph TB
-    subgraph "APM Core"
-        A[AP Orchestrator]
+    subgraph "Coherence Core"
+        A[Coherence Orchestrator]
         B[Integration Engine]
         C[Event Bus]
         D[Adapter Registry]
@@ -119,7 +119,7 @@ event_system:
 
 ```python
 class GitHubIntegration:
-    """GitHub integration for APM workflow automation"""
+    """GitHub integration for Coherence workflow automation"""
     
     def __init__(self, config):
         self.github_client = self._initialize_github_client(config)
@@ -135,7 +135,7 @@ class GitHubIntegration:
             self._complete_apm_story(pr_event)
             
     def _trigger_apm_review_workflow(self, pr_event):
-        """Trigger APM review workflow for new PRs"""
+        """Trigger Coherence review workflow for new PRs"""
         pr_details = {
             'repository': pr_event['repository']['name'],
             'pr_number': pr_event['number'],
@@ -145,7 +145,7 @@ class GitHubIntegration:
             'complexity_score': self._calculate_complexity(pr_event)
         }
         
-        # Determine appropriate APM persona for review
+        # Determine appropriate Coherence persona for review
         if pr_details['complexity_score'] > 8:
             persona = "architect"
         elif any('test' in f for f in pr_details['files_changed']):
@@ -153,7 +153,7 @@ class GitHubIntegration:
         else:
             persona = "developer"
             
-        # Launch APM review session
+        # Launch Coherence review session
         apm_session = self.apm_client.start_session(
             persona=persona,
             context=pr_details,
@@ -164,13 +164,13 @@ class GitHubIntegration:
         self._post_review_status(pr_event, apm_session.id)
         
     def integrate_branch_protection(self, repository):
-        """Integrate APM reviews with branch protection"""
+        """Integrate Coherence reviews with branch protection"""
         protection_config = {
             'required_status_checks': {
                 'strict': True,
                 'contexts': [
                     'apm/code-review',
-                    'apm/architecture-review',
+                    'apm/planning-architecture-review',
                     'apm/security-scan'
                 ]
             },
@@ -191,27 +191,27 @@ class GitHubIntegration:
 
 ```bash
 #!/bin/bash
-# Git pre-commit hook with APM integration
+# Git pre-commit hook with Coherence integration
 
-APM_CONFIG_FILE=".apm/config.json"
-APM_CLI="apm-cli"
+Coherence_CONFIG_FILE=".apm/config.json"
+Coherence_CLI="apm-cli"
 
-# Check if APM is enabled for this repository
-if [ ! -f "$APM_CONFIG_FILE" ]; then
-    echo "APM not configured for this repository"
+# Check if Coherence is enabled for this repository
+if [ ! -f "$Coherence_CONFIG_FILE" ]; then
+    echo "Coherence not configured for this repository"
     exit 0
 fi
 
-echo "🤖 APM Pre-commit validation..."
+echo "🤖 Coherence Pre-commit validation..."
 
-# Run APM code analysis
-if ! $APM_CLI analyze --staged-files; then
-    echo "❌ APM code analysis failed"
+# Run Coherence code analysis
+if ! $Coherence_CLI analyze --staged-files; then
+    echo "❌ Coherence code analysis failed"
     exit 1
 fi
 
 # Check coding standards compliance
-if ! $APM_CLI standards-check --fix; then
+if ! $Coherence_CLI standards-check --fix; then
     echo "❌ Coding standards violations found"
     echo "Run 'apm-cli standards-check --fix' to auto-fix issues"
     exit 1
@@ -220,7 +220,7 @@ fi
 # Validate commit message format
 COMMIT_MSG_FILE="$1"
 if [ -f "$COMMIT_MSG_FILE" ]; then
-    if ! $APM_CLI validate-commit-message < "$COMMIT_MSG_FILE"; then
+    if ! $Coherence_CLI validate-commit-message < "$COMMIT_MSG_FILE"; then
         echo "❌ Commit message format validation failed"
         echo "Use: feat|fix|docs|style|refactor|test|chore: description"
         exit 1
@@ -228,12 +228,12 @@ if [ -f "$COMMIT_MSG_FILE" ]; then
 fi
 
 # Update backlog if story-related work
-if $APM_CLI detect-story-work --staged-files; then
+if $Coherence_CLI detect-story-work --staged-files; then
     echo "📋 Updating backlog with story progress..."
-    $APM_CLI update-backlog --auto-detect
+    $Coherence_CLI update-backlog --auto-detect
 fi
 
-echo "✅ APM pre-commit validation passed"
+echo "✅ Coherence pre-commit validation passed"
 exit 0
 ```
 
@@ -242,17 +242,17 @@ exit 0
 #### Jenkins Pipeline Integration
 
 ```groovy
-// Jenkins pipeline with APM integration
+// Jenkins pipeline with Coherence integration
 pipeline {
     agent any
     
     environment {
-        APM_API_TOKEN = credentials('apm-api-token')
-        APM_WEBHOOK_URL = credentials('apm-webhook-url')
+        Coherence_API_TOKEN = credentials('apm-api-token')
+        Coherence_WEBHOOK_URL = credentials('apm-webhook-url')
     }
     
     stages {
-        stage('APM Analysis') {
+        stage('Coherence Analysis') {
             parallel {
                 stage('Architecture Review') {
                     steps {
@@ -274,7 +274,7 @@ pipeline {
                             }
                             
                             // Archive review artifacts
-                            archiveArtifacts artifacts: 'apm-reports/architecture-*.pdf'
+                            archiveArtifacts artifacts: 'apm-reports/planning-architecture-*.pdf'
                         }
                     }
                 }
@@ -299,7 +299,7 @@ pipeline {
                                 keepAll: true,
                                 reportDir: 'apm-reports',
                                 reportFiles: 'security-report.html',
-                                reportName: 'APM Security Report'
+                                reportName: 'Coherence Security Report'
                             ])
                         }
                     }
@@ -354,7 +354,7 @@ pipeline {
     
     post {
         always {
-            // Send APM session summary
+            // Send Coherence session summary
             script {
                 apm.sendSessionSummary(
                     channel: '#engineering',
@@ -363,7 +363,7 @@ pipeline {
             }
         }
         failure {
-            // Trigger APM incident response
+            // Trigger Coherence incident response
             script {
                 apm.triggerIncidentResponse(
                     severity: 'high',
@@ -379,7 +379,7 @@ pipeline {
 
 ```yaml
 # .github/workflows/apm-integration.yml
-name: APM Integration Workflow
+name: Coherence Integration Workflow
 
 on:
   pull_request:
@@ -398,13 +398,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Setup APM CLI
+      - name: Setup Coherence CLI
         uses: apm-framework/setup-apm@v1
         with:
           version: 'latest'
-          api-token: ${{ secrets.APM_API_TOKEN }}
+          api-token: ${{ secrets.Coherence_API_TOKEN }}
           
-      - name: Run APM Analysis
+      - name: Run Coherence Analysis
         id: apm-analysis
         uses: apm-framework/analyze@v1
         with:
@@ -418,7 +418,7 @@ jobs:
             }
           parallel: true
           
-      - name: Upload APM Reports
+      - name: Upload Coherence Reports
         uses: actions/upload-artifact@v3
         with:
           name: apm-reports-${{ matrix.persona }}
@@ -430,7 +430,7 @@ jobs:
         with:
           script: |
             const analysis = ${{ steps.apm-analysis.outputs.results }};
-            const comment = `## APM Analysis Results (${{ matrix.persona }})
+            const comment = `## Coherence Analysis Results (${{ matrix.persona }})
             
             **Overall Score**: ${analysis.overall_score}/10
             **Issues Found**: ${analysis.issues.length}
@@ -468,23 +468,23 @@ jobs:
 #### VS Code Extension
 
 ```typescript
-// VS Code APM extension
+// VS Code Coherence extension
 import * as vscode from 'vscode';
-import { APMClient } from './apm-client';
+import { CoherenceClient } from './apm-client';
 
-export class APMExtension {
-    private apmClient: APMClient;
+export class CoherenceExtension {
+    private apmClient: CoherenceClient;
     private statusBarItem: vscode.StatusBarItem;
     
     constructor(context: vscode.ExtensionContext) {
-        this.apmClient = new APMClient();
+        this.apmClient = new CoherenceClient();
         this.setupStatusBar();
         this.registerCommands(context);
         this.setupEventHandlers();
     }
     
     private registerCommands(context: vscode.ExtensionContext) {
-        // Register APM persona activation commands
+        // Register Coherence persona activation commands
         const personas = ['developer', 'architect', 'qa', 'analyst'];
         
         personas.forEach(persona => {
@@ -526,18 +526,18 @@ export class APMExtension {
             const session = await this.apmClient.activatePersona(persona, context);
             
             // Update status bar
-            this.statusBarItem.text = `$(person) APM: ${persona}`;
+            this.statusBarItem.text = `$(person) Coherence: ${persona}`;
             this.statusBarItem.backgroundColor = new vscode.ThemeColor('statusBarItem.prominentBackground');
             
             // Show persona chat panel
             this.showPersonaPanel(session);
             
             vscode.window.showInformationMessage(
-                `APM ${persona} persona activated`
+                `Coherence ${persona} persona activated`
             );
             
         } catch (error) {
-            vscode.window.showErrorMessage(`Failed to activate APM persona: ${error.message}`);
+            vscode.window.showErrorMessage(`Failed to activate Coherence persona: ${error.message}`);
         }
     }
     
@@ -581,11 +581,11 @@ export class APMExtension {
     }
     
     private async handleDocumentChange(event: vscode.TextDocumentChangeEvent) {
-        // Provide real-time APM assistance as user types
+        // Provide real-time Coherence assistance as user types
         if (event.contentChanges.length > 0) {
             const change = event.contentChanges[0];
             
-            // Check for common patterns that might benefit from APM assistance
+            // Check for common patterns that might benefit from Coherence assistance
             if (this.shouldTriggerAssistance(change.text)) {
                 const suggestions = await this.apmClient.getRealtimeSuggestions({
                     document: event.document.fileName,
@@ -607,8 +607,8 @@ export class APMExtension {
 #### Jira Integration
 
 ```python
-class JiraAPMIntegration:
-    """Comprehensive Jira integration for APM workflow"""
+class JiraCoherenceIntegration:
+    """Comprehensive Jira integration for Coherence workflow"""
     
     def __init__(self, config):
         self.jira_client = self._initialize_jira_client(config)
@@ -616,7 +616,7 @@ class JiraAPMIntegration:
         self.field_mappings = self._load_field_mappings()
         
     def sync_backlog_to_jira(self, backlog_file):
-        """Synchronize APM backlog with Jira issues"""
+        """Synchronize Coherence backlog with Jira issues"""
         backlog_data = self._parse_backlog(backlog_file)
         
         for story in backlog_data['stories']:
@@ -660,7 +660,7 @@ class JiraAPMIntegration:
             self._assign_apm_persona(issue_key, new_assignee)
             
     def create_apm_smart_suggestions(self, issue_key):
-        """Create smart APM persona suggestions based on Jira issue"""
+        """Create smart Coherence persona suggestions based on Jira issue"""
         issue = self.jira_client.issue(issue_key)
         
         # Analyze issue content to suggest appropriate persona
@@ -674,7 +674,7 @@ class JiraAPMIntegration:
         
         suggested_persona = self._analyze_issue_for_persona(issue_analysis)
         
-        # Create APM session context
+        # Create Coherence session context
         apm_context = {
             'jira_issue': issue_key,
             'issue_summary': issue.fields.summary,
@@ -684,7 +684,7 @@ class JiraAPMIntegration:
             'business_value': self._extract_business_value(issue)
         }
         
-        # Suggest APM workflow
+        # Suggest Coherence workflow
         workflow_suggestion = self._suggest_apm_workflow(
             suggested_persona, amp_context
         )
@@ -697,7 +697,7 @@ class JiraAPMIntegration:
         }
         
     def _analyze_issue_for_persona(self, issue_analysis):
-        """Analyze issue to suggest appropriate APM persona"""
+        """Analyze issue to suggest appropriate Coherence persona"""
         issue_type = issue_analysis['issue_type'].lower()
         description = issue_analysis['description'] or ''
         labels = [label.lower() for label in issue_analysis['labels']]
@@ -735,23 +735,23 @@ class JiraAPMIntegration:
 
 ```python
 class AzureDevOpsIntegration:
-    """Azure DevOps integration for APM workflow"""
+    """Azure DevOps integration for Coherence workflow"""
     
     def __init__(self, config):
         self.ado_client = self._initialize_ado_client(config)
         self.apm_client = self._initialize_apm_client(config)
         
     def setup_work_item_automation(self, project_id):
-        """Setup automated work item processing with APM"""
+        """Setup automated work item processing with Coherence"""
         
-        # Create custom work item types for APM
+        # Create custom work item types for Coherence
         self._create_apm_work_item_types(project_id)
         
         # Setup process automation rules
         automation_rules = [
             {
                 'trigger': 'work_item_created',
-                'condition': 'work_item_type == "APM Story"',
+                'condition': 'work_item_type == "Coherence Story"',
                 'action': 'trigger_apm_analysis'
             },
             {
@@ -770,14 +770,14 @@ class AzureDevOpsIntegration:
             self._create_automation_rule(project_id, rule)
             
     def integrate_with_pipelines(self, project_id):
-        """Integrate APM with Azure Pipelines"""
+        """Integrate Coherence with Azure Pipelines"""
         
-        # Create APM pipeline templates
+        # Create Coherence pipeline templates
         apm_pipeline_template = {
             'stages': [
                 {
-                    'stage': 'APM_Analysis',
-                    'displayName': 'APM Analysis',
+                    'stage': 'Coherence_Analysis',
+                    'displayName': 'Coherence Analysis',
                     'jobs': [
                         {
                             'job': 'ArchitectureReview',
@@ -815,29 +815,29 @@ class AzureDevOpsIntegration:
         self._create_pipeline_template(project_id, apm_pipeline_template)
         
     def create_apm_dashboard(self, project_id):
-        """Create APM analytics dashboard in Azure DevOps"""
+        """Create Coherence analytics dashboard in Azure DevOps"""
         
         dashboard_widgets = [
             {
-                'name': 'APM Persona Usage',
+                'name': 'Coherence Persona Usage',
                 'type': 'chart',
                 'query': self._build_persona_usage_query(),
                 'visualization': 'pie_chart'
             },
             {
-                'name': 'APM Performance Metrics',
+                'name': 'Coherence Performance Metrics',
                 'type': 'chart',
                 'query': self._build_performance_metrics_query(),
                 'visualization': 'line_chart'
             },
             {
-                'name': 'APM Quality Trends',
+                'name': 'Coherence Quality Trends',
                 'type': 'chart', 
                 'query': self._build_quality_trends_query(),
                 'visualization': 'area_chart'
             },
             {
-                'name': 'Active APM Sessions',
+                'name': 'Active Coherence Sessions',
                 'type': 'count',
                 'query': self._build_active_sessions_query(),
                 'refresh_interval': 60
@@ -845,8 +845,8 @@ class AzureDevOpsIntegration:
         ]
         
         dashboard_config = {
-            'name': 'APM Analytics Dashboard',
-            'description': 'Comprehensive APM performance and usage analytics',
+            'name': 'Coherence Analytics Dashboard',
+            'description': 'Comprehensive Coherence performance and usage analytics',
             'widgets': dashboard_widgets,
             'auto_refresh': True,
             'refresh_interval': 300
@@ -860,8 +860,8 @@ class AzureDevOpsIntegration:
 #### Slack Integration
 
 ```python
-class SlackAPMIntegration:
-    """Advanced Slack integration for APM collaboration"""
+class SlackCoherenceIntegration:
+    """Advanced Slack integration for Coherence collaboration"""
     
     def __init__(self, config):
         self.slack_client = self._initialize_slack_client(config)
@@ -869,21 +869,21 @@ class SlackAPMIntegration:
         self.bot_user_id = self._get_bot_user_id()
         
     def setup_slash_commands(self):
-        """Setup APM slash commands in Slack"""
+        """Setup Coherence slash commands in Slack"""
         commands = [
             {
                 'command': '/apm',
-                'description': 'Launch APM Orchestrator',
+                'description': 'Launch Coherence Orchestrator',
                 'usage_hint': '/apm [persona] [task]'
             },
             {
                 'command': '/apm-status', 
-                'description': 'Show current APM session status',
+                'description': 'Show current Coherence session status',
                 'usage_hint': '/apm-status [team|user]'
             },
             {
                 'command': '/apm-help',
-                'description': 'Get APM assistance and documentation',
+                'description': 'Get Coherence assistance and documentation',
                 'usage_hint': '/apm-help [topic]'
             }
         ]
@@ -892,7 +892,7 @@ class SlackAPMIntegration:
             self._register_slash_command(cmd)
             
     def handle_slash_command(self, command_data):
-        """Handle APM slash commands"""
+        """Handle Coherence slash commands"""
         command = command_data['command']
         text = command_data.get('text', '')
         user_id = command_data['user_id']
@@ -906,7 +906,7 @@ class SlackAPMIntegration:
             return self._handle_help_request(text, user_id, channel_id)
             
     def _handle_apm_activation(self, text, user_id, channel_id):
-        """Handle APM persona activation via Slack"""
+        """Handle Coherence persona activation via Slack"""
         parts = text.split() if text else []
         persona = parts[0] if parts else 'orchestrator'
         task = ' '.join(parts[1:]) if len(parts) > 1 else None
@@ -933,7 +933,7 @@ class SlackAPMIntegration:
             'platform': 'slack'
         }
         
-        # Start APM session
+        # Start Coherence session
         try:
             session = self.apm_client.start_session(
                 persona=persona,
@@ -947,11 +947,11 @@ class SlackAPMIntegration:
         except Exception as e:
             return {
                 'response_type': 'ephemeral',
-                'text': f"❌ Failed to start APM session: {str(e)}"
+                'text': f"❌ Failed to start Coherence session: {str(e)}"
             }
             
     def create_interactive_session_ui(self, session_id, channel_id):
-        """Create interactive UI for APM session management"""
+        """Create interactive UI for Coherence session management"""
         
         session_info = self.apm_client.get_session_info(session_id)
         
@@ -960,7 +960,7 @@ class SlackAPMIntegration:
                 'type': 'header',
                 'text': {
                     'type': 'plain_text',
-                    'text': f"🤖 APM Session: {session_info['persona'].title()}"
+                    'text': f"🤖 Coherence Session: {session_info['persona'].title()}"
                 }
             },
             {
@@ -1038,7 +1038,7 @@ class SlackAPMIntegration:
         return response['ts']  # Return timestamp for future updates
         
     def setup_event_notifications(self):
-        """Setup automatic Slack notifications for APM events"""
+        """Setup automatic Slack notifications for Coherence events"""
         
         notification_rules = [
             {
@@ -1076,33 +1076,33 @@ class SlackAPMIntegration:
 #### Microsoft Teams Integration
 
 ```python
-class TeamsAPMIntegration:
-    """Microsoft Teams integration for APM collaboration"""
+class TeamsCoherenceIntegration:
+    """Microsoft Teams integration for Coherence collaboration"""
     
     def __init__(self, config):
         self.teams_client = self._initialize_teams_client(config)
         self.apm_client = self._initialize_apm_client(config)
         
     def create_apm_bot(self):
-        """Create APM bot for Teams"""
+        """Create Coherence bot for Teams"""
         bot_manifest = {
             'manifestVersion': '1.12',
             'version': '1.0.0',
             'id': 'apm-assistant-bot',
             'packageName': 'com.company.apm.assistant',
             'developer': {
-                'name': 'APM Framework',
+                'name': 'Coherence - Agentic Persona Mapping',
                 'websiteUrl': 'https://apm.company.com',
                 'privacyUrl': 'https://apm.company.com/privacy',
                 'termsOfUseUrl': 'https://apm.company.com/terms'
             },
             'name': {
-                'short': 'APM Assistant',
+                'short': 'Coherence Assistant',
                 'full': 'Agentic Persona Mapping Assistant'
             },
             'description': {
                 'short': 'AI-powered development workflow assistant',
-                'full': 'APM Assistant helps teams with intelligent persona-based workflow automation and project management.'
+                'full': 'Coherence Assistant helps teams with intelligent persona-based workflow automation and project management.'
             },
             'bots': [
                 {
@@ -1113,16 +1113,16 @@ class TeamsAPMIntegration:
                             'scopes': ['personal', 'team', 'groupchat'],
                             'commands': [
                                 {
-                                    'title': 'Start APM Session',
-                                    'description': 'Start a new APM persona session'
+                                    'title': 'Start Coherence Session',
+                                    'description': 'Start a new Coherence persona session'
                                 },
                                 {
                                     'title': 'Show Status',
-                                    'description': 'Show current APM session status'
+                                    'description': 'Show current Coherence session status'
                                 },
                                 {
                                     'title': 'Get Help',
-                                    'description': 'Get APM assistance and documentation'
+                                    'description': 'Get Coherence assistance and documentation'
                                 }
                             ]
                         }
@@ -1134,9 +1134,9 @@ class TeamsAPMIntegration:
                     'botId': 'apm-bot-id',
                     'commands': [
                         {
-                            'id': 'createAPMTask',
-                            'title': 'Create APM Task',
-                            'description': 'Create a new APM-managed task',
+                            'id': 'createCoherenceTask',
+                            'title': 'Create Coherence Task',
+                            'description': 'Create a new Coherence-managed task',
                             'type': 'action',
                             'parameters': [
                                 {
@@ -1147,7 +1147,7 @@ class TeamsAPMIntegration:
                                 {
                                     'name': 'persona',
                                     'title': 'Recommended Persona',
-                                    'description': 'Select APM persona for this task'
+                                    'description': 'Select Coherence persona for this task'
                                 }
                             ]
                         }
@@ -1164,21 +1164,21 @@ class TeamsAPMIntegration:
         user_id = activity.from_property.id
         conversation_id = activity.conversation.id
         
-        # Parse APM commands from Teams messages
-        if message_text.startswith('@APM') or message_text.startswith('apm'):
+        # Parse Coherence commands from Teams messages
+        if message_text.startswith('@Coherence') or message_text.startswith('apm'):
             return self._process_apm_command(message_text, user_id, conversation_id)
         elif self._is_question_for_apm(message_text):
             return self._provide_contextual_assistance(message_text, user_id, conversation_id)
             
     def create_adaptive_cards(self, session_data):
-        """Create adaptive cards for rich APM interactions"""
+        """Create adaptive cards for rich Coherence interactions"""
         card = {
             'type': 'AdaptiveCard',
             'version': '1.4',
             'body': [
                 {
                     'type': 'TextBlock',
-                    'text': 'APM Session Dashboard',
+                    'text': 'Coherence Session Dashboard',
                     'weight': 'Bolder',
                     'size': 'Medium',
                     'color': 'Accent'
@@ -1253,7 +1253,7 @@ class SIEMIntegration:
         self.apm_client = self._initialize_apm_client(config)
         
     def setup_security_monitoring(self):
-        """Setup comprehensive security monitoring for APM"""
+        """Setup comprehensive security monitoring for Coherence"""
         
         # Define security events to monitor
         security_events = [
@@ -1275,7 +1275,7 @@ class SIEMIntegration:
         """Send security event to SIEM system"""
         siem_event = {
             'timestamp': datetime.utcnow().isoformat(),
-            'source': 'APM',
+            'source': 'Coherence',
             'event_type': security_event['type'],
             'severity': security_event['severity'],
             'user_id': security_event['user_id'],
@@ -1289,22 +1289,22 @@ class SIEMIntegration:
     def create_security_dashboard(self):
         """Create security dashboard in SIEM"""
         dashboard_config = {
-            'name': 'APM Security Overview',
+            'name': 'Coherence Security Overview',
             'panels': [
                 {
-                    'title': 'APM Security Events by Type',
+                    'title': 'Coherence Security Events by Type',
                     'type': 'pie_chart',
-                    'query': 'source:APM | stats count by event_type'
+                    'query': 'source:Coherence | stats count by event_type'
                 },
                 {
-                    'title': 'High-Risk APM Activities',
+                    'title': 'High-Risk Coherence Activities',
                     'type': 'table',
-                    'query': 'source:APM risk_score>7 | table timestamp, user_id, event_type, risk_score'
+                    'query': 'source:Coherence risk_score>7 | table timestamp, user_id, event_type, risk_score'
                 },
                 {
-                    'title': 'APM User Behavior Anomalies',
+                    'title': 'Coherence User Behavior Anomalies',
                     'type': 'line_chart',
-                    'query': 'source:APM | anomaly_detection user_activity by user_id'
+                    'query': 'source:Coherence | anomaly_detection user_activity by user_id'
                 }
             ]
         }

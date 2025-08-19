@@ -265,7 +265,7 @@ sm_compatible:
 /validate-workflow current_workflow
 
 # Generate comprehensive validation report
-/validation-report workflow comprehensive
+/planning-validation-report workflow comprehensive
 ```
 
 ## 🔄 Migration and Upgrade Path

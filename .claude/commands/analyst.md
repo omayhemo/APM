@@ -22,7 +22,7 @@ Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping wit
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 3: Check for project documentation in /mnt/c/Code/agentic-persona-mapping/project_docs/
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 4: Load project brief template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/project-brief-template.md
+- Task 4: Load project brief template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists/planning-project-brief-template.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 5: Check for research tasks in /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -77,6 +77,6 @@ The Analyst agent provides deep insights and comprehensive research to inform pr
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

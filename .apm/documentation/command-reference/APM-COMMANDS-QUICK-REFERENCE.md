@@ -1,7 +1,7 @@
-# APM Commands Quick Reference Guide
-## Version 4.1.0 - At-a-Glance Command Summary
+# Coherence Commands Quick Reference Guide
+## Version 4.1.0 - At-a-Glance Command Summary with Unified Context Engineering
 
-Quick lookup for all APM commands with essential information. For detailed documentation, see the comprehensive guides.
+Quick lookup for all Coherence commands with essential information. For detailed documentation, see the comprehensive guides.
 
 ---
 
@@ -11,7 +11,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 |----------|----------|-------------|
 | [Core Orchestrator](#core-orchestrator) | 6 | Central control & coordination |
 | [Persona Activation](#persona-activation) | 9 | Specialized agent activation |
-| [Parallel Execution](#parallel-execution) | 25 | 4-8x performance boost |
+| [Parallel Execution](#parallel-execution) | 25 | 4-8x performance boost with orchestrated intelligence |
 | [QA Framework](#qa-framework) | 11 | AI/ML-powered testing |
 | [Project Management](#project-management) | 15 | Planning & tracking |
 | [Development](#development) | 8 | Implementation & coding |
@@ -24,7 +24,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | Command | Purpose | Key Options | Performance |
 |---------|---------|-------------|-------------|
-| `/ap` or `/ap_orchestrator` | Launch central orchestrator | `--resume`, `--status` | 2.3s init |
+| `/coherence` or `/coherence_orchestrator` | Launch central orchestrator | `--resume`, `--status` | 2.3s init |
 | `/handoff <persona>` | Direct agent transition | `--notes`, `--task` | 0.8s |
 | `/switch <persona>` | Switch with compaction | `--compact-level` | 1.5s |
 | `/wrap` | Complete session | `--summary-level` | 1.2s |
@@ -49,7 +49,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ---
 
-## Parallel Execution (Native Sub-Agents)
+## Parallel Execution (Orchestrated Intelligence)
 
 ### Requirements & Research
 | Command | Sub-Agents | Speedup | Use Case |
@@ -70,7 +70,7 @@ Quick lookup for all APM commands with essential information. For detailed docum
 ### Project Management
 | Command | Sub-Agents | Speedup | Use Case |
 |---------|------------|---------|----------|
-| `/parallel-prd` | 5 | 3.5x | PRD creation |
+| `/parallel-planning-prd` | 5 | 3.5x | PRD creation |
 | `/parallel-epic` | 4 | 4.2x | Epic development |
 | `/parallel-stories` | 4 | 5.3x | Batch story generation |
 | `/parallel-acceptance-criteria` | 4 | 3.9x | AC definition |
@@ -94,8 +94,8 @@ Quick lookup for all APM commands with essential information. For detailed docum
 ### Documentation
 | Command | Sub-Agents | Speedup | Use Case |
 |---------|------------|---------|----------|
-| `/parallel-doc-sharding` | 4 | **6.7x** | Document processing |
-| `/parallel-library-indexing` | 5 | **7.1x** | Knowledge indexing |
+| `/parallel-documentation-shard` | 4 | **6.7x** | Document processing |
+| `/parallel-implementation-library-indexing` | 5 | **7.1x** | Knowledge indexing |
 
 ### Course Correction
 | Command | Sub-Agents | Speedup | Use Case |
@@ -127,21 +127,21 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | Command | Purpose | Output | Typical Time |
 |---------|---------|--------|--------------|
-| `/project-brief` | Project initialization | Brief document | 15 min |
-| `/prd` | PRD creation | Requirements doc | 45 min |
-| `/epic` | Epic management | Epic + stories | 30 min |
-| `/stories` | Story generation | User stories | 20 min |
-| `/groom` | Backlog grooming | Refined backlog | 25 min |
+| `/planning-project-brief` | Project initialization | Brief document | 15 min |
+| `/planning-prd` | PRD creation | Requirements doc | 45 min |
+| `/planning-epic` | Epic management | Epic + stories | 30 min |
+| `/planning-stories` | Story generation | User stories | 20 min |
+| `/planning-groom` | Backlog grooming | Refined backlog | 25 min |
 | `/prioritization` | Feature ranking | Priority matrix | 15 min |
-| `/acceptance-criteria` | AC definition | Test criteria | 10 min |
-| `/validation` | Story validation | Validation report | 15 min |
+| `/qa-acceptance-criteria` | AC definition | Test criteria | 10 min |
+| `/planning-validation` | Story validation | Validation report | 15 min |
 | `/next-story` | Story progression | Next story ready | 5 min |
-| `/checklist` | Task checklists | Checklist doc | 10 min |
+| `/planning-checklist` | Task checklists | Checklist doc | 10 min |
 | `/course-correction` | Agile adjustments | Action plan | 20 min |
-| `/requirements` | Requirements gathering | Requirements doc | 30 min |
-| `/stakeholder-review` | Stakeholder feedback | Review summary | 25 min |
-| `/ux-spec` | UX specifications | UX document | 35 min |
-| `/release` | Release management | Release plan | 30 min |
+| `/planning-requirements` | Requirements gathering | Requirements doc | 30 min |
+| `/planning-stakeholder-review` | Stakeholder feedback | Review summary | 25 min |
+| `/planning-ux-spec` | UX specifications | UX document | 35 min |
+| `/distribution-release` | Release management | Release plan | 30 min |
 
 ---
 
@@ -149,12 +149,12 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | Command | Purpose | Focus | Integration |
 |---------|---------|-------|-------------|
-| `/architecture` | System design | Technical | Backend |
+| `/planning-architecture` | System design | Technical | Backend |
 | `/frontend-architecture` | UI architecture | Frontend | UI/UX |
-| `/automation-plan` | Automation strategy | Testing | CI/CD |
+| `/qa-automation-plan` | Automation strategy | Testing | CI/CD |
 | `/ai-prompt` | AI integration | AI/ML | Various |
-| `/git-commit-all` | Version control | Git | Repository |
-| `/buildit` | Build distribution | Packaging | Release |
+| `/distribution-commit` | Version control | Git | Repository |
+| `/distribution-build` | Build distribution | Packaging | Release |
 | `/version` | Version management | Versioning | Release |
 | `/update-all-documentation` | Doc updates | Documentation | All |
 
@@ -164,11 +164,11 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | Command | Purpose | Processing | Speed |
 |---------|---------|------------|-------|
-| `/doc-sharding` | Document segmentation | Intelligent | Fast |
-| `/library-indexing` | Knowledge indexing | Comprehensive | Fast |
+| `/documentation-shard` | Document segmentation | Intelligent | Fast |
+| `/implementation-implementation-library-indexing` | Knowledge indexing | Comprehensive | Fast |
 | `/doc-compliance` | Compliance check | Standard | Medium |
-| `/doc-compliance-enhanced` | Advanced compliance | Deep | Slow |
-| `/organize-docs` | Document organization | Structural | Fast |
+| `/documentation-compliance` | Advanced compliance | Deep | Slow |
+| `/documentation-organize` | Document organization | Structural | Fast |
 | `/research-prompt` | Research documentation | Analytical | Medium |
 
 ---
@@ -179,8 +179,8 @@ Quick lookup for all APM commands with essential information. For detailed docum
 |---------|---------|-------|-----------|
 | `/test-strategy` | Test strategy creation | Planning | Per release |
 | `/test` | General testing | Execution | Daily |
-| `/review` | Code/doc review | Quality | Per PR |
-| `/quality-review` | Quality assessment | Comprehensive | Sprint |
+| `/planning-review` | Code/doc review | Quality | Per PR |
+| `/qa-quality-review` | Quality assessment | Comprehensive | Sprint |
 | `/regression-suite` | Regression testing | Validation | Per release |
 
 ---
@@ -189,17 +189,17 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ### New Project Start
 ```bash
-/ap → /analyst → /pm → /architect → /po → /sm → /dev → /qa
+/coherence → /analyst → /pm → /architect → /po → /sm → /dev → /qa
 ```
 
-### Sprint Execution (Parallel)
+### Sprint Execution (Parallel with Orchestrated Intelligence)
 ```bash
-/ap → /parallel-sprint --agents=4
+/coherence → /parallel-sprint --agents=4
 ```
 
 ### PRD Creation (Fast)
 ```bash
-/pm → /parallel-prd --template=comprehensive
+/pm → /parallel-planning-prd --template=comprehensive
 ```
 
 ### Full QA Cycle
@@ -207,9 +207,9 @@ Quick lookup for all APM commands with essential information. For detailed docum
 /qa → /qa-framework → /qa-predict → /run-tests → /qa-insights
 ```
 
-### Document Processing
+### Document Processing (Unified Context Engineering)
 ```bash
-/parallel-doc-sharding --chunks=auto → /parallel-library-indexing
+/parallel-documentation-shard --chunks=auto → /parallel-implementation-library-indexing
 ```
 
 ---
@@ -237,14 +237,14 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 | If you need to... | Use this command | Alternative |
 |-------------------|------------------|-------------|
-| Start APM session | `/ap` | `/ap_orchestrator` |
-| Create requirements | `/analyst` + `/requirements` | `/parallel-requirements` |
+| Start Coherence session | `/coherence` | `/ap` (legacy) |
+| Create requirements | `/analyst` + `/planning-requirements` | `/parallel-requirements` |
 | Design system | `/architect` | `/parallel-architecture` |
-| Create PRD | `/pm` + `/prd` | `/parallel-prd` |
-| Manage backlog | `/po` + `/groom` | - |
+| Create PRD | `/pm` + `/planning-prd` | `/parallel-planning-prd` |
+| Manage backlog | `/po` + `/planning-groom` | - |
 | Run sprint | `/dev` | `/parallel-sprint` |
 | Test thoroughly | `/qa` + `/qa-framework` | `/parallel-qa-framework` |
-| Process documents | `/doc-sharding` | `/parallel-doc-sharding` |
+| Process documents | `/documentation-shard` | `/parallel-documentation-shard` |
 | Get insights | `/qa-insights` | - |
 | Wrap up work | `/wrap` | - |
 
@@ -271,12 +271,12 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ## 🔑 Essential Options
 
-### Most Used Options
-- `--parallel=true` - Enable parallelization
-- `--agents=4` - Set sub-agent count
-- `--detailed=true` - Verbose output
-- `--format=markdown` - Output format
-- `--strategy=balanced` - Execution strategy
+### Most Used Options with Orchestrated Intelligence
+- `--parallel=true` - Enable parallelization with unified context
+- `--agents=4` - Set sub-agent count with intelligent coordination
+- `--detailed=true` - Verbose output with context preservation
+- `--format=markdown` - Output format with orchestrated intelligence
+- `--strategy=balanced` - Execution strategy with context-aware optimization
 
 ### Performance Options
 - `--priority=velocity` - Speed focus
@@ -316,9 +316,9 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ## 🎓 Getting Started Checklist
 
-- [ ] Install APM: `./installer/install.sh`
+- [ ] Install Coherence: `./payload/install.sh`
 - [ ] Initialize session: `/session-note-setup`
-- [ ] Launch orchestrator: `/ap`
+- [ ] Launch orchestrator: `/coherence`
 - [ ] List personas: `/personas --detailed`
 - [ ] Try parallel command: `/parallel-brainstorming`
 - [ ] Check QA capabilities: `/qa-framework`
@@ -326,6 +326,6 @@ Quick lookup for all APM commands with essential information. For detailed docum
 
 ---
 
-*APM Commands Quick Reference - v4.1.0*
-*Native Sub-Agent Architecture | AI/ML-Powered*
+*Coherence Commands Quick Reference - v4.1.0*
+*Native Sub-Agent Architecture with Orchestrated Intelligence | AI/ML-Powered | Unified Context Engineering*
 *For detailed documentation, see comprehensive guides*

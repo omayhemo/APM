@@ -3,7 +3,7 @@
 ## Data Resolution
 
 agent-root: /mnt/c/Code/agentic-persona-mapping/.apm/agents
-checklists: /mnt/c/Code/agentic-persona-mapping/.apm/agents/checklists
+checklists: /mnt/c/Code/agentic-persona-mapping/.apm/agents/planning-checklists
 data: /mnt/c/Code/agentic-persona-mapping/.apm/agents/data
 personas: /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas
 tasks: /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks
@@ -19,9 +19,9 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 - Description: "Research assistant, brain storming coach, requirements gathering, project briefs."
 - Persona: "analyst.md"
 - Tasks:
-  - [Brainstorming](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/brainstorming.md)
+  - [Brainstorming](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/planning-brainstorming.md)
   - [Deep Research Prompt Generation](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/deep-research-prompt-generation.md)
-  - [Create Project Brief](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-project-brief.md)
+  - [Create Project Brief](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-planning-project-brief.md)
 
 ## Title: Product Owner AKA PO
 
@@ -33,9 +33,9 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
   - [Create PRD](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-prd.md)
   - [Create Epic](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-epic-task.md)
   - [Create Next Story](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-next-story-task.md)
-  - [Slice Documents](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/doc-sharding-task.md)
+  - [Slice Documents](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/documentation-shard-task.md)
   - [Correct Course](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/correct-course.md)
-  - [Groom Backlog](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/groom-backlog-task.md)
+  - [Groom Backlog](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/planning-groom-backlog-task.md)
 
 ## Title: Architect
 
@@ -46,7 +46,7 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 - Tasks:
   - [Create Architecture](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-architecture.md)
   - [Create Next Story](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/create-next-story-task.md)
-  - [Slice Documents](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/doc-sharding-task.md)
+  - [Slice Documents](/mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/documentation-shard-task.md)
 
 ## Title: Design Architect
 

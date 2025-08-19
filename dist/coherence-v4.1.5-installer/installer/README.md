@@ -228,7 +228,7 @@ The installer will:
 ## First Steps After Installation
 
 1. Open your project in Claude Code
-2. Run `/ap` to activate the AP Orchestrator with native sub-agent support
+2. Run `/coherence` to activate the Coherence Orchestrator with native sub-agent support
 3. Experience 4-8x faster execution with zero CLI crashes
 4. Let the Orchestrator coordinate multiple native sub-agents seamlessly
 

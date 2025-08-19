@@ -24,10 +24,10 @@ ls -la .claude/commands/  # Should show 70+ commands
 ### Step 3: Launch APM
 Open your project in **Claude Code** and run:
 ```
-/ap
+/coherence
 ```
 
-This activates the AP Orchestrator with full v4.1.0 capabilities!
+This activates the Coherence Orchestrator with full unified context engineering capabilities!
 
 ## 🆕 New v4.1.0 Features Quick Demo
 

@@ -177,7 +177,7 @@ Sprint Completion (60-80% Faster)
 # They replace the sequential sprint approach with parallel coordination
 
 # Template locations after installation:
-.apm/agents/sprint-coordination/
+.apm/agents/implementation-sprint-coordination/
 ├── parallel-sprint-orchestration.md
 ├── developer-stream-management.md
 ├── dependency-resolution-engine.md
@@ -189,7 +189,7 @@ Sprint Completion (60-80% Faster)
 ### Activation Commands
 ```bash
 # Core parallel sprint command
-/parallel-sprint                    # Launch full parallel sprint coordination
+/parallel-implementation-sprint                    # Launch full parallel sprint coordination
 
 # Stream management commands
 /launch-stream <stream-type>        # Launch specific development stream
@@ -266,9 +266,9 @@ Sprint Completion (60-80% Faster)
 ## 📚 Related Documentation
 
 ### APM Framework Integration
-- `templates/claude/commands/parallel-sprint.md.template` - Command implementation
+- `templates/claude/commands/parallel-implementation-sprint.md.template` - Command implementation
 - `templates/claude/agents/personas/sm.md.template` - Scrum Master agent with parallel capabilities
-- `templates/agents/tasks/subtasks/sprint/` - Sprint coordination subtasks
+- `templates/agents/tasks/subtasks/implementation-sprint/` - Sprint coordination subtasks
 
 ### Supporting Systems
 - `templates/claude/agents/synthesis-patterns.md.template` - General synthesis patterns
@@ -282,7 +282,7 @@ Sprint Completion (60-80% Faster)
 ### Version Compatibility
 - **Template Version**: {{MIGRATION_VERSION}}
 - **APM Compatibility**: 2.4+
-- **Backward Compatibility**: Full `/parallel-sprint` command support
+- **Backward Compatibility**: Full `/parallel-implementation-sprint` command support
 - **Migration Status**: Production Ready
 
 ### Environment Variables

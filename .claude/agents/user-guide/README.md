@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-This directory contains comprehensive templates for the APM User Migration Guide system, designed to support users transitioning from Legacy APM to the revolutionary Sub-Agents framework.
+This directory contains comprehensive templates for the Coherence User Migration Guide system, designed to support users transitioning from Legacy APM to the revolutionary Coherence Sub-Agents framework with unified context engineering.
 
 ---
 
@@ -39,7 +39,7 @@ This directory contains comprehensive templates for the APM User Migration Guide
 - `{{ROLE_SPECIFIC_DURATION}}` - Training time for role
 
 #### 3. `command-mapping-reference.md.template`
-**Purpose**: Complete Legacy APM to Sub-Agents command migration
+**Purpose**: Complete Legacy APM to Coherence Sub-Agents command migration
 **Key Features**:
 - Comprehensive command mapping table
 - Migration complexity indicators
@@ -48,7 +48,7 @@ This directory contains comprehensive templates for the APM User Migration Guide
 
 **Template Variables**:
 - `{{LEGACY_COMMAND}}` - Original APM command
-- `{{SUB_AGENTS_EQUIVALENT}}` - New Sub-Agents command
+- `{{COHERENCE_EQUIVALENT}}` - New Coherence Sub-Agents command
 - `{{ENHANCEMENT_DESCRIPTION}}` - Feature improvements
 - `{{MIGRATION_COMPLEXITY}}` - Low/Medium/High complexity
 
@@ -111,7 +111,7 @@ When these templates are processed by the APM installer:
 
 ```bash
 # Install user migration guide templates
-./install-user-guide-templates.sh --role={{USER_PERSONA_TYPE}}
+./install-coherence-guide-templates.sh --role={{USER_PERSONA_TYPE}}
 
 # Generate customized migration guides
 ./generate-migration-guides.sh --user-profile={{USER_PROFILE}} --complexity={{COMPLEXITY_LEVEL}}
@@ -179,7 +179,7 @@ EMERGENCY_RESPONSE_TIME: "5 minutes|15 minutes|1 hour"
 ```yaml
 # Enhanced capabilities by role
 ENHANCED_CAPABILITIES: "AI Code Analysis|ML Testing|Parallel Processing"
-NEW_FEATURES: "Predictive Analytics|Automated Optimization|Smart Coordination"
+NEW_FEATURES: "Predictive Analytics|Automated Optimization|Orchestrated Intelligence"
 ADVANCED_FEATURES: "Custom Models|Advanced Analytics|Enterprise Integration"
 
 # Performance metrics and targets
@@ -347,4 +347,4 @@ version_control:
 
 ---
 
-*These user migration guide templates provide comprehensive support for transitioning from Legacy APM to Sub-Agents, ensuring successful adoption and maximum productivity gains for all user types.*
+*These user migration guide templates provide comprehensive support for transitioning from Legacy APM to Coherence Sub-Agents with unified context engineering, ensuring successful adoption and maximum productivity gains for all user types.*

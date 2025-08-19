@@ -46,7 +46,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 # Just start Claude Code and the enhanced output style is ready
 
 # Activate the orchestrator manually
-/ap
+/coherence
 
 # Or jump straight to a specialist
 /analyst        # Research and requirements
@@ -67,7 +67,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 | 🏃 **Scrum Master** | `/sm` | Sprint planning, story creation |
 | 💻 **Developer** | `/dev` | Code implementation, optimization |
 | 🔍 **QA Engineer** | `/qa` | Testing, quality assurance, automation |
-| 🎯 **Orchestrator** | `/ap` | Coordination, delegation, workflow |
+| 🎯 **Orchestrator** | `/coherence` | Coordination, delegation, workflow |
 
 ## ⚡ Power Features
 
