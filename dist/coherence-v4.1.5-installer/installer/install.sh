@@ -29,8 +29,14 @@ ORIGINAL_ARGS="$@"
 ORIGINAL_ARG_COUNT=$#
 
 # Check for flags
+# Available flags:
+#   --defaults, -d      : Use default values for all prompts (non-interactive)
+#   --no-live          : Use classic banner mode instead of live display
+#   --live             : Use live banner mode (default)
+#   --no-legacy        : Skip installation of legacy commands (ap.md, ap_orchestrator.md)
 USE_DEFAULTS=false
 USE_LIVE_MODE=true  # Default to live mode (fixed display conflicts)
+INSTALL_LEGACY_COMMANDS=true  # Default to installing legacy commands for backward compatibility
 for arg in "$@"; do
     if [ "$arg" = "--defaults" ] || [ "$arg" = "-d" ]; then
         USE_DEFAULTS=true
@@ -38,6 +44,8 @@ for arg in "$@"; do
         USE_LIVE_MODE=false
     elif [ "$arg" = "--live" ]; then
         USE_LIVE_MODE=true
+    elif [ "$arg" = "--no-legacy" ]; then
+        INSTALL_LEGACY_COMMANDS=false
     fi
 done
 
@@ -982,16 +990,84 @@ echo "---------------------------------"
 
 ensure_dir "$CLAUDE_COMMANDS_DIR"
 
+# Clean up deprecated commands from previous installations
+cleanup_deprecated_commands() {
+    local commands_dir="$1"
+    
+    if [ ! -d "$commands_dir" ]; then
+        return 0
+    fi
+    
+    echo "🧹 Checking for deprecated commands to clean up..."
+    
+    # List of deprecated commands to remove (created by this project)
+    local deprecated_commands=(
+        "ap.md"                    # Legacy redirect to /coherence - explicitly deprecated  
+        "ap_orchestrator.md"       # Legacy redirect to /coherence - explicitly deprecated
+    )
+    
+    # Create backup directory if we have commands to remove
+    local backup_dir=""
+    local removed_count=0
+    
+    for cmd in "${deprecated_commands[@]}"; do
+        local cmd_path="$commands_dir/$cmd"
+        if [ -f "$cmd_path" ]; then
+            # Check if this is actually a deprecated command (contains deprecation warning)
+            if grep -q "DEPRECATED\|legacy" "$cmd_path" 2>/dev/null; then
+                # Create backup directory if needed
+                if [ -z "$backup_dir" ]; then
+                    backup_dir="$commands_dir/.cleanup-backup-$(date +%Y%m%d-%H%M%S)"
+                    mkdir -p "$backup_dir"
+                    echo "📦 Created backup directory: $backup_dir"
+                fi
+                
+                # Backup and remove the deprecated command
+                cp "$cmd_path" "$backup_dir/"
+                rm "$cmd_path"
+                echo "🗑️  Removed deprecated command: $cmd (backed up)"
+                removed_count=$((removed_count + 1))
+            else
+                echo "⚠️  Skipping $cmd - no deprecation markers found (may be user-modified)"
+            fi
+        fi
+    done
+    
+    if [ $removed_count -gt 0 ]; then
+        echo "✅ Cleaned up $removed_count deprecated command(s)"
+        if [ -n "$backup_dir" ]; then
+            echo "📋 Backup location: $backup_dir"
+        fi
+    else
+        echo "✅ No deprecated commands found to clean up"
+    fi
+}
+
 echo "⏳ Installing APM commands (replacing APM commands, preserving user commands)..."
 
-# Create ap_orchestrator.md command (primary)
-replace_variables "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" "$CLAUDE_COMMANDS_DIR/ap_orchestrator.md"
+# Clean up deprecated commands before installing new ones
+cleanup_deprecated_commands "$CLAUDE_COMMANDS_DIR"
 
 # Create coherence.md command (primary orchestrator command)
 replace_variables "$INSTALLER_DIR/templates/claude/commands/coherence.md.template" "$CLAUDE_COMMANDS_DIR/coherence.md"
 
-# Create ap.md command (alias)
-replace_variables "$INSTALLER_DIR/templates/claude/commands/ap.md.template" "$CLAUDE_COMMANDS_DIR/ap.md"
+# Legacy commands - only create if templates exist and user hasn't disabled them
+# These are maintained for backward compatibility but can be disabled
+if [ "${INSTALL_LEGACY_COMMANDS:-true}" = "true" ]; then
+    # Create ap_orchestrator.md command (legacy redirect)
+    if [ -f "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" ]; then
+        replace_variables "$INSTALLER_DIR/templates/claude/commands/ap_orchestrator.md.template" "$CLAUDE_COMMANDS_DIR/ap_orchestrator.md"
+        echo "✅ Installed legacy command: ap_orchestrator (redirects to /coherence)"
+    fi
+    
+    # Create ap.md command (legacy redirect)
+    if [ -f "$INSTALLER_DIR/templates/claude/commands/ap.md.template" ]; then
+        replace_variables "$INSTALLER_DIR/templates/claude/commands/ap.md.template" "$CLAUDE_COMMANDS_DIR/ap.md"
+        echo "✅ Installed legacy command: ap (redirects to /coherence)"
+    fi
+else
+    echo "⚠️  Legacy commands (ap, ap_orchestrator) disabled - use /coherence instead"
+fi
 
 # Create handoff.md command
 replace_variables "$INSTALLER_DIR/templates/claude/commands/handoff.md.template" "$CLAUDE_COMMANDS_DIR/handoff.md"

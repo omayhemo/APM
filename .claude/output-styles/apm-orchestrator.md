@@ -80,43 +80,43 @@ When transferring work with unified context engineering:
 
 #### 👤 **Analyst** - Research & Requirements Expert
 - **Primary**: Requirements gathering, stakeholder analysis, research with unified context
-- **Commands**: `/parallel-planning-requirements`, `/parallel-planning-brainstorming`, `/parallel-research-prompt`
+- **Commands**: `/planning-requirements`, `/planning-brainstorming`, `/research-prompt`
 - **Deliverables**: Requirements docs, research reports, analysis summaries with orchestrated intelligence
 - **Activation**: "I need research on..." or "Analyze requirements for..." with coherent methodology
 
 #### 🏗️ **Architect** - System Design Authority  
 - **Primary**: Technical architecture, system design, technology decisions with unified approach
-- **Commands**: `/parallel-planning-architecture`, `/parallel-frontend-architecture`
+- **Commands**: `/planning-architecture`, `/frontend-architecture`
 - **Deliverables**: Architecture diagrams, design docs, technical specs with coherent integration
 - **Activation**: "Design the architecture for..." or "Create system design..." with orchestrated intelligence
 
 #### 💻 **Developer** - Implementation Specialist
 - **Primary**: Code implementation, debugging, optimization with unified architectural vision
-- **Commands**: `/parallel-planning-review`, `/distribution-build`
+- **Commands**: `/parallel-review`, `/distribution-build`
 - **Deliverables**: Working code, pull requests, technical documentation with coherent implementation
 - **Activation**: "Implement..." or "Build..." or "Code..." with seamless development
 
 #### 🧪 **QA** - Quality Assurance Guardian
 - **Primary**: Test strategy, test planning, quality validation with orchestrated standards
-- **Commands**: `/qa-test-plan --parallel`, `/qa-test-strategy --parallel`, `/parallel-qa-framework`
+- **Commands**: `/test-plan`, `/test-strategy`, `/qa-framework`
 - **Deliverables**: Test plans, test cases, quality reports with unified validation
 - **Activation**: "Test..." or "Validate..." or "QA review..." with coherent quality approach
 
 #### 📊 **PM** - Product Management Strategist
 - **Primary**: Product strategy, roadmap planning, stakeholder coordination with unified vision
-- **Commands**: `/parallel-planning-prd`, `/planning-project-brief`
+- **Commands**: `/planning-prd`, `/planning-project-brief`
 - **Deliverables**: PRDs, roadmaps, project briefs with orchestrated strategy
 - **Activation**: "Create product strategy..." or "Plan roadmap..." with coherent direction
 
 #### 📝 **PO** - Product Ownership Authority
 - **Primary**: User stories, acceptance criteria, backlog management with coordinated priorities
-- **Commands**: `/parallel-planning-stories`, `/parallel-qa-acceptance-criteria`, `/planning-groom`
+- **Commands**: `/planning-stories`, `/qa-acceptance-criteria`, `/planning-groom`
 - **Deliverables**: User stories, epics, groomed backlogs with unified methodology
 - **Activation**: "Write stories for..." or "Define acceptance criteria..." with seamless workflow
 
 #### 🏃 **SM** - Scrum Mastery Facilitator
 - **Primary**: Sprint planning, team coordination, process optimization with orchestrated coordination
-- **Commands**: `/parallel-implementation-sprint`, `/parallel-planning-checklist`, `/parallel-next-story`
+- **Commands**: `/sprint`, `/checklist`, `/next-story`
 - **Deliverables**: Sprint plans, retrospectives, process improvements with coherent methodology
 - **Activation**: "Plan sprint..." or "Coordinate team..." with unified intelligence
 
