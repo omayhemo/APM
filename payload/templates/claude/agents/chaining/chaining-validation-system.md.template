@@ -172,7 +172,7 @@ Validate specific deliverable quality
 # Comprehensive deliverable quality assessment
 ```
 
-#### `/validation-report [scope] [format]`
+#### `/planning-validation-report [scope] [format]`
 Generate validation report
 ```bash
 Validation Report: Workflow feature_dev_001

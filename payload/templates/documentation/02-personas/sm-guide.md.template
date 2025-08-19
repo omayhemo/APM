@@ -89,7 +89,7 @@ The Scrum Master follows proven agile facilitation principles:
 
 ### Specialized SM Commands
 
-#### `/parallel-checklist` ⚡
+#### `/parallel-planning-checklist` ⚡
 **Purpose**: Comprehensive checklist creation for processes and quality assurance  
 **Performance**: 3.2x faster for detailed checklists  
 **Best For**: Process standardization, quality gates, team alignment
@@ -99,7 +99,7 @@ The Scrum Master follows proven agile facilitation principles:
 **Performance**: 4.0x faster for comprehensive process analysis  
 **Best For**: Sprint rescue, velocity improvement, process optimization
 
-#### `/checklist`
+#### `/planning-checklist`
 **Purpose**: Single-focus checklist creation for specific processes  
 **Best For**: Specific process checklists, quality gates, team standards
 
@@ -169,7 +169,7 @@ The Scrum Master follows proven agile facilitation principles:
    └─ /sm "Prepare sprint planning session with agenda and backlog review"
    
 2. Story Readiness Check
-   └─ /parallel-checklist "Validate all candidate stories meet Definition of Ready"
+   └─ /parallel-planning-checklist "Validate all candidate stories meet Definition of Ready"
    
 3. Sprint Planning Facilitation
    └─ /sm "Facilitate sprint planning with team capacity and goal setting"
@@ -205,7 +205,7 @@ The Scrum Master follows proven agile facilitation principles:
    └─ /sm "Analyze sprint performance metrics and team feedback"
    
 2. Retrospective Preparation
-   └─ /parallel-checklist "Prepare retrospective agenda and discussion points"
+   └─ /parallel-planning-checklist "Prepare retrospective agenda and discussion points"
    
 3. Retrospective Facilitation
    └─ /sm "Facilitate retrospective with team insights and improvement ideas"
@@ -227,7 +227,7 @@ Leverage parallel execution for complete sprint readiness:
 ```bash
 # Complete sprint preparation
 /parallel-next-story "Create all user stories for upcoming sprint with detailed acceptance criteria"
-/parallel-checklist "Prepare sprint planning checklist, Definition of Ready validation, and team readiness assessment"
+/parallel-planning-checklist "Prepare sprint planning checklist, Definition of Ready validation, and team readiness assessment"
 ```
 
 ### Process Optimization Focus
@@ -249,7 +249,7 @@ Focus on story quality and development readiness:
 /parallel-next-story "Create user stories with comprehensive acceptance criteria, edge cases, and quality gates"
 
 # Story validation and refinement
-/parallel-checklist "Create story quality checklist and Definition of Ready validation criteria"
+/parallel-planning-checklist "Create story quality checklist and Definition of Ready validation criteria"
 ```
 
 ---
@@ -603,7 +603,7 @@ Sprint/Period: [Context]
 
 ### Working Directories
 - **Primary**: `{{PROJECT_ROOT}}/project_docs/sprints/`
-- **Stories**: `{{PROJECT_ROOT}}/project_docs/sprints/stories/`
+- **Stories**: `{{PROJECT_ROOT}}/project_docs/sprints/planning-stories/`
 - **Processes**: `{{PROJECT_ROOT}}/project_docs/sprints/processes/`
 - **Retrospectives**: `{{PROJECT_ROOT}}/project_docs/sprints/retrospectives/`
 
@@ -659,7 +659,7 @@ bash $SPEAK_SM "Process improvement analysis complete - 3 optimization opportuni
 /parallel-next-story "Create user stories with comprehensive acceptance criteria, edge cases, and clear business rules"
 
 # Story quality improvement
-/parallel-checklist "Create story quality checklist and Definition of Ready validation process"
+/parallel-planning-checklist "Create story quality checklist and Definition of Ready validation process"
 ```
 
 #### "Team velocity inconsistent"
@@ -679,7 +679,7 @@ bash $SPEAK_SM "Process improvement analysis complete - 3 optimization opportuni
 /sm "Design enhanced daily standup format and stakeholder communication protocols"
 
 # Facilitation enhancement
-/parallel-checklist "Create comprehensive facilitation checklists for all sprint ceremonies"
+/parallel-planning-checklist "Create comprehensive facilitation checklists for all sprint ceremonies"
 ```
 
 ### Performance Optimization
@@ -688,7 +688,7 @@ bash $SPEAK_SM "Process improvement analysis complete - 3 optimization opportuni
 ```bash
 # Scaled agile approaches
 /parallel-course-correction "Design scaled sprint management for large teams with sub-team coordination"
-/parallel-checklist "Create coordination checklists for multi-team sprint management"
+/parallel-planning-checklist "Create coordination checklists for multi-team sprint management"
 ```
 
 #### For Complex Projects

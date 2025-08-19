@@ -48,8 +48,8 @@ agents:
     output_workspace: "deliverables/releases/"
     
   architect:
-    primary_workspace: "project_docs/architecture/"
-    output_workspace: "project_docs/architecture/artifacts/"
+    primary_workspace: "project_docs/planning-architecture/"
+    output_workspace: "project_docs/planning-architecture/artifacts/"
     
   qa:
     primary_workspace: "workspace/tests/"

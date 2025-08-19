@@ -1,0 +1,417 @@
+---
+name: prd
+description: Sequential PRD creation with comprehensive methodology with parallel execution option
+metadata:
+  version: 2.0.0
+  agent: Product Manager
+  parallel_support: true
+  modes: [sequential, parallel]
+---
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the Product Manager persona.**
+
+```markdown
+*Loading Product Manager context for prd...*
+
+Quick Context Load (1-2 seconds):
+- Loading Product Manager configuration and expertise
+- Loading relevant templates and frameworks
+- PARALLEL_MODE: Preparing parallel execution framework
+- SEQUENTIAL_MODE: Standard context loading
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Context ready. Choose execution mode...*
+```
+
+## Command Overview
+
+This command supports both sequential and parallel execution:
+
+**Sequential Mode (Default):**
+- Focused, guided methodology with deep analysis
+- Interactive stakeholder engagement
+- Systematic validation and documentation
+- Quality-focused approach
+
+**Parallel Mode (--parallel flag):**
+- Multiple native sub-agents working simultaneously  
+- 70% performance improvement
+- Comprehensive parallel coverage
+- Speed-optimized execution
+
+## Usage
+
+```
+/prd [--parallel]
+```
+
+**Parameters:**
+- `--parallel`: Execute with parallel sub-agents for faster completion
+- Default: Sequential execution with guided methodology
+
+## SEQUENTIAL_MODE: Sequential Process
+
+```
+/prd
+```
+
+## Prerequisites
+
+Before running this command, ensure:
+- [ ] Context and objectives are clearly understood
+- [ ] Stakeholder requirements are identified
+- [ ] Existing documentation has been reviewed
+- [ ] Success criteria are established
+- [ ] Resources and constraints are known
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute initialization:
+
+```
+I'm launching sequential prd for comprehensive development and analysis.
+
+*Loading prd templates and methodologies...*
+[Execute initialization tasks in sequence]
+- Load prd templates and frameworks
+- Review context and requirements
+- Prepare systematic methodology
+- Set up validation and documentation processes
+```
+
+## Sequential Prd Process
+
+### Phase 1: Foundation & Context (10-15 minutes)
+**Objective**: Establish foundation and understand requirements
+- Context analysis and requirement gathering
+- Stakeholder identification and needs assessment
+- Success criteria definition and scope establishment
+- Constraint identification and planning considerations
+
+### Phase 2: Development & Analysis (20-30 minutes) 
+**Objective**: Execute core prd activities
+- Systematic development following proven methodologies
+- Interactive refinement and stakeholder engagement
+- Quality validation and completeness checking
+- Iterative improvement based on feedback
+
+### Phase 3: Validation & Refinement (10-15 minutes)
+**Objective**: Ensure quality and completeness
+- Comprehensive validation against requirements
+- Stakeholder review and feedback incorporation
+- Quality assurance and standards compliance
+- Final documentation and deliverable preparation
+
+## Expected Outcomes
+
+After prd completion:
+- **Comprehensive deliverables** meeting all requirements
+- **Quality assurance** with validation completed
+- **Stakeholder alignment** with approval obtained
+- **Clear documentation** with rationale and decisions
+- **Implementation readiness** with next steps defined
+
+## Output Format
+
+```markdown
+# Prd Results
+
+## Overview
+- **Prd Type**: [Type/Category]
+- **Agent**: Product Manager
+- **Completion Date**: [Date]
+- **Status**: [Complete/In Progress]
+
+## Context
+- **Objective**: [Primary goal]
+- **Scope**: [What's included]
+- **Stakeholders**: [Key stakeholders]
+- **Success Criteria**: [How success measured]
+
+## Deliverables
+### Primary Deliverable
+[Main output description and details]
+
+### Supporting Documentation
+- [Supporting item 1]
+- [Supporting item 2]
+- [Supporting item 3]
+
+## Validation Summary
+- **Requirements Met**: [Yes/Partial/No]
+- **Stakeholder Approval**: [Status]
+- **Quality Standards**: [Met/Needs work]
+
+## Next Steps
+1. [Immediate next action]
+2. [Follow-up activities]
+3. [Implementation planning]
+```
+
+## Integration Points
+
+- **Requirements**: Use `/planning-requirements` for detailed analysis
+- **Planning**: Use `/planning-epic` or `/prd` for comprehensive planning
+- **Validation**: Use `/planning-stakeholder-review` for validation
+- **Implementation**: Use parallel versions for rapid execution
+
+## Voice Notifications
+
+```bash
+bash {{SPEAK_PM}} "Sequential prd beginning. Launching guided development process..."
+```
+
+## Success Metrics
+
+- **Completeness**: All aspects systematically covered
+- **Quality**: High standards met throughout process  
+- **Stakeholder Satisfaction**: Requirements accurately addressed
+- **Implementation Readiness**: Clear path forward established
+- **Validation Success**: All criteria met and approved
+
+## When to Use Sequential vs Parallel
+
+**Use `/prd` when:**
+- Focused development with single deliverable
+- Interactive refinement and collaboration desired
+- Quality and thoroughness over speed
+- Complex requirements need careful analysis
+- Stakeholder engagement throughout process important
+
+**Use `/parallel-prd` when:**
+- Multiple deliverables needed simultaneously
+- Time constraints require rapid execution
+- Comprehensive coverage across domains
+- Well-understood process and templates
+- Speed and efficiency prioritized
+
+---
+
+This command provides thoughtful, systematic prd with emphasis on quality, stakeholder collaboration, and comprehensive coverage.
+
+## PARALLEL_MODE: Parallel Process
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm launching parallel PRD creation with 5 native sub-agents for comprehensive product documentation.
+
+*Executing parallel initialization tasks:*
+[Use native sub-agents - ALL in single function_calls block]
+- Task 1: Load PM persona from {{AP_ROOT}}/personas/pm.md
+- Task 2: Load project brief from {{PROJECT_ROOT}}/project_docs/planning-requirements/project_brief.md
+- Task 3: Load PRD template from {{AP_ROOT}}/templates/prd-tmpl.md
+- Task 4: Check for existing PRD at {{PROJECT_ROOT}}/project_docs/planning-requirements/prd.md
+- Task 5: Load market research and competitive analysis if available
+```
+
+### Initialization Task Prompts:
+1. "Read PM principles, strategic planning methodologies, and PRD best practices"
+2. "Extract project vision, goals, and initial requirements from project brief"
+3. "Load PRD template structure and required sections"
+4. "Check for any existing PRD content to build upon or revise"
+5. "Gather market insights, competitive analysis, and user research"
+
+### Post-Initialization:
+After ALL tasks complete:
+1. Voice announcement: bash {{SPEAK_PM}} "Parallel PRD creation initialized with 5 domain experts"
+2. Launch parallel PRD sub-agents
+
+## 🚀 PARALLEL PRD GENERATION
+
+### Comprehensive PRD Domains (5 Parallel Sub-Agents)
+```
+*Launching PRD creation sub-agents:*
+[Use native sub-agents - ALL in single function_calls block]
+- Sub-Agent 1: Product Vision & Strategy
+  Prompt: "Define product vision, strategic objectives, success metrics, market positioning, competitive differentiation, and long-term roadmap. Create compelling value proposition."
+
+- Sub-Agent 2: User Research & Personas
+  Prompt: "Develop detailed user personas, user journey maps, pain points analysis, jobs-to-be-done framework, and user experience requirements. Include user research insights."
+
+- Sub-Agent 3: Feature Specification & Prioritization
+  Prompt: "Define all features with detailed specifications, user stories, acceptance criteria, and prioritization using MoSCoW. Create feature dependency mapping."
+
+- Sub-Agent 4: Technical Requirements & Architecture
+  Prompt: "Document technical requirements, system architecture needs, API specifications, data models, security requirements, and integration points."
+
+- Sub-Agent 5: Go-to-Market & Success Metrics
+  Prompt: "Define launch strategy, success metrics, KPIs, adoption targets, revenue projections, and post-launch monitoring plan."
+```
+
+## 📊 PRD OUTPUT FORMAT
+
+### Comprehensive Product Requirements Document
+```markdown
+# Product Requirements Document
+Product: [Name]
+Version: [1.0.0]
+Date: [Timestamp]
+Author: PM Agent (Parallel Generation)
+
+## EXECUTIVE SUMMARY
+[High-level product vision and objectives]
+
+## 1. PRODUCT VISION & STRATEGY
+### Vision Statement
+[Compelling vision]
+
+### Strategic Objectives
+1. [Objective] - [Key Result]
+2. [Objective] - [Key Result]
+
+### Success Metrics
+- [Metric]: [Target]
+- [Metric]: [Target]
+
+## 2. USER & MARKET ANALYSIS
+### User Personas
+#### Persona 1: [Name]
+- Demographics: [Details]
+- Goals: [List]
+- Pain Points: [List]
+- Jobs to be Done: [List]
+
+### User Journey
+[Journey mapping and touchpoints]
+
+### Market Analysis
+- Market Size: [Data]
+- Competition: [Analysis]
+- Differentiation: [Unique value]
+
+## 3. FEATURE REQUIREMENTS
+### MVP Features (Must Have)
+#### Feature 1: [Name]
+- Description: [Detail]
+- User Story: As a [user], I want [feature] so that [benefit]
+- Acceptance Criteria:
+  - [ ] Criterion 1
+  - [ ] Criterion 2
+- Priority: P0
+- Dependencies: [List]
+
+### Post-MVP Features (Should/Could Have)
+[Similar structure]
+
+## 4. TECHNICAL SPECIFICATIONS
+### System Architecture
+- Architecture Pattern: [Pattern]
+- Technology Stack: [Stack]
+- Scalability Requirements: [Requirements]
+
+### API Requirements
+[API specifications]
+
+### Data Model
+[Data structure and relationships]
+
+### Security & Compliance
+- Security Requirements: [List]
+- Compliance Standards: [List]
+
+## 5. GO-TO-MARKET STRATEGY
+### Launch Plan
+- Phase 1: [Timeline and activities]
+- Phase 2: [Timeline and activities]
+
+### Success Metrics & KPIs
+- Adoption: [Target]
+- Engagement: [Target]
+- Revenue: [Target]
+
+### Risk Mitigation
+| Risk | Impact | Likelihood | Mitigation |
+|------|--------|------------|------------|
+| [Risk] | High | Medium | [Strategy] |
+
+## APPENDICES
+- A. Competitive Analysis
+- B. User Research Data
+- C. Technical Architecture Diagrams
+- D. Financial Projections
+```
+
+## 🔄 PRD CREATION WORKFLOW
+
+### Step 1: Parallel Analysis
+- Launch all 5 domain experts simultaneously
+- Each analyzes their specific area
+- Gather comprehensive insights
+
+### Step 2: Synthesis & Integration
+- Merge insights from all domains
+- Ensure consistency across sections
+- Resolve any conflicts
+
+### Step 3: Validation
+- Cross-reference with project brief
+- Validate technical feasibility
+- Confirm business alignment
+
+### Step 4: Documentation
+- Generate complete PRD
+- Create executive summary
+- Prepare for stakeholder review
+
+## 🎯 PERFORMANCE METRICS
+
+- **Creation Time**: ~5 minutes (vs 15-20 minutes sequential)
+- **Coverage**: 100% of PRD sections
+- **Parallel Domains**: 5 simultaneous analyses
+- **Output Quality**: Enterprise-grade PRD
+
+## 📋 DELIVERABLES
+
+After execution, this command provides:
+- Complete PRD document
+- Executive summary
+- Feature prioritization matrix
+- User persona profiles
+- Technical specification summary
+- Go-to-market timeline
+- Success metrics dashboard
+- Risk assessment matrix
+
+## 🔗 INTEGRATION POINTS
+
+### Handoff to Architect:
+```
+/handoff architect
+"PRD complete with [X] features specified. Technical architecture design can begin."
+```
+
+### Handoff to Product Owner:
+```
+/handoff po
+"PRD finalized. Ready for epic and story creation. [Y] MVP features identified."
+```
+
+### Handoff to Design Architect:
+```
+/handoff design-architect
+"PRD complete with user personas and UX requirements. Ready for design phase."
+```
+
+## 📈 CONTINUOUS IMPROVEMENT
+
+The PRD should be treated as a living document:
+- Regular updates based on user feedback
+- Iterative refinement of features
+- Continuous market analysis integration
+- Stakeholder review cycles
+
+## Available After Activation:
+- Complete PRD document
+- Feature specifications
+- User personas and journeys
+- Technical requirements
+- Success metrics framework
+- Go-to-market strategy
+- Risk mitigation plan
+- Stakeholder presentation deck
+
+This command accelerates PRD creation by 70% through parallel domain analysis, ensuring comprehensive product documentation that aligns business, user, and technical requirements.

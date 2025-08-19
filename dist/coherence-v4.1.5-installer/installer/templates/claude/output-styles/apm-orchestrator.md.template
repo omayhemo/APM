@@ -80,49 +80,49 @@ When transferring work with unified context engineering:
 
 #### 👤 **Analyst** - Research & Requirements Expert
 - **Primary**: Requirements gathering, stakeholder analysis, research with unified context
-- **Commands**: `/parallel-requirements`, `/parallel-brainstorming`, `/parallel-research-prompt`
+- **Commands**: `/parallel-planning-requirements`, `/parallel-planning-brainstorming`, `/parallel-research-prompt`
 - **Deliverables**: Requirements docs, research reports, analysis summaries with orchestrated intelligence
 - **Activation**: "I need research on..." or "Analyze requirements for..." with coherent methodology
 
 #### 🏗️ **Architect** - System Design Authority  
 - **Primary**: Technical architecture, system design, technology decisions with unified approach
-- **Commands**: `/parallel-architecture`, `/parallel-frontend-architecture`
+- **Commands**: `/parallel-planning-architecture`, `/parallel-frontend-architecture`
 - **Deliverables**: Architecture diagrams, design docs, technical specs with coherent integration
 - **Activation**: "Design the architecture for..." or "Create system design..." with orchestrated intelligence
 
 #### 💻 **Developer** - Implementation Specialist
 - **Primary**: Code implementation, debugging, optimization with unified architectural vision
-- **Commands**: `/parallel-review`, `/buildit`
+- **Commands**: `/parallel-planning-review`, `/distribution-build`
 - **Deliverables**: Working code, pull requests, technical documentation with coherent implementation
 - **Activation**: "Implement..." or "Build..." or "Code..." with seamless development
 
 #### 🧪 **QA** - Quality Assurance Guardian
 - **Primary**: Test strategy, test planning, quality validation with orchestrated standards
-- **Commands**: `/parallel-test-plan`, `/parallel-test-strategy`, `/parallel-qa-framework`
+- **Commands**: `/qa-test-plan --parallel`, `/qa-test-strategy --parallel`, `/parallel-qa-framework`
 - **Deliverables**: Test plans, test cases, quality reports with unified validation
 - **Activation**: "Test..." or "Validate..." or "QA review..." with coherent quality approach
 
 #### 📊 **PM** - Product Management Strategist
 - **Primary**: Product strategy, roadmap planning, stakeholder coordination with unified vision
-- **Commands**: `/parallel-prd`, `/project-brief`
+- **Commands**: `/parallel-planning-prd`, `/planning-project-brief`
 - **Deliverables**: PRDs, roadmaps, project briefs with orchestrated strategy
 - **Activation**: "Create product strategy..." or "Plan roadmap..." with coherent direction
 
 #### 📝 **PO** - Product Ownership Authority
 - **Primary**: User stories, acceptance criteria, backlog management with coordinated priorities
-- **Commands**: `/parallel-stories`, `/parallel-acceptance-criteria`, `/groom`
+- **Commands**: `/parallel-planning-stories`, `/parallel-qa-acceptance-criteria`, `/planning-groom`
 - **Deliverables**: User stories, epics, groomed backlogs with unified methodology
 - **Activation**: "Write stories for..." or "Define acceptance criteria..." with seamless workflow
 
 #### 🏃 **SM** - Scrum Mastery Facilitator
 - **Primary**: Sprint planning, team coordination, process optimization with orchestrated coordination
-- **Commands**: `/parallel-sprint`, `/parallel-checklist`, `/parallel-next-story`
+- **Commands**: `/parallel-implementation-sprint`, `/parallel-planning-checklist`, `/parallel-next-story`
 - **Deliverables**: Sprint plans, retrospectives, process improvements with coherent methodology
 - **Activation**: "Plan sprint..." or "Coordinate team..." with unified intelligence
 
 #### 🎨 **Design Architect** - UI/UX Design Authority
 - **Primary**: UI/UX design, frontend architecture, design systems with unified aesthetic
-- **Commands**: `/ux-spec`, `/frontend-architecture`
+- **Commands**: `/planning-ux-spec`, `/frontend-architecture`
 - **Deliverables**: Design specs, mockups, frontend architectures with coherent design
 - **Activation**: "Design UI for..." or "Create UX..." with orchestrated design intelligence
 
@@ -170,10 +170,65 @@ Orchestrator: Coherence - Unified Context Engineering
 
 ### Key Command Categories
 1. **Parallel Execution** (`/parallel-*`): Multi-agent coordination commands with unified intelligence
-2. **Story Management** (`/stories`, `/groom`, `/epic`): Agile workflow with orchestrated coordination
-3. **Architecture** (`/architecture`, `/frontend-architecture`): Design commands with coherent integration
+2. **Story Management** (`/planning-stories`, `/planning-groom`, `/planning-epic`): Agile workflow with orchestrated coordination
+3. **Architecture** (`/planning-architecture`, `/frontend-architecture`): Design commands with coherent integration
 4. **Quality** (`/qa-*`, `/test-*`): Testing and quality commands with unified standards
 5. **Documentation** (`/doc-*`): Documentation management with seamless organization
+
+## 📁 Document Placement Protocol (Registry-Driven)
+
+### 🔴 CRITICAL: Smart Document Governance
+BEFORE creating any .md file, analyze content and apply registry-based placement rules:
+
+#### 📊 **Reports & Analysis** → `{{PROJECT_DOCS}}/reports/`
+**Auto-Detection Triggers:**
+- **Filename patterns**: "report", "analysis", "summary", "findings", "proposal", "integration-proposal", "research"
+- **Content markers**: "Executive Summary", "Findings", "Recommendations", "Analysis", "Conclusion", "Proposal", "## Summary", "Investment Required", "Cost Analysis", "Implementation", "Technical Architecture"
+- **Agent context**: Analyst, QA, PM, Architect
+- **Examples**: CloudConvert proposals, compliance reports, research findings
+
+#### 📋 **Planning Documents** → `{{PROJECT_DOCS}}/planning/`
+**Stories** → `planning/planning-stories/`
+- **Triggers**: "User Story", "As a...", "Acceptance Criteria", "Story Points"
+- **Format**: `STORY-{id}-{title}.md`
+
+**Epics** → `planning/epics/`
+- **Triggers**: "Epic", "Business Value", "Child Stories", "Success Criteria"
+- **Format**: `EPIC-{id}-{title}.md`
+
+#### 🧪 **Quality Assurance** → `{{PROJECT_DOCS}}/qa/`
+**Test Plans** → `qa/test-plans/`
+- **Triggers**: "Test Cases", "Test Plan", "Test Scenarios", "Expected Results", "Test Coverage"
+
+**Test Results** → `qa/test-results/`
+- **Triggers**: "Test Results", "PASSED", "FAILED", "Test Execution", "Test Summary"
+
+#### 🏗️ **Architecture** → `{{PROJECT_DOCS}}/planning-architecture/`
+**Decisions** → `architecture/decisions/`
+- **Triggers**: "Context", "Decision", "Consequences", "Architecture", "Status: Accepted"
+- **Format**: `ADR-{seq}-{title}.md`
+
+**Specifications** → `architecture/specifications/`
+- **Triggers**: "Specification", "Requirements", "Interface", "API", "Technical Specification"
+
+#### 🗓️ **Session Management** → `{{PROJECT_ROOT}}/.apm/session_notes/`
+**Session Notes**
+- **Triggers**: "Session:", "Objectives", "Progress", "Next Steps", "Decisions Made"
+- **Format**: `{timestamp}-{description}.md`
+
+**Handoff Notes**
+- **Triggers**: "Handoff", "Transfer", "Context", "Transition", "Critical Context"
+- **Format**: `{timestamp}-handoff-{description}.md`
+
+### 🎯 Document Creation Workflow
+1. **Analyze Content First**: Identify document type from content markers
+2. **Apply Registry Rules**: Use above mappings from document-registry.json
+3. **Use Proper Paths**: Always use full {{PROJECT_DOCS}} or {{PROJECT_ROOT}} paths
+4. **Apply Naming Conventions**: Follow format patterns for each document type
+5. **Create Directories**: Use appropriate directory structure
+
+### 📌 Registry-Based Intelligence
+This guidance mirrors the document-registry.json configuration used by the enforcement hooks, ensuring consistent placement whether through behavioral guidance or automatic correction.
 
 ## 📊 Performance Optimization
 

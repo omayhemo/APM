@@ -11,13 +11,13 @@
 - **Example**: `EPIC-006-interactive-engagement.md`
 - **VIOLATIONS**: 
   - ❌ `interactive-engagement-platform-business-case.md`
-  - ❌ `epic-1-feature.md`
-  - ❌ `my-epic.md`
+  - ❌ `planning-epic-1-feature.md`
+  - ❌ `my-planning-epic.md`
 
 ### Story Documents
 - **REQUIRED Pattern**: `STORY-{id}-{title}.md`
 - **ID Format**: Three digits, zero-padded (001, 002, etc.)
-- **Location**: `{{PROJECT_ROOT}}/project_docs/planning/stories/`
+- **Location**: `{{PROJECT_ROOT}}/project_docs/planning/planning-stories/`
 - **Example**: `STORY-023-user-authentication.md`
 
 ### Test Plans
@@ -33,7 +33,7 @@
 
 ### PRDs (Product Requirements Documents)
 - **REQUIRED Pattern**: `{title}-PRD.md`
-- **Location**: `{{PROJECT_ROOT}}/project_docs/requirements/`
+- **Location**: `{{PROJECT_ROOT}}/project_docs/planning-requirements/`
 - **Example**: `syncdeck-interactive-PRD.md`
 
 ## Enforcement Mechanisms
@@ -53,7 +53,7 @@ cat {{AP_ROOT}}/config/document-registry.json
 
 ### 3. Validation Before Write
 - **NEVER** create a document with an arbitrary name
-- **ALWAYS** verify the pattern matches requirements
+- **ALWAYS** verify the pattern matches planning-requirements
 - **ALWAYS** place in the correct directory
 
 ## Consequences of Non-Compliance
@@ -65,14 +65,14 @@ cat {{AP_ROOT}}/config/document-registry.json
 ## Agent-Specific Responsibilities
 
 ### Product Owner (PO)
-- **PRIMARY**: Creating and maintaining epics and stories
+- **PRIMARY**: Creating and maintaining epics and planning-stories
 - **MUST**: Always use correct EPIC-XXX and STORY-XXX patterns
 - **OWNS**: backlog.md (singleton document)
 
 ### Project Manager (PM)
 - **PRIMARY**: Creating project reports and status updates
 - **MUST**: Follow date-based naming for reports
-- **COLLABORATES**: With PO on epic/story creation
+- **COLLABORATES**: With PO on planning-epic/story creation
 
 ### QA Agent
 - **PRIMARY**: Creating test plans and test results
@@ -82,12 +82,12 @@ cat {{AP_ROOT}}/config/document-registry.json
 ### Architect
 - **PRIMARY**: Architecture decision records (ADRs)
 - **PATTERN**: `ADR-{seq}-{title}.md`
-- **LOCATION**: `{{PROJECT_ROOT}}/project_docs/architecture/decisions/`
+- **LOCATION**: `{{PROJECT_ROOT}}/project_docs/planning-architecture/decisions/`
 
 ## Validation Checklist
 
 Before creating ANY document, verify:
-- [ ] Pattern matches the document type requirements
+- [ ] Pattern matches the document type planning-requirements
 - [ ] ID number is correctly sequenced
 - [ ] Location is in the correct directory
 - [ ] Filename uses correct case (UPPERCASE prefixes)
@@ -96,14 +96,14 @@ Before creating ANY document, verify:
 ## Examples of Correct Usage
 
 ```bash
-# Creating an epic (PO agent)
+# Creating an planning-epic (PO agent)
 filename="EPIC-006-payment-integration.md"
 location="{{PROJECT_ROOT}}/project_docs/planning/epics/"
 full_path="${location}${filename}"
 
 # Creating a story (PO agent)
 filename="STORY-042-user-login-flow.md"
-location="{{PROJECT_ROOT}}/project_docs/planning/stories/"
+location="{{PROJECT_ROOT}}/project_docs/planning/planning-stories/"
 full_path="${location}${filename}"
 
 # Creating a test plan (QA agent)

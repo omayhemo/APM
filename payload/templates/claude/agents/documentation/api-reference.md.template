@@ -158,7 +158,7 @@ Parallel Development: Revolutionary capability
 
 **Revolutionary Parallel Development**:
 ```bash
-/parallel-sprint  # Coordinate multiple developers simultaneously
+/parallel-implementation-sprint  # Coordinate multiple developers simultaneously
                   # 60-80% sprint acceleration
                   # Real-time dependency management
                   # Intelligent conflict prevention
@@ -182,7 +182,7 @@ Insights: AI-powered recommendations
 
 #### Parallel Sprint Coordination
 ```bash
-/parallel-sprint
+/parallel-implementation-sprint
   ├── Sprint Analysis (3 parallel tasks)
   │   ├── Load sprint plan
   │   ├── Analyze dependencies  
@@ -263,10 +263,10 @@ DELETE /api/v{{API_VERSION}}/sessions/{id}/archive
 #### Parallel Execution
 ```yaml
 # Parallel coordination
-POST   /api/v{{API_VERSION}}/parallel/sprint/launch
-GET    /api/v{{API_VERSION}}/parallel/sprint/{id}/status
-PUT    /api/v{{API_VERSION}}/parallel/sprint/{id}/coordinate
-POST   /api/v{{API_VERSION}}/parallel/sprint/{id}/synthesize
+POST   /api/v{{API_VERSION}}/parallel/implementation-sprint/launch
+GET    /api/v{{API_VERSION}}/parallel/implementation-sprint/{id}/status
+PUT    /api/v{{API_VERSION}}/parallel/implementation-sprint/{id}/coordinate
+POST   /api/v{{API_VERSION}}/parallel/implementation-sprint/{id}/synthesize
 
 # QA Framework
 POST   /api/v{{API_VERSION}}/qa/framework/execute
@@ -292,7 +292,7 @@ ws://localhost:2601/api/v{{API_VERSION}}/ws/agents/{type}/events
 
 {
   "type": "parallel_execution",
-  "command": "/parallel-sprint",
+  "command": "/parallel-implementation-sprint",
   "streams": 4,
   "coordination_status": "active"
 }

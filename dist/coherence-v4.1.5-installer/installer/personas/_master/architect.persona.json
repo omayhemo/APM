@@ -26,7 +26,7 @@
     ],
     "slash_commands": [
       "/architect",
-      "/architecture",
+      "/planning-architecture",
       "/frontend-architecture"
     ]
   },
@@ -34,7 +34,7 @@
     "voice_script": "speakArchitect.sh",
     "voice_script_path": "{{AP_ROOT}}/agents/voice/speakArchitect.sh",
     "working_directories": {
-      "primary": "{{PROJECT_ROOT}}/project_docs/architecture/",
+      "primary": "{{PROJECT_ROOT}}/project_docs/planning-architecture/",
       "secondary": "{{PROJECT_ROOT}}/workspace/",
       "output": "{{PROJECT_ROOT}}/deliverables/artifacts/"
     },

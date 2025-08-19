@@ -12,7 +12,7 @@ if [ -f "templates/VERSION" ]; then
 elif [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="4.1.0"
+    VERSION="4.1.5"
 fi
 DIST_NAME="coherence-v$VERSION-installer"
 DIST_DIR="dist/$DIST_NAME"
@@ -115,7 +115,7 @@ EOF
 echo ""
 echo "Creating distribution archive..."
 cd dist
-# Create tar with installer directory at root - no version wrapper
+# Create tar with installer directory at root level for direct execution
 tar -czf "$DIST_NAME.tar.gz" -C "$DIST_NAME" installer LICENSE VERSION
 cd ..
 
@@ -154,10 +154,10 @@ else
     echo "✅ Template system integrity: $TEMPLATE_COUNT templates ready for distribution"
 fi
 
-# Validate critical template files exist (updated for v4.1.0 installer distribution)
+# Validate critical template files exist (updated for v4.1.5 with Phase 1 & 2 reorganization)
 CRITICAL_TEMPLATES=(
-    "installer/templates/claude/commands/groom.md.template"
-    "installer/templates/claude/commands/parallel-epic.md.template"
+    "installer/templates/claude/commands/planning-groom.md.template"
+    "installer/templates/claude/commands/planning-epic.md.template"
     "installer/templates/claude/commands/ap_orchestrator.md.template"
     "installer/templates/claude/settings.json.template"
     "installer/templates/agents/personas/po.md.template"

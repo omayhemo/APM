@@ -70,7 +70,7 @@ Quick lookup for all Coherence commands with essential information. For detailed
 ### Project Management
 | Command | Sub-Agents | Speedup | Use Case |
 |---------|------------|---------|----------|
-| `/parallel-prd` | 5 | 3.5x | PRD creation |
+| `/parallel-planning-prd` | 5 | 3.5x | PRD creation |
 | `/parallel-epic` | 4 | 4.2x | Epic development |
 | `/parallel-stories` | 4 | 5.3x | Batch story generation |
 | `/parallel-acceptance-criteria` | 4 | 3.9x | AC definition |
@@ -94,8 +94,8 @@ Quick lookup for all Coherence commands with essential information. For detailed
 ### Documentation
 | Command | Sub-Agents | Speedup | Use Case |
 |---------|------------|---------|----------|
-| `/parallel-doc-sharding` | 4 | **6.7x** | Document processing |
-| `/parallel-library-indexing` | 5 | **7.1x** | Knowledge indexing |
+| `/parallel-documentation-shard` | 4 | **6.7x** | Document processing |
+| `/parallel-implementation-library-indexing` | 5 | **7.1x** | Knowledge indexing |
 
 ### Course Correction
 | Command | Sub-Agents | Speedup | Use Case |
@@ -127,21 +127,21 @@ Quick lookup for all Coherence commands with essential information. For detailed
 
 | Command | Purpose | Output | Typical Time |
 |---------|---------|--------|--------------|
-| `/project-brief` | Project initialization | Brief document | 15 min |
-| `/prd` | PRD creation | Requirements doc | 45 min |
-| `/epic` | Epic management | Epic + stories | 30 min |
-| `/stories` | Story generation | User stories | 20 min |
-| `/groom` | Backlog grooming | Refined backlog | 25 min |
+| `/planning-project-brief` | Project initialization | Brief document | 15 min |
+| `/planning-prd` | PRD creation | Requirements doc | 45 min |
+| `/planning-epic` | Epic management | Epic + stories | 30 min |
+| `/planning-stories` | Story generation | User stories | 20 min |
+| `/planning-groom` | Backlog grooming | Refined backlog | 25 min |
 | `/prioritization` | Feature ranking | Priority matrix | 15 min |
-| `/acceptance-criteria` | AC definition | Test criteria | 10 min |
-| `/validation` | Story validation | Validation report | 15 min |
+| `/qa-acceptance-criteria` | AC definition | Test criteria | 10 min |
+| `/planning-validation` | Story validation | Validation report | 15 min |
 | `/next-story` | Story progression | Next story ready | 5 min |
-| `/checklist` | Task checklists | Checklist doc | 10 min |
+| `/planning-checklist` | Task checklists | Checklist doc | 10 min |
 | `/course-correction` | Agile adjustments | Action plan | 20 min |
-| `/requirements` | Requirements gathering | Requirements doc | 30 min |
-| `/stakeholder-review` | Stakeholder feedback | Review summary | 25 min |
-| `/ux-spec` | UX specifications | UX document | 35 min |
-| `/release` | Release management | Release plan | 30 min |
+| `/planning-requirements` | Requirements gathering | Requirements doc | 30 min |
+| `/planning-stakeholder-review` | Stakeholder feedback | Review summary | 25 min |
+| `/planning-ux-spec` | UX specifications | UX document | 35 min |
+| `/distribution-release` | Release management | Release plan | 30 min |
 
 ---
 
@@ -149,12 +149,12 @@ Quick lookup for all Coherence commands with essential information. For detailed
 
 | Command | Purpose | Focus | Integration |
 |---------|---------|-------|-------------|
-| `/architecture` | System design | Technical | Backend |
+| `/planning-architecture` | System design | Technical | Backend |
 | `/frontend-architecture` | UI architecture | Frontend | UI/UX |
-| `/automation-plan` | Automation strategy | Testing | CI/CD |
+| `/qa-automation-plan` | Automation strategy | Testing | CI/CD |
 | `/ai-prompt` | AI integration | AI/ML | Various |
-| `/git-commit-all` | Version control | Git | Repository |
-| `/buildit` | Build distribution | Packaging | Release |
+| `/distribution-commit` | Version control | Git | Repository |
+| `/distribution-build` | Build distribution | Packaging | Release |
 | `/version` | Version management | Versioning | Release |
 | `/update-all-documentation` | Doc updates | Documentation | All |
 
@@ -164,11 +164,11 @@ Quick lookup for all Coherence commands with essential information. For detailed
 
 | Command | Purpose | Processing | Speed |
 |---------|---------|------------|-------|
-| `/doc-sharding` | Document segmentation | Intelligent | Fast |
-| `/library-indexing` | Knowledge indexing | Comprehensive | Fast |
+| `/documentation-shard` | Document segmentation | Intelligent | Fast |
+| `/implementation-implementation-library-indexing` | Knowledge indexing | Comprehensive | Fast |
 | `/doc-compliance` | Compliance check | Standard | Medium |
-| `/doc-compliance-enhanced` | Advanced compliance | Deep | Slow |
-| `/organize-docs` | Document organization | Structural | Fast |
+| `/documentation-compliance` | Advanced compliance | Deep | Slow |
+| `/documentation-organize` | Document organization | Structural | Fast |
 | `/research-prompt` | Research documentation | Analytical | Medium |
 
 ---
@@ -179,8 +179,8 @@ Quick lookup for all Coherence commands with essential information. For detailed
 |---------|---------|-------|-----------|
 | `/test-strategy` | Test strategy creation | Planning | Per release |
 | `/test` | General testing | Execution | Daily |
-| `/review` | Code/doc review | Quality | Per PR |
-| `/quality-review` | Quality assessment | Comprehensive | Sprint |
+| `/planning-review` | Code/doc review | Quality | Per PR |
+| `/qa-quality-review` | Quality assessment | Comprehensive | Sprint |
 | `/regression-suite` | Regression testing | Validation | Per release |
 
 ---
@@ -199,7 +199,7 @@ Quick lookup for all Coherence commands with essential information. For detailed
 
 ### PRD Creation (Fast)
 ```bash
-/pm → /parallel-prd --template=comprehensive
+/pm → /parallel-planning-prd --template=comprehensive
 ```
 
 ### Full QA Cycle
@@ -209,7 +209,7 @@ Quick lookup for all Coherence commands with essential information. For detailed
 
 ### Document Processing (Unified Context Engineering)
 ```bash
-/parallel-doc-sharding --chunks=auto → /parallel-library-indexing
+/parallel-documentation-shard --chunks=auto → /parallel-implementation-library-indexing
 ```
 
 ---
@@ -238,13 +238,13 @@ Quick lookup for all Coherence commands with essential information. For detailed
 | If you need to... | Use this command | Alternative |
 |-------------------|------------------|-------------|
 | Start Coherence session | `/coherence` | `/ap` (legacy) |
-| Create requirements | `/analyst` + `/requirements` | `/parallel-requirements` |
+| Create requirements | `/analyst` + `/planning-requirements` | `/parallel-requirements` |
 | Design system | `/architect` | `/parallel-architecture` |
-| Create PRD | `/pm` + `/prd` | `/parallel-prd` |
-| Manage backlog | `/po` + `/groom` | - |
+| Create PRD | `/pm` + `/planning-prd` | `/parallel-planning-prd` |
+| Manage backlog | `/po` + `/planning-groom` | - |
 | Run sprint | `/dev` | `/parallel-sprint` |
 | Test thoroughly | `/qa` + `/qa-framework` | `/parallel-qa-framework` |
-| Process documents | `/doc-sharding` | `/parallel-doc-sharding` |
+| Process documents | `/documentation-shard` | `/parallel-documentation-shard` |
 | Get insights | `/qa-insights` | - |
 | Wrap up work | `/wrap` | - |
 

@@ -12,7 +12,7 @@
   },
   "capabilities": {
     "core": [
-      "prd_creation",
+      "planning-prd_creation",
       "product_strategy",
       "market_analysis",
       "feature_prioritization",
@@ -20,18 +20,18 @@
       "stakeholder_management"
     ],
     "parallel_commands": [
-      "parallel-prd"
+      "parallel-planning-prd"
     ],
     "slash_commands": [
       "/pm",
-      "/prd"
+      "/planning-prd"
     ]
   },
   "configuration": {
     "voice_script": "speakPm.sh",
     "voice_script_path": "{{AP_ROOT}}/agents/voice/speakPm.sh",
     "working_directories": {
-      "primary": "{{PROJECT_ROOT}}/project_docs/requirements/",
+      "primary": "{{PROJECT_ROOT}}/project_docs/planning-requirements/",
       "secondary": "{{PROJECT_ROOT}}/deliverables/reports/"
     },
     "session_notes_path": "{{SESSION_NOTES_PATH}}",

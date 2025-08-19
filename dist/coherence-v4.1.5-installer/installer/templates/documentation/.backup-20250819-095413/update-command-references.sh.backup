@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Comprehensive script to update old command references to new names
+
+echo "=== UPDATING COMMAND REFERENCES IN TEMPLATES ==="
+echo ""
+
+# Define the mapping of old commands to new commands
+declare -A command_map=(
+    # Planning commands
+    ["/epic"]="/planning-epic"
+    ["/stories"]="/planning-stories" 
+    ["/architecture"]="/planning-architecture"
+    ["/checklist"]="/planning-checklist"
+    ["/brainstorming"]="/planning-brainstorming"
+    ["/course-correction"]="/planning-course-correction"
+    ["/frontend-architecture"]="/planning-frontend-architecture"
+    ["/next-story"]="/planning-next-story"
+    ["/prioritization"]="/planning-prioritization"
+    ["/stakeholder-review"]="/planning-stakeholder-review"
+    ["/ux-spec"]="/planning-ux-spec"
+    ["/requirements"]="/planning-requirements"
+    ["/requirement-validation"]="/planning-requirement-validation"
+    ["/groom"]="/planning-groom"
+    # QA commands
+    ["/acceptance-criteria"]="/qa-acceptance-criteria"
+    ["/monitor-tests"]="/qa-monitor-tests"
+    ["/quality-review"]="/qa-quality-review"
+    ["/regression-suite"]="/qa-regression-suite"
+    ["/run-tests"]="/qa-run-tests"
+    ["/show-test-status"]="/qa-show-test-status"
+    # Implementation commands
+    ["/sprint"]="/implementation-sprint"
+)
+
+# Update all templates
+for template in *.template; do
+    if [[ "$template" == "*.template" ]]; then
+        continue  # Skip if no templates found
+    fi
+    
+    echo "Processing $template..."
+    
+    # Create backup
+    cp "$template" "$template.backup"
+    
+    # Apply all command mappings
+    for old_cmd in "${!command_map[@]}"; do
+        new_cmd="${command_map[$old_cmd]}"
+        
+        # Use word boundaries to avoid partial matches
+        sed -i "s|${old_cmd}\\b|${new_cmd}|g" "$template"
+    done
+    
+    echo "✅ Updated $template"
+done
+
+echo ""
+echo "✅ All command references updated"
+echo "📋 Backup files created with .backup extension"

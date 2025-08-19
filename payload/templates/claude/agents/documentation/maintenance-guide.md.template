@@ -369,7 +369,7 @@ security_maintenance() {
     ./scripts/vulnerability-assessment.sh --full-scan
     
     # Access control review
-    ./scripts/review-access-controls.sh --compliance-check
+    ./scripts/planning-review-access-controls.sh --compliance-check
     
     # Certificate management
     ./scripts/manage-certificates.sh --renewal-check --auto-renew
@@ -470,7 +470,7 @@ compliance_and_governance() {
     ./scripts/compliance-audit.sh --frameworks=SOC2,ISO27001,GDPR
     
     # Governance policy review
-    ./scripts/review-governance-policies.sh --update-recommendations
+    ./scripts/planning-review-governance-policies.sh --update-recommendations
     
     # Risk assessment and mitigation review
     ./scripts/risk-assessment.sh --quarterly-summary
@@ -591,7 +591,7 @@ Diagnostic Steps:
   1. Run performance diagnostics: ./scripts/performance-diagnostics.sh
   2. Check resource utilization: ./scripts/check-resource-utilization.sh
   3. Analyze bottlenecks: ./scripts/analyze-bottlenecks.sh
-  4. Review recent changes: ./scripts/review-recent-changes.sh
+  4. Review recent changes: ./scripts/planning-review-recent-changes.sh
 
 Resolution Steps:
   1. Apply performance optimizations: ./scripts/optimize-performance.sh

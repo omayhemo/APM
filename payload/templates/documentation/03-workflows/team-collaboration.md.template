@@ -27,9 +27,9 @@ Team Lead (Coherence Orchestrator)
 
 #### Model 2: Rotating Persona Leadership
 ```
-Sprint 1: Developer leads with /parallel-sprint
+Sprint 1: Developer leads with /parallel-implementation-sprint
 Sprint 2: QA leads with /qa-framework focus
-Sprint 3: Architect leads with /parallel-architecture
+Sprint 3: Architect leads with /parallel-planning-architecture
 Sprint 4: Product Owner leads with /prioritization
 ```
 
@@ -47,10 +47,10 @@ Complex Feature: All team members collaborate using different personas
 ### Workflow 1: Coordinated Sprint Development
 ```
 Team Lead: /coherence → Unified context engineering coordination
-├── Developer 1: /parallel-sprint (Frontend stream)
-├── Developer 2: /parallel-sprint (Backend stream)  
+├── Developer 1: /parallel-implementation-sprint (Frontend stream)
+├── Developer 2: /parallel-implementation-sprint (Backend stream)  
 ├── QA Engineer: /parallel-test-plan (Testing stream)
-└── Architect: /parallel-architecture (Review stream)
+└── Architect: /parallel-planning-architecture (Review stream)
 ```
 
 **Coordination Mechanisms:**
@@ -65,7 +65,7 @@ Feature Lead: /po → Requirements and priorities
 ├── Frontend Dev: /design-architect → UI/UX implementation
 ├── Backend Dev: /dev → API and business logic
 ├── QA Engineer: /qa-framework → Testing strategy
-└── DevOps: /parallel-automation-plan → CI/CD setup
+└── DevOps: /qa-automation-plan --parallel → CI/CD setup
 ```
 
 **Success Factors:**
@@ -79,8 +79,8 @@ Feature Lead: /po → Requirements and priorities
 Problem Identified: Critical production issue
 ├── Developer: /qa-anomaly → Issue investigation
 ├── Architect: /parallel-course-correction → System analysis  
-├── QA: /parallel-validation → Impact assessment
-└── PM: /stakeholder-review → Communication management
+├── QA: /parallel-planning-validation → Impact assessment
+└── PM: /planning-stakeholder-review → Communication management
 ```
 
 **Rapid Response Features:**
@@ -322,16 +322,16 @@ Team members work on areas of expertise with cross-collaboration
 
 ### Coordination Commands
 - `/coherence` - Team lead coordination and orchestration with unified context engineering
-- `/stakeholder-review` - Include stakeholders in team decisions
+- `/planning-stakeholder-review` - Include stakeholders in team decisions
 - `/parallel-*` - Multiple team members working on related tasks
 
 ### Communication Commands
 - `/session-note-setup` - Establish team session note standards
-- `/groom` - Team-based backlog grooming and planning
+- `/planning-groom` - Team-based backlog grooming and planning
 - `/prioritization` - Collaborative priority setting
 
 ### Quality Assurance Commands
-- `/parallel-validation` - Team-based quality validation
+- `/parallel-planning-validation` - Team-based quality validation
 - `/qa-framework` - Establish team quality standards
 - `/parallel-course-correction` - Team-based problem resolution
 

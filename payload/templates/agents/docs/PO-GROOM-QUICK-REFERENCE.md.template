@@ -1,14 +1,14 @@
-# Product Owner /groom Command Quick Reference
+# Product Owner /planning-groom Command Quick Reference
 
 ## Overview
-The `/groom` command executes comprehensive backlog grooming through 18 parallel subtasks, transforming documentation into an optimized, prioritized backlog.
+The `/planning-groom` command executes comprehensive backlog grooming through 18 parallel subtasks, transforming documentation into an optimized, prioritized backlog.
 
 ## Command Syntax
 ```bash
-/groom [options]
+/planning-groom [options]
   --source <path>         # Documentation source (default: {{PROJECT_ROOT}}/project_docs)
   --output <path>         # Output directory (default: {{PROJECT_ROOT}}/project_docs/backlog)
-  --sprint-length <days>  # Sprint duration (default: 14)
+  --implementation-sprint-length <days>  # Sprint duration (default: 14)
   --team-velocity <pts>   # Team velocity (default: 40)
   --focus-areas <list>    # Specific areas to prioritize
 ```
@@ -16,13 +16,13 @@ The `/groom` command executes comprehensive backlog grooming through 18 parallel
 ## Example Usage
 ```bash
 # Basic grooming with defaults
-/groom
+/planning-groom
 
-# Custom sprint length and velocity
-/groom --sprint-length 10 --team-velocity 50
+# Custom implementation-sprint length and velocity
+/planning-groom --implementation-sprint-length 10 --team-velocity 50
 
 # Focus on specific areas
-/groom --focus-areas "authentication,payments"
+/planning-groom --focus-areas "authentication,payments"
 ```
 
 ## Execution Phases
@@ -35,13 +35,13 @@ The `/groom` command executes comprehensive backlog grooming through 18 parallel
 - Compliance requirement gathering
 
 ### Phase 2: Epic Generation (Parallel)
-- Feature epics from requirements
+- Feature epics from planning-requirements
 - Technical epics from debt/infrastructure
 - Integration epics from dependencies
 - Compliance epics from regulations
 
 ### Phase 3: Story Decomposition (Parallel)
-- Break epics into commit-level stories
+- Break epics into commit-level planning-stories
 - Estimate story points and complexity
 - Map story dependencies
 
@@ -52,7 +52,7 @@ The `/groom` command executes comprehensive backlog grooming through 18 parallel
 - Identify parallel work streams
 
 ### Phase 5: Sprint Planning
-- Allocate stories to sprints
+- Allocate planning-stories to sprints
 - Optimize team capacity
 - Balance workload
 
@@ -63,7 +63,7 @@ The `/groom` command executes comprehensive backlog grooming through 18 parallel
 epics:
   - id: EPIC-001
     title: "User Authentication"
-    stories: [STORY-001, STORY-002]
+    planning-stories: [STORY-001, STORY-002]
     priority: P0
     business_value: 85
 ```
@@ -75,7 +75,7 @@ graph TD
   STORY-002 --> STORY-004
 ```
 
-### 3. Sprint Plan (`sprint-plan.md`)
+### 3. Sprint Plan (`implementation-sprint-plan.md`)
 ```markdown
 ## Sprint 1
 - STORY-001: Database setup (3 pts)
@@ -89,7 +89,7 @@ graph TD
     {
       "name": "Frontend",
       "independent": true,
-      "stories": ["STORY-020", "STORY-021"]
+      "planning-stories": ["STORY-020", "STORY-021"]
     }
   ]
 }
@@ -107,13 +107,13 @@ graph TD
 - **Sequential Time**: 30-45 minutes
 - **Parallel Time**: 5-10 minutes
 - **Efficiency Gain**: 80%+
-- **Typical Output**: 10-20 epics, 50-100 stories
+- **Typical Output**: 10-20 epics, 50-100 planning-stories
 
 ## Best Practices
 
 1. **Preparation**
    - Ensure documentation is comprehensive
-   - Have PRD and architecture docs ready
+   - Have PRD and planning-architecture docs ready
    - Know team velocity and capacity
 
 2. **Execution**
@@ -124,14 +124,14 @@ graph TD
 3. **Post-Grooming**
    - Validate dependencies with architects
    - Review priorities with stakeholders
-   - Adjust sprint allocation as needed
+   - Adjust implementation-sprint allocation as needed
 
 ## Troubleshooting
 
 ### Common Issues
 - **"Documentation not found"** - Check --source path
 - **"Velocity too low"** - Increase --team-velocity or reduce scope
-- **"Too many dependencies"** - Review architecture for decoupling opportunities
+- **"Too many dependencies"** - Review planning-architecture for decoupling opportunities
 
 ### Tips
 - Start with default parameters

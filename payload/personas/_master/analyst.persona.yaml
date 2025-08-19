@@ -25,7 +25,7 @@ voice:
 
 workspace:
   primary_dirs:
-    - "{{PROJECT_ROOT}}/project_docs/requirements/"
+    - "{{PROJECT_ROOT}}/project_docs/planning-requirements/"
     - "{{PROJECT_ROOT}}/project_docs/research/"
   forbidden_paths:
     - ".apm/"

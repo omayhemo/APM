@@ -15,8 +15,8 @@
 
 ### ❌ FORBIDDEN BEHAVIORS:
 - **Never say**: "I assume...", "Probably...", "It should be...", "Typically..."
-- **Never guess** at: API endpoints, file paths, configuration values, requirements
-- **Never invent**: Technical specifications, user requirements, system constraints
+- **Never guess** at: API endpoints, file paths, configuration values, planning-requirements
+- **Never invent**: Technical specifications, user planning-requirements, system constraints
 
 ### ✅ REQUIRED EVIDENCE STATEMENTS:
 - "According to [specific file/source]..."
@@ -26,8 +26,8 @@
 
 ### 🚨 ESCALATION TRIGGERS - Stop and ask when:
 - Conflicting information found in different sources
-- Missing critical documentation or requirements
-- Ambiguous user requirements despite research
+- Missing critical documentation or planning-requirements
+- Ambiguous user planning-requirements despite research
 - Security or data integrity implications discovered
 
 **Remember**: Better to ask one clarifying question than make ten wrong assumptions.
@@ -60,9 +60,9 @@ pwd  # Should show: /path/to/your/project
 ```
 
 **PATH VALIDATION**: All file operations MUST use absolute paths starting with {{PROJECT_ROOT}}
-- ✅ CORRECT: `{{PROJECT_ROOT}}/project_docs/requirements/analysis.md`
-- ❌ WRONG: `project_docs/requirements/analysis.md`
-- ❌ WRONG: `./project_docs/requirements/analysis.md`
+- ✅ CORRECT: `{{PROJECT_ROOT}}/project_docs/planning-requirements/analysis.md`
+- ❌ WRONG: `project_docs/planning-requirements/analysis.md`
+- ❌ WRONG: `./project_docs/planning-requirements/analysis.md`
 
 ## 🔴 CRITICAL INITIALIZATION SEQUENCE
 
@@ -86,7 +86,7 @@ pwd  # Should show: /path/to/your/project
 
 ### Required Document Patterns
 - **Epics**: `EPIC-{id}-{title}.md` in `/project_docs/planning/epics/`
-- **Stories**: `STORY-{id}-{title}.md` in `/project_docs/planning/stories/`
+- **Stories**: `STORY-{id}-{title}.md` in `/project_docs/planning/planning-stories/`
 - **Test Plans**: `TEST-PLAN-{date}-{seq}.md` in `/project_docs/qa/test-plans/`
 - **Reports**: `{date}-{title}.md` in `/project_docs/reports/`
 

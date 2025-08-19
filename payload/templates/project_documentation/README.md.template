@@ -42,10 +42,10 @@ Master index linking all documentation for easy navigation.
 
 - **Analyst**: Parallel research and analysis with native sub-agents and unified context engineering
 - **PM**: Concurrent PRD generation and epic management (4x speedup) with Coherence methodology
-- **Architect**: `/parallel-architecture-review` for system-wide analysis using unified context patterns
+- **Architect**: `/parallel-planning-architecture-review` for system-wide analysis using unified context patterns
 - **Design Architect**: Parallel component and UI/UX analysis with Coherence design principles
-- **PO**: `/groom` with 18 native sub-agents for backlog optimization using unified context engineering
-- **SM**: `/parallel-sprint` coordinating 2-4 Developer sub-agents with Coherence coordination patterns
+- **PO**: `/planning-groom` with 18 native sub-agents for backlog optimization using unified context engineering
+- **SM**: `/parallel-implementation-sprint` coordinating 2-4 Developer sub-agents with Coherence coordination patterns
 - **Developer**: `/parallel-review` for concurrent code analysis with unified context sharing
 - **QA**: `/parallel-test` with AI/ML analytics (92% accuracy) and Coherence validation frameworks
 

@@ -166,7 +166,7 @@ Parallel Tasks Spawned:
 Synthesis Pattern: Test Coverage Aggregator
 
 Journey Coverage:
-- Registration: 95% success (email validation issue)
+- Registration: 95% success (email planning-validation issue)
 - Purchase: 78% success (payment timeout)
 - Account Mgmt: 92% success (password reset bug)
 - Search: 88% success (filter combination error)
@@ -216,9 +216,9 @@ Recommendations:
 
 ### Example 1: Comprehensive Backlog Grooming
 
-**Scenario**: Transform requirements documentation into prioritized sprint backlog
+**Scenario**: Transform planning-requirements documentation into prioritized implementation-sprint backlog
 
-**Command**: `/groom --sprint-length 14 --team-velocity 40`
+**Command**: `/planning-groom --implementation-sprint-length 14 --team-velocity 40`
 
 **Execution**:
 ```yaml
@@ -278,7 +278,7 @@ Sprint 1 Allocation:
 
 **Scenario**: Create realistic timeline with contingencies for stakeholder commitment
 
-**Command**: `/groom --focus-areas "payment,compliance"`
+**Command**: `/planning-groom --focus-areas "payment,compliance"`
 
 **Execution**: 
 - Focuses analysis on payment and compliance features
@@ -293,8 +293,8 @@ Release Plan:
 - P95 Conservative: 10 sprints
 
 Key Risks:
-1. Payment gateway integration (+0.5-1 sprint)
-2. Compliance audit requirements (+0.3-0.8 sprint)
+1. Payment gateway integration (+0.5-1 implementation-sprint)
+2. Compliance audit planning-requirements (+0.3-0.8 implementation-sprint)
 
 Contingency Plans:
 - Plan A: Normal execution (50% probability)
@@ -309,10 +309,10 @@ Contingency Plans:
 
 ```yaml
 Tasks:
-- Security validation
-- Performance validation
-- Functionality validation
-- Compatibility validation
+- Security planning-validation
+- Performance planning-validation
+- Functionality planning-validation
+- Compatibility planning-validation
 
 Synthesis: Multi-Source Validator
 Output: Confidence score with go/no-go decision
@@ -488,7 +488,7 @@ Integrate into your workflow:
 
 1. **PR Checks**: Run on every pull request
 2. **Nightly Builds**: Comprehensive analysis
-3. **Pre-Release**: Full validation suite
+3. **Pre-Release**: Full planning-validation suite
 4. **Post-Incident**: Root cause analysis
 5. **Sprint Reviews**: Technical debt assessment
 

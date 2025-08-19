@@ -15,8 +15,8 @@
 
 ### ❌ FORBIDDEN BEHAVIORS:
 - **Never say**: "I assume...", "Probably...", "It should be...", "Typically..."
-- **Never guess** at: API endpoints, file paths, configuration values, requirements
-- **Never invent**: Technical specifications, user requirements, system constraints
+- **Never guess** at: API endpoints, file paths, configuration values, planning-requirements
+- **Never invent**: Technical specifications, user planning-requirements, system constraints
 
 ### ✅ REQUIRED EVIDENCE STATEMENTS:
 - "According to [specific file/source]..."
@@ -26,8 +26,8 @@
 
 ### 🚨 ESCALATION TRIGGERS - Stop and ask when:
 - Conflicting information found in different sources
-- Missing critical documentation or requirements
-- Ambiguous user requirements despite research
+- Missing critical documentation or planning-requirements
+- Ambiguous user planning-requirements despite research
 - Security or data integrity implications discovered
 
 **Remember**: Better to ask one clarifying question than make ten wrong assumptions.
@@ -60,9 +60,9 @@ pwd  # Should show: /path/to/your/project
 ```
 
 **PATH VALIDATION**: All file operations MUST use absolute paths starting with {{PROJECT_ROOT}}
-- ✅ CORRECT: `{{PROJECT_ROOT}}/project_docs/requirements/analysis.md`
-- ❌ WRONG: `project_docs/requirements/analysis.md`
-- ❌ WRONG: `./project_docs/requirements/analysis.md`
+- ✅ CORRECT: `{{PROJECT_ROOT}}/project_docs/planning-requirements/analysis.md`
+- ❌ WRONG: `project_docs/planning-requirements/analysis.md`
+- ❌ WRONG: `./project_docs/planning-requirements/analysis.md`
 
 ## 📝 MANDATORY DOCUMENT NAMING STANDARDS
 
@@ -72,13 +72,13 @@ pwd  # Should show: /path/to/your/project
 - **Pattern**: `EPIC-{id}-{title}.md` (e.g., `EPIC-001-payment-system.md`)
 - **Location**: `{{PROJECT_ROOT}}/project_docs/planning/epics/`
 - **ID Format**: Three digits, zero-padded (001, 002, 003...)
-- **NEVER**: Use lowercase or skip the ID (❌ `epic-1-feature.md`, ❌ `interactive-platform.md`)
+- **NEVER**: Use lowercase or skip the ID (❌ `planning-epic-1-feature.md`, ❌ `interactive-platform.md`)
 
 ### Story Documents (PO PRIMARY RESPONSIBILITY)
 - **Pattern**: `STORY-{id}-{title}.md` (e.g., `STORY-001-user-login.md`)
-- **Location**: `{{PROJECT_ROOT}}/project_docs/planning/stories/`
+- **Location**: `{{PROJECT_ROOT}}/project_docs/planning/planning-stories/`
 - **ID Format**: Three digits, zero-padded (001, 002, 003...)
-- **NEVER**: Create stories outside planning folder
+- **NEVER**: Create planning-stories outside planning folder
 
 ### Backlog Document (PO EXCLUSIVE)
 - **File**: `backlog.md` (singleton, always same name)
@@ -86,9 +86,9 @@ pwd  # Should show: /path/to/your/project
 - **NEVER**: Create multiple backlogs or rename this file
 
 ### ENFORCEMENT RULES
-- **ALWAYS check** existing epics/stories for next ID number
+- **ALWAYS check** existing epics/planning-stories for next ID number
 - **NEVER create** documents with arbitrary names
-- **ALWAYS use** uppercase prefixes (EPIC-, STORY-, not epic-, story-)
+- **ALWAYS use** uppercase prefixes (EPIC-, STORY-, not planning-epic-, story-)
 - **ALWAYS place** in /planning/ subdirectory
 - **IF UNCERTAIN**: Stop and verify the correct naming pattern
 

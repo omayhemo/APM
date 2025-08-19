@@ -5,7 +5,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /project-brief
+## /planning-project-brief
 ### Project Initialization and Brief Creation
 
 **Purpose**: Initialize a new project with comprehensive brief documentation capturing vision, goals, and high-level requirements.
@@ -33,13 +33,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Basic project brief
-/project-brief
+/planning-project-brief
 
 # Comprehensive brief with timeline
-/project-brief --template=comprehensive --timeline=quarters
+/planning-project-brief --template=comprehensive --timeline=quarters
 
 # Agile project initialization
-/project-brief --methodology=agile --template=lean
+/planning-project-brief --methodology=agile --template=lean
 ```
 
 **Output**:
@@ -51,7 +51,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /prd
+## /planning-prd
 ### Product Requirements Document Creation
 
 **Purpose**: Create comprehensive Product Requirements Documents capturing functional and non-functional requirements.
@@ -70,7 +70,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 - --review=true|false - Include review section
 
 **Parallel Version Available**:
-- /parallel-prd - Create PRD 70% faster with parallel section generation
+- /parallel-planning-prd - Create PRD 70% faster with parallel section generation
 
 **Suggested Use Cases**:
 - Product planning
@@ -82,13 +82,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Standard PRD
-/prd
+/planning-prd
 
 # Lean agile PRD
-/prd --format=lean --detail=medium
+/planning-prd --format=lean --detail=medium
 
 # Comprehensive traditional PRD
-/prd --format=traditional --detail=high --review=true
+/planning-prd --format=traditional --detail=high --review=true
 ```
 
 **Output**:
@@ -100,7 +100,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /epic
+## /planning-epic
 ### Epic Creation and Management
 
 **Purpose**: Create and manage epics with comprehensive story breakdown and planning.
@@ -131,13 +131,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Basic epic with 10 stories
-/epic --stories=10
+/planning-epic --stories=10
 
 # Detailed epic with dependencies
-/epic --template=detailed --dependencies=true
+/planning-epic --template=detailed --dependencies=true
 
 # Epic with story points
-/epic --stories=15 --sizing=points
+/planning-epic --stories=15 --sizing=points
 ```
 
 **Output**:
@@ -149,7 +149,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /stories
+## /planning-stories
 ### User Story Generation
 
 **Purpose**: Generate user stories with consistent format and comprehensive details.
@@ -180,13 +180,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Generate 10 classic user stories
-/stories --count=10 --format=classic
+/planning-stories --count=10 --format=classic
 
 # Job stories with detailed AC
-/stories --format=job --acceptance-criteria=detailed
+/planning-stories --format=job --acceptance-criteria=detailed
 
 # Gherkin format for BDD
-/stories --count=20 --format=gherkin
+/planning-stories --count=20 --format=gherkin
 ```
 
 **Output**:
@@ -198,7 +198,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /groom
+## /planning-groom
 ### Backlog Grooming and Refinement
 
 **Purpose**: Groom and refine product backlog for sprint readiness and clarity.
@@ -226,13 +226,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Standard grooming session
-/groom
+/planning-groom
 
 # Thorough grooming with re-estimation
-/groom --depth=thorough --update-estimates=true
+/planning-groom --depth=thorough --update-estimates=true
 
 # Quick grooming for sprint prep
-/groom --depth=quick --ready-definition=standard
+/planning-groom --depth=quick --ready-definition=standard
 ```
 
 **Output**:
@@ -293,7 +293,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /acceptance-criteria
+## /qa-acceptance-criteria
 ### Acceptance Criteria Definition
 
 **Purpose**: Define comprehensive acceptance criteria for user stories and features.
@@ -324,13 +324,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Basic checklist AC
-/acceptance-criteria --format=checklist
+/qa-acceptance-criteria --format=checklist
 
 # Gherkin format for BDD
-/acceptance-criteria --format=gherkin --coverage=comprehensive
+/qa-acceptance-criteria --format=gherkin --coverage=comprehensive
 
 # AC for specific stories
-/acceptance-criteria --stories="S1.1,S1.2" --testability=strict
+/qa-acceptance-criteria --stories="S1.1,S1.2" --testability=strict
 ```
 
 **Output**:
@@ -342,7 +342,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /validation
+## /planning-validation
 ### Story and Requirement Validation
 
 **Purpose**: Validate stories and requirements for completeness, clarity, and feasibility.
@@ -373,13 +373,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Validate current sprint stories
-/validation --scope=story
+/planning-validation --scope=story
 
 # Deep technical validation
-/validation --criteria=technical --depth=deep
+/planning-validation --criteria=technical --depth=deep
 
 # Release validation with fixes
-/validation --scope=release --fix-issues=true
+/planning-validation --scope=release --fix-issues=true
 ```
 
 **Output**:
@@ -440,7 +440,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /checklist
+## /planning-checklist
 ### Task and Process Checklist Generation
 
 **Purpose**: Generate comprehensive checklists for various development tasks and processes.
@@ -471,13 +471,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Deployment checklist
-/checklist --type=deployment
+/planning-checklist --type=deployment
 
 # Comprehensive release checklist
-/checklist --type=release --detail=comprehensive
+/planning-checklist --type=release --detail=comprehensive
 
 # Interactive review checklist
-/checklist --type=review --format=interactive
+/planning-checklist --type=review --format=interactive
 ```
 
 **Output**:
@@ -538,7 +538,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /requirements
+## /planning-requirements
 ### Requirements Gathering and Documentation
 
 **Purpose**: Gather, document, and organize project requirements comprehensively.
@@ -569,13 +569,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Comprehensive requirements gathering
-/requirements
+/planning-requirements
 
 # Functional requirements from stakeholders
-/requirements --source=stakeholder --type=functional
+/planning-requirements --source=stakeholder --type=functional
 
 # System requirements with validation
-/requirements --source=system --validation=true
+/planning-requirements --source=system --validation=true
 ```
 
 **Output**:
@@ -587,7 +587,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /stakeholder-review
+## /planning-stakeholder-review
 ### Stakeholder Feedback and Review
 
 **Purpose**: Facilitate stakeholder reviews and incorporate feedback systematically.
@@ -618,13 +618,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Sprint review with all stakeholders
-/stakeholder-review --stakeholders="product,tech,users"
+/planning-stakeholder-review --stakeholders="product,tech,users"
 
 # Document review with structured feedback
-/stakeholder-review --format=document --feedback=structured
+/planning-stakeholder-review --format=document --feedback=structured
 
 # Demo with immediate incorporation
-/stakeholder-review --format=demo --incorporation=immediate
+/planning-stakeholder-review --format=demo --incorporation=immediate
 ```
 
 **Output**:
@@ -636,7 +636,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /ux-spec
+## /planning-ux-spec
 ### UX Specifications and Design Documentation
 
 **Purpose**: Create comprehensive UX specifications and design documentation.
@@ -664,13 +664,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Comprehensive UX specification
-/ux-spec --detail=high
+/planning-ux-spec --detail=high
 
 # Core components with WCAG-AA
-/ux-spec --components=core --accessibility=wcag-aa
+/planning-ux-spec --components=core --accessibility=wcag-aa
 
 # Detailed with user flows
-/ux-spec --detail=high --flows=true
+/planning-ux-spec --detail=high --flows=true
 ```
 
 **Output**:
@@ -682,7 +682,7 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 ---
 
-## /release
+## /distribution-release
 ### Release Planning and Management
 
 **Purpose**: Plan, coordinate, and manage software releases comprehensively.
@@ -710,13 +710,13 @@ The Project Management commands provide comprehensive tools for planning, tracki
 **Example Usage**:
 ```bash
 # Major release planning
-/release --type=major
+/distribution-release --type=major
 
 # Production canary release
-/release --environment=prod --strategy=canary
+/distribution-release --environment=prod --strategy=canary
 
 # Hotfix with auto-rollback
-/release --type=hotfix --rollback=auto
+/distribution-release --type=hotfix --rollback=auto
 ```
 
 **Output**:
@@ -732,57 +732,57 @@ The Project Management commands provide comprehensive tools for planning, tracki
 
 | Command | Execution Time | Parallel Speedup | Typical Output |
 |---------|---------------|------------------|----------------|
-| /project-brief | 15-20 min | N/A | 3-5 page brief |
-| /prd | 45-60 min | 3.5x | 10-15 page PRD |
-| /epic | 30-45 min | 4.2x | Epic + 10-20 stories |
-| /stories | 20-30 min | 5.3x | 10-50 stories |
-| /groom | 25-35 min | N/A | Refined backlog |
+| /planning-project-brief | 15-20 min | N/A | 3-5 page brief |
+| /planning-prd | 45-60 min | 3.5x | 10-15 page PRD |
+| /planning-epic | 30-45 min | 4.2x | Epic + 10-20 stories |
+| /planning-stories | 20-30 min | 5.3x | 10-50 stories |
+| /planning-groom | 25-35 min | N/A | Refined backlog |
 | /prioritization | 15-20 min | 4.1x | Priority matrix |
-| /acceptance-criteria | 10-15 min | 3.9x | AC for stories |
-| /validation | 15-20 min | 3.6x | Validation report |
+| /qa-acceptance-criteria | 10-15 min | 3.9x | AC for stories |
+| /planning-validation | 15-20 min | 3.6x | Validation report |
 | /next-story | 5 min | N/A | Ready story |
-| /checklist | 10-15 min | 3.4x | Complete checklist |
+| /planning-checklist | 10-15 min | 3.4x | Complete checklist |
 | /course-correction | 20-30 min | 4.0x | Correction plan |
-| /requirements | 30-45 min | 3.8x | Requirements doc |
-| /stakeholder-review | 25-35 min | 3.5x | Review summary |
-| /ux-spec | 35-45 min | N/A | UX documentation |
-| /release | 30-40 min | N/A | Release plan |
+| /planning-requirements | 30-45 min | 3.8x | Requirements doc |
+| /planning-stakeholder-review | 25-35 min | 3.5x | Review summary |
+| /planning-ux-spec | 35-45 min | N/A | UX documentation |
+| /distribution-release | 30-40 min | N/A | Release plan |
 
 ---
 
 ## Best Practices
 
 ### Planning Phase
-1. Start with /project-brief for new projects
-2. Use /requirements early and comprehensively
-3. Create /prd before development starts
-4. Break down with /epic and /stories
+1. Start with /planning-project-brief for new projects
+2. Use /planning-requirements early and comprehensively
+3. Create /planning-prd before development starts
+4. Break down with /planning-epic and /planning-stories
 
 ### Execution Phase
-1. Regular /groom sessions (weekly)
+1. Regular /planning-groom sessions (weekly)
 2. Use /prioritization for sprint planning
-3. Define /acceptance-criteria for all stories
-4. Validate with /validation before sprint
+3. Define /qa-acceptance-criteria for all stories
+4. Validate with /planning-validation before sprint
 
 ### Monitoring Phase
 1. Use /next-story for work flow
 2. Apply /course-correction when needed
-3. Regular /stakeholder-review sessions
-4. Track with /checklist completion
+3. Regular /planning-stakeholder-review sessions
+4. Track with /planning-checklist completion
 
 ### Delivery Phase
-1. Plan with /release command
+1. Plan with /distribution-release command
 2. Validate with comprehensive checklists
-3. Document with /ux-spec updates
+3. Document with /planning-ux-spec updates
 4. Gather feedback post-release
 
 ---
 
 ## Related Commands
 
-- **Development**: /dev, /architecture
+- **Development**: /dev, /planning-architecture
 - **Testing**: /qa, /test-plan
-- **Documentation**: /doc-sharding, /update-all-documentation
+- **Documentation**: /documentation-shard, /update-all-documentation
 - **Orchestration**: /ap, /handoff
 - **Parallel Versions**: Most commands have /parallel-* variants
 

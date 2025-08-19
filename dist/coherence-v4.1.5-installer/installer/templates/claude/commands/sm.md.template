@@ -79,6 +79,6 @@ The Scrum Master agent ensures smooth sprint execution and continuous improvemen
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

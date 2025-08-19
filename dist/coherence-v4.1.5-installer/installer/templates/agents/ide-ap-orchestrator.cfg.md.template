@@ -16,46 +16,46 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 
 - Name: Analyst
 - Customize: ""
-- Description: "Research assistant, brain storming coach, requirements gathering, project briefs."
+- Description: "Research assistant, brain storming coach, planning-requirements gathering, project briefs."
 - Persona: "analyst.md"
 - Tasks:
-  - [Brainstorming](tasks/brainstorming.md)
+  - [Brainstorming](tasks/planning-brainstorming.md)
   - [Deep Research Prompt Generation](tasks/deep-research-prompt-generation.md)
-  - [Create Project Brief](tasks/create-project-brief.md)
+  - [Create Project Brief](tasks/create-planning-project-brief.md)
 
 ## Title: Product Owner AKA PO
 
 - Name: PO
 - Customize: ""
-- Description: "Versatile and multifaceted, from PRD Generation and maintenance to the mid sprint Course Correct. Also able to draft masterful stories for the dev agent. Now with parallel grooming capabilities for comprehensive backlog analysis."
+- Description: "Versatile and multifaceted, from PRD Generation and maintenance to the mid implementation-sprint Course Correct. Also able to draft masterful planning-stories for the dev agent. Now with parallel grooming capabilities for comprehensive backlog analysis."
 - Persona: "po.md"
 - Tasks:
   - [Create PRD](tasks/create-prd.md)
-  - [Create Epic](tasks/create-epic-task.md)
+  - [Create Epic](tasks/create-planning-epic-task.md)
   - [Create Next Story](tasks/create-next-story-task.md)
-  - [Slice Documents](tasks/doc-sharding-task.md)
+  - [Slice Documents](tasks/documentation-shard-task.md)
   - [Correct Course](tasks/correct-course.md)
-  - [Groom Backlog](tasks/groom-backlog-task.md)
+  - [Groom Backlog](tasks/planning-groom-backlog-task.md)
 
 ## Title: Architect
 
 - Name: Architect
 - Customize: ""
-- Description: "Generates Architecture, Can help plan a story, and will also help update PRD level epic and stories."
+- Description: "Generates Architecture, Can help plan a story, and will also help update PRD level planning-epic and planning-stories."
 - Persona: "architect.md"
 - Tasks:
-  - [Create Architecture](tasks/create-architecture.md)
+  - [Create Architecture](tasks/create-planning-architecture.md)
   - [Create Next Story](tasks/create-next-story-task.md)
-  - [Slice Documents](tasks/doc-sharding-task.md)
+  - [Slice Documents](tasks/documentation-shard-task.md)
 
 ## Title: Design Architect
 
 - Name: DesignArchitect
 - Customize: ""
-- Description: "Help design a website or web application, produce prompts for UI GEneration AI's, and plan a full comprehensive front end architecture."
+- Description: "Help design a website or web application, produce prompts for UI GEneration AI's, and plan a full comprehensive front end planning-architecture."
 - Persona: "design-architect.md"
 - Tasks:
-  - [Create Frontend Architecture](tasks/create-frontend-architecture.md)
+  - [Create Frontend Architecture](tasks/create-frontend-planning-architecture.md)
   - [Create AI Frontend Prompt](tasks/create-ai-frontend-prompt.md)
   - [Create UX/UI Spec](tasks/create-uxui-spec.md)
 
@@ -91,8 +91,8 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 - Tasks:
   - [Create Test Strategy](tasks/create-test-strategy.md)
   - [Create Test Plan](tasks/create-test-plan.md)
-  - [Execute Quality Review](tasks/execute-quality-review.md)
-  - [Run QA Checklist](tasks/run-qa-checklist.md)
+  - [Execute Quality Review](tasks/execute-qa-quality-review.md)
+  - [Run QA Checklist](tasks/run-qa-planning-checklist.md)
 
 ## Title: Scrum Master
 

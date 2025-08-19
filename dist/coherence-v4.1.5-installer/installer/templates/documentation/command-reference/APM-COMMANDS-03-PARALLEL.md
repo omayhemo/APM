@@ -335,7 +335,7 @@ All parallel commands leverage Claude Code's native sub-agent system with unifie
 ### `/parallel-prioritization`
 **Multi-Criteria Prioritization**
 
-**Purpose**: Prioritize features/stories using multiple criteria simultaneously.
+**Purpose**: Prioritize features/planning-stories using multiple criteria simultaneously.
 
 **Sub-Agents & Tasks**:
 1. **Business Value**: ROI and business impact

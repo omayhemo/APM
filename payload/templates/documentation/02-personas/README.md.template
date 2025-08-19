@@ -68,7 +68,7 @@ What do you need to do?
 ├─ 💻 "I need code implementation"
 │   └─ Use: /dev (Developer)
 │
-└─ 🔍 "I need testing/validation"
+└─ 🔍 "I need testing/planning-validation"
     └─ Use: /qa (Quality Assurance)
 ```
 
@@ -80,11 +80,11 @@ What do you need to do?
 
 | Persona | Sequential Command | Parallel Command | Performance Gain |
 |---------|-------------------|------------------|-----------------|
-| Analyst | `/analyst` | `/parallel-brainstorming` | 4.0x faster |
+| Analyst | `/analyst` | `/parallel-planning-brainstorming` | 4.0x faster |
 | PM | `/pm` | `/parallel-prd` | 3.2x faster |
-| Architect | `/architect` | `/parallel-architecture` | 3.8x faster |
+| Architect | `/architect` | `/parallel-planning-architecture` | 3.8x faster |
 | Design Arch | `/design-architect` | `/parallel-frontend-architecture` | 3.5x faster |
-| PO | `/po` | `/parallel-epic`, `/parallel-stories` | 4.2x faster |
+| PO | `/po` | `/parallel-planning-epic`, `/parallel-planning-stories` | 4.2x faster |
 | SM | `/sm` | `/parallel-next-story` | 3.7x faster |
 | Developer | `/dev` | Multiple native sub-agents | 4.6x faster |
 | QA | `/qa` | `/parallel-qa-framework` | 4.1x faster |
@@ -148,9 +148,9 @@ What do you need to do?
 
 ### 📊 Comprehensive Planning Flow
 ```
-/parallel-brainstorming + /parallel-prd + /parallel-architecture
+/parallel-planning-brainstorming + /parallel-prd + /parallel-planning-architecture
      ↓
-/parallel-stories + /parallel-qa-framework
+/parallel-planning-stories + /parallel-qa-framework
 ```
 
 ---

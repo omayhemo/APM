@@ -1,5 +1,5 @@
 # Documentation Organization System Configuration
-# This file controls the behavior of the /organize-docs command
+# This file controls the behavior of the /documentation-organize command
 
 organize_docs:
   # Path configuration
@@ -187,7 +187,7 @@ organize_docs:
     debug: false
     
     # Log file location
-    log_file: "./logs/organize-docs.log"
+    log_file: "./logs/documentation-organize.log"
     
     # Dry run by default
     dry_run_default: true
@@ -199,4 +199,4 @@ organize_docs:
     custom_rules_dir: "./rules/documentation"
     
     # Plugin directory
-    plugins_dir: "./plugins/organize-docs"
+    plugins_dir: "./plugins/documentation-organize"

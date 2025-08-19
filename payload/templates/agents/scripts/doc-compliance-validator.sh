@@ -158,7 +158,7 @@ check_required_directories() {
         "$PROJECT_DOCS"
         "$PROJECT_DOCS/planning"
         "$PROJECT_DOCS/reports"
-        "$PROJECT_DOCS/architecture"
+        "$PROJECT_DOCS/planning-architecture"
         "$PROJECT_DOCS/archives"
     )
     

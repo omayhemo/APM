@@ -93,40 +93,40 @@ Comprehensive testing and quality assurance
 
 ### 5. Project Management Commands (15 commands)
 Planning, tracking, and coordination
-- `/project-brief` - Project initialization
-- `/prd` - Product Requirements Document
-- `/epic` - Epic creation and management
-- `/stories` - User story generation
-- `/groom` - Backlog grooming
+- `/planning-project-brief` - Project initialization
+- `/planning-prd` - Product Requirements Document
+- `/planning-epic` - Epic creation and management
+- `/planning-stories` - User story generation
+- `/planning-groom` - Backlog grooming
 - `/prioritization` - Feature prioritization
-- `/acceptance-criteria` - AC definition
-- `/validation` - Story validation
+- `/qa-acceptance-criteria` - AC definition
+- `/planning-validation` - Story validation
 - `/next-story` - Story progression
-- `/checklist` - Task checklists
+- `/planning-checklist` - Task checklists
 - `/course-correction` - Agile adjustments
-- `/requirements` - Requirements gathering
-- `/stakeholder-review` - Stakeholder feedback
-- `/ux-spec` - UX specifications
-- `/release` - Release management
+- `/planning-requirements` - Requirements gathering
+- `/planning-stakeholder-review` - Stakeholder feedback
+- `/planning-ux-spec` - UX specifications
+- `/distribution-release` - Release management
 
 ### 6. Development Commands (8 commands)
 Code implementation and technical work
-- `/architecture` - System design
+- `/planning-architecture` - System design
 - `/frontend-architecture` - UI architecture
-- `/automation-plan` - Automation strategy
+- `/qa-automation-plan` - Automation strategy
 - `/ai-prompt` - AI integration prompts
-- `/git-commit-all` - Version control
-- `/buildit` - Build distribution
+- `/distribution-commit` - Version control
+- `/distribution-build` - Build distribution
 - `/version` - Version management
 - `/update-all-documentation` - Doc updates
 
 ### 7. Documentation Commands (6 commands)
 Document processing and management
-- `/doc-sharding` - Document segmentation
-- `/library-indexing` - Knowledge indexing
+- `/documentation-shard` - Document segmentation
+- `/implementation-implementation-library-indexing` - Knowledge indexing
 - `/doc-compliance` - Compliance checking
-- `/doc-compliance-enhanced` - Advanced compliance
-- `/organize-docs` - Document organization
+- `/documentation-compliance` - Advanced compliance
+- `/documentation-organize` - Document organization
 - `/research-prompt` - Research documentation
 
 ---
@@ -204,7 +204,7 @@ Result: Complete development lifecycle with seamless context flow
 /dev
 
 # With parameters
-/stories --count=5 --type=user
+/planning-stories --count=5 --type=user
 
 # Parallel execution
 /parallel-sprint --agents=4
@@ -269,7 +269,7 @@ Result: Complete development lifecycle with seamless context flow
 
 #### Document Processing
 ```
-/parallel-doc-sharding --file=requirements.pdf --chunks=10
+/parallel-documentation-shard --file=requirements.pdf --chunks=10
 ```
 
 ---

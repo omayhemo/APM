@@ -183,7 +183,7 @@ get_parallel_commands() {
     local persona_id=$1
     case "$persona_id" in
         "analyst")
-            echo '["parallel-brainstorming", "parallel-requirements", "parallel-research-prompt", "parallel-stakeholder-review"]'
+            echo '["parallel-brainstorming", "parallel-requirements", "parallel-research-prompt", "parallel-stakeholder-planning-review"]'
             ;;
         "architect")
             echo '["parallel-architecture", "parallel-frontend-architecture", "parallel-ai-prompt"]'
@@ -192,16 +192,16 @@ get_parallel_commands() {
             echo '["parallel-ux-design", "parallel-design-system", "parallel-accessibility-audit"]'
             ;;
         "developer")
-            echo '["parallel-review", "parallel-implementation", "parallel-testing"]'
+            echo '["parallel-planning-review", "parallel-implementation", "parallel-testing"]'
             ;;
         "pm")
-            echo '["parallel-prd", "parallel-project-planning", "parallel-risk-assessment"]'
+            echo '["parallel-planning-prd", "parallel-project-planning", "parallel-risk-assessment"]'
             ;;
         "po")
             echo '["parallel-stories", "parallel-epic", "parallel-acceptance-criteria", "parallel-prioritization", "parallel-validation"]'
             ;;
         "qa")
-            echo '["parallel-qa-framework", "parallel-test-plan", "parallel-test-strategy", "parallel-automation-plan", "parallel-quality-review"]'
+            echo '["parallel-qa-framework", "parallel-test-plan", "parallel-test-strategy", "parallel-automation-plan", "parallel-quality-planning-review"]'
             ;;
         "sm")
             echo '["parallel-sprint", "parallel-checklist", "parallel-course-correction", "parallel-next-story"]'
@@ -216,28 +216,28 @@ get_slash_commands() {
     local persona_id=$1
     case "$persona_id" in
         "analyst")
-            echo '["/analyst", "/brainstorming", "/requirements", "/research-prompt", "/stakeholder-review"]'
+            echo '["/analyst", "/planning-brainstorming", "/planning-requirements", "/research-prompt", "/planning-stakeholder-planning-review"]'
             ;;
         "architect")
-            echo '["/architect", "/architecture", "/frontend-architecture", "/ai-prompt"]'
+            echo '["/architect", "/planning-architecture", "/frontend-architecture", "/ai-prompt"]'
             ;;
         "design-architect")
-            echo '["/design-architect", "/ux-spec", "/design-system"]'
+            echo '["/design-architect", "/planning-ux-spec", "/design-system"]'
             ;;
         "developer")
-            echo '["/dev", "/developer", "/review", "/buildit"]'
+            echo '["/dev", "/developer", "/planning-planning-review", "/distribution-build"]'
             ;;
         "pm")
-            echo '["/pm", "/prd", "/project-brief"]'
+            echo '["/pm", "/planning-planning-prd", "/planning-planning-project-brief"]'
             ;;
         "po")
-            echo '["/po", "/stories", "/epic", "/acceptance-criteria", "/prioritization", "/validation", "/groom"]'
+            echo '["/po", "/planning-stories", "/planning-epic", "/qa-acceptance-criteria", "/prioritization", "/planning-validation", "/planning-groom"]'
             ;;
         "qa")
             echo '["/qa", "/qa-framework", "/qa-predict", "/qa-optimize", "/qa-anomaly", "/qa-insights"]'
             ;;
         "sm")
-            echo '["/sm", "/parallel-sprint", "/checklist", "/course-correction", "/next-story"]'
+            echo '["/sm", "/parallel-implementation-sprint", "/planning-checklist", "/course-correction", "/next-story"]'
             ;;
         "orchestrator")
             echo '["/ap", "/ap_orchestrator", "/handoff", "/switch", "/wrap"]'
@@ -249,10 +249,10 @@ get_working_directories() {
     local persona_id=$1
     case "$persona_id" in
         "analyst")
-            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/requirements/", "secondary": "{{PROJECT_ROOT}}/project_docs/research/", "reports": "{{PROJECT_ROOT}}/project_docs/research/reports/"}'
+            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/planning-requirements/", "secondary": "{{PROJECT_ROOT}}/project_docs/research/", "reports": "{{PROJECT_ROOT}}/project_docs/research/reports/"}'
             ;;
         "architect")
-            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/architecture/", "secondary": "{{PROJECT_ROOT}}/project_docs/technical/", "reports": "{{PROJECT_ROOT}}/project_docs/architecture/reports/"}'
+            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/planning-architecture/", "secondary": "{{PROJECT_ROOT}}/project_docs/technical/", "reports": "{{PROJECT_ROOT}}/project_docs/planning-architecture/reports/"}'
             ;;
         "design-architect")
             echo '{"primary": "{{PROJECT_ROOT}}/project_docs/design/", "secondary": "{{PROJECT_ROOT}}/project_docs/ux/", "reports": "{{PROJECT_ROOT}}/project_docs/design/reports/"}'
@@ -264,13 +264,13 @@ get_working_directories() {
             echo '{"primary": "{{PROJECT_ROOT}}/project_docs/management/", "secondary": "{{PROJECT_ROOT}}/project_docs/planning/", "reports": "{{PROJECT_ROOT}}/project_docs/reports/"}'
             ;;
         "po")
-            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/", "secondary": "{{PROJECT_ROOT}}/project_docs/requirements/", "reports": "{{PROJECT_ROOT}}/project_docs/reports/"}'
+            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/", "secondary": "{{PROJECT_ROOT}}/project_docs/planning-requirements/", "reports": "{{PROJECT_ROOT}}/project_docs/reports/"}'
             ;;
         "qa")
             echo '{"primary": "{{PROJECT_ROOT}}/project_docs/qa/", "secondary": "{{PROJECT_ROOT}}/tests/", "reports": "{{PROJECT_ROOT}}/project_docs/qa/reports/"}'
             ;;
         "sm")
-            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/sprints/", "secondary": "{{PROJECT_ROOT}}/project_docs/agile/", "reports": "{{PROJECT_ROOT}}/project_docs/sprint-reports/"}'
+            echo '{"primary": "{{PROJECT_ROOT}}/project_docs/implementation-sprints/", "secondary": "{{PROJECT_ROOT}}/project_docs/agile/", "reports": "{{PROJECT_ROOT}}/project_docs/implementation-sprint-reports/"}'
             ;;
         "orchestrator")
             echo '{"primary": "{{PROJECT_ROOT}}/project_docs/", "secondary": "{{PROJECT_ROOT}}/", "reports": "{{PROJECT_ROOT}}/project_docs/reports/"}'
@@ -475,9 +475,9 @@ pwd  # Should show: /path/to/your/project
 \`\`\`
 
 **PATH VALIDATION**: All file operations MUST use absolute paths starting with {{PROJECT_ROOT}}
-- ✅ CORRECT: \`{{PROJECT_ROOT}}/project_docs/requirements/analysis.md\`
-- ❌ WRONG: \`project_docs/requirements/analysis.md\`
-- ❌ WRONG: \`./project_docs/requirements/analysis.md\`
+- ✅ CORRECT: \`{{PROJECT_ROOT}}/project_docs/planning-requirements/analysis.md\`
+- ❌ WRONG: \`project_docs/planning-requirements/analysis.md\`
+- ❌ WRONG: \`./project_docs/planning-requirements/analysis.md\`
 
 ## 🔴 CRITICAL INITIALIZATION SEQUENCE
 
@@ -641,11 +641,11 @@ get_workspace_dirs() {
     local persona_id="$1"
     case "$persona_id" in
         "analyst")
-            echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/requirements/\` (main workspace)"
+            echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/planning-requirements/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/research/\` (generated artifacts)"
             ;;
         "architect")
-            echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/architecture/\` (main workspace)"
+            echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/planning-architecture/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/technical/\` (generated artifacts)"
             ;;
         "design-architect")
@@ -662,14 +662,14 @@ get_workspace_dirs() {
             ;;
         "po")
             echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/\` (main workspace)"
-            echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/requirements/\` (generated artifacts)"
+            echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/planning-requirements/\` (generated artifacts)"
             ;;
         "qa")
             echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/qa/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/tests/\` (test artifacts)"
             ;;
         "sm")
-            echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/sprints/\` (main workspace)"
+            echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/implementation-sprints/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/agile/\` (generated artifacts)"
             ;;
         "orchestrator")
@@ -711,10 +711,10 @@ get_core_responsibilities() {
 - **Deep Research**: Conduct thorough technical and market research
 
 ### Available Parallel Commands
-- `/parallel-brainstorming` - Execute brainstorming with multiple perspectives
-- `/parallel-requirements` - Analyze requirements from different angles
+- `/parallel-planning-brainstorming` - Execute brainstorming with multiple perspectives
+- `/parallel-planning-requirements` - Analyze requirements from different angles
 - `/parallel-research-prompt` - Deep research with multiple information sources
-- `/parallel-stakeholder-review` - Coordinate stakeholder feedback in parallel
+- `/parallel-planning-stakeholder-planning-review` - Coordinate stakeholder feedback in parallel
 EOF
             ;;
         "architect")
@@ -728,7 +728,7 @@ EOF
 - **Code Review**: Ensure architectural compliance in implementation
 
 ### Available Parallel Commands
-- `/parallel-architecture` - Design architecture with multiple consideration streams
+- `/parallel-planning-architecture` - Design architecture with multiple consideration streams
 - `/parallel-frontend-architecture` - Frontend-specific architecture planning
 - `/parallel-ai-prompt` - AI-assisted architectural design patterns
 EOF
@@ -746,7 +746,7 @@ EOF
 ### Available Parallel Commands
 - `/parallel-ux-design` - Multi-perspective user experience design
 - `/parallel-design-system` - Comprehensive design system development
-- `/parallel-accessibility-audit` - Thorough accessibility compliance review
+- `/parallel-accessibility-audit` - Thorough accessibility compliance planning-review
 EOF
             ;;
         "developer")
@@ -760,7 +760,7 @@ EOF
 - **Technical Documentation**: Document implementation and APIs
 
 ### Available Parallel Commands
-- `/parallel-review` - Comprehensive code review with multiple focus areas
+- `/parallel-planning-planning-review` - Comprehensive code planning-review with multiple focus areas
 - `/parallel-implementation` - Parallel development streams for complex features
 - `/parallel-testing` - Multi-layer testing strategy execution
 EOF
@@ -776,7 +776,7 @@ EOF
 - **Progress Tracking**: Monitor and report on project metrics
 
 ### Available Parallel Commands
-- `/parallel-prd` - Comprehensive product requirements development
+- `/parallel-planning-planning-prd` - Comprehensive product requirements development
 - `/parallel-project-planning` - Multi-dimensional project planning
 - `/parallel-risk-assessment` - Thorough risk analysis from multiple angles
 EOF
@@ -792,11 +792,11 @@ EOF
 - **Stakeholder Alignment**: Ensure alignment between business and technical teams
 
 ### Available Parallel Commands
-- `/parallel-stories` - Multi-perspective user story development
-- `/parallel-epic` - Comprehensive epic breakdown and planning
-- `/parallel-acceptance-criteria` - Detailed acceptance criteria development
+- `/parallel-planning-stories` - Multi-perspective user story development
+- `/parallel-planning-epic` - Comprehensive epic breakdown and planning
+- `/parallel-qa-acceptance-criteria` - Detailed acceptance criteria development
 - `/parallel-prioritization` - Multi-factor priority analysis
-- `/parallel-validation` - Comprehensive requirement validation
+- `/parallel-planning-validation` - Comprehensive requirement validation
 EOF
             ;;
         "qa")
@@ -813,8 +813,8 @@ EOF
 - `/parallel-qa-framework` - Comprehensive QA framework implementation
 - `/parallel-test-plan` - Multi-layer test planning and strategy
 - `/parallel-test-strategy` - Strategic testing approach development
-- `/parallel-automation-plan` - Test automation strategy and implementation
-- `/parallel-quality-review` - Thorough quality assessment from multiple angles
+- `/parallel-qa-automation-plan` - Test automation strategy and implementation
+- `/parallel-qa-quality-planning-review` - Thorough quality assessment from multiple angles
 EOF
             ;;
         "sm")
@@ -828,8 +828,8 @@ EOF
 - **Process Improvement**: Continuously optimize team processes and practices
 
 ### Available Parallel Commands
-- `/parallel-sprint` - Comprehensive sprint coordination with native sub-agents
-- `/parallel-checklist` - Multi-perspective checklist validation
+- `/parallel-implementation-sprint` - Comprehensive sprint coordination with native sub-agents
+- `/parallel-planning-checklist` - Multi-perspective checklist validation
 - `/parallel-course-correction` - Multi-dimensional problem-solving approach
 - `/parallel-next-story` - Strategic story selection and planning
 EOF
@@ -870,48 +870,48 @@ get_parallel_commands() {
     local persona_id="$1"
     case "$persona_id" in
         "analyst")
-            echo "- **\`/parallel-brainstorming\`**: Native sub-agent ideation and creative problem-solving"
-            echo "- **\`/parallel-requirements\`**: Multi-perspective requirements analysis"
+            echo "- **\`/parallel-planning-brainstorming\`**: Native sub-agent ideation and creative problem-solving"
+            echo "- **\`/parallel-planning-requirements\`**: Multi-perspective requirements analysis"
             echo "- **\`/parallel-research-prompt\`**: Deep research with multiple information streams"
-            echo "- **\`/parallel-stakeholder-review\`**: Coordinated stakeholder feedback collection"
+            echo "- **\`/parallel-planning-stakeholder-planning-review\`**: Coordinated stakeholder feedback collection"
             ;;
         "architect")
-            echo "- **\`/parallel-architecture\`**: Multi-dimensional system architecture design"
+            echo "- **\`/parallel-planning-architecture\`**: Multi-dimensional system architecture design"
             echo "- **\`/parallel-frontend-architecture\`**: Frontend-specific architectural planning"
             echo "- **\`/parallel-ai-prompt\`**: AI-assisted architectural pattern generation"
             ;;
         "design-architect")
             echo "- **\`/parallel-ux-design\`**: Multi-perspective user experience design"
             echo "- **\`/parallel-design-system\`**: Comprehensive design system development"
-            echo "- **\`/parallel-accessibility-audit\`**: Thorough accessibility compliance review"
+            echo "- **\`/parallel-accessibility-audit\`**: Thorough accessibility compliance planning-review"
             ;;
         "developer")
-            echo "- **\`/parallel-review\`**: Multi-focus code review and analysis"
+            echo "- **\`/parallel-planning-planning-review\`**: Multi-focus code planning-review and analysis"
             echo "- **\`/parallel-implementation\`**: Parallel development streams"
             echo "- **\`/parallel-testing\`**: Multi-layer testing strategy execution"
             ;;
         "pm")
-            echo "- **\`/parallel-prd\`**: Comprehensive product requirements development"
+            echo "- **\`/parallel-planning-planning-prd\`**: Comprehensive product requirements development"
             echo "- **\`/parallel-project-planning\`**: Multi-dimensional project planning"
             echo "- **\`/parallel-risk-assessment\`**: Thorough risk analysis"
             ;;
         "po")
-            echo "- **\`/parallel-stories\`**: Multi-perspective user story development"
-            echo "- **\`/parallel-epic\`**: Comprehensive epic breakdown"
-            echo "- **\`/parallel-acceptance-criteria\`**: Detailed criteria development"
+            echo "- **\`/parallel-planning-stories\`**: Multi-perspective user story development"
+            echo "- **\`/parallel-planning-epic\`**: Comprehensive epic breakdown"
+            echo "- **\`/parallel-qa-acceptance-criteria\`**: Detailed criteria development"
             echo "- **\`/parallel-prioritization\`**: Multi-factor priority analysis"
-            echo "- **\`/parallel-validation\`**: Comprehensive requirement validation"
+            echo "- **\`/parallel-planning-validation\`**: Comprehensive requirement validation"
             ;;
         "qa")
             echo "- **\`/parallel-qa-framework\`**: Comprehensive QA framework (4x speedup)"
             echo "- **\`/parallel-test-plan\`**: Multi-layer test planning"
             echo "- **\`/parallel-test-strategy\`**: Strategic testing approach"
-            echo "- **\`/parallel-automation-plan\`**: Test automation strategy"
-            echo "- **\`/parallel-quality-review\`**: Multi-angle quality assessment"
+            echo "- **\`/parallel-qa-automation-plan\`**: Test automation strategy"
+            echo "- **\`/parallel-qa-quality-planning-review\`**: Multi-angle quality assessment"
             ;;
         "sm")
-            echo "- **\`/parallel-sprint\`**: Native parallel development orchestration (4.6x speedup)"
-            echo "- **\`/parallel-checklist\`**: Multi-perspective validation"
+            echo "- **\`/parallel-implementation-sprint\`**: Native parallel development orchestration (4.6x speedup)"
+            echo "- **\`/parallel-planning-checklist\`**: Multi-perspective validation"
             echo "- **\`/parallel-course-correction\`**: Multi-dimensional problem-solving"
             echo "- **\`/parallel-next-story\`**: Strategic story selection"
             ;;

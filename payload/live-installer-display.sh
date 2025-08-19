@@ -39,7 +39,7 @@ fi
 
 # Version detection (reuse from coherence-banner.sh)
 get_coherence_version() {
-    local version="4.1.1"
+    local version="4.1.5"
     local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     
     if [ -f "$script_dir/VERSION" ]; then

@@ -94,8 +94,8 @@ echo -e "${GREEN}✓ Changelog created at ${CHANGELOG_FILE}${NC}"
 
 # Step 5: Create release notes
 echo -e "${YELLOW}Creating release notes...${NC}"
-RELEASE_NOTES_FILE="${PROJECT_ROOT}/project_docs/release-notes/RELEASE-NOTES-v${VERSION}.md"
-mkdir -p "${PROJECT_ROOT}/project_docs/release-notes"
+RELEASE_NOTES_FILE="${PROJECT_ROOT}/project_docs/distribution-release-notes/RELEASE-NOTES-v${VERSION}.md"
+mkdir -p "${PROJECT_ROOT}/project_docs/distribution-release-notes"
 
 cat > "$RELEASE_NOTES_FILE" << EOF
 # Release Notes - APM Framework v${VERSION}

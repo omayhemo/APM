@@ -22,7 +22,7 @@ Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROO
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 3: Check for project documentation in {{PROJECT_ROOT}}/project_docs/
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
-- Task 4: Load project brief template from {{AP_ROOT}}/checklists/project-brief-template.md
+- Task 4: Load project brief template from {{AP_ROOT}}/checklists/planning-project-brief-template.md
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
 - Task 5: Check for research tasks in {{AP_ROOT}}/tasks/
 Working Directory: Ensure execution from {{PROJECT_ROOT}} with `cd {{PROJECT_ROOT}}`
@@ -77,6 +77,6 @@ The Analyst agent provides deep insights and comprehensive research to inform pr
 3. Escalation to user if rules cannot be followed
 
 **VERIFICATION**: Agent must periodically verify rule compliance by:
-- Checking backlog.md is current after story/epic work
+- Checking backlog.md is current after story/planning-epic work
 - Validating documentation meets standards
 - Ensuring all security protocols are followed

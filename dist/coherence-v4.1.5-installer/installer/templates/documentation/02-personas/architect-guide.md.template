@@ -74,22 +74,22 @@ The System Architect follows proven architectural principles:
 /architect "Create API architecture for mobile and web clients"
 ```
 
-#### `/parallel-architecture` ⚡
+#### `/parallel-planning-architecture` ⚡
 **Purpose**: Multi-stream architecture design with native sub-agents  
 **Performance**: 3.8x faster than sequential architecture development  
 **Best For**: Complex systems, multiple architecture concerns, comprehensive designs
 
 ```bash
 # Parallel architecture design
-/parallel-architecture "Complete system architecture with data layer, business logic, API design, and deployment architecture"
+/parallel-planning-architecture "Complete system architecture with data layer, business logic, API design, and deployment architecture"
 
 # Multi-component systems
-/parallel-architecture "Distributed system with microservices, event-driven architecture, and cloud-native deployment"
+/parallel-planning-architecture "Distributed system with microservices, event-driven architecture, and cloud-native deployment"
 ```
 
 ### Specialized Architecture Commands
 
-#### `/architecture`
+#### `/planning-architecture`
 **Purpose**: Focused architecture documentation and design  
 **Best For**: Single system architectures, documentation updates, design reviews
 
@@ -163,16 +163,16 @@ The System Architect follows proven architectural principles:
    └─ Review PM requirements and technical constraints
    
 2. Technology Research
-   └─ /parallel-architecture "Technology evaluation and stack selection"
+   └─ /parallel-planning-architecture "Technology evaluation and stack selection"
    
 3. High-Level Design
    └─ /architect "Create high-level system architecture"
    
 4. Detailed Architecture
-   └─ /parallel-architecture "Detailed component and service design"
+   └─ /parallel-planning-architecture "Detailed component and service design"
    
 5. Documentation
-   └─ /architecture "Complete architecture documentation"
+   └─ /planning-architecture "Complete architecture documentation"
    
 6. Handoff to Development
    └─ /handoff dev "Transfer architecture specifications to development team"
@@ -184,7 +184,7 @@ The System Architect follows proven architectural principles:
    └─ /architect "Analyze existing system architecture and identify enhancement needs"
    
 2. Enhancement Design
-   └─ /parallel-architecture "Design system enhancements and improvements"
+   └─ /parallel-planning-architecture "Design system enhancements and improvements"
    
 3. Migration Planning
    └─ /architect "Plan migration strategy and implementation approach"
@@ -205,7 +205,7 @@ The System Architect follows proven architectural principles:
    └─ /parallel-ai-prompt "Research technology options and best practices"
    
 3. Comparative Analysis
-   └─ /parallel-architecture "Compare technology options with pros/cons analysis"
+   └─ /parallel-planning-architecture "Compare technology options with pros/cons analysis"
    
 4. Recommendation
    └─ /architect "Make technology recommendation with justification"
@@ -223,10 +223,10 @@ Leverage parallel execution for complete architectural coverage:
 
 ```bash
 # Full system architecture
-/parallel-architecture "Complete system design including data architecture, service architecture, API design, security architecture, and deployment architecture"
+/parallel-planning-architecture "Complete system design including data architecture, service architecture, API design, security architecture, and deployment architecture"
 
 # Microservices architecture
-/parallel-architecture "Microservices system with service boundaries, communication patterns, data consistency, and deployment strategies"
+/parallel-planning-architecture "Microservices system with service boundaries, communication patterns, data consistency, and deployment strategies"
 ```
 
 ### Technology Stack Evaluation
@@ -234,7 +234,7 @@ Comprehensive technology assessment:
 
 ```bash
 # Multi-criteria technology evaluation
-/parallel-architecture "Technology stack evaluation considering performance, scalability, maintainability, team expertise, and cost factors"
+/parallel-planning-architecture "Technology stack evaluation considering performance, scalability, maintainability, team expertise, and cost factors"
 
 # Framework comparison
 /parallel-ai-prompt "Compare React, Vue, and Angular frameworks for large-scale enterprise application with specific focus on performance, ecosystem, and long-term maintainability"
@@ -245,10 +245,10 @@ Design for performance and scale:
 
 ```bash
 # High-performance architecture
-/parallel-architecture "High-performance system architecture with caching strategies, database optimization, and load balancing"
+/parallel-planning-architecture "High-performance system architecture with caching strategies, database optimization, and load balancing"
 
 # Scalability-focused design
-/parallel-architecture "Scalable architecture design with horizontal scaling, microservices patterns, and cloud-native deployment"
+/parallel-planning-architecture "Scalable architecture design with horizontal scaling, microservices patterns, and cloud-native deployment"
 ```
 
 ---
@@ -484,10 +484,10 @@ Architect: [Name]
 ## 🔧 Configuration & Customization
 
 ### Working Directories
-- **Primary**: `{{PROJECT_ROOT}}/project_docs/architecture/`
-- **Designs**: `{{PROJECT_ROOT}}/project_docs/architecture/designs/`
-- **Technologies**: `{{PROJECT_ROOT}}/project_docs/architecture/technology/`
-- **Diagrams**: `{{PROJECT_ROOT}}/project_docs/architecture/diagrams/`
+- **Primary**: `{{PROJECT_ROOT}}/project_docs/planning-architecture/`
+- **Designs**: `{{PROJECT_ROOT}}/project_docs/planning-architecture/designs/`
+- **Technologies**: `{{PROJECT_ROOT}}/project_docs/planning-architecture/technology/`
+- **Diagrams**: `{{PROJECT_ROOT}}/project_docs/planning-architecture/diagrams/`
 
 ### Voice Notifications
 All Architect interactions include voice feedback via `speakArchitect.sh`:
@@ -531,14 +531,14 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 /architect "Design architecture with focus on simplicity, clear boundaries, and minimal coupling"
 
 # Use proven patterns
-/parallel-architecture "Apply proven architectural patterns with clear component responsibilities"
+/parallel-planning-architecture "Apply proven architectural patterns with clear component responsibilities"
 ```
 
 #### "Technology choices questioned"
 **Solution**: Provide comprehensive evaluation and justification
 ```bash
 # Detailed technology evaluation
-/parallel-architecture "Comprehensive technology evaluation with detailed pros/cons analysis and scoring matrix"
+/parallel-planning-architecture "Comprehensive technology evaluation with detailed pros/cons analysis and scoring matrix"
 
 # Include implementation considerations
 /architect "Technology recommendation with implementation plan, risk assessment, and team capability analysis"
@@ -548,7 +548,7 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 **Solution**: Develop specific performance architecture
 ```bash
 # Performance-focused architecture
-/parallel-architecture "Performance-first architecture with specific performance targets, bottleneck analysis, and optimization strategies"
+/parallel-planning-architecture "Performance-first architecture with specific performance targets, bottleneck analysis, and optimization strategies"
 
 # Include monitoring strategy
 /architect "Performance architecture with comprehensive monitoring and measurement plan"
@@ -558,7 +558,7 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 **Solution**: Design explicit scalability architecture
 ```bash
 # Scalability-focused design
-/parallel-architecture "Scalability architecture with horizontal scaling, microservices patterns, and capacity planning"
+/parallel-planning-architecture "Scalability architecture with horizontal scaling, microservices patterns, and capacity planning"
 
 # Include growth planning
 /architect "Scalability roadmap with growth projections and scaling trigger points"
@@ -569,16 +569,16 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 #### For Complex Systems
 ```bash
 # Modular architecture design
-/parallel-architecture "Modular architecture with clear service boundaries"
-/parallel-architecture "Data architecture with scaling considerations"
-/parallel-architecture "Integration architecture with performance optimization"
+/parallel-planning-architecture "Modular architecture with clear service boundaries"
+/parallel-planning-architecture "Data architecture with scaling considerations"
+/parallel-planning-architecture "Integration architecture with performance optimization"
 ```
 
 #### For Technology Selection
 ```bash
 # Comprehensive evaluation
 /parallel-ai-prompt "Technology research and best practices"
-/parallel-architecture "Comparative technology analysis with scoring"
+/parallel-planning-architecture "Comparative technology analysis with scoring"
 /architect "Technology recommendation with implementation roadmap"
 ```
 
@@ -623,7 +623,7 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 - **[Product Manager Guide](pm-guide.md)** - Requirements and technical needs partner
 - **[Developer Guide](developer-guide.md)** - Implementation destination
 - **[Design Architect Guide](design-architect-guide.md)** - Frontend architecture partner
-- **[Architecture Templates](../templates/architecture/)** - Standardized architecture formats
+- **[Architecture Templates](../templates/planning-architecture/)** - Standardized architecture formats
 - **[Technology Frameworks](../frameworks/technology.md)** - Technology evaluation tools
 
 ---
@@ -632,22 +632,22 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 
 ### Microservices Architecture
 ```bash
-/parallel-architecture "Microservices architecture with service boundaries, communication patterns, data consistency, and deployment orchestration"
+/parallel-planning-architecture "Microservices architecture with service boundaries, communication patterns, data consistency, and deployment orchestration"
 ```
 
 ### Event-Driven Architecture
 ```bash
-/parallel-architecture "Event-driven architecture with event sourcing, CQRS patterns, and asynchronous processing"
+/parallel-planning-architecture "Event-driven architecture with event sourcing, CQRS patterns, and asynchronous processing"
 ```
 
 ### Cloud-Native Design
 ```bash
-/parallel-architecture "Cloud-native architecture with containerization, orchestration, and serverless components"
+/parallel-planning-architecture "Cloud-native architecture with containerization, orchestration, and serverless components"
 ```
 
 ### High-Performance Architecture
 ```bash
-/parallel-architecture "High-performance architecture with caching layers, database optimization, and horizontal scaling"
+/parallel-planning-architecture "High-performance architecture with caching layers, database optimization, and horizontal scaling"
 ```
 
 ---

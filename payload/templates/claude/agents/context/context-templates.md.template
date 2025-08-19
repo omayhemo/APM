@@ -164,7 +164,7 @@ Please implement the integration following our security standards and error hand
 2. **Important** (Include if relevant):
    - Related files (max 3-5)
    - Patterns/standards (max 5)
-   - Constraints/requirements
+   - Constraints/planning-requirements
    - Test/quality goals
 
 3. **Helpful** (Include if space allows):

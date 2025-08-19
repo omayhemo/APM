@@ -30,9 +30,9 @@ pwd  # Should show: /path/to/your/project
 \`\`\`
 
 **PATH VALIDATION**: All file operations MUST use absolute paths starting with {{PROJECT_ROOT}}
-- ✅ CORRECT: \`{{PROJECT_ROOT}}/project_docs/requirements/analysis.md\`
-- ❌ WRONG: \`project_docs/requirements/analysis.md\`
-- ❌ WRONG: \`./project_docs/requirements/analysis.md\`
+- ✅ CORRECT: \`{{PROJECT_ROOT}}/project_docs/planning-requirements/analysis.md\`
+- ❌ WRONG: \`project_docs/planning-requirements/analysis.md\`
+- ❌ WRONG: \`./project_docs/planning-requirements/analysis.md\`
 
 ### PATH VALIDATION REQUIRED
 Before any file operation:

@@ -1,217 +1,114 @@
-# Release AP Mapping
+# Release APM Framework
 
-Create a new release of the AP Mapping following the documented release process.
+Create a new release of the APM Framework using the automated release script.
 
-## 🚨 CRITICAL REPOSITORY RULES 🚨
+## 🚨 CRITICAL: USE THE AUTOMATED SCRIPT ONLY 🚨
 
-### 🔴 APM REPOSITORY UPDATES
-**ONLY THESE FILES MAY BE UPDATED IN APM REPOSITORY:**
-- ✅ `APM/install.sh` - Universal installer script ONLY
-- ✅ `APM/README.md` - Installation instructions ONLY  
-- ❌ **NOTHING ELSE** - NO project files, NO documentation, NO source code
-
-### 🔴 GITHUB RELEASES DESTINATION
-**ALL RELEASES MUST GO TO APM REPOSITORY:**
-- ✅ `gh release create --repo omayhemo/APM` - **ALWAYS USE THIS**
-- ❌ `omayhemo/agentic-persona-mapping` - **NEVER RELEASE HERE**
-
-**VIOLATION OF THESE RULES BREAKS INSTALLATION FOR ALL USERS**
+**All releases MUST use the automated script `release-to-apm.sh`**
 
 ## Usage
 ```
-/release <version> [--beta|--rc|--alpha]
+/release <version>
 ```
 
 ## Examples
 ```
-/release 1.1.0
-/release 1.2.0-beta.1 --beta
-/release 2.0.0-rc.1 --rc
+/release 4.1.5
+/release 4.2.0
+/release 5.0.0
 ```
 
-## Process
+## 🔴 CLAUDE INSTRUCTIONS - FOLLOW EXACTLY
 
-When you run this command, I will:
+### Step 1: Validate Version Format
+- Ensure the version follows semantic versioning (MAJOR.MINOR.PATCH)
+- Reject any version that doesn't match this format
+- Examples: `4.1.5` ✅, `v4.1.5` ❌, `4.1` ❌
 
-1. **Validate Version Format & Git Status**
-   - Ensure semantic versioning (MAJOR.MINOR.PATCH)
-   - Handle pre-release suffixes if specified
-   - Check for clean working directory
+### Step 2: Execute the Automated Script
+**Execute this EXACT command:**
+```bash
+./release-to-apm.sh <version>
+```
 
-2. **Update Version References**
-   - Update VERSION files in:
-     - `/mnt/c/Code/agentic-persona-mapping/VERSION`
-     - `/mnt/c/Code/agentic-persona-mapping/installer/VERSION`
-     - `/mnt/c/Code/agentic-persona-mapping/installer/templates/VERSION`
-   - Update version references in README.md files
-   - Update installer documentation with new version
+**NEVER:**
+- ❌ Manually copy files between repositories
+- ❌ Run individual git commands for releases  
+- ❌ Create releases manually with `gh` commands
+- ❌ Modify files in APM/ directory manually
+- ❌ Use any process other than the script
 
-3. **Update All Documentation**
-   - Create new CHANGELOG entry in `/project_docs/changelogs/CHANGELOG-v{version}.md`
-   - Create release notes in `/project_docs/release-notes/RELEASE-NOTES-v{version}.md`
-   - Update main README.md with new version and release date
-   - Update installer README files with version information
-   - Update quick start guides with new version
+### Step 3: Report Results
+After the script completes:
+- ✅ Confirm the version was released successfully
+- ✅ Provide the GitHub release URL
+- ✅ Provide the installation command for users
+- ✅ Note any errors that occurred
 
-4. **Update APM Repository Installer**
-   - Update `/mnt/c/Code/agentic-persona-mapping/APM/install.sh` if needed:
-     - Update download URL pattern if changed
-     - Update version detection logic if modified
-     - Ensure compatibility with new release structure
+## 🛡️ What the Script Does (Automatically)
 
-5. **Build Distribution Package**
-   - Run `build-distribution.sh` with new version
-   - Verify distribution package creation in `/dist/` folder
-   - Create distribution README in `/dist/README.md`
-   - Place tar.gz file in `/dist/apm-v{version}.tar.gz`
+The `release-to-apm.sh` script handles ALL release operations safely:
 
-6. **Commit Changes to Main Repository**
-   - Commit all version updates and documentation changes
-   - Create annotated git tag `v{version}`
-   - Include comprehensive release notes in tag message
+1. **Updates APM/ staging area** (if version files need updates)
+2. **Creates dynamic release notes** from changelog and git commits
+3. **Builds distribution package** using `build-distribution.sh`
+4. **Commits APM/ contents to APM repository root** using git subtree
+5. **Creates GitHub release** with distribution package
+6. **Includes comprehensive safety checks** to prevent repository confusion
 
-7. **Push to APM Repository (TAG ONLY)**
-   - Clone or update APM repository separately
-   - **CRITICAL**: Do NOT copy project files to APM repo
-   - Only update:
-     - APM/install.sh (if modified)
-     - APM/README.md with new version info
-   - Create and push git tag to APM repository
-   - Create GitHub release with distribution package from `/dist/`
-   - **NEVER** push working project files to APM repository
+## 🔒 Safety Guarantees
 
-8. **Post-Release Verification**
-   - Confirm release is accessible on GitHub
-   - Validate download links in APM repository
-   - Test installer download and execution
-   - Verify distribution package integrity
+The automated script includes these built-in protections:
+- ✅ **NEVER touches agentic-persona-mapping repository files**
+- ✅ **ONLY commits to APM repository (https://github.com/omayhemo/APM)**
+- ✅ **NEVER deletes any files from development repository**
+- ✅ **Verifies repository URLs before any operations**
+- ✅ **Uses APM/ directory as staging area (preserves it)**
+- ✅ **Fails safely if any check doesn't pass**
 
-## Options
+## 📋 Prerequisites
 
-- `--beta`: Create beta pre-release
-- `--rc`: Create release candidate
-- `--alpha`: Create alpha pre-release
-- `--dry-run`: Show what would be done without making changes
+Before running the release command:
+- Clean git working directory (no uncommitted changes)
+- APM remote configured: `git remote add apm https://github.com/omayhemo/APM.git`
+- GitHub CLI installed and authenticated (`gh auth status`)
 
-## Requirements
+## 🚨 CLAUDE: NEVER DO THESE THINGS
 
-- Clean git working directory
-- GitHub CLI installed (for automated APM repo release)
-- APM repository access (https://github.com/omayhemo/APM)
-- Previous version tagged properly (for update testing)
+**PROHIBITED ACTIONS:**
+- ❌ Manual file copying between directories
+- ❌ Direct git operations on APM repository
+- ❌ Manual GitHub release creation
+- ❌ Bypassing the automated script
+- ❌ Modifying the script during release process
+- ❌ Creating releases in agentic-persona-mapping repository
 
-## Implementation Details
+**IF THE SCRIPT FAILS:**
+- ✅ Report the exact error message
+- ✅ Ask user to investigate and fix the issue
+- ✅ DO NOT attempt manual workarounds
+- ✅ DO NOT modify files to "fix" the problem
 
-When this command is executed, I will perform the following steps:
+## 📤 Expected Output
 
-### Step-by-Step Execution:
+Successful release will show:
+```
+APM Release v4.1.5 Complete!
+✅ APM/ folder contents committed to APM repository root
+✅ Target repository: https://github.com/omayhemo/APM
+✅ GitHub release created
 
-1. **Version Validation**
-   - Validate semantic versioning format
-   - Check git working directory is clean
-   - Verify no uncommitted changes
+Distribution Package: coherence-v4.1.5-installer.tar.gz
+GitHub Release: https://github.com/omayhemo/APM/releases/tag/v4.1.5
+Installation: curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
+```
 
-2. **Version Updates** (in main project repository)
-   - Update all VERSION files
-   - Update README.md files with new version
-   - Update installer documentation
+## 🎯 Claude's Role Summary
 
-3. **Documentation Updates** (in main project repository)
-   - Create `/project_docs/changelogs/CHANGELOG-v{version}.md`
-   - Create `/project_docs/release-notes/RELEASE-NOTES-v{version}.md`
-   - Update main README with release information
+1. **Validate** the version format provided by user
+2. **Execute** the automated script with the version parameter
+3. **Report** the results (success/failure) to the user
+4. **Provide** installation instructions if successful
+5. **DO NOT** perform any manual release operations
 
-4. **Build Distribution**
-   - Execute `build-distribution.sh`
-   - Verify `/dist/apm-v{version}.tar.gz` created
-   - Create `/dist/README.md` with installation instructions
-
-5. **APM Repository Updates** (SEPARATE from main project)
-   ```bash
-   # 🚨 CRITICAL: WORK IN APM REPOSITORY DIRECTORY ONLY
-   cd /mnt/c/Code/agentic-persona-mapping/APM
-   
-   # ✅ ONLY UPDATE THESE 2 FILES (NOTHING ELSE):
-   - install.sh (ONLY if installer logic changed)
-   - README.md (ONLY version and release date updates)
-   
-   # ❌ NEVER COPY ANY PROJECT FILES HERE
-   # ❌ NEVER COPY .apm/, project_docs/, payload/, etc.
-   # ❌ NEVER USE cp -r OR BULK COPY OPERATIONS
-   ```
-
-6. **Git Operations**
-   ```bash
-   # In main project repository
-   git add -A
-   git commit -m "Release v{version}"
-   git tag -a "v{version}" -m "Release notes..."
-   
-   # In APM repository (separate)
-   cd /mnt/c/Code/agentic-persona-mapping/APM
-   git add install.sh README.md
-   git commit -m "Update installer for v{version}"
-   git tag -a "v{version}" -m "APM Framework v{version}"
-   git push origin main --tags
-   ```
-
-7. **GitHub Release Creation** 
-   ```bash
-   # 🚨 CRITICAL: MUST CREATE RELEASE IN APM REPOSITORY 🚨
-   # ALWAYS use --repo omayhemo/APM flag
-   
-   cd /mnt/c/Code/agentic-persona-mapping/APM
-   gh release create v{version} \
-     ../dist/coherence-v{version}-installer.tar.gz \
-     --title "APM Framework v{version}" \
-     --notes-file ../project_docs/release-notes/RELEASE-NOTES-v{version}.md \
-     --repo omayhemo/APM
-   
-   # ❌ NEVER USE: gh release create (without --repo flag)
-   # ❌ NEVER USE: --repo omayhemo/agentic-persona-mapping
-   ```
-
-## Critical Safety Rules
-
-### 🚨 REPOSITORY VIOLATIONS (WILL BREAK ALL INSTALLATIONS):
-
-#### ❌ NEVER UPDATE THESE FILES IN APM REPOSITORY:
-- **NEVER** copy `/project_docs/` to APM repository
-- **NEVER** copy `.apm/` directory to APM repository  
-- **NEVER** push working project files to APM repository
-- **NEVER** use `cp -r` to copy entire project to APM
-- **NEVER** commit any files except install.sh and README.md
-
-#### ❌ NEVER CREATE RELEASES IN WRONG REPOSITORY:
-- **NEVER** use `gh release create` without `--repo omayhemo/APM`
-- **NEVER** create releases in `omayhemo/agentic-persona-mapping`
-- **NEVER** use default repository for GitHub operations
-
-### ✅ ONLY ALLOWED APM REPOSITORY OPERATIONS:
-- **ONLY** update `APM/install.sh` (installer script changes only)
-- **ONLY** update `APM/README.md` (version info and installation instructions only)
-- **ONLY** create GitHub releases with `--repo omayhemo/APM` flag
-- **ONLY** upload distribution tar.gz packages to APM releases
-- **ONLY** push tags to APM repository
-
-## Notes
-
-- The APM repository contains ONLY:
-  - `install.sh` - Universal installer script
-  - `README.md` - Installation instructions
-  - GitHub Releases - Distribution packages
-- Main project repository remains separate and private
-- Distribution packages are self-contained installers
-- Breaking changes require migration guide in RELEASE_NOTES.md
-
----
-
-## 🚨 FINAL REPOSITORY WARNING 🚨
-
-**BEFORE EXECUTING ANY RELEASE COMMAND:**
-
-1. **APM Repository File Updates**: ONLY `install.sh` and `README.md` - NOTHING ELSE
-2. **GitHub Release Destination**: ALWAYS `--repo omayhemo/APM` - NEVER agentic-persona-mapping
-3. **Violation Impact**: Wrong repository = broken installations for ALL users
-
-**IF IN DOUBT, RE-READ THE CRITICAL REPOSITORY RULES SECTION ABOVE**
+**Remember: The script does ALL the work. Claude just validates input and executes it.**

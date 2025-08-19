@@ -1,0 +1,144 @@
+# QA Test Metrics Command
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for quality assurance...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant frameworks and methodologies
+- Voice notification: bash ${{SPEAK_QA}} "QA context loaded for quality assurance"
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*QA context ready. Proceeding with command...*
+```
+
+
+**Command**: `qa test metrics`  
+**Description**: Collect comprehensive test execution metrics and analytics  
+**Version**: {{VERSION}}
+
+## Overview
+
+The `qa test metrics` command provides comprehensive collection and analysis of test execution data, enabling data-driven quality insights and strategic decision making.
+
+## Usage
+
+```bash
+# Collect all metrics
+qa test metrics
+
+# Export in specific format
+qa test metrics --export csv
+qa test metrics --export json
+qa test metrics --export yaml
+
+# Collect specific metric types
+qa test metrics --metrics process
+qa test metrics --metrics coverage
+qa test metrics --metrics qa-framework
+
+# Generate summary report only
+qa test metrics --summary
+
+# Clean old metrics
+qa test metrics --clean
+```
+
+## Metric Types
+
+### Process Metrics
+- Active test processes (PID, CPU, memory usage)
+- Test framework identification
+- Process start times and duration
+- Resource consumption analysis
+
+### File Metrics
+- Test file counts by type (JS, TS, Python)
+- Recent file modifications
+- File size and change analysis
+- Test file organization patterns
+
+### Coverage Metrics
+- Coverage report locations
+- Coverage directory analysis
+- Coverage file timestamps and sizes
+- Coverage trend analysis
+
+### QA Framework Metrics
+- APM QA agent availability
+- AI/ML analytics status
+- Framework performance metrics
+- Report generation statistics
+
+## Export Formats
+
+### CSV Format
+- Spreadsheet-compatible format
+- Time-series data for analysis
+- Metric comparisons across runs
+- Executive reporting ready
+
+### JSON Format
+- API-compatible format
+- Nested data structures
+- Integration with external tools
+- Real-time data consumption
+
+### YAML Format
+- Human-readable configuration format
+- Documentation generation
+- Configuration management
+- Template processing
+
+### Jenkins Format
+- CI/CD pipeline integration
+- Automated build reporting
+- Quality gate integration
+- DevOps workflow compatibility
+
+## Features
+
+- **Comprehensive Data Collection**: All test-related metrics
+- **Historical Tracking**: Metrics stored with timestamps
+- **Trend Analysis**: Performance and quality trends over time
+- **Export Flexibility**: Multiple formats for different use cases
+- **Automated Cleanup**: Configurable retention policies
+
+## Integration
+
+- **QA Agent**: Use within QA persona sessions
+- **AI/ML Analytics**: Feeds prediction and optimization systems
+- **Dashboard**: Powers web dashboard visualizations
+- **CI/CD**: Jenkins and GitHub Actions integration
+
+## Output Locations
+
+- **Metrics Storage**: `{{PROJECT_ROOT}}/project_docs/qa/metrics/`
+- **Export Files**: `{{PROJECT_ROOT}}/project_docs/qa/metrics/exported_metrics_*.{format}`
+- **Summary Reports**: `{{PROJECT_ROOT}}/project_docs/qa/reports/`
+
+## Technical Details
+
+- **Script Location**: `{{APM_ROOT}}/scripts/test-monitoring/test-metrics-collector.sh`
+- **Configuration**: `{{APM_ROOT}}/config/test-monitoring.yaml`
+- **Retention**: 30 days default (configurable)
+- **Collection ID**: Timestamp-based unique identifiers
+
+## Examples
+
+```bash
+# Daily metrics collection
+qa test metrics --summary
+
+# Weekly comprehensive analysis
+qa test metrics --export csv --output weekly-report.csv
+
+# Real-time monitoring integration
+qa test metrics --metrics process --export json
+```
+
+Execute this command by typing `qa test metrics` in your Claude Code session.

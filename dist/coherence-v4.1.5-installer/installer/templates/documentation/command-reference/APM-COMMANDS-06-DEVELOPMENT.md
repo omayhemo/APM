@@ -5,7 +5,7 @@ The Development commands provide comprehensive tools for code implementation, te
 
 ---
 
-## 🏗️ `/architecture`
+## 🏗️ `/planning-architecture`
 ### System Architecture Design
 
 **Purpose**: Design comprehensive system architecture with technical specifications and implementation patterns.
@@ -36,13 +36,13 @@ The Development commands provide comprehensive tools for code implementation, te
 **Example Usage**:
 ```bash
 # Microservices architecture
-/architecture --style=microservices
+/planning-architecture --style=microservices
 
 # Detailed serverless design
-/architecture --style=serverless --depth=detailed
+/planning-architecture --style=serverless --depth=detailed
 
 # Hybrid with diagrams
-/architecture --style=hybrid --diagrams=true
+/planning-architecture --style=hybrid --diagrams=true
 ```
 
 **Output**:
@@ -103,7 +103,7 @@ The Development commands provide comprehensive tools for code implementation, te
 
 ---
 
-## 🤖 `/automation-plan`
+## 🤖 `/qa-automation-plan`
 ### Test and Process Automation Strategy
 
 **Purpose**: Create comprehensive automation plans for testing, deployment, and operational processes.
@@ -134,13 +134,13 @@ The Development commands provide comprehensive tools for code implementation, te
 **Example Usage**:
 ```bash
 # Complete automation plan
-/automation-plan --scope=all
+/qa-automation-plan --scope=all
 
 # Testing automation with ROI
-/automation-plan --scope=testing --roi=true
+/qa-automation-plan --scope=testing --roi=true
 
 # Quarterly deployment automation
-/automation-plan --scope=deployment --timeline=quarter
+/qa-automation-plan --scope=deployment --timeline=quarter
 ```
 
 **Output**:
@@ -201,7 +201,7 @@ The Development commands provide comprehensive tools for code implementation, te
 
 ---
 
-## 🔄 `/git-commit-all`
+## 🔄 `/distribution-commit`
 ### Version Control and Git Management
 
 **Purpose**: Manage Git commits with comprehensive change documentation and conventional commit standards.
@@ -229,13 +229,13 @@ The Development commands provide comprehensive tools for code implementation, te
 **Example Usage**:
 ```bash
 # Feature commit
-/git-commit-all --type=feat --scope="auth"
+/distribution-commit --type=feat --scope="auth"
 
 # Bug fix with push
-/git-commit-all --type=fix --push=true
+/distribution-commit --type=fix --push=true
 
 # Breaking change
-/git-commit-all --type=feat --breaking=true
+/distribution-commit --type=feat --breaking=true
 ```
 
 **Output**:
@@ -247,7 +247,7 @@ The Development commands provide comprehensive tools for code implementation, te
 
 ---
 
-## 📦 `/buildit`
+## 📦 `/distribution-build`
 ### Build and Distribution Package Creation
 
 **Purpose**: Build distribution packages with all necessary components and documentation.
@@ -275,13 +275,13 @@ The Development commands provide comprehensive tools for code implementation, te
 **Example Usage**:
 ```bash
 # Production build
-/buildit --target=prod --optimize=true
+/distribution-build --target=prod --optimize=true
 
 # Development build with docs
-/buildit --target=dev --docs=true
+/distribution-build --target=dev --docs=true
 
 # Versioned release
-/buildit --version="2.0.0" --target=prod
+/distribution-build --version="2.0.0" --target=prod
 ```
 
 **Output**:
@@ -419,8 +419,8 @@ graph LR
 ### Code Quality Metrics
 | Metric | Target | Tool | Command Integration |
 |--------|--------|------|-------------------|
-| Coverage | >80% | Jest/Pytest | `/automation-plan` |
-| Complexity | <10 | SonarQube | `/architecture` |
+| Coverage | >80% | Jest/Pytest | `/qa-automation-plan` |
+| Complexity | <10 | SonarQube | `/planning-architecture` |
 | Duplication | <3% | CPD | `/update-all-documentation` |
 | Tech Debt | <5% | SonarQube | `/version` |
 
@@ -437,25 +437,25 @@ graph LR
 ## 💡 Best Practices
 
 ### Architecture Phase
-1. Start with `/architecture` for system design
+1. Start with `/planning-architecture` for system design
 2. Use `/frontend-architecture` for UI planning
-3. Plan with `/automation-plan` early
+3. Plan with `/qa-automation-plan` early
 4. Consider `/ai-prompt` for intelligent features
 
 ### Implementation Phase
-1. Regular `/git-commit-all` for version control
+1. Regular `/distribution-commit` for version control
 2. Use conventional commit messages
 3. Maintain documentation with `/update-all-documentation`
 4. Version properly with `/version`
 
 ### Build Phase
-1. Use `/buildit` for consistent builds
+1. Use `/distribution-build` for consistent builds
 2. Validate packages before distribution
 3. Include documentation in builds
 4. Tag releases with `/version --tag=true`
 
 ### Quality Assurance
-1. Implement automation from `/automation-plan`
+1. Implement automation from `/qa-automation-plan`
 2. Maintain architecture documentation
 3. Regular documentation updates
 4. Version control discipline
@@ -467,13 +467,13 @@ graph LR
 ### Microservices Development
 ```bash
 # Design microservices architecture
-/architecture --style=microservices --patterns="saga,cqrs"
+/planning-architecture --style=microservices --patterns="saga,cqrs"
 
 # Plan service automation
-/automation-plan --scope=deployment --tools="kubernetes,helm"
+/qa-automation-plan --scope=deployment --tools="kubernetes,helm"
 
 # Build service packages
-/buildit --target=prod --optimize=true
+/distribution-build --target=prod --optimize=true
 ```
 
 ### Frontend Application
@@ -482,7 +482,7 @@ graph LR
 /frontend-architecture --framework=react --ssr=true
 
 # Plan test automation
-/automation-plan --scope=testing --tools="jest,cypress"
+/qa-automation-plan --scope=testing --tools="jest,cypress"
 
 # Update documentation
 /update-all-documentation --scope=all
@@ -494,10 +494,10 @@ graph LR
 /ai-prompt --model=gpt4 --safety=strict
 
 # Architecture for AI services
-/architecture --style=serverless
+/planning-architecture --style=serverless
 
 # Automation for AI pipelines
-/automation-plan --scope=all
+/qa-automation-plan --scope=all
 ```
 
 ---
@@ -507,10 +507,10 @@ graph LR
 ### Build Issues
 ```bash
 # Clean build
-/buildit --target=dev --optimize=false
+/distribution-build --target=dev --optimize=false
 
 # Validate architecture
-/architecture --diagrams=true
+/planning-architecture --diagrams=true
 
 # Check dependencies
 /update-all-documentation --validate=true
@@ -522,10 +522,10 @@ graph LR
 /version --bump=patch --dry-run=true
 
 # Fix commit history
-/git-commit-all --type=fix
+/distribution-commit --type=fix
 
 # Rebuild with new version
-/buildit --version="fixed"
+/distribution-build --version="fixed"
 ```
 
 ### Documentation Sync
@@ -537,17 +537,17 @@ graph LR
 /update-all-documentation --scope=api --format=both
 
 # Commit documentation
-/git-commit-all --type=docs --scope="documentation"
+/distribution-commit --type=docs --scope="documentation"
 ```
 
 ---
 
 ## 🔗 Related Commands
 
-- **Planning**: `/prd`, `/epic`, `/stories`
-- **Testing**: `/qa`, `/test-plan`, `/automation-plan`
-- **Project Management**: `/release`, `/prioritization`
-- **Documentation**: `/doc-sharding`, `/library-indexing`
+- **Planning**: `/planning-prd`, `/planning-epic`, `/planning-stories`
+- **Testing**: `/qa`, `/test-plan`, `/qa-automation-plan`
+- **Project Management**: `/distribution-release`, `/prioritization`
+- **Documentation**: `/documentation-shard`, `/implementation-implementation-library-indexing`
 - **Parallel Execution**: All commands have parallel variants
 
 ---

@@ -74,35 +74,35 @@ The Product Owner follows strict backlog hygiene protocols:
 /po "Plan next sprint with capacity analysis"
 ```
 
-#### `/parallel-epic` ⚡
+#### `/parallel-planning-epic` ⚡
 **Purpose**: Multi-stream epic creation from PRD with native sub-agents  
 **Performance**: 4.2x faster than sequential epic development  
 **Best For**: Large PRDs, complex feature sets, comprehensive epic creation
 
 ```bash
 # Parallel epic creation
-/parallel-epic "Create all epics from e-commerce platform PRD with user management, product catalog, shopping cart, and payment processing"
+/parallel-planning-epic "Create all epics from e-commerce platform PRD with user management, product catalog, shopping cart, and payment processing"
 
 # Complex feature epic breakdown
-/parallel-epic "Break down social media platform PRD into epics for user profiles, content creation, social interactions, and notifications"
+/parallel-planning-epic "Break down social media platform PRD into epics for user profiles, content creation, social interactions, and notifications"
 ```
 
-#### `/parallel-stories` ⚡
+#### `/parallel-planning-stories` ⚡
 **Purpose**: Multi-stream story generation with native sub-agents  
 **Performance**: 4.0x faster than sequential story creation  
 **Best For**: Epic-to-story breakdown, sprint story creation, comprehensive story suites
 
 ```bash
 # Parallel story creation
-/parallel-stories "Create all user stories for authentication epic with login, registration, password reset, and profile management"
+/parallel-planning-stories "Create all user stories for authentication epic with login, registration, password reset, and profile management"
 
 # Sprint story generation
-/parallel-stories "Generate complete story set for shopping cart epic with add to cart, remove items, quantity updates, and checkout initiation"
+/parallel-planning-stories "Generate complete story set for shopping cart epic with add to cart, remove items, quantity updates, and checkout initiation"
 ```
 
 ### Specialized PO Commands
 
-#### `/parallel-acceptance-criteria` ⚡
+#### `/parallel-qa-acceptance-criteria` ⚡
 **Purpose**: Comprehensive acceptance criteria generation  
 **Performance**: 3.8x faster for detailed acceptance criteria  
 **Best For**: Complex stories, detailed requirement validation, comprehensive testing criteria
@@ -112,7 +112,7 @@ The Product Owner follows strict backlog hygiene protocols:
 **Performance**: 3.5x faster for comprehensive prioritization  
 **Best For**: Large backlogs, complex prioritization scenarios, stakeholder alignment
 
-#### `/parallel-validation` ⚡
+#### `/parallel-planning-validation` ⚡
 **Purpose**: Story and epic validation against business requirements  
 **Performance**: 4.1x faster for comprehensive validation  
 **Best For**: PRD alignment verification, story quality assurance, requirement traceability
@@ -179,13 +179,13 @@ The Product Owner follows strict backlog hygiene protocols:
    └─ Review complete PRD from Product Manager
    
 2. Epic Creation
-   └─ /parallel-epic "Create all epics from PRD with feature breakdown"
+   └─ /parallel-planning-epic "Create all epics from PRD with feature breakdown"
    
 3. Story Development
-   └─ /parallel-stories "Generate user stories for highest priority epics"
+   └─ /parallel-planning-stories "Generate user stories for highest priority epics"
    
 4. Acceptance Criteria
-   └─ /parallel-acceptance-criteria "Create detailed acceptance criteria for all stories"
+   └─ /parallel-qa-acceptance-criteria "Create detailed acceptance criteria for all stories"
    
 5. Backlog Prioritization
    └─ /parallel-prioritization "Prioritize entire backlog with business value analysis"
@@ -221,16 +221,16 @@ The Product Owner follows strict backlog hygiene protocols:
    └─ /po "Assess current backlog health and identify grooming needs"
    
 2. Story Grooming
-   └─ /parallel-stories "Groom and refine existing stories"
+   └─ /parallel-planning-stories "Groom and refine existing stories"
    
 3. Acceptance Criteria Review
-   └─ /parallel-acceptance-criteria "Review and enhance acceptance criteria"
+   └─ /parallel-qa-acceptance-criteria "Review and enhance acceptance criteria"
    
 4. Prioritization Update
    └─ /parallel-prioritization "Update backlog prioritization based on latest insights"
    
 5. Validation
-   └─ /parallel-validation "Validate stories against PRD and business requirements"
+   └─ /parallel-planning-validation "Validate stories against PRD and business requirements"
 ```
 
 ---
@@ -242,9 +242,9 @@ Leverage parallel execution for complete backlog development:
 
 ```bash
 # Complete PRD to backlog conversion
-/parallel-epic "Create comprehensive epic breakdown from PRD"
-/parallel-stories "Generate all user stories for top-priority epics"
-/parallel-acceptance-criteria "Create detailed acceptance criteria for all stories"
+/parallel-planning-epic "Create comprehensive epic breakdown from PRD"
+/parallel-planning-stories "Generate all user stories for top-priority epics"
+/parallel-qa-acceptance-criteria "Create detailed acceptance criteria for all stories"
 /parallel-prioritization "Prioritize backlog with multi-criteria analysis"
 ```
 
@@ -253,8 +253,8 @@ Optimize for sprint readiness:
 
 ```bash
 # Sprint-ready story preparation
-/parallel-stories "Create sprint-ready stories with proper sizing and dependencies"
-/parallel-validation "Validate story readiness against Definition of Ready criteria"
+/parallel-planning-stories "Create sprint-ready stories with proper sizing and dependencies"
+/parallel-planning-validation "Validate story readiness against Definition of Ready criteria"
 
 # Capacity-based sprint planning
 /po "Plan sprints with team velocity analysis and capacity optimization"
@@ -268,7 +268,7 @@ Ensure stakeholder alignment and value delivery:
 /parallel-prioritization "Multi-stakeholder prioritization with business value, user value, and technical risk analysis"
 
 # Value-driven epic creation
-/parallel-epic "Create epics with clear business value articulation and success metrics"
+/parallel-planning-epic "Create epics with clear business value articulation and success metrics"
 ```
 
 ---
@@ -578,7 +578,7 @@ Product Owner: [Name]
 ### Working Directories
 - **Primary**: `{{PROJECT_ROOT}}/project_docs/backlog/`
 - **Epics**: `{{PROJECT_ROOT}}/project_docs/backlog/epics/`
-- **Stories**: `{{PROJECT_ROOT}}/project_docs/backlog/stories/`
+- **Stories**: `{{PROJECT_ROOT}}/project_docs/backlog/planning-stories/`
 - **Sprints**: `{{PROJECT_ROOT}}/project_docs/backlog/sprints/`
 
 ### Backlog File Location
@@ -624,7 +624,7 @@ bash $SPEAK_PO "Story grooming completed - all stories now meet Definition of Re
 **Solution**: Use better story decomposition and sizing
 ```bash
 # Story breakdown focus
-/parallel-stories "Break down large features into sprint-sized user stories (< 13 story points each)"
+/parallel-planning-stories "Break down large features into sprint-sized user stories (< 13 story points each)"
 
 # Include sizing guidance
 /po "Create user stories with proper sizing guidance and decomposition principles"
@@ -634,10 +634,10 @@ bash $SPEAK_PO "Story grooming completed - all stories now meet Definition of Re
 **Solution**: Use comprehensive acceptance criteria generation
 ```bash
 # Detailed acceptance criteria
-/parallel-acceptance-criteria "Create comprehensive acceptance criteria with Given-When-Then scenarios for all user stories"
+/parallel-qa-acceptance-criteria "Create comprehensive acceptance criteria with Given-When-Then scenarios for all user stories"
 
 # Include business rules
-/parallel-acceptance-criteria "Generate acceptance criteria including business rules, edge cases, and error handling"
+/parallel-qa-acceptance-criteria "Generate acceptance criteria including business rules, edge cases, and error handling"
 ```
 
 #### "Backlog priorities unclear"
@@ -657,7 +657,7 @@ bash $SPEAK_PO "Story grooming completed - all stories now meet Definition of Re
 /po "Plan sprints with detailed team capacity analysis and velocity-based story selection"
 
 # Ensure story readiness
-/parallel-validation "Validate all sprint stories meet Definition of Ready criteria"
+/parallel-planning-validation "Validate all sprint stories meet Definition of Ready criteria"
 ```
 
 ### Performance Optimization
@@ -665,16 +665,16 @@ bash $SPEAK_PO "Story grooming completed - all stories now meet Definition of Re
 #### For Large PRDs
 ```bash
 # Phased epic creation
-/parallel-epic "Create Phase 1 epics for immediate development"
-/parallel-epic "Create Phase 2 epics for future sprints"
-/parallel-stories "Generate stories for Phase 1 epics only"
+/parallel-planning-epic "Create Phase 1 epics for immediate development"
+/parallel-planning-epic "Create Phase 2 epics for future sprints"
+/parallel-planning-stories "Generate stories for Phase 1 epics only"
 ```
 
 #### For Complex Backlogs
 ```bash
 # Modular backlog management
 /parallel-prioritization "Prioritize by feature area or epic theme"
-/parallel-validation "Validate story readiness by epic or sprint"
+/parallel-planning-validation "Validate story readiness by epic or sprint"
 ```
 
 ---
@@ -727,12 +727,12 @@ bash $SPEAK_PO "Story grooming completed - all stories now meet Definition of Re
 
 ### Value Stream Mapping
 ```bash
-/parallel-epic "Create epics with value stream analysis and user journey mapping"
+/parallel-planning-epic "Create epics with value stream analysis and user journey mapping"
 ```
 
 ### Story Mapping
 ```bash
-/parallel-stories "Generate user stories using story mapping methodology with user journey focus"
+/parallel-planning-stories "Generate user stories using story mapping methodology with user journey focus"
 ```
 
 ### Outcome-Based Planning

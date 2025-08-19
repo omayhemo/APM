@@ -13,8 +13,8 @@ To create and maintain a comprehensive product backlog that serves as the single
 ### 1. Gather and Review All Project Documentation
 
 #### 1.1 Core Documents Review
-- [ ] Read `{{PROJECT_DOCS}}/prd.md` - Understand product vision and requirements
-- [ ] Read `{{PROJECT_DOCS}}/architecture.md` - Understand technical constraints and design
+- [ ] Read `{{PROJECT_DOCS}}/planning-prd.md` - Understand product vision and requirements
+- [ ] Read `{{PROJECT_DOCS}}/planning-architecture.md` - Understand technical constraints and design
 - [ ] Read `{{PROJECT_DOCS}}/frontend-architecture.md` (if exists) - Frontend specific requirements
 - [ ] Read `{{PROJECT_DOCS}}/uxui-spec.md` (if exists) - Design requirements
 - [ ] Read `{{PROJECT_DOCS}}/project_brief.md` (if exists) - Initial project context
@@ -155,7 +155,7 @@ For each epic (in priority order):
 Document when backlog should be updated:
 - [ ] After new story creation
 - [ ] When story status changes
-- [ ] After sprint planning/review
+- [ ] After sprint planning/planning-review
 - [ ] When priorities shift
 
 #### 7.3 Communication Plan

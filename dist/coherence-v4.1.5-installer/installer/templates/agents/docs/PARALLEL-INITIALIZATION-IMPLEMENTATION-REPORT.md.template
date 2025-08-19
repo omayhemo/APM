@@ -34,10 +34,10 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 - Project documentation (existing briefs/PRDs)
 - Project brief template
 - Communication standards
-- Research/brainstorming sessions
+- Research/planning-brainstorming sessions
 - Market analysis resources
 
-**Key Benefit**: Immediately ready for brainstorming or project brief creation with full context
+**Key Benefit**: Immediately ready for planning-brainstorming or project brief creation with full context
 
 ### 2. Product Manager Agent
 **Purpose**: PRD creation and product strategy
@@ -51,21 +51,21 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 **Key Benefit**: Can immediately start PRD creation with all templates and context loaded
 
 ### 3. Architect Agent
-**Purpose**: System design and technical architecture
+**Purpose**: System design and technical planning-architecture
 **Parallel Loads**:
-- PRD (for requirements)
+- PRD (for planning-requirements)
 - Architecture template
-- Existing architecture docs
+- Existing planning-architecture docs
 - Communication standards
 - Technical constraints
 
-**Key Benefit**: Ready to design with full requirements and constraint awareness
+**Key Benefit**: Ready to design with full planning-requirements and constraint awareness
 
 ### 4. Design Architect Agent
-**Purpose**: UI/UX and frontend architecture
+**Purpose**: UI/UX and frontend planning-architecture
 **Parallel Loads**:
-- PRD design requirements
-- Frontend architecture template
+- PRD design planning-requirements
+- Frontend planning-architecture template
 - UI/UX specification template
 - Existing design docs
 - Communication standards
@@ -73,37 +73,37 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 **Key Benefit**: Can immediately work on design with brand and requirement context
 
 ### 5. Product Owner Agent
-**Purpose**: Backlog management and validation
+**Purpose**: Backlog management and planning-validation
 **Parallel Loads**:
 - PRD and epics
 - Product backlog
 - Story template
-- PO master checklist
+- PO master planning-checklist
 - Communication standards
 
-**Key Benefit**: Ready for comprehensive backlog grooming with all validation tools
+**Key Benefit**: Ready for comprehensive backlog grooming with all planning-validation tools
 
 ### 6. Scrum Master Agent
-**Purpose**: Story creation and sprint management
+**Purpose**: Story creation and implementation-sprint management
 **Parallel Loads**:
-- Current sprint stories
+- Current implementation-sprint planning-stories
 - Story template
-- Story draft checklist
+- Story draft planning-checklist
 - Product backlog
 - Communication standards
 
-**Key Benefit**: Can immediately create properly formatted stories with dependency awareness
+**Key Benefit**: Can immediately create properly formatted planning-stories with dependency awareness
 
 ### 7. Developer Agent
 **Purpose**: Code implementation
 **Parallel Loads**:
-- Project architecture
-- Current sprint stories
+- Project planning-architecture
+- Current implementation-sprint planning-stories
 - Coding standards
 - Test strategy
-- DoD checklist
+- DoD planning-checklist
 
-**Key Benefit**: Ready to implement with full technical context and quality requirements
+**Key Benefit**: Ready to implement with full technical context and quality planning-requirements
 
 ### 8. QA Agent
 **Purpose**: Quality assurance and testing
@@ -111,10 +111,10 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 - Test strategy template
 - Test plan template
 - Architecture docs
-- QA checklist
+- QA planning-checklist
 - Communication standards
 
-**Key Benefit**: Can immediately create comprehensive test strategies with architecture awareness
+**Key Benefit**: Can immediately create comprehensive test strategies with planning-architecture awareness
 
 ## Technical Implementation Details
 
@@ -173,7 +173,7 @@ After ALL tasks complete:
 
 ### Preserves Existing Capabilities
 - Maintains all existing commands and workflows
-- Doesn't interfere with parallel commands (`/parallel-review`, `/parallel-test`, `/groom`)
+- Doesn't interfere with parallel commands (`/parallel-review`, `/parallel-test`, `/planning-groom`)
 - Enhances rather than replaces current functionality
 
 ### Works with AP Orchestrator

@@ -170,7 +170,7 @@ class GitHubIntegration:
                 'strict': True,
                 'contexts': [
                     'apm/code-review',
-                    'apm/architecture-review',
+                    'apm/planning-architecture-review',
                     'apm/security-scan'
                 ]
             },
@@ -274,7 +274,7 @@ pipeline {
                             }
                             
                             // Archive review artifacts
-                            archiveArtifacts artifacts: 'apm-reports/architecture-*.pdf'
+                            archiveArtifacts artifacts: 'apm-reports/planning-architecture-*.pdf'
                         }
                     }
                 }

@@ -404,8 +404,8 @@ The Orchestrator optimizes workflows by:
 
 - **Persona Commands**: `/analyst`, `/dev`, `/qa`, etc.
 - **Parallel Commands**: `/parallel-*` commands with orchestrated intelligence
-- **Project Commands**: `/project-brief`, `/prd`, `/epic` with unified context
-- **Utility Commands**: `/version`, `/buildit`
+- **Project Commands**: `/planning-project-brief`, `/planning-prd`, `/planning-epic` with unified context
+- **Utility Commands**: `/version`, `/distribution-build`
 
 ---
 

@@ -10,8 +10,8 @@ APM_ROOT="{{APM_ROOT}}"
 
 # Documentation paths
 DOCS_ROOT="$PROJECT_ROOT/project_docs"
-REQUIREMENTS_PATH="$DOCS_ROOT/requirements"
-ARCHITECTURE_PATH="$DOCS_ROOT/architecture"
+REQUIREMENTS_PATH="$DOCS_ROOT/planning-requirements"
+ARCHITECTURE_PATH="$DOCS_ROOT/planning-architecture"
 SPECIFICATIONS_PATH="$DOCS_ROOT/specifications"
 BACKLOG_PATH="$DOCS_ROOT/backlog.md"
 PLANNING_PATH="$DOCS_ROOT/planning"

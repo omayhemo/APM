@@ -8,6 +8,9 @@ set -e
 # Get the directory where this script is located (payload dir) - early for banner
 PAYLOAD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Read VERSION file early for display purposes
+VERSION=$(cat "$PAYLOAD_DIR/VERSION" 2>/dev/null || echo "4.1.5")
+
 # Source the animated banner script early
 source "$PAYLOAD_DIR/coherence-banner.sh"
 
@@ -82,7 +85,7 @@ else
     # Classic animated banner mode
     print_animated_banner
     echo ""
-    echo -e "${CYAN}  Installation Mode: ${RESET}${BOLD}${WHITE}v4.1.1 Native Sub-Agent Architecture${RESET}"
+    echo -e "${CYAN}  Installation Mode: ${RESET}${BOLD}${WHITE}v$VERSION Native Sub-Agent Architecture${RESET}"
     echo ""
 fi
 
@@ -124,10 +127,10 @@ safe_read() {
 
 # Special handling when running from distribution directory without arguments
 # Check if originally no args were provided (or only --defaults was provided)
-if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ] && [ -d "$DIST_DIR/.apm/agents" ]; then
+if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ]; then
     if [ "$USE_DEFAULTS" = true ]; then
         echo "Running with defaults - using current directory as project"
-        TARGET_DIR="$DIST_DIR"
+        TARGET_DIR="$(pwd)"
         SKIP_COPY="true"
     else
         # Display banner for quick setup based on mode
@@ -156,7 +159,7 @@ if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ] && [ -d "
                 echo ""
                 echo "Using current directory as project directory."
                 echo "This will configure AP Mapping in-place without copying files."
-                TARGET_DIR="$DIST_DIR"
+                TARGET_DIR="$(pwd)"
                 SKIP_COPY="true"
                 echo ""
                 ;;
@@ -829,7 +832,7 @@ SPEAK_DESIGN_ARCHITECT="$AP_ROOT/voice/speakDesignArchitect.sh"
 # AP Orchestrator IDE configuration paths
 AP_CONFIG_FILE="$AP_ROOT/ide-ap-orchestrator.cfg.md"
 AP_KB_FILE="$AP_ROOT/data/ap-kb.md"
-AP_CHECKLISTS="$AP_ROOT/checklists"
+AP_CHECKLISTS="$AP_ROOT/planning-checklists"
 AP_DATA="$AP_ROOT/data"
 AP_PERSONAS="$AP_ROOT/personas"
 AP_TASKS="$AP_ROOT/tasks"
@@ -849,18 +852,18 @@ echo "------------------------------------"
 # Note: Project documentation now installed in .apm/documentation
 # Create minimal project_docs structure for backwards compatibility
 ensure_dir "$PROJECT_DOCS"
-ensure_dir "$PROJECT_DOCS/requirements"
-ensure_dir "$PROJECT_DOCS/architecture"
+ensure_dir "$PROJECT_DOCS/planning-requirements"
+ensure_dir "$PROJECT_DOCS/planning-architecture"
 ensure_dir "$PROJECT_DOCS/specifications"
 ensure_dir "$PROJECT_DOCS/artifacts"
 ensure_dir "$PROJECT_DOCS/releases"
 ensure_dir "$PROJECT_DOCS/reports"
 
-# Create modern APM structure (v4.1.1)
+# Create modern APM structure (v$VERSION)
 # Stories and epics go under planning/ subdirectory per document registry
 ensure_dir "$PROJECT_DOCS/planning"
-ensure_dir "$PROJECT_DOCS/planning/stories"
-ensure_dir "$PROJECT_DOCS/planning/epics"
+ensure_dir "$PROJECT_DOCS/planning/planning-stories"
+ensure_dir "$PROJECT_DOCS/planning/planning-epics"
 ensure_dir "$PROJECT_DOCS/planning/retrospectives"
 ensure_dir "$PROJECT_DOCS/planning/roadmaps"
 ensure_dir "$PROJECT_DOCS/time-tracking"
@@ -993,11 +996,11 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/ap.md.template" "$CL
 # Create handoff.md command
 replace_variables "$INSTALLER_DIR/templates/claude/commands/handoff.md.template" "$CLAUDE_COMMANDS_DIR/handoff.md"
 
-# Create wrap.md command (always use markdown template)
-replace_variables "$INSTALLER_DIR/templates/claude/commands/wrap.md.markdown.template" "$CLAUDE_COMMANDS_DIR/wrap.md"
+# Create wrap.md command (template removed in v4.1.5)
+# replace_variables "$INSTALLER_DIR/templates/claude/commands/wrap.md.markdown.template" "$CLAUDE_COMMANDS_DIR/wrap.md"
 
 # Create session-note-setup.md command (always use markdown template)
-replace_variables "$INSTALLER_DIR/templates/claude/commands/session-note-setup.md.markdown.template" "$CLAUDE_COMMANDS_DIR/session-note-setup.md"
+replace_variables "$INSTALLER_DIR/templates/claude/commands/session-note-setup.md.template" "$CLAUDE_COMMANDS_DIR/session-note-setup.md"
 
 # Create switch.md command
 replace_variables "$INSTALLER_DIR/templates/claude/commands/switch.md.template" "$CLAUDE_COMMANDS_DIR/switch.md"
@@ -1014,25 +1017,25 @@ replace_variables "$INSTALLER_DIR/templates/claude/commands/pm.md.template" "$CL
 replace_variables "$INSTALLER_DIR/templates/claude/commands/po.md.template" "$CLAUDE_COMMANDS_DIR/po.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/qa.md.template" "$CLAUDE_COMMANDS_DIR/qa.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/sm.md.template" "$CLAUDE_COMMANDS_DIR/sm.md"
-replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-sprint.md.template" "$CLAUDE_COMMANDS_DIR/parallel-sprint.md"
+replace_variables "$INSTALLER_DIR/templates/claude/commands/implementation-sprint.md.template" "$CLAUDE_COMMANDS_DIR/implementation-sprint.md"
 replace_variables "$INSTALLER_DIR/templates/claude/commands/subtask.md.template" "$CLAUDE_COMMANDS_DIR/subtask.md"
 
-# Install organize-docs command if template exists
-if [ -f "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/organize-docs.md.template" "$CLAUDE_COMMANDS_DIR/organize-docs.md"
-    echo "✅ Installed organize-docs command"
+# Install documentation-organize command if template exists
+if [ -f "$INSTALLER_DIR/templates/claude/commands/documentation-organize.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/documentation-organize.md.template" "$CLAUDE_COMMANDS_DIR/documentation-organize.md"
+    echo "✅ Installed documentation-organize command"
 fi
 
 # Install mcp-install command if template exists
-if [ -f "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" "$CLAUDE_COMMANDS_DIR/mcp-install.md"
-    echo "✅ Installed mcp-install command"
-fi
+#if [ -f "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" ]; then # Template removed in reorganization
+#    replace_variables "$INSTALLER_DIR/templates/claude/commands/mcp-install.md.template" "$CLAUDE_COMMANDS_DIR/mcp-install.md" # Template removed in reorganization
+#    echo "✅ Installed mcp-install command"
+#fi
 
-# Install git-commit-all command if template exists
-if [ -f "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/git-commit-all.md.template" "$CLAUDE_COMMANDS_DIR/git-commit-all.md"
-    echo "✅ Installed git-commit-all command"
+# Install distribution-commit command if template exists
+if [ -f "$INSTALLER_DIR/templates/claude/commands/distribution-commit.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/distribution-commit.md.template" "$CLAUDE_COMMANDS_DIR/distribution-commit.md"
+    echo "✅ Installed distribution-commit command"
 fi
 
 # Install QA framework commands if templates exist
@@ -1062,133 +1065,133 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-insights.md.template" ]; th
     echo "✅ Installed qa-insights command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-qa-framework.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-qa-framework.md.template" "$CLAUDE_COMMANDS_DIR/parallel-qa-framework.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-framework.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-framework.md.template" "$CLAUDE_COMMANDS_DIR/parallel-qa-framework.md"
     echo "✅ Installed parallel-qa-framework command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-regression-suite.md.template" "$CLAUDE_COMMANDS_DIR/parallel-regression-suite.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-regression-suite.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-regression-suite.md.template" "$CLAUDE_COMMANDS_DIR/parallel-regression-suite.md"
     echo "✅ Installed parallel-regression-suite command"
 fi
 
 # Install test monitoring commands if templates exist
 echo "⏳ Installing Test Monitoring commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/monitor-tests.md.template" "$CLAUDE_COMMANDS_DIR/monitor-tests.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-monitor-tests.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-monitor-tests.md.template" "$CLAUDE_COMMANDS_DIR/monitor-tests.md"
     echo "✅ Installed monitor-tests command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-dashboard.md.template" "$CLAUDE_COMMANDS_DIR/test-dashboard.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-test-dashboard.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-test-dashboard.md.template" "$CLAUDE_COMMANDS_DIR/test-dashboard.md"
     echo "✅ Installed test-dashboard command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-metrics.md.template" "$CLAUDE_COMMANDS_DIR/test-metrics.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-test-metrics.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-test-metrics.md.template" "$CLAUDE_COMMANDS_DIR/test-metrics.md"
     echo "✅ Installed test-metrics command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/show-test-status.md.template" "$CLAUDE_COMMANDS_DIR/show-test-status.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-show-test-status.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-show-test-status.md.template" "$CLAUDE_COMMANDS_DIR/show-test-status.md"
     echo "✅ Installed show-test-status command"
 fi
 
 # Install documentation management commands if templates exist
 echo "⏳ Installing Documentation Management commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-compliance.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-compliance.md.template" "$CLAUDE_COMMANDS_DIR/doc-compliance.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/documentation-compliance.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/documentation-compliance.md.template" "$CLAUDE_COMMANDS_DIR/doc-compliance.md"
     echo "✅ Installed doc-compliance command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-sharding.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-sharding.md.template" "$CLAUDE_COMMANDS_DIR/doc-sharding.md"
-    echo "✅ Installed doc-sharding command"  
+if [ -f "$INSTALLER_DIR/templates/claude/commands/documentation-shard.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/documentation-shard.md.template" "$CLAUDE_COMMANDS_DIR/documentation-shard.md"
+    echo "✅ Installed documentation-shard command"  
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" "$CLAUDE_COMMANDS_DIR/update-all-documentation.md"
-    echo "✅ Installed update-all-documentation command"
-fi
+##if [ -f "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" ]; then # Template removed in reorganization
+##    replace_variables "$INSTALLER_DIR/templates/claude/commands/update-all-documentation.md.template" "$CLAUDE_COMMANDS_DIR/update-all-documentation.md" # Template removed in reorganization
+#     echo "✅ Installed update-all-documentation command"
+# fi
 
 # Install Product Owner commands
 echo "⏳ Installing Product Owner commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/epic.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/epic.md.template" "$CLAUDE_COMMANDS_DIR/epic.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-epic.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-epic.md.template" "$CLAUDE_COMMANDS_DIR/planning-epic.md"
     echo "✅ Installed epic command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/acceptance-criteria.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/acceptance-criteria.md.template" "$CLAUDE_COMMANDS_DIR/acceptance-criteria.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-acceptance-criteria.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-acceptance-criteria.md.template" "$CLAUDE_COMMANDS_DIR/qa-acceptance-criteria.md"
     echo "✅ Installed acceptance-criteria command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-acceptance-criteria.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-acceptance-criteria.md.template" "$CLAUDE_COMMANDS_DIR/parallel-acceptance-criteria.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-acceptance-criteria.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-acceptance-criteria.md.template" "$CLAUDE_COMMANDS_DIR/parallel-qa-acceptance-criteria.md"
     echo "✅ Installed parallel-acceptance-criteria command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/groom-backlog.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/groom-backlog.md.template" "$CLAUDE_COMMANDS_DIR/groom-backlog.md"
-    echo "✅ Installed groom-backlog command"
-fi
+#if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-groom-backlog.md.template" ]; then # Template removed in reorganization
+#    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-groom-backlog.md.template" "$CLAUDE_COMMANDS_DIR/planning-groom-backlog.md" # Template removed in reorganization
+#     echo "✅ Installed groom-backlog command"
+# fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/prioritize-backlog.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/prioritize-backlog.md.template" "$CLAUDE_COMMANDS_DIR/prioritize-backlog.md"
-    echo "✅ Installed prioritize-backlog command"
-fi
+#if [ -f "$INSTALLER_DIR/templates/claude/commands/prioritize-backlog.md.template" ]; then # Template removed in reorganization
+#    replace_variables "$INSTALLER_DIR/templates/claude/commands/prioritize-backlog.md.template" "$CLAUDE_COMMANDS_DIR/prioritize-backlog.md" # Template removed in reorganization
+#     echo "✅ Installed prioritize-backlog command"
+# fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/user-stories.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/user-stories.md.template" "$CLAUDE_COMMANDS_DIR/user-stories.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-stories.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-stories.md.template" "$CLAUDE_COMMANDS_DIR/user-stories.md"
     echo "✅ Installed user-stories command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-stories.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-stories.md.template" "$CLAUDE_COMMANDS_DIR/parallel-stories.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-stories.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-stories.md.template" "$CLAUDE_COMMANDS_DIR/parallel-planning-stories.md"
     echo "✅ Installed parallel-stories command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/validate-requirements.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/validate-requirements.md.template" "$CLAUDE_COMMANDS_DIR/validate-requirements.md"
-    echo "✅ Installed validate-requirements command"
-fi
+##if [ -f "$INSTALLER_DIR/templates/claude/commands/validate-requirements.md.template" ]; then # Template removed in reorganization
+##    replace_variables "$INSTALLER_DIR/templates/claude/commands/validate-requirements.md.template" "$CLAUDE_COMMANDS_DIR/validate-requirements.md" # Template removed in reorganization
+#     echo "✅ Installed validate-requirements command"
+# fi
 
 # Install Scrum Master commands
 echo "⏳ Installing Scrum Master commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/next-story.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/next-story.md.template" "$CLAUDE_COMMANDS_DIR/next-story.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-next-story.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-next-story.md.template" "$CLAUDE_COMMANDS_DIR/next-story.md"
     echo "✅ Installed next-story command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-next-story.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-next-story.md.template" "$CLAUDE_COMMANDS_DIR/parallel-next-story.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-next-story.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-next-story.md.template" "$CLAUDE_COMMANDS_DIR/parallel-next-story.md"
     echo "✅ Installed parallel-next-story command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/checklist.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/checklist.md.template" "$CLAUDE_COMMANDS_DIR/checklist.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-checklist.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-checklist.md.template" "$CLAUDE_COMMANDS_DIR/planning-checklist.md"
     echo "✅ Installed checklist command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/parallel-checklist.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/parallel-checklist.md.template" "$CLAUDE_COMMANDS_DIR/parallel-checklist.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-checklist.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-checklist.md.template" "$CLAUDE_COMMANDS_DIR/parallel-planning-checklist.md"
     echo "✅ Installed parallel-checklist command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/course-correction.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/course-correction.md.template" "$CLAUDE_COMMANDS_DIR/course-correction.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-course-correction.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-course-correction.md.template" "$CLAUDE_COMMANDS_DIR/course-correction.md"
     echo "✅ Installed course-correction command"
 fi
 
 # Install Architect commands
 echo "⏳ Installing Architect commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/architecture.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/architecture.md.template" "$CLAUDE_COMMANDS_DIR/architecture.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-architecture.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-architecture.md.template" "$CLAUDE_COMMANDS_DIR/planning-architecture.md"
     echo "✅ Installed architecture command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/frontend-architecture.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/frontend-architecture.md.template" "$CLAUDE_COMMANDS_DIR/frontend-architecture.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-frontend-architecture.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-frontend-architecture.md.template" "$CLAUDE_COMMANDS_DIR/frontend-architecture.md"
     echo "✅ Installed frontend-architecture command"
 fi
 
@@ -1199,79 +1202,79 @@ fi
 
 # Install Analyst commands
 echo "⏳ Installing Analyst commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/brainstorming.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/brainstorming.md.template" "$CLAUDE_COMMANDS_DIR/brainstorming.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-brainstorming.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-brainstorming.md.template" "$CLAUDE_COMMANDS_DIR/planning-brainstorming.md"
     echo "✅ Installed brainstorming command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/requirements.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/requirements.md.template" "$CLAUDE_COMMANDS_DIR/requirements.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-requirements.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-requirements.md.template" "$CLAUDE_COMMANDS_DIR/planning-requirements.md"
     echo "✅ Installed requirements command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/stakeholder-review.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/stakeholder-review.md.template" "$CLAUDE_COMMANDS_DIR/stakeholder-review.md"
-    echo "✅ Installed stakeholder-review command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-stakeholder-review.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-stakeholder-review.md.template" "$CLAUDE_COMMANDS_DIR/planning-stakeholder-review.md"
+    echo "✅ Installed planning-stakeholder-review command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/research-prompt.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/research-prompt.md.template" "$CLAUDE_COMMANDS_DIR/research-prompt.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/ai-prompt.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/ai-prompt.md.template" "$CLAUDE_COMMANDS_DIR/research-prompt.md"
     echo "✅ Installed research-prompt command"
 fi
 
 # Install PM commands
 echo "⏳ Installing Project Manager commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/prd.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/prd.md.template" "$CLAUDE_COMMANDS_DIR/prd.md"
-    echo "✅ Installed prd command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-prd.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-prd.md.template" "$CLAUDE_COMMANDS_DIR/planning-prd.md"
+    echo "✅ Installed planning-prd command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/project-brief.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/project-brief.md.template" "$CLAUDE_COMMANDS_DIR/project-brief.md"
-    echo "✅ Installed project-brief command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-project-brief.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-project-brief.md.template" "$CLAUDE_COMMANDS_DIR/planning-project-brief.md"
+    echo "✅ Installed planning-project-brief command"
 fi
 
 # Install Automation commands
 echo "⏳ Installing Automation commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/automation-plan.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/automation-plan.md.template" "$CLAUDE_COMMANDS_DIR/automation-plan.md"
-    echo "✅ Installed automation-plan command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-automation-plan.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-automation-plan.md.template" "$CLAUDE_COMMANDS_DIR/qa-automation-plan.md"
+    echo "✅ Installed qa-automation-plan command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/test-plan.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-plan.md.template" "$CLAUDE_COMMANDS_DIR/test-plan.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-test-plan.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-test-plan.md.template" "$CLAUDE_COMMANDS_DIR/test-plan.md"
     echo "✅ Installed test-plan command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/test-strategy.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/test-strategy.md.template" "$CLAUDE_COMMANDS_DIR/test-strategy.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-test-strategy.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-test-strategy.md.template" "$CLAUDE_COMMANDS_DIR/test-strategy.md"
     echo "✅ Installed test-strategy command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/quality-review.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/quality-review.md.template" "$CLAUDE_COMMANDS_DIR/quality-review.md"
-    echo "✅ Installed quality-review command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-quality-review.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-quality-review.md.template" "$CLAUDE_COMMANDS_DIR/qa-quality-review.md"
+    echo "✅ Installed qa-quality-review command"
 fi
 
 # Install Utility commands
 echo "⏳ Installing Utility commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/buildit.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/buildit.md.template" "$CLAUDE_COMMANDS_DIR/buildit.md"
-    echo "✅ Installed buildit command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/distribution-build.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/distribution-build.md.template" "$CLAUDE_COMMANDS_DIR/distribution-build.md"
+    echo "✅ Installed distribution-build command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/run-tests.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/run-tests.md.template" "$CLAUDE_COMMANDS_DIR/run-tests.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/qa-run-tests.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/qa-run-tests.md.template" "$CLAUDE_COMMANDS_DIR/run-tests.md"
     echo "✅ Installed run-tests command"
 fi
 
 # Install additional parallel commands
 echo "⏳ Installing additional parallel commands..."
-for template in parallel-ai-prompt parallel-architecture parallel-automation-plan parallel-brainstorming \
-                parallel-course-correction parallel-epic parallel-frontend-architecture parallel-prd \
-                parallel-prioritization parallel-quality-review parallel-requirements parallel-research-prompt \
-                parallel-review parallel-stakeholder-review parallel-test-plan parallel-test-strategy \
-                parallel-test parallel-validation; do
+for template in parallel-ai-prompt parallel-architecture parallel-brainstorming \
+                parallel-course-correction parallel-epic parallel-frontend-architecture parallel-planning-prd \
+                parallel-prioritization parallel-quality-planning-review parallel-requirements parallel-research-prompt \
+                parallel-planning-review parallel-stakeholder-planning-review \
+                parallel-validation; do
     if [ -f "$INSTALLER_DIR/templates/claude/commands/${template}.md.template" ]; then
         replace_variables "$INSTALLER_DIR/templates/claude/commands/${template}.md.template" "$CLAUDE_COMMANDS_DIR/${template}.md"
         echo "✅ Installed ${template} command"
@@ -1280,38 +1283,38 @@ done
 
 # Install additional utility commands
 echo "⏳ Installing additional utility commands..."
-if [ -f "$INSTALLER_DIR/templates/claude/commands/groom.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/groom.md.template" "$CLAUDE_COMMANDS_DIR/groom.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-groom.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-groom.md.template" "$CLAUDE_COMMANDS_DIR/planning-groom.md"
     echo "✅ Installed groom command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/groom-backlog-task.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/groom-backlog-task.md.template" "$CLAUDE_COMMANDS_DIR/groom-backlog-task.md"
-    echo "✅ Installed groom-backlog-task command"
+#if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-groom-backlog-task.md.template" ]; then # Template removed in reorganization
+#    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-groom-backlog-task.md.template" "$CLAUDE_COMMANDS_DIR/planning-groom-backlog-task.md" # Template removed in reorganization
+#    echo "✅ Installed groom-backlog-task command"
+#fi
+
+if [ -f "$INSTALLER_DIR/templates/claude/commands/implementation-library-indexing.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/implementation-library-indexing.md.template" "$CLAUDE_COMMANDS_DIR/implementation-library-indexing.md"
+    echo "✅ Installed implementation-library-indexing command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/library-indexing.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/library-indexing.md.template" "$CLAUDE_COMMANDS_DIR/library-indexing.md"
-    echo "✅ Installed library-indexing command"
-fi
-
-if [ -f "$INSTALLER_DIR/templates/claude/commands/prioritization.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/prioritization.md.template" "$CLAUDE_COMMANDS_DIR/prioritization.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-prioritization.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-prioritization.md.template" "$CLAUDE_COMMANDS_DIR/prioritization.md"
     echo "✅ Installed prioritization command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/validation.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/validation.md.template" "$CLAUDE_COMMANDS_DIR/validation.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-requirement-validation.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-requirement-validation.md.template" "$CLAUDE_COMMANDS_DIR/planning-validation.md"
     echo "✅ Installed validation command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/release.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/release.md.template" "$CLAUDE_COMMANDS_DIR/release.md"
-    echo "✅ Installed release command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/distribution-release.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/distribution-release.md.template" "$CLAUDE_COMMANDS_DIR/distribution-release.md"
+    echo "✅ Installed distribution-release command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/ux-spec.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/ux-spec.md.template" "$CLAUDE_COMMANDS_DIR/ux-spec.md"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/planning-ux-spec.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/planning-ux-spec.md.template" "$CLAUDE_COMMANDS_DIR/planning-ux-spec.md"
     echo "✅ Installed ux-spec command"
 fi
 
@@ -1320,9 +1323,9 @@ if [ -f "$INSTALLER_DIR/templates/claude/commands/version.md.template" ]; then
     echo "✅ Installed version command"
 fi
 
-if [ -f "$INSTALLER_DIR/templates/claude/commands/doc-compliance-enhanced.md.template" ]; then
-    replace_variables "$INSTALLER_DIR/templates/claude/commands/doc-compliance-enhanced.md.template" "$CLAUDE_COMMANDS_DIR/doc-compliance-enhanced.md"
-    echo "✅ Installed doc-compliance-enhanced command"
+if [ -f "$INSTALLER_DIR/templates/claude/commands/documentation-compliance.md.template" ]; then
+    replace_variables "$INSTALLER_DIR/templates/claude/commands/documentation-compliance.md.template" "$CLAUDE_COMMANDS_DIR/documentation-compliance.md"
+    echo "✅ Installed documentation-compliance command"
 fi
 
 echo "✅ APM commands installed/updated (including ALL parallel commands, QA framework, test monitoring, documentation management, PO/SM commands, and more)"
@@ -1347,7 +1350,7 @@ if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
     ensure_dir "$CLAUDE_DIR/agents/config"
     ensure_dir "$CLAUDE_DIR/agents/migration"
     ensure_dir "$CLAUDE_DIR/agents/qa-framework"
-    ensure_dir "$CLAUDE_DIR/agents/sprint-coordination"
+    ensure_dir "$CLAUDE_DIR/agents/implementation-sprint-coordination"
     ensure_dir "$CLAUDE_DIR/agents/chaining"
     ensure_dir "$CLAUDE_DIR/agents/dual-mode"
     ensure_dir "$CLAUDE_DIR/agents/user-guide"
@@ -2374,46 +2377,60 @@ if [ "$TTS_PROVIDER" = "piper" ] && [ -f "$PROJECT_ROOT/.piper/piper" ]; then
     echo ""
     echo "Testing Piper TTS audio..."
     
-    # Test audio playback
+    # Test audio playback with proper error handling
     if [ "$WAV_PLAYER" != "none" ]; then
+        # Disable set -e for TTS testing to prevent installer crashes
+        set +e
+        
+        TTS_TEST_SUCCESS=false
+        
         # Use proper parameters for each audio player
         case "$WAV_PLAYER" in
             paplay)
-                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     paplay --raw --rate=22050 --format=s16le --channels=1 2>/dev/null
+                [ $? -eq 0 ] && TTS_TEST_SUCCESS=true
                 ;;
             aplay)
-                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     aplay -q -r 22050 -f S16_LE -t raw -c 1 - 2>/dev/null
+                [ $? -eq 0 ] && TTS_TEST_SUCCESS=true
                 ;;
             play)
-                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     play -q -t raw -r 22050 -e signed -b 16 -c 1 - 2>/dev/null
+                [ $? -eq 0 ] && TTS_TEST_SUCCESS=true
                 ;;
             *)
-                echo "Coherence - Orchestrate AI" | "$PROJECT_ROOT/.piper/piper" \
+                echo "Coherence, orchestrate your AI." | "$PROJECT_ROOT/.piper/piper" \
                     --model "$PROJECT_ROOT/.piper/models/en_US-ryan-medium.onnx" \
                     --output-raw 2>/dev/null | \
                     $WAV_PLAYER $WAV_PLAYER_ARGS 2>/dev/null
+                [ $? -eq 0 ] && TTS_TEST_SUCCESS=true
                 ;;
         esac
         
-        if [ $? -eq 0 ]; then
+        # Re-enable set -e
+        set -e
+        
+        if [ "$TTS_TEST_SUCCESS" = true ]; then
             echo "✅ Audio test successful!"
         else
-            echo -e "${YELLOW}⚠ Audio test failed. Please check:${NC}"
-            echo "  - WSL2: Is PulseAudio running? (pulseaudio --start)"
-            echo "  - Are audio devices configured correctly?"
-            echo "  - Try: pactl info"
+            echo -e "${YELLOW}⚠ Audio test failed, but installation will continue.${NC}"
+            echo "  TTS system is installed and functional, audio playback needs configuration:"
+            echo "  - WSL2: Try 'pulseaudio --start' to restart audio"
+            echo "  - Check audio devices: 'pactl info'"
+            echo "  - Test manually: echo 'test' | /path/to/piper --model /path/to/model.onnx --output-raw | paplay --raw --rate=22050 --format=s16le --channels=1"
         fi
     else
         echo -e "${YELLOW}⚠ No audio player found for testing${NC}"
+        echo "  TTS system is installed but no audio player available for playback"
     fi
 fi
 
@@ -2510,17 +2527,6 @@ echo "- Integration with QA agent personas"
 echo "- AI/ML analytics integration"
 echo "- Notification system (TTS and webhooks)"
 
-echo ""
-echo "=========================================="
-echo "Coherence installation completed!"
-echo "=========================================="
-echo ""
-echo "Installation Summary:"
-echo "- Version: $VERSION (Native Sub-Agent Architecture)"
-echo "- Performance: 4-8x faster parallel execution"
-echo "- Location: $PROJECT_ROOT"
-echo "- Project: $PROJECT_NAME"
-echo ""
 
 # Version file is already in place from earlier copy
 # Just verify it exists
@@ -2631,22 +2637,7 @@ echo "For more information, see:"
 echo "- Main instructions: $CLAUDE_MD"
 echo "- Agents directory: $AP_ROOT"
 echo ""
-echo "Enjoy using Coherence v$VERSION - Unified Context Engineering with 4-8x performance!"
-
-# Log final installation summary
-log_install "=== Coherence Installation Summary ===" "INFO"
-log_install "Version: $VERSION (Native Sub-Agent Architecture)" "INFO"
-log_install "Location: $PROJECT_ROOT" "INFO"
-log_install "Project: $PROJECT_NAME" "INFO"
-log_install "TTS Provider: $TTS_PROVIDER" "INFO"
-log_install "Session Notes: $NOTES_TYPE mode" "INFO"
-if [ "$USE_PLOPDOCK_MCP" = true ]; then
-    log_install "Plopdock MCP: Enabled (dev commands will be intercepted)" "INFO"
-else
-    log_install "Plopdock MCP: Not configured" "INFO"
-fi
-log_install "Installation completed successfully" "SUCCESS"
-log_install "Installation log saved to: $INSTALL_LOG_FILE" "INFO"
+# Installation continues to final summary step
 
 # Clean up payload directory after successful installation
 echo ""
@@ -2658,19 +2649,41 @@ if [ -d "$PAYLOAD_DIR" ] && [ "$PAYLOAD_DIR" != "$PROJECT_ROOT" ]; then
     script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     
     if [[ "$current_dir" == "$PAYLOAD_DIR"* ]] || [[ "$script_dir" == "$PAYLOAD_DIR"* ]]; then
-        echo "- Payload directory will be removed after script completes"
+        echo "- Distribution directory and archive will be removed after script completes"
         echo "  Creating cleanup script..."
         
         # Create a cleanup script that will run after install.sh exits
         cat > "$PROJECT_ROOT/cleanup_payload.sh" << 'EOF'
 #!/bin/bash
-# Cleanup script to remove payload directory after installation
+# Cleanup script to remove installer files after installation
 sleep 2  # Wait for install.sh to fully exit
-if [ -d "payload" ]; then
-    rm -rf payload
-    echo "✅ Payload directory removed"
+
+# Remove installer directory and files
+if [ -d "installer" ]; then
+    rm -rf installer
+    echo "✅ Installer directory removed"
 fi
-rm -f "$0"  # Remove this cleanup script
+
+if [ -f "LICENSE" ]; then
+    rm -f LICENSE
+    echo "✅ LICENSE file removed"
+fi
+
+if [ -f "VERSION" ]; then
+    rm -f VERSION
+    echo "✅ VERSION file removed"
+fi
+
+# Remove any tar.gz files in current directory that match coherence pattern
+for file in coherence-v*.tar.gz; do
+    if [ -f "$file" ]; then
+        rm -f "$file"
+        echo "✅ Distribution archive removed: $file"
+    fi
+done
+
+# Remove this cleanup script
+rm -f "$0"
 EOF
         chmod +x "$PROJECT_ROOT/cleanup_payload.sh"
         
@@ -2679,9 +2692,34 @@ EOF
         echo "✅ Cleanup scheduled"
     else
         # Safe to remove directly - we're not running from within payload
-        rm -rf "$PAYLOAD_DIR"
-        echo "✅ Payload directory removed"
-        log_install "Payload directory cleaned up: $PAYLOAD_DIR" "INFO"
+        PARENT_DIR="$(dirname "$PAYLOAD_DIR")"
+        cd "$PARENT_DIR"
+        
+        # Remove installer directory and files
+        if [ -d "installer" ]; then
+            rm -rf installer
+            echo "✅ Installer directory removed"
+        fi
+        
+        if [ -f "LICENSE" ]; then
+            rm -f LICENSE
+            echo "✅ LICENSE file removed"
+        fi
+        
+        if [ -f "VERSION" ]; then
+            rm -f VERSION
+            echo "✅ VERSION file removed"
+        fi
+        
+        # Remove any tar.gz files that match coherence pattern
+        for file in coherence-v*.tar.gz; do
+            if [ -f "$file" ]; then
+                rm -f "$file"
+                echo "✅ Distribution archive removed: $file"
+            fi
+        done
+        
+        log_install "Installation files cleaned up" "INFO"
     fi
 else
     echo "- No cleanup needed (payload directory not found or is project root)"
@@ -2695,7 +2733,7 @@ echo "-------------------------------------"
 # Function to validate generated scripts for common typos
 validate_generated_scripts() {
     local validation_failed=false
-    local validation_temp_file="/tmp/validation_results.$$"
+    local validation_temp_file="/tmp/planning-validation_results.$$"
     
     echo "⏳ Validating generated scripts..."
     
@@ -2790,8 +2828,7 @@ Coherence installation completed!
 ==========================================
 
 Installation Summary:
-- Version: 4.1.1 (Native Sub-Agent Architecture)
-- Performance: 4-8x faster parallel execution
+- Version: $VERSION (Native Sub-Agent Architecture)
 - Location: $PROJECT_ROOT
 - Project: $PROJECT_NAME
 

@@ -39,7 +39,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 1.2 Business Case Development
 ```
-/pm → Business planning → /po → Value proposition → /stakeholder-review
+/pm → Business planning → /po → Value proposition → /planning-stakeholder-review
 ```
 
 **Business Planning:**
@@ -58,7 +58,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 2.1 Deep Requirements Analysis
 ```
-/analyst → Unified context requirements discovery → /parallel-requirements → Coherent comprehensive analysis
+/analyst → Unified context requirements discovery → /parallel-planning-requirements → Coherent comprehensive analysis
 ```
 
 **Unified Context Engineering Requirements:**
@@ -100,7 +100,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 3.1 System Architecture Design
 ```
-/architect → System design → /parallel-architecture → Comprehensive architecture
+/architect → System design → /parallel-planning-architecture → Comprehensive architecture
 ```
 
 **Architecture Layers:**
@@ -145,7 +145,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 4.1 Development Environment Setup
 ```
-/dev → Environment setup → /parallel-automation-plan → CI/CD pipeline
+/dev → Environment setup → /qa-automation-plan --parallel → CI/CD pipeline
 ```
 
 **Environment Preparation:**
@@ -156,7 +156,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 4.2 Parallel Development Execution
 ```
-/parallel-sprint → Multi-stream development → Real-time coordination
+/parallel-implementation-sprint → Multi-stream development → Real-time coordination
 ```
 
 **High-Performance Development Strategy:**
@@ -172,7 +172,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 4.3 Iterative Development Cycles
 ```
-Sprint Planning → /parallel-stories → /parallel-test-plan → /parallel-validation
+Sprint Planning → /parallel-planning-stories → /parallel-test-plan → /parallel-planning-validation
 ```
 
 **Development Sprint Structure:**
@@ -203,7 +203,7 @@ Sprint Planning → /parallel-stories → /parallel-test-plan → /parallel-vali
 
 ### 5.2 User Validation & Feedback
 ```
-/stakeholder-review → User testing → Feedback incorporation → /parallel-course-correction
+/planning-stakeholder-review → User testing → Feedback incorporation → /parallel-course-correction
 ```
 
 **Validation Process:**
@@ -252,7 +252,7 @@ Production monitoring → /qa-anomaly → Issue detection → /parallel-course-c
 
 ### 7.2 Continuous Improvement
 ```
-/po → Feature planning → /parallel-brainstorming → Innovation pipeline
+/po → Feature planning → /parallel-planning-brainstorming → Innovation pipeline
 ```
 
 **Evolution Strategy:**
@@ -353,24 +353,24 @@ Production monitoring → /qa-anomaly → Issue detection → /parallel-course-c
 - `/research-prompt` - Competitive intelligence through coherent analysis
 
 ### Phase 2 (Requirements)  
-- `/parallel-requirements` - Comprehensive requirements analysis with unified context
+- `/parallel-planning-requirements` - Comprehensive requirements analysis with unified context
 - `/po` - Product ownership and prioritization through coherent workflow
-- `/stakeholder-review` - Requirement validation with seamless integration
+- `/planning-stakeholder-review` - Requirement validation with seamless integration
 
 ### Phase 3 (Architecture)
-- `/parallel-architecture` - Multi-faceted architecture design with unified context engineering
+- `/parallel-planning-architecture` - Multi-faceted architecture design with unified context engineering
 - `/design-architect` - User experience design through orchestrated intelligence
 - `/architect` - System architecture with coherent workflow integration
 
 ### Phase 4 (Development)
-- `/parallel-sprint` - High-performance development with orchestrated intelligence
-- `/parallel-stories` - Multi-story development through coherent workflow
-- `/parallel-automation-plan` - CI/CD setup with seamless integration
+- `/parallel-implementation-sprint` - High-performance development with orchestrated intelligence
+- `/parallel-planning-stories` - Multi-story development through coherent workflow
+- `/qa-automation-plan --parallel` - CI/CD setup with seamless integration
 
 ### Phase 5 (Testing)
 - `/qa-framework` - Comprehensive testing with unified context engineering
 - `/qa-predict` - ML-powered test optimization through orchestrated intelligence
-- `/parallel-validation` - End-to-end validation with coherent workflow
+- `/parallel-planning-validation` - End-to-end validation with coherent workflow
 
 ### Phase 6 (Deployment)
 - `/monitor-tests` - Deployment monitoring with seamless integration
@@ -379,7 +379,7 @@ Production monitoring → /qa-anomaly → Issue detection → /parallel-course-c
 
 ### Phase 7 (Optimization)
 - `/qa-anomaly` - Performance monitoring with coherent workflow
-- `/parallel-brainstorming` - Innovation planning through orchestrated intelligence
+- `/parallel-planning-brainstorming` - Innovation planning through orchestrated intelligence
 - `/analyst` - Usage analysis with unified context engineering
 
 ## 📚 Related Workflows

@@ -57,7 +57,7 @@ The Coherence methodology has undergone complete modernization:
 
 ### Pattern 2: Cross-Cutting Concern Implementation  
 ```
-/parallel-automation-plan → Security Stream + Performance Stream + Monitoring Stream
+/qa-automation-plan --parallel → Security Stream + Performance Stream + Monitoring Stream
 ```
 
 **When to Use**: Non-functional requirements across multiple components
@@ -135,7 +135,7 @@ The Coherence methodology has undergone complete modernization:
 
 ### Advanced Parallel Patterns
 
-#### `/parallel-automation-plan` - Infrastructure as Code
+#### `/qa-automation-plan --parallel` - Infrastructure as Code
 **Purpose**: Complete CI/CD and infrastructure automation
 - **Streams**: Build automation + Deployment scripts + Monitoring setup
 - **Performance**: 3-5x speedup for DevOps pipeline creation
@@ -285,7 +285,7 @@ Choose pattern based on:
 ├── Feature Work → /parallel-stories or /parallel-sprint
 ├── Architecture Work → /parallel-architecture  
 ├── Testing Work → /parallel-test-plan or /parallel-validation
-├── Infrastructure Work → /parallel-automation-plan
+├── Infrastructure Work → /qa-automation-plan --parallel
 └── Problem Solving → /parallel-course-correction
 ```
 

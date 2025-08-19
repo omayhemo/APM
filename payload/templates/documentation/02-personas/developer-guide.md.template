@@ -89,12 +89,12 @@ The Developer follows proven software development principles:
 
 ### Specialized Development Commands
 
-#### `/parallel-review` ⚡
+#### `/parallel-planning-review` ⚡
 **Purpose**: Multi-perspective code review and quality analysis  
 **Performance**: 3.4x faster comprehensive code reviews  
 **Best For**: Code quality assurance, architecture review, security analysis
 
-#### `/buildit`
+#### `/distribution-build`
 **Purpose**: Complete feature implementation from requirements to deployment  
 **Best For**: End-to-end feature development, rapid prototyping, MVP creation
 
@@ -166,7 +166,7 @@ The Developer follows proven software development principles:
    └─ /dev "Implement feature using TDD approach with red-green-refactor cycle"
    
 4. Code Review & Quality
-   └─ /parallel-review "Comprehensive code review with quality analysis"
+   └─ /parallel-planning-review "Comprehensive code review with quality analysis"
    
 5. Integration & Deployment
    └─ /dev "Integrate feature and deploy with monitoring setup"
@@ -202,7 +202,7 @@ The Developer follows proven software development principles:
    └─ Multiple Developer sub-agents implement different components simultaneously
    
 4. Integration & Testing
-   └─ /parallel-review "Integrate components with comprehensive testing"
+   └─ /parallel-planning-review "Integrate components with comprehensive testing"
    
 5. Performance & Quality Validation
    └─ /dev "Validate architecture implementation meets performance requirements"
@@ -220,7 +220,7 @@ Comprehensive TDD implementation with quality focus:
 /dev "Implement user authentication feature using strict TDD approach with unit tests, integration tests, and acceptance test automation"
 
 # Quality-first development
-/parallel-review "Implement feature with comprehensive code review including security analysis, performance evaluation, and maintainability assessment"
+/parallel-planning-review "Implement feature with comprehensive code review including security analysis, performance evaluation, and maintainability assessment"
 ```
 
 ### Performance-Critical Development
@@ -607,7 +607,7 @@ bash $SPEAK_DEVELOPER "Code review analysis complete - 2 optimization opportunit
 /dev "Analyze failing tests and implement test isolation with proper setup/teardown and mock management"
 
 # Comprehensive test review
-/parallel-review "Review test suite for reliability issues, race conditions, and environment dependencies"
+/parallel-planning-review "Review test suite for reliability issues, race conditions, and environment dependencies"
 ```
 
 #### "Performance not meeting requirements"
@@ -624,7 +624,7 @@ bash $SPEAK_DEVELOPER "Code review analysis complete - 2 optimization opportunit
 **Solution**: Comprehensive quality improvement with standards
 ```bash
 # Code quality enhancement
-/parallel-review "Comprehensive code quality analysis with refactoring recommendations and best practice implementation"
+/parallel-planning-review "Comprehensive code quality analysis with refactoring recommendations and best practice implementation"
 
 # Standards implementation
 /dev "Implement coding standards, linting rules, and automated quality gates"
@@ -637,7 +637,7 @@ bash $SPEAK_DEVELOPER "Code review analysis complete - 2 optimization opportunit
 /dev "Design robust interfaces with comprehensive integration testing and error handling"
 
 # Component coordination
-/parallel-review "Review component interactions and implement proper integration patterns"
+/parallel-planning-review "Review component interactions and implement proper integration patterns"
 ```
 
 ### Performance Optimization
@@ -656,7 +656,7 @@ bash $SPEAK_DEVELOPER "Code review analysis complete - 2 optimization opportunit
 ```bash
 # Performance-critical development
 /dev "Implement high-performance solution with profiling, optimization, and load testing"
-/parallel-review "Performance review with benchmarking and scalability analysis"
+/parallel-planning-review "Performance review with benchmarking and scalability analysis"
 ```
 
 ---

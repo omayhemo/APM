@@ -143,12 +143,12 @@ The QA Engineer follows advanced quality assurance methodologies enhanced with A
 
 ### Specialized Testing Commands
 
-#### `/parallel-test-strategy` ⚡
+#### `/qa-test-strategy --parallel` ⚡
 **Purpose**: Multi-perspective test strategy development  
 **Performance**: 3.8x faster comprehensive test strategy creation  
 **Best For**: Complex systems, enterprise testing, comprehensive coverage
 
-#### `/parallel-automation-plan` ⚡
+#### `/qa-automation-plan --parallel` ⚡
 **Purpose**: Comprehensive test automation planning and implementation  
 **Performance**: 4.2x faster automation framework development  
 **Best For**: Large-scale automation, framework creation, CI/CD integration
@@ -223,7 +223,7 @@ The QA Engineer follows advanced quality assurance methodologies enhanced with A
    └─ /parallel-qa-framework "Design complete quality framework with AI/ML capabilities"
    
 3. Test Automation Implementation
-   └─ /parallel-automation-plan "Implement comprehensive test automation with intelligent maintenance"
+   └─ /qa-automation-plan --parallel "Implement comprehensive test automation with intelligent maintenance"
    
 4. Performance & Security Integration
    └─ /qa "Integrate performance testing and security validation into framework"
@@ -291,7 +291,7 @@ Build comprehensive quality systems for large organizations:
 /parallel-qa-framework "Enterprise quality framework with distributed testing, cross-team coordination, and centralized quality metrics"
 
 # Scalable automation architecture
-/parallel-automation-plan "Scalable test automation architecture with microservices testing and cloud-native quality assurance"
+/qa-automation-plan --parallel "Scalable test automation architecture with microservices testing and cloud-native quality assurance"
 ```
 
 ### Continuous Quality Integration
@@ -691,7 +691,7 @@ bash $SPEAK_QA "Anomaly detection analysis complete - 3 quality issues predicted
 **Solution**: Implement AI-powered self-healing test automation
 ```bash
 # Self-healing test framework
-/parallel-automation-plan "Implement AI-powered test automation with self-healing capabilities and intelligent element identification"
+/qa-automation-plan --parallel "Implement AI-powered test automation with self-healing capabilities and intelligent element identification"
 
 # Intelligent maintenance
 /qa-optimize "Optimize test maintenance with ML-powered test case analysis and automated update recommendations"

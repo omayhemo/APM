@@ -1,12 +1,12 @@
 # Organize Documentation Command
 
-## Command: `/organize-docs`
+## Command: `/documentation-organize`
 
 A comprehensive documentation organization system that ensures all project documentation is properly structured, linked, and accessible.
 
 ## Overview
 
-The `/organize-docs` command provides intelligent documentation management capabilities:
+The `/documentation-organize` command provides intelligent documentation management capabilities:
 - Detects orphaned documents and broken links
 - Creates comprehensive cross-references
 - Ensures all docs connect to index.md
@@ -16,7 +16,7 @@ The `/organize-docs` command provides intelligent documentation management capab
 ## Usage
 
 ```bash
-/organize-docs [subcommand] [options]
+/documentation-organize [subcommand] [options]
 ```
 
 ## Subcommands
@@ -26,7 +26,7 @@ The `/organize-docs` command provides intelligent documentation management capab
 #### `scan`
 Performs comprehensive documentation structure analysis.
 ```bash
-/organize-docs scan [--verbose] [--check-links] [--fix]
+/documentation-organize scan [--verbose] [--check-links] [--fix]
 ```
 - `--verbose`: Show detailed analysis
 - `--check-links`: Validate all internal/external links
@@ -35,7 +35,7 @@ Performs comprehensive documentation structure analysis.
 #### `validate`
 Validates documentation against defined rules and standards.
 ```bash
-/organize-docs validate [--rules <file>] [--strict] [--fix-warnings]
+/documentation-organize validate [--rules <file>] [--strict] [--fix-warnings]
 ```
 - `--rules`: Custom rules file (default: doc-standards.yaml)
 - `--strict`: Fail on warnings
@@ -44,7 +44,7 @@ Validates documentation against defined rules and standards.
 #### `graph`
 Generates visual representation of documentation relationships.
 ```bash
-/organize-docs graph [--format <type>] [--output <file>] [--depth <n>]
+/documentation-organize graph [--format <type>] [--output <file>] [--depth <n>]
 ```
 - `--format`: Output format (png, svg, dot, mermaid)
 - `--output`: Output file path
@@ -53,7 +53,7 @@ Generates visual representation of documentation relationships.
 #### `orphans`
 Finds documents with no incoming links.
 ```bash
-/organize-docs orphans [--suggest-links] [--add-to-index]
+/documentation-organize orphans [--suggest-links] [--add-to-index]
 ```
 - `--suggest-links`: Suggest parent documents
 - `--add-to-index`: Automatically add to nearest index
@@ -63,7 +63,7 @@ Finds documents with no incoming links.
 #### `restructure`
 Reorganizes documentation based on specified strategy.
 ```bash
-/organize-docs restructure --strategy <type> [--dry-run] [--backup <dir>]
+/documentation-organize restructure --strategy <type> [--dry-run] [--backup <dir>]
 ```
 Strategies:
 - `topic-based`: Group by subject matter
@@ -74,7 +74,7 @@ Strategies:
 #### `link`
 Manages document cross-references.
 ```bash
-/organize-docs link [--create-bidirectional] [--fix-broken] [--add-breadcrumbs]
+/documentation-organize link [--create-bidirectional] [--fix-broken] [--add-breadcrumbs]
 ```
 - `--create-bidirectional`: Ensure parent↔child links
 - `--fix-broken`: Repair broken internal links
@@ -83,7 +83,7 @@ Manages document cross-references.
 #### `index`
 Creates or updates documentation indexes.
 ```bash
-/organize-docs index [--create-missing] [--update-all] [--template <file>]
+/documentation-organize index [--create-missing] [--update-all] [--template <file>]
 ```
 - `--create-missing`: Generate missing index files
 - `--update-all`: Refresh all existing indexes
@@ -92,7 +92,7 @@ Creates or updates documentation indexes.
 #### `migrate`
 Migrates documentation between formats or structures.
 ```bash
-/organize-docs migrate --from <format> --to <format> [--preserve-history]
+/documentation-organize migrate --from <format> --to <format> [--preserve-history]
 ```
 - Supports: markdown, restructuredtext, asciidoc
 - `--preserve-history`: Keep git history
@@ -102,7 +102,7 @@ Migrates documentation between formats or structures.
 #### `summary`
 Generates comprehensive documentation summary.
 ```bash
-/organize-docs summary [--format <type>] [--export <file>]
+/documentation-organize summary [--format <type>] [--export <file>]
 ```
 - `--format`: Output format (markdown, json, html)
 - `--export`: Save report to file
@@ -110,7 +110,7 @@ Generates comprehensive documentation summary.
 #### `health`
 Performs documentation health check.
 ```bash
-/organize-docs health [--score] [--fix-critical] [--mode <type>]
+/documentation-organize health [--score] [--fix-critical] [--mode <type>]
 ```
 - `--score`: Show numeric health score
 - `--fix-critical`: Auto-fix critical issues
@@ -119,14 +119,14 @@ Performs documentation health check.
 #### `recommendations`
 Provides AI-powered improvement suggestions.
 ```bash
-/organize-docs recommendations [--limit <n>] [--effort <level>]
+/documentation-organize recommendations [--limit <n>] [--effort <level>]
 ```
 - `--limit`: Maximum recommendations
 - `--effort`: Filter by effort (quick-wins, moderate, major)
 
 ## Configuration
 
-Configuration file location: `{{PROJECT_ROOT}}/.apm/config/organize-docs.yaml`
+Configuration file location: `{{PROJECT_ROOT}}/.apm/config/documentation-organize.yaml`
 
 ```yaml
 organize_docs:
@@ -153,33 +153,33 @@ organize_docs:
 
 ### Quick Documentation Health Check
 ```bash
-/organize-docs health --score
+/documentation-organize health --score
 ```
 
 ### Find and Fix Common Issues
 ```bash
-/organize-docs scan --check-links --fix
-/organize-docs orphans --add-to-index
+/documentation-organize scan --check-links --fix
+/documentation-organize orphans --add-to-index
 ```
 
 ### Weekly Maintenance Workflow
 ```bash
-/organize-docs health --mode batch --fix-critical
-/organize-docs orphans --suggest-links
-/organize-docs summary --export weekly-report.md
+/documentation-organize health --mode batch --fix-critical
+/documentation-organize orphans --suggest-links
+/documentation-organize summary --export weekly-report.md
 ```
 
 ### Major Documentation Reorganization
 ```bash
 # Preview changes
-/organize-docs restructure --strategy topic-based --dry-run
+/documentation-organize restructure --strategy topic-based --dry-run
 
 # Create backup and apply
-/organize-docs restructure --strategy topic-based --backup ./doc-backup
+/documentation-organize restructure --strategy topic-based --backup ./doc-backup
 
 # Validate results
-/organize-docs validate --strict
-/organize-docs graph --format png --output new-structure.png
+/documentation-organize validate --strict
+/documentation-organize graph --format png --output new-structure.png
 ```
 
 ## Integration with APM
@@ -205,16 +205,16 @@ This command integrates seamlessly with the APM Analyst persona:
 ### Common Issues
 
 **"Too many orphaned documents"**
-- Run `/organize-docs orphans --suggest-links` to get recommendations
-- Use `/organize-docs index --create-missing` to generate indexes
+- Run `/documentation-organize orphans --suggest-links` to get recommendations
+- Use `/documentation-organize index --create-missing` to generate indexes
 
 **"Broken links detected"**
-- Run `/organize-docs link --fix-broken` for automatic fixes
-- Check `/organize-docs scan --verbose` for detailed issues
+- Run `/documentation-organize link --fix-broken` for automatic fixes
+- Check `/documentation-organize scan --verbose` for detailed issues
 
 **"Documentation structure unclear"**
-- Generate a graph: `/organize-docs graph --format png`
-- Review recommendations: `/organize-docs recommendations`
+- Generate a graph: `/documentation-organize graph --format png`
+- Review recommendations: `/documentation-organize recommendations`
 
 ## Related Commands
 

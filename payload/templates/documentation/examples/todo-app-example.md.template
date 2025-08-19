@@ -234,7 +234,7 @@ Using unified context engineering:
 | Documentation Coverage | 40% | 100% | +60% |
 | Code Review Issues | 23 | 3 | 87% reduction |
 | Post-deployment Bugs | 12 | 1 | 92% reduction |
-| Team Velocity | 32 SP/sprint | 58 SP/sprint | 81% increase |
+| Team Velocity | 32 SP/implementation-sprint | 58 SP/implementation-sprint | 81% increase |
 
 ### Cost Savings Analysis
 

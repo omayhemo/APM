@@ -84,7 +84,7 @@ Work in parallel, compile comprehensive recommendations.
 
 #### Requirements Analysis
 ```
-I need an Analyst agent to analyze requirements for [feature/epic]
+I need an Analyst agent to analyze requirements for [feature/planning-epic]
 - Review: [business requirements, user stories]
 - Identify: [gaps, ambiguities, dependencies]
 - Clarify: [acceptance criteria, edge cases]

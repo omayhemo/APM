@@ -5,7 +5,7 @@
 
 # Version detection - reads from multiple sources
 get_coherence_version() {
-    local version="4.1.1"  # default fallback
+    local version="4.1.5"  # default fallback
     
     # Try to read from VERSION file in same directory as this script
     local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -49,6 +49,10 @@ LIGHT_CYAN='\033[96m'
 # Function to print the banner
 print_banner() {
     clear
+    # Add buffer space at top to prevent logo clipping
+    echo
+    echo
+    echo
     echo
     echo -e "${LIGHT_BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
     echo
@@ -72,6 +76,10 @@ print_banner() {
 # Animated loading version (optional)
 print_animated_banner() {
     clear
+    # Add buffer space at top to prevent logo clipping
+    echo
+    echo
+    echo
     echo
     
     # Draw line with animation

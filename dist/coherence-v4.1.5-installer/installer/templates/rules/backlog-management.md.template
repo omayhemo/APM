@@ -147,7 +147,7 @@ grep "Last Updated:" {{PROJECT_ROOT}}/project_docs/backlog.md | tail -1
 - **MUST** ensure all stories have clear acceptance criteria
 - **MUST** update story priorities based on stakeholder feedback
 - **MUST** track business value delivery metrics
-- **MUST** run `/groom` command weekly for backlog health
+- **MUST** run `/planning-groom` command weekly for backlog health
 
 ### Scrum Master Agent
 - **MUST** update sprint assignments
@@ -281,7 +281,7 @@ backlog_compliance:
 - **Backlog Template**: `{{PROJECT_ROOT}}/project_docs/backlog.md`
 - **Update Examples**: `{{AP_ROOT}}/docs/backlog-examples.md`
 - **Grooming Guide**: `{{AP_ROOT}}/docs/backlog-grooming.md`
-- **Acceptance Criteria Guide**: `{{AP_ROOT}}/docs/acceptance-criteria.md`
+- **Acceptance Criteria Guide**: `{{AP_ROOT}}/docs/qa-acceptance-criteria.md`
 
 ## 🚀 IMPLEMENTATION ENFORCEMENT
 

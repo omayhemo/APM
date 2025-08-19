@@ -19,9 +19,9 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 - Description: "Research assistant, brain storming coach, requirements gathering, project briefs."
 - Persona: "analyst.md"
 - Tasks:
-  - [Brainstorming]({{AP_TASKS}}/brainstorming.md)
+  - [Brainstorming]({{AP_TASKS}}/planning-brainstorming.md)
   - [Deep Research Prompt Generation]({{AP_TASKS}}/deep-research-prompt-generation.md)
-  - [Create Project Brief]({{AP_TASKS}}/create-project-brief.md)
+  - [Create Project Brief]({{AP_TASKS}}/create-planning-project-brief.md)
 
 ## Title: Product Owner AKA PO
 
@@ -33,9 +33,9 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
   - [Create PRD]({{AP_TASKS}}/create-prd.md)
   - [Create Epic]({{AP_TASKS}}/create-epic-task.md)
   - [Create Next Story]({{AP_TASKS}}/create-next-story-task.md)
-  - [Slice Documents]({{AP_TASKS}}/doc-sharding-task.md)
+  - [Slice Documents]({{AP_TASKS}}/documentation-shard-task.md)
   - [Correct Course]({{AP_TASKS}}/correct-course.md)
-  - [Groom Backlog]({{AP_TASKS}}/groom-backlog-task.md)
+  - [Groom Backlog]({{AP_TASKS}}/planning-groom-backlog-task.md)
 
 ## Title: Architect
 
@@ -46,7 +46,7 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
 - Tasks:
   - [Create Architecture]({{AP_TASKS}}/create-architecture.md)
   - [Create Next Story]({{AP_TASKS}}/create-next-story-task.md)
-  - [Slice Documents]({{AP_TASKS}}/doc-sharding-task.md)
+  - [Slice Documents]({{AP_TASKS}}/documentation-shard-task.md)
 
 ## Title: Design Architect
 

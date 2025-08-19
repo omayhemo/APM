@@ -59,7 +59,7 @@ if [ -f "$PERSONA_FILE" ]; then
 ## 🚧 WORKSPACE BOUNDARIES
 
 ### PRIMARY WORKING DIRECTORIES
-- **Primary**: \`{{PROJECT_ROOT}}/project_docs/requirements/\` (research, analysis)
+- **Primary**: \`{{PROJECT_ROOT}}/project_docs/planning-requirements/\` (research, analysis)
 - **Output**: \`{{PROJECT_ROOT}}/project_docs/research/reports/\` (analysis reports)
 - **Read-Only**: All other directories (research purposes)
 
@@ -142,10 +142,10 @@ EOF
 - **Progressive enhancement support**
 
 ### Parallel Execution Patterns
-- **\`/parallel-requirements\`**: Native sub-agent requirements execution
-- **\`/parallel-stakeholder-review\`**: Native sub-agent stakeholder review execution
+- **\`/parallel-planning-requirements\`**: Native sub-agent requirements execution
+- **\`/parallel-planning-stakeholder-planning-review\`**: Native sub-agent stakeholder planning-review execution
 - **\`/parallel-research-prompt\`**: Native sub-agent research prompt execution
-- **\`/parallel-brainstorming\`**: Native sub-agent brainstorming execution
+- **\`/parallel-planning-brainstorming\`**: Native sub-agent brainstorming execution
 
 ---
 

@@ -28,7 +28,7 @@
     ],
     "slash_commands": [
       "/sm",
-      "/sprint",
+      "/implementation-sprint",
       "/next-story"
     ]
   },

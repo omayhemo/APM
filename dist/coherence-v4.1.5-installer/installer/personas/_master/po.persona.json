@@ -28,8 +28,8 @@
     ],
     "slash_commands": [
       "/po",
-      "/epic",
-      "/stories"
+      "/planning-epic",
+      "/planning-stories"
     ]
   },
   "configuration": {

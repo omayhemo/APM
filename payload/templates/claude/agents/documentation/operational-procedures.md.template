@@ -55,7 +55,7 @@ System Response:
 #### Parallel Agent Coordination
 ```bash
 # Revolutionary parallel development
-User Input: "/parallel-sprint"
+User Input: "/parallel-implementation-sprint"
 System Execution:
   Phase 1: Sprint Analysis (3 parallel tasks)
     - Load sprint plan and dependencies
@@ -261,7 +261,7 @@ User: "po"
 #### Advanced Backlog Management
 ```bash
 # Comprehensive backlog grooming
-User: "/groom"
+User: "/planning-groom"
 
 # AI-powered grooming capabilities
 1. Automated story breakdown and sizing
@@ -336,7 +336,7 @@ User: "sm"
 #### Revolutionary Parallel Sprint Coordination
 ```bash
 # Launch parallel development coordination
-User: "/parallel-sprint"
+User: "/parallel-implementation-sprint"
 
 # Breakthrough capability: Multiple developers working simultaneously
 Benefits:

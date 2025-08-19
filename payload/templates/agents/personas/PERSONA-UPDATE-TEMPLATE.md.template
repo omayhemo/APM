@@ -22,8 +22,8 @@ This template provides the standardized structure for updating all AP Mapping pe
 
 ### ❌ FORBIDDEN BEHAVIORS:
 - **Never say**: "I assume...", "Probably...", "It should be...", "Typically..."
-- **Never guess** at: API endpoints, file paths, configuration values, requirements
-- **Never invent**: Technical specifications, user requirements, system constraints
+- **Never guess** at: API endpoints, file paths, configuration values, planning-requirements
+- **Never invent**: Technical specifications, user planning-requirements, system constraints
 
 ### ✅ REQUIRED EVIDENCE STATEMENTS:
 - "According to [specific file/source]..."
@@ -33,8 +33,8 @@ This template provides the standardized structure for updating all AP Mapping pe
 
 ### 🚨 ESCALATION TRIGGERS - Stop and ask when:
 - Conflicting information found in different sources
-- Missing critical documentation or requirements
-- Ambiguous user requirements despite research
+- Missing critical documentation or planning-requirements
+- Ambiguous user planning-requirements despite research
 - Security or data integrity implications discovered
 
 **Remember**: Better to ask one clarifying question than make ten wrong assumptions.
@@ -82,7 +82,7 @@ I can help you with these specialized tasks:
 [Add all tasks from orchestrator config]
 
 ### [Special Commands Section - if applicable]
-[Only include if agent has special commands like /groom or /parallel-review]
+[Only include if agent has special commands like /planning-groom or /parallel-review]
 - **`/[command]`** - [Description]
   - [What it does]
   - [Example usage]

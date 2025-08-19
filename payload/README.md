@@ -153,10 +153,10 @@ your-project/
 - **AP Orchestrator**: Central coordinator with native multi-agent orchestration
 - **Analyst**: Research and requirements with parallel analysis capabilities
 - **PM**: Product strategy with concurrent planning execution
-- **Architect**: System design with `/parallel-architecture-review` (4x speedup)
+- **Architect**: System design with `/parallel-planning-architecture-review` (4x speedup)
 - **Design Architect**: UI/UX with parallel component analysis
-- **PO**: Backlog management with `/groom` (18 native sub-agents, 4x speedup)
-- **SM**: Sprint coordination with `/parallel-sprint` (4.6x speedup)
+- **PO**: Backlog management with `/planning-groom` (18 native sub-agents, 4x speedup)
+- **SM**: Sprint coordination with `/parallel-implementation-sprint` (4.6x speedup)
 - **Developer**: Implementation with `/parallel-review` (4x speedup)
 - **QA**: Testing with `/parallel-test` and AI/ML analytics (4x speedup, 92% accuracy)
 
@@ -197,11 +197,11 @@ The installer will:
 ### Native Parallel Commands (v3.2.0 - Epic 17 Complete)
 
 **Core Parallel Commands (4-8x Performance)**
-- `/parallel-sprint` - **SM**: Coordinate 2-4 native Developer sub-agents (4.6x speedup)
-- `/groom` - **PO**: 18 native sub-agents for backlog analysis (4x speedup)
+- `/parallel-implementation-sprint` - **SM**: Coordinate 2-4 native Developer sub-agents (4.6x speedup)
+- `/planning-groom` - **PO**: 18 native sub-agents for backlog analysis (4x speedup)
 - `/parallel-review` - **Developer**: Concurrent code analysis (4x speedup)
 - `/parallel-test` - **QA**: Native parallel test execution (4x speedup)
-- `/parallel-architecture-review` - **Architect**: System analysis (4x speedup)
+- `/parallel-planning-architecture-review` - **Architect**: System analysis (4x speedup)
 
 **QA Framework AI/ML Commands**
 - `/qa-framework` - Comprehensive testing with native parallelism
@@ -626,10 +626,10 @@ After installation, see:
    - *Trigger*: "Create project brief" or "YOLO" for quick draft
 
 ### Parallel Commands
-- **`/parallel-requirements`** - Comprehensive Requirements Analysis (70% faster)
+- **`/parallel-planning-requirements`** - Comprehensive Requirements Analysis (70% faster)
 - **`/parallel-research-prompt`** - Advanced Research Planning (75% faster)
-- **`/parallel-brainstorming`** - Structured Ideation Process (80% faster)
-- **`/parallel-stakeholder-review`** - Comprehensive Stakeholder Analysis (65% faster)
+- **`/parallel-planning-brainstorming`** - Structured Ideation Process (80% faster)
+- **`/parallel-planning-stakeholder-review`** - Comprehensive Stakeholder Analysis (65% faster)
 
 ### Workflow Commands
 - `/handoff PM` - Transfer completed project brief to Product Manager
@@ -695,7 +695,7 @@ After installation, see:
    - *Trigger*: "Slice this document" or "Break this down"
 
 ### Parallel Commands
-- **`/parallel-architecture`** - Comprehensive Architecture Creation (75% faster)
+- **`/parallel-planning-architecture`** - Comprehensive Architecture Creation (75% faster)
   - Database, API, security, performance, infrastructure, technology stack analysis
 
 ### Workflow Commands
@@ -771,14 +771,14 @@ After installation, see:
    - *Trigger*: "Correct course" or "We need to adjust"
 
 ### Parallel Commands
-- **`/parallel-epic`** - Comprehensive Epic Creation (70% faster)
-- **`/parallel-stories`** - User Story Generation (75% faster)
-- **`/parallel-acceptance-criteria`** - Acceptance Criteria Definition (80% faster)
+- **`/parallel-planning-epic`** - Comprehensive Epic Creation (70% faster)
+- **`/parallel-planning-stories`** - User Story Generation (75% faster)
+- **`/parallel-qa-acceptance-criteria`** - Acceptance Criteria Definition (80% faster)
 - **`/parallel-prioritization`** - Backlog Prioritization (65% faster)
-- **`/parallel-validation`** - Requirements Validation (85% faster)
+- **`/parallel-planning-validation`** - Requirements Validation (85% faster)
 
 ### Advanced PO Commands (Grooming System)
-- `/groom` - Execute comprehensive parallel grooming analysis
+- `/planning-groom` - Execute comprehensive parallel grooming analysis
 - Individual groom subtasks available for specific focus areas
 
 ### Workflow Commands
@@ -816,14 +816,14 @@ After installation, see:
 
 ### Parallel Commands
 - **`/parallel-next-story`** - Advanced Story Creation (75% faster)
-- **`/parallel-stories`** - Batch Story Generation (80% faster)
-- **`/parallel-checklist`** - Comprehensive Story Validation (70% faster)
+- **`/parallel-planning-stories`** - Batch Story Generation (80% faster)
+- **`/parallel-planning-checklist`** - Comprehensive Story Validation (70% faster)
 - **`/parallel-course-correction`** - Sprint Adjustment Analysis (65% faster)
 
 ### Story Management Commands
 - `/create` - Create next development-ready story
 - `/pivot` - Run course correction task
-- `/checklist` - List and run validation checklists
+- `/planning-checklist` - List and run validation checklists
 - `/doc-shard <type>` - Shard large documents
 
 ### Workflow Commands
@@ -894,14 +894,14 @@ After installation, see:
 
 ### Parallel Commands
 - **`/parallel-test-strategy`** - Comprehensive Test Strategy Development (75% faster)
-- **`/parallel-automation-plan`** - Automated Testing Framework Design (70% faster)
+- **`/parallel-qa-automation-plan`** - Automated Testing Framework Design (70% faster)
 - **`/parallel-test-plan`** - Detailed Test Case Planning (80% faster)
-- **`/parallel-quality-review`** - Comprehensive Quality Assessment (85% faster)
+- **`/parallel-qa-quality-review`** - Comprehensive Quality Assessment (85% faster)
 
 ### Quality Commands
 - `/test-strategy` - Create test strategy
 - `/test-plan` - Develop test plan
-- `/quality-review` - Execute review
+- `/qa-quality-review` - Execute review
 - `/qa-checklist` - Run checklist
 
 ### Workflow Commands
@@ -930,18 +930,18 @@ Available across all personas:
 ## Parallel Execution Performance Gains
 
 ### Speed Improvements by Command
-- **`/parallel-brainstorming`**: 80% faster ideation
+- **`/parallel-planning-brainstorming`**: 80% faster ideation
 - **`/parallel-research-prompt`**: 75% faster research planning
-- **`/parallel-requirements`**: 70% faster requirements analysis
+- **`/parallel-planning-requirements`**: 70% faster requirements analysis
 - **`/parallel-prd`**: 70% faster PRD development
-- **`/parallel-architecture`**: 75% faster architecture creation
+- **`/parallel-planning-architecture`**: 75% faster architecture creation
 - **`/parallel-frontend-architecture`**: 80% faster frontend design
-- **`/parallel-epic`**: 70% faster epic development
-- **`/parallel-stories`**: 75-80% faster story creation
+- **`/parallel-planning-epic`**: 70% faster epic development
+- **`/parallel-planning-stories`**: 75-80% faster story creation
 - **`/parallel-test-strategy`**: 75% faster test planning
-- **`/parallel-automation-plan`**: 70% faster automation planning
-- **`/parallel-quality-review`**: 85% faster quality assessment
-- **`/parallel-validation`**: 85% faster requirements validation
+- **`/parallel-qa-automation-plan`**: 70% faster automation planning
+- **`/parallel-qa-quality-review`**: 85% faster quality assessment
+- **`/parallel-planning-validation`**: 85% faster requirements validation
 
 ### How Parallel Commands Work
 All parallel commands execute multiple analysis tasks simultaneously using Claude Code's Task tool, then synthesize results for comprehensive output in a fraction of the time.
@@ -959,12 +959,12 @@ All parallel commands execute multiple analysis tasks simultaneously using Claud
 6. `qa` → Testing & Quality
 
 ### ⚡ Speed-Optimized Workflow
-1. `analyst` → `/parallel-brainstorming` & `/parallel-requirements`
+1. `analyst` → `/parallel-planning-brainstorming` & `/parallel-planning-requirements`
 2. `pm` → `/parallel-prd`
-3. `architect` → `/parallel-architecture`
-4. `po` → `/parallel-epic` & `/parallel-stories`
+3. `architect` → `/parallel-planning-architecture`
+4. `po` → `/parallel-planning-epic` & `/parallel-planning-stories`
 5. `dev` → `/parallel-review` (for code analysis)
-6. `qa` → `/parallel-test-strategy` & `/parallel-quality-review`
+6. `qa` → `/parallel-test-strategy` & `/parallel-qa-quality-review`
 
 ### 🔄 Mid-Sprint Adjustments
 - `po` → `/parallel-course-correction`

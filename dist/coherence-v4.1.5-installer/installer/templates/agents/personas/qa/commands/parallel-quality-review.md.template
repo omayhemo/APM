@@ -4,7 +4,7 @@
 
 ## Overview
 
-The `/parallel-quality-review` command enables the QA Agent to conduct thorough quality assessments by:
+The `/parallel-qa-quality-review` command enables the QA Agent to conduct thorough quality assessments by:
 - Launching multiple QA sub-agents to review different quality dimensions simultaneously
 - Providing holistic quality visibility across code, documentation, and processes
 - Leveraging AI/ML for anomaly detection and quality predictions
@@ -13,7 +13,7 @@ The `/parallel-quality-review` command enables the QA Agent to conduct thorough 
 ## Usage
 
 ```
-/parallel-quality-review
+/parallel-qa-quality-review
 ```
 
 ## What This Command Does

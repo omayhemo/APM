@@ -12,13 +12,13 @@
   },
   "capabilities": {
     "core": ["brainstorming", "requirements_analysis", "stakeholder_management", "business_process_analysis", "project_brief_creation", "deep_research"],
-    "parallel_commands": ["parallel-brainstorming", "parallel-requirements", "parallel-research-prompt", "parallel-stakeholder-review"],
-    "slash_commands": ["/analyst", "/brainstorming", "/requirements", "/research-prompt", "/stakeholder-review"]
+    "parallel_commands": ["parallel-brainstorming", "parallel-requirements", "parallel-research-prompt", "parallel-stakeholder-planning-review"],
+    "slash_commands": ["/analyst", "/planning-brainstorming", "/planning-requirements", "/research-prompt", "/planning-stakeholder-planning-review"]
   },
   "configuration": {
     "voice_script": "speakAnalyst.sh",
     "voice_script_path": "{{AP_ROOT}}/agents/voice/speakAnalyst.sh",
-    "working_directories": {"primary": "{{PROJECT_ROOT}}/project_docs/requirements/", "secondary": "{{PROJECT_ROOT}}/project_docs/research/", "reports": "{{PROJECT_ROOT}}/project_docs/research/reports/"},
+    "working_directories": {"primary": "{{PROJECT_ROOT}}/project_docs/planning-requirements/", "secondary": "{{PROJECT_ROOT}}/project_docs/research/", "reports": "{{PROJECT_ROOT}}/project_docs/research/reports/"},
     "session_notes_path": "{{SESSION_NOTES_PATH}}",
     "rules_path": "{{RULES_PATH}}",
     "forbidden_paths": [

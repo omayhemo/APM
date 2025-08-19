@@ -34,7 +34,7 @@ Gather results as agents complete:
 ```
 
 ### 2. Batch Collection
-Wait for all agents and present unified results:
+wait for all agents and present unified results:
 
 ```
 🎯 Sprint 18 Parallel Development - Complete Results
@@ -63,7 +63,7 @@ All 4 agents completed successfully in 16 minutes (vs 64 minutes sequential)
 **Deliverables**:
 - `/src/api/routes/user.routes.js`
 - `/src/api/routes/product.routes.js`
-- `/src/api/middleware/validation.js`
+- `/src/api/middleware/planning-validation.js`
 - `/tests/api/` - API test suite
 **Integration Points**:
 - Uses auth middleware from Agent 1

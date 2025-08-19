@@ -19,7 +19,7 @@
       }
     },
     "story": {
-      "location": "{{PROJECT_DOCS}}/planning/stories/",
+      "location": "{{PROJECT_DOCS}}/planning/planning-stories/",
       "type": "collection",
       "naming": {
         "pattern": "STORY-{id}-{title}.md",
@@ -79,7 +79,7 @@
       }
     },
     "architecture_decision": {
-      "location": "{{PROJECT_DOCS}}/architecture/decisions/",
+      "location": "{{PROJECT_DOCS}}/planning-architecture/decisions/",
       "type": "collection",
       "naming": {
         "pattern": "ADR-{seq}-{title}.md",
@@ -94,7 +94,7 @@
       }
     },
     "specification": {
-      "location": "{{PROJECT_DOCS}}/architecture/specifications/",
+      "location": "{{PROJECT_DOCS}}/planning-architecture/specifications/",
       "type": "collection",
       "naming": {
         "pattern": "{component}-SPEC.md",
@@ -117,9 +117,9 @@
       },
       "allow_subfolders": true,
       "detection": {
-        "filename_patterns": ["report", "analysis", "summary", "findings"],
-        "content_markers": ["Executive Summary", "Findings", "Recommendations", "Analysis", "Conclusion"],
-        "agent_hints": ["Analyst", "QA", "PM"]
+        "filename_patterns": ["report", "analysis", "summary", "findings", "proposal", "integration-proposal", "research"],
+        "content_markers": ["Executive Summary", "Findings", "Recommendations", "Analysis", "Conclusion", "Proposal", "## Summary", "Investment Required", "Cost Analysis", "Implementation", "Technical Architecture"],
+        "agent_hints": ["Analyst", "QA", "PM", "Architect"]
       }
     },
     "session_note": {
@@ -228,7 +228,7 @@
       }
     },
     "product_brief": {
-      "location": "{{PROJECT_DOCS}}/requirements/",
+      "location": "{{PROJECT_DOCS}}/planning-requirements/",
       "type": "collection",
       "naming": {
         "pattern": "{title}-product-brief.md",
@@ -236,13 +236,13 @@
       },
       "allow_subfolders": false,
       "detection": {
-        "filename_patterns": ["brief", "product-brief", "project-brief", "product_brief"],
+        "filename_patterns": ["brief", "product-brief", "planning-project-brief", "product_brief"],
         "content_markers": ["Product Brief", "Project Brief", "Product Vision", "Problem Statement", "Target Audience", "Objectives"],
         "agent_hints": ["Analyst", "PM", "Product Manager"]
       }
     },
     "prd": {
-      "location": "{{PROJECT_DOCS}}/requirements/",
+      "location": "{{PROJECT_DOCS}}/planning-requirements/",
       "type": "collection",
       "naming": {
         "pattern": "{title}-PRD.md",
@@ -299,7 +299,7 @@
       }
     },
     "release_notes": {
-      "location": "{{PROJECT_DOCS}}/release-notes/",
+      "location": "{{PROJECT_DOCS}}/distribution-release-notes/",
       "type": "collection",
       "naming": {
         "pattern": "RELEASE-NOTES-{version}.md",

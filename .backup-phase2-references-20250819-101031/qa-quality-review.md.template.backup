@@ -1,0 +1,538 @@
+---
+name: qa-quality-review
+description: Sequential quality assessment and review process with parallel execution option
+metadata:
+  version: 2.0.0
+  agent: QA
+  parallel_support: true
+  modes: [sequential, parallel]
+---
+
+## 🎭 PERSONA CONTEXT ACTIVATION
+
+**This command requires the QA persona.**
+
+```markdown
+*Loading QA context for quality-review...*
+
+Quick Context Load (1-2 seconds):
+- Loading QA configuration and expertise
+- Loading relevant templates and frameworks
+- PARALLEL_MODE: Preparing parallel execution framework
+- SEQUENTIAL_MODE: Standard context loading
+- Workspace validation: Ensuring execution from {{PROJECT_ROOT}}
+
+*Context ready. Choose execution mode...*
+```
+
+## Command Overview
+
+This command supports both sequential and parallel execution:
+
+**Sequential Mode (Default):**
+- Focused, guided methodology with deep analysis
+- Interactive stakeholder engagement
+- Systematic validation and documentation
+- Quality-focused approach
+
+**Parallel Mode (--parallel flag):**
+- Multiple native sub-agents working simultaneously  
+- 85% performance improvement
+- Comprehensive parallel coverage
+- Speed-optimized execution
+
+## Usage
+
+```
+/qa-quality-review [--parallel]
+```
+
+**Parameters:**
+- `--parallel`: Execute with parallel sub-agents for faster completion
+- Default: Sequential execution with guided methodology
+
+## SEQUENTIAL_MODE: Sequential Process
+
+```
+/qa-quality-review
+```
+
+## Prerequisites
+
+Before running this command, ensure:
+- [ ] Context and objectives are clearly understood
+- [ ] Stakeholder requirements are identified
+- [ ] Existing documentation has been reviewed
+- [ ] Success criteria are established
+- [ ] Resources and constraints are known
+
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute initialization:
+
+```
+I'm launching sequential quality-review for comprehensive development and analysis.
+
+*Loading quality-review templates and methodologies...*
+[Execute initialization tasks in sequence]
+- Load quality-review templates and frameworks
+- Review context and requirements
+- Prepare systematic methodology
+- Set up validation and documentation processes
+```
+
+## Sequential Quality-review Process
+
+### Phase 1: Foundation & Context (10-15 minutes)
+**Objective**: Establish foundation and understand requirements
+- Context analysis and requirement gathering
+- Stakeholder identification and needs assessment
+- Success criteria definition and scope establishment
+- Constraint identification and planning considerations
+
+### Phase 2: Development & Analysis (20-30 minutes) 
+**Objective**: Execute core quality-review activities
+- Systematic development following proven methodologies
+- Interactive refinement and stakeholder engagement
+- Quality validation and completeness checking
+- Iterative improvement based on feedback
+
+### Phase 3: Validation & Refinement (10-15 minutes)
+**Objective**: Ensure quality and completeness
+- Comprehensive validation against requirements
+- Stakeholder review and feedback incorporation
+- Quality assurance and standards compliance
+- Final documentation and deliverable preparation
+
+## Expected Outcomes
+
+After quality-review completion:
+- **Comprehensive deliverables** meeting all requirements
+- **Quality assurance** with validation completed
+- **Stakeholder alignment** with approval obtained
+- **Clear documentation** with rationale and decisions
+- **Implementation readiness** with next steps defined
+
+## Output Format
+
+```markdown
+# Quality-review Results
+
+## Overview
+- **Quality-review Type**: [Type/Category]
+- **Agent**: QA
+- **Completion Date**: [Date]
+- **Status**: [Complete/In Progress]
+
+## Context
+- **Objective**: [Primary goal]
+- **Scope**: [What's included]
+- **Stakeholders**: [Key stakeholders]
+- **Success Criteria**: [How success measured]
+
+## Deliverables
+### Primary Deliverable
+[Main output description and details]
+
+### Supporting Documentation
+- [Supporting item 1]
+- [Supporting item 2]
+- [Supporting item 3]
+
+## Validation Summary
+- **Requirements Met**: [Yes/Partial/No]
+- **Stakeholder Approval**: [Status]
+- **Quality Standards**: [Met/Needs work]
+
+## Next Steps
+1. [Immediate next action]
+2. [Follow-up activities]
+3. [Implementation planning]
+```
+
+## Integration Points
+
+- **Requirements**: Use `/planning-requirements` for detailed analysis
+- **Planning**: Use `/planning-epic` or `/prd` for comprehensive planning
+- **Validation**: Use `/planning-stakeholder-review` for validation
+- **Implementation**: Use parallel versions for rapid execution
+
+## Voice Notifications
+
+```bash
+bash {{SPEAK_QA}} "Sequential quality-review beginning. Launching guided development process..."
+```
+
+## Success Metrics
+
+- **Completeness**: All aspects systematically covered
+- **Quality**: High standards met throughout process  
+- **Stakeholder Satisfaction**: Requirements accurately addressed
+- **Implementation Readiness**: Clear path forward established
+- **Validation Success**: All criteria met and approved
+
+## When to Use Sequential vs Parallel
+
+**Use `/qa-quality-review` when:**
+- Focused development with single deliverable
+- Interactive refinement and collaboration desired
+- Quality and thoroughness over speed
+- Complex requirements need careful analysis
+- Stakeholder engagement throughout process important
+
+**Use `/parallel-quality-review` when:**
+- Multiple deliverables needed simultaneously
+- Time constraints require rapid execution
+- Comprehensive coverage across domains
+- Well-understood process and templates
+- Speed and efficiency prioritized
+
+---
+
+This command provides thoughtful, systematic quality-review with emphasis on quality, stakeholder collaboration, and comprehensive coverage.
+
+## PARALLEL_MODE: Parallel Process
+## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
+
+**CRITICAL**: Upon activation, you MUST immediately execute parallel initialization:
+
+```
+I'm initializing the Parallel Quality Review process. Let me load all required context in parallel for optimal performance.
+
+*Executing parallel initialization tasks:*
+[Execute all 5 tasks in single function_calls block]
+- Task 1: Load quality standards from {{AP_ROOT}}/templates/quality-standards.md
+- Task 2: Load current quality metrics from {{PROJECT_ROOT}}/project_docs/quality/
+- Task 3: Load assessment frameworks from {{AP_ROOT}}/templates/quality-frameworks.md
+- Task 4: Load historical quality data from {{PROJECT_ROOT}}/.apm/session_notes/
+- Task 5: Load compliance requirements from {{PROJECT_ROOT}}/project_docs/compliance/
+```
+
+## Parallel Quality Assessment Streams
+
+### Stream 1: Code Quality & Architecture Review (12-18 minutes)
+- **Focus**: Code quality, architecture integrity, technical debt assessment
+- **Deliverables**: Code quality report, architecture review, technical debt analysis
+- **Dependencies**: Source code access, architecture documentation, coding standards
+- **Integration**: Development workflow, refactoring plans, technical improvement roadmap
+
+### Stream 2: Testing Quality & Coverage Analysis (10-15 minutes)
+- **Focus**: Test coverage, test quality, testing strategy effectiveness
+- **Deliverables**: Coverage analysis, test quality metrics, testing effectiveness report
+- **Dependencies**: Test suites, coverage tools, testing documentation
+- **Integration**: Test improvement plans, automation strategies, quality gates
+
+### Stream 3: Performance & Reliability Assessment (12-16 minutes)
+- **Focus**: System performance, reliability metrics, scalability analysis
+- **Deliverables**: Performance assessment, reliability report, scalability recommendations
+- **Dependencies**: Performance data, monitoring tools, system metrics
+- **Integration**: Performance optimization, infrastructure planning, monitoring enhancement
+
+### Stream 4: Security & Compliance Evaluation (14-20 minutes)
+- **Focus**: Security posture, compliance adherence, vulnerability assessment
+- **Deliverables**: Security audit report, compliance status, vulnerability analysis
+- **Dependencies**: Security tools, compliance frameworks, audit requirements
+- **Integration**: Security remediation, compliance alignment, risk mitigation
+
+### Stream 5: User Experience & Accessibility Review (10-14 minutes)
+- **Focus**: User experience quality, accessibility compliance, usability assessment
+- **Deliverables**: UX quality report, accessibility audit, usability recommendations
+- **Dependencies**: User feedback, accessibility tools, usability standards
+- **Integration**: UX improvements, accessibility compliance, user satisfaction enhancement
+
+## Native Implementation Architecture
+
+This command uses native sub-agent parallelism to spawn QA quality assessment specialists:
+
+### Phase 1: Quality Context Loading (5 tasks in parallel)
+1. **Load Quality Standards**: Quality criteria and assessment frameworks
+2. **Analyze Current Metrics**: Existing quality measurements and trends
+3. **Extract Assessment Frameworks**: Proven quality evaluation methodologies
+4. **Load Historical Data**: Previous assessments and improvement tracking
+5. **Load Compliance Requirements**: Regulatory and organizational compliance needs
+
+### Phase 2: Native Stream Agent Spawning
+6. **Spawn Code Quality Agent**: Code and architecture quality specialist
+7. **Spawn Testing Quality Agent**: Test coverage and quality specialist
+8. **Spawn Performance Agent**: Performance and reliability assessment specialist
+9. **Spawn Security Agent**: Security and compliance evaluation specialist
+10. **Spawn UX Quality Agent**: User experience and accessibility specialist
+
+### Phase 3: Real-Time Coordination
+11. **Monitor Quality Metrics**: Track quality indicators across all streams
+12. **Coordinate Dependencies**: Facilitate handoffs between assessment streams
+13. **Synthesize Assessment**: Aggregate results into unified quality report
+14. **Update Tracking**: Real-time updates to quality improvement tracking
+
+## Expected Outcomes
+
+- **Parallel Assessment Streams**: 5 QA quality agents working simultaneously
+- **Coordinated Evaluation**: Seamless integration of all quality assessment aspects
+- **Accelerated Review**: 85% reduction in sequential quality review time
+- **Comprehensive Analysis**: Full quality coverage across all critical domains
+- **Actionable Insights**: Production-ready quality improvements and recommendations
+
+## Parallel Assessment Benefits
+
+- **Specialized Expertise**: Focused assessment on each quality domain
+- **Reduced Review Time**: Parallel evaluation of quality aspects
+- **Better Coverage**: Comprehensive quality analysis across all domains
+- **Consistent Standards**: Uniform quality criteria application
+- **Actionable Results**: Clear improvement roadmaps and priorities
+
+## Output Format
+
+```markdown
+# Quality Assessment - Parallel Execution Results
+
+## Assessment Overview
+- Review Scope: [Application/System/Component]
+- Assessment Method: [Comprehensive/Targeted/Risk-based]
+- Quality Framework: [ISO/CMMI/Custom/Industry-standard]
+
+## Stream Results Summary
+
+### 1. Code Quality & Architecture Review
+- Code Quality Score: [Score/Grade]
+- Architecture Health: [Excellent/Good/Fair/Poor]
+- Technical Debt: [Low/Medium/High] - [Estimated effort]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 2. Testing Quality & Coverage Analysis
+- Test Coverage: [N]% overall coverage
+- Test Quality Score: [Score/Grade]
+- Testing Effectiveness: [High/Medium/Low]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 3. Performance & Reliability Assessment
+- Performance Grade: [A/B/C/D/F]
+- Reliability Score: [N]% uptime/availability
+- Scalability Assessment: [Excellent/Good/Fair/Poor]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 4. Security & Compliance Evaluation
+- Security Posture: [Strong/Moderate/Weak]
+- Compliance Status: [N]% compliant
+- Critical Vulnerabilities: [N] high-priority issues
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+### 5. User Experience & Accessibility Review
+- UX Quality Score: [Score/Grade]
+- Accessibility Level: [WCAG A/AA/AAA]
+- Usability Rating: [Excellent/Good/Fair/Poor]
+- **Status**: ✅ Complete / 🔄 In Progress / ⚠️ Blocked
+
+## Quality Metrics Dashboard
+### Overall Quality Score: [N]/100
+
+#### Quality Dimensions
+- **Functionality**: [N]/20 - [Assessment summary]
+- **Reliability**: [N]/20 - [Assessment summary]
+- **Performance**: [N]/20 - [Assessment summary]
+- **Security**: [N]/20 - [Assessment summary]
+- **Usability**: [N]/20 - [Assessment summary]
+
+## Critical Issues Identified
+### High Priority (Must Fix)
+1. [Issue 1]: [Description] - [Impact] - [Effort: H/M/L]
+2. [Issue 2]: [Description] - [Impact] - [Effort: H/M/L]
+3. [Issue 3]: [Description] - [Impact] - [Effort: H/M/L]
+
+### Medium Priority (Should Fix)
+1. [Issue 1]: [Description] - [Impact] - [Effort: H/M/L]
+2. [Issue 2]: [Description] - [Impact] - [Effort: H/M/L]
+
+### Low Priority (Nice to Fix)
+1. [Issue 1]: [Description] - [Impact] - [Effort: H/M/L]
+
+## Quality Trends
+- **Improvement Areas**: [Areas showing positive trends]
+- **Degradation Areas**: [Areas showing negative trends]  
+- **Stable Areas**: [Areas maintaining consistent quality]
+
+## Recommendations by Priority
+
+### Immediate Actions (Week 1-2)
+- [ ] [High-impact, low-effort improvements]
+- [ ] [Critical security/compliance fixes]
+- [ ] [Performance bottleneck resolution]
+
+### Short-term Goals (Month 1-3)
+- [ ] [Architecture improvements]
+- [ ] [Test coverage enhancement]
+- [ ] [UX/accessibility improvements]
+
+### Long-term Strategy (Quarter 1-2)
+- [ ] [Technical debt reduction]
+- [ ] [Quality process improvements]
+- [ ] [Tool and automation enhancements]
+
+## Quality Gates & Monitoring
+### Proposed Quality Gates
+- **Code Quality**: Minimum [N]% quality score
+- **Test Coverage**: Minimum [N]% coverage
+- **Performance**: Maximum [N]ms response time
+- **Security**: Zero critical vulnerabilities
+- **Accessibility**: WCAG [AA/AAA] compliance
+
+### Monitoring Plan
+- **Daily**: Automated quality checks and alerts
+- **Weekly**: Quality dashboard reviews and trend analysis
+- **Monthly**: Comprehensive quality assessment and reporting
+- **Quarterly**: Quality strategy review and goal adjustment
+
+## Next Steps
+- [ ] Prioritize and assign quality improvement tasks
+- [ ] Implement quality monitoring and alerting
+- [ ] Schedule regular quality review cycles
+- [ ] Train team on quality standards and processes
+- [ ] Establish quality improvement feedback loops
+```
+
+## Workflow Steps
+
+1. **Context Loading**: Load all quality context in parallel (5 tasks)
+2. **Stream Analysis**: Analyze quality aspects across 5 parallel streams
+3. **Agent Spawning**: Launch 5 specialized QA quality assessment agents
+4. **Parallel Execution**: Execute all streams simultaneously with coordination
+5. **Metrics Monitoring**: Track quality indicators and improvement opportunities
+6. **Results Synthesis**: Aggregate all stream results into unified quality assessment
+7. **Documentation Update**: Update quality documentation with comprehensive results
+8. **Validation**: Validate quality recommendations and improvement feasibility
+
+## Performance Metrics
+
+- **Baseline Review Time**: 60-75 minutes (sequential)
+- **Parallel Review Time**: 9-15 minutes (parallel streams)
+- **Performance Improvement**: 85% faster execution
+- **Stream Coverage**: 100% comprehensive quality coverage
+- **Integration Success**: >95% successful cross-stream quality alignment
+
+## Integration Points
+
+- **Developer Agents**: Receives code quality feedback and technical debt priorities
+- **System Architect**: Coordinates architecture quality improvements
+- **Product Owner**: Gets quality impact on business objectives and user satisfaction
+- **DevOps/Infrastructure**: Receives performance and reliability improvement requirements
+
+## Available Capabilities
+
+- **Code Quality Assessment**: Code review, architecture analysis, technical debt evaluation
+- **Testing Quality Analysis**: Coverage analysis, test effectiveness, quality metrics
+- **Performance Assessment**: Performance profiling, scalability analysis, optimization recommendations
+- **Security Evaluation**: Security audit, vulnerability assessment, compliance validation
+- **UX Quality Review**: Usability assessment, accessibility audit, user satisfaction analysis
+- **Quality Metrics**: Comprehensive quality scoring and trend analysis
+- **Improvement Planning**: Prioritized recommendations and implementation roadmaps
+- **Quality Monitoring**: Continuous quality tracking and alerting systems
+
+## Success Metrics
+
+- **Streams Completed in Parallel**: Target 5 simultaneous assessment streams
+- **Quality Coverage**: 100% comprehensive quality assessment coverage
+- **Assessment Velocity**: 85% improvement over sequential review
+- **Actionability**: >90% recommendations with clear implementation guidance
+- **Quality Improvement**: Measurable quality improvements in subsequent assessments
+
+## Voice Notifications
+
+```bash
+bash {{AP_ROOT}}/voice/speakQa.sh "Parallel quality review launching. Initiating 5 simultaneous assessment streams for 85% quality review acceleration..."
+```
+
+## Native Sub-Agent Activation
+
+When you run `/parallel-quality-review`, I will:
+
+1. **Quality Context**: Load all quality standards and current assessment state
+2. **Stream Allocation**: Launch 5 specialized QA quality assessment agents
+3. **Natural Language Spawning**: Activate each agent with specific quality context:
+
+```markdown
+# Code Quality Agent Activation:
+"I need a Code Quality specialist to assess code and architecture quality.
+ Quality Context:
+ - Codebase: [Application/system scope and technology stack]
+ - Standards: [Coding standards and architecture principles]
+ - Focus Areas: Code quality metrics, architecture integrity, technical debt
+ - Integration Points: Development workflow, refactoring plans
+ - Deliverables: Code quality report, architecture review, improvement recommendations
+ Please conduct comprehensive code quality assessment following industry best practices."
+
+# Testing Quality Agent Activation:
+"I need a Testing Quality specialist to assess test coverage and effectiveness.
+ Quality Context:
+ - Test Suites: [Existing test coverage and test types]
+ - Standards: [Testing standards and quality criteria]
+ - Focus Areas: Test coverage analysis, test quality, testing strategy effectiveness
+ - Integration Points: Quality gates, automation strategies
+ - Deliverables: Coverage analysis, test quality metrics, testing improvements
+ Please evaluate comprehensive testing quality and effectiveness."
+```
+
+4. **Real-Time Coordination**: Monitor progress, facilitate quality alignment
+5. **Results Synthesis**: Aggregate comprehensive quality assessment and recommendations
+
+## Advanced Configuration
+
+```yaml
+# parallel-quality-review-config.yaml
+parallel_quality_review:
+  streams: 5
+  max_parallel_streams: 7
+  stream_timeout: 20  # minutes
+  
+  coordination:
+    metrics_monitoring: true
+    integration_tracking: true
+    real_time_synthesis: true
+    
+  output:
+    detailed_assessments: true
+    improvement_roadmaps: true
+    quality_dashboards: true
+    trend_analysis: true
+```
+
+## Quality Assessment Templates
+
+### Code Quality Checklist
+```yaml
+code_quality_assessment:
+  maintainability:
+    - complexity_metrics: [cyclomatic_complexity, nesting_depth]
+    - code_duplication: [percentage, critical_duplications]
+    - documentation: [coverage, quality]
+    
+  reliability:
+    - error_handling: [coverage, effectiveness]
+    - logging: [consistency, informativeness]
+    - testing: [unit_test_coverage, integration_coverage]
+    
+  security:
+    - vulnerability_scan: [critical, high, medium, low]
+    - secure_coding: [practices_followed, violations]
+    - dependency_security: [outdated, vulnerable]
+```
+
+### Performance Assessment Framework
+```yaml
+performance_assessment:
+  response_times:
+    - api_endpoints: [p50, p95, p99]
+    - database_queries: [slow_queries, optimization_opportunities]
+    - page_load_times: [first_paint, largest_contentful_paint]
+    
+  resource_utilization:
+    - cpu_usage: [average, peak, efficiency]
+    - memory_usage: [allocation, leaks, optimization]
+    - network_performance: [bandwidth, latency, throughput]
+    
+  scalability:
+    - load_capacity: [concurrent_users, throughput_limits]
+    - bottlenecks: [identified_constraints, resolution_priority]
+    - horizontal_scaling: [readiness, limitations]
+```
+
+---
+*Part of the APM High-Performance Quality Assessment Infrastructure*

@@ -59,7 +59,7 @@ graph TD
 - [x] Resource utilization per agent
 
 ✅ **4. Progress Aggregation**
-- [x] Aggregate individual progress into sprint/epic view
+- [x] Aggregate individual progress into sprint/planning-epic view
 - [x] Show dependencies and blockers
 - [x] Highlight completed vs in-progress items
 - [x] Calculate overall completion percentage
@@ -152,7 +152,7 @@ const tracker = new ConsolidatedProgressTracker({
 
 // Start tracking a parallel execution
 const executionId = tracker.startTracking({
-  command: '/parallel-sprint',
+  command: '/parallel-implementation-sprint',
   sprintId: 'Sprint-18'
 });
 
@@ -295,7 +295,7 @@ Based on testing with the parallel sprint system:
 
 The Progress Monitoring System integrates seamlessly with all parallel commands:
 
-### `/parallel-sprint` Integration
+### `/parallel-implementation-sprint` Integration
 - Automatic agent registration from sprint plan
 - Story-level progress aggregation
 - Sprint velocity calculation

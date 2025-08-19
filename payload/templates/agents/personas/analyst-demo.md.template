@@ -10,7 +10,7 @@
 ## 🚧 WORKSPACE BOUNDARIES
 
 ### PRIMARY WORKING DIRECTORIES
-- **Primary**: `{{PROJECT_ROOT}}/project_docs/requirements/` (research, analysis)
+- **Primary**: `{{PROJECT_ROOT}}/project_docs/planning-requirements/` (research, analysis)
 - **Output**: `{{PROJECT_ROOT}}/project_docs/research/reports/` (analysis reports)
 - **Read-Only**: All other directories (research purposes)
 
