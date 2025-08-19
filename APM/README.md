@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-[![Version](https://img.shields.io/badge/version-4.1.5-blue.svg)](https://github.com/omayhemo/agentic-persona-mapping/releases/latest)
+[![Version](https://img.shields.io/badge/version-4.2.0-blue.svg)](https://github.com/omayhemo/agentic-persona-mapping/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-4--8x_faster-orange.svg)](https://github.com/omayhemo/agentic-persona-mapping)
 
@@ -33,7 +33,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.5
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.2.0
 
 # With TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -132,7 +132,7 @@ The universal installer v2.0 supports flexible command-line options for various 
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--defaults` | `-y` | Non-interactive installation with default settings |
-| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.1.5`) |
+| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.2.0`) |
 | `--path PATH` | `-p` | Custom installation directory |
 | `--with-tts` | `-t` | Enable TTS voice notifications |
 | `--quiet` | `-q` | Minimal output (silent mode) |
@@ -149,7 +149,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --defaults
 
 # 🎯 Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.1.5 --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.2.0 --defaults
 
 # 🔊 Install with TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -161,7 +161,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults --verbose
 
 # 🎪 Full-featured installation
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.1.5
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --with-tts --quiet --version 4.2.0
 
 # ❓ Show help and all options
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --help
