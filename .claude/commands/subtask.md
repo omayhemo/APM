@@ -16,7 +16,7 @@ I'm initializing Parallel Subtask Analysis Mode. Let me load all required contex
 [Use native sub-agents - ALL in single function_calls block]
 - Task 1: Load parallel subtask implementation guide from /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/subtasks/IMPLEMENTATION-GUIDE.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
-- Task 2: Load parallel subtask usage guide from /mnt/c/Code/agentic-persona-mapping/.apm/agents/docs/PARALLEL-SUBTASK-USAGE-GUIDE.md
+- Task 2: Load native sub-agent coordination patterns (legacy parallel subtask guide removed in Epic 17 migration)
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 3: Check for available subtask templates in /mnt/c/Code/agentic-persona-mapping/.apm/agents/tasks/subtasks/
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`

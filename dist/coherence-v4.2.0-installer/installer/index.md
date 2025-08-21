@@ -15,10 +15,6 @@ Welcome to the project documentation. This index provides links to all documenta
 
 - [AP Manager Documentation](agents/docs/ap-manager.md)
 
-### templates/agents/commands
-
-- [Parallel Sprint Native Implementation Guide](templates/agents/commands/parallel-sprint-implementation.md)
-
 ### templates/agents/orchestrator
 
 - [Orchestrator Rules](templates/agents/orchestrator/rules.md)

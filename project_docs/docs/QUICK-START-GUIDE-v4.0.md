@@ -1,110 +1,226 @@
-# APM Framework v4.1.0 - Quick Start Guide
+# APM Framework v4.2.0 - Quick Start Guide
 
-## 🚀 5-Minute Setup
+## 🚀 30-Second Setup (Revolutionary v4.2.0)
 
-### Step 1: Install APM v4.1.0
+### Step 1: Install APM v4.2.0 with Native Sub-Agents
 
-**Linux/WSL (Recommended):**
+**Quick Install (Recommended):**
 ```bash
-wget https://github.com/omayhemo/APM/releases/download/v4.1.0/apm-v4.1.0.tar.gz && tar -xzf apm-v4.1.0.tar.gz && ./installer/install.sh
+# Non-interactive installation with defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
 ```
 
-**macOS:**
+**Interactive Installation:**
 ```bash
-curl -L https://github.com/omayhemo/APM/releases/download/v4.1.0/apm-v4.1.0.tar.gz | tar -xz && ./installer/install.sh
+# Full setup with TTS voice notifications
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
+```
+
+**Specific Version:**
+```bash
+# Install specific version with TTS
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.2.0 --with-tts --defaults
 ```
 
 ### Step 2: Verify Installation
 ```bash
-# Check if APM is properly installed
-ls -la .apm/  # Should show APM framework
-ls -la .claude/commands/  # Should show 70+ commands
+# Check if APM v4.2.0 is properly installed
+ls -la .apm/  # Should show APM framework with native sub-agents
+ls -la .claude/commands/  # Should show 70+ commands (massive expansion!)
+cat .apm/VERSION  # Should show 4.2.0
 ```
 
-### Step 3: Launch APM
-Open your project in **Claude Code** and run:
+### Step 3: Launch APM (Automatic Activation!)
+Open your project in **Claude Code** - APM Orchestrator **automatically activates**!
+
+Or manually activate:
 ```
-/coherence
+coherence        # Natural language activation
+/coherence       # Slash command activation  
+/personas        # List all 9 available agents
 ```
 
-This activates the Coherence Orchestrator with full unified context engineering capabilities!
+This activates the Coherence Orchestrator with native sub-agent architecture and 4-8x performance improvements!
 
-## 🆕 New v4.1.0 Features Quick Demo
+## 🆕 Revolutionary v4.2.0 Features Quick Demo
 
-### Try the New Release Management (30 seconds)
+### Try Native Sub-Agent Performance (30 seconds)
 ```bash
-# See what version management looks like (safe preview)
-/version 4.1.0 --dry-run
-
-# View available release commands
-/release --help
+# Revolutionary parallel execution - 4-8x faster!
+/parallel-sprint          # 4.6x faster: 4 developers working simultaneously
+/parallel-prd            # 70% faster PRD creation with 5 parallel agents
+/documentation-shard     # 6.7x faster document processing
+/parallel-qa-framework   # Complete QA execution with 6 parallel streams
 ```
 
-### Test Documentation Generation
+### Test New Command Categories
 ```bash
-# Update all documentation to current version
-/update-all-documentation
+# Advanced QA Framework (11 commands)
+/qa-framework            # Complete quality assurance execution
+/qa-predict             # AI-powered test prediction (92% accuracy)
+/qa-anomaly             # Anomaly detection in test results
 
-# Check documentation compliance
-/doc-compliance
+# Intelligent Planning Workflow (15 commands)
+/planning-prd           # Comprehensive PRD development
+/planning-epic          # Epic creation with full context
+/planning-groom         # AI-powered backlog grooming
+/planning-architecture  # Parallel architecture design
 ```
 
-## 📋 Essential Commands Quick Reference
+## 📋 Essential Commands Quick Reference (70+ Available)
 
-### Core APM Commands (Unchanged from v3.5.0)
+### Core Orchestrator (6 commands)
 ```bash
-/ap           # Launch AP Orchestrator (central coordinator)
-/dev          # Activate Developer persona
-/qa           # Activate QA persona with enterprise framework
-/architect    # Activate System Architect persona
-/pm           # Activate Product Manager persona
-/analyst      # Activate Research Analyst persona
+/coherence         # Launch Coherence Orchestrator (central coordinator)
+/handoff <persona> # Direct agent transition with context preservation
+/switch <persona>  # Switch with session compaction
+/wrap             # Complete session with summary
+/personas         # List all 9 available agents
+/session-note-setup # Initialize session management
 ```
 
-### ⭐ NEW v4.1.0 Commands
+### Direct Persona Activation (9 specialists)
 ```bash
-/version <ver>            # Automated version management
-/release <ver>            # Complete release automation
-/doc-compliance           # Documentation quality check
-/update-all-documentation # Comprehensive doc refresh
+/analyst          # Research & requirements gathering
+/pm               # Product strategy & PRDs
+/architect        # System design & architecture
+/design-architect # UI/UX & frontend architecture
+/po               # Backlog management & grooming
+/sm               # Sprint planning & story creation
+/dev              # Code implementation & review
+/qa               # Testing & quality assurance
+/subtask          # Task breakdown specialist
 ```
 
-### Parallel Execution (Enhanced in v4.1.0)
+### 🚀 High-Performance Parallel Commands (25 commands - 4-8x faster)
 ```bash
-/parallel-sprint          # Multi-developer coordination (4.6x faster)
-/parallel-qa-framework    # Comprehensive testing (4x speedup)
-/parallel-architecture    # System analysis with parallel processing
+# Requirements & Research (4 commands)
+/parallel-requirements    # Multi-source requirements with 5 parallel streams
+/parallel-research-prompt # Parallel research coordination
+/parallel-brainstorming   # Multi-perspective ideation  
+/parallel-stakeholder-review # Concurrent stakeholder analysis
+
+# Architecture & Design (3 commands)
+/parallel-architecture    # Parallel system design
+/parallel-frontend-architecture # UI architecture with 6 streams
+/parallel-ai-prompt      # AI-enhanced design
+
+# Development (2 commands)
+/parallel-sprint         # 4.6x faster: 4 developers working simultaneously
+/parallel-review         # Multi-file code review acceleration
+
+# Testing & QA (6 commands)
+/parallel-qa-framework   # Complete QA execution with 6 parallel streams
+/parallel-test-strategy  # Strategy development
+/parallel-test-plan     # Test planning
+/parallel-automation-plan # Automation planning
+/parallel-quality-review # Quality review
+/parallel-regression-suite # Regression testing
+
+# Project Management (6 commands)
+/parallel-planning-prd   # 70% faster PRD creation with 5 parallel agents
+/parallel-epic          # Epic development
+/parallel-stories       # Batch story generation
+/parallel-acceptance-criteria # AC definition
+/parallel-validation    # Multi-aspect validation
+/parallel-prioritization # Multi-criteria ranking
 ```
 
-## 🎯 Common Workflows
-
-### 1. New Project Setup (5 minutes)
+### Advanced QA Framework (11 commands)
 ```bash
-# Step 1: Launch and analyze
-/ap
-/analyst                  # Create project brief
-
-# Step 2: Plan and architect
-/pm                       # Create PRD
-/architect                # Design system architecture
-
-# Step 3: Begin development
-/po                       # Create and groom backlog
-/parallel-sprint          # Start development with multiple agents
+/qa-framework           # Complete quality assurance execution
+/qa-automation-plan     # Automated testing strategy
+/qa-quality-review      # Comprehensive quality review
+/test-strategy         # Test strategy development
+/test-plan            # Test planning
+/run-tests            # Test execution
+/test-dashboard       # Testing dashboard
+/test-metrics         # Test metrics analysis
+/qa-predict           # AI-powered test prediction (92% accuracy)
+/qa-anomaly           # Anomaly detection in test results
+/qa-insights          # Quality insights and recommendations
 ```
 
-### 2. Release a New Version (2 minutes with v4.1.0!)
+### Planning Commands (15 commands)
 ```bash
-# Old way (v3.5.0): 4-5 hours of manual work
-# New way (v4.1.0): 2 minutes of automation
+/planning-prd          # Comprehensive PRD development
+/planning-epic         # Epic creation with full context
+/planning-architecture # Parallel architecture design
+/planning-brainstorming # Multi-perspective brainstorming
+/planning-requirements # Multi-perspective requirements analysis
+/planning-groom        # AI-powered backlog grooming
+/planning-project-brief # Project brief creation
+/planning-ux-spec      # UX specification development
+/planning-validation   # Multi-aspect validation
+/planning-checklist    # Planning checklist creation
+/planning-stakeholder-review # Stakeholder review coordination
+```
 
-/release 4.1.0
-# That's it! Automatically:
-# - Updates all version references
-# - Generates release notes from git history  
-# - Builds distribution package
-# - Creates GitHub release with assets
-# - Runs post-release validation
+## 🎯 Common Workflows (Revolutionary v4.2.0 Performance)
+
+### 1. New Project Setup (2 minutes with native sub-agents!)
+```bash
+# Step 1: Launch orchestrator (automatic activation)
+coherence                 # Or just start Claude Code - auto-activates!
+
+# Step 2: Parallel requirements analysis (4x faster)
+/parallel-requirements    # Multi-source requirements with 5 parallel streams
+/parallel-brainstorming   # Multi-perspective ideation
+
+# Step 3: Parallel planning and architecture (70% faster)  
+/parallel-planning-prd    # 70% faster PRD creation with 5 parallel agents
+/parallel-architecture    # Parallel system design
+/parallel-frontend-architecture # UI architecture with 6 streams
+
+# Step 4: Sprint execution (4.6x faster)
+/planning-groom          # AI-powered backlog grooming
+/parallel-sprint         # 4.6x faster: 4 developers working simultaneously
+```
+
+### 2. Quality Assurance Workflow (92% AI Prediction Accuracy)
+```bash
+# Revolutionary QA Framework with 11 specialized commands
+/qa-framework            # Complete quality assurance execution
+/qa-predict             # AI-powered test prediction (92% accuracy)
+/parallel-test-strategy  # Parallel test strategy development
+/parallel-qa-framework   # Complete QA execution with 6 parallel streams
+/qa-anomaly             # Anomaly detection in test results
+/qa-insights            # Quality insights and recommendations
+```
+
+### 3. Release Management (30 seconds with v4.2.0!)
+```bash
+# Old way (v3.x): 4-5 hours of manual work
+# New way (v4.2.0): 30 seconds of automation
+
+/distribution-release 4.2.0
+# Automatically:
+# - Updates all version references everywhere
+# - Generates dynamic release notes with changelog integration
+# - Builds optimized distribution package  
+# - Creates GitHub release with distribution assets
+# - Handles repository separation (development vs release)
+# - Runs comprehensive post-release validation
+```
+
+### 4. Documentation Processing (6.7x Faster)
+```bash
+# Revolutionary document processing with native sub-agents
+/documentation-shard     # 6.7x faster document processing
+/documentation-organize  # Intelligent document organization
+/documentation-compliance # Documentation quality validation
+/implementation-library-indexing # 7.1x faster knowledge indexing
+```
+
+### 5. Advanced Planning Workflow (15 Commands Available)
+```bash
+# Structured development process with intelligence
+/planning-project-brief  # Project brief creation with context
+/planning-epic          # Epic creation with full context  
+/planning-groom         # AI-powered backlog grooming
+/planning-validation    # Multi-aspect validation
+/planning-stakeholder-review # Stakeholder review coordination
+```
 ```
 
 ### 3. Quality Assurance Workflow

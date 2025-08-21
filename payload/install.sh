@@ -137,9 +137,9 @@ safe_read() {
 # Check if originally no args were provided (or only --defaults was provided)
 if [ "$ORIGINAL_ARG_COUNT" -le 1 ] && [ -f "$PAYLOAD_DIR/install.sh" ]; then
     if [ "$USE_DEFAULTS" = true ]; then
-        echo "Running with defaults - using current directory as project"
+        echo "Running with defaults - creating new project in current directory"
         TARGET_DIR="$(pwd)"
-        SKIP_COPY="true"
+        # Don't set SKIP_COPY - we want a fresh installation with defaults
     else
         # Display banner for quick setup based on mode
         if [ "$USE_LIVE_MODE" = true ] && [ "$LIVE_DISPLAY_AVAILABLE" = true ]; then
@@ -230,8 +230,8 @@ INSTALLER_DIR="$PAYLOAD_DIR"
 APM_ROOT="$PROJECT_ROOT/.apm"
 AP_ROOT="$APM_ROOT/agents"
 
-# Set AP_DOCS early so documentation can be copied during template generation
-AP_DOCS="$APM_ROOT/documentation"
+# Documentation delivery system removed - wiki-based documentation
+# AP_DOCS="$APM_ROOT/documentation"
 
 # Set up installation logging
 INSTALL_LOG_DIR="$APM_ROOT/logs"
@@ -471,7 +471,7 @@ replace_variables() {
     sed $sed_inplace "s|{{AP_PERSONAS}}|$AP_PERSONAS|g" "$temp_file"
     sed $sed_inplace "s|{{AP_TASKS}}|$AP_TASKS|g" "$temp_file"
     sed $sed_inplace "s|{{AP_TEMPLATES}}|$AP_TEMPLATES|g" "$temp_file"
-    sed $sed_inplace "s|{{AP_DOCS}}|$AP_DOCS|g" "$temp_file"
+    # AP_DOCS variable replacement removed - documentation delivery system removed
     sed $sed_inplace "s|{{AP_VOICE}}|$AP_VOICE|g" "$temp_file"
     sed $sed_inplace "s|{{AP_PYTHON}}|$AP_PYTHON|g" "$temp_file"
     sed $sed_inplace "s|{{AP_MONITORING}}|$AP_MONITORING|g" "$temp_file"
@@ -643,38 +643,8 @@ echo ""
 echo "Installing Documentation"
 echo "------------------------"
 
-# Ensure AP_DOCS directory exists
-ensure_dir "$AP_DOCS"
-
-# Process and copy all documentation templates to .apm/documentation
-if [ -d "$INSTALLER_DIR/templates/documentation" ]; then
-    echo "Installing comprehensive documentation to $AP_DOCS..."
-    for doc_dir in "$INSTALLER_DIR/templates/documentation"/*; do
-        if [ -d "$doc_dir" ]; then
-            doc_basename=$(basename "$doc_dir")
-            mkdir -p "$AP_DOCS/$doc_basename"
-            
-            # Process .template files and regular files
-            for file in "$doc_dir"/*; do
-                if [ -f "$file" ]; then
-                    filename=$(basename "$file")
-                    if [[ "$filename" == *.template ]]; then
-                        # Process template file
-                        output_name="${filename%.template}"
-                        replace_variables "$file" "$AP_DOCS/$doc_basename/$output_name"
-                    else
-                        # Copy non-template file directly
-                        cp "$file" "$AP_DOCS/$doc_basename/" 2>/dev/null || true
-                    fi
-                fi
-            done
-            echo "✅ Installed $doc_basename documentation"
-        fi
-    done
-    echo "✅ Complete documentation installed to $AP_DOCS"
-else
-    echo "⚠️  Warning: Documentation templates not found in $INSTALLER_DIR/templates/documentation"
-fi
+# Documentation delivery system removed - users directed to wiki for documentation
+# Static documentation templates no longer installed to reduce distribution size
 
 # Copy APM README to .apm directory (always install this)
 if [ -f "$INSTALLER_DIR/templates/APM-README.md.template" ]; then
@@ -878,12 +848,7 @@ ensure_dir "$PROJECT_DOCS/time-tracking"
 ensure_dir "$PROJECT_DOCS/qa"
 ensure_dir "$PROJECT_DOCS/qa/test-plans"
 
-# Copy project documentation README to APM documentation folder
-if [ -f "$INSTALLER_DIR/templates/project_documentation/README.md.template" ]; then
-    # Ensure the AP_DOCS directory exists before writing to it
-    ensure_dir "$AP_DOCS"
-    replace_variables "$INSTALLER_DIR/templates/project_documentation/README.md.template" "$AP_DOCS/README.md"
-fi
+# Project documentation README removed - wiki-based documentation approach
 
 # Create reference in project_docs pointing to APM documentation
 cat > "$PROJECT_DOCS/README.md" << 'EOF'
@@ -905,7 +870,7 @@ For project-specific documentation, please create files in this `project_docs/` 
 EOF
 
 echo "✅ Created documentation reference at: $PROJECT_DOCS"
-echo "✅ Main documentation installed at: $AP_DOCS"
+# Documentation delivery system removed - users directed to wiki for documentation
 
 # Copy rules templates
 echo ""
@@ -1420,34 +1385,48 @@ echo "Processing Claude Sub-Agent templates..."
 if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
     echo "⏳ Installing Claude Code sub-agent infrastructure..."
     
-    # Create .claude/agents directory structure
+    # Create .claude/agents directory structure (only for actual agent personas)
     ensure_dir "$CLAUDE_DIR/agents"
     ensure_dir "$CLAUDE_DIR/agents/personas"
-    ensure_dir "$CLAUDE_DIR/agents/config"
-    ensure_dir "$CLAUDE_DIR/agents/migration"
-    ensure_dir "$CLAUDE_DIR/agents/qa-framework"
-    ensure_dir "$CLAUDE_DIR/agents/implementation-sprint-coordination"
-    ensure_dir "$CLAUDE_DIR/agents/chaining"
-    ensure_dir "$CLAUDE_DIR/agents/dual-mode"
-    ensure_dir "$CLAUDE_DIR/agents/user-guide"
-    ensure_dir "$CLAUDE_DIR/agents/documentation"
-    ensure_dir "$CLAUDE_DIR/agents/voice"
-    # Native Sub-Agents directories
-    ensure_dir "$CLAUDE_DIR/agents/coordination"
-    ensure_dir "$CLAUDE_DIR/agents/context"
-    ensure_dir "$CLAUDE_DIR/agents/monitoring"
-    ensure_dir "$CLAUDE_DIR/agents/compatibility"
     
-    # Process all template files in claude/agents directory
-    find "$INSTALLER_DIR/templates/claude/agents" -name "*.template" -type f | while read template_file; do
+    # Create .claude/docs/agents directory for documentation and templates
+    ensure_dir "$CLAUDE_DIR/docs"
+    ensure_dir "$CLAUDE_DIR/docs/agents"
+    
+    # Process agent persona files (actual agents) to .claude/agents/
+    if [ -d "$INSTALLER_DIR/templates/claude/agents/personas" ]; then
+        echo "⏳ Installing agent personas..."
+        find "$INSTALLER_DIR/templates/claude/agents/personas" -name "*.template" -type f | while read template_file; do
+            # Calculate relative path from templates/claude/agents/personas
+            rel_path="${template_file#$INSTALLER_DIR/templates/claude/agents/personas/}"
+            
+            # Remove .template extension
+            output_path="${rel_path%.template}"
+            
+            # Create output file path in .claude/agents/personas/
+            output_file="$CLAUDE_DIR/agents/personas/$output_path"
+            
+            # Ensure directory exists
+            output_dir=$(dirname "$output_file")
+            ensure_dir "$output_dir"
+            
+            # Process template
+            replace_variables "$template_file" "$output_file"
+        done
+        echo "✅ Agent personas installed to .claude/agents/personas/"
+    fi
+    
+    # Process documentation and template files to .claude/docs/agents/
+    echo "⏳ Installing agent documentation and templates..."
+    find "$INSTALLER_DIR/templates/claude/agents" -name "*.template" -type f ! -path "*/personas/*" | while read template_file; do
         # Calculate relative path from templates/claude/agents
         rel_path="${template_file#$INSTALLER_DIR/templates/claude/agents/}"
         
         # Remove .template extension
         output_path="${rel_path%.template}"
         
-        # Create output file path
-        output_file="$CLAUDE_DIR/agents/$output_path"
+        # Create output file path in .claude/docs/agents/
+        output_file="$CLAUDE_DIR/docs/agents/$output_path"
         
         # Ensure directory exists
         output_dir=$(dirname "$output_file")
@@ -1461,6 +1440,7 @@ if [ -d "$INSTALLER_DIR/templates/claude/agents" ]; then
             chmod +x "$output_file"
         fi
     done
+    echo "✅ Agent documentation installed to .claude/docs/agents/"
     
     echo "✅ Claude sub-agent infrastructure installed (65+ templates processed)"
 else

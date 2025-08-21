@@ -87,10 +87,7 @@ files=(
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/PERSONA-UPDATE-TEMPLATE.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/DOCUMENT_COMPLIANCE_RULES.md"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/ide-ap-orchestrator.cfg.md.template"
-    "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/docs/PO-GROOM-QUICK-REFERENCE.md.template"
-    "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/docs/PARALLEL-SUBTASK-USAGE-GUIDE.md.template"
-    "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/docs/PARALLEL-INITIALIZATION-PATTERN.md.template"
-    "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/docs/PARALLEL-INITIALIZATION-IMPLEMENTATION-REPORT.md.template"
+    # Removed obsolete template references - cleaned up in template obsolescence review
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/data/ap-kb.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/checklists/po-master-checklist.md.template"
 )
