@@ -123,7 +123,7 @@ ls -la /mnt/c/Code/agentic-persona-mapping/installer/templates/agents/personas/
 /installer/templates/personas/
 ├── analyst.md.template         ✅ KEEP - APM framework installation
 ├── architect.md.template       ✅ KEEP - APM framework installation  
-├── design-architect.md.template ✅ KEEP - APM framework installation
+├── designer.md.template ✅ KEEP - APM framework installation
 └── [all other personas]        ✅ KEEP - APM framework installation
 ```
 
@@ -132,7 +132,7 @@ ls -la /mnt/c/Code/agentic-persona-mapping/installer/templates/agents/personas/
 /installer/templates/claude/agents/personas/
 ├── analyst.md.template         ✅ KEEP - Claude Code sub-agent system
 ├── architect.md.template       ✅ KEEP - Claude Code sub-agent system
-├── design-architect.md.template ✅ KEEP - Claude Code sub-agent system  
+├── designer.md.template ✅ KEEP - Claude Code sub-agent system  
 └── [all other personas]        ✅ KEEP - Claude Code sub-agent system
 ```
 

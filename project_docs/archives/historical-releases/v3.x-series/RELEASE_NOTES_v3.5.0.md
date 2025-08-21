@@ -89,7 +89,7 @@ The centerpiece of v3.5.0 is the complete overhaul of how personas are managed:
 /installer/personas/_master/
 ├── analyst.persona.json
 ├── architect.persona.json
-├── design-architect.persona.json
+├── designer.persona.json
 ├── dev.persona.json
 ├── pm.persona.json
 ├── po.persona.json

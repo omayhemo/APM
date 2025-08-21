@@ -80,7 +80,7 @@ files=(
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/orchestrator.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/developer.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/dev.md.template"
-    "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/design-architect.md.template"
+    "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/designer.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/architect.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/analyst.md.template"
     "/mnt/c/Code/agentic-persona-mapping/payload/templates/agents/personas/analyst-demo.md.template"

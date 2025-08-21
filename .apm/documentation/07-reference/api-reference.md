@@ -83,7 +83,7 @@ All persona commands follow this unified activation pattern:
 endpoint: /{persona_name}
 type: command
 parameters:
-  persona_id: string (analyst|architect|developer|pm|po|qa|sm|design-architect)
+  persona_id: string (analyst|architect|developer|pm|po|qa|sm|designer)
   voice_script: path
   session_management: boolean (default: true)
 ```
@@ -168,10 +168,10 @@ capabilities:
   - process_improvement
 ```
 
-#### Design Architect Persona
+#### Designer Persona
 ```yaml
-endpoint: /design-architect
-voice_script: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh
+endpoint: /designer
+voice_script: /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh
 capabilities:
   - ui_design
   - ux_architecture
@@ -380,7 +380,7 @@ parameters:
 - `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPm.sh`
 - `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPo.sh`
 - `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSm.sh`
-- `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh`
+- `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh`
 
 **Script Parameters:**
 ```bash

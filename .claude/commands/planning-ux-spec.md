@@ -3,7 +3,7 @@ name: planning-ux-spec
 description: Sequential UX/UI specification development
 metadata:
   version: 1.0.0
-  agent: Design Architect
+  agent: Designer
   performance: sequential
   approach: guided
 ---
@@ -18,7 +18,7 @@ metadata:
 Quick Context Load (1-2 seconds):
 - Loading Design configuration and expertise
 - Loading relevant templates and frameworks  
-- Voice notification: bash $/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Design context loaded for command execution"
+- Voice notification: bash $/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh "Design context loaded for command execution"
 - Workspace validation: Ensuring execution from /mnt/c/Code/agentic-persona-mapping
 
 *Design context ready. Proceeding with command...*
@@ -27,18 +27,18 @@ Quick Context Load (1-2 seconds):
 
 # Sequential Ux-spec Command
 
-**Design Architect Agent Only**: Executes structured ux-spec through guided sequential methodology.
+**Designer Agent Only**: Executes structured ux-spec through guided sequential methodology.
 
 ## Metadata
 - **Name**: ux-spec
 - **Description**: Sequential UX/UI specification development
-- **Agent**: Design Architect
+- **Agent**: Designer
 - **Performance**: Sequential (focused approach vs parallel streams)
 - **Approach**: Interactive guidance and systematic methodology
 
 ## Overview
 
-The `/planning-ux-spec` command enables the Design Architect to execute ux-spec through:
+The `/planning-ux-spec` command enables the Designer to execute ux-spec through:
 - Sequential development with focused attention on each aspect
 - Interactive guidance through ux-spec components  
 - Systematic methodology ensuring comprehensive coverage
@@ -114,7 +114,7 @@ After ux-spec completion:
 
 ## Overview
 - **Ux-spec Type**: [Type/Category]
-- **Agent**: Design Architect
+- **Agent**: Designer
 - **Completion Date**: [Date]
 - **Status**: [Complete/In Progress]
 
@@ -154,7 +154,7 @@ After ux-spec completion:
 ## Voice Notifications
 
 ```bash
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Sequential ux-spec beginning. Launching guided development process..."
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh "Sequential ux-spec beginning. Launching guided development process..."
 ```
 
 ## Success Metrics

@@ -23,7 +23,7 @@ All scripts located in `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/`:
 | AP PM (Project Manager) | speakPm.sh | ✅ Available | rwxr-xr-x |
 | AP PO (Product Owner) | speakPo.sh | ✅ Available | rwxr-xr-x |
 | AP SM (Scrum Master) | speakSm.sh | ✅ Available | rwxr-xr-x |
-| AP Design Architect | speakDesignArchitect.sh | ✅ Available | rwxr-xr-x |
+| AP Designer | speakDesigner.sh | ✅ Available | rwxr-xr-x |
 | Base Script | speakBase.sh | ✅ Available | rwxr-xr-x |
 
 **Total Personas with Voice Support: 9**

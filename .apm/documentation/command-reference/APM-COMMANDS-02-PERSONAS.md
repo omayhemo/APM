@@ -190,10 +190,10 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 
 ---
 
-## 🎨 `/design-architect`
-### Activate Design Architect - UI/UX & Frontend Architecture
+## 🎨 `/designer`
+### Activate Designer - UI/UX & Frontend Architecture
 
-**Purpose**: Activates the Design Architect for UI/UX design, frontend architecture, and user experience optimization.
+**Purpose**: Activates the Designer for UI/UX design, frontend architecture, and user experience optimization.
 
 **Core Capabilities**:
 - UI/UX design and prototyping
@@ -231,16 +231,16 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 **Example Usage**:
 ```bash
 # Basic activation
-/design-architect
+/designer
 
 # React design system
-/design-architect --framework=react --design-system=custom
+/designer --framework=react --design-system=custom
 
 # Mobile-first design
-/design-architect --device=mobile --accessibility=wcag-aa
+/designer --device=mobile --accessibility=wcag-aa
 
 # Comprehensive responsive design
-/design-architect --device=responsive --framework=vue
+/designer --device=responsive --framework=vue
 ```
 
 **Design Deliverables**:
@@ -572,7 +572,7 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 
 **Planning & Design**:
 - Primary: `/pm`, `/architect`
-- Support: `/design-architect`, `/po`
+- Support: `/designer`, `/po`
 
 **Implementation**:
 - Primary: `/dev`, `/po`
@@ -589,7 +589,7 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 ### By Task Type
 
 **Requirements**: `/analyst` → `/pm`
-**Architecture**: `/architect` → `/design-architect`
+**Architecture**: `/architect` → `/designer`
 **Backlog**: `/po` → `/sm`
 **Coding**: `/dev`
 **Testing**: `/qa`
@@ -604,7 +604,7 @@ Each persona represents a specialized agent with unique capabilities, behavioral
 | Analyst | 1.2s | 12 | 4 parallel commands |
 | PM | 1.5s | 15 | 3 parallel commands |
 | Architect | 1.8s | 18 | 2 parallel commands |
-| Design Architect | 1.6s | 14 | 2 parallel commands |
+| Designer | 1.6s | 14 | 2 parallel commands |
 | PO | 1.3s | 16 | 5 parallel commands |
 | SM | 1.1s | 11 | 4 parallel commands |
 | Developer | 1.4s | 20 | 1 parallel (sprint) |

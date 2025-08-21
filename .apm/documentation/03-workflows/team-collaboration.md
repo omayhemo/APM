@@ -62,7 +62,7 @@ Team Lead: /coherence → Unified context engineering coordination
 ### Workflow 2: Feature Team Collaboration
 ```
 Feature Lead: /po → Requirements and priorities
-├── Frontend Dev: /design-architect → UI/UX implementation
+├── Frontend Dev: /designer → UI/UX implementation
 ├── Backend Dev: /dev → API and business logic
 ├── QA Engineer: /qa-framework → Testing strategy
 └── DevOps: /qa-automation-plan --parallel → CI/CD setup

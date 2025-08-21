@@ -60,7 +60,7 @@ Production-ready infrastructure with 284 total templates:
 
 ### ✅ All Commands Preserved
 ```bash
-/ap, /dev, /architect, /qa, /pm, /po, /sm, /analyst, /design-architect
+/ap, /dev, /architect, /qa, /pm, /po, /sm, /analyst, /designer
 /handoff, /wrap, /switch, /parallel-sprint, /qa-framework
 ```
 

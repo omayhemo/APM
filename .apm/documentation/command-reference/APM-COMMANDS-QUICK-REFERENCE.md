@@ -40,7 +40,7 @@ Quick lookup for all Coherence commands with essential information. For detailed
 | `/analyst` | Analyst | Research & requirements | 4 |
 | `/pm` | Product Manager | PRDs & roadmaps | 3 |
 | `/architect` | Architect | System design | 2 |
-| `/design-architect` | Design Architect | UI/UX & frontend | 2 |
+| `/designer` | Designer | UI/UX & frontend | 2 |
 | `/po` | Product Owner | Backlog management | 5 |
 | `/sm` | Scrum Master | Agile processes | 4 |
 | `/dev` or `/developer` | Developer | Code implementation | 1 |

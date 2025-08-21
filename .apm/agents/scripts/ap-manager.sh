@@ -375,7 +375,7 @@ uninstall_ap_method() {
     if [ -d "$PROJECT_ROOT/.claude/commands" ]; then
         local apm_commands=(
             "ap_orchestrator.md" "ap.md" "handoff.md" "wrap.md" "switch.md"
-            "session-note-setup.md" "analyst.md" "architect.md" "design-architect.md"
+            "session-note-setup.md" "analyst.md" "architect.md" "designer.md"
             "dev.md" "developer.md" "personas.md" "pm.md" "po.md" "qa.md" "sm.md"
             "parallel-sprint.md" "subtask.md"
         )
@@ -443,7 +443,7 @@ uninstall_ap_method() {
             del(.env.SPEAK_ANALYST) |
             del(.env.SPEAK_PO) |
             del(.env.SPEAK_SM) |
-            del(.env.SPEAK_DESIGN_ARCHITECT) |
+            del(.env.SPEAK_DESIGNER) |
             del(.hooks) |
             del(.claude_chats_to_save)' "$PROJECT_ROOT/.claude/settings.json" > "$tmp_file" && mv "$tmp_file" "$PROJECT_ROOT/.claude/settings.json"
         

@@ -30,7 +30,7 @@ The Coherence Voice Notification system provides text-to-speech capabilities for
 │   │   ├── speakPm.sh                # Project Manager voice
 │   │   ├── speakPo.sh                # Product Owner voice
 │   │   ├── speakSm.sh                # Scrum Master voice
-│   │   └── speakDesignArchitect.sh   # Design Architect voice
+│   │   └── speakDesigner.sh   # Designer voice
 │   └── scripts/
 │       ├── tts-manager.sh            # Central TTS coordinator
 │       ├── configure-tts.sh          # TTS configuration utility
@@ -404,7 +404,7 @@ fi
 /mnt/c/Code/agentic-persona-mapping/.apm/agents/scripts/tts-manager.sh diagnose
 
 # Test all personas
-for persona in orchestrator developer architect analyst qa pm po sm design_architect; do
+for persona in orchestrator developer architect analyst qa pm po sm designer; do
     echo "Testing $persona..."
     /mnt/c/Code/agentic-persona-mapping/.apm/agents/scripts/tts-manager.sh speak $persona "Testing voice for $persona persona."
 done

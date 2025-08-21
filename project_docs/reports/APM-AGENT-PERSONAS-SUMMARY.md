@@ -67,7 +67,7 @@ The Agentic Persona Mapping (APM) framework provides specialized AI agents for c
 
 ---
 
-### 5. **Design Architect** - UI/UX & Frontend Expert
+### 5. **Designer** - UI/UX & Frontend Expert
 - **Specialization**: User experience design, frontend architecture, design systems
 - **Key Responsibilities**:
   - Create UI/UX specifications and mockups
@@ -75,8 +75,8 @@ The Agentic Persona Mapping (APM) framework provides specialized AI agents for c
   - Establish design systems and style guides
   - Ensure accessibility and responsive design
   - Generate AI-optimized frontend prompts
-- **Activation**: `/design-architect`
-- **Voice Script**: `speakDesignArchitect.sh`
+- **Activation**: `/designer`
+- **Voice Script**: `speakDesigner.sh`
 - **Parallel Commands**:
   - `/parallel-frontend-architecture` - Comprehensive frontend design (80% faster)
   - `/parallel-ai-prompt` - AI development prompt generation (75% faster)
@@ -201,7 +201,7 @@ Most agents support parallel task execution for dramatic performance improvement
 | Analyst | `/analyst` | - |
 | Product Manager | `/pm` | - |
 | Architect | `/architect` | - |
-| Design Architect | `/design-architect` | - |
+| Designer | `/designer` | - |
 | Product Owner | `/po` | - |
 | Scrum Master | `/sm` | - |
 | Developer | `/dev` | `/developer` |

@@ -95,7 +95,7 @@ Missing Templates (/payload/templates/claude/output-styles/):
    - Sprint and team coordination focused
    - Scrum methodology and process patterns
 
-9. **`/payload/templates/claude/output-styles/apm-design-architect.md.template`**
+9. **`/payload/templates/claude/output-styles/apm-designer.md.template`**
    - UI/UX and frontend architecture focused
    - Design system and user experience patterns
 

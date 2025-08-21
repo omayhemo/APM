@@ -390,9 +390,9 @@ After execution, this command provides:
 "PRD finalized. Ready for epic and story creation. [Y] MVP features identified."
 ```
 
-### Handoff to Design Architect:
+### Handoff to Designer:
 ```
-/handoff design-architect
+/handoff designer
 "PRD complete with user personas and UX requirements. Ready for design phase."
 ```
 

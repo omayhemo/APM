@@ -27,12 +27,12 @@ This document outlines the unified context engineering software development life
 
 #### 1.2 Architecture & Design Planning
 ```
-/architect → System design → /design-architect → UI/UX design
+/architect → System design → /designer → UI/UX design
 ```
 
 **Process:**
 1. **System Architecture**: `/architect` for technical design
-2. **Design Architecture**: `/design-architect` for user experience
+2. **Designerure**: `/designer` for user experience
 3. **Architecture Review**: `/parallel-planning-architecture` for comprehensive validation
 4. **Technology Stack**: Finalize frameworks, databases, deployment strategy
 
@@ -191,7 +191,7 @@ Production deployment → Monitoring setup → Support handoff
 
 **Project Phase → Primary Persona:**
 - **Requirements**: Analyst + Product Owner
-- **Architecture**: System Architect + Design Architect
+- **Architecture**: System Architect + Designer
 - **Development**: Developer + QA (parallel)
 - **Testing**: QA + Performance specialist
 - **Deployment**: Developer + System Administrator

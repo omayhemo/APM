@@ -51,12 +51,12 @@ This document provides a comprehensive analysis of all agent initialization rout
 | | | 1.4 | **Parallel** | `project_docs/architecture/architecture.md` | Check | Check existing architecture |
 | | | 1.5 | **Parallel** | `.apm/agents/checklists/architect-checklist.md` | Read | Load architect checklist |
 | | | 2 | Sequential | `.apm/agents/voice/speakArchitect.sh` | Execute | Voice notification |
-| **Design Architect** | `/design-architect` | 1.1 | **Parallel** | `.apm/agents/personas/design-architect.md` | Read | Load design principles |
+| **Designer** | `/designer` | 1.1 | **Parallel** | `.apm/agents/personas/designer.md` | Read | Load design principles |
 | | | 1.2 | **Parallel** | `.apm/agents/templates/front-end-architecture-tmpl.md` | Read | Load frontend template |
 | | | 1.3 | **Parallel** | `project_docs/architecture/frontend-architecture.md` | Check | Check existing frontend arch |
 | | | 1.4 | **Parallel** | `.apm/agents/checklists/frontend-architecture-checklist.md` | Read | Load frontend checklist |
 | | | 1.5 | **Parallel** | `project_docs/design/` | Check | Scan design directory |
-| | | 2 | Sequential | `.apm/agents/voice/speakDesignArchitect.sh` | Execute | Voice notification |
+| | | 2 | Sequential | `.apm/agents/voice/speakDesigner.sh` | Execute | Voice notification |
 | **Product Owner** | `/po` | 1.1 | **Parallel** | `.apm/agents/personas/po.md` | Read | Load PO principles |
 | | | 1.2 | **Parallel** | `project_docs/requirements/prd.md` | Read | Load PRD |
 | | | 1.3 | **Parallel** | `.apm/agents/templates/product-backlog-template.md` | Read | Load backlog template |
@@ -170,7 +170,7 @@ This document provides a comprehensive analysis of all agent initialization rout
 
 ---
 
-### 5. Design Architect (`/design-architect`)
+### 5. Designer (`/designer`)
 
 **Core Capabilities:**
 - UI/UX architecture
@@ -417,7 +417,7 @@ All paths relative to project root: `/mnt/c/Code/agentic-persona-mapping/`
 - `/analyst` - Analyst Agent
 - `/pm` - Product Manager
 - `/architect` - System Architect
-- `/design-architect` - Design Architect
+- `/designer` - Designer
 - `/po` - Product Owner
 - `/sm` - Scrum Master
 - `/dev`, `/developer` - Developer

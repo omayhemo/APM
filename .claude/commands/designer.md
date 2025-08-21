@@ -1,9 +1,9 @@
 ---
-name: design-architect
-description: Activate Design Architect Agent
+name: designer
+description: Activate Designer Agent
 ---
 
-# DESIGN ARCHITECT AGENT ACTIVATION
+# DESIGNER AGENT ACTIVATION
 
 ## 🚀 INITIALIZATION PROTOCOL (MANDATORY)
 
@@ -16,7 +16,7 @@ I'm initializing as the Design Architect Agent. Let me load all required context
 
 *Executing parallel initialization tasks:*
 [Use native sub-agents - ALL in single function_calls block]
-- Task 1: Load design architect persona from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/design-architect.md
+- Task 1: Load designer persona from /mnt/c/Code/agentic-persona-mapping/.apm/agents/personas/designer.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 - Task 2: Load frontend architecture template from /mnt/c/Code/agentic-persona-mapping/.apm/agents/templates/front-end-architecture-tmpl.md
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
@@ -39,12 +39,12 @@ Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping wit
 
 ### Post-Initialization:
 After ALL tasks complete:
-1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Design Architect initialized with UI/UX expertise"
-2. Confirm: "✓ Design Architect Agent initialized with comprehensive frontend design and user experience capabilities"
+1. Voice announcement: bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh "Designer initialized with UI/UX expertise"
+2. Confirm: "✓ Designer Agent initialized with comprehensive frontend design and user experience capabilities"
 4. Confirm: "✓ All mandatory rules loaded from /mnt/c/Code/agentic-persona-mapping/.apm/agents/rules/ and will be strictly enforced"
 5. CRITICAL: Agent MUST adhere to ALL rules throughout the session
 ## Direct Activation
-This command activates the Design Architect agent directly. The agent will:
+This command activates the Designer agent directly. The agent will:
 1. Load UI/UX best practices and design patterns
 2. Review existing design documentation
 3. Check for design system components
@@ -62,7 +62,7 @@ This command activates the Design Architect agent directly. The agent will:
 - Performance optimization
 - Cross-platform design
 
-The Design Architect agent creates elegant, user-centered frontend architectures.
+The Designer agent creates elegant, user-centered frontend architectures.
 
 ## 📋 MANDATORY RULE COMPLIANCE
 

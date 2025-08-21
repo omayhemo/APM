@@ -13,7 +13,7 @@ The documentation path fix has been successfully applied to all agent personas i
 All 8 agent personas now include the "PATH VALIDATION AND DOCUMENTATION RULES" section:
 - analyst.md ✅
 - architect.md ✅
-- design-architect.md ✅
+- designer.md ✅
 - dev.md ✅
 - pm.md ✅
 - po.md ✅

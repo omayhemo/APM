@@ -17,7 +17,7 @@
 | `/qa` | Quality Assurance | Testing, quality validation, automation |
 | `/analyst` | Business Analyst | Requirements analysis, process modeling |
 | `/sm` | Scrum Master | Sprint planning, team facilitation |
-| `/design-architect` | Design Architect | UI/UX, design systems, user experience |
+| `/designer` | Designer | UI/UX, design systems, user experience |
 
 ## QA Framework Commands
 | Command | Description | Performance |

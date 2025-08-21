@@ -100,11 +100,11 @@ Integration: Full system analysis
 - Performance architecture
 - Security architecture
 
-#### `/design-architect` - Design System Architect
+#### `/designer` - Design System Architect
 **Description**: UI/UX architecture and design system management.
 
 ```bash
-Usage: /design-architect
+Usage: /designer
 Design System: Comprehensive
 Component Library: Automated
 Accessibility: WCAG 2.1 AA compliance

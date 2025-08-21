@@ -55,7 +55,7 @@
 | `create-test-plan-parallel.md` | `/parallel-test-plan` | ⚠️ Duplicate |
 | `execute-quality-review-parallel.md` | `/parallel-quality-review` | ⚠️ Duplicate |
 
-#### Design Architect Duplications
+#### Designer Duplications
 | Task File | Slash Command | Status |
 |-----------|---------------|--------|
 | `create-frontend-architecture-parallel.md` | `/parallel-frontend-architecture` | ⚠️ Duplicate |
@@ -102,7 +102,7 @@ All persona files contain references to the parallel commands but don't implemen
 - Lines 120-139: References `/parallel-review` and `/run-tests`
 - Multiple usage examples
 
-#### Others (architect.md, pm.md, design-architect.md)
+#### Others (architect.md, pm.md, designer.md)
 - Each contains references to their respective parallel commands
 - No full implementations, just references and usage guidance
 

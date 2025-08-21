@@ -23,7 +23,7 @@
     "SPEAK_PM": "${AP_ROOT}/voice/speakPM.sh",
     "SPEAK_PO": "${AP_ROOT}/voice/speakPO.sh",
     "SPEAK_SM": "${AP_ROOT}/voice/speakSM.sh",
-    "SPEAK_DESIGN_ARCHITECT": "${AP_ROOT}/voice/speakDesignArchitect.sh",
+    "SPEAK_DESIGNER": "${AP_ROOT}/voice/speakDesigner.sh",
     "TTS_ENABLED": "true",
     "TTS_PROVIDER": "none",
     "TTS_FALLBACK_PROVIDER": "none",

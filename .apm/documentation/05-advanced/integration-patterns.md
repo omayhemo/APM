@@ -715,7 +715,7 @@ class JiraCoherenceIntegration:
             if 'architecture' in description.lower():
                 return 'architect'
             elif any(label in ['ui', 'ux', 'frontend'] for label in labels):
-                return 'design-architect'
+                return 'designer'
             else:
                 return 'developer'
                 

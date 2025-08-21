@@ -18,7 +18,7 @@ This document provides detailed feature specifications and acceptance criteria f
 **Description**: Specialized AI agent personas with distinct capabilities and expertise domains.
 
 **Functional Requirements**:
-- 9 core specialized personas: Orchestrator, Analyst, Product Manager, Architect, Design Architect, Product Owner, Scrum Master, Developer, QA
+- 9 core specialized personas: Orchestrator, Analyst, Product Manager, Architect, Designer, Product Owner, Scrum Master, Developer, QA
 - Each persona has unique knowledge domain, communication style, and task capabilities
 - Persona isolation with clear boundaries and workspace limitations
 - Role-based access control for different file systems and resources
@@ -188,7 +188,7 @@ This document provides detailed feature specifications and acceptance criteria f
 
 ---
 
-#### 1.1.6 Design Architect Agent
+#### 1.1.6 Designer Agent
 **Description**: UI/UX design and frontend architecture specialist.
 
 **Functional Requirements**:
@@ -201,7 +201,7 @@ This document provides detailed feature specifications and acceptance criteria f
 **Technical Requirements**:
 - Design template system with component specifications
 - Frontend architecture documentation
-- Voice feedback via `speakDesignArchitect.sh`
+- Voice feedback via `speakDesigner.sh`
 - Integration with development workflow
 - Design system governance
 

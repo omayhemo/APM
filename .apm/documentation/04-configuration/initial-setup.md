@@ -102,7 +102,7 @@ ls -la {{INSTALLER_ROOT}}/personas/_master/
 Expected files:
 - `analyst.persona.json`
 - `architect.persona.json`
-- `design-architect.persona.json`
+- `designer.persona.json`
 - `developer.persona.json`
 - `orchestrator.persona.json`
 - `pm.persona.json`
@@ -156,7 +156,7 @@ Expected scripts:
 - `speakPm.sh`
 - `speakPo.sh`
 - `speakSm.sh`
-- `speakDesignArchitect.sh`
+- `speakDesigner.sh`
 
 ### 3.2 Test Voice Notifications
 

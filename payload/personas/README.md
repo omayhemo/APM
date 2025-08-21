@@ -19,7 +19,7 @@ personas/
 ├── _master/                           # JSON master definitions (single source of truth)
 │   ├── analyst.persona.json          # Analyst agent definition
 │   ├── architect.persona.json        # Architect agent definition
-│   ├── design-architect.persona.json # Design Architect definition
+│   ├── designer.persona.json # Designer definition
 │   ├── developer.persona.json        # Developer agent definition
 │   ├── orchestrator.persona.json     # AP Orchestrator definition
 │   ├── pm.persona.json               # Project Manager definition
@@ -65,7 +65,7 @@ All 9 APM personas are defined as JSON master files:
 ### Core Personas
 1. **Analyst** - Brainstorming BA and RA Expert
 2. **Architect** - System Architecture and Technical Design Expert  
-3. **Design Architect** - UI/UX and Design Systems Expert
+3. **Designer** - UI/UX and Design Systems Expert
 4. **Developer** - Full-Stack Development Expert
 5. **Project Manager** - Project Planning and Execution Expert
 6. **Product Owner** - Product Strategy and Backlog Expert
@@ -144,7 +144,7 @@ Each persona integrates with voice notification scripts:
 
 - **Analyst**: `$SPEAK_ANALYST`
 - **Architect**: `$SPEAK_ARCHITECT` 
-- **Design Architect**: `$SPEAK_DESIGN_ARCHITECT`
+- **Designer**: `$SPEAK_DESIGNER`
 - **Developer**: `$SPEAK_DEVELOPER`
 - **Project Manager**: `$SPEAK_PM`
 - **Product Owner**: `$SPEAK_PO`

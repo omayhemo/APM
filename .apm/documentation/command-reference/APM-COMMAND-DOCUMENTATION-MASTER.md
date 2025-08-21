@@ -60,7 +60,7 @@ Direct activation of specialized agent personas
 - `/analyst` - Research and requirements specialist
 - `/pm` - Product Manager for PRDs and roadmaps
 - `/architect` - System architecture and design
-- `/design-architect` - UI/UX and frontend architecture
+- `/designer` - UI/UX and frontend architecture
 - `/po` - Product Owner for backlog management
 - `/sm` - Scrum Master for agile processes
 - `/dev` or `/developer` - Code implementation

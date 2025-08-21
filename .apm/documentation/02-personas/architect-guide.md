@@ -267,7 +267,7 @@ Design for performance and scale:
 **Delivers**: Architecture specifications, technology choices, implementation guidelines  
 **Purpose**: Enable development with clear technical direction
 
-#### To Design Architect (`/handoff design-architect`)
+#### To Designer (`/handoff designer`)
 **When**: After backend architecture design  
 **Delivers**: API specifications, data models, integration requirements  
 **Purpose**: Enable frontend architecture design
@@ -622,7 +622,7 @@ bash $SPEAK_ARCHITECT "Performance architecture analysis complete"
 
 - **[Product Manager Guide](pm-guide.md)** - Requirements and technical needs partner
 - **[Developer Guide](developer-guide.md)** - Implementation destination
-- **[Design Architect Guide](design-architect-guide.md)** - Frontend architecture partner
+- **[Designer Guide](designer-guide.md)** - Frontend architecture partner
 - **[Architecture Templates](../templates/planning-architecture/)** - Standardized architecture formats
 - **[Technology Frameworks](../frameworks/technology.md)** - Technology evaluation tools
 

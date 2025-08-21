@@ -49,7 +49,7 @@
 
 ---
 
-### 🎨 **Design Architect** (`/design-architect`)
+### 🎨 **Designer** (`/designer`)
 **Use when:**
 - UI/UX design
 - Design system creation
@@ -114,7 +114,7 @@
 ```
 Need to write code? → /dev
 Need system design? → /architect
-Need UI/UX work? → /design-architect
+Need UI/UX work? → /designer
 Need project planning? → /pm
 Need user stories? → /po
 Need testing strategy? → /qa

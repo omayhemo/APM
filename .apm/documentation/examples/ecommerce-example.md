@@ -110,15 +110,15 @@ Using orchestrated architecture planning with 6 unified intelligence streams:
 - `deployment-architecture.md` (2,800 words)
 - `integration-specifications.md` (3,400 words)
 
-#### 1.4 UI/UX Design Architecture
+#### 1.4 UI/UX Designerure
 ```bash
-# Handoff to Design Architect
-/coherence design-architect
+# Handoff to Designer
+/coherence designer
 
 # Claude Response (with voice notification)
-[Voice: "Design Architect activated. Creating comprehensive UI/UX design system."]
+[Voice: "Designer activated. Creating comprehensive UI/UX design system."]
 
-🎨 **Design Architect - Enterprise Design System**
+🎨 **Designer - Enterprise Design System**
 
 Using parallel design planning with 4 orchestrated intelligence streams:
 ✅ Design system with component library specifications

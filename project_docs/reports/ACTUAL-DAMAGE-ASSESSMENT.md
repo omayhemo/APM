@@ -42,7 +42,7 @@
 | **Voice System** | `.apm/agents/voice/speakAnalyst.sh` | Aug 17 07:39 | File timestamp shows recovery time |
 | **Voice System** | `.apm/agents/voice/speakArchitect.sh` | Aug 17 07:39 | File timestamp shows recovery time |
 | **Voice System** | `.apm/agents/voice/speakBase.sh` | Aug 17 07:39 | File timestamp shows recovery time |
-| **Voice System** | `.apm/agents/voice/speakDesignArchitect.sh` | Aug 17 07:39 | File timestamp shows recovery time |
+| **Voice System** | `.apm/agents/voice/speakDesigner.sh` | Aug 17 07:39 | File timestamp shows recovery time |
 | **Voice System** | `.apm/agents/voice/speakDeveloper.sh` | Aug 17 07:39 | File timestamp shows recovery time |
 | **Voice System** | `.apm/agents/voice/speakOrchestrator.sh` | Aug 17 07:39 | File timestamp shows recovery time |
 | **Voice System** | `.apm/agents/voice/speakPm.sh` | Aug 17 07:39 | File timestamp shows recovery time |
@@ -52,7 +52,7 @@
 | **Agent Personas** | `.apm/agents/personas/analyst.md` | Aug 17 07:38 | File timestamp shows recovery time |
 | **Agent Personas** | `.apm/agents/personas/analyst-demo.md` | Aug 17 07:38 | File timestamp shows recovery time |
 | **Agent Personas** | `.apm/agents/personas/architect.md` | Aug 17 07:38 | File timestamp shows recovery time |
-| **Agent Personas** | `.apm/agents/personas/design-architect.md` | Aug 17 07:38 | File timestamp shows recovery time |
+| **Agent Personas** | `.apm/agents/personas/designer.md` | Aug 17 07:38 | File timestamp shows recovery time |
 | **Agent Personas** | `.apm/agents/personas/developer.md` | Aug 17 07:38 | File timestamp shows recovery time |
 | **Agent Personas** | `.apm/agents/personas/orchestrator.md` | Aug 17 07:38 | File timestamp shows recovery time |
 | **Agent Personas** | `.apm/agents/personas/pm.md` | Aug 17 07:38 | File timestamp shows recovery time |

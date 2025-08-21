@@ -20,7 +20,7 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 1. **Analyst** (`analyst.md`)
 2. **Product Manager** (`pm.md`)
 3. **Architect** (`architect.md`)
-4. **Design Architect** (`design-architect.md`)
+4. **Designer** (`designer.md`)
 5. **Product Owner** (`po.md`)
 6. **Scrum Master** (`sm.md`)
 7. **Developer** (`dev.md`)
@@ -61,7 +61,7 @@ Each persona file now includes a standardized `## 🚀 INITIALIZATION PROTOCOL (
 
 **Key Benefit**: Ready to design with full requirements and constraint awareness
 
-### 4. Design Architect Agent
+### 4. Designer Agent
 **Purpose**: UI/UX and frontend architecture
 **Parallel Loads**:
 - PRD design requirements

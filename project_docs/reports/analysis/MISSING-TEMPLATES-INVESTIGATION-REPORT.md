@@ -66,7 +66,7 @@ The installer templates directory is **completely missing output style templates
    - Scrum master output style
    - Sprint and team coordination focused
 
-9. **`/installer/templates/claude/output-styles/apm-design-architect.md.template`**
+9. **`/installer/templates/claude/output-styles/apm-designer.md.template`**
    - Design architect output style
    - UI/UX and frontend architecture focused
 

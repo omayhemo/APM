@@ -228,7 +228,7 @@ persona_distribution:
       - qa
     optional_personas:
       - analyst
-      - design-architect
+      - designer
     custom_personas:
       - backend-specialist
       - frontend-specialist

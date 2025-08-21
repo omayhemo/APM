@@ -33,7 +33,7 @@
 
 ## 🚀 Complete Coherence Workflow
 
-### Phase 1: Discovery & Design Architecture (Week 1)
+### Phase 1: Discovery & Designerure (Week 1)
 
 #### 1.1 Coherence Orchestration & Strategic Analysis
 ```bash
@@ -52,7 +52,7 @@
 Project complexity: **Advanced**
 Recommended approach: **Full-Stack Coherence with Data Focus**
 Estimated timeline: **3-4 weeks**
-Key personas: **Design Architect, Developer, QA, Data Specialist**
+Key personas: **Designer, Developer, QA, Data Specialist**
 
 Initiating user experience and data visualization requirements analysis...
 ```
@@ -84,13 +84,13 @@ Using orchestrated UX analysis with 5 orchestrated intelligence streams:
 
 #### 1.3 Design System & UI Architecture
 ```bash
-# Handoff to Design Architect for comprehensive UX design
-/coherence design-architect
+# Handoff to Designer for comprehensive UX design
+/coherence designer
 
 # Claude Response (with voice notification)
-[Voice: "Design Architect activated. Creating analytics dashboard design system."]
+[Voice: "Designer activated. Creating analytics dashboard design system."]
 
-🎨 **Design Architect - Dashboard Design System**
+🎨 **Designer - Dashboard Design System**
 
 Using orchestrated design architecture with 6 orchestrated intelligence streams:
 ✅ Dashboard layout patterns and responsive grid system
@@ -541,7 +541,7 @@ insightspro-dashboard/
 
 3. **Mobile-First Design Approach**
    - **Impact**: 37% improvement in mobile usability score
-   - **Key Success**: Design Architect prioritized touch interactions and responsive layouts
+   - **Key Success**: Designer prioritized touch interactions and responsive layouts
    - **Insight**: Dashboard mobile usage is higher than expected (23%)
 
 4. **Performance-Centric Development**

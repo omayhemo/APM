@@ -80,11 +80,11 @@ Phase 3: Technical Design
 │   ├── Technology stack selection
 │   ├── Integration planning
 │   └── Performance considerations
-├── Handoff to Design Architect
+├── Handoff to Designer
 └── Artifacts: Architecture documents, technical specifications
 
 Phase 4: UI/UX Design
-├── Design Architect Agent
+├── Designer Agent
 │   ├── Frontend architecture (/parallel-frontend-architecture)
 │   ├── UI/UX specifications
 │   ├── Component library design
@@ -215,7 +215,7 @@ Voice Mapping Configuration:
 │   ├── Piper: "joe" (facilitative, organized)
 │   ├── ElevenLabs: "josh" (process-focused)
 │   └── System: "Daniel" (coordination)
-└── Design Architect
+└── Designer
     ├── Piper: "kusal" (creative, aesthetic)
     ├── ElevenLabs: "bella" (design-focused)
     └── System: "Karen" (artistic)
@@ -337,7 +337,7 @@ Specialist Commands:
 │   ├── Parallel initialization: Load architecture patterns, tech stacks
 │   ├── Capabilities: System design, technology selection, integration
 │   └── Parallel tasks: /parallel-architecture (75% faster design)
-├── /design-architect
+├── /designer
 │   ├── Parallel initialization: Load design systems, UI patterns
 │   ├── Capabilities: Frontend architecture, UI/UX design, components
 │   └── Parallel tasks: /parallel-frontend-architecture, /parallel-ai-prompt
@@ -423,7 +423,7 @@ Command Recognition System:
 │   ├── "qa" → Execute /qa command
 │   ├── "dev" or "developer" → Execute /dev command
 │   ├── "sm" → Execute /sm command
-│   └── "design architect" → Execute /design-architect command
+│   └── "design architect" → Execute /designer command
 ├── Intent Recognition
 │   ├── "I have an idea" → Suggest /analyst activation
 │   ├── "I need a PRD" → Suggest /pm activation

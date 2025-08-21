@@ -120,7 +120,7 @@ After ai-prompt completion:
 
 ## Overview
 - **Ai-prompt Type**: [Type/Category]
-- **Agent**: Design Architect
+- **Agent**: Designer
 - **Completion Date**: [Date]
 - **Status**: [Complete/In Progress]
 
@@ -160,7 +160,7 @@ After ai-prompt completion:
 ## Voice Notifications
 
 ```bash
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Sequential ai-prompt beginning. Launching guided development process..."
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh "Sequential ai-prompt beginning. Launching guided development process..."
 ```
 
 ## Success Metrics
@@ -236,7 +236,7 @@ I'm initializing the Parallel AI Prompt Generation process. Let me load all requ
 
 ## Native Implementation Architecture
 
-This command uses native sub-agent parallelism to spawn Design Architect AI specialists:
+This command uses native sub-agent parallelism to spawn Designer AI specialists:
 
 ### Phase 1: AI Context Loading (5 tasks in parallel)
 1. **Load AI Prompt Standards**: Best practices and prompt engineering principles
@@ -259,7 +259,7 @@ This command uses native sub-agent parallelism to spawn Design Architect AI spec
 
 ## Expected Outcomes
 
-- **Parallel Prompt Streams**: 4 Design Architect AI agents working simultaneously
+- **Parallel Prompt Streams**: 4 Designer AI agents working simultaneously
 - **Coordinated Framework**: Seamless integration of all AI prompt development aspects
 - **Accelerated Development**: 75% reduction in sequential prompt development time
 - **Quality Assurance**: Built-in testing and validation frameworks
@@ -354,7 +354,7 @@ This command uses native sub-agent parallelism to spawn Design Architect AI spec
 
 1. **Context Loading**: Load all AI prompt context in parallel (5 tasks)
 2. **Stream Analysis**: Analyze requirements for each prompt development domain
-3. **Agent Spawning**: Launch 4 specialized Design Architect AI agents
+3. **Agent Spawning**: Launch 4 specialized Designer AI agents
 4. **Parallel Execution**: Execute all streams simultaneously with coordination
 5. **Integration Monitoring**: Track dependencies and prompt consistency
 6. **Results Synthesis**: Aggregate all stream results into unified AI framework
@@ -398,7 +398,7 @@ This command uses native sub-agent parallelism to spawn Design Architect AI spec
 ## Voice Notifications
 
 ```bash
-bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh "Parallel AI prompt generation launching. Initiating 4 simultaneous development streams for 75% AI prompt acceleration..."
+bash /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh "Parallel AI prompt generation launching. Initiating 4 simultaneous development streams for 75% AI prompt acceleration..."
 ```
 
 ## Native Sub-Agent Activation

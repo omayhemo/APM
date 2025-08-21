@@ -36,7 +36,7 @@ All voice scripts are located in: `/mnt/c/Code/agentic-persona-mapping/.apm/agen
 - `speakOrchestrator.sh` - Coherence Orchestrator voice (formerly AP Orchestrator)
 - `speakDeveloper.sh` - Developer persona voice
 - `speakArchitect.sh` - System Architect voice
-- `speakDesignArchitect.sh` - Design Architect voice
+- `speakDesigner.sh` - Designer voice
 - `speakAnalyst.sh` - Business Analyst voice
 - `speakQa.sh` - Quality Assurance voice
 - `speakPm.sh` - Project Manager voice

@@ -26,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `personas/po.md` - Product Owner with advanced grooming
 - `personas/sm.md` - Scrum Master with parallel sprint coordination
 - `personas/analyst.md` - Business Analyst with research capabilities
-- `personas/design-architect.md` - Design Architect with UI/UX focus
+- `personas/designer.md` - Designer with UI/UX focus
 
 #### Infrastructure Templates
 - `parallel-execution-patterns.md` - Core parallel execution patterns

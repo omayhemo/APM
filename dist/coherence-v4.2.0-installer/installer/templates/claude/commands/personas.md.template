@@ -31,7 +31,7 @@ description: List available AP Mapping personas and their capabilities
 - Scalability and security planning
 - Technical decision documentation
 
-### 5. **Design Architect** (/design-architect)
+### 5. **Designer** (/designer)
 - UI/UX architecture
 - Frontend design systems
 - Component library planning

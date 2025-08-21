@@ -76,7 +76,7 @@ The `.apm` directory contains the complete Coherence framework installation:
 │   │   ├── po.persona.md
 │   │   ├── qa.persona.md
 │   │   ├── sm.persona.md
-│   │   └── design-architect.persona.md
+│   │   └── designer.persona.md
 │   └── voice/                      # Voice Notification Scripts
 │       ├── speakOrchestrator.sh
 │       ├── speakAnalyst.sh
@@ -86,7 +86,7 @@ The `.apm` directory contains the complete Coherence framework installation:
 │       ├── speakPo.sh
 │       ├── speakQa.sh
 │       ├── speakSm.sh
-│       └── speakDesignArchitect.sh
+│       └── speakDesigner.sh
 ├── session_notes/                  # Session Management
 │   ├── archive/                    # Archived Session Notes
 │   ├── 2025-01-15-14-30-00-Orchestrator.md
@@ -121,7 +121,7 @@ Contains persona definition files generated from master JSON definitions.
 | `po.persona.md` | Product Owner | `payload/personas/_master/po.persona.json` |
 | `qa.persona.md` | QA Engineer | `payload/personas/_master/qa.persona.json` |
 | `sm.persona.md` | Scrum Master | `payload/personas/_master/sm.persona.json` |
-| `design-architect.persona.md` | Design Architect | `payload/personas/_master/design-architect.persona.json` |
+| `designer.persona.md` | Designer | `payload/personas/_master/designer.persona.json` |
 
 #### `/agents/voice/`
 Voice notification scripts for audio feedback.
@@ -136,7 +136,7 @@ Voice notification scripts for audio feedback.
 | `speakPo.sh` | Product Owner | Linux/macOS/WSL |
 | `speakQa.sh` | QA Engineer | Linux/macOS/WSL |
 | `speakSm.sh` | Scrum Master | Linux/macOS/WSL |
-| `speakDesignArchitect.sh` | Design Architect | Linux/macOS/WSL |
+| `speakDesigner.sh` | Designer | Linux/macOS/WSL |
 
 #### `/session_notes/`
 Session management with automatic archiving.
@@ -244,7 +244,7 @@ The `.claude` directory integrates APM with Claude Code:
 │   ├── po.md                      # PO Activation
 │   ├── qa.md                      # QA Activation
 │   ├── sm.md                      # SM Activation
-│   ├── design-architect.md        # Design Architect Activation
+│   ├── designer.md        # Designer Activation
 │   ├── parallel-sprint.md         # Parallel Development
 │   ├── qa-framework.md            # QA Framework
 │   └── handoff.md                 # Persona Handoff
@@ -296,7 +296,7 @@ payload/
 │       ├── po.persona.json
 │       ├── qa.persona.json
 │       ├── sm.persona.json
-│       └── design-architect.persona.json
+│       └── designer.persona.json
 ├── templates/                      # Template System
 │   ├── APM-README.md.template
 │   ├── claude/
@@ -378,7 +378,7 @@ APM v4.1.0 introduces the unified persona system with single source of truth:
 - **Examples**:
   - `speakDeveloper.sh`
   - `speakOrchestrator.sh`
-  - `speakDesignArchitect.sh`
+  - `speakDesigner.sh`
 
 ### Command Files
 - **Format**: `{command-name}.md`

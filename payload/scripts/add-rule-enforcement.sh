@@ -29,7 +29,7 @@ AGENT_COMMANDS=(
     "dev"
     "developer"
     "pm"
-    "design-architect"
+    "designer"
     "ap_orchestrator"
 )
 
@@ -222,7 +222,7 @@ echo "Verifying Rule Loading in Agent Templates"
 echo "=========================================="
 echo ""
 
-AGENTS=("po" "sm" "qa" "analyst" "architect" "dev" "developer" "pm" "design-architect" "ap_orchestrator")
+AGENTS=("po" "sm" "qa" "analyst" "architect" "dev" "developer" "pm" "designer" "ap_orchestrator")
 
 for agent in "${AGENTS[@]}"; do
     template="$COMMANDS_DIR/${agent}.md.template"

@@ -119,7 +119,7 @@ supporting_files=(
     "/mnt/c/Code/agentic-persona-mapping/payload/personas/_master/po.persona.json"
     "/mnt/c/Code/agentic-persona-mapping/payload/personas/_master/qa.persona.json"
     "/mnt/c/Code/agentic-persona-mapping/payload/personas/_master/sm.persona.json"
-    "/mnt/c/Code/agentic-persona-mapping/payload/personas/_master/design-architect.persona.json"
+    "/mnt/c/Code/agentic-persona-mapping/payload/personas/_master/designer.persona.json"
     
     # Template files that might contain command references
     "/mnt/c/Code/agentic-persona-mapping/payload/personas/_templates/apm.persona.template"

@@ -139,7 +139,7 @@ Dependencies: S1.1 deployment must complete first
 
 **✅ CORRECT - ALWAYS USE:**
 ```
-/analyst   /pm   /architect   /dev   /qa   /po   /sm   /design-architect
+/analyst   /pm   /architect   /dev   /qa   /po   /sm   /designer
 ```
 
 **❌ WRONG - NEVER USE:**
@@ -178,12 +178,12 @@ I can activate any of these specialized agents using their **SLASH COMMANDS**:
 - **Parallel**: `/parallel-planning-architecture` (75% faster system design)
 - **⚠️ USE SLASH COMMAND**: `/architect` (NOT "activate architect" or "design the system")
 
-**4. Design Architect** 🎨
+**4. Designer** 🎨
 - UI/UX design and frontend architecture
 - Design systems and component libraries
 - User experience optimization
 - **Parallel**: `/parallel-frontend-architecture`, `/parallel-ai-prompt`
-- **⚠️ USE SLASH COMMAND**: `/design-architect` (NOT "activate design architect" or "design UI")
+- **⚠️ USE SLASH COMMAND**: `/designer` (NOT "activate design architect" or "design UI")
 
 **5. Product Owner (PO)** 📋
 - Backlog management and grooming
@@ -219,7 +219,7 @@ I can activate any of these specialized agents using their **SLASH COMMANDS**:
 | Analyst | Research & Requirements | `/analyst` | "activate analyst" |
 | PM | Product Strategy | `/pm` | "switch to PM" |
 | Architect | System Design | `/architect` | "become architect" |
-| Design Architect | UI/UX Design | `/design-architect` | "load design architect" |
+| Designer | UI/UX Design | `/designer` | "load design architect" |
 | Product Owner | Backlog Management | `/po` | "activate PO" |
 | Scrum Master | Sprint Coordination | `/sm` | "be scrum master" |
 | Developer | Implementation | `/dev` or `/developer` | "activate developer" |
@@ -282,7 +282,7 @@ Follow the AP Mapping workflow:
 1. **Analyst** → Project brief and research
 2. **PM** → Product Requirements Document
 3. **Architect** → Technical design
-4. **Design Architect** → UI/UX specifications
+4. **Designer** → UI/UX specifications
 5. **PO** → Backlog grooming
 6. **SM** → Story creation
 7. **Developer** → Implementation

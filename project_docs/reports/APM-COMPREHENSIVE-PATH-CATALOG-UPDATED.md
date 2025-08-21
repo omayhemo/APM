@@ -50,7 +50,7 @@ This report provides an updated comprehensive catalog of all path references in 
 | `{{SPEAK_PO}}` | `$AP_ROOT/voice/speakPo.sh` | 22+ | Product Owner |
 | `{{SPEAK_SM}}` | `$AP_ROOT/voice/speakSm.sh` | 20+ | Scrum Master |
 | `{{SPEAK_ANALYST}}` | `$AP_ROOT/voice/speakAnalyst.sh` | 18+ | Analyst |
-| `{{SPEAK_DESIGN_ARCHITECT}}` | `$AP_ROOT/voice/speakDesignArchitect.sh` | 15+ | Design Architect |
+| `{{SPEAK_DESIGNER}}` | `$AP_ROOT/voice/speakDesigner.sh` | 15+ | Designer |
 
 ### Environment Variables (Runtime Resolution)
 
@@ -217,7 +217,7 @@ SPEAK_PM="$AP_ROOT/voice/speakPm.sh"
 SPEAK_PO="$AP_ROOT/voice/speakPo.sh"
 SPEAK_SM="$AP_ROOT/voice/speakSm.sh"
 SPEAK_ANALYST="$AP_ROOT/voice/speakAnalyst.sh"
-SPEAK_DESIGN_ARCHITECT="$AP_ROOT/voice/speakDesignArchitect.sh"
+SPEAK_DESIGNER="$AP_ROOT/voice/speakDesigner.sh"
 ```
 
 ## Recommendations

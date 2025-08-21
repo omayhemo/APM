@@ -66,7 +66,7 @@
     - po.md
     - qa.md
     - sm.md
-    - design-architect.md
+    - designer.md
 
   Task 4: Check Commands
 

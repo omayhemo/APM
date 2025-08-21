@@ -97,7 +97,7 @@ echo "Architect Commands:"
 test_command "architecture" "Architect" 1
 
 echo ""
-echo "Design Architect Commands:"
+echo "Designer Commands:"
 test_command "frontend-architecture" "Design" 1
 test_command "ux-spec" "Design" 1
 test_command "ai-prompt" "Design" 1
@@ -151,9 +151,9 @@ echo "Parallel Architect Commands:"
 test_command "parallel-architecture" "Architect" 2
 
 echo ""
-echo "Parallel Design Architect Commands:"
-test_command "parallel-ai-prompt" "Design Architect" 2
-test_command "parallel-frontend-architecture" "Design Architect" 2
+echo "Parallel Designer Commands:"
+test_command "parallel-ai-prompt" "Designer" 2
+test_command "parallel-frontend-architecture" "Designer" 2
 
 echo ""
 echo "Parallel Project Manager Commands:"
@@ -222,7 +222,7 @@ UTILITY_COMMANDS=(
     "version"
     "analyst"
     "architect"
-    "design-architect"
+    "designer"
     "dev"
     "developer"
     "pm"

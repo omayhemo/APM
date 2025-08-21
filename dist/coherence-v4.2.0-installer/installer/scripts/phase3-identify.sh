@@ -43,7 +43,7 @@ UTILITY_COMMANDS=(
     "version"
     "analyst"
     "architect"
-    "design-architect"
+    "designer"
     "dev"
     "developer"
     "pm"

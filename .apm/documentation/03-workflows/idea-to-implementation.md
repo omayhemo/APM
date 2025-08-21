@@ -125,7 +125,7 @@ User describes idea → /coherence → /analyst → Unified context concept anal
 
 ### 3.2 User Experience Design
 ```
-/design-architect → UX design → /parallel-frontend-architecture → UI specification
+/designer → UX design → /parallel-frontend-architecture → UI specification
 ```
 
 **UX Design Process:**
@@ -359,7 +359,7 @@ Production monitoring → /qa-anomaly → Issue detection → /parallel-course-c
 
 ### Phase 3 (Architecture)
 - `/parallel-planning-architecture` - Multi-faceted architecture design with unified context engineering
-- `/design-architect` - User experience design through orchestrated intelligence
+- `/designer` - User experience design through orchestrated intelligence
 - `/architect` - System architecture with coherent workflow integration
 
 ### Phase 4 (Development)

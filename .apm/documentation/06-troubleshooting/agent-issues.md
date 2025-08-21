@@ -14,7 +14,7 @@ This guide addresses problems specific to Coherence agent personas, their activa
 - **Coherence Orchestrator** (`/coherence`): Central coordination and delegation
 - **Developer** (`/dev`): Code implementation and technical tasks
 - **Architect** (`/architect`): System architecture and design
-- **Design Architect** (`/design-architect`): UI/UX architecture
+- **Designer** (`/designer`): UI/UX architecture
 - **Analyst** (`/analyst`): Research and data analysis
 - **Project Manager** (`/pm`): Project coordination and planning
 - **Product Owner** (`/po`): Product requirements and priorities

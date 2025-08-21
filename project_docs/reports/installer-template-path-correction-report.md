@@ -34,7 +34,7 @@ The `groom-backlog-task.md.template` expects critical documents in project_docs 
 |---------|------|------|--------------|-----------|
 | Analyst | analyst.md.template | 14 | `deliverables/reports/` | `project_docs/research/reports/` |
 | Architect | architect.md.template | 16 | `deliverables/artifacts/` | `project_docs/architecture/artifacts/` |
-| Design Architect | design-architect.md.template | 16 | `deliverables/artifacts/` | `project_docs/design/artifacts/` |
+| Designer | designer.md.template | 16 | `deliverables/artifacts/` | `project_docs/design/artifacts/` |
 | Developer | dev.md.template | 8 | `deliverables/releases/` | `project_docs/releases/` |
 | PM | pm.md.template | 7 | `deliverables/reports/` | `project_docs/requirements/reports/` |
 | PO | po.md.template | 13-15 | `project_docs/` (entire) | `project_docs/backlog/`, `project_docs/stories/` |
@@ -77,10 +77,10 @@ project_docs/
 │   └── stories/              # PO/SM user stories
 ├── architecture/
 │   ├── architecture.md       # Architect main doc
-│   ├── frontend-architecture.md  # Design Architect
+│   ├── frontend-architecture.md  # Designer
 │   └── artifacts/            # Architecture artifacts
 ├── design/
-│   ├── uxui-spec.md          # Design Architect
+│   ├── uxui-spec.md          # Designer
 │   ├── components/           # Component designs
 │   └── artifacts/            # Design artifacts
 ├── qa/
@@ -99,7 +99,7 @@ project_docs/
 ### Priority 1: Persona Templates (8 files)
 1. `analyst.md.template` - Update deliverables path
 2. `architect.md.template` - Update deliverables path
-3. `design-architect.md.template` - Update deliverables path
+3. `designer.md.template` - Update deliverables path
 4. `dev.md.template` - Update deliverables path
 5. `pm.md.template` - Update deliverables path
 6. `po.md.template` - Restrict workspace access
@@ -153,7 +153,7 @@ Implementing these corrections will ensure all generated APM installations have 
 2. **po.md.template** - Restricted workspace boundaries to specific subdirectories
 3. **analyst.md.template** - Updated deliverables path to project_docs/research/
 4. **architect.md.template** - Updated deliverables path to project_docs/architecture/
-5. **design-architect.md.template** - Updated deliverables path to project_docs/design/
+5. **designer.md.template** - Updated deliverables path to project_docs/design/
 6. **dev.md.template** - Updated deliverables path to project_docs/releases/
 7. **pm.md.template** - Updated deliverables path to project_docs/requirements/
 8. **sm.md.template** - Updated deliverables path to project_docs/planning/
@@ -168,7 +168,7 @@ Implementing these corrections will ensure all generated APM installations have 
 4. **sm.md.template** - Updated backlog path to standard location
 5. **pm.md.template** - Updated project brief and PRD paths
 6. **architect.md.template** - Updated PRD and architecture document paths
-7. **design-architect.md.template** - Updated frontend architecture path
+7. **designer.md.template** - Updated frontend architecture path
 8. **dev.md.template** - Updated architecture document path
 9. **developer.md.template** - Updated architecture document path
 10. **qa.md.template** - Updated PRD path

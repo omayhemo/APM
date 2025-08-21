@@ -54,7 +54,7 @@ coherence           # Natural language activation
 /analyst           # Research & requirements gathering
 /pm                # Product strategy & PRDs
 /architect         # System design & architecture
-/design-architect  # UI/UX & frontend architecture
+/designer  # UI/UX & frontend architecture
 /po                # Backlog management & grooming
 /sm                # Sprint planning & story creation
 /dev               # Code implementation & review
@@ -83,7 +83,7 @@ coherence           # Natural language activation
 | 🔍 **Analyst** | `/analyst` | Research, requirements, market analysis | 4 parallel commands |
 | 📊 **Product Manager** | `/pm` | PRDs, product strategy, roadmaps | 1 parallel command |
 | 🏗️ **Architect** | `/architect` | System design, technical architecture | 3 parallel commands |
-| 🎨 **Design Architect** | `/design-architect` | UI/UX, frontend architecture | 2 parallel commands |
+| 🎨 **Designer** | `/designer` | UI/UX, frontend architecture | 2 parallel commands |
 | 📋 **Product Owner** | `/po` | Backlog management, story grooming | 6 parallel commands |
 | 🏃 **Scrum Master** | `/sm` | Sprint planning, story creation | 4 parallel commands |
 | 💻 **Developer** | `/dev` | Code implementation, optimization | 2 parallel commands |

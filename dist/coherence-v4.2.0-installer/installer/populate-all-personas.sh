@@ -369,16 +369,16 @@ cat > "$PERSONAS_DIR/sm.persona.json" <<'EOF'
 }
 EOF
 
-# Design Architect persona
-cat > "$PERSONAS_DIR/design-architect.persona.json" <<'EOF'
+# Designer persona
+cat > "$PERSONAS_DIR/designer.persona.json" <<'EOF'
 {
-  "_comment": "Master persona definition for Design Architect Agent",
+  "_comment": "Master persona definition for Designer Agent",
   "metadata": {
-    "id": "design-architect",
-    "name": "Design Architect Agent",
-    "title": "Design Architect",
+    "id": "designer",
+    "name": "Designer Agent",
+    "title": "Designer",
     "version": "3.3.0",
-    "description": "Expert Design Architect - UI/UX & Frontend Strategy Lead",
+    "description": "Expert Designer - UI/UX & Frontend Strategy Lead",
     "category": "design",
     "apm_compatibility": "3.2+",
     "claude_compatibility": "native"
@@ -397,14 +397,14 @@ cat > "$PERSONAS_DIR/design-architect.persona.json" <<'EOF'
       "parallel-ai-prompt"
     ],
     "slash_commands": [
-      "/design-architect",
+      "/designer",
       "/planning-ux-spec",
       "/frontend-architecture"
     ]
   },
   "configuration": {
-    "voice_script": "speakDesignArchitect.sh",
-    "voice_script_path": "{{AP_ROOT}}/agents/voice/speakDesignArchitect.sh",
+    "voice_script": "speakDesigner.sh",
+    "voice_script_path": "{{AP_ROOT}}/agents/voice/speakDesigner.sh",
     "working_directories": {
       "primary": "{{PROJECT_ROOT}}/project_docs/specifications/",
       "secondary": "{{PROJECT_ROOT}}/workspace/components/",
@@ -421,7 +421,7 @@ cat > "$PERSONAS_DIR/design-architect.persona.json" <<'EOF'
     }
   },
   "content_sections": {
-    "role_definition": "# Role: Design Architect - Expert Design Architect - UI/UX & Frontend Strategy Lead",
+    "role_definition": "# Role: Designer - Expert Designer - UI/UX & Frontend Strategy Lead",
     "critical_header": "\n🔴 **CRITICAL**",
     "research_protocols": "\n## 🔴 CRITICAL: RESEARCH PROTOCOLS",
     "workspace_boundaries": "\n## 🚧 WORKSPACE BOUNDARIES",
@@ -430,11 +430,11 @@ cat > "$PERSONAS_DIR/design-architect.persona.json" <<'EOF'
   "deployment": {
     "apm": {
       "enabled": true,
-      "output_path": "templates/agents/personas/design-architect.md.template"
+      "output_path": "templates/agents/personas/designer.md.template"
     },
     "claude": {
       "enabled": true,
-      "output_path": "templates/claude/agents/personas/design-architect.md.template"
+      "output_path": "templates/claude/agents/personas/designer.md.template"
     }
   }
 }
@@ -520,7 +520,7 @@ echo "  - pm.persona.json"
 echo "  - po.persona.json"
 echo "  - qa.persona.json"
 echo "  - sm.persona.json"
-echo "  - design-architect.persona.json"
+echo "  - designer.persona.json"
 echo "  - orchestrator.persona.json"
 echo ""
 echo "Total: 9 persona definitions (including analyst and architect)"

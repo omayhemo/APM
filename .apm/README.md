@@ -47,7 +47,7 @@ Learn about each specialized agent and when to use them:
 - [`analyst-guide.md`](documentation/02-personas/analyst-guide.md) - Research & requirements specialist
 - [`pm-guide.md`](documentation/02-personas/pm-guide.md) - Product management expert
 - [`architect-guide.md`](documentation/02-personas/architect-guide.md) - System design specialist
-- [`design-architect-guide.md`](documentation/02-personas/design-architect-guide.md) - UI/UX expert
+- [`designer-guide.md`](documentation/02-personas/designer-guide.md) - UI/UX expert
 - [`po-guide.md`](documentation/02-personas/po-guide.md) - Backlog management specialist
 - [`sm-guide.md`](documentation/02-personas/sm-guide.md) - Scrum process expert
 - [`developer-guide.md`](documentation/02-personas/developer-guide.md) - Code implementation specialist
@@ -130,7 +130,7 @@ Each agent is an expert in their domain:
 - **🔍 Analyst** - Research and requirements gathering
 - **📊 PM** - Product management and PRD creation  
 - **🏗️ Architect** - System design and technical architecture
-- **🎨 Design Architect** - UI/UX and frontend architecture
+- **🎨 Designer** - UI/UX and frontend architecture
 - **📋 PO** - Backlog management and story grooming
 - **🏃 SM** - Scrum process and story creation
 - **💻 Developer** - Code implementation

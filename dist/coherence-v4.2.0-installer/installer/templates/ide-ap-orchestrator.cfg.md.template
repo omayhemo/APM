@@ -48,12 +48,12 @@ Example: If above cfg has `agent-root: root/foo/` and `tasks: (agent-root)/tasks
   - [Create Next Story]({{AP_TASKS}}/create-next-story-task.md)
   - [Slice Documents]({{AP_TASKS}}/documentation-shard-task.md)
 
-## Title: Design Architect
+## Title: Designer
 
 - Name: DesignArchitect
 - Customize: ""
 - Description: "Help design a website or web application, produce prompts for UI GEneration AI's, and plan a full comprehensive front end architecture."
-- Persona: "design-architect.md"
+- Persona: "designer.md"
 - Tasks:
   - [Create Frontend Architecture]({{AP_TASKS}}/create-frontend-architecture.md)
   - [Create AI Frontend Prompt]({{AP_TASKS}}/create-ai-frontend-prompt.md)

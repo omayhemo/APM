@@ -90,7 +90,7 @@
     - parallel-architecture
     - parallel-ai-prompt
 
-  Design Architect - 3 Commands (Frontend/UI Focus)
+  Designer - 3 Commands (Frontend/UI Focus)
 
   Core Commands:
     - frontend-architecture    # Frontend architecture
@@ -137,7 +137,7 @@
 
     - analyst                  # Activates Analyst
     - architect                # Activates Architect  
-    - design-architect         # Activates Design Architect
+    - designer         # Activates Designer
     - dev / developer          # Activates Developer
     - pm                       # Activates PM
     - po                       # Activates PO

@@ -84,7 +84,7 @@ This activates the Coherence Orchestrator with native sub-agent architecture and
 /analyst          # Research & requirements gathering
 /pm               # Product strategy & PRDs
 /architect        # System design & architecture
-/design-architect # UI/UX & frontend architecture
+/designer # UI/UX & frontend architecture
 /po               # Backlog management & grooming
 /sm               # Sprint planning & story creation
 /dev              # Code implementation & review

@@ -91,7 +91,7 @@ curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4
 - **Zero-Config Experience**: Automatic tech stack detection for 90%+ of projects
 
 ### Core Capabilities
-- **9 Specialized Agents**: PM, Architect, Developer, QA, PO, SM, Analyst, Design Architect
+- **9 Specialized Agents**: PM, Architect, Developer, QA, PO, SM, Analyst, Designer
 - **45+ Parallel Commands**: Every persona enhanced with native sub-agent capabilities
 - **AI/ML QA Framework**: 92% failure prediction, 94% anomaly detection accuracy
 - **Test Monitoring**: Real-time CLI monitoring, web dashboard, and metrics collection
@@ -133,7 +133,7 @@ your-project/
     ├── epics/                   # Epic definitions (PO)
     ├── stories/                 # User stories (PO, SM)
     ├── architecture/            # System & frontend architecture (Architect, Design)
-    ├── design/                  # UI/UX specifications (Design Architect)
+    ├── design/                  # UI/UX specifications (Designer)
     ├── qa/                      # Test plans, results, reports (QA)
     │   ├── test-plans/
     │   ├── test-results/
@@ -154,7 +154,7 @@ your-project/
 - **Analyst**: Research and requirements with parallel analysis capabilities
 - **PM**: Product strategy with concurrent planning execution
 - **Architect**: System design with `/parallel-planning-architecture-review` (4x speedup)
-- **Design Architect**: UI/UX with parallel component analysis
+- **Designer**: UI/UX with parallel component analysis
 - **PO**: Backlog management with `/planning-groom` (18 native sub-agents, 4x speedup)
 - **SM**: Sprint coordination with `/parallel-implementation-sprint` (4.6x speedup)
 - **Developer**: Implementation with `/parallel-review` (4x speedup)
@@ -182,7 +182,7 @@ The installer will:
 - `/analyst` - Activate Business Analyst for requirements gathering
 - `/pm` - Activate Product Manager for PRDs and feature planning  
 - `/architect` - Activate System Architect for technical design
-- `/design-architect` - Activate Design Architect for UI/UX and frontend
+- `/designer` - Activate Designer for UI/UX and frontend
 - `/po` - Activate Product Owner for backlog management
 - `/sm` - Activate Scrum Master for story creation and sprint planning
 - `/dev` or `/developer` - Activate Developer for code implementation
@@ -592,7 +592,7 @@ After installation, see:
 | `/analyst` or `analyst` | Analyst | Brainstorming, research planning, and project brief creation |
 | `/pm` or `pm` | Product Manager | PRD creation and strategic product planning |
 | `/architect` or `architect` | System Architect | Technical architecture and system design |
-| `/design-architect` or `design architect` | Design Architect | UI/UX design and frontend architecture |
+| `/designer` or `design architect` | Designer | UI/UX design and frontend architecture |
 | `/po` or `po` | Product Owner | Epic creation, story management, and backlog refinement |
 | `/sm` or `sm` | Scrum Master | Story preparation and sprint management |
 | `/dev` or `developer` or `dev` | Developer | Code implementation and technical execution |
@@ -705,11 +705,11 @@ After installation, see:
 
 ---
 
-## Design Architect Agent Commands & Tasks
+## Designer Agent Commands & Tasks
 
 ### Core Activation
-- **Command**: `/design-architect` or `design architect`
-- **Voice Script**: `bash $SPEAK_DESIGN_ARCHITECT "MESSAGE"`
+- **Command**: `/designer` or `design architect`
+- **Voice Script**: `bash $SPEAK_DESIGNER "MESSAGE"`
 
 ### Available Tasks
 1. **Create Frontend Architecture** 🏗️

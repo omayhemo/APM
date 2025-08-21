@@ -140,7 +140,7 @@ def main():
             '/architect': 'architect',
             '/analyst': 'analyst',
             '/sm': 'sm',
-            '/design-architect': 'design-architect'
+            '/designer': 'designer'
         }
         
         for cmd, persona in persona_commands.items():

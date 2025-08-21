@@ -113,7 +113,7 @@ bash templates/templates/claude/agents/voice/voice-persona-scripts-template.sh.t
 # - /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPm.sh
 # - /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakPo.sh
 # - /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakSm.sh
-# - /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesignArchitect.sh
+# - /mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/speakDesigner.sh
 ```
 
 ### Step 5: Configure Settings
@@ -381,7 +381,7 @@ bash templates/templates/claude/agents/voice/voice-persona-scripts-template.sh.t
 TTS_PROVIDER=nonexistent /mnt/c/Code/agentic-persona-mapping/.apm/agents/scripts/tts-manager.sh speak developer "Testing fallback"
 
 # Test voice mappings
-for persona in orchestrator developer architect analyst qa pm po sm design_architect; do
+for persona in orchestrator developer architect analyst qa pm po sm designer; do
     echo "Testing $persona..."
     /mnt/c/Code/agentic-persona-mapping/.apm/agents/scripts/tts-manager.sh speak $persona "Testing voice for $persona persona"
 done

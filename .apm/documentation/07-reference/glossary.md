@@ -65,8 +65,8 @@ The sequence of operations executed when an APM command is invoked, including se
 
 ### **D**
 
-**Design Architect**
-An APM persona specializing in user interface design, user experience architecture, and design system creation. Activated with `/design-architect`.
+**Designer**
+An APM persona specializing in user interface design, user experience architecture, and design system creation. Activated with `/designer`.
 
 **Developer Agent**
 An APM persona focused on code implementation, testing, and technical documentation. Activated with `/developer` or `/dev`.
@@ -87,7 +87,7 @@ A direct transition from one persona to another without session compaction, pres
 ### **P**
 
 **Persona**
-A specialized AI role with specific capabilities, responsibilities, and behavioral patterns. APM includes 9 core personas: Orchestrator, Analyst, Architect, Developer, PM, PO, QA, SM, and Design Architect.
+A specialized AI role with specific capabilities, responsibilities, and behavioral patterns. APM includes 9 core personas: Orchestrator, Analyst, Architect, Developer, PM, PO, QA, SM, and Designer.
 
 **Persona Activation**
 The process of transforming Claude into a specific persona role, including loading relevant context, activating voice notifications, and applying behavioral rules.
@@ -436,7 +436,7 @@ The use of APM to automate repetitive development tasks and enforce consistent p
 | **SAST** | Static Application Security Testing | Code-level security analysis |
 | **SM** | Scrum Master | APM persona for agile process facilitation |
 | **TTS** | Text-to-Speech | Technology for voice notifications |
-| **UI/UX** | User Interface/User Experience | Design aspects handled by Design Architect persona |
+| **UI/UX** | User Interface/User Experience | Design aspects handled by Designer persona |
 | **WSL** | Windows Subsystem for Linux | Windows compatibility layer for Linux tools |
 
 ---

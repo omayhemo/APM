@@ -10,7 +10,7 @@ This file provides guidance to AI CLI when working with code in this repository 
 
 ### ✅ CORRECT - ALWAYS USE:
 ```
-/analyst   /pm   /architect   /dev   /qa   /coherence   /po   /sm   /design-architect
+/analyst   /pm   /architect   /dev   /qa   /coherence   /po   /sm   /designer
 ```
 
 ### ❌ WRONG - NEVER USE:
@@ -157,7 +157,7 @@ All agents use voice scripts from the agents/voice/ directory:
 - PM: {{AP_ROOT}}/voice/speakPM.sh
 - PO: {{AP_ROOT}}/voice/speakPO.sh
 - SM: {{AP_ROOT}}/voice/speakSM.sh
-- Design Architect: {{AP_ROOT}}/voice/speakDesignArchitect.sh
+- Designer: {{AP_ROOT}}/voice/speakDesigner.sh
 
 ## 📋 COHERENCE COMMAND VALIDATION CHECKLIST
 
@@ -200,7 +200,7 @@ When a user types these keywords as their FIRST message, you MUST execute the fu
 - "qa" → Execute FULL `/qa` command with parallel init
 - "dev" or "developer" → Execute FULL `/dev` command with parallel init
 - "sm" → Execute FULL `/sm` command with parallel init
-- "design architect" → Execute FULL `/design-architect` command with parallel init
+- "design architect" → Execute FULL `/designer` command with parallel init
 
 **CRITICAL**: You must execute the COMPLETE command as defined in `.claude/commands/[command].md`, not just activate the persona.
 
@@ -231,7 +231,7 @@ Initialize session notes directories for coherent session management
 - `/analyst` - Activate Analyst Agent (with unified context)
 - `/pm` - Activate Product Manager Agent (with orchestrated intelligence)
 - `/architect` - Activate System Architect Agent (with coherent integration)
-- `/design-architect` - Activate Design Architect Agent (with unified aesthetic)
+- `/designer` - Activate Designer Agent (with unified aesthetic)
 - `/po` - Activate Product Owner Agent (with coordinated priorities)
 - `/sm` - Activate Scrum Master Agent (with seamless methodology)
 - `/dev` or `/developer` - Activate Developer Agent (with unified architectural vision)

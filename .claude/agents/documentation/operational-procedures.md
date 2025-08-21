@@ -208,7 +208,7 @@ User: "architect"
 #### Design System Architecture
 ```bash
 # Activate design system architect
-User: "design-architect"
+User: "designer"
 
 # Design system responsibilities
 1. Component library management and evolution

@@ -137,7 +137,7 @@ create_master_definitions() {
 # Helper functions for JSON generation
 capitalize_first_letter() {
     local input=$1
-    if [[ "$input" == "design-architect" ]]; then
+    if [[ "$input" == "designer" ]]; then
         echo "DesignArchitect"
     elif [[ "$input" == "orchestrator" ]]; then
         echo "Orchestrator"
@@ -155,7 +155,7 @@ get_core_capabilities() {
         "architect")
             echo '["system_architecture", "technical_design", "scalability_planning", "technology_selection", "architecture_documentation", "code_review"]'
             ;;
-        "design-architect")
+        "designer")
             echo '["ui_ux_design", "design_systems", "user_experience", "accessibility", "design_patterns", "prototyping"]'
             ;;
         "developer")
@@ -188,7 +188,7 @@ get_parallel_commands() {
         "architect")
             echo '["parallel-architecture", "parallel-frontend-architecture", "parallel-ai-prompt"]'
             ;;
-        "design-architect")
+        "designer")
             echo '["parallel-ux-design", "parallel-design-system", "parallel-accessibility-audit"]'
             ;;
         "developer")
@@ -221,8 +221,8 @@ get_slash_commands() {
         "architect")
             echo '["/architect", "/planning-architecture", "/frontend-architecture", "/ai-prompt"]'
             ;;
-        "design-architect")
-            echo '["/design-architect", "/planning-ux-spec", "/design-system"]'
+        "designer")
+            echo '["/designer", "/planning-ux-spec", "/design-system"]'
             ;;
         "developer")
             echo '["/dev", "/developer", "/planning-planning-review", "/distribution-build"]'
@@ -254,7 +254,7 @@ get_working_directories() {
         "architect")
             echo '{"primary": "{{PROJECT_ROOT}}/project_docs/planning-architecture/", "secondary": "{{PROJECT_ROOT}}/project_docs/technical/", "reports": "{{PROJECT_ROOT}}/project_docs/planning-architecture/reports/"}'
             ;;
-        "design-architect")
+        "designer")
             echo '{"primary": "{{PROJECT_ROOT}}/project_docs/design/", "secondary": "{{PROJECT_ROOT}}/project_docs/ux/", "reports": "{{PROJECT_ROOT}}/project_docs/design/reports/"}'
             ;;
         "developer")
@@ -648,7 +648,7 @@ get_workspace_dirs() {
             echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/planning-architecture/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/technical/\` (generated artifacts)"
             ;;
-        "design-architect")
+        "designer")
             echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/design/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/ux/\` (generated artifacts)"
             ;;
@@ -733,7 +733,7 @@ EOF
 - `/parallel-ai-prompt` - AI-assisted architectural design patterns
 EOF
             ;;
-        "design-architect")
+        "designer")
             cat << 'EOF'
 ### Primary Functions
 - **UI/UX Design**: Create intuitive and engaging user interfaces
@@ -880,7 +880,7 @@ get_parallel_commands() {
             echo "- **\`/parallel-frontend-architecture\`**: Frontend-specific architectural planning"
             echo "- **\`/parallel-ai-prompt\`**: AI-assisted architectural pattern generation"
             ;;
-        "design-architect")
+        "designer")
             echo "- **\`/parallel-ux-design\`**: Multi-perspective user experience design"
             echo "- **\`/parallel-design-system\`**: Comprehensive design system development"
             echo "- **\`/parallel-accessibility-audit\`**: Thorough accessibility compliance planning-review"

@@ -54,7 +54,7 @@ After ALL tasks complete:
 - `ap` or `orchestrator` - AP Orchestrator (default)
 - `dev` or `developer` - Developer agent
 - `architect` - System architect
-- `design` or `design-architect` - Design/UI architect
+- `design` or `designer` - Design/UI architect
 - `analyst` - Business/Requirements analyst
 - `qa` - Quality assurance
 - `pm` - Product manager
@@ -67,7 +67,7 @@ Each persona now has its own activation command with full initialization:
 - `/analyst` - Analyst
 - `/pm` - Product Manager
 - `/architect` - System Architect
-- `/design-architect` - Design Architect
+- `/designer` - Designer
 - `/po` - Product Owner
 - `/sm` - Scrum Master
 - `/dev` - Developer

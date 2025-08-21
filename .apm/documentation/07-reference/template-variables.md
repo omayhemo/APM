@@ -110,7 +110,7 @@ Complete reference for all template variables used in the Coherence - Agentic Pe
 | `{{PM_PERSONA}}` | Project Manager | `pm` | `speakPm.sh` |
 | `{{PO_PERSONA}}` | Product Owner | `po` | `speakPo.sh` |
 | `{{SM_PERSONA}}` | Scrum Master | `sm` | `speakSm.sh` |
-| `{{DESIGN_ARCHITECT_PERSONA}}` | Design Architect | `design_architect` | `speakDesignArchitect.sh` |
+| `{{DESIGN_ARCHITECT_PERSONA}}` | Designer | `designer` | `speakDesigner.sh` |
 
 ### Persona Configuration Variables
 

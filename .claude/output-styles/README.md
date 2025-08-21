@@ -50,7 +50,7 @@ APM Output Styles enhance the Agentic Persona Mapping framework by embedding per
 - `apm-pm` - Product management and planning
 - `apm-po` - Product ownership and story creation
 - `apm-sm` - Scrum mastery and sprint coordination
-- `apm-design-architect` - UI/UX and frontend architecture
+- `apm-designer` - UI/UX and frontend architecture
 
 ## How It Works
 

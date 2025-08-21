@@ -115,7 +115,7 @@ Generated on: Wed Aug  6 12:50:26 CDT 2025
        12 {{PROJECT_ROOT}}
         1 {{SPEAK_ARCHITECT}}
 
-## installer/templates/claude/commands/design-architect.md.template
+## installer/templates/claude/commands/designer.md.template
 - **Type**: Claude command template
 - **Total references**: 16
 - **Template variables**: 16
@@ -125,7 +125,7 @@ Generated on: Wed Aug  6 12:50:26 CDT 2025
 - **Template variables found**:
         3 {{AP_ROOT}}
        12 {{PROJECT_ROOT}}
-        1 {{SPEAK_DESIGN_ARCHITECT}}
+        1 {{SPEAK_DESIGNER}}
 
 ## installer/templates/claude/commands/dev.md.template
 - **Type**: Claude command template
@@ -176,7 +176,7 @@ Generated on: Wed Aug  6 12:50:26 CDT 2025
 - **Hardcoded paths**: 0
 - **Relative paths**: 0
 
-## installer/templates/voice/speakDesignArchitect.sh
+## installer/templates/voice/speakDesigner.sh
 - **Type**: Voice script
 - **Total references**: 2
 - **Template variables**: 0
@@ -389,7 +389,7 @@ Generated on: Wed Aug  6 12:50:26 CDT 2025
         1 {{phase_number}}
         1 {{report_title}}
 
-## installer/templates/agents/personas/design-architect.md.template
+## installer/templates/agents/personas/designer.md.template
 - **Type**: Agent persona template
 - **Total references**: 25
 - **Template variables**: 21
@@ -402,7 +402,7 @@ Generated on: Wed Aug  6 12:50:26 CDT 2025
        11 {{PROJECT_ROOT}}
         1 {{RULES_PATH}}
         3 {{SESSION_NOTES_PATH}}
-        1 {{SPEAK_DESIGN_ARCHITECT}}
+        1 {{SPEAK_DESIGNER}}
 
 ## installer/templates/agents/personas/dev.md.template
 - **Type**: Agent persona template

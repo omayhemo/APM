@@ -93,7 +93,7 @@ Session Management: Unified context engineering preserves debugging context with
 
 ### Example 3: Architecture Planning
 ```
-/coherence → Plan → /architect → Design → /design-architect → UI → /parallel-validation
+/coherence → Plan → /architect → Design → /designer → UI → /parallel-validation
 Coordination: Coherence Orchestrator ensures alignment across design disciplines
 ```
 

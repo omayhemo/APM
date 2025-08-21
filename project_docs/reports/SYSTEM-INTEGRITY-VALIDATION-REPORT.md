@@ -148,7 +148,7 @@ The comprehensive system integrity validation confirms that all critical system 
 ├── speakAnalyst.sh           # ✅ Business Analyst voice
 ├── speakArchitect.sh         # ✅ System Architect voice  
 ├── speakBase.sh              # ✅ Base voice functionality
-├── speakDesignArchitect.sh   # ✅ Design Architect voice
+├── speakDesigner.sh   # ✅ Designer voice
 ├── speakDeveloper.sh         # ✅ Developer voice
 ├── speakOrchestrator.sh      # ✅ Orchestrator voice
 ├── speakPm.sh                # ✅ Product Manager voice

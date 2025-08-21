@@ -337,7 +337,7 @@ get_workspace_directories() {
             echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/planning-architecture/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/technical/\` (generated artifacts)"
             ;;
-        "design-architect")
+        "designer")
             echo "- **Primary**: \`{{PROJECT_ROOT}}/project_docs/design/\` (main workspace)"
             echo "- **Output**: \`{{PROJECT_ROOT}}/project_docs/ux/\` (generated artifacts)"
             ;;
@@ -410,7 +410,7 @@ EOF
 - `/parallel-ai-prompt` - AI-assisted architectural design patterns
 EOF
             ;;
-        "design-architect")
+        "designer")
             cat << 'EOF'
 ### Primary Functions
 - **UI/UX Design**: Create intuitive and engaging user interfaces
@@ -557,7 +557,7 @@ get_parallel_commands_claude() {
             echo "- **\`/parallel-frontend-architecture\`**: Frontend-specific architectural planning"
             echo "- **\`/parallel-ai-prompt\`**: AI-assisted architectural pattern generation"
             ;;
-        "design-architect")
+        "designer")
             echo "- **\`/parallel-ux-design\`**: Multi-perspective user experience design"
             echo "- **\`/parallel-design-system\`**: Comprehensive design system development"
             echo "- **\`/parallel-accessibility-audit\`**: Thorough accessibility compliance planning-review"

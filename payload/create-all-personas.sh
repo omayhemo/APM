@@ -4,7 +4,7 @@
 PERSONAS_DIR="/mnt/c/Code/agentic-persona-mapping/payload/personas/_master"
 
 # Create all remaining personas
-for persona in dev pm po qa sm design-architect orchestrator; do
+for persona in dev pm po qa sm designer orchestrator; do
   echo "Creating $persona.persona.json..."
   touch "$PERSONAS_DIR/$persona.persona.json"
 done

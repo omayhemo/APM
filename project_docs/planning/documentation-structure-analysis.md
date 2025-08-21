@@ -127,7 +127,7 @@ Overlapping migration content:
 ### 7. Documents Outside project_docs
 
 Found in other locations that might belong here:
-- `.claude/commands/design-architect.md` - Command documentation
+- `.claude/commands/designer.md` - Command documentation
 - `archive/agents/` - Contains architecture templates and specs
 - Root-level docs that reference project structure
 

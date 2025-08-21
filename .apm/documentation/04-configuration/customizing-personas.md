@@ -29,7 +29,7 @@ Each persona has a corresponding JSON file:
 - `orchestrator.persona.json` - Coherence Orchestrator (formerly AP Orchestrator)
 - `analyst.persona.json` - Business Analyst
 - `architect.persona.json` - System Architect
-- `design-architect.persona.json` - Design Architect
+- `designer.persona.json` - Designer
 - `developer.persona.json` - Software Developer
 - `pm.persona.json` - Project Manager
 - `po.persona.json` - Product Owner
@@ -459,7 +459,7 @@ Edit `{{INSTALLER_ROOT}}/generate-personas.sh` to include the new persona:
 
 ```bash
 # Add to the list of personas to process
-PERSONAS=("orchestrator" "analyst" "architect" "design-architect" "developer" "pm" "po" "qa" "sm" "devops-engineer")
+PERSONAS=("orchestrator" "analyst" "architect" "designer" "developer" "pm" "po" "qa" "sm" "devops-engineer")
 ```
 
 ### Step 6: Regenerate Templates

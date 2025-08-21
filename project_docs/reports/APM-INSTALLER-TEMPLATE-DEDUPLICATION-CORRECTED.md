@@ -64,7 +64,7 @@ Each persona exists in 3 installer locations:
 /installer/templates/agents/personas/[PERSONA].md.template              (DUPLICATE)
 /installer/templates/claude/agents/personas/[PERSONA].md.template       (DUPLICATE)
 
-Affected personas: analyst, architect, design-architect, dev, pm, po, qa, sm
+Affected personas: analyst, architect, designer, dev, pm, po, qa, sm
 ```
 
 #### Parallel Command Duplication (25+ commands × 2 locations):

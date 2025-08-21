@@ -19,7 +19,7 @@ What do you need to do?
 │   └─ Use: /architect
 │
 ├─ 🎨 "I need to design the UI/UX"
-│   └─ Use: /design-architect
+│   └─ Use: /designer
 │
 ├─ 📋 "I need to manage the backlog"
 │   └─ Use: /po (Product Owner)
@@ -155,8 +155,8 @@ What do you need to do?
 
 ---
 
-### 🎨 Design Architect
-**Command:** `/design-architect`
+### 🎨 Designer
+**Command:** `/designer`
 
 **When to Use:**
 - Designing user interfaces
@@ -326,7 +326,7 @@ What do you need to do?
 ### Quick Prototype Workflow
 ```
 1. /analyst → Quick ideation
-2. /design-architect → UI mockup
+2. /designer → UI mockup
 3. /dev → Rapid prototype
 ```
 
@@ -455,7 +455,7 @@ Orchestrator coordinates multiple specialists.
 ### Rapid Prototyping
 ```bash
 /parallel-brainstorming  # Quick ideation
-/design-architect        # Fast UI design
+/designer        # Fast UI design
 /dev                     # Immediate implementation
 ```
 

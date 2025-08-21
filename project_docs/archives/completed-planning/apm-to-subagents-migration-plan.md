@@ -25,7 +25,7 @@ This document outlines a comprehensive migration strategy to transform the Agent
 - Implement orchestrator as primary coordinator with same delegation patterns
 
 ### Phase 2: Enhancement (Week 2)
-- Migrate specialized agents (PM, PO, SM, Analyst, Design Architect)
+- Migrate specialized agents (PM, PO, SM, Analyst, Designer)
 - Port ALL parallel execution capabilities unchanged
 - Integrate existing voice notification system
 
@@ -53,7 +53,7 @@ This document outlines a comprehensive migration strategy to transform the Agent
 ├── po.md               # PO as backlog guardian
 ├── sm.md               # SM with parallel sprint capabilities
 ├── analyst.md          # Analyst with brainstorming expertise
-└── design-architect.md # Design Architect with UI/UX focus
+└── designer.md # Designer with UI/UX focus
 ```
 
 ### 2. Persona Definition Template (Preserving Existing Content)
@@ -139,7 +139,7 @@ bash {{APM_ROOT}}/agents/voice/speakDeveloper.sh "message"
 - 2-4 developer coordination (unchanged)
 - Sprint facilitation expertise (maintained)
 
-#### Design Architect
+#### Designer
 - UI/UX & Frontend focus (preserved)
 - Accessibility expertise (unchanged)
 - Component architecture approach (maintained)

@@ -27,7 +27,7 @@ All personas in APM v4.1.0 have been modernized with:
 
 ### 🏗️ Architecture & Design
 - **[System Architect Guide](architect-guide.md)** - System design, architecture patterns, and technology selection
-- **[Design Architect Guide](design-architect-guide.md)** - UI/UX design, frontend architecture, and design systems
+- **[Designer Guide](designer-guide.md)** - UI/UX design, frontend architecture, and design systems
 
 ### 📋 Project Management
 - **[Product Owner Guide](po-guide.md)** - Backlog management, story grooming, and sprint planning
@@ -57,7 +57,7 @@ What do you need to do?
 │   └─ Use: /architect
 │
 ├─ 🎨 "I need UI/UX design"
-│   └─ Use: /design-architect
+│   └─ Use: /designer
 │
 ├─ 📋 "I need backlog management"
 │   └─ Use: /po (Product Owner)
@@ -83,7 +83,7 @@ What do you need to do?
 | Analyst | `/analyst` | `/parallel-planning-brainstorming` | 4.0x faster |
 | PM | `/pm` | `/parallel-prd` | 3.2x faster |
 | Architect | `/architect` | `/parallel-planning-architecture` | 3.8x faster |
-| Design Arch | `/design-architect` | `/parallel-frontend-architecture` | 3.5x faster |
+| Design Arch | `/designer` | `/parallel-frontend-architecture` | 3.5x faster |
 | PO | `/po` | `/parallel-planning-epic`, `/parallel-planning-stories` | 4.2x faster |
 | SM | `/sm` | `/parallel-next-story` | 3.7x faster |
 | Developer | `/dev` | Multiple native sub-agents | 4.6x faster |
@@ -99,7 +99,7 @@ What do you need to do?
 | **Analyst** | Research & Analysis | Business Analysis, Requirements | PM, Architect |
 | **PM** | Product Strategy | Requirements, Planning | Analyst, PO |
 | **Architect** | System Design | Technology Selection, Patterns | PM, Dev |
-| **Design Architect** | UI/UX Design | Frontend Architecture, Design Systems | Architect, Dev |
+| **Designer** | UI/UX Design | Frontend Architecture, Design Systems | Architect, Dev |
 | **PO** | Backlog Management | Story Grooming, Sprint Planning | PM, SM |
 | **SM** | Story Creation | Sprint Coordination, Process | PO, Dev |
 | **Developer** | Code Implementation | TDD, Debugging, Performance | Architect, QA |
@@ -131,14 +131,14 @@ What do you need to do?
 ```
 1. ap (Initialize) → 2. /analyst (Research) → 3. /pm (Requirements)
    ↓
-4. /architect (Design) → 5. /design-architect (UI/UX) → 6. /po (Backlog)
+4. /architect (Design) → 5. /designer (UI/UX) → 6. /po (Backlog)
    ↓
 7. /sm (Stories) → 8. /dev (Implementation) → 9. /qa (Testing)
 ```
 
 ### ⚡ Rapid Prototype Flow
 ```
-/analyst → /design-architect → /dev (parallel implementation)
+/analyst → /designer → /dev (parallel implementation)
 ```
 
 ### 🔄 Iterative Enhancement Flow
@@ -191,7 +191,7 @@ What do you need to do?
 - **Product strategy**: PM for strategic direction
 
 ### 🎨 For Creative Work
-- **UI/UX design**: Design Architect for user experience
+- **UI/UX design**: Designer for user experience
 - **System architecture**: System Architect for technical design
 - **Problem solving**: Analyst for creative brainstorming
 

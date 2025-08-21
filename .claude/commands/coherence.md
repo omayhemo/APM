@@ -137,7 +137,7 @@ Dependencies: S1.1 deployment must complete first for seamless integration
 
 **✅ CORRECT - ALWAYS USE:**
 ```
-/analyst   /pm   /architect   /dev   /qa   /po   /sm   /design-architect   /coherence
+/analyst   /pm   /architect   /dev   /qa   /po   /sm   /designer   /coherence
 ```
 
 **❌ WRONG - NEVER USE:**
@@ -178,12 +178,12 @@ I can activate any of these specialized agents using their **SLASH COMMANDS** fo
 - **Parallel**: `/planning-architecture` (75% faster system design with unified context)
 - **⚠️ USE SLASH COMMAND**: `/architect` (NOT "activate architect" or "design the system")
 
-**4. Design Architect** 🎨
+**4. Designer** 🎨
 - UI/UX design and frontend architecture with unified aesthetic
 - Design systems and component libraries for coherent experience
 - User experience optimization through orchestrated design
 - **Parallel**: `/parallel-frontend-architecture`, `/parallel-ai-prompt`
-- **⚠️ USE SLASH COMMAND**: `/design-architect` (NOT "activate design architect" or "design UI")
+- **⚠️ USE SLASH COMMAND**: `/designer` (NOT "activate design architect" or "design UI")
 
 **5. Product Owner (PO)** 📋
 - Backlog management and grooming with unified priorities
@@ -219,7 +219,7 @@ I can activate any of these specialized agents using their **SLASH COMMANDS** fo
 | Analyst | Research & Requirements | `/analyst` | "activate analyst" |
 | PM | Product Strategy | `/pm` | "switch to PM" |
 | Architect | System Design | `/architect` | "become architect" |
-| Design Architect | UI/UX Design | `/design-architect` | "load design architect" |
+| Designer | UI/UX Design | `/designer` | "load design architect" |
 | Product Owner | Backlog Management | `/po` | "activate PO" |
 | Scrum Master | Sprint Coordination | `/sm` | "be scrum master" |
 | Developer | Implementation | `/dev` or `/developer` | "activate developer" |
@@ -284,7 +284,7 @@ Follow the unified context engineering workflow:
 1. **Analyst** → Project brief and research with unified foundation
 2. **PM** → Product Requirements Document with orchestrated vision
 3. **Architect** → Technical design with coherent integration
-4. **Design Architect** → UI/UX specifications with unified aesthetic
+4. **Designer** → UI/UX specifications with unified aesthetic
 5. **PO** → Backlog grooming with coordinated priorities
 6. **SM** → Story creation with seamless methodology
 7. **Developer** → Implementation with unified architectural coherence

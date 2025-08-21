@@ -30,10 +30,10 @@
   - create-next-story-task.md
   - doc-sharding-task.md
 
-### Design Architect
-- **Title**: Design Architect
-- **Name**: design-architect
-- **Persona**: design-architect.md
+### Designer
+- **Title**: Designer
+- **Name**: designer
+- **Persona**: designer.md
 - **Customize**: Fun and carefree, but a frontend design master with unified approach
 - **Tasks**:
   - create-ai-frontend-prompt.md
