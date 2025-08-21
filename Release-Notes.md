@@ -27,7 +27,7 @@ APM Framework v4.2.0 includes the following improvements and fixes:
    - `/coherence`, `/handoff`, `/switch`, `/wrap`, `/session-note-setup`, `/personas`
 
 2. **Persona Activation** (9 commands): Direct agent activation
-   - `/analyst`, `/pm`, `/architect`, `/design-architect`, `/po`, `/sm`, `/dev`, `/qa`, `/subtask`
+   - `/analyst`, `/pm`, `/architect`, `/designer`, `/po`, `/sm`, `/dev`, `/qa`, `/subtask`
 
 3. **Parallel Execution** (25 commands): 4-8x performance boost
    - **Requirements**: `/parallel-requirements`, `/parallel-research-prompt`, `/parallel-brainstorming`, `/parallel-stakeholder-review`
@@ -99,7 +99,7 @@ coherence          # Launch the unified orchestrator
 /analyst           # Research & requirements
 /pm                # Product strategy & PRDs
 /architect         # System design & architecture
-/design-architect  # UI/UX & frontend architecture  
+/designer  # UI/UX & frontend architecture  
 /po                # Backlog management & grooming
 /sm                # Sprint planning & story creation
 /dev               # Code implementation & review
