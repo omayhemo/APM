@@ -1,39 +1,22 @@
-# APM Framework v4.3.1 Release Notes
+# APM Framework v4.3.2 Release Notes
 
 **Release Date**: August 22, 2025  
-**Version**: 4.3.1  
-**Distribution**: coherence-v4.3.1-installer.tar.gz
+**Version**: 4.3.2  
+**Distribution**: coherence-v4.3.2-installer.tar.gz
 
 ---
 
 ## 🎯 Release Summary
 
-APM Framework v4.3.1 includes the following improvements and fixes:
-
-
-### Fixed
-- **Planning-groom template document-registry.json path**: Corrected document registry path references in planning-business-case command template
-
-### Added
+APM Framework v4.3.2 includes the following improvements and fixes:
 
 ## 📝 Changes in this Release
 
 
-### Fixed
-- **Planning-groom template document-registry.json path**: Corrected document registry path references in planning-business-case command template
-
-### Added
-- **New persona templates**: Enhanced persona system with additional specialized templates for comprehensive agent coverage
-- **Planning-business-case command**: New comprehensive backlog grooming command with 18 parallel sub-agents for strategic planning and business case analysis
-
-### Changed
-- **Design architect renamed to designer**: Updated persona nomenclature throughout the framework for clearer role definition
-  - Updated all persona templates, voice scripts, and command mappings
-  - Maintained backward compatibility while modernizing persona architecture
 
 ## 📦 Distribution Details
 
-- **Package**: coherence-v4.3.1-installer.tar.gz
+- **Package**: coherence-v4.3.2-installer.tar.gz
 - **Size**: Optimized for fast download and deployment
 - **Compatibility**: Full backward compatibility maintained
 - **Installation**: Zero-configuration setup with professional audio experience
@@ -76,7 +59,7 @@ After installation:
 
 ## 📋 Additional Information
 
-- **GitHub Release**: https://github.com/omayhemo/APM/releases/tag/v4.3.1
+- **GitHub Release**: https://github.com/omayhemo/APM/releases/tag/v4.3.2
 - **Installation Guide**: Available in .apm/README.md after installation
 - **Documentation**: Complete guides in .apm/documentation/ directory
 
