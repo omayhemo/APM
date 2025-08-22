@@ -10,9 +10,26 @@
 
 APM Framework v4.3.2 includes the following improvements and fixes:
 
+
+### Fixed
+- **Planning-groom template document-registry.json path**: Corrected document registry path references in planning-business-case command template
+
+### Added
+
 ## 📝 Changes in this Release
 
 
+### Fixed
+- **Planning-groom template document-registry.json path**: Corrected document registry path references in planning-business-case command template
+
+### Added
+- **New persona templates**: Enhanced persona system with additional specialized templates for comprehensive agent coverage
+- **Planning-business-case command**: New comprehensive backlog grooming command with 18 parallel sub-agents for strategic planning and business case analysis
+
+### Changed
+- **Design architect renamed to designer**: Updated persona nomenclature throughout the framework for clearer role definition
+  - Updated all persona templates, voice scripts, and command mappings
+  - Maintained backward compatibility while modernizing persona architecture
 
 ## 📦 Distribution Details
 
