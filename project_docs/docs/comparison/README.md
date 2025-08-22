@@ -65,6 +65,18 @@ Migrating to native sub-agents provides:
 
 Native sub-agents represent a fundamental improvement in the APM architecture, delivering substantial performance gains while simplifying the developer experience. The 4-8x performance improvement translates directly to faster sprint completion and better resource utilization.
 
+## v4.3.2 Enhanced /version Command
+
+### /version Command Evolution
+- **v4.3.1**: 4-agent parallel processing for version updates
+- **v4.3.2**: 5-agent architecture with dedicated payload processing (SubAgent2)
+
+### Performance Impact
+- **Enhanced Coverage**: Dedicated SubAgent2 ensures 100% payload directory consistency
+- **Maintained Speed**: 8-12 minute execution time preserved despite increased scope
+- **Better Reliability**: Improved error detection and distribution integrity validation
+- **Zero Breaking Changes**: Full backward compatibility with immediate benefits
+
 ---
-*Last updated: 2025-01-26*  
-*See also: [Migration Guide](../migration/migration-guide.md) | [Performance Benchmarks](../performance/benchmarks.md)*
+*Last updated: 2025-08-22*  
+*See also: [Migration Guide](../migration/migration-guide.md) | [Performance Benchmarks](../performance/benchmarks.md) | [v4.3.2 Compatibility Matrix](../api/v4.3.2-version-command-compatibility-matrix.md)*

@@ -22,11 +22,11 @@ All scripts located in `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/`:
 | AP QA | speakQa.sh | ✅ Available | rwxr-xr-x |
 | AP PM (Project Manager) | speakPm.sh | ✅ Available | rwxr-xr-x |
 | AP PO (Product Owner) | speakPo.sh | ✅ Available | rwxr-xr-x |
-| ~~AP SM (Scrum Master)~~ | ~~speakSm.sh~~ | ❌ REMOVED in v4.3.0 | - |
+| ~~AP SM (Scrum Master)~~ | ~~speakSm.sh~~ | ❌ REMOVED in v4.3.2 | - |
 | AP Designer | speakDesigner.sh | ✅ Available | rwxr-xr-x |
 | Base Script | speakBase.sh | ✅ Available | rwxr-xr-x |
 
-**Total Personas with Voice Support: 8** (SM removed in v4.3.0)
+**Total Personas with Voice Support: 8** (SM removed in v4.3.2)
 
 ## System Architecture
 

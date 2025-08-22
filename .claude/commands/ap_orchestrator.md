@@ -139,7 +139,8 @@ Dependencies: S1.1 deployment must complete first
 
 **✅ CORRECT - ALWAYS USE:**
 ```
-/analyst   /pm   /architect   /dev   /qa   /po   /sm   /designer
+/analyst   /pm   /architect   /dev   /qa   /po   /designer
+<!-- Note: /sm command removed in v4.3.2 - use /po for story management -->
 ```
 
 **❌ WRONG - NEVER USE:**
@@ -192,12 +193,13 @@ I can activate any of these specialized agents using their **SLASH COMMANDS**:
 - **Parallel**: `/parallel-planning-epic`, `/parallel-planning-stories`, `/parallel-qa-acceptance-criteria`, `/parallel-prioritization`, `/parallel-planning-validation`
 - **⚠️ USE SLASH COMMAND**: `/po` or `/planning-groom` (NOT "activate PO" or "groom backlog")
 
-**6. Scrum Master (SM)** 🏃
+**6. ~~Scrum Master (SM)~~** 🏃 **[DEPRECATED in v4.3.2]**
+<!-- SM functionality merged into Product Owner - use /po instead -->
 - Story creation and validation
 - Sprint coordination
 - Process improvement
 - **Parallel**: `/parallel-next-story`, `/parallel-planning-stories`, `/parallel-planning-checklist`, `/parallel-course-correction`
-- **⚠️ USE SLASH COMMAND**: `/sm` or `/planning-stories` (NOT "activate SM" or "create stories")
+- **⚠️ DEPRECATED**: Use `/po` or `/planning-stories` instead (SM functionality merged into PO)
 
 **7. Developer** 💻
 - Code implementation
@@ -221,7 +223,7 @@ I can activate any of these specialized agents using their **SLASH COMMANDS**:
 | Architect | System Design | `/architect` | "become architect" |
 | Designer | UI/UX Design | `/designer` | "load design architect" |
 | Product Owner | Backlog Management | `/po` | "activate PO" |
-| Scrum Master | Sprint Coordination | `/sm` | "be scrum master" |
+| ~~Scrum Master~~ | ~~Sprint Coordination~~ | ~~`/sm`~~ | **DEPRECATED - use `/po`** |
 | Developer | Implementation | `/dev` or `/developer` | "activate developer" |
 | QA | Quality Assurance | `/qa` | "switch to QA" |
 
@@ -267,7 +269,8 @@ Tell me about your project needs:
 1. **"I have an idea to explore"** → I'll activate the Analyst (use `/parallel-planning-brainstorming` for 80% faster ideation)
 2. **"I need a PRD"** → Let's bring in the Product Manager (use `/parallel-planning-prd` for 70% faster creation)
 3. **"Design my system"** → The Architect awaits (use `/parallel-planning-architecture` for 75% faster design)
-4. **"Create user stories"** → Scrum Master is ready (use `/parallel-planning-stories` for batch creation)
+4. **"Create user stories"** → Product Owner is ready (use `/parallel-planning-stories` for batch creation)
+   <!-- Note: SM functionality merged into PO in v4.3.2 -->
 5. **"Process large documents"** → Use `/parallel-documentation-shard` for 85% faster processing
 6. **"Show me all options"** → I'll explain each specialist and their parallel capabilities
 
@@ -284,7 +287,8 @@ Follow the AP Mapping workflow:
 3. **Architect** → Technical design
 4. **Designer** → UI/UX specifications
 5. **PO** → Backlog grooming
-6. **SM** → Story creation
+6. **PO** → Story creation & sprint coordination
+   <!-- Note: SM functionality merged into PO in v4.3.2 -->
 7. **Developer** → Implementation
 8. **QA** → Quality assurance
 

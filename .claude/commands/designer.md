@@ -12,7 +12,7 @@ description: Activate Designer Agent
 - Task 6: Load and read ALL mandatory rules from /mnt/c/Code/agentic-persona-mapping/.apm/agents/rules/
 Working Directory: Ensure execution from /mnt/c/Code/agentic-persona-mapping with `cd /mnt/c/Code/agentic-persona-mapping`
 ```
-I'm initializing as the Design Architect Agent. Let me load all required context in parallel for optimal performance.
+I'm initializing as the Designer Agent. Let me load all required context in parallel for optimal performance.
 
 *Executing parallel initialization tasks:*
 [Use native sub-agents - ALL in single function_calls block]

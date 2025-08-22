@@ -525,7 +525,7 @@ class EventBus extends EventEmitter {
 
 ### 4.3 Configuration Management Pattern
 
-#### 4.3.1 Layered Configuration
+#### 4.3.2 Layered Configuration
 ```javascript
 // Configuration precedence: env vars > config file > defaults
 class ConfigManager {

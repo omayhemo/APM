@@ -54,7 +54,7 @@ show_usage() {
     echo ""
     echo "Examples:"
     echo "  $0 4.1.5                # Release version 4.1.5"
-    echo "  $0 4.3.0                # Release version 4.3.0"
+    echo "  $0 4.3.2                # Release version 4.3.2"
     echo ""
     echo "This script will:"
     echo "  1. Update version in APM/ files if necessary"
@@ -427,7 +427,7 @@ if command -v gh &> /dev/null; then
         echo -e "${BLUE}  Updating release notes...${NC}"
         gh release edit "v$VERSION" \
             --repo "omayhemo/APM" \
-            --title "Coherence v$VERSION - Enhanced TTS Audio Experience" \
+            --title "Coherence v$VERSION" \
             --notes-file "$RELEASE_NOTES_FILE"
         
         # Remove old distribution file if it exists and upload new one
@@ -447,7 +447,7 @@ if command -v gh &> /dev/null; then
         # Create new release
         gh release create "v$VERSION" "$DIST_FILE" \
             --repo "omayhemo/APM" \
-            --title "Coherence v$VERSION - Enhanced TTS Audio Experience" \
+            --title "Coherence v$VERSION" \
             --notes-file "$RELEASE_NOTES_FILE" \
             --latest
         

@@ -100,7 +100,7 @@ coherence           # Natural language activation
 
 ## ⚡ Power Features
 
-### Native Sub-Agent Architecture (NEW in v4.3.1)
+### Native Sub-Agent Architecture (NEW in v4.3.2)
 True parallel execution with dedicated context windows:
 ```bash
 # Revolutionary parallel processing - 4-8x performance improvement
@@ -153,7 +153,7 @@ Seamless transitions with context preservation:
 ### Complete Release Automation
 End-to-end release management:
 ```bash
-/version 4.3.1         # Update all version references
+/version 4.3.2         # Update all version references
 /distribution-build    # Build distribution package
 /distribution-release  # Create GitHub release with automation
 ```
@@ -164,7 +164,7 @@ After installation, comprehensive documentation is available at:
 - `.apm/README.md` - Complete documentation index
 - `.apm/documentation/` - All guides and references
 
-## 🚀 Real Results (v4.3.1 Performance)
+## 🚀 Real Results (v4.3.2 Performance)
 
 - **4-8x faster** parallel execution (revolutionary improvement)
 - **4.6x faster** sprint completion with `/parallel-sprint`
@@ -250,7 +250,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.3.1** - Revolutionary Command Architecture & Native Sub-Agents
+**v4.3.2** - Revolutionary Command Architecture & Native Sub-Agents
 - **🚀 Epic 17 Complete** - All parallel commands migrated to native Claude Code sub-agents
 - **4-8x Performance Improvement** - True parallel execution with dedicated context windows
 - **70+ Commands Available** - Complete coverage across all development phases

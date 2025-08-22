@@ -137,7 +137,8 @@ Dependencies: S1.1 deployment must complete first for seamless integration
 
 **✅ CORRECT - ALWAYS USE:**
 ```
-/analyst   /pm   /architect   /dev   /qa   /po   /sm   /designer   /coherence
+/analyst   /pm   /architect   /dev   /qa   /po   /designer   /coherence
+<!-- Note: /sm command removed in v4.3.2 - use /po for story creation -->
 ```
 
 **❌ WRONG - NEVER USE:**
@@ -192,7 +193,7 @@ I can activate any of these specialized agents using their **SLASH COMMANDS** fo
 - **Parallel**: `/planning-epic`, `/planning-stories`, `/qa-acceptance-criteria`, `/prioritization`, `/planning-validation`
 - **⚠️ USE SLASH COMMAND**: `/po` or `/planning-groom` (NOT "activate PO" or "groom backlog")
 
-**6. Business Case Analyst** 📊 (NEW in v4.3.0)
+**6. Business Case Analyst** 📊 (NEW in v4.3.2)
 - Comprehensive backlog grooming with business justification
 - ROI analysis and cost-benefit evaluation
 - 18 parallel sub-agents for detailed business analysis
@@ -269,7 +270,8 @@ Tell me about your project needs for orchestrated coordination:
 1. **"I have an idea to explore"** → I'll activate the Analyst with unified context (use `/planning-brainstorming` for 80% faster ideation with coherent output)
 2. **"I need a PRD"** → Let's bring in the Product Manager with orchestrated intelligence (use `/planning-prd` for 70% faster creation with unified vision)
 3. **"Design my system"** → The Architect awaits with coherent approach (use `/planning-architecture` for 75% faster design with seamless integration)
-4. **"Create user stories"** → Scrum Master is ready with unified methodology (use `/planning-stories` for batch creation with orchestrated coordination)
+4. **"Create user stories"** → Product Owner is ready with unified methodology (use `/planning-stories` for batch creation with orchestrated coordination)
+   <!-- Note: SM functionality merged into PO in v4.3.2 -->
 5. **"Process large documents"** → Use `/documentation-shard` for 85% faster processing with coherent analysis
 6. **"Show me all options"** → I'll explain each specialist and their unified parallel capabilities
 
@@ -286,7 +288,8 @@ Follow the unified context engineering workflow:
 3. **Architect** → Technical design with coherent integration
 4. **Designer** → UI/UX specifications with unified aesthetic
 5. **PO** → Backlog grooming with coordinated priorities
-6. **SM** → Story creation with seamless methodology
+6. **PO** → Story creation with seamless methodology
+   <!-- Note: SM removed in v4.3.2, functionality integrated into PO -->
 7. **Developer** → Implementation with unified architectural coherence
 8. **QA** → Quality assurance with orchestrated standards
 

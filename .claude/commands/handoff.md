@@ -52,7 +52,7 @@ After ALL tasks complete:
 - `qa` - Quality assurance
 - `pm` - Product manager
 - `po` - Product owner
-- `sm` - Scrum master
+- ~~`sm` - Scrum master~~ (DEPRECATED in v4.3.2 - use `po`)
 
 ## Direct Activation Alternative:
 Each persona now has its own activation command with full initialization:
@@ -62,7 +62,7 @@ Each persona now has its own activation command with full initialization:
 - `/architect` - System Architect
 - `/designer` - Designer
 - `/po` - Product Owner
-- `/sm` - Scrum Master
+- ~~`/sm` - Scrum Master~~ (DEPRECATED in v4.3.2 - use `/po`)
 - `/dev` - Developer
 - `/qa` - Quality Assurance
 

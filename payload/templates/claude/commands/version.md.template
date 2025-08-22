@@ -9,11 +9,11 @@ Update all documentation and version references throughout the APM framework for
 
 ## Examples
 ```
-/version 4.3.0                   # Major version update
+/version 4.3.2                   # Major version update
 /version 3.6.1                   # Patch version update  
 /version 3.7.0-beta.1 --beta     # Beta pre-release
-/version 4.3.0-rc.1 --rc         # Release candidate
-/version v4.3.0                  # With 'v' prefix (auto-stripped)
+/version 4.3.2-rc.1 --rc         # Release candidate
+/version v4.3.2                  # With 'v' prefix (auto-stripped)
 ```
 
 ## 🚀 Automated Parallel Execution
@@ -48,7 +48,7 @@ SubAgent4: Documentation Audit
 - Verify link integrity
 ```
 
-### Phase 2: Version Updates (4 Parallel Sub-Agents)
+### Phase 2: Version Updates (5 Parallel Sub-Agents)
 
 ```parallel
 SubAgent1: Core Version Files
@@ -57,19 +57,26 @@ SubAgent1: Core Version Files
 - Update configuration version references
 - Synchronize all version references
 
-SubAgent2: Documentation Headers
+SubAgent2: Payload Directory (CRITICAL - Distribution Package)
+- Update {{PROJECT_ROOT}}/payload/VERSION
+- Update {{PROJECT_ROOT}}/payload/install.sh version references
+- Update {{PROJECT_ROOT}}/payload/README.md version badges and URLs
+- Update all files in {{PROJECT_ROOT}}/payload/templates/ with version references
+- Update all files in {{PROJECT_ROOT}}/payload/personas/ with version references
+
+SubAgent3: Documentation Headers
 - Update README.md version badges
 - Update CLAUDE.md version headers
 - Update all template documentation versions
 - Update project_docs version references
 
-SubAgent3: Installation Commands
+SubAgent4: Installation Commands
 - Update wget/curl commands in README.md
 - Update GitHub release URLs
 - Update installation scripts
 - Update docker/container versions
 
-SubAgent4: Configuration Files
+SubAgent5: Configuration Files
 - Update package.json versions
 - Update build configuration
 - Update CI/CD pipelines
@@ -213,6 +220,13 @@ The version update process will handle:
 - `{{PROJECT_ROOT}}/VERSION`
 - All configuration version references
 
+### Payload Directory (Distribution Package)
+- `{{PROJECT_ROOT}}/payload/VERSION`
+- `{{PROJECT_ROOT}}/payload/install.sh`
+- `{{PROJECT_ROOT}}/payload/README.md`
+- All files in `{{PROJECT_ROOT}}/payload/templates/`
+- All files in `{{PROJECT_ROOT}}/payload/personas/`
+
 ### Documentation Files
 - `${APM_PATH}/README.md`
 - `${APM_PATH}/CLAUDE.md`
@@ -266,4 +280,4 @@ If any step fails:
 ## Example Output
 
 ```
-User: /version 4.3.0
+User: /version 4.3.2

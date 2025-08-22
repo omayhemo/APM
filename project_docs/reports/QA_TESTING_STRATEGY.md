@@ -392,7 +392,7 @@ class TestDataSecurity:
 
 ### 4.3 Backup System Verification
 
-#### 4.3.1 Backup Integrity
+#### 4.3.2 Backup Integrity
 **Framework**: Custom backup validation framework
 **Test Areas**:
 - Backup file integrity verification

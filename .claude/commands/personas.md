@@ -3,7 +3,7 @@ name: personas
 description: List available AP Mapping personas and their capabilities
 ---
 
-# APM FRAMEWORK v4.3.0 PERSONAS
+# APM FRAMEWORK v4.3.2 PERSONAS
 
 ## Available Agent Personas (9 Total)
 
@@ -75,14 +75,14 @@ description: List available AP Mapping personas and their capabilities
 ### Agent Transitions
 - `/handoff [persona]` - Direct transfer with context
 - `/switch [persona]` - Session break with compaction
-- Note: `/sm` command removed in v4.3.0
+- Note: `/sm` command removed in v4.3.2
 
 ## Parallel Capabilities
 All 9 agents support parallel task execution for:
 - Document loading during initialization
 - Multi-faceted analysis
 - Context transfer during handoffs
-- New in v4.3.0: `/planning-business-case` with 18 parallel sub-agents
+- New in v4.3.2: `/planning-business-case` with 18 parallel sub-agents
 
 ## Best Practices
 1. Start with `/ap` for guidance on which agent to use

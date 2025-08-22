@@ -1,7 +1,0 @@
----                                                                                                                                                                                                         │
- name: {persona.name}                                                                                                                                                                                        │
- description: {persona.description}                                                                                                                                                                          │
----   
-
-
-{AGENT TEMPLATE}

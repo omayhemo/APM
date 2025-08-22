@@ -20,5 +20,5 @@ bash /mnt/c/Code/agentic-persona-mapping/build-distribution.sh
 ```
 
 After completion, the distribution will be available at:
-- Compressed package: `dist/coherence-v4.3.0-installer.tar.gz`
+- Compressed package: `dist/coherence-v4.3.2-installer.tar.gz`
 - Installation guide: `dist/README.md`

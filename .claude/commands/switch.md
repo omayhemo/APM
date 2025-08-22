@@ -50,7 +50,7 @@ After ALL tasks complete:
 - **Better Organization**: Archives work by session for future reference
 - **Focused Work**: New agent starts fresh but informed
 
-## Available Personas (v4.3.0):
+## Available Personas (v4.3.2):
 - `ap` or `orchestrator` - AP Orchestrator (default)
 - `dev` or `developer` - Developer agent
 - `architect` - System architect
@@ -59,9 +59,9 @@ After ALL tasks complete:
 - `qa` - Quality assurance
 - `pm` - Product manager
 - `po` - Product owner
-- ~~`sm` - Scrum master~~ (REMOVED in v4.3.0)
+- ~~`sm` - Scrum master~~ (REMOVED in v4.3.2)
 
-## Direct Activation Alternative (v4.3.0):
+## Direct Activation Alternative (v4.3.2):
 Each persona now has its own activation command with full initialization:
 - `/ap` - AP Orchestrator
 - `/analyst` - Analyst

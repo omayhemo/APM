@@ -100,7 +100,7 @@ Reading current backlog state:
 - Current backlog: {{PROJECT_ROOT}}/project_docs/planning/backlog.md
 - Existing epics: {{PROJECT_ROOT}}/project_docs/planning/epics/
 - Existing stories: {{PROJECT_ROOT}}/project_docs/planning/planning-stories/
-- Document registry: {{PROJECT_ROOT}}/.claude/config/document-registry.json
+- Document registry: {{AP_ROOT}}/config/document-registry.json
 ```
 
 ### Step 1.5: Template and Checklist Verification
@@ -350,7 +350,7 @@ Before proceeding with grooming, verifying critical requirements:
 ✅ Feature spec template exists: {{AP_ROOT}}/agents/templates/feature-specification-template.md.template
 ✅ All PO checklists exist: {{AP_ROOT}}/agents/checklists/po-*.md.template
 ✅ Story checklists exist: {{AP_ROOT}}/agents/checklists/story-*.md.template
-✅ Document registry exists: {{PROJECT_ROOT}}/.claude/config/document-registry.json
+✅ Document registry exists: {{AP_ROOT}}/config/document-registry.json
 ✅ Target directories exist and are writable
 
 ⚠️ If ANY verification fails, STOP and ask user for guidance.

@@ -119,7 +119,7 @@ Launch 3 parallel agents for supporting content:
 ✅ Examples use actual command syntax  
 
 ## Voice Notification
-After completion, announce: "Distribution wiki update completed. All sections now reflect accurate Coherence APM Framework v4.3.0 information."
+After completion, announce: "Distribution wiki update completed. All sections now reflect accurate Coherence APM Framework v4.3.2 information."
 
 ## Usage
 ```bash

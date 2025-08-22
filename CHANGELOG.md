@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.3.2] - 2025-08-22
+
+### Fixed
+- **Critical installer bug**: Fixed installer bug that caused installations in temporary directories instead of proper installation paths
+- **Version command payload coverage**: Enhanced /version command to properly update payload directory files for complete version consistency
+- **Marketing language cleanup**: Removed misleading "Enhanced TTS Audio Experience" labeling from release distributions
+
+### Changed
+- **Enhanced /version command**: Added 5th sub-agent for comprehensive payload directory coverage ensuring version consistency across all distribution files
+- **Improved version consistency**: Enhanced version synchronization across all distribution package files and installer components
+
+### Technical
+- **Installer logic improvements**: Updated installer validation to prevent temporary directory installations
+- **Payload directory integration**: Added payload directory updates to version command scope for complete coverage
+
 ## [4.3.0] - 2025-08-22
 
 ### Added
@@ -52,5 +67,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Installation consistency**: Enhanced installation script with better error handling and validation
 - **Template organization**: Improved coherence templates and command structure
 
+[4.3.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.3.0...v4.3.2
 [4.3.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.2.0...v4.3.0
 [4.2.0]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.4...v4.2.0

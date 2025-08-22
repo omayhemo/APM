@@ -12,7 +12,7 @@ if [ -f "templates/VERSION" ]; then
 elif [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="4.3.0"
+    VERSION="4.3.2"
 fi
 DIST_NAME="coherence-v$VERSION-installer"
 DIST_DIR="dist/$DIST_NAME"

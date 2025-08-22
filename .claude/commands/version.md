@@ -9,11 +9,11 @@ Update all documentation and version references throughout the APM framework for
 
 ## Examples
 ```
-/version 4.3.0                   # Major version update (current)
+/version 4.3.2                   # Major version update (current)
 /version 4.2.1                   # Patch version update  
-/version 4.3.0-beta.1 --beta     # Beta pre-release
-/version 4.3.0-rc.1 --rc         # Release candidate
-/version v4.3.0                  # With 'v' prefix (auto-stripped)
+/version 4.3.2-beta.1 --beta     # Beta pre-release
+/version 4.3.2-rc.1 --rc         # Release candidate
+/version v4.3.2                  # With 'v' prefix (auto-stripped)
 ```
 
 ## 🚀 Automated Parallel Execution
@@ -42,7 +42,7 @@ SubAgent4: Documentation Audit
 - Verify link integrity
 ```
 
-### Phase 2: Version Updates (4 Parallel Sub-Agents)
+### Phase 2: Version Updates (5 Parallel Sub-Agents) [ENHANCED]
 
 ```parallel
 SubAgent1: Core Version Files
@@ -51,19 +51,27 @@ SubAgent1: Core Version Files
 - Update configuration version references
 - Synchronize all version references
 
-SubAgent2: Documentation Headers
+SubAgent2: Payload Directory (CRITICAL - Distribution Package) [NEW IN v4.3.2]
+- Update /mnt/c/Code/agentic-persona-mapping/payload/VERSION
+- Update /mnt/c/Code/agentic-persona-mapping/payload/install.sh version references
+- Update /mnt/c/Code/agentic-persona-mapping/payload/README.md version badges and URLs
+- Update all files in /mnt/c/Code/agentic-persona-mapping/payload/templates/ with version references
+- Update all files in /mnt/c/Code/agentic-persona-mapping/payload/personas/ with version references
+- Ensure distribution package integrity and version consistency
+
+SubAgent3: Documentation Headers
 - Update README.md version badges
 - Update CLAUDE.md version headers
 - Update all template documentation versions
 - Update project_docs version references
 
-SubAgent3: Installation Commands
+SubAgent4: Installation Commands
 - Update wget/curl commands in README.md
 - Update GitHub release URLs
 - Update installation scripts
 - Update docker/container versions
 
-SubAgent4: Configuration Files
+SubAgent5: Configuration Files
 - Update package.json versions
 - Update build configuration
 - Update CI/CD pipelines
@@ -140,8 +148,9 @@ When you run this command, I will:
    - Auto-strip 'v' prefix if provided
    - Verify version increment is logical
 
-2. **Update Version References** (Parallel Execution)
+2. **Update Version References** (Enhanced 5-Agent Parallel Execution)
    - Update VERSION files throughout the system
+   - **NEW**: Dedicated payload directory processing for distribution integrity
    - Update download URLs in all documentation
    - Update installer documentation
    - Synchronize template versions
@@ -207,6 +216,13 @@ The version update process will handle:
 - `/mnt/c/Code/agentic-persona-mapping/VERSION`
 - All configuration version references
 
+### Payload Directory (Distribution Package)
+- `/mnt/c/Code/agentic-persona-mapping/payload/VERSION`
+- `/mnt/c/Code/agentic-persona-mapping/payload/install.sh`
+- `/mnt/c/Code/agentic-persona-mapping/payload/README.md`
+- All files in `/mnt/c/Code/agentic-persona-mapping/payload/templates/`
+- All files in `/mnt/c/Code/agentic-persona-mapping/payload/personas/`
+
 ### Documentation Files
 - `${APM_PATH}/README.md`
 - `${APM_PATH}/CLAUDE.md`
@@ -229,7 +245,7 @@ bash ${APM_PATH}/agents/voice/speakBase.sh "Updating documentation for version $
 
 # Progress notifications
 bash ${APM_PATH}/agents/voice/speakBase.sh "Validating version format and repository status"
-bash ${APM_PATH}/agents/voice/speakBase.sh "Updating documentation with 4 parallel agents"
+bash ${APM_PATH}/agents/voice/speakBase.sh "Updating documentation with 5 parallel agents including payload processing"
 bash ${APM_PATH}/agents/voice/speakBase.sh "Generating release documentation"
 bash ${APM_PATH}/agents/voice/speakBase.sh "Running quality assurance checks"
 
