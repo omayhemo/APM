@@ -22,11 +22,11 @@ All scripts located in `/mnt/c/Code/agentic-persona-mapping/.apm/agents/voice/`:
 | AP QA | speakQa.sh | ✅ Available | rwxr-xr-x |
 | AP PM (Project Manager) | speakPm.sh | ✅ Available | rwxr-xr-x |
 | AP PO (Product Owner) | speakPo.sh | ✅ Available | rwxr-xr-x |
-| AP SM (Scrum Master) | speakSm.sh | ✅ Available | rwxr-xr-x |
+| ~~AP SM (Scrum Master)~~ | ~~speakSm.sh~~ | ❌ REMOVED in v4.3.0 | - |
 | AP Designer | speakDesigner.sh | ✅ Available | rwxr-xr-x |
 | Base Script | speakBase.sh | ✅ Available | rwxr-xr-x |
 
-**Total Personas with Voice Support: 9**
+**Total Personas with Voice Support: 8** (SM removed in v4.3.0)
 
 ## System Architecture
 
@@ -71,7 +71,7 @@ All APM commands are configured to use voice notifications:
 ## Verification Results
 
 ### ✅ All Components Verified:
-1. **Voice Scripts**: All 9 persona scripts + base script present
+1. **Voice Scripts**: 8 persona scripts + base script present (SM removed)
 2. **Permissions**: All scripts have execute permissions (755)
 3. **TTS Manager**: Central manager script confirmed at expected location
 4. **Provider Scripts**: Multiple TTS providers available
@@ -81,7 +81,7 @@ All APM commands are configured to use voice notifications:
 - System follows modular design principles
 - Graceful degradation built-in (silent failures)
 - Multiple provider support ensures flexibility
-- All personas have equal voice capabilities
+- All 8 active personas have equal voice capabilities
 
 ## Recommendations
 

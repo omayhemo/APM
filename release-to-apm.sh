@@ -54,7 +54,7 @@ show_usage() {
     echo ""
     echo "Examples:"
     echo "  $0 4.1.5                # Release version 4.1.5"
-    echo "  $0 4.2.0                # Release version 4.2.0"
+    echo "  $0 4.3.0                # Release version 4.3.0"
     echo ""
     echo "This script will:"
     echo "  1. Update version in APM/ files if necessary"

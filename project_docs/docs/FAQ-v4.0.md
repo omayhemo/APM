@@ -1,6 +1,92 @@
-# APM Framework v4.1.0 - Frequently Asked Questions
+# APM Framework v4.3.0 - Frequently Asked Questions
 
-## 🆕 v4.1.0 Release Management Features
+## 🆕 v4.3.0 Persona and Command Updates
+
+### Q: Why was the SM (Scrum Master) persona removed in v4.3.0?
+**A: Streamlined for better clarity and reduced complexity:**
+
+The SM persona was removed to simplify the framework and eliminate overlap:
+- **Sprint Planning**: Now handled by `/po` (Product Owner) with enhanced capabilities
+- **Backlog Grooming**: Use `/planning-groom` with 18 parallel sub-agents for superior results
+- **Team Coordination**: `/coherence` orchestrator provides better coordination
+- **Project Management**: `/pm` handles strategic planning and stakeholder management
+
+**Migration Path:**
+- Replace `/sm` with `/po` for most use cases
+- Use `/planning-business-case` for comprehensive analysis
+- Use `/coherence` for orchestrated team coordination
+
+### Q: What's the difference between design-architect and designer?
+**A: Same functionality, clearer naming:**
+
+- **v4.2.0 and earlier**: `/design-architect` command
+- **v4.3.0**: `/designer` command (design-architect deprecated)
+- **Functionality**: Identical capabilities - UI/UX design, design systems, frontend architecture
+- **Migration**: Simply replace `design-architect` with `designer` in your workflows
+
+### Q: What's new about the `/planning-business-case` command?
+**A: Revolutionary business analysis with 18 parallel sub-agents:**
+
+- **18 Parallel Streams**: Simultaneous analysis across all business dimensions
+- **Comprehensive Coverage**: Domain analysis, story generation, optimization planning
+- **45-Second Execution**: Complete business case analysis in under a minute
+- **Enterprise Grade**: ROI analysis, compliance review, risk assessment
+- **Actionable Output**: Ready-to-implement recommendations and prioritization
+
+**Use Cases:**
+- Strategic planning and business case development
+- Comprehensive backlog grooming and optimization
+- Risk assessment and compliance planning
+- ROI-based feature prioritization
+
+## 🔄 v4.3.0 Migration Questions
+
+### Q: How do I upgrade from v4.2.0 to v4.3.0?
+**A: Simple upgrade with automatic migration:**
+
+```bash
+# Download and install v4.3.0
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.0 --defaults
+```
+
+**Automatic Updates:**
+- Installer removes deprecated commands
+- Updates persona references automatically
+- Preserves all existing configurations
+- Maintains session notes and project documentation
+
+### Q: Will my existing workflows break with v4.3.0?
+**A: Minimal impact with clear alternatives:**
+
+**Broken Commands:**
+- `/sm` - Use `/po` or `/pm` instead
+- `design-architect` references - Use `designer`
+
+**Everything Else Works:**
+- All other personas unchanged
+- Parallel commands enhanced (not changed)
+- Session management identical
+- Voice notifications preserved
+- QA framework fully compatible
+
+### Q: Do I need to change my project configuration?
+**A: No configuration changes required:**
+
+- All `.apm/` configurations preserved
+- Session notes maintain compatibility
+- Command aliases automatically updated
+- Custom commands remain functional
+
+## 📊 v4.3.0 Performance and Features
+
+### Q: What performance improvements are in v4.3.0?
+**A: Focused on planning and business analysis:**
+
+| Feature | v4.2.0 | v4.3.0 | Improvement |
+|---------|--------|--------|-------------|
+| Business case analysis | Manual (~2 hours) | **18 parallel sub-agents (~45 seconds)** | **160x faster** |
+| Backlog grooming | Sequential (~15 min) | **Parallel analysis (~1 min)** | **15x faster** |
+| Design workflows | Single-threaded | **Enhanced designer persona** | **Better output quality** |
 
 ### Q: What's the difference between `/version` and `/release` commands?
 **A: Two distinct but complementary automation tools:**
@@ -62,7 +148,7 @@ Example output:
 4. **Safe Retry**: Fix issues and re-run safely
 5. **Manual Fallback**: Complete manual override capability
 
-## 🔄 Upgrading to v4.1.0
+## 🔄 Upgrading to v4.3.0
 
 ### Q: Is v4.1.0 backward compatible with v3.5.0?
 **A: 100% backward compatible with zero breaking changes:**

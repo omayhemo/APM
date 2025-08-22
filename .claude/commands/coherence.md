@@ -192,12 +192,12 @@ I can activate any of these specialized agents using their **SLASH COMMANDS** fo
 - **Parallel**: `/planning-epic`, `/planning-stories`, `/qa-acceptance-criteria`, `/prioritization`, `/planning-validation`
 - **⚠️ USE SLASH COMMAND**: `/po` or `/planning-groom` (NOT "activate PO" or "groom backlog")
 
-**6. Scrum Master (SM)** 🏃
-- Story creation and validation with unified methodology
-- Sprint coordination for seamless integration
-- Process improvement through orchestrated intelligence
-- **Parallel**: `/next-story`, `/planning-stories`, `/planning-checklist`, `/course-correction`
-- **⚠️ USE SLASH COMMAND**: `/sm` or `/planning-stories` (NOT "activate SM" or "create stories")
+**6. Business Case Analyst** 📊 (NEW in v4.3.0)
+- Comprehensive backlog grooming with business justification
+- ROI analysis and cost-benefit evaluation
+- 18 parallel sub-agents for detailed business analysis
+- **Parallel**: `/planning-business-case` (comprehensive business case development)
+- **⚠️ USE SLASH COMMAND**: `/planning-business-case` (NOT "activate business analyst")
 
 **7. Developer** 💻
 - Code implementation with unified architectural vision
@@ -219,9 +219,9 @@ I can activate any of these specialized agents using their **SLASH COMMANDS** fo
 | Analyst | Research & Requirements | `/analyst` | "activate analyst" |
 | PM | Product Strategy | `/pm` | "switch to PM" |
 | Architect | System Design | `/architect` | "become architect" |
-| Designer | UI/UX Design | `/designer` | "load design architect" |
+| Designer | UI/UX Design | `/designer` | "load designer" |
 | Product Owner | Backlog Management | `/po` | "activate PO" |
-| Scrum Master | Sprint Coordination | `/sm` | "be scrum master" |
+| Business Case | Business Analysis | `/planning-business-case` | "activate business analyst" |
 | Developer | Implementation | `/dev` or `/developer` | "activate developer" |
 | QA | Quality Assurance | `/qa` | "switch to QA" |
 | **Coherence** | **Unified Orchestration** | **`/coherence`** | **"activate orchestrator"** |

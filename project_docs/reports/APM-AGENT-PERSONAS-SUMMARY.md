@@ -102,27 +102,14 @@ The Agentic Persona Mapping (APM) framework provides specialized AI agents for c
 
 ---
 
-### 7. **Scrum Master (SM)** - Sprint Facilitator
-- **Specialization**: Story preparation, sprint management, process optimization
-- **Key Responsibilities**:
-  - Transform epics into development-ready stories
-  - Sprint facilitation and flow management
-  - Velocity tracking and WIP monitoring
-  - Impediment identification and resolution
-  - Course correction and adaptation
-- **Activation**: `/sm`
-- **Voice Script**: `speakSm.sh`
-- **Parallel Commands**:
-  - `/parallel-next-story` - Advanced story creation (75% faster)
-  - `/parallel-stories` - Batch story generation (80% faster)
-  - `/parallel-checklist` - Story validation (70% faster)
-  - `/parallel-course-correction` - Sprint adjustment (65% faster)
-- **Special Command**:
-  - `/parallel-sprint` - Revolutionary parallel development coordination
+### ~~7. **Scrum Master (SM)** - Sprint Facilitator~~ (REMOVED in v4.3.0)
+- **Status**: DEPRECATED - Functionality merged into Product Owner (PO)
+- **Migration Path**: Use `/po` or `/pm` for sprint planning and story management
+- **Reason for Removal**: Simplified workflow eliminates need for separate SM persona
 
 ---
 
-### 8. **Developer** - Code Implementation Specialist
+### 7. **Developer** - Code Implementation Specialist
 - **Specialization**: Story implementation, code quality, test-driven development
 - **Key Responsibilities**:
   - Transform stories into production-ready code
@@ -203,7 +190,7 @@ Most agents support parallel task execution for dramatic performance improvement
 | Architect | `/architect` | - |
 | Designer | `/designer` | - |
 | Product Owner | `/po` | - |
-| Scrum Master | `/sm` | - |
+| ~~Scrum Master~~ | ~~`/sm`~~ | REMOVED v4.3.0 |
 | Developer | `/dev` | `/developer` |
 | QA | `/qa` | - |
 

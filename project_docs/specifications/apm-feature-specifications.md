@@ -271,7 +271,7 @@ This document provides detailed feature specifications and acceptance criteria f
 **Technical Requirements**:
 - Story template system with validation rules
 - Sprint tracking and reporting capabilities
-- Voice announcements via `speakSm.sh`
+- ~~Voice announcements via `speakSm.sh`~~ (REMOVED - SM persona deprecated in v4.3.0)
 - Process improvement documentation
 - Velocity calculation and trending
 

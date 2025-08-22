@@ -1,8 +1,8 @@
-# APM Framework v4.2.0 - Quick Start Guide
+# APM Framework v4.3.0 - Quick Start Guide
 
-## 🚀 30-Second Setup (Revolutionary v4.2.0)
+## 🚀 30-Second Setup (Revolutionary v4.3.0)
 
-### Step 1: Install APM v4.2.0 with Native Sub-Agents
+### Step 1: Install APM v4.3.0 with Native Sub-Agents
 
 **Quick Install (Recommended):**
 ```bash
@@ -19,15 +19,15 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 **Specific Version:**
 ```bash
 # Install specific version with TTS
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.2.0 --with-tts --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.0 --with-tts --defaults
 ```
 
 ### Step 2: Verify Installation
 ```bash
-# Check if APM v4.2.0 is properly installed
+# Check if APM v4.3.0 is properly installed
 ls -la .apm/  # Should show APM framework with native sub-agents
 ls -la .claude/commands/  # Should show 70+ commands (massive expansion!)
-cat .apm/VERSION  # Should show 4.2.0
+cat .apm/VERSION  # Should show 4.3.0
 ```
 
 ### Step 3: Launch APM (Automatic Activation!)
@@ -42,7 +42,7 @@ coherence        # Natural language activation
 
 This activates the Coherence Orchestrator with native sub-agent architecture and 4-8x performance improvements!
 
-## 🆕 Revolutionary v4.2.0 Features Quick Demo
+## 🆕 Revolutionary v4.3.0 Features Quick Demo
 
 ### Try Native Sub-Agent Performance (30 seconds)
 ```bash
@@ -75,18 +75,18 @@ This activates the Coherence Orchestrator with native sub-agent architecture and
 /handoff <persona> # Direct agent transition with context preservation
 /switch <persona>  # Switch with session compaction
 /wrap             # Complete session with summary
-/personas         # List all 9 available agents
+/personas         # List all 8 available agents
 /session-note-setup # Initialize session management
 ```
 
-### Direct Persona Activation (9 specialists)
+### Direct Persona Activation (8 specialists)
 ```bash
 /analyst          # Research & requirements gathering
 /pm               # Product strategy & PRDs
 /architect        # System design & architecture
-/designer # UI/UX & frontend architecture
+/designer         # UI/UX & design systems expert (formerly design-architect)
 /po               # Backlog management & grooming
-/sm               # Sprint planning & story creation
+# NOTE: /sm persona removed in v4.3.0 - use /po or /pm for sprint planning
 /dev              # Code implementation & review
 /qa               # Testing & quality assurance
 /subtask          # Task breakdown specialist
@@ -141,7 +141,7 @@ This activates the Coherence Orchestrator with native sub-agent architecture and
 /qa-insights          # Quality insights and recommendations
 ```
 
-### Planning Commands (15 commands)
+### Planning Commands (16 commands)
 ```bash
 /planning-prd          # Comprehensive PRD development
 /planning-epic         # Epic creation with full context
@@ -154,9 +154,10 @@ This activates the Coherence Orchestrator with native sub-agent architecture and
 /planning-validation   # Multi-aspect validation
 /planning-checklist    # Planning checklist creation
 /planning-stakeholder-review # Stakeholder review coordination
+/planning-business-case # Comprehensive business case analysis with 18 parallel sub-agents
 ```
 
-## 🎯 Common Workflows (Revolutionary v4.2.0 Performance)
+## 🎯 Common Workflows (Revolutionary v4.3.0 Performance)
 
 ### 1. New Project Setup (2 minutes with native sub-agents!)
 ```bash
@@ -188,10 +189,10 @@ coherence                 # Or just start Claude Code - auto-activates!
 /qa-insights            # Quality insights and recommendations
 ```
 
-### 3. Release Management (30 seconds with v4.2.0!)
+### 3. Release Management (30 seconds with v4.3.0!)
 ```bash
 # Old way (v3.x): 4-5 hours of manual work
-# New way (v4.2.0): 30 seconds of automation
+# New way (v4.3.0): 30 seconds of automation
 
 /distribution-release 4.2.0
 # Automatically:
@@ -232,7 +233,7 @@ coherence                 # Or just start Claude Code - auto-activates!
 /qa-insights             # AI-generated quality insights
 ```
 
-### 4. Documentation Maintenance (30 seconds with v4.1.0!)
+### 4. Documentation Maintenance (30 seconds with v4.3.0!)
 ```bash
 # Comprehensive documentation update
 /update-all-documentation
@@ -241,13 +242,13 @@ coherence                 # Or just start Claude Code - auto-activates!
 /doc-compliance
 
 # Update to new version
-/version 4.1.0           # Updates everything automatically
+/version 4.3.0           # Updates everything automatically
 ```
 
-## ⚡ Performance Improvements in v4.1.0
+## ⚡ Performance Improvements in v4.3.0
 
 ### Release Management Speed
-| Task | v3.5.0 | v4.1.0 | Time Saved |
+| Task | v3.5.0 | v4.3.0 | Time Saved |
 |------|--------|--------|------------|
 | Complete release | 4-5 hours | **20 minutes** | **12-15x faster** |
 | Version updates | 30 min manual | **3 min automated** | **10x faster** |
@@ -262,12 +263,12 @@ coherence                 # Or just start Claude Code - auto-activates!
 | `/qa-predict` | **92% accuracy** | ML-powered failure prediction |
 | Documentation generation | **4-8x faster** | Native sub-agent parallelism |
 
-## 🎪 Advanced v4.1.0 Features
+## 🎪 Advanced v4.3.0 Features
 
 ### AI-Powered Release Notes
 ```bash
 # Generates professional release notes like this:
-/version 4.1.0
+/version 4.3.0
 
 # Result:
 # - Analyzes git commits since last version
@@ -280,7 +281,7 @@ coherence                 # Or just start Claude Code - auto-activates!
 ### GitHub Integration
 ```bash
 # Complete GitHub integration
-/release 4.1.0
+/release 4.3.0
 
 # Automatically:
 # - Creates GitHub release
@@ -309,9 +310,9 @@ coherence                 # Or just start Claude Code - auto-activates!
 
 **Issue: `/version` command not found**
 ```bash
-# Solution: Verify v4.1.0 installation
+# Solution: Verify v4.3.0 installation
 ls -la .claude/commands/version.md
-# If missing, reinstall v4.1.0
+# If missing, reinstall v4.3.0
 ```
 
 **Issue: GitHub integration fails**
@@ -325,15 +326,46 @@ gh auth login
 ```bash
 # Solution: Check git status and permissions
 git status  # Ensure clean working directory
-/version 4.1.0 --dry-run  # Preview changes first
+/version 4.3.0 --dry-run  # Preview changes first
 ```
 
 **Issue: Slow performance**
 ```bash
 # Solution: Verify native sub-agent architecture
 /ap  # Should mention "native sub-agents" in activation
-# If not, reinstall v4.1.0 to get performance benefits
+# If not, reinstall v4.3.0 to get performance benefits
 ```
+
+**Issue: `/sm` command not found (v4.3.0)**
+```bash
+# Solution: SM persona removed in v4.3.0
+# Use these alternatives:
+/po               # For backlog grooming and sprint planning
+/pm               # For product management and strategy
+/coherence        # For orchestrated coordination
+/planning-groom   # AI-powered backlog grooming with 18 parallel sub-agents
+```
+
+**Issue: `design-architect` references not working (v4.3.0)**
+```bash
+# Solution: design-architect renamed to designer
+/designer         # New command name
+# All functionality preserved, just updated naming
+```
+
+## 🔄 v4.3.0 Migration Guide
+
+### Key Changes from v4.2.0
+- **SM Persona Removed**: Use `/po` or `/pm` for sprint management
+- **Design Architect → Designer**: Renamed for consistency
+- **New Command**: `/planning-business-case` with 18 parallel sub-agents
+- **Enhanced Installer**: Better quality control and validation
+
+### Quick Migration Steps
+1. **Update Commands**: Replace `/sm` with `/po` or `/pm`
+2. **Update References**: Change `design-architect` to `designer`
+3. **Try New Features**: Explore `/planning-business-case` command
+4. **Verify Installation**: Run `/coherence` to confirm v4.3.0 is active
 
 ## 📚 Next Steps
 
@@ -356,7 +388,7 @@ git status  # Ensure clean working directory
 
 ## 🎉 Success Indicators
 
-You'll know APM v4.1.0 is working properly when:
+You'll know APM v4.3.0 is working properly when:
 
 ✅ **Installation**: `/ap` command launches with voice notification  
 ✅ **New Commands**: `/version --help` shows detailed options  
@@ -365,12 +397,12 @@ You'll know APM v4.1.0 is working properly when:
 ✅ **AI Features**: Release notes generate automatically  
 ✅ **Quality Assurance**: Documentation compliance checking works  
 
-## 💡 Pro Tips for v4.1.0
+## 💡 Pro Tips for v4.3.0
 
 1. **Start with Dry Run**: Always use `--dry-run` first to preview changes
 2. **Backup Important Work**: Commit before running `/release` commands
 3. **Use Pre-releases**: Test with `--beta` or `--rc` flags for major versions
 4. **Monitor Output**: Commands provide detailed progress information
-5. **Leverage Automation**: Let v4.1.0 handle documentation while you code
+5. **Leverage Automation**: Let v4.3.0 handle documentation while you code
 
-**Welcome to APM v4.1.0 - Where Release Management Meets AI Automation!** 🚀
+**Welcome to APM v4.3.0 - Where Release Management Meets AI Automation!** 🚀

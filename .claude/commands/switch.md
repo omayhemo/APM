@@ -50,28 +50,28 @@ After ALL tasks complete:
 - **Better Organization**: Archives work by session for future reference
 - **Focused Work**: New agent starts fresh but informed
 
-## Available Personas:
+## Available Personas (v4.3.0):
 - `ap` or `orchestrator` - AP Orchestrator (default)
 - `dev` or `developer` - Developer agent
 - `architect` - System architect
-- `design` or `designer` - Design/UI architect
+- `designer` - UI/UX Designer (renamed from design-architect)
 - `analyst` - Business/Requirements analyst
 - `qa` - Quality assurance
 - `pm` - Product manager
 - `po` - Product owner
-- `sm` - Scrum master
+- ~~`sm` - Scrum master~~ (REMOVED in v4.3.0)
 
-## Direct Activation Alternative:
+## Direct Activation Alternative (v4.3.0):
 Each persona now has its own activation command with full initialization:
 - `/ap` - AP Orchestrator
 - `/analyst` - Analyst
 - `/pm` - Product Manager
 - `/architect` - System Architect
-- `/designer` - Designer
+- `/designer` - UI/UX Designer (renamed from design-architect)
 - `/po` - Product Owner
-- `/sm` - Scrum Master
 - `/dev` - Developer
 - `/qa` - Quality Assurance
+- `/planning-business-case` - Business Case Analyst (NEW)
 
 Use direct commands for fresh activation with full initialization protocol.
 

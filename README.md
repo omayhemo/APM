@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-**v4.1.5** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
+**v4.3.0** - Revolutionary AI context engineering platform that transforms multiple AI personas into a unified, harmonious system. Like a conductor leading an orchestra, Coherence ensures every persona plays its part perfectly, delivering **4-8x performance improvement** in software development workflows.
 
 ## ⚠️ CRITICAL: ALWAYS USE SLASH COMMANDS
 
@@ -25,25 +25,25 @@
 
 ## 🚀 Quick Start
 
-**Latest Release:** v4.1.5 ⚡ *Enhanced TTS Audio Experience*
+**Latest Release:** v4.3.0 ⚡ *Enhanced TTS Audio Experience*
 
 ### One-Command Installation
 
 **Linux/WSL:**
 ```bash
-wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.5/coherence-v4.1.5-installer.tar.gz && tar -xzf coherence-v4.1.5-installer.tar.gz && ./coherence-v4.1.5-installer/installer/install.sh
+wget https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.3.0/coherence-v4.3.0-installer.tar.gz && tar -xzf coherence-v4.3.0-installer.tar.gz && ./coherence-v4.3.0-installer/installer/install.sh
 ```
 
 **macOS:**
 ```bash
-curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.1.5/coherence-v4.1.5-installer.tar.gz | tar -xz && ./coherence-v4.1.5-installer/installer/install.sh
+curl -L https://github.com/omayhemo/agentic-persona-mapping/releases/download/v4.3.0/coherence-v4.3.0-installer.tar.gz | tar -xz && ./coherence-v4.3.0-installer/installer/install.sh
 ```
 
 ## What is Coherence?
 
-Coherence v4.1.5 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
+Coherence v4.3.0 is the **AI context engineering platform** that brings order to complexity. By orchestrating **multiple AI personas into unified intelligence**, Coherence delivers **revolutionary release management automation**, **AI-powered documentation generation**, and **seamless persona coordination** with professional-grade reliability:
 
-- **9 Expert Personas**: Analyst, PM, Architect, Design Architect, PO, SM, Developer, QA
+- **8 Expert Personas**: Analyst, PM, Architect, Designer, PO, Developer, QA, Orchestrator
 - **⚡ Native Sub-Agent Architecture**: Complete Task tool modernization with 4-8x performance improvement
 - **🎯 70+ Total Commands**: Execute multiple analyses, tests, development, and release management tasks
 - **📦 Revolutionary Release Management**: `/version` and `/release` commands with GitHub integration
@@ -76,7 +76,7 @@ Different voices, smooth transitions. Experience effortless workflow coordinatio
 
 ## Key Features
 
-### 🔧 **What's New in v4.1.5 - Enhanced TTS Audio Experience**
+### 🔧 **What's New in v4.3.0 - Enhanced TTS Audio Experience**
 
 **🛠️ Critical Installation Reliability Fixes:**
 - **Resolved persistent "Wait: command not found" errors**: Enhanced validation system with improved subshell variable handling
@@ -242,9 +242,9 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 /qa-anomaly    # Detect quality issues with 94% precision
 /qa-insights   # Generate AI-powered quality insights
 
-# NEW v4.1.2: Release Management Integration
-/version 4.1.5           # Update version with QA validation
-/release 4.1.5           # Complete release with automated QA
+# NEW v4.3.0: Release Management Integration
+/version 4.3.0           # Update version with QA validation
+/release 4.3.0           # Complete release with automated QA
 /doc-compliance          # Documentation quality assurance
 ```
 
@@ -262,9 +262,9 @@ The QA Agent includes a comprehensive testing framework with AI/ML powered analy
 # Optimize test execution
 /qa-optimize --strategy fail-fast --apply
 
-# NEW v4.1.2: Integrated release workflow
-/version 4.1.5 --dry-run  # Preview version update with QA checks
-/release 4.1.5            # Complete release with automated testing
+# NEW v4.3.0: Integrated release workflow
+/version 4.3.0 --dry-run  # Preview version update with QA checks
+/release 4.3.0            # Complete release with automated testing
 ```
 
 ### Key Metrics
@@ -316,7 +316,7 @@ your-project/
 
 ## Usage
 
-### v4.1.2 Enhanced Workflow
+### v4.3.0 Enhanced Workflow
 
 After installation:
 
@@ -326,7 +326,7 @@ After installation:
 4. **Develop**: Use personas and parallel commands for development
 5. **🆕 Release**: Use `/version` and `/release` for automated releases
 
-### New v4.1.2 Release Workflow
+### New v4.3.0 Release Workflow
 ```bash
 # Unified Context Engineering workflow
 /coherence       # Launch Coherence Orchestrator (new primary command)
@@ -337,8 +337,8 @@ After installation:
 /parallel-sprint # Coordinate development
 
 # NEW: Professional release management
-/version 4.1.5   # Update all documentation (3 minutes)
-/release 4.1.5   # Complete GitHub release (20 minutes total)
+/version 4.3.0   # Update all documentation (3 minutes)
+/release 4.3.0   # Complete GitHub release (20 minutes total)
 ```
 
 ## Management Commands
@@ -422,7 +422,7 @@ agentic-persona-mapping/
 
 - **Documentation**: Comprehensive guides included with installation
 - **Issues**: GitHub Issues for bug reports and feature requests
-- **Version**: v4.1.5 (Enhanced TTS Audio Experience)
+- **Version**: v4.3.0 (Enhanced TTS Audio Experience)
 
 ## License
 

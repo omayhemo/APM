@@ -55,14 +55,19 @@ This command activates the Product Owner agent directly. The agent will:
 - Story creation from epics
 - Acceptance criteria definition
 - Priority management
-- Sprint planning support
+- Sprint planning facilitation
+- Sprint capacity planning
+- Velocity tracking and metrics
 - Stakeholder expectation management
 - Value delivery optimization
-- Dependency identification
+- Dependency identification and management
+- Team facilitation and coaching
+- Process improvement and optimization
 - Risk mitigation planning
 - Release coordination
+- Impediment removal
 
-The Product Owner agent ensures the team builds the right things in the right order.
+The Product Owner agent ensures the team builds the right things in the right order while facilitating agile processes and team effectiveness.
 
 ## 📋 MANDATORY RULE COMPLIANCE
 

@@ -3,15 +3,15 @@ name: personas
 description: List available AP Mapping personas and their capabilities
 ---
 
-# AP METHOD PERSONAS
+# APM FRAMEWORK v4.3.0 PERSONAS
 
-## Available Agent Personas
+## Available Agent Personas (9 Total)
 
 ### 1. **AP Orchestrator** (/ap)
 - Central coordinator and method expert
 - Can embody any specialist persona
 - Manages agent transitions
-- Provides AP method guidance
+- Provides APM method guidance
 
 ### 2. **Analyst** (/analyst)
 - Research and requirements gathering
@@ -32,10 +32,11 @@ description: List available AP Mapping personas and their capabilities
 - Technical decision documentation
 
 ### 5. **Designer** (/designer)
-- UI/UX architecture
-- Frontend design systems
-- Component library planning
+- UI/UX architecture and design systems
+- Frontend design patterns and components
 - User experience optimization
+- Visual design and interaction flows
+- *Note: Previously called design-architect in v4.2.0*
 
 ### 6. **Product Owner (PO)** (/po)
 - Backlog management and grooming
@@ -43,23 +44,23 @@ description: List available AP Mapping personas and their capabilities
 - Acceptance criteria definition
 - Sprint planning support
 
-### 7. **Scrum Master (SM)** (/sm)
-- Detailed story generation
-- Sprint coordination
-- Team velocity tracking
-- Process optimization
-
-### 8. **Developer** (/dev or /developer)
+### 7. **Developer** (/dev or /developer)
 - Code implementation
 - Technical problem solving
 - Test development
 - Code review and refactoring
 
-### 9. **QA** (/qa)
+### 8. **QA** (/qa)
 - Test strategy and planning
 - Quality assurance processes
 - Test automation design
 - Defect management
+
+### 9. **Business Case Analyst** (/planning-business-case)
+- Comprehensive backlog grooming
+- 18 parallel sub-agents for business analysis
+- ROI and cost-benefit analysis
+- Stakeholder alignment and buy-in
 
 ## Activation Methods
 
@@ -74,12 +75,14 @@ description: List available AP Mapping personas and their capabilities
 ### Agent Transitions
 - `/handoff [persona]` - Direct transfer with context
 - `/switch [persona]` - Session break with compaction
+- Note: `/sm` command removed in v4.3.0
 
 ## Parallel Capabilities
-All agents support parallel task execution for:
+All 9 agents support parallel task execution for:
 - Document loading during initialization
 - Multi-faceted analysis
 - Context transfer during handoffs
+- New in v4.3.0: `/planning-business-case` with 18 parallel sub-agents
 
 ## Best Practices
 1. Start with `/ap` for guidance on which agent to use

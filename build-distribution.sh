@@ -12,7 +12,7 @@ if [ -f "templates/VERSION" ]; then
 elif [ -f "VERSION" ]; then
     VERSION=$(cat VERSION)
 else
-    VERSION="4.1.5"
+    VERSION="4.3.0"
 fi
 DIST_NAME="coherence-v$VERSION-installer"
 DIST_DIR="dist/$DIST_NAME"
@@ -77,15 +77,15 @@ echo "No cleanup needed for template-only distribution"
 
 # No git files to remove - only templates and installer in distribution
 
-# Create VERSION file
-echo "$VERSION" > "$DIST_DIR/VERSION"
-
 # Copy payload directory (rename to installer in distribution)
 echo "Copying payload directory as installer..."
 # Use rsync to exclude node_modules and MCP Debug Host files
 rsync -av --exclude='node_modules' --exclude='*.log' --exclude='.git' --exclude='coverage' --exclude='test-reports' --exclude='templates/docs/debug-host-mcp-integration.md.template' payload/ "$DIST_DIR/installer/"
 
-# Create LICENSE file
+# Create VERSION file at root level
+echo "$VERSION" > "$DIST_DIR/VERSION"
+
+# Create LICENSE file at root level  
 echo "Creating LICENSE file..."
 cat > "$DIST_DIR/LICENSE" << 'EOF'
 MIT License
@@ -115,8 +115,8 @@ EOF
 echo ""
 echo "Creating distribution archive..."
 cd dist
-# Create tar with installer directory at root level for direct execution
-tar -czf "$DIST_NAME.tar.gz" -C "$DIST_NAME" installer LICENSE VERSION
+# Create tar with LICENSE, VERSION, and installer directory
+tar -czf "$DIST_NAME.tar.gz" -C "$DIST_NAME" LICENSE VERSION installer
 cd ..
 
 # No README copied to dist root - users get installer only
@@ -200,6 +200,6 @@ echo "- Distribution: ✅ Template-only build process"
 echo ""
 echo "Installation Instructions:"
 echo "1. Extract: tar -xzf $DIST_NAME.tar.gz"
-echo "2. Install: ./installer/install.sh"
+echo "2. Install: cd installer && ./install.sh"
 echo ""
 echo "Distribution ready for release!"

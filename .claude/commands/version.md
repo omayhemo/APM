@@ -9,11 +9,11 @@ Update all documentation and version references throughout the APM framework for
 
 ## Examples
 ```
-/version 4.1.0                   # Major version update
-/version 3.6.1                   # Patch version update  
-/version 3.7.0-beta.1 --beta     # Beta pre-release
-/version 4.1.0-rc.1 --rc         # Release candidate
-/version v4.1.0                  # With 'v' prefix (auto-stripped)
+/version 4.3.0                   # Major version update (current)
+/version 4.2.1                   # Patch version update  
+/version 4.3.0-beta.1 --beta     # Beta pre-release
+/version 4.3.0-rc.1 --rc         # Release candidate
+/version v4.3.0                  # With 'v' prefix (auto-stripped)
 ```
 
 ## 🚀 Automated Parallel Execution
@@ -28,12 +28,6 @@ SubAgent1: Version Validation
 - Strip 'v' prefix if present
 - Compare with current version for proper increment
 - Validate pre-release tags (beta, rc, alpha)
-
-SubAgent2: Repository Status
-- Check git working directory status
-- Identify uncommitted changes
-- Verify branch is up to date
-- Check for merge conflicts
 
 SubAgent3: Dependency Analysis  
 - Scan for breaking changes since last release

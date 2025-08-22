@@ -25,8 +25,8 @@ Create a new release of the AP Mapping using the automated release-to-apm.sh scr
 
 ## Examples
 ```
-/distribution-release 4.2.0
 /distribution-release 4.3.0
+/distribution-release 4.3.1
 ```
 
 ## Automated Process
@@ -57,10 +57,10 @@ The script includes:
 
 ```bash
 # Command
-/distribution-release 4.2.0
+/distribution-release 4.3.0
 
 # Equivalent to
-bash /mnt/c/Code/agentic-persona-mapping/release-to-apm.sh 4.2.0
+bash /mnt/c/Code/agentic-persona-mapping/release-to-apm.sh 4.3.0
 ```
 
 ## Output

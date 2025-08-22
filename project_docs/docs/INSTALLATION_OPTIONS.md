@@ -1,15 +1,21 @@
-# APM Framework Installation Options
+# APM Framework v4.3.0 - Installation Options
 
-## Fixed! Interactive Mode Now Works
+## Enhanced Installation with Quality Control
 
-The installer has been updated to properly handle interactive mode even when piped through curl.
+v4.3.0 features an enhanced installer with improved validation, quality control, and automatic cleanup of deprecated components.
 
 ## Installation Methods
 
-### 1. Interactive Installation (Choose Your Options)
+### 1. v4.3.0 Interactive Installation (Recommended)
 ```bash
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 ```
+
+**v4.3.0 Enhancements:**
+- Automatic cleanup of deprecated SM persona files
+- Validation of design-architect to designer migration
+- Enhanced quality control during installation
+- Improved error handling and recovery
 
 This will prompt you for:
 - Project name
@@ -18,17 +24,20 @@ This will prompt you for:
 - Notification preferences
 - Python support
 
-### 2. Silent Installation (Use All Defaults)
+### 2. v4.3.0 Silent Installation (Quick Setup)
 ```bash
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.0 --defaults
 ```
 
 This will:
+- Install APM Framework v4.3.0 specifically
 - Use current directory name as project name
 - Skip Plopdock MCP setup
 - Use Piper TTS (offline)
 - Disable all notifications
 - Skip Python virtual environment setup
+- **NEW**: Automatically clean up deprecated SM commands
+- **NEW**: Update design-architect references to designer
 
 ### 3. Download First, Then Run (Alternative Method)
 If you still have issues with interactive mode:
@@ -51,9 +60,9 @@ chmod +x install-apm.sh
 
 The installer was failing to accept user input when piped through curl because stdin was already being used by the pipe. The fix redirects stdin to `/dev/tty` to allow interactive prompts to work properly.
 
-## Troubleshooting
+## v4.3.0 Troubleshooting
 
-If you still can't make selections:
+### Installation Issues
 
 1. **Check if you have a TTY**:
    ```bash
@@ -65,11 +74,55 @@ If you still can't make selections:
 
 3. **Use the --defaults flag** for a quick installation
 
-## Current Version
+### v4.3.0 Specific Issues
 
-The fix is in commit `b0e5de1` and will be available once GitHub's CDN updates (usually 5-10 minutes).
-
-For immediate use:
+**Issue: SM commands still present after installation**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/b0e5de1/install.sh | bash
+# Solution: Re-run installer with cleanup
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.0 --force-cleanup
 ```
+
+**Issue: design-architect references not updated**
+```bash
+# Solution: Verify installation completed
+ls .claude/commands/ | grep designer  # Should show designer.md
+ls .claude/commands/ | grep design-architect  # Should be empty
+```
+
+**Issue: /planning-business-case command not available**
+```bash
+# Solution: Verify v4.3.0 installation
+cat .apm/VERSION  # Should show 4.3.0
+ls .claude/commands/planning-business-case.md  # Should exist
+```
+
+## v4.3.0 Installation Verification
+
+### Post-Installation Validation
+
+After installing v4.3.0, verify your installation:
+
+```bash
+# Check version
+cat .apm/VERSION  # Should show 4.3.0
+
+# Verify persona count (8 total)
+ls .claude/commands/ | grep -E "(analyst|pm|architect|designer|po|dev|qa|subtask)" | wc -l
+
+# Check for new planning-business-case command
+ls .claude/commands/planning-business-case.md
+
+# Verify SM cleanup (should return nothing)
+ls .claude/commands/ | grep sm
+
+# Test activation
+/coherence  # Should mention v4.3.0 and native sub-agents
+```
+
+### Successful Installation Indicators
+
+✅ **Version shows 4.3.0**  
+✅ **8 personas available (no SM)**  
+✅ **Designer persona present (no design-architect)**  
+✅ **planning-business-case command available**  
+✅ **Enhanced installer messages during setup**
