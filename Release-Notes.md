@@ -1,14 +1,14 @@
-# APM Framework v4.2.0 Release Notes
+# APM Framework v4.3.0 Release Notes
 
 **Release Date**: August 19, 2025  
-**Version**: 4.2.0  
-**Distribution**: coherence-v4.2.0-installer.tar.gz
+**Version**: 4.3.0  
+**Distribution**: coherence-v4.3.0-installer.tar.gz
 
 ---
 
 ## 🎯 Release Summary
 
-APM Framework v4.2.0 includes the following improvements and fixes:
+APM Framework v4.3.0 includes the following improvements and fixes:
 
 ## 📝 Changes in this Release
 
@@ -69,7 +69,7 @@ APM Framework v4.2.0 includes the following improvements and fixes:
 
 ## 📦 Distribution Details
 
-- **Package**: coherence-v4.2.0-installer.tar.gz
+- **Package**: coherence-v4.3.0-installer.tar.gz
 - **Size**: Optimized for fast download and deployment
 - **Compatibility**: Full backward compatibility maintained
 - **Installation**: Zero-configuration setup with professional audio experience
@@ -133,7 +133,7 @@ After installation:
 
 ## 📋 Additional Information
 
-- **GitHub Release**: https://github.com/omayhemo/APM/releases/tag/v4.2.0
+- **GitHub Release**: https://github.com/omayhemo/APM/releases/tag/v4.3.0
 - **Installation Guide**: Available in .apm/README.md after installation
 - **Documentation**: Complete guides in .apm/documentation/ directory
 
