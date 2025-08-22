@@ -1,230 +1,143 @@
-# APM Persona Generation System
+# APM Simplified Persona Generation System
 
-This directory contains the enhanced persona generation system for the APM (Agentic Persona Mapping) framework.
+This directory contains the simplified persona generation system for the APM (Agentic Persona Mapping) framework.
 
-## 🚀 Quick Start
+## 🚀 System Overview
 
-Run the production-ready generator:
-
-```bash
-cd installer
-./simple-persona-generator.sh
-```
+The simplified system uses a **single source of truth** approach:
+- Master persona templates in `_master/` directory
+- Install-time generation for both Claude subagents and APM personas
+- Automatic cleanup of obsolete files
 
 ## 📁 Directory Structure
 
 ```
 personas/
 ├── README.md                          # This file
-├── _master/                           # JSON master definitions (single source of truth)
-│   ├── analyst.persona.json          # Analyst agent definition
-│   ├── architect.persona.json        # Architect agent definition
-│   ├── designer.persona.json # Designer definition
-│   ├── developer.persona.json        # Developer agent definition
-│   ├── orchestrator.persona.json     # AP Orchestrator definition
-│   ├── pm.persona.json               # Project Manager definition
-│   ├── po.persona.json               # Product Owner definition (enhanced with agile coordination)
-│   └── qa.persona.json               # QA Engineer definition
-├── _templates/                        # Template base files
-│   ├── apm.persona.template          # APM deployment template
-│   └── claude.persona.template       # Claude Code template
-├── _tools/                           # Generation utilities
-│   └── generate-personas.sh          # Original generator
-└── _build/                          # Generated output (gitignored)
+├── _master/                           # Single source of truth - persona templates
+│   ├── analyst.md.template            # Analyst agent template
+│   ├── architect.md.template          # Architect agent template  
+│   ├── designer.md.template           # Designer agent template
+│   ├── dev.md.template                # Developer agent template
+│   ├── orchestrator.md.template       # AP Orchestrator template
+│   ├── pm.md.template                 # Project Manager template
+│   ├── po.md.template                 # Product Owner template
+│   ├── qa.md.template                 # QA Engineer template
+│   └── ap_orchestrator.md.template    # Reference file (legacy)
+├── _templates/                        # Transformation templates
+│   └── claude.persona.template        # Claude subagent YAML wrapper
+└── _build/                           # Generation scripts
+    └── generate_persona.sh            # Install-time generation script
 ```
 
-## 🔧 Generation Scripts
+## 🎯 How It Works
 
-### 1. Simple Persona Generator (Recommended)
-- **Script**: `simple-persona-generator.sh`
-- **Purpose**: Fast, reliable generation of all 8 personas
-- **Output**: Both APM and Claude templates
-- **Features**: 
-  - JSON-based configuration reading
-  - Comprehensive template structure
-  - Error handling and validation
+### 1. Single Source Templates
+All persona definitions are maintained in `_master/` as standard markdown templates. These serve as the single source of truth for both:
+- APM personas (installed to `.apm/agents/personas/`)
+- Claude subagents (installed to `.claude/agents/`)
 
-### 2. Enhanced Persona Generator (Advanced)
-- **Script**: `enhanced-persona-generator.sh`
-- **Purpose**: Advanced generation with extensive customization
-- **Features**: 
-  - Complex template processing
-  - Persona-specific capability mapping
-  - Advanced error handling
+### 2. Install-Time Generation
+During installation, the `generate_persona.sh` script:
+- Reads master templates from `_master/`
+- Generates Claude subagents with YAML frontmatter
+- Generates APM personas as direct copies
+- Automatically cleans up obsolete files
 
-### 3. Production Persona Generator (Development)
-- **Script**: `production-persona-generator.sh`
-- **Purpose**: Production-ready with extensive logging
-- **Status**: Development (may hang in complex cases)
+### 3. YAML Frontmatter Addition
+For Claude subagents, the system automatically adds:
+```yaml
+---
+name: [Extracted from Role line]
+description: [Extracted from Role line]
+---
+```
 
-## 🎯 Persona Definitions
+## 🔧 Installation Integration
 
-All 8 APM personas are defined as JSON master files:
+The system is automatically called during APM installation:
+```bash
+./install.sh --defaults [target-directory]
+```
+
+The installer calls `personas/_build/generate_persona.sh` which:
+1. Creates `.claude/agents/[persona].md` (with YAML header)
+2. Creates `.apm/agents/personas/[persona].md` (direct copy)
+3. Cleans up obsolete directories and files
+
+## 🧹 Automatic Cleanup
+
+The system automatically removes obsolete files during installation:
+
+### Obsolete Directories Removed
+- `chaining`, `context`, `coordination`, `documentation`
+- `dual-mode`, `implementation-sprint-coordination`, `migration`
+- `monitoring`, `qa-framework`, `sprint-coordination`
+- `user-guide`, `voice`
+
+### Obsolete Files Removed
+- `parallel-execution-patterns.md`
+- `synthesis-patterns.md` 
+- `task-coordination.md`
+
+## 📝 Persona Definitions
+
+All 8 APM personas are defined as master templates:
 
 ### Core Personas
-1. **Analyst** - Brainstorming BA and RA Expert
-2. **Architect** - System Architecture and Technical Design Expert  
-3. **Designer** - UI/UX and Design Systems Expert
-4. **Developer** - Full-Stack Development Expert
-5. **Project Manager** - Project Planning and Execution Expert
-6. **Product Owner** - Product Strategy, Backlog Management & Agile Coordination Expert
-7. **QA Engineer** - Quality Assurance and Testing Expert
+1. **Analyst** - Research & Requirements Expert
+2. **Architect** - System Design Authority  
+3. **Designer** - UI/UX Design Authority
+4. **Developer** - Implementation Specialist
+5. **PM** - Product Management Strategist
+6. **PO** - Product Ownership Authority
+7. **QA** - Quality Assurance Guardian
 
 ### Central Coordinator
-8. **AP Orchestrator** - Central Coordination and Delegation Hub
+8. **Orchestrator** - Central Coordination Hub
 
-## 📝 JSON Master Definition Structure
+## ✅ Benefits
 
-Each persona is defined with:
+### Simplified Maintenance
+- **Single source of truth**: Only edit files in `_master/`
+- **No duplicate templates**: No more sync issues between APM/Claude templates
+- **Automatic generation**: No manual template management
 
-```json
-{
-  "metadata": {
-    "id": "persona-id",
-    "name": "Persona Name",
-    "description": "Role description",
-    "version": "3.3.0",
-    "category": "domain"
-  },
-  "capabilities": {
-    "core": ["capability1", "capability2"],
-    "parallel_commands": ["parallel-command1"],
-    "slash_commands": ["/command1", "/command2"]
-  },
-  "configuration": {
-    "voice_script": "speakPersona.sh",
-    "working_directories": {...},
-    "forbidden_paths": [...]
-  },
-  "behavioral_rules": {
-    "research_protocols": {...},
-    "escalation_triggers": [...]
-  },
-  "deployment": {
-    "apm": {...},
-    "claude": {...}
-  }
-}
-```
+### Clean Installation
+- **Install-time generation**: Templates created when needed
+- **Automatic cleanup**: Obsolete files removed automatically
+- **Consistent output**: Both systems generated from same source
 
-## 🎨 Template Generation
+### Developer Experience
+- **Easy updates**: Edit one file in `_master/`, affects both outputs
+- **Clear structure**: Simple directory organization
+- **Reliable process**: Tested and validated generation
 
-### APM Templates
-- **Location**: `../templates/agents/personas/`
-- **Features**:
-  - Task-based execution patterns
-  - Session management protocols
-  - Voice notification integration
-  - Workspace validation
+## 🔄 Usage
 
-### Claude Templates  
-- **Location**: `../templates/claude/agents/personas/`
-- **Features**:
-  - Native sub-agent coordination
-  - Parallel execution patterns (4-8x performance)
-  - Enterprise metadata headers
-  - Migration compatibility
+### To Update a Persona
+1. Edit the template file in `_master/[persona].md.template`
+2. Run installation - personas are automatically generated
 
-## 🔄 Template Variables
+### To Add a New Persona
+1. Create new template in `_master/new-persona.md.template`
+2. Follow existing template format with `# Role: Name - Description` header
+3. Run installation - new persona automatically generated for both systems
 
-Templates support these variable substitutions:
+## 🎉 Migration Complete
 
-- `{{PROJECT_ROOT}}` - Project root directory
-- `{{AP_ROOT}}` - APM framework root
-- `{{SESSION_NOTES_PATH}}` - Session notes directory
-- `{{RULES_PATH}}` - Rules directory
-- `{{MIGRATION_VERSION}}` - Template migration version
-- `{{AGENT_NAME}}` - Agent identifier
+This simplified system replaces the previous complex JSON-based generation system. The old system had:
+- ❌ 131-line JSON definitions
+- ❌ Complex Jinja2-style templating
+- ❌ Multiple generation scripts
+- ❌ Build-time template processing
 
-## ⚙️ Voice Script Integration
-
-Each persona integrates with voice notification scripts:
-
-- **Analyst**: `$SPEAK_ANALYST`
-- **Architect**: `$SPEAK_ARCHITECT` 
-- **Designer**: `$SPEAK_DESIGNER`
-- **Developer**: `$SPEAK_DEVELOPER`
-- **Project Manager**: `$SPEAK_PM`
-- **Product Owner**: `$SPEAK_PO` (enhanced with agile coordination)
-- **QA Engineer**: `$SPEAK_QA`
-- **AP Orchestrator**: `$SPEAK_ORCHESTRATOR`
-
-## 🚀 Performance Features
-
-### Native Sub-Agent Architecture
-- **4-8x Performance Improvement**: True parallel execution
-- **Native Integration**: Built into Claude Code
-- **Zero CLI Crashes**: Rock-solid stability
-- **Real-time Coordination**: Multi-agent synchronization
-
-### Parallel Commands
-Each persona supports parallel execution patterns:
-- `/parallel-[domain]` commands for 4x speedup
-- Multiple concurrent task streams
-- Intelligent result synthesis
-
-## 🔍 Quality Assurance
-
-### Template Validation
-- JSON schema validation
-- Template variable checking
-- Voice script integration verification
-- Output path validation
-
-### Generated Content Verification
-- Critical protocol inclusion
-- Research methodology enforcement
-- Workspace boundary validation
-- Initialization sequence verification
-
-## 🛠️ Development
-
-### Adding New Personas
-
-1. Create JSON definition in `_master/`
-2. Run generation script
-3. Test both APM and Claude outputs
-4. Validate voice script integration
-
-### Modifying Existing Personas
-
-1. Update JSON definition
-2. Regenerate templates
-3. Test installer integration
-4. Verify backward compatibility
-
-## 📊 Generation Statistics
-
-Recent generation results:
-- **APM Templates Generated**: 17 (including existing)
-- **Claude Templates Generated**: 10 (new + updated)
-- **Success Rate**: 100%
-- **Generation Time**: <10 seconds
-
-## 🔗 Integration Points
-
-### Installer Integration
-Templates integrate with:
-- APM installer (`install.sh`)
-- Template variable substitution
-- Directory structure creation
-- Voice system setup
-
-### Framework Integration
-- Session management protocols
-- Voice notification system
-- Workspace validation
-- Context preservation
+The new system provides:
+- ✅ Simple markdown templates
+- ✅ Install-time generation
+- ✅ Single script for all generation
+- ✅ Automatic cleanup
 
 ---
 
-## 🎯 Next Steps
-
-1. **Review Generated Templates**: Validate content accuracy
-2. **Test Installer Integration**: Ensure seamless deployment
-3. **Verify Voice Scripts**: Test audio notification system  
-4. **Validate Parallel Commands**: Confirm performance improvements
-
----
-
-*Generated by APM Persona Generation System v2.1.0*
+*The simplified persona generation system provides the same functionality as the previous complex system with significantly reduced complexity and improved maintainability.*

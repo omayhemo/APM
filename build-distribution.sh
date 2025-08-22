@@ -38,19 +38,9 @@ fi
 echo "Creating distribution structure..."
 mkdir -p "$DIST_DIR"
 
-# Generate persona templates from JSON master definitions
-echo "Generating persona templates from JSON definitions..."
-if [ -f "payload/generate-personas.sh" ]; then
-    echo "Running production persona generation..."
-    (cd payload && bash generate-personas.sh)
-    echo "✅ Persona templates verified from JSON master definitions"
-elif [ -f "payload/simple-persona-generator.sh" ]; then
-    echo "Running simple persona generation..."
-    (cd payload && bash simple-persona-generator.sh)
-    echo "✅ Persona templates generated (simple mode)"
-else
-    echo "⚠️ WARNING: Persona generator not found, using existing templates"
-fi
+# Note: Persona generation is now done at install time using simplified generation system
+echo "Persona templates will be generated at install time using simplified generation system..."
+echo "✅ Simplified persona generation system ready for install-time execution"
 
 # Validate template system integrity
 echo "Validating template system integrity..."
@@ -154,13 +144,13 @@ else
     echo "✅ Template system integrity: $TEMPLATE_COUNT templates ready for distribution"
 fi
 
-# Validate critical template files exist (updated for v4.1.5 with Phase 1 & 2 reorganization)
+# Validate critical template files exist (updated for simplified persona generation)
 CRITICAL_TEMPLATES=(
     "installer/templates/claude/commands/planning-groom.md.template"
     "installer/templates/claude/commands/planning-epic.md.template"
     "installer/templates/claude/commands/ap_orchestrator.md.template"
     "installer/templates/claude/settings.json.template"
-    "installer/templates/agents/personas/po.md.template"
+    "installer/personas/_build/generate_persona.sh"
 )
 
 for template in "${CRITICAL_TEMPLATES[@]}"; do
