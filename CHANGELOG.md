@@ -1,5 +1,19 @@
 # Changelog
 
+## [4.3.1] - 2025-08-22
+
+### Fixed
+- **Planning-groom template document-registry.json path**: Corrected document registry path references in planning-business-case command template
+
+### Added
+- **New persona templates**: Enhanced persona system with additional specialized templates for comprehensive agent coverage
+- **Planning-business-case command**: New comprehensive backlog grooming command with 18 parallel sub-agents for strategic planning and business case analysis
+
+### Changed
+- **Design architect renamed to designer**: Updated persona nomenclature throughout the framework for clearer role definition
+  - Updated all persona templates, voice scripts, and command mappings
+  - Maintained backward compatibility while modernizing persona architecture
+
 ## [4.1.4] - 2025-08-16
 
 ### Fixed
@@ -813,6 +827,7 @@ Welcome to the era of Parallel Agent Development! 🎉
 - Configurable environment settings
 - Git-aware installation process
 
+[4.3.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.4...v4.3.1
 [4.1.4]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.3...v4.1.4
 [4.1.3]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.2...v4.1.3
 [4.1.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.1...v4.1.2
