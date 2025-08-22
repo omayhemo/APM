@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.3.1] - 2025-08-22
+## [4.3.2] - 2025-08-22
 
 ### Fixed
 - **Planning-groom template document-registry.json path**: Corrected document registry path references in planning-business-case command template
@@ -827,7 +827,7 @@ Welcome to the era of Parallel Agent Development! 🎉
 - Configurable environment settings
 - Git-aware installation process
 
-[4.3.1]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.4...v4.3.1
+[4.3.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.4...v4.3.2
 [4.1.4]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.3...v4.1.4
 [4.1.3]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.2...v4.1.3
 [4.1.2]: https://github.com/omayhemo/agentic-persona-mapping/compare/v4.1.1...v4.1.2
