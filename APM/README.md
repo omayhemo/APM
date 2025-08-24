@@ -2,7 +2,7 @@
 
 **Unified Context Engineering**
 
-[![Version](https://img.shields.io/badge/version-4.3.2-blue.svg)](https://github.com/omayhemo/agentic-persona-mapping/releases/latest)
+[![Version](https://img.shields.io/badge/version-4.3.3-blue.svg)](https://github.com/omayhemo/agentic-persona-mapping/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Performance](https://img.shields.io/badge/performance-4--8x_faster-orange.svg)](https://github.com/omayhemo/agentic-persona-mapping)
 
@@ -33,7 +33,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash
 
 # Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.2
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.3
 
 # With TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -100,7 +100,7 @@ coherence           # Natural language activation
 
 ## ⚡ Power Features
 
-### Native Sub-Agent Architecture (NEW in v4.3.2)
+### Native Sub-Agent Architecture (NEW in v4.3.3)
 True parallel execution with dedicated context windows:
 ```bash
 # Revolutionary parallel processing - 4-8x performance improvement
@@ -153,7 +153,7 @@ Seamless transitions with context preservation:
 ### Complete Release Automation
 End-to-end release management:
 ```bash
-/version 4.3.2         # Update all version references
+/version 4.3.3         # Update all version references
 /distribution-build    # Build distribution package
 /distribution-release  # Create GitHub release with automation
 ```
@@ -164,7 +164,7 @@ After installation, comprehensive documentation is available at:
 - `.apm/README.md` - Complete documentation index
 - `.apm/documentation/` - All guides and references
 
-## 🚀 Real Results (v4.3.2 Performance)
+## 🚀 Real Results (v4.3.3 Performance)
 
 - **4-8x faster** parallel execution (revolutionary improvement)
 - **4.6x faster** sprint completion with `/parallel-sprint`
@@ -193,7 +193,7 @@ The universal installer v2.0 supports flexible command-line options for various 
 | Option | Short | Description |
 |--------|-------|-------------|
 | `--defaults` | `-y` | Non-interactive installation with default settings |
-| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.3.2`) |
+| `--version VERSION` | `-v` | Install specific version (e.g., `--version 4.3.3`) |
 | `--path PATH` | `-p` | Custom installation directory |
 | `--with-tts` | `-t` | Enable TTS voice notifications |
 | `--quiet` | `-q` | Minimal output (silent mode) |
@@ -210,7 +210,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --path /opt/apm --defaults
 
 # 🎯 Install specific version
-curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.2 --defaults
+curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --version 4.3.3 --defaults
 
 # 🔊 Install with TTS voice notifications
 curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | bash -s -- --with-tts --defaults
@@ -250,7 +250,7 @@ curl -fsSL https://raw.githubusercontent.com/omayhemo/APM/master/install.sh | ba
 
 ## 📦 Latest Release
 
-**v4.3.2** - Revolutionary Command Architecture & Native Sub-Agents
+**v4.3.3** - Revolutionary Command Architecture & Native Sub-Agents
 - **🚀 Epic 17 Complete** - All parallel commands migrated to native Claude Code sub-agents
 - **4-8x Performance Improvement** - True parallel execution with dedicated context windows
 - **70+ Commands Available** - Complete coverage across all development phases
