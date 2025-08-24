@@ -1,5 +1,10 @@
 # Changelog
 
+## [4.3.3] - 2025-08-24
+
+### Fixed
+- **Documentation references**: Updated all documentation headers and version references from 4.3.2 to 4.3.3
+
 ## [4.3.2] - 2025-08-22
 
 ### Fixed
